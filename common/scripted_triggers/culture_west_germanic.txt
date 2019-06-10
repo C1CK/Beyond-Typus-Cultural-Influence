@@ -641,12 +641,14 @@ griechischdeutsch_culture_region = {
 
 germanic_brazilian_culture_region = {
 	OR = {
-		region = brazil_region
-		NOT = { area = west_sao_paolo_area }
-		NOT = { area = rio_grande_do_sol_area }
-		NOT = { area = sao_paolo_area }
-		NOT = { area = amazon_area }
-		NOT = { area = amapa_area }
+		AND = {
+			region = brazil_region
+			NOT = { area = west_sao_paolo_area }
+			NOT = { area = rio_grande_do_sol_area }
+			NOT = { area = sao_paolo_area }
+			NOT = { area = amazon_area }
+			NOT = { area = amapa_area }
+		}
 	}
 }
 
@@ -685,9 +687,11 @@ peruvier_culture_region = {
 
 patagonier_culture_region = {
 	OR = {
-		region = la_plata_region
-		NOT = { area = banda_oriental_area }
-		NOT = { area = misiones_area }
+		AND = {
+			region = la_plata_region
+			NOT = { area = banda_oriental_area }
+			NOT = { area = misiones_area }
+		}
 	}
 }
 
@@ -758,11 +762,13 @@ deutschtexaner_culture_region = {
 
 deutschkuster_culture_region = {
 	AND = {
-		region = mississippi_region
-		NOT = { area = upper_louisiana_area }
-		NOT = { area = mississippi_plain_area }
-		NOT = { area = ozarks_area }
-		NOT = { area = lower_louisiana_area }
+		AND = {
+			region = mississippi_region
+			NOT = { area = upper_louisiana_area }
+			NOT = { area = mississippi_plain_area }
+			NOT = { area = ozarks_area }
+			NOT = { area = lower_louisiana_area }
+		}
 	}
 }
 
@@ -1207,6 +1213,7 @@ agyptdeutsch_culture_region = {
 		}
 	}
 }
+
 levantiner_culture_region = {
 	region = mashriq_region
 	NOT = { area = cyprus_area }
