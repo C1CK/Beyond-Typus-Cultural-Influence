@@ -906,7 +906,6 @@ lieflandisch_culture_region = {
 	OR = {
 		AND = {
 			area = livonia_area
-			NOT = { province_id = 38 }
 		}
 		area = north_livonia_area
 		area = latgallia_area
@@ -954,6 +953,42 @@ vandalisch_culture_region = {
 		province_id = 2459
 		province_id = 338
 		province_id = 5322
+		AND = {
+			area = cyrenaica_area
+			NOT = { province_id = 5303 }
+			NOT = { province_id = 5304 }
+		}
+	}
+}
+
+saharadeutsch_culture_region = {
+	OR = {
+		region = sahel_region
+		area = nafusa_mountains_area
+		area = north_saharan_area
+		area = tafilalt_area
+		area = hautes_plaines_area
+		area = sus_area
+		province_id = 349
+		province_id = 5229
+		province_id = 5304
+		province_id = 5303
+		AND = {
+			area = al_wahat_area
+			NOT = { province_id = 5272 }
+			NOT = { province_id = 2325 }
+		}
+		area = tekrur_area
+		area = jolof_area
+		area = massina_area
+		area = jenne_area
+		province_id = 1135
+		province_id = 2265
+		area = katsina_area
+		province_id = 1150
+		province_id = 2278
+		province_id = 1155
+		province_id = 2280
 	}
 }
 
@@ -1148,4 +1183,31 @@ bosporusdeutsch_culture_region = {
 		province_id = 7139
 		
 	}
+}
+
+niler_culture_region = {
+	OR = {
+		area = said_area
+		area = bahari_area
+		area = lower_nubia_area
+		area = upper_nubia_area
+		area = delta_area
+		province_id = 2325
+		province_id = 5272
+	}
+}
+
+agyptdeutsch_culture_region = {
+	OR = {
+		area = vostani_area
+		area = dongola_area
+		AND = {
+			area = red_sea_coast_area
+			NOT = { province_id = 5283 }
+		}
+	}
+}
+levantiner_culture_region = {
+	region = mashriq_region
+	NOT = { area = cyprus_area }
 }
