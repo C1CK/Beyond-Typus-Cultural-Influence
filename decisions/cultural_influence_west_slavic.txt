@@ -12,7 +12,7 @@ country_decisions = { #Germans are removed via expulsion decisions or convert bu
 		}
 
 		allow = {
-			every_province = {
+			all_province = {
 				czech_culture_region = yes
 				OR = {
 					culture = czech
@@ -31,6 +31,7 @@ country_decisions = { #Germans are removed via expulsion decisions or convert bu
 			add_adm_power = -200
 			add_mil_power = -100
 			custom_tooltip = enables_czechization_of_greater_czechia
+			set_country_flag = czechization_of_greater_czechia
 		}
 
 		ai_will_do = {
@@ -51,7 +52,7 @@ country_decisions = { #Germans are removed via expulsion decisions or convert bu
 		}
 
 		allow = {
-			every_province = {
+			all_province = {
 				slovakian_culture_region = yes
 				OR = {
 					culture = slovak
@@ -70,6 +71,7 @@ country_decisions = { #Germans are removed via expulsion decisions or convert bu
 			add_adm_power = -200
 			add_mil_power = -100
 			custom_tooltip = enables_slovakization_of_greater_slovakia
+			set_country_flag = slovakization_of_greater_slovakia
 		}
 
 		ai_will_do = {
@@ -99,7 +101,7 @@ country_decisions = { #Germans are removed via expulsion decisions or convert bu
 		allow = {
 			adm_power = 200
 			mil_power = 100
-			every_province = {
+			all_province = {
 				OR = {
 					czech_culture_region = yes
 					slovakian_culture_region = yes
@@ -119,11 +121,12 @@ country_decisions = { #Germans are removed via expulsion decisions or convert bu
 				limit = {
 					OR = {
 						culture = czech
-						culture = slovakian
+						culture = slovak
 					}
 				}
 				change_culture = ceskoslovensky
 			}
+			change_primary_culture = ceskoslovensky
 		}
 	}
 }

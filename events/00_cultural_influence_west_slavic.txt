@@ -1,10 +1,234 @@
 namespace = cultural_influence_west_slavic
 #Great Moravia shall rise again!
 
-province_event = { #Greater Czech settlement
-	id = cultural_influece_west_slavic
+province_event = { #Greater Czech Expansion
+	id = cultural_influece_west_slavic.1
+	title = greater_czech_expansion.title
+	desc = greater_czech_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		greater_czech_culture_region = yes
+		NOT = { culture = czech }
+		NOT = { culture = ceskoslovensky }
+		owner = { culture_group = west_slavic }
+		owner = { has_country_flag = czechization_of_greater_czechia }
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = west_slavic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		AND = {
+			is_city = yes
+			has_colonist = yes
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			development = 10
+		}
+		modifier = {
+			factor = 1.5
+			development = 15
+		}
+		modifier = {
+			factor = 1.5
+			development = 20
+		}
+		modifier = {
+			factor = 1.5
+			development = 25
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					OR = {
+						culture = czech
+						culture = ceskoslovensky
+					}
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					OR = {
+						culture = czech
+						culture = ceskoslovensky
+					}
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = greater_czech_expansion.a
+
+		if = {
+			limit = {
+				any_province = {
+					culture = ceskoslovensky
+				}
+			}
+			change_culture = ceskoslovensky
+		}
+		else = {
+			change_culture = czech
+		}
+	}
 }
 
 province_event = { #Greater Slovak settlement
-	
+	id = cultural_influece_west_slavic.2
+	title = greater_slovak_expansion.title
+	desc = greater_slovak_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		greater_slovakian_culture_region = yes
+		NOT = { culture = slovak }
+		NOT = { culture = ceskoslovensky }
+		owner = { culture_group = west_slavic }
+		owner = { has_country_flag = slovakization_of_greater_slovakia }
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = west_slavic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		AND = {
+			is_city = yes
+			has_colonist = yes
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			development = 10
+		}
+		modifier = {
+			factor = 1.5
+			development = 15
+		}
+		modifier = {
+			factor = 1.5
+			development = 20
+		}
+		modifier = {
+			factor = 1.5
+			development = 25
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					OR = {
+						culture = slovak
+						culture = ceskoslovensky
+					}
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					OR = {
+						culture = slovak
+						culture = ceskoslovensky
+					}
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = greater_slovak_expansion.a
+
+		if = {
+			limit = {
+				any_province = {
+					culture = ceskoslovensky
+				}
+			}
+			change_culture = ceskoslovensky
+		}
+		else = {
+			change_culture = slovak
+		}
+	}
 }
