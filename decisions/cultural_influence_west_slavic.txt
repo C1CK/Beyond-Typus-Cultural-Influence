@@ -1,0 +1,129 @@
+country_decisions = { #Germans are removed via expulsion decisions or convert button
+	declare_greater_czechia = {
+		major = yes
+		potential = {
+			culture_group = west_slavic
+			NOT = { has_country_flag = greater_czechia_flag }
+		}
+
+		provinces_to_highlight = {
+			greater_czech_culture_region = yes
+			NOT = { is_core = ROOT }
+		}
+
+		allow = {
+			every_province = {
+				czech_culture_region = yes
+				OR = {
+					culture = czech
+					culture = ceskoslovensky
+				}
+			}
+			adm_power = 200
+			mil_power = 100
+			OR = {
+				full_idea_group = economic_ideas #Settlements
+				is_year = 1700 #Nationalism
+			}
+		}
+
+		effect = {
+			add_adm_power = -200
+			add_mil_power = -100
+			custom_tooltip = enables_czechization_of_greater_czechia
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	declare_greater_slovakia = {
+		major = yes
+		potential = {
+			culture_group = west_slavic
+			NOT = { has_country_flag = greater_slovakia_flag }
+		}
+
+		provinces_to_highlight = {
+			greater_slovakian_culture_region = yes
+			NOT = { is_core = ROOT }
+		}
+
+		allow = {
+			every_province = {
+				slovakian_culture_region = yes
+				OR = {
+					culture = slovak
+					culture = ceskoslovensky
+				}
+			}
+			adm_power = 200
+			mil_power = 100
+			OR = {
+				full_idea_group = economic_ideas #Settlements
+				is_year = 1700 #Nationalism
+			}
+		}
+
+		effect = {
+			add_adm_power = -200
+			add_mil_power = -100
+			custom_tooltip = enables_slovakization_of_greater_slovakia
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	propose_czech_slovak_unity = {
+		major = yes
+		potential = {
+			OR = { #Only for Czechs and Slovaks
+				primary_culture = czech
+				primary_culture = slovak
+			}
+		}
+
+		provinces_to_highlight = {
+			every_province = {
+				OR = {
+					czech_culture_region = yes
+					slovakian_culture_region = yes
+				}
+				NOT = { is_core = ROOT }
+			}
+		}
+
+		allow = {
+			adm_power = 200
+			mil_power = 100
+			every_province = {
+				OR = {
+					czech_culture_region = yes
+					slovakian_culture_region = yes
+				}
+				is_core = ROOT
+			}
+			OR = {
+				full_idea_group = economic_ideas #Settlements
+				is_year = 1700 #Nationalism
+			}
+		}
+
+		effect = {
+			add_adm_power = -200
+			add_mil_power = -100
+			every_province = {
+				limit = {
+					OR = {
+						culture = czech
+						culture = slovakian
+					}
+				}
+				change_culture = ceskoslovensky
+			}
+		}
+	}
+}
