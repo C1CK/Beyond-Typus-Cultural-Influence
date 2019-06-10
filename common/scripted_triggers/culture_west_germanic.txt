@@ -42,7 +42,7 @@ irminonic_culture_region = { #Initially only modern Germany, later extends to Au
 	}
 }
 
-allowed_to_settle_germanic = {
+allowed_to_settle_germanic = { #Incomplete since Discord Bot's additions
 	OR = {
 		primary_culture = austrian
 		primary_culture = bavarian
@@ -75,6 +75,26 @@ allowed_to_settle_germanic = {
 		primary_culture = siebenburger
 		primary_culture = frankisch
 		primary_culture = langobardin
+		primary_culture = westgotisch
+		primary_culture = suebisch
+		primary_culture = moldauisch
+		primary_culture = rigisch
+		primary_culture = sudauer
+		primary_culture = galizier
+		primary_culture = ingermanisch
+		primary_culture = petschorisch
+		primary_culture = weissmeerer
+		primary_culture = wiekisch
+		primary_culture = kasachstandeutsche
+		primary_culture = kurlandisch
+		primary_culture = lieflandisch
+		primary_culture = uraldeutsch
+		primary_culture = vilnisch
+		primary_culture = bosporusdeutsch
+		primary_culture = reussisch
+		primary_culture = dobrudschadeutsche
+		primary_culture = epiroten
+		primary_culture = yola
 	}
 }
 
@@ -391,27 +411,15 @@ bessarabiendeutsch_culture_region = {
 	}
 }
 
-wolgadeutsch_culture_region = {
+wolgadeutsch_culture_region = { #Updated Wolgadeutsch -Needs review
 	OR = { #If East of Weißdeutsch and Ruthenisch, and North of Caucasus Mountains and west of Ural Mountains
-		AND = {
-			region = russia_region
-			NOT = { area = karelia_area }
-			NOT = { area = laponia_area }
-			NOT = { province_id = 293 #Smolenkas } #Weißdeutsch
-			NOT = { province_id = 3301 #Dorogobuzas } #^^^
-			NOT = { province_id = 5684 #Velizh } #^^^
-		}
-		AND = {
-			region = ural_region
-			NOT = { area = ural_area }
-			NOT = { province_id = 1072 } #East of Ural Mountains
-			NOT = { province_id = 1966 } #East of Ural Mountains
-			NOT = { province_id = 2444 } #East of Ural Mountains
-			NOT = { province_id = 2420 } #Mountain range now minor enough should be Caspian German instead
-		}
+		area = saratov_area
 		area = middle_don_area
 		area = lower_don_area
 		area = astrakhan_area
+		area = tambov_area
+		area = samara_area
+		area = kazan_area
 		province_id = 3291 #Oskol
 		area = lower_yik_area #Creates nicer borders against Caspian German
 	}
@@ -441,5 +449,703 @@ kaukasusdeutsch_culture_region = {
 		area = circassia_area
 		area = dagestan_area
 		province_id = 2195 #Odyghe (North of the Kaukasus Mountains)
+	}
+}
+
+#Half-Implemented (Pulled from Discord Bots work) -Needs to be reviewed before release
+
+german_new_world = {
+	OR = {
+		culture = deutschamerikaner
+		culture = deutschbrasiliooner
+		culture = afrikaner
+		culture = deutschaustralier
+		culture = sudwesterdeutsch
+		culture = kitsuaheli
+		culture = stolypindeutsch
+		culture = unserdeutsch
+		culture = kitsuaheli
+		culture = unserdeutsch
+		culture = javindo
+		culture = petjo
+		culture = makatesisch
+		culture = maharashgondwaner
+		culture = saurashtreser
+		culture = orissaorientalisch
+		culture = maissurdeutsch
+		culture = palkisch
+		culture = gangesbrahmaputriner
+		culture = indusdeutsch
+		culture = deutschkanadier
+		culture = plautdietsch
+		culture = westkustendeutsch
+		culture = prariendeutsch
+		culture = deutschmexikaner
+		culture = deutschtexaner
+		culture = deutschkuster
+		culture = pennsilfaanischdeitsche
+		culture = karibisch
+		culture = vandalisch
+		culture = kleinvenezianer
+		culture = katharinensisch
+		culture = patagonier
+		culture = peruvier
+		culture = hanauer
+		culture = agyptendeutsch
+	}	
+}
+
+westgotisch_culture_region = {
+	region = iberia_region
+	NOT	= { area = leon_area }
+	NOT = { area = galicia_area }
+	NOT = { area = beieras_area }
+	NOT = { area = asturias_area }
+	NOT = { area = baleares_area }
+}
+
+westgotisch_culture_group = {
+	OR = {
+		culture = aragonese
+		culture = catalan
+		culture = andalucian
+		culture = andalusi_culture
+	}
+}
+
+suebisch_culture_region = {
+	OR = {
+		area = leon_area 
+		area = galicia_area 
+		area = beieras_area 
+		area = asturias_area
+	}
+}
+
+suebisch_culture_group = {
+	OR = {
+		culture = galician
+	}
+}
+
+yola_culture_region = {
+	region = ireland_area
+}
+
+reussisch_culture_region = {
+	AND = {
+		region = russia_region
+		NOT = { area = karelia_area }
+		NOT = { area = laponia_area }
+		NOT = { province_id = 293 } #Smolenkas (Weißdeutsch)
+		NOT = { province_id = 3301 } #Dorogobuzas (^^^)
+		NOT = { province_id = 5684 } #Velizh (^^^)
+		NOT = { area = pomor_area }
+		NOT = { area = arkhangelsk_area }
+		NOT = { area = north_karelia_area }
+		NOT = { area = novgorod_area }
+		NOT = { area = toropets_area }
+		NOT = { area = pskov_area }
+		NOT = { area = valdai_area }
+		NOT = { area = vladimir_area }
+		NOT = { area = beloozero_area }
+	}
+}
+
+deutschthracian_culture_region = {
+	OR = {
+		area = danubian_plain_area
+		area = northern_thrace_area
+		area = upper_thrace_area
+		area = northern_macedonia_area
+		area = bulgaria_area
+		province_id = 7153
+		province_id = 3167
+		province_id = 3000
+		province_id = 4176
+		province_id = 7123
+		province_id = 7145
+		province_id = 3183
+		province_id = 1853
+		AND = {
+				area = northern_thrace_area
+				NOT = { province_id = 1764 }
+				NOT = { province_id = 7139 }
+		}
+	}
+}
+
+dobrudschadeutsche_culture_region = {
+	area = lower_danube_area
+}
+
+epiroten_culture_region = {
+	OR = {
+		area = albania_area
+		province_id = 3182
+		northern_greece_area
+		province_id = 7142
+		province_id = 142
+		province_id = 5094
+		province_id = 3182
+	}
+}
+
+moldauisch_culture_region = {
+	OR = {
+		area = wallachia_area
+		area = upper_muntenia_area
+		area = oltenia_area
+	}
+}
+
+griechischdeutsch_culture_region = {
+	OR = {
+		AND = {
+			area = western_thrace_area
+			NOT = { province_id = 7135 }
+		}
+		AND = {
+			area = macedonia_area
+			NOT = { province_id = 7123 }
+		}
+		AND = {
+			area = western_macedonia_area
+			NOT = { province_id = 7145 } 
+			NOT = { province_id = 3183 } 
+			NOT = { province_id = 7142 } 
+			NOT = { province_id = 1853 } 
+		}
+		AND = {
+			northern_epirus_area
+			NOT = { province_id = 142 }
+		}
+		area = western_aegean_area
+		area = thessaly_area
+		area = aetolia_area
+		area = hellas_area
+		area = crete_area
+		area = aegean_archipelago_area
+		area = euboea_area
+		area = northern_peloponnesus_area
+		area = morea_area
+		area = eastern_mediterrenean_islands_area
+		province_id = 7129
+		province_id = 7128
+		province_id = 7127
+		province_id = 3171
+		province_id = 7130
+		province_id = 149
+	}
+}
+
+germanic_brazilian_culture_region = {
+	OR = {
+		region = brazil_region
+		NOT = { area = west_sao_paolo_area }
+		NOT = { area = rio_grande_do_sol_area }
+		NOT = { area = sao_paolo_area }
+		NOT = { area = amazon_area }
+		NOT = { area = amapa_area }
+	}
+}
+
+hanauer_culture_region = {
+	OR = {
+		area = amazon_area
+		area = amapa_area
+		area = guyana_area
+		area = suriname_area
+	}
+}
+
+kleinvenezianer_culture_region = {
+	OR = {
+		AND = {
+			region = colombia_region
+			NOT = { area = panama_area }
+			NOT = { area = guyana_area }
+			NOT = { area = suriname_area }
+		}
+		area = quito_area
+		area = iquitos_area
+	}
+}
+
+peruvier_culture_region = {
+	OR = {
+		AND = {
+			region = peru_region
+			NOT = { area = iquitos_area }
+			NOT = { area = quito_area }
+		}
+		region = upper_peru_region
+	}
+}
+
+patagonier_culture_region = {
+	OR = {
+		region = la_plata_region
+		NOT = { area = banda_oriental_area }
+		NOT = { area = misiones_area }
+	}
+}
+
+katharinensisch_culture_region = {
+	OR = {
+		area = sao_paolo_area
+		area = rio_grande_do_sol_area
+		area = banda_oriental_area
+		area = misiones_area
+		area = west_sao_paolo_area
+	}
+}
+
+german_american_culture_region = { 
+	OR = {
+		region = southeast_america_region
+	}
+}
+
+pennsilfaanischdeitsche_culture_region = {
+	OR = {
+		region = northeast_america_region
+		area = ohio_country_area
+	}
+}
+
+westkustendeutsch_culture_region = {
+	OR = {
+		region = california_region
+	}
+}
+
+deutschkanadier_culture_region = {
+	OR = {
+		region = canada_region
+		region = hudson_bay_region
+		region = alaska_region
+	}
+}
+
+karibisch_culture_region = {
+	OR = {
+		region = caribbean_sea_region
+	}
+}
+
+plautdietsch_culture_region = {
+	OR = {
+		region = cascadia_region
+	}
+}
+
+deutschmexikaner_culture_region = {
+	OR = {
+		region = mexico_region
+		region = central_america_region
+		area = panama_area
+	}
+}
+
+deutschtexaner_culture_region = {
+	OR = {
+		region = rio_grande_region
+		area = ozarks_area
+		area = lower_louisiana_area
+	}
+}
+
+deutschkuster_culture_region = {
+	AND = {
+		region = mississippi_region
+		NOT = { area = upper_louisiana_area }
+		NOT = { area = mississippi_plain_area }
+		NOT = { area = ozarks_area }
+		NOT = { area = lower_louisiana_area }
+	}
+}
+
+prariendeutsch_culture_region = {
+	OR = {
+		region = great_plains_region
+		AND = {
+			region = great_lakes_region
+			NOT = { area = ohio_country_area }
+		}
+		area = upper_louisiana_area
+		area = mississippi_plain_area
+	}
+}
+
+german_south_afrikaner_culture_region = {
+	OR = {
+		AND = {
+			region = south_africa_region
+			NOT = { area = namaqualand_area }
+			NOT = { area = ovambo_area }
+			NOT = { area = skeleton_coast_land_area }
+			NOT = { area = damaraland_area }
+			NOT = { province_id = 5388 }
+			NOT = { province_id = 5390 }
+			NOT = { province_id = 5405 }
+			NOT = { province_id = 5427 }
+			NOT = { province_id = 5406 }
+			NOT = { province_id = 5407 }
+			NOT = { area = limpopo_area }
+		}
+	}
+}
+
+german_namibia_culture_region = {
+	OR = {
+		area = namaqualand_area
+		area = ovambo_area 
+		area = skeleton_coast_land_area 
+		area = damaraland_area 
+		province_id = 5388 
+		province_id = 5390 
+		province_id = 5405 
+		province_id = 5427 
+		province_id = 5406 
+		province_id = 5407 
+	}
+}
+
+german_tanzania_culture_region = {
+	OR = {
+		area = central_swahili_coast_area
+		AND = {
+			area = buha_area
+			NOT = { province_id = 4070 }
+		} 
+		province_id = 1200
+		province_id = 4042
+		province_id = 4043
+		province_id = 4041
+		province_id = 4044
+		province_id = 4061
+		province_id = 4063
+		area = tanzania_area
+	}
+}
+
+german_australian_culture_region = { 
+	OR = {
+		region = australia_region
+	}
+}
+
+weissmeerer_culture_region = {
+	OR = {
+		area = karelia_area
+		area = laponia_area
+		area = arkhangelsk_area
+		province_id = 313
+	}
+}
+
+petschorisch_culture_region = {
+	OR = {
+		area = pechora_area
+		AND = {
+			area = nenets_area
+			NOT = { province_id = 1072 }
+		}
+		area = mezen_area
+		AND = {
+			area = pomor_area
+			NOT = { province_id = 313 }
+		}
+	}
+}
+
+ingermanisch_culture_region = {
+	OR = {
+		area = north_karelia_area
+		area = novgorod_area
+		area = toropets_area
+		area = pskov_area
+		area = valdai_area
+		area = vladimir_area
+		area = beloozero_area
+	}
+}
+
+galizier_culture_region = {
+	OR = {
+		area = red_ruthenia_area
+		area = central_galicia_area
+		area = malopolska_area
+		province_id = 7272
+	}
+}
+
+sudauer_culture_region = {
+	OR = {
+		area = yotvingia_area
+		province_id = 1937
+		province_id = 270
+		province_id = 4536
+	}
+}
+
+rigisch_culture_region = {
+	OR = {
+		province_id = 38
+	}
+}
+
+kurlandisch_culture_region = {
+	OR = {
+		area = curonia_area
+	}
+}
+
+lieflandisch_culture_region = {
+	OR = {
+		AND = {
+			area = livonia_area
+			NOT = { province_id = 38 }
+		}
+		area = north_livonia_area
+		area = latgallia_area
+		area = estonia_ingria_area
+		area = latgallia_area
+	}
+}
+
+wiekisch_culture_region = {
+	area = estonia_ingria_area
+}
+
+vilnisch_culture_region = {
+	OR = {
+		area = samogitia_area
+		province_id = 1936
+		province_id = 4534
+		area = lithuania_area
+		AND = {
+			area = trakai_area
+			NOT = { province_id = 270 }
+			NOT = { province_id = 4536 }
+		}
+	}
+}
+
+vandalisch_culture_region = {
+	OR = {
+		area = east_aures_area
+		area = tunisia_area
+		area = kairouan_area
+		area = west_aures_area
+		area = constantine_area
+		area = kabylia_area
+		area = algiers_area
+		area = djerba_area
+		area = tripolitania_area
+		area = cagliari_area
+		area = sardinia_area
+		area = corsica_sardinia_area
+		area = noto_area
+		area = sicily_area
+		area = baleares_area
+		area = ouled_nail_area
+		province_id = 2459
+		province_id = 338
+		province_id = 5322
+	}
+}
+
+uraldeutsch_culture_region = {
+	OR = {
+		AND = {
+			region = ural_region
+			NOT = { area = tambov_area }
+			NOT = { area = samara_area }
+			NOT = { area = kazan_area }
+			NOT = { area = saratov_area }
+			NOT = { area = pechora_area }
+			NOT = { area = nenets_area }
+			NOT = { area = mezen_area }
+		}
+	}
+}
+
+stolypindeutsch_culture_region = {
+	OR = {
+		region = west_siberia_region
+		region = east_siberia_region
+		area = tannu_uriankhai_area
+		province_id = 2355
+		province_id = 478
+	}
+}
+
+kasachstandeutsche_culture_region = {
+	OR = { 
+		AND = {
+			region = central_asia_region
+			NOT = { area = lower_yik_area }
+			NOT = { area = shanshan_area }
+			NOT = { area = kashgaria_area }
+			NOT = { area = tarim_basin_area }
+		}
+		area = merv_area
+		province_id = 2118
+	}
+}
+
+unserdeutsch_culture_region = {
+	OR = {
+		area = papua_area
+		area = vogelkop_area
+		province_id = 1236
+		province_id = 1238
+	}
+}
+
+javindo_culture_region = {
+	OR = {
+		area = east_java_area
+		area = central_java_area
+		area = west_java_area
+	}
+}
+
+petjo_culture_region = {
+	OR = {
+		region = moluccas_region
+		region = sumatran_region
+		region = borneo_region
+		region = celebes_region
+	}
+}
+
+makatesisch_culture_region = {
+	region = philippines_region
+}
+
+indusdeutsch_culture_region = {
+	OR = {
+		area = northern_sindh_area
+		area = sindh_area
+		province_id = 2064
+		area = lahore_area
+		area = multan_area
+		area = sind_sagar_area
+		area = kashmir_area
+		province_id = 509
+		area = jangladesh_area
+		area = marwar_area
+		area = sirhind_area
+		province_id = 2062
+		province_id 4493
+		province_id = 2096
+	}
+}
+
+ganges_brahmaputriner_culture_region = {
+	OR = {
+		AND = {
+			region = hindustan_region
+			NOT = { area = lahore_area }
+			NOT = { area = multan_area }
+			NOT = { area = sind_sagar_area }
+			NOT = { area = kashmir_area }
+			NOT = { province_id = 509 }
+			NOT = { area = sirhind_area }
+			NOT = { province_id = 2062 }
+			NOT = { province_id 4493 }
+			NOT = { area = gird_area }
+			NOT = { area = bundelkhand_area }
+			NOT = { area = baghelkhand_area }
+			NOT = { area = nepal_area }
+			NOT = { province_id = 4469 }
+		}
+		area = gaur_area
+		area = west_bengal_area
+		area = north_bengal_area
+		area = east_bengal_area
+		area = assam_area
+		area = naga_hills_area
+		area = tripura_area
+	}
+}
+
+palkisch_culture_region = {
+	region = coromandel_region
+}
+
+saurashtreser_culture_region = {
+	OR = {
+		AND = {
+			region = west_india_region
+			NOT = { area = jangladesh_area }
+			NOT = { area = marwar_area }
+			NOT = { area = northern_sindh_area }
+			NOT = { area = sindh_area }
+			NOT = { province_id = 2096 }
+		}
+		area = gird_area
+		AND = {
+			area = bundelkhand_area
+			NOT = { province_id = 4467 }
+		}
+	}
+}
+
+maissurdeutsch_culture_region = {
+	OR = {
+		area = rayalaseema_area
+		area = mysore_area
+		area = kanara_area
+		area = raichur_doab_area
+		area = golconda_area
+		area = malabar_area
+	}
+}
+
+maharash_gondwaner_culture_region = {
+	OR = {
+		area = ahmednagar_area
+		area = maidan_area
+		area = desh_area
+		area = konkan_area
+		area = telingana_area
+		area = gondwana_area
+		area = berar_area
+		province_id = 4467
+	}
+}
+
+orissa_orientalisch_culture_region = {
+	OR = {
+		area = orissa_area
+		area = garjat_area
+		area = upper_mahanadi_area
+		area = baghelkhand_area
+		province_id = 4469
+		AND = {
+			area = jharkhand_area
+			NOT = { province_id = 2096 }
+		}
+	}
+}
+
+bosporusdeutsch_culture_region = {
+	OR = {
+		region = anatolia_region
+		area = cyprus_area
+			AND = {
+			area = thrace_area
+			NOT = { province_id = 7130 }
+			NOT = { province_id = 3171 }
+			NOT = { province_id = 149 }
+		}
+		province_id = 7135
+		province_id = 1764
+		province_id = 7139
+		
 	}
 }
