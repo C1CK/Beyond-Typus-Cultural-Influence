@@ -1,0 +1,404 @@
+country_decisions = {
+	institute_english_prayerbooks = { #Convert Cornwall
+		major = no
+		potential = {
+			has_global_flag = british_first_unification_flag
+			NOT = { has_country_flag = cornish_devolved_parliament_flag }
+			culture_group = british
+			OR = {
+				233 = { culture = cornish }
+				4373 = { culture = cornish }
+			}
+			OR = {
+				233 = { culture = celtic_cornish }
+				4373 = { culture = celtic_cornish }
+			}
+		}
+
+		allow = {
+			OR = {
+				year = 1500 #Just before historic rebellion
+				full_idea_group = religious_ideas
+			}
+		}
+
+		effect = {
+			233 = { change_culture = english }
+			4373 = { change_culture = english }
+			233 = {
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 2
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				year = 1540
+				factor = 100
+			}
+		}
+	}
+
+	anglicize_the_welsh = {
+		major = no
+		potential = {
+			has_global_flag = british_first_unification_flag
+			culture_group = british
+			NOT = { has_country_flag = anglicizing_wales_flag }
+			any_owned_province = {
+				anglo_welsh_culture_region = yes
+			}
+		}
+
+		allow = {
+			NOT = { has_accepted_culture = welsh }
+			NOT = { has_accepted_culture = celtic_welsh }
+			wales_area = {
+				type = all
+				is_core = ROOT
+			}
+			custom_trigger_tooltip = {
+				tooltip = welsh_infrastructure_trigger
+				OR = {
+					year = 1700 #Fallback
+					wales_area = { #Wales has infrastructure
+						type = all
+						development = 20
+					}
+					wales_area = { #One well developed province
+						type = any
+						development = 35
+					}
+				}
+			}
+			dip_power = 300
+		}
+
+		provinces_to_highlight = {
+			anglo_welsh_culture_region = yes
+			NOT = { is_core = ROOT }
+		}
+
+		effect = {
+			set_country_flag = anglicizing_wales_flag
+			add_dip_power = -300
+			remove_accepted_culture = welsh
+			remove_accepted_culture = celtic_welsh
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 100
+				year = 1700 #Happened remarkably late compared to Irish and such
+			}
+		}
+	}
+
+	anglicize_the_scottish = { #Highland clearances (Also allows Northern Isles but doesn't require it to pass)
+		major = no
+		potential = {
+			has_global_flag = british_first_unification_flag
+			culture_group = british
+			NOT = { has_country_flag = anglicizing_scotland_flag }
+			any_owned_province = {
+				anglo_scottish_culture_region = yes
+			}
+		}
+
+		allow = {
+			highlands_area = {
+				type = all
+				is_core = ROOT
+			}
+			kingdom_of_the_isles_area = {
+				type = all
+				is_core = ROOT
+			}
+			custom_trigger_tooltip = {
+				tooltip = scottish_major_city_trigger
+				OR = {
+					year = 1650 #Fallback
+					any_owned_province = { #Any Large Scottish City exists (Decline of Gaelic largely result of agricultural revolution due to large cities demands for food)
+						anglo_scottish_culture_region = yes
+						development = 50
+					}
+				}
+			}
+			dip_power = 300
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = highlands_area
+				area = kingdom_of_the_isles_area
+			}
+			NOT = { is_core = ROOT }
+		}
+
+		effect = {
+			set_country_flag = anglicizing_scotland_flag
+			add_dip_power = -300
+			remove_accepted_culture = highland_scottish
+			remove_accepted_culture = celtic_highlander
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 100
+				year = 1650 #Happened remarkably late compared to Irish and such
+			}
+		}
+	}
+
+	establish_irish_plantations = { #Gaeilge -> Irish (I'm calling modern Irish Irish here since they speak English, just because they are in the same culture group does not mean that they belong together, don't @me IRA)
+		major = no
+		potential = {
+			has_global_flag = british_first_unification_flag
+			culture_group = british
+			NOT = { has_country_flag = anglicizing_ireland_flag }
+		}
+
+		allow = {
+			NOT = { tag = ANI }
+			ANI = { #Viceroy of IRE
+				is_subject_of = ROOT
+			}
+			ireland_area = {
+				is_core = ANI
+				type = all
+			}
+			custom_trigger_tooltip = {
+				tooltip = irish_x_trigger
+				OR = {
+					year = 1600 #Fallback
+					any_owned_province = {
+						anglo_irish_culture_region = yes
+						
+					}
+				}
+			}
+			dip_power = 300
+		}
+
+		provinces_to_highlight = {
+			anglo_irish_culture_region = yes
+			NOT = { is_core = ROOT }
+		}
+
+		effect = {
+			set_country_flag = anglicizing_ireland_flag
+			add_dip_power = -300
+			remove_accepted_culture = irish
+			remove_accepted_culture = celtic_irish
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 100
+				year = 1600
+			}
+		}
+	}
+
+	establish_british_devolution = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = parliamentary_choice_flag }
+			culture_group = british #Uniquely British
+			has_parliament = yes
+			capital_region = {
+				region = british_isles_region
+				region = ireland_area
+			}
+		}
+
+		allow = {
+			government_rank = 3 #Delay until Late-Game
+			owns_core_province = 236 #English
+			owns_core_province = 248 #Scotland
+			owns_core_province = 241 #Wales
+			#Ireland not required! 
+		}
+
+		effect = {
+			set_country_flag = parliamentary_choice_flag
+
+			hidden_effect = {
+				236 = { add_province_triggered_modifier = english_central_parliament_modifier } #London
+				248 = { add_province_triggered_modifier = scottish_central_parliament_modifier } #Edinburgh
+				241 = { add_province_triggered_modifier = welsh_central_parliament_modifier } #Cardiff
+				373 = { add_province_triggered_modifier = irish_central_parliament_modifier } #Dublin
+			}
+
+			country_event = {
+				id = cultural_influence_british.6
+				days = 0
+			}
+		}
+	}
+
+	grant_ireland_devolution = {
+		major = no
+		potential = {
+			has_parliament = yes
+			has_country_flag = devolution_of_parliament
+			NOT = { 373 = { has_province_modifier = irish_devolved_parliament_modifier } }
+			#Don't check for culture, allow people to do weird crap if they culture-convert
+		}
+
+		allow = {
+			owns_core_province = 373 #Dublin
+		}
+
+		effect = {
+			373 = { #Dublin
+				add_province_triggered_modifier = irish_devolved_parliament_modifier
+				add_base_tax = 2
+			}
+		}
+	}
+
+	grant_cornish_identity_legitimacy = { #Optional Cornish parliament
+		major = no
+		potential = {
+			has_country_flag = devolution_of_parliament
+			NOT = { has_country_flag = cornish_devolved_parliament_flag }
+		}
+
+		allow = {
+			cornwall_area = {
+				type = all
+				owned_by = ROOT
+			}
+			233 = { culture = cornish }
+		}
+
+		effect = {
+			233 = {
+				add_province_triggered_modifier = cornish_devolved_parliament_modifier
+				add_center_of_trade_level = 1 #Woo!
+				add_base_tax = 2
+			}
+			cornwall_area = {
+				if = {
+					limit = {
+						any_province = { culture = cornish }
+					}
+					change_culture = cornish
+				}
+				if = {
+					limit = {
+						any_province = { culture = celtic_cornish }
+					}
+					change_culture = celtic_cornish
+				}
+			}
+			if = {
+				limit = {
+					any_province = { culture = cornish }
+				}
+				add_accepted_culture = cornish
+			}
+			if = {
+				limit = {
+					any_province = { culture = celtic_cornish }
+				}
+				add_accepted_culture = celtic_cornish
+			}
+			set_country_flag = cornish_devolved_parliament_flag
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	grant_breton_identity_legitimacy = { #Optional Breton parliament
+		major = no
+		potential = {
+			has_country_flag = devolution_of_parliament
+			NOT = { has_country_flag = breton_devolved_parliament_flag }
+		}
+
+		allow = {
+			brittany_area = {
+				type = any
+				OR = {
+					culture = breton
+					culture = celtic_breton
+				}
+			}
+			brittany_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			brittany_area = {
+				if = {
+					limit = {
+						any_province = { culture = breton }
+					}
+					change_culture = breton
+				}
+				if = {
+					limit = {
+						any_province = { culture = celtic_breton }
+					}
+					change_culture = celtic_breton
+				}
+			}
+			if = {
+				limit = {
+					any_province = { culture = breton }
+				}
+				add_accepted_culture = breton
+			}
+			if = {
+				limit = {
+					any_province = { culture = celtic_breton }
+				}
+				add_accepted_culture = celtic_breton
+			}
+			172 = {
+				add_province_triggered_modifier = breton_devolved_parliament_modifier
+				add_base_tax = 2
+			}
+			set_country_flag = breton_devolved_parliament_flag
+			add_accepted_culture = breton
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	grant_france_devolution = {
+		major = no
+		potential = {
+			has_parliament = yes
+			has_country_flag = devolution_of_parliament
+			NOT = { 183 = { has_province_modifier = parisian_devolved_parliament_modifier } }
+		}
+
+		allow = {
+			owns_core_province = 183 #Paris
+		}
+
+		effect = {
+			183 = { #Paris
+				add_province_triggered_modifier = parisian_devolved_parliament_modifier
+				add_base_tax = 2
+			}
+		}
+	}
+
+	#I could grant devolution forever but for now I'll leave it here
+}

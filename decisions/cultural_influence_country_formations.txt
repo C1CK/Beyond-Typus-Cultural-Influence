@@ -1,0 +1,355 @@
+﻿country_decisions = {
+	form_dual_monarchy_of_england_and_france = {
+		major = yes
+		potential = {
+			NOT = { exists = UEF }
+			NOT = { exists = UNK }
+			NOT = { has_country_flag = formed_UEF_flag }
+			bt_generic_can_form_potential_check = yes
+			OR = {
+				primary_culture = standard_french
+				primary_culture = standard_occitan
+				primary_culture = standard_english #Devolved
+				primary_culture = standard_british #Non-Devolved
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						ROOT = { primary_culture = standard_french }
+						ROOT = { primary_culture = standard_occitan }
+					}
+					OR = {
+						area = cornwall_area
+						area = wessex_area
+						area = home_counties_area #Essex
+						area = east_midlands_area
+						area = west_midlands_area
+						area = east_anglia_area
+						area = yorkshire_area
+						area = northern_england_area
+					}
+					NOT = { culture_group = french }
+				}
+				AND = {
+					OR = {
+						ROOT = { primary_culture = standard_english } #Devolved
+						ROOT = { primary_culture = standard_british } #Non-Devolved
+					}
+					OR = {
+						region = france_region
+					}
+					NOT = { culture_group = british }
+				}
+			}
+		}
+
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = form_dual_monarchy_of_england_and_france_FRA_tooltip
+					AND = { #French Side
+						NOT = { exists = ENG }
+						OR = {
+							primary_culture = standard_french
+							primary_culture = standard_occitan
+						}
+						france_region = {
+							owned_by = ROOT
+							type = all
+						}
+						calc_true_if = {
+							all_owned_province = {
+								culture = franglais
+							}
+							amount = 26 #All provinces in ENG
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = form_dual_monarchy_of_england_and_france_ENG_tooltip
+					AND = {
+						NOT = { exists = FRA }
+						OR = {
+							primary_culture = standard_english #Devolved
+							primary_culture = standard_british #Non-Devolved
+						}
+						british_isles_region = {
+							owned_by = ROOT
+							type = all
+						}
+						calc_true_if = {
+							all_owned_province = {
+								OR = {
+									culture = anglo_norman
+									culture = anglo_gascon
+									culture = anglo_occitan
+									culture = anglo_burgundian
+								}
+							}
+							amount = 60 #Of France region's 75
+						}
+					}
+				}
+			}
+		}
+
+		effect = {
+			change_tag = UEF
+			remove_non_electors_emperors_from_empire_effect = yes
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			every_province = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					OR = {
+						region = france_region
+						region = british_isles_region
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 50
+			set_country_flag = formed_UEF_flag
+		}
+	}
+
+	declare_greater_prussia = {
+		major = yes
+		potential = {
+			tag = PRU #Do not like this but I really don't want BRA to form this
+			NOT = { exists = GRP }
+			NOT = { has_country_flag = formed_GRP_flag }
+			bt_generic_can_form_potential_check = yes
+			OR = {
+				primary_culture = prussian
+				primary_culture = posen #Could also be described as South Prussian
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				posisch_culture_region = yes
+				preussisch_culture_region = yes
+				schlesisch_culture_region = yes
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+
+		allow = {
+			NOT = { exists = GRP }
+			is_at_war = no
+			capital_scope = { #Must be East centered
+				OR = {
+					posisch_culture_region = yes
+					preussisch_culture_region = yes
+					schlesisch_culture_region = yes
+				}
+			}
+			OR = { #Allow marches to form (Replacing free to conduct diplomacy trigger)
+				is_subject = no
+				is_subject_of_type = tributary_state
+				is_march = yes
+			}
+			is_nomad = no
+			owns_core_province = 41 #Königsberg
+			owns_core_province = 254 #Posen
+			owns_core_province = 257 #Warschau
+			custom_trigger_tooltip = {
+				tooltip = GRP_region_tooltip
+				calc_true_if = {
+					all_owned_province = {
+						is_core = ROOT
+						OR = {
+							posisch_culture_region = yes
+							preussisch_culture_region = yes
+							schlesisch_culture_region = yes
+						}
+					}
+					amount = 20 #At least ~1/2 of Großpreußen's 42 provinces (Borders are /very/ generous)
+				}
+			}
+			is_part_of_hre = yes #Since GRP is Empire centered as opposed to normal PRU
+			total_development = 200 #Decent development required
+			prestige = 25
+		}
+
+		effect = {
+			change_tag = GRP
+			#remove_non_electors_emperors_from_empire_effect = yes
+			#Doesn't remove from empire due to being tied to the empire
+			add_country_modifier = {
+				name = centralization_modifier
+				duration = 7300
+			}
+			every_province = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					posisch_culture_region = yes
+					preussisch_culture_region = yes
+					schlesisch_culture_region = yes
+				}
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_GRP_flag
+		}
+	}
+
+	form_galia = {
+		major = yes
+		potential = {
+			NOT = { exists = GAU }
+			NOT = { has_country_flag = formed_GAU_flag }
+			bt_generic_can_form_potential_check = yes
+			OR = { #Allow Gaulish cultures
+				primary_culture = celtic_breton
+				primary_culture = belgae
+				primary_culture = pictone
+				primary_culture = arverni
+				primary_culture = galianeg
+			}
+		}
+
+		provinces_to_highlight = {
+			galianeg_culture_region = yes
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+
+		allow = {
+			NOT = { exists = GAU }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			capital_scope = { #Must be based in Gaul
+				galianeg_culture_region = yes
+			}
+			owns_core_province = 192 #Bibracte (Fixed capital) (Don't want to add more as it isn't my place to say where Gaul's centers should be since it is a revival)
+			government_rank = 2
+			custom_trigger_tooltip = {
+				tooltip = GAU_region_tooltip
+				calc_true_if = {
+					all_owned_province = {
+						is_core = ROOT
+						galianeg_culture_region = yes
+					}
+					amount = 82 #At least 2/3 of Gaul's 124(!) provinces
+				}
+			}
+			total_development = 750 #Gaul is Empire level
+			prestige = 50 #Discount from 75
+		}
+
+		effect = {
+			change_tag = GAU
+			remove_non_electors_emperors_from_empire_effect = yes
+			add_country_modifier = {
+				name = centralization_modifier
+				duration = 7300
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			every_province = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					galianeg_culture_region = yes
+				}
+				add_permanent_claim = GAU
+			}
+			add_prestige = 50
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 }
+			}
+			set_country_flag = formed_GAU_flag
+		}
+	}
+
+	actual_turkish_nation = {
+		major = yes
+		potential = {
+			##### BT generic formation guff, need to permit TUR
+			normal_or_historical_nations = yes
+			OR ={
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 6			#3 is common in vanilla, but more provinces in BT
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			##### BT generic formation guff, need to permit TUR
+			NOT = { exists = TRK }
+			NOT = { has_country_flag = formed_turkey_flag }
+			culture_group = turkish_g
+		}
+		allow = {
+			NOT = { exists = TRK }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			primary_culture = turkish
+			owns_core_province = 326 #Ankara
+			calc_true_if = {
+				all_owned_province = {
+					region = anatolia_region
+				}
+				amount = 30
+			}
+			NOT = {
+				any_owned_province = {
+					AND = {
+						region = balkan_region
+						NOT = { turkish_settlement_region = yes }
+					}
+				}
+			}
+			capital_scope = {
+				region = anatolia_region
+			}
+		}
+		effect = {
+			change_tag = TRK
+			remove_non_electors_emperors_from_empire_effect = yes
+			set_country_flag = formed_turkey_flag
+			change_government_via_reform = republic
+			change_technology_group = eastern
+			set_government_rank = 2
+			add_republican_tradition = 10
+		}
+	}
+}

@@ -1,0 +1,188 @@
+﻿gaelic_scottish_culture_region = { #Works for Celtic Scottish & Gaelic
+	OR = {
+		area = lowlands_area #Eastern Lowlands
+		area = highlands_area #Highlands
+		area = scottish_marches_area #Western Lowlands
+		AND = {
+			area = kingdom_of_the_isles_area #Southern Isles
+			NOT = { province_id = 4365 } #Mann
+		}
+		area = subarctic_islands_area
+	}
+}
+
+gaelic_irish_culture_region = { #Works for Celtic Irish & Gaelic
+	region = ireland_area
+}
+
+briton_welsh_culture_region = { #Uses Briton due to possible British Welsh later in development
+	OR = {
+		area = wales_area
+		province_id = 240 #Shrewsbury (Extended Welsh upon Celtic resurgence)
+		province_id = 4375 #Chester (^^^)
+	}
+}
+
+briton_cornish_culture_region = { #Uses Briton due to possible British Cornish later in development
+	OR = {
+		area = cornwall_area
+		province_id = 4130 #Somerset (Extended Cornish upon Celtic resurgence)
+		province_id = 239 #Gloucestershire (^^^)
+		province_id = 4374 #Dorset (^^^)
+	}
+}
+
+manx_culture_region = {
+	province_id = 4365 #Mann
+}
+
+cwmbraic_culture_region = {
+	OR = {
+		area = northern_england_area #Northumbria
+		province_id = 244 #Lancaster
+	}
+}
+
+corieltauvi_culture_region = {
+	OR = {
+		area = yorkshire_area
+		province_id = 4372 #Warwick
+		province_id = 4376 #Leicester
+	}
+}
+
+cantiaci_culture_region = {
+	OR = {
+		area = east_anglia_area
+		area = home_counties_area #Essex
+		province_id = 234 #Wessex
+		province_id = 237 #Oxford
+		province_id = 4370 #Cambridge
+	}
+}
+
+brythonaidd_culture_region = { #Brythonic
+	OR = {
+		region = british_isles_region
+		area = subarctic_islands_area
+	}
+}
+
+goidhealach_culture_region = { #Goidelic
+	OR = {
+		region = ireland_area
+		province_id = 4365 #Mann
+		gaelic_scottish_culture_region = yes
+		cwmbraic_culture_region = yes
+		briton_welsh_culture_region = yes
+	}
+}
+
+brezhoneg_culture_region = { #Breton
+	OR = {
+		area = brittany_area
+		area = normandy_area #Expansion into Norman land
+		province_id = 177 #Maine
+		province_id = 178 #Anjou
+	}
+}
+
+brythonaidd_culture_group = {
+	OR = {
+		culture = celtic_cornish
+		culture = celtic_welsh
+		culture = cantiaci
+		culture = corieltauvi
+		culture = cwmbraic
+	}
+}
+
+goidhealach_culture_group = {
+	OR = {
+		culture = celtic_irish
+		culture = celtic_highlander
+		culture = celtic_manx
+	}
+}
+
+belgae_culture_region = { #Messy due to following the Rhine
+	OR = {
+		area = picardy_area
+		area = ile_de_france_area
+		area = flanders_area
+		area = champagne_area
+		area = wallonia_area
+		province_id = 96 #Zeeland
+		area = brabant_area
+		area = luxemburg_liege_area
+		area = lorraine_area
+		area = lower_rhineland_area
+		province_id = 3060 #Betuwe
+		province_id = 3063 #Overmaas
+		province_id = 2975 #Cleves
+		province_id = 3179 #Jülich
+		province_id = 85 #Köln
+		province_id = 78 #Mainz
+		province_id = 1761 #Pfalz
+		province_id = 75 #Alsace
+	}
+}
+
+pictone_culture_region = {
+	OR = {
+		area = poitou_area
+		AND = {
+			area = guyenne_area
+			NOT = { province_id = 198 } #Rouergue
+		}
+		area = pyrenees_area #Gascony
+		AND = {
+			area = loire_area
+			NOT = { province_id = 178 } #Anjou
+			NOT = { province_id = 177 } #Maine
+		}
+		province_id = 3109 #La Marche
+		province_id = 195 #Limousin
+		province_id = 196 #Toulouse
+		province_id = 3084 #Foix
+	}
+}
+
+arverni_culture_region = {
+	OR = {
+		area = bourgogne_area
+		province_id = 1880 #Sundgau
+		AND = {
+			area = massif_central_area
+			NOT = { province_id = 3109 } #La Marche
+			NOT = { province_id = 195 } #Limousin
+		}
+		province_id = 198 #Rouergue
+		AND = {
+			area = languedoc_area
+			NOT = { province_id = 196 } #Toulouse
+			NOT = { province_id = 3084 } #Foix
+		}
+		area = switzerland_area
+		area = savoy_dauphine_area #Savoy
+		area = provence_area
+		area = north_piedmont_area
+		area = piedmont_area #Central Piedmont
+		area = south_piedmont_area
+		area = maritime_alps_area
+		area = montferrat_area
+		AND = {
+			area = liguria_area
+			NOT = { province_id = 7055 } #La Spezia
+		}
+	}
+}
+
+galianeg_culture_region = {
+	OR = {
+		brezhoneg_culture_region = yes
+		belgae_culture_region = yes
+		pictone_culture_region = yes
+		arverni_culture_region = yes
+	}
+}

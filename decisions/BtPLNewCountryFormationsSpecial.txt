@@ -1,0 +1,640 @@
+#Legacy file from BT version of the mod
+
+country_decisions = {
+
+#These are 'special' formation decisions for unique cases like the UK and the special Irish and Celtic tags from BtP.
+
+############################################################################################
+################################### BtP Native tag desicions #################################### 
+############################################################################################
+	#Deleted all of the Irish duchies as they feel kinda pointless to me - Katy
+	
+	celtic_nation = { #Nation for all of the Celts (CEL) -Now represents UNK for Celts since Gaul now exists
+		major = yes
+		potential = {
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_tir_na_gceilteach_btp }
+			NOT = { exists = CEL }
+			NOT = { exists = UNK }
+			OR = {
+				primary_culture = brythonaidd #Briton
+				primary_culture = goidhealach #Gaelic
+			}
+			#To appear, must already be one of my mid level unions or own over half of Britain and Ireland.
+			OR = {
+				tag = TNA #(Gaels)
+				tag = YYK #(Britons)
+				calc_true_if = {
+					all_owned_province = {
+						is_core = ROOT
+						region = british_isles_region
+					}
+					amount = 44			#44 of Britain and Ireland's 66 provinces
+				}
+			}
+		}
+
+		provinces_to_highlight = {
+			region = british_isles_region
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+
+		allow = { #CI modified to be a Celtic version of UNK
+			NOT = { exists = CEL }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			owns_or_vassal_of = 236		# London (Briton)
+			owns_or_vassal_of = 241		# Glamorgan (Welsh) Technically Briton or Gaelic but w/e
+			owns_or_vassal_of = 248		# Lothian (Highlander) Technically Briton or Gaelic but w/e
+			owns_or_vassal_of = 373		# Dublin (Irish) Technically Gaelic but w/e
+			owns_or_vassal_of = 4365	# Mann (Manx) Technically Briton or Gaelic but w/e
+			owns_or_vassal_of = 233		# Cornwall (Cornish) Technically Briton or Gaelic but w/e
+			government_rank = 2			#Replaces the government specific Nots, as all Irish minors are rank 1. Also useful because we dont want a rank 1 jumping to rank 3 in one go
+			british_isles_region = {
+				type = all
+				country_or_vassal_holds = ROOT
+				is_core = owner
+			}
+			total_development = 300			#Special discount. Normal requirement for rank 3 is 1000 dev, so this is 70 percent discounted. Note base dev in 1444 of all Celtic countries is around 254 (and England is another 181).
+			prestige = 40			#Normal requirement for rank 3 is 75 prestige.
+		}
+		
+		effect = {
+			change_tag = CEL
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			every_province = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					OR = {
+						region = british_isles_region
+						region = ireland_area
+					}
+				}
+				add_permanent_claim = CEL
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 50
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_tir_na_gceilteach_btp
+		}
+	}
+
+############################################################################################
+################################# BtP Anlgo-Irish tag desicions ################################## 
+############################################################################################
+	#Deleted all of the Anglo-Irish duchies as they kinda feel even more pointless to me - Katy
+	
+	anglo_irish_nation = {
+		major = yes
+		potential = {
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_ireland_flag }
+			NOT = { has_country_flag = formed_kingdom_of_ireland_flag_btp }			#remove this after 9.0.
+			NOT = { tag = ANI }
+			NOT = { tag = IRE }
+			NOT = { tag = SCO }
+			NOT = { tag = ENG }
+			NOT = { tag = GBR }
+			primary_culture = anglo_irish
+			capital_region = {
+				OR = {
+					area = leinster_area
+					area = munster_area
+					area = connacht_area
+					area = ulster_area
+				}
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = leinster_area
+				area = munster_area
+				area = connacht_area
+				area = ulster_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+
+		allow = {
+			NOT = { exists = ANI }
+			hidden_trigger = { NOT = { exists = IRE } }			#Hidden because it shows up in UI as doubled Ireland
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			owns_core_province = 373			# The Pale and Dublin
+			calc_true_if = {
+				all_owned_province = {
+					is_core = ROOT
+					OR = {
+						area = leinster_area
+						area = munster_area
+						area = connacht_area
+						area = ulster_area
+					}
+				}
+				amount = 9			#At least 2/3 of Ireland's 13 provinces
+			}
+			total_development = 75			#Special discount. Normal requirement for rank 2 is 300 dev, so this is 75 percent discounted
+			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
+		}
+
+		effect = {
+			change_tag = ANI
+			remove_non_electors_emperors_from_empire_effect = yes
+			ireland_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ANI
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					exists = ENG
+					NOT = { historical_friend_with = ENG }
+					NOT = { historical_rival_with = ENG }
+					has_opinion = { who = ENG value = 1 }
+				}
+				add_historical_rival = ENG
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = ANI_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_ireland_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+############################################################################################
+################################## Driaocht's New Celtic Tags ################################### 
+############################################################################################
+
+	tir_na_ngael_nation = { #Nation for all of the Gaels (TNA) (Ireland + Scotland)
+		major = yes
+		potential = {
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_tir_na_ngael_flag_bt }
+			NOT = { tag = YYK }
+			NOT = { tag = TNA }
+			NOT = { tag = CEL }
+			OR = {
+				primary_culture = celtic_irish
+				primary_culture = celtic_highlander
+				primary_culture = celtic_manx
+				primary_culture = goidhealach
+			}
+			OR = {
+				tag = IRE
+				tag = SCO
+				#ANI removed due to being anglocentric Ireland -CI
+				num_of_cities = 17 #Don't want to be able to see this too early. First goal should be forming provincial kingdoms and then Ireland or overthrowing Scotland.
+			}
+			capital_scope = { region = british_isles_region }
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = leinster_area
+				area = munster_area
+				area = connacht_area
+				area = ulster_area
+				area = lowlands_area
+				area = scottish_marches_area
+				area = highlands_area
+				area = kingdom_of_the_isles_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+
+		allow = {
+			NOT = { exists = TNA }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			owns_core_province = 4120 #Kildare, stand in for Tara
+			owns_core_province = 250 #Fife
+			owns_core_province = 4365 #Mann
+			calc_true_if = {
+				all_owned_province = {
+					is_core = ROOT
+					OR = {
+						area = leinster_area
+						area = munster_area
+						area = connacht_area
+						area = ulster_area
+					}
+				}
+				amount = 10			#3/4 of Ireland's 13 provinces
+			}
+			calc_true_if = {
+				all_owned_province = {
+					is_core = ROOT
+					OR = {
+						area = lowlands_area
+						area = scottish_marches_area
+						area = highlands_area
+						area = kingdom_of_the_isles_area
+					}
+				}
+				amount = 10			#3/4 of Scotland's 15 provinces
+			}
+			total_development = 200			#Special discount for cultural union of a small group. Normal requirement for rank 3 is 1000 dev, so this is 80 percent discounted. Note base dev in 1444 Ireland and Scotland is around 180 total
+			prestige = 25			#Special discount. Normal requirement for rank 2 is 75 prestige, so this is 2/3rds discounted
+		}
+
+		effect = {
+			change_tag = TNA
+			remove_non_electors_emperors_from_empire_effect = yes
+			leinster_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			munster_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			connacht_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			ulster_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			lowlands_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			scottish_marches_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			highlands_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			kingdom_of_the_isles_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_tir_na_ngael_flag_bt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	albion_nation = { #Nation for all of the Britons (YYK) (Great Britain)
+		major = yes
+		potential = {
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_ynys_y_cedyrn_flag_bt }
+			NOT = { tag = YYK }
+			NOT = { tag = TNA }
+			NOT = { tag = CEL }
+			OR = {
+				primary_culture = celtic_cornish
+				primary_culture = celtic_welsh
+				primary_culture = cantiaci
+				primary_culture = corieltauvi
+				primary_culture = cwmbraic
+				primary_culture = brythonaidd
+			}
+			OR = {
+				tag = WLS
+				tag = CRN
+				num_of_cities = 12			#We want to prevent any alt history OPMs from seeing this too early
+			}
+			capital_scope = { region = british_isles_region }
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = east_midlands_area
+				area = west_midlands_area
+				area = yorkshire_area
+				area = scottish_marches_area
+				area = wessex_area
+				area = home_counties_area
+				area = east_anglia_area
+				area = wales_area
+				area = lowlands_area
+				area = highlands_area
+				area = kingdom_of_the_isles_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+
+		allow = {
+			NOT = { exists = YYK }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			owns_core_province = 236 #London
+			owns_core_province = 242 #Gwynedd and Angelsey
+			owns_core_province = 233 #Cornwall
+			owns_core_province = 248 #Lothian
+			calc_true_if = {
+				all_owned_province = {
+					is_core = ROOT
+					OR = {
+						area = east_midlands_area
+						area = west_midlands_area
+						area = yorkshire_area
+						area = wessex_area
+						area = home_counties_area
+						area = east_anglia_area
+						area = wales_area
+					}
+				}
+				amount = 25			#3/4 of England & Wales' 31 provinces
+			}
+			calc_true_if = {
+				all_owned_province = {
+					is_core = ROOT
+					OR = {
+						area = lowlands_area
+						area = scottish_marches_area
+						area = highlands_area
+						area = kingdom_of_the_isles_area
+					}
+				}
+				amount = 10			#3/4 of Scotland's 15 provinces
+			}
+			total_development = 250			#Special discount for cultural union of a small group. Normal requirement for rank 3 is 1000 dev, so this is 75 percent discounted. Note base dev in 1444 for southern Britain is around 210, plus 54 more in Brittany.
+			prestige = 25			#Special discount. Normal requirement for rank 2 is 75 prestige, so this is 2/3rds discounted
+		}
+
+		effect = {
+			change_tag = YYK
+			remove_non_electors_emperors_from_empire_effect = yes
+			wales_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			east_anglia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			home_counties_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			wessex_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			yorkshire_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			west_midlands_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			east_midlands_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			lowlands_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			scottish_marches_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			highlands_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			kingdom_of_the_isles_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = TNA
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 35		#Extra prestige for Albion. Long live King Arthur!
+			set_country_flag = formed_ynys_y_cedyrn_flag_bt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+############################################################################################
+########################### Other Special or Quirky Formation Decisions ############################ 
+############################################################################################
+	united_kingdom_nation = {
+		major = yes
+		potential = {
+			bt_generic_can_form_potential_check = yes
+			NOT = { has_country_flag = formed_united_kingdom_flag }
+			NOT = { tag = UNK }
+			NOT = { tag = CEL }
+			tag = GBR
+			NOT = { culture_group = celtic }
+			#culture_group = british #Being British no longer neccesary this merely represents a unified kingdom; not neccesarily an English one, although Celts are forbidden as they have their own thing
+			adm_tech = 10			#default 1531
+		}
+		provinces_to_highlight = {
+			region = british_isles_region
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = UNK }
+			is_nomad = no
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			adm_tech = 20			#default 1661
+			owns_or_vassal_of = 236		# London
+			owns_or_vassal_of = 241		# Glamorgan
+			owns_or_vassal_of = 248		# Lothian
+			owns_or_vassal_of = 373		# Dublin
+			british_isles_region = {
+				type = all
+				country_or_vassal_holds = ROOT
+			}
+			total_development = 500			#Normal requirement for rank 3 is 1000 dev, so this is 50 percent discounted
+			prestige = 40			#Normal requirement for rank 3 is 75 prestige, so this is 50 percent discounted
+		}
+		effect = {		
+			every_subject_country = {
+				limit = {
+					ai = yes
+					capital_scope = {
+						OR = {
+							region = british_isles_region
+							region = ireland_area
+						}
+					}
+					OR = {
+						NOT = { num_of_cities = 12 }
+						AND = {
+							OR = {
+								tag = ANI
+								tag = IRE
+								tag = SCO
+							}
+							NOT = { num_of_cities = 24 }
+						}
+					}
+				}
+				ROOT = { inherit = PREV }
+			}
+			change_tag = UNK
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			add_country_modifier = {
+				name = centralization_modifier
+				duration = 7300
+			}
+			add_prestige = 50			#Doubled prestige due to special formation.
+			set_country_flag = formed_united_kingdom_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					tag = TNA
+					tag = YYK
+				}
+			}	#The BT Celtic tags will go for HR's Celtic nation from BtP by default
+			modifier = {
+				factor = 0
+				NOT = { is_year = 1800 }
+			}	#More or less historical formation date for the AI
+		}
+		ai_importance = 200 #
+		do_not_integrate = IRE
+		do_not_integrate = ANI
+	}
+
+}

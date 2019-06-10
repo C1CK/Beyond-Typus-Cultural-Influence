@@ -1,0 +1,118 @@
+namespace = cultural_influence_bonus
+#These are all hidden, and serve to apply the -15% dev cost in X terrain style bonuses
+
+province_event = { #Apply Pontic Greek bonus (-15% Dev cost in Inland Coast)
+	id = cultural_influence_bonus.1
+	title = null
+	desc = null
+	picture = null
+
+	hidden = yes
+
+	trigger = {
+		owner = {
+			has_country_modifier = pontic_greek_CI_bonus
+		}
+		has_port = yes
+		sea_zone = {
+			has_terrain = inland_ocean
+		}
+	}
+
+	immediate = {
+		add_province_modifier = {
+			name = pontic_greek_coastal_cities
+			duration = -1
+		}
+	}
+
+	option = {
+		name = null
+	}
+}
+
+province_event = { #Remove Pontic Greek bonus (-15% Dev cost in Inland Coast)
+	id = cultural_influence_bonus.2
+	title = null
+	desc = null
+	picture = null
+	
+	hidden = yes
+
+	trigger = {
+		owner = {
+			NOT = {
+				has_country_modifier = {
+					pontic_greek_CI_bonus
+				}
+			}
+		}
+		has_province_modifier = pontic_greek_coastal_cities
+	}
+
+	immediate = {
+		remove_province_modifier = pontic_greek_coastal_cities
+	}
+
+	option = {
+		name = null
+	}
+}
+
+province_event = { #Apply Cappadocian Greek bonus (-15% Dev cost in Highlands & Mountains)
+	id = cultural_influence_bonus.3
+	title = null
+	desc = null
+	picture = null
+	
+	hidden = yes
+
+	trigger = {
+		owner = {
+			has_country_modifier = cappadocian_greek_CI_bonus
+		}
+		OR = {
+			has_terrain = mountain
+			has_terrain = highlands
+		}
+	}
+
+	immediate = {
+		add_province_modifier = {
+			name = cappadocian_greek_rock_dwellings
+			duration = -1
+		}
+	}
+
+	option = {
+		name = null
+	}
+}
+
+province_event = { #Remove Cappadocian Greek bonus (-15% Dev cost in Highlands & Mountains)
+	id = cultural_influence_bonus.4
+	title = null
+	desc = null
+	picture = null
+	
+	hidden = yes
+
+	trigger = {
+		owner = {
+			NOT = {
+				has_country_modifier = {
+					cappadocian_greek_CI_bonus
+				}
+			}
+		}
+		has_province_modifier = cappadocian_greek_rock_dwellings
+	}
+
+	immediate = {
+		remove_province_modifier = cappadocian_greek_rock_dwellings
+	}
+
+	option = {
+		name = null
+	}
+}

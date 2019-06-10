@@ -1,0 +1,1130 @@
+namespace = cultural_influence_british
+#GOD SAVE THE QUEEN!
+
+#Standard English Events
+
+country_event = { #Northumbrian -> English / English -> Northumbrian
+	id = cultural_influence_british.1
+	title = british_first_unification.title
+	desc = british_first_unification.desc
+	picture = ARTWORK_eventPicture
+
+	major = yes
+	fire_only_once = yes
+
+	trigger = {
+		government_rank = 2
+		OR = {
+			primary_culture = english
+			primary_culture = northumbrian
+		}
+		NOT = { has_global_flag = british_first_unification_flag }
+		NOT = { #Owns all English and Northumbrian provinces in Europe
+			any_province = {
+				OR = {
+					culture = english
+					culture = northumbrian
+				}
+				continent = europe
+				NOT = { owned_by = ROOT }
+			}
+		}
+		OR = {
+			has_country_flag = had_war_of_the_roses
+			NOT = { current_age = age_of_discovery }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = british_first_unification.a
+
+		custom_tooltip = british_first_unification.effect
+		hidden_effect = {
+			set_global_flag = british_first_unification_flag
+			change_primary_culture = ROOT
+			set_ruler_culture = ROOT
+			set_heir_culture = ROOT
+			if = {
+				limit = {
+					NOT = { has_foreign_consort = yes }
+				}
+				set_consort_culture = ROOT
+			}
+			every_province = {
+				limit = {
+					OR = {
+						culture = english
+						culture = northumbrian
+					}
+				}
+					change_culture = ROOT
+			}
+		}
+		239 = { #Gloucestershire
+			add_base_tax = 1
+		}
+		4375 = { #Cheshire
+			add_base_tax = 1
+		}
+		if = { #House of York
+			limit = {
+				dynasty = York
+			}
+			4367 = {
+				add_base_tax = 2
+			}
+		}
+		if = { #House of Lancaster
+			limit = {
+				dynasty = Lancaster
+			}
+			244 = {
+				add_base_tax = 2
+			}
+		}
+		if = { #If this is you, you're probably a Tudor 
+			limit = {
+				NOT = { dynasty = York }
+				NOT = { dynasty = Lancaster }
+			}
+			4367 = {
+				add_base_tax = 1
+			}
+			244 = {
+				add_base_tax = 1
+			}
+		}
+	}
+}
+
+#Anglo-Welsh Events
+
+province_event = { #Anglo-Welsh (Assimilation)
+	id = cultural_influence_british.3
+	title = british_anglo_welsh_spread.title
+	desc = british_anglo_welsh_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { has_country_flag = anglicizing_wales_flag }
+		NOT = { culture_group = british }
+		anglo_welsh_culture_region = yes
+		OR = {
+			development = 30
+			any_neighbor_province = { culture_group = british }
+		}
+	}
+
+	mean_time_to_happen = {
+		#Template One Event Assimilated MTTH
+		years = 25
+		modifier = {
+			factor = 0.8
+			has_idea_to_assimilate_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			OWNER = { primary_culture = anglo_welsh }
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 10
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 20
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 30
+		}
+		modifier = { #Rural communities reluctant to convert
+			factor = 1.2
+			NOT = { development = 8 }
+		}
+		modifier = { #More extreme rural communities
+			factor = 1.5
+			NOT = { development = 5 }
+		}
+		modifier = { #Townships more connected to capital
+			factor = 0.9
+			development = 10
+		}
+		modifier = { #Cities even more connected
+			factor = 0.8
+			development = 20
+		}
+		modifier = { #Larger city means more connection
+			factor = 0.7
+			development = 30
+		}
+		modifier = { #Stop developing pls. k thx
+			factor = 0.6
+			development = 40
+		}
+	}
+
+
+	option = {
+		name = british_anglo_welsh_spread.a
+
+		change_culture = anglo_welsh
+	}
+}
+
+#Anglo-Irish Events
+
+province_event = { #Anglo-Irish (Assimilation)
+	id = cultural_influence_british.4
+	title = british_anglo_irish_spread.title
+	desc = british_anglo_irish_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { has_country_flag = anglicizing_ireland_flag }
+		NOT = { culture_group = british }
+		anglo_irish_culture_region = yes
+		OR = {
+			development = 30
+			any_neighbor_province = { culture_group = british }
+		}
+	}
+
+	mean_time_to_happen = {
+		#Template One Event Assimilated MTTH
+		years = 50
+		modifier = {
+			factor = 0.8
+			has_idea_to_assimilate_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			OWNER = { primary_culture = anglo_irish }
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 10
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 20
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 30
+		}
+		modifier = { #Rural communities reluctant to convert
+			factor = 1.2
+			NOT = { development = 8 }
+		}
+		modifier = { #More extreme rural communities
+			factor = 1.5
+			NOT = { development = 5 }
+		}
+		modifier = { #Townships more connected to capital
+			factor = 0.9
+			development = 10
+		}
+		modifier = { #Cities even more connected
+			factor = 0.8
+			development = 20
+		}
+		modifier = { #Larger city means more connection
+			factor = 0.7
+			development = 30
+		}
+		modifier = { #Stop developing pls. k thx
+			factor = 0.6
+			development = 40
+		}
+	}
+
+	option = {
+		name = british_anglo_irish_spread.a
+
+		change_culture = anglo_irish
+	}
+}
+
+#Scottish Events
+
+province_event = { #Scottish (Assimilation)
+	id = cultural_influence_british.5
+	title = british_scottish_spread.title
+	desc = british_scottish_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		OR = {
+			owner = { has_country_flag = anglicizing_highlands_flag }
+			OR = { #Allow Lowlands before decision
+				area = lowlands_area #Eastern Lowlands
+				area = scottish_marches_area #Western Lowlands
+				province_id = 4365 #Using this event to convert Mann
+			}
+		}
+		NOT = { culture_group = british }
+		OR = {
+			has_global_flag = british_first_unification_flag
+			owned_by = SCO
+		}
+		anglo_scottish_culture_region = yes
+		OR = {
+			development = 10
+			any_neighbor_province = { culture = british }
+		}
+	}
+
+	mean_time_to_happen = {
+		#Template One Event Assimilated MTTH
+		years = 25
+		modifier = {
+			factor = 0.8
+			has_idea_to_assimilate_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			OWNER = { primary_culture = scottish }
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 10
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 20
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 30
+		}
+		modifier = { #Rural communities reluctant to convert
+			factor = 1.2
+			NOT = { development = 8 }
+		}
+		modifier = { #More extreme rural communities
+			factor = 1.5
+			NOT = { development = 5 }
+		}
+		modifier = { #Townships more connected to capital
+			factor = 0.9
+			development = 10
+		}
+		modifier = { #Cities even more connected
+			factor = 0.8
+			development = 20
+		}
+		modifier = { #Larger city means more connection
+			factor = 0.7
+			development = 30
+		}
+		modifier = { #Stop developing pls. k thx
+			factor = 0.6
+			development = 40
+		}
+	}
+	
+	option = {
+		name = british_scottish_spread.a
+
+		change_culture = scottish
+
+		if = {
+			limit = {
+				province_id = 4365 #Mann
+				OR = {
+					primary_culture = english
+					primary_culture = northumbrian
+				}
+			}
+			change_culture = ROOT
+		}
+	}
+}
+
+#Standard British Events
+
+country_event = { #Devolution of Parliament Option Event
+	id = cultural_influence_british.6
+	title = devolution_of_parliament_1.title
+	desc = devolution_of_parliament_1.desc
+	picture = ARTWORK_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	is_triggered_only = yes #Fire from devolution decision
+
+	option = { #Devolution
+		name = devolution_of_parliament_1.a
+
+		set_country_flag = devolution_of_parliament
+		country_event = {
+			id = cultural_influence_british.9
+			days = 0
+		}
+	}
+
+	option = { #Standard British (Unitarianist movement)
+		name = devolution_of_parliament_1.b
+
+		trigger = {
+			OR = {
+				primary_culture = english #Standard_british is England centric, so don't permit anyone else to create
+				primary_culture = northumbrian #^^^
+			}
+		}
+
+		set_country_flag = centralization_of_parliament
+		country_event = { #Separate event to allow options for linguistic center
+			id = cultural_influence_british.7
+			days = 0
+		}
+	}
+}
+
+country_event = { #Form British
+	id = cultural_influence_british.7
+	title = british_second_unification.title
+	desc = british_second_unification.desc
+	picture = ARTWORK_eventPicture
+
+	is_triggered_only = yes
+	major = yes
+
+	immediate = {
+		hidden_effect = {
+			change_primary_culture = standard_british
+			set_ruler_culture = standard_british
+			set_heir_culture = standard_british
+			if = {
+				limit = {
+					NOT = { has_foreign_consort = yes }
+				}
+				set_consort_culture = standard_british
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = english
+						culture = anglo_welsh
+						culture = scottish
+					}
+				}
+				change_culture = standard_british
+			}
+		}
+	}
+
+	option = { #London
+		name = british_second_unification.a
+
+		236 = { #Add Academy to London
+			add_building = university
+			add_permanent_province_modifier = {
+				name = royal_institute_of_linguistics
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+	
+	option = { #Lothian
+		name = british_second_unification.b
+
+		248 = { #Add Academy to Lothian
+			add_building = university
+			add_permanent_province_modifier = {
+				name = royal_institute_of_linguistics
+				duration = -1
+				desc = desc_royal_institute_of_linguistics
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Glamorgan
+		name = british_second_unification.c
+
+		241 = { #Add Academy to Glamorgan
+			add_building = university
+			add_permanent_province_modifier = {
+				name = royal_institute_of_linguistics
+				duration = -1
+				desc = desc_royal_institute_of_linguistics
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #The Pale
+		name = british_second_unification.d
+
+		373 = { #Add Academy to Dublin
+			add_building = university
+			add_permanent_province_modifier = {
+				name = royal_institute_of_linguistics
+				duration = -1
+				desc = desc_royal_institute_of_linguistics
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #York Dynasty
+		name = british_second_unification.e
+
+		trigger = {
+			dynasty = York
+		}
+
+		4367 = { #Add Academy to York
+			add_building = university
+			add_permanent_province_modifier = {
+				name = royal_institute_of_linguistics
+				duration = -1
+				desc = desc_royal_institute_of_linguistics
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Lancaster Dynasty
+		name = british_second_unification.f
+
+		trigger = {
+			dynasty = Lancaster
+		}
+
+		244 = { #Add Academy to Lancaster
+			add_building = university
+			add_permanent_province_modifier = {
+				name = royal_institute_of_linguistics
+				duration = -1
+				desc = desc_royal_institute_of_linguistics
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Not Rose Dynasty
+		name = british_second_unification.g
+
+		trigger = {
+			NOT = { dynasty = Lancaster }
+			NOT = { dynasty = Yorkshire }
+		}
+
+		4376 = {
+			add_building = university
+			add_permanent_province_modifier = {
+				name = royal_institute_of_linguistics
+				duration = -1
+				desc = desc_royal_institute_of_linguistics
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+}
+
+province_event = { #Irish -> British
+	id = cultural_influence_british.8
+	title = british_third_unification.title
+	desc = british_third_unification.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		has_country_flag = centralization_of_parliament
+		OWNER = { primary_culture = standard_british }
+		culture = anglo_irish
+		has_owner_religion = yes #Catholic/Protestant divide
+		every_province = { #Ireland already Anglicized
+			limit = {
+				region = ireland_area
+				OR = {
+					culture = anglo_irish
+					culture = standard_british
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		#Template One Event Assimilated MTTH
+		years = 25
+		modifier = {
+			factor = 0.8
+			has_idea_to_assimilate_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			OWNER = { primary_culture = standard_british }
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 10
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 20
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 30
+		}
+		modifier = { #Rural communities reluctant to convert
+			factor = 1.2
+			NOT = { development = 8 }
+		}
+		modifier = { #More extreme rural communities
+			factor = 1.5
+			NOT = { development = 5 }
+		}
+		modifier = { #Townships more connected to capital
+			factor = 0.9
+			development = 10
+		}
+		modifier = { #Cities even more connected
+			factor = 0.8
+			development = 20
+		}
+		modifier = { #Larger city means more connection
+			factor = 0.7
+			development = 30
+		}
+		modifier = { #Stop developing pls. k thx
+			factor = 0.6
+			development = 40
+		}
+	}
+
+
+    option = {
+    	name = british_third_unification.a
+
+    	change_culture = standard_british
+    }
+}
+
+country_event = { #Devolution of Parliament
+	id = cultural_influence_british.9
+	title = devolution_of_parliament_2.title
+	desc = devolution_of_parliament_2.desc
+	picture = ARTWORK_eventPicture
+
+	fire_only_once = yes
+	major =  yes
+	is_triggered_only = yes
+
+	option = {
+		name = devolution_of_parliament_2.a
+		custom_tooltip = devolution_of_parliament_2.effect
+
+		add_country_modifier = {
+			name = devolution_modifier
+			duration = -1
+		}
+		236 = { #London
+			add_province_triggered_modifier = english_devolved_parliament_modifier
+			add_base_tax = 2
+		}
+		248 = { #Lothian
+			add_province_triggered_modifier = scottish_devolved_parliament_modifier
+			add_base_tax = 2
+		}
+		241 = { #Glamorgan
+			add_province_triggered_modifier = welsh_devolved_parliament_modifier
+			add_base_tax = 2
+		}
+	}
+}
+
+country_event = { #Unite Anglo-French Cultures
+	id = cultural_influence_british.10
+	title = unite_anglo_french.title
+	desc = unite_anglo_french.desc
+	picture = GREAT_BUILDING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = not_devolution_of_parliament
+		owns_core_province = 183 #paris
+		owns_core_province = 174 #Aquitaine
+		tag = UEF
+		culture_group = british
+	}
+
+	option = {
+		name = unite_anglo_french.a
+
+		every_province = {
+			limit = {
+				culture = anglo_norman
+				culture = anglo_gascon
+				culture = anglo_occitan
+				culture = anglo_burgundian
+			}
+			change_culture = anglo_french
+		}
+	}
+}
+
+country_event = { #Granting of Irish Parliament
+	id = cultural_influence_british.11
+	title = anglo_irish_parliament.title
+	desc = anglo_irish_parliament.desc
+	picture = GREAT_BUILDING_eventPicture
+
+	trigger = {
+		has_country_flag = devolution_of_parliament
+		373 = { owned_by = ROOT }
+		373 = { culture = anglo_irish }
+		NOT = { 373 = { has_province_modifier = irish_devolved_parliament_modifier } }
+	}
+
+	option = {
+		name = anglo_irish_parliament.a
+
+		373 = { #The Pale
+			hidden_effect = { add_province_triggered_modifier = irish_devolved_parliament_modifier }
+			add_base_tax = 2
+		}
+	}
+}
+
+country_event = { #Granting of Norman Parliament
+	id = cultural_influence_british.12
+	title = anglo_norman_parliament.title
+	desc = anglo_norman_parliament.desc
+	picture = GREAT_BUILDING_eventPicture
+
+	trigger = {
+		has_country_flag = devolution_of_parliament
+		183 = { owned_by = ROOT }
+		183 = { culture = anglo_norman }
+		NOT = { 183 = { has_province_modifier = french_devolved_parliament_modifier } }
+	}
+
+	option = {
+		name = anglo_norman_parliament.a
+
+		183 = { #Devolve Paris
+			hidden_effect = { add_province_triggered_modifier = french_devolved_parliament_modifier }
+			add_base_tax = 2
+		}
+	}
+}
+
+country_event = { #Granting of Gascon Parliament
+	id = cultural_influence_british.13
+	title = anglo_gascon_parliament.title
+	desc = anglo_gascon_parliament.desc
+	picture = GREAT_BUILDING_eventPicture
+
+	trigger = {
+		has_country_flag = devolution_of_parliament
+		174 = { owned_by = ROOT }
+		174 = { culture = anglo_gascon }
+		NOT = { 174 = { has_province_modifier = gascon_devolved_parliament_modifier } }
+	}
+
+	option = {
+		name = anglo_gascon_parliament.a
+
+		174 = { #Devolve Aquitaine
+			hidden_effect = { add_province_triggered_modifier = gascon_devolved_parliament_modifier }
+			add_base_tax = 2
+		}
+	}
+}
+
+#event IDs 12-20 saved for Standard British Special Events
+
+
+#event IDs 35-40 saved for European Cultures
+
+#Colonial Cultures
+
+#Oceania
+
+province_event = { #Australian
+	id = cultural_influence_british.41
+	title = british_australian.title
+	desc = british_australian.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		anglo_australian_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		owner = { culture_group = british }
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_australian.a
+
+		change_culture = anglo_australian
+	}
+}
+
+province_event = { #Kiwi
+	id = cultural_influence_british.42
+	title = british_kiwi.title
+	desc = british_kiwi.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		anglo_kiwi_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		owner = { culture_group = british }
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_kiwi.a
+
+		change_culture = anglo_kiwi
+	}
+}
+
+#Caribbean
+
+province_event = { #Caribbean
+	id = cultural_influence_british.43
+	title = british_carribean.title
+	desc = british_carribean.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		anglo_caribbean_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		owner = { culture_group = british }
+	}
+	
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_caribbean.a
+
+		change_culture = anglo_caribbean
+	}
+}
+
+#North America
+
+province_event = { #American
+	id = cultural_influence_british.44
+	title = british_american.title
+	desc = british_american.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		anglo_american_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		owner = { culture_group = british }
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_american.a
+
+		change_culture = american
+	}
+}
+
+province_event = { #Canadian
+	id = cultural_influence_british.45
+	title = british_canadian.title
+	desc = british_canadian.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		anglo_canadian_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		owner = { culture_group = british }
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_canadian.a
+
+		change_culture = anglo_canadian
+	}
+}
+
+province_event = { #Greenlander
+	id = cultural_influence_british.46
+	title = british_greenlander.title
+	desc = british_greenlander.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		anglo_greenlander_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		owner = { culture_group = british }
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_greenlander.a
+
+		change_culture = anglo_greenlander
+	}
+}
+
+province_event = { #Newfoundlander
+	id = cultural_influence_british.47
+	title = british_newfoundlander.title
+	desc = british_newfoundlander.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		anglo_newfoundlander_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		owner = { culture_group = british }
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_newfoundlander.a
+
+		change_culture = anglo_newfoundlander
+	}
+}
+
+#South America
+
+province_event = { #Brazilian
+	id = cultural_influence_british.48
+	title = british_brazilian.title
+	desc = british_brazilian.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		anglo_brazilian_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		owner = { culture_group = british }
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_brazilian.a
+
+		change_culture = anglo_brazilian
+	}
+}
+
+province_event = { #Peruvean
+	id = cultural_influence_british.49
+	title = british_peruvean.title
+	desc = british_peruvean.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		anglo_peruvean_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		owner = { culture_group = british }
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_peruvean.a
+
+		change_culture = anglo_peruvean
+	}
+}
+
+province_event = { #Colombian
+	id = cultural_influence_british.50
+	title = british_colombian.title
+	desc = british_colombian.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		anglo_colombian_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		owner = { culture_group = british }
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_colombian.a
+
+		change_culture = anglo_colombian
+	}
+}
+
+province_event = { #Argentine
+	id = cultural_influence_british.51
+	title = british_argentine.title
+	desc = british_argentine.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		anglo_argentine_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		owner = { culture_group = british }
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_argentine.a
+
+		change_culture = anglo_argentine
+	}
+}
+
+#Africa
+
+province_event = { #South African
+	id = cultural_influence_british.54
+	title = british_south_african.title
+	desc = british_south_african.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		OR = {
+			anglo_south_african_culture_region = yes
+			any_neighbor_province = {
+				culture = anglo_south_african
+			}
+		}
+		is_city = yes
+		british_new_world = no
+		owner = { culture_group = british }
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_south_african.a
+
+		change_culture = anglo_south_african
+	}
+}
+
+#Considered adding India to this list, but the influence of English in India 1600-1947 was fairly insignificant, if someone can convince me otherwise, please do - Sam

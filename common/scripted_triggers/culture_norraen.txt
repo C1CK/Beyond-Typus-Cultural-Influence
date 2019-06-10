@@ -1,0 +1,77 @@
+﻿has_nordic_culture = {
+	OR = { #Nordic Culture
+		primary_culture = norwegian
+		primary_culture = danish
+		primary_culture = swedish
+		primary_culture = faroese
+		primary_culture = icelandic
+		primary_culture = gotlander
+		primary_culture = scanian
+		primary_culture = norn
+		primary_culture = norraen
+	}
+}
+
+allowed_to_settle_nordic = {
+	OR = {
+		primary_culture = norwegian
+		primary_culture = danish
+		primary_culture = swedish
+		primary_culture = faroese
+		primary_culture = icelandic
+		primary_culture = gotlander
+		primary_culture = norraen
+		primary_culture = scanian
+	}
+}
+
+norraen_conditions = {
+	has_nordic_culture = yes
+	OR = {
+		government_rank = 3
+		any_country = { #Re-established Vinland
+			is_colonial_nation_of = ROOT
+		}
+		AND = { #Trade Hegemony
+			is_strongest_trade_power = lubeck 
+			is_strongest_trade_power = north_sea
+			is_strongest_trade_power = baltic_sea
+		}
+		any_owned_province = { #Danelaw
+			region = british_isles_region
+		}
+	}
+	NOT = {
+		any_province = {
+			AND = {
+				nordic_standardising_culture_group = yes
+				NOT = { owned_by = ROOT }
+				continent = europe
+			}
+		}
+	}
+	scandinavia_region = { owned_by = ROOT } #Owns All of Scandinavia
+	NOT = { has_global_flag = norraen_standardised_flag }
+}
+
+norraen_culture_region = {
+	OR = {
+		AND = {
+			region = scandinavia_region
+			norraen_finsk_culture_region = no
+		}
+	}
+}
+
+nordic_standardising_culture_group = {
+	OR = {
+		culture = norwegian
+		culture = danish
+		culture = swedish
+		culture = scanian
+		culture = gotlander
+		culture = icelandic
+		culture = faroese
+		culture = norn
+	}
+}

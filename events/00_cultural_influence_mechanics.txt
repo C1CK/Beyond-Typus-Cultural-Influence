@@ -1,0 +1,70 @@
+namespace = cultural_influence_mechanics
+#Yet another events file. Wooo!
+
+country_event = {
+	id = cultural_influence_mechanics.1
+	title = CI_adjust_times.title
+	desc = CI_adjust_times.desc
+	picture = null
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_global_flag = 05_CI_MTTH_flag
+		clr_global_flag = 10_CI_MTTH_flag
+		clr_global_flag = 15_CI_MTTH_flag
+		clr_global_flag = 20_CI_MTTH_flag
+		clr_global_flag = 40_CI_MTTH_flag
+	}
+
+	option = { #0.5x
+		name = CI_adjust_times.a
+
+		set_global_flag = 05_CI_MTTH_flag
+	}
+
+	option = { #1.0x
+		name = CI_adjust_times.b
+
+		set_global_flag = 10_CI_MTTH_flag
+	}
+
+	option = { #1.5x
+		name = CI_adjust_times.c
+
+		set_global_flag = 15_CI_MTTH_flag
+	}
+
+	option = { #2.0x
+		name = CI_adjust_times.d
+
+		set_global_flag = 20_CI_MTTH_flag
+	}
+
+	option = { #4.0x
+		name = CI_adjust_times.e
+
+		set_global_flag = 40_CI_MTTH_flag
+	}
+}
+
+country_event = { #West Germanic explanatory
+	id = cultural_influence_mechanics.2
+	title = CI_west_germanic_nation.title
+	desc = CI_west_germanic_nation.desc
+	picture = INVENTION_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_flag = west_germanic_mechanics_flag }
+		allowed_to_settle_germanic = yes
+	}
+
+	immediate = {
+		set_country_flag = west_germanic_mechanics_flag
+	}
+
+	option = {
+		name = CI_west_germanic_nation.a
+	}
+}

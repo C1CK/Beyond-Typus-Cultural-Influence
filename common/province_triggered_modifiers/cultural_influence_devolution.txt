@@ -1,0 +1,317 @@
+english_devolved_parliament_modifier = { #Used for Welsh, Scottish, and Irish dominated Isles
+	potential = {
+		owner = {
+			culture_group = british
+		}
+	}
+
+	trigger = {
+		owner = {
+			has_parliament = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = british_devolution_capital_not_in_england.tooltip
+			owner = {
+				capital_scope = { #Ensure that England isn't the parliamentary centre
+					standard_english_culture_region = no
+				}
+			}
+		}
+	}
+
+	tax_income = 1
+	local_development_cost = -0.1
+	local_state_maintenance_modifier = 0.25
+}
+
+scottish_devolved_parliament_modifier = { #Used for Welsh, English, and Irish dominated Isles
+	potential = {
+		owner = {
+			culture_group = british
+		}
+	}
+
+	trigger = {
+		owner = {
+			has_parliament = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = british_devolution_capital_not_in_scotland.tooltip
+			owner = {
+				capital_scope = { #Ensure that Scotland isn't the parliamentary centre
+					anglo_scottish_culture_region = no
+				}
+			}
+		}
+	}
+
+	tax_income = 1
+	local_development_cost = -0.1
+	local_state_maintenance_modifier = 0.25
+}
+
+welsh_devolved_parliament_modifier = { #Used for Scottish, English, and Irish dominated Isles
+	potential = {
+		owner = {
+			culture_group = british
+		}
+	}
+
+	trigger = {
+		owner = {
+			has_parliament = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = british_devolution_capital_not_in_wales.tooltip
+			owner = {
+				capital_scope = { #Ensure that Wales isn't the parliamentary centre
+					NOT = { area = wales_area }
+				}
+			}
+		}
+	}
+
+	tax_income = 1
+	local_development_cost = -0.1
+	local_state_maintenance_modifier = 0.25
+}
+
+irish_devolved_parliament_modifier = { #Used for Scottish, English, and Welsh dominated Isles
+	potential = {
+		owner = {
+			culture_group = british
+		}
+	}
+
+	trigger = {
+		owner = {
+			has_parliament = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = british_devolution_capital_not_in_ireland.tooltip
+			owner = {
+				capital_scope = { #Ensure that Wales isn't the parliamentary centre
+					NOT = { region = ireland_area }
+				}
+			}
+		}
+	}
+
+	tax_income = 1
+	local_development_cost = -0.1
+	local_state_maintenance_modifier = 0.25
+}
+
+english_central_parliament_modifier = { #Used for English dominated Isles
+	potential = {
+		owner = {
+			culture_group = british
+		}
+	}
+
+	trigger = {
+		owner = {
+			has_parliament = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = british_devolution_capital_in_england.tooltip
+			owner = {
+				capital_scope = {
+					standard_english_culture_region = yes
+				}
+			}
+		}
+	}
+
+	local_development_cost = -0.15
+	local_tax_modifier = 0.25
+	local_autonomy = -0.1
+	local_state_maintenance_modifier = 0.25
+}
+
+scottish_central_parliament_modifier = { #Used for Scottish dominated Isles
+	potential = {
+		owner = {
+			culture_group = british
+		}
+	}
+
+	trigger = {
+		owner = {
+			has_parliament = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = british_devolution_capital_in_scotland.tooltip
+			owner = {
+				capital_scope = {
+					anglo_scottish_culture_region = yes
+				}
+			}
+		}
+	}
+
+	local_development_cost = -0.15
+	local_tax_modifier = 0.25
+	local_autonomy = -0.1
+	local_state_maintenance_modifier = 0.25
+}
+
+welsh_central_parliament_modifier = { #Used for Welsh dominated Isles
+	potential = {
+		owner = {
+			culture_group = british
+		}
+	}
+
+	trigger = {
+		owner = {
+			has_parliament = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = british_devolution_capital_in_wales.tooltip
+			owner = {
+				capital_scope = {
+					area = wales_area
+				}
+			}
+		}
+	}
+
+	local_development_cost = -0.15
+	local_tax_modifier = 0.25
+	local_autonomy = -0.1
+	local_state_maintenance_modifier = 0.25
+}
+
+irish_central_parliament_modifier = { #Used for Irish dominated Isles
+	potential = {
+		owner = {
+			culture_group = british
+		}
+	}
+
+	trigger = {
+		owner = {
+			has_parliament = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = british_devolution_capital_in_ireland.tooltip
+			owner = {
+				capital_scope = {
+					region = ireland_area
+				}
+			}
+		}
+	}
+
+	local_development_cost = -0.15
+	local_tax_modifier = 0.25
+	local_autonomy = -0.1
+	local_state_maintenance_modifier = 0.25
+}
+
+#Specials
+
+cornish_devolved_parliament_modifier = { #Created via decision
+	potential = {
+		owner = {
+			culture_group = british
+		}
+	}
+
+	trigger = {
+		owner = {
+			has_parliament = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = british_devolution_capital_not_in_cornwall.tooltip
+			owner = {
+				capital_scope = { #Ensure that Cornwall isn't the parliamentary centre
+					NOT = { area = cornwall_area }
+				}
+			}
+		}
+	}
+
+	tax_income = 1
+	local_development_cost = -0.1
+	local_state_maintenance_modifier = 0.25
+}
+
+parisian_devolved_parliament_modifier = {
+	potential = {
+		owner = {
+			culture_group = british
+		}
+	}
+
+	trigger = {
+		owner = {
+			has_parliament = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = british_devolution_capital_not_in_france.tooltip
+			owner = {
+				capital_scope = { #Ensure that France isn't the parliamentary centre
+					NOT = { region = france_region }
+				}
+			}
+		}
+	}
+
+	tax_income = 1
+	local_development_cost = -0.1
+	local_state_maintenance_modifier = 0.25
+}
+
+breton_devolved_parliament_modifier = {
+	potential = {
+		owner = {
+			culture_group = british
+		}
+	}
+
+	trigger = {
+		owner = {
+			has_parliament = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = british_devolution_capital_not_in_france.tooltip
+			owner = {
+				capital_scope = { #Ensure that France isn't the parliamentary centre
+					NOT = { region = france_region }
+				}
+			}
+		}
+	}
+
+	tax_income = 1
+	local_development_cost = -0.1
+	local_state_maintenance_modifier = 0.25
+}
+
+gascon_devolved_parliament_modifier = { #Removed
+	potential = {
+		owner = {
+			culture_group = british
+		}
+	}
+
+	trigger = {
+		owner = {
+			has_parliament = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = british_devolution_capital_not_in_france.tooltip
+			owner = {
+				capital_scope = { #Ensure that France isn't the parliamentary centre
+					NOT = { region = france_region }
+				}
+			}
+		}
+	}
+
+	tax_income = 1
+	local_development_cost = -0.1
+	local_state_maintenance_modifier = 0.25
+}

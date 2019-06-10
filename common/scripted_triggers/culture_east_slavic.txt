@@ -1,0 +1,213 @@
+russki_culture_region = {
+	OR = {
+		region = russia_region
+		area = west_karelia_area
+		AND = { #West of the Ural Mountains
+			region = ural_region
+			NOT = { area = ural_area }
+			NOT = { province_id = 1072 } #Obdorsk, East of Ural Mountains
+			NOT = { province_id = 1966 } #East of Ural Mountains
+			NOT = { province_id = 2444 } #East of Ural Mountains
+			NOT = { province_id = 2420 } #Should be Central Asian instead
+		}
+		area = middle_don_area
+		area = lower_don_area
+		area = astrakhan_area
+		#North of Caucasus Mountains
+		province_id = 2195
+		area = circassia_area
+		area = dagestan_area
+		#Western parts of Central Asia
+		area = lower_yik_area
+		#Russification of Russka land
+		area = polotsk_area
+		area = vitebsk_area
+		province_id = 4246 #Mstislavlis
+		province_id = 7238 #Krychaw
+		province_id = 7229 #Chavusy
+		area = bryansk_area
+		area = eastern_severia
+	}
+}
+
+russka_culture_region = {
+	OR = {
+		region = ruthenia_region
+		province_id = 293 #Smolenskas, Belarussian RoI
+		province_id = 5684 #Velizh, Belarussian RoI
+		province_id = 5661 #Velizas, Belarussian RoI
+		province_id = 7880 #Zhizhets, Belarussian RoI
+		province_id = 7881 #Verzhavsk, Belarussian RoI
+		province_id = 3301 #Dorogbuzas, Belarussian RoI
+		area = carpathian_ruthenia
+		province_id = 7267 #Sanok
+		province_id = 2424 #Przemysl
+		province_id = 7266 #Szczcebrzesyn
+		province_id = 4538 #Chelm
+		province_id = 3223 #Balstoge
+		province_id = 1937 #Gardinas
+		province_id = 4536 #Lyda
+		province_id = 770 #Beslauja
+		province_id = 7219 #Myadzel
+		area = podlasie_area
+		province_id = 7274 #Bukovina
+		province_id = 7275 #Khotyn
+		area = moldavia_area #Bessarabia
+		AND = {
+			region = crimea_region #Pontic Steppe
+			NOT = { area = middle_don_area } #Russki
+			NOT = { area = lower_don_area } #Russki
+			NOT = { area = astrakhan_area } #Russki
+		}
+	}
+}
+
+cossack_rule_region = { #These provinces must be made Cossack first before they can be Russified. (Even then the rural Steppe land will remain Cossack)
+	OR = {
+		region = crimea_region #Pontic Steppe
+		province_id = 2195
+		area = circassia_area
+		area = dagestan_area
+		area = lower_yik_area
+		area = saratov_area
+		area = tambov_area
+		area = samara_area
+		province_id = 1082 #Kazan
+		area = kama_area
+		province_id = 475 #Bashkortostan
+		province_id = 1965 #Buzuluk
+	}
+}
+
+belarussian_culture_region = {
+	OR = {
+		area = podlasie_area
+		province_id = 3223 #Balstoge
+		province_id = 1937 #Gardinas
+		province_id = 4536 #Lyda
+		province_id = 770 #Beslauja
+		province_id = 7219 #Myadzel
+		area = novogrudok_area
+		area = pripyat_area #Brest
+		area = mazur_area #Mazyr
+		area = minsk_area
+		area = polotsk_area
+		area = vitebsk_area
+		area = white_ruthenia_area #Gomel
+		area = mstislavl_area
+		area = bryansk_area
+		province_id = 293 #Smolenskas, Belarussian RoI
+		province_id = 5684 #Velizh, Belarussian RoI
+		province_id = 5661 #Velizas, Belarussian RoI
+		province_id = 7880 #Zhizhets, Belarussian RoI
+		province_id = 7881 #Verzhavsk, Belarussian RoI
+		province_id = 3301 #Dorogbuzas, Belarussian RoI
+	}
+}
+
+ukrainian_culture_region = {
+	OR = {
+		area = carpathian_ruthenia_area
+		province_id = 7267 #Sanok
+		province_id = 2424 #Przemysl
+		area = central_galicia_area
+		area = red_ruthenia_area #East Galicia
+		province_id = 7266 #Szczcebrzesyn
+		province_id = 4538 #Chelm
+		area = volhynia_area
+		area = eastern_volhynia_area
+		area = western_podolia_area
+		province_id = 7274 #Bukovina
+		province_id = 7275 #Khotyn
+		area = moldavia_area #Bessarabia
+		area = west_dniepr_area
+		area = podolia_volhynia_area #Eastern Podolia
+		area = cherkasy_area
+		area = chernigov_area
+		AND = {
+			region = crimea_region #Pontic Steppe
+			NOT = { area = middle_don_area } #Russki
+			NOT = { area = lower_don_area } #Russki
+			NOT = { area = astrakhan_area } #Russki
+		}
+		area = east_dniepr_area
+		area = western_severia
+		area = eastern_severia
+	}
+}
+
+rusyn_culture_region = {
+	OR = {
+		area = carpathian_ruthenia_area
+	}
+}
+
+northern_russian_culture_region = {
+	OR = {
+		area = laponia_area #Kola
+		area = karelia_area #East Karelia
+		area = west_karelia_area
+		area = north_karelia_area #Ingria
+		area = arkhangelsk_area #Onega
+		area = pskov_area
+		area = novgorod_area
+		area = vladimir_area #Svir
+		area = valdai_area
+		area = beloozero_area
+		area = pomor_area #Northern Dvina
+		area = yaroslavl_area
+		area = vologda_area #Sukhona
+		area = galich_area
+		area = mezen_area
+		AND = {
+			area = nenets_area
+			NOT = { province_id = 1072 } #Obdorsk, East of Ural Mountains
+		}
+		area = pechora_area
+		area = vychegda_area
+		area = yatka_area
+		province_id = 4266 #Izhkar
+		area = perm_area
+	}
+}
+
+middle_russian_culture_region = {
+	OR = {
+		area = polotsk_area
+		area = vitebsk_area
+		area = toropets_area
+		province_id = 4246 #Mstislavlis
+		province_id = 7238 #Krychaw
+		province_id = 7229 #Chavusy
+		province_id = 5685 #Roslavl
+		province_id = 5662 #Mosalk
+		area = smolensk_area
+		area = rzhev_area
+		area = valdai_area
+		area = tver_area
+		area = moscow_area
+		area = northern_upper_oka_area
+		area = suzdal_area #Zalesye
+		area = nizhny_novgorod_area
+		area = kazan_area
+	}
+}
+
+southern_russian_culture_region = {
+	OR = {
+		AND = {
+			area = bryansk_area
+			NOT = { province_id = 5685 } #Roslavl
+		}
+		AND = {
+			area = west_oka_area #Western Upper OKA
+			NOT = { province_id = 5662 } #Mosalk
+		}
+		area = eastern_severia
+		area = oka_area #Eastern Upper Oka
+		area = upper_don_area
+		area = ryazan_area
+		area = murom_area
+		#Rest of the South is being Cossack
+	}
+}

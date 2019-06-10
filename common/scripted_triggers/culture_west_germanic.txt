@@ -1,0 +1,445 @@
+﻿hochdeutsch_culture_region = {
+	OR = {
+		region = north_german_region #Fully German
+		AND = { #Split off Bohemia
+			region = south_german_region
+			NOT = { area = erzgebirge_area }
+			NOT = { area = bohemia_area }
+			NOT = { area = moravia_area }
+		}
+		province_id = 94 #Luxembourg
+		province_id = 188 #Metz
+		area = frisia_area
+		province_id = 3135 #Nordfriesland
+		area = pomeralia_area
+		area = west_prussia_area
+		area = east_prussia_area
+		#Settled areas
+		
+	}
+}
+
+plaatduutsch_culture_region = { #Initially only modern Germany, later extends to Prussian region, Posisch region, and Silesian region
+	OR = {
+		region = north_german_region
+		area = frisia_area
+		province_id = 3135 #North Friesland
+	}
+}
+
+irminonic_culture_region = { #Initially only modern Germany, later extends to Austrian region, Swiss region, and possibly Sudeten region if Germany is super strong
+	OR = {
+		AND = {
+			region = south_german_region #Fully German
+			NOT = { area = erzgebirge_area }
+			NOT = { area = bohemia_area }
+			NOT = { area = moravia_area }
+			NOT = { area = switzerland_area } #Swiss!
+			NOT = { area = romandie_area } #Swiss!
+		}
+		area = trentino_area
+		province_id = 3051 #Burgenland
+	}
+}
+
+allowed_to_settle_germanic = {
+	OR = {
+		primary_culture = austrian
+		primary_culture = bavarian
+		primary_culture = swabian
+		primary_culture = franconian
+		primary_culture = hessian #rhenish
+		primary_culture = saxon
+		primary_culture = hannoverian #westphalian
+		primary_culture = pommeranian
+		primary_culture = prussian
+		primary_culture = frisian
+		primary_culture = swiss
+		primary_culture = standard_german
+		primary_culture = sudeten
+		primary_culture = anglisch #Ænglisch
+		primary_culture = juten
+		primary_culture = neunordisch
+		primary_culture = posisch
+		primary_culture = baltendeutsch
+		primary_culture = schlesisch
+		primary_culture = weissdeutsch #Weißdeutsch
+		primary_culture = ruthenisch
+		primary_culture = wolgadeutsch
+		primary_culture = schwarzmeererdeutsch
+		primary_culture = krimdeutsch
+		primary_culture = bessarabiendeutsch
+		primary_culture = kaukasusdeutsch
+		primary_culture = pannonischdeutsch
+		primary_culture = dinarischdeutsch
+		primary_culture = siebenburger
+		primary_culture = frankisch
+		primary_culture = langobardin
+	}
+}
+
+hochdeutsch_culture_group = {
+	OR = {
+		culture = bavarian
+		culture = swabian
+		culture = franconian
+		culture = hessian #rhenish
+		culture = saxon
+		culture = hannoverian #westphalian
+		culture = pommeranian
+	}
+}
+
+sachsisch_culture_region = {
+	OR = {
+		province_id = 1763 #Dolni Luzice
+		province_id = 60 #Oberlausitz
+	}
+}
+
+preussisch_culture_region = { #Assimilates into Hochdeutsch
+	OR = {
+		area = pomerelia_area
+		area = west_prussia_area
+		area = east_prussia_area
+	}
+}
+
+standaard_nederlands_culture_region = {
+	OR = {
+		AND = {
+			region = low_countries_region
+			NOT = { area = frisia_area }
+			NOT = { province_id = 94 } #Luxembourg
+		}
+		province_id = 87 #Kalen
+		province_id = 88 #Artesien
+	}
+}
+
+standaard_nederlands_culture_group = {
+	OR = {
+		culture = dutch
+		culture = flemish
+	}
+}
+
+frankisch_culture_region = {
+	region = france_region
+	NOT = { province_id = 188 } #Metz (Included in Hochdeutsch instead)
+	NOT = { province_id = 87 } #Kalen (Included in Standaard Nederlands instead)
+	NOT = { province_id = 88 } #Artesien (^^^)
+}
+
+frankisch_culture_group = {
+	OR = {
+		culture = cosmopolitan_french #Francien
+		culture = normand #Norman
+		culture = gascon
+		culture = occitain #Occitan
+		culture = burgundian
+		culture = arpitan
+
+		culture = standard_french
+		culture = standard_occitan
+	}
+}
+
+anglisch_culture_region = {
+	OR = {
+		region = british_isles_region
+		province_id = 369 #Orkney (In Scandinavia region, but more geographically tied to the British Isles)
+		province_id = 1978 #Shetlands (^^^)
+	}
+}
+
+anglisch_culture_group = {
+	OR = {
+		culture = english
+		culture = northumbrian
+		culture = scottish
+	}
+}
+
+juten_culture_region = {
+	OR = {
+		province_id = 13 #Schleswig
+		province_id = 3134 #Apenrade
+		area = jutland_area
+		area = denmark_area
+		area = skaneland_area #Debatable between Neunordisch and Juten
+	}
+}
+
+juten_culture_group = {
+	OR = {
+		culture = danish
+	}
+}
+
+neunordisch_culture_region = { #Excludes settled regions
+	OR = {
+		AND = {
+			region = scandinavia_region
+			NOT = { area = schleswig_area }
+			NOT = { area = jutland_area }
+			NOT = { area = denmark_area }
+			NOT = { area = skaneland_area } #Debatable between Neunordisch and Juten
+			NOT = { area = finland_area }
+			NOT = { area = bothnia_area }
+			NOT = { province_id = 369 } #Orkney (In Scandinavia region, but more geographically tied to the British Isles)
+			NOT = { province_id = 1978 } #Shetlands (^^^)
+		}
+	}
+}
+
+neunordisch_culture_group = {
+	OR = {
+		culture = gotlander
+		culture = swedish
+		culture = norwegian
+		culture = icelandic
+		culture = faroese
+	}
+}
+
+fennoscandia_culture_region = { #Includes settled regions
+	OR = {
+		AND = {
+			region = scandinavia_region
+			NOT = { area = schleswig_area }
+			NOT = { area = jutland_area }
+			NOT = { area = denmark_area }
+			NOT = { area = skaneland_area } #Debatable between Neunordisch and Juten
+			NOT = { province_id = 369 } #Orkney (In Scandinavia region, but more geographically tied to the British Isles)
+			NOT = { province_id = 1978 } #Shetlands (^^^)
+		}
+		area = karelia_area
+		area = laponia_area #Kola
+	}
+}
+
+langobardin_culture_region = { #Doesn't actually cut down on anything, but w/e
+	OR = {
+		region = italy_region
+		area = istria_area
+	}
+}
+
+langobardin_culture_group = {
+	OR = {
+		culture = venetian
+		culture = lombard
+		culture = romagnan
+		culture = piedmontese
+		culture = ligurian
+		culture = tuscan
+		culture = umbrian
+		culture = neapolitan
+		culture = sicilian
+		culture = maltese
+		culture = corsican
+		#Temp!
+		culture = romanch_culture
+		culture = corsican_culture
+		culture = friulian_culture
+		culture = ladin_culture
+
+		culture = standard_italian
+	}
+}
+
+sudeten_culture_region = {
+	OR = {
+		area = erzgebirge_area
+		area = bohemia_area
+		area = moravia_area
+	}
+}
+
+schlesisch_culture_region = {
+	OR = {
+		area = silesia_area #Upper Silesia
+		area = lower_silesia_area
+	}
+}
+
+posisch_culture_region = {
+	region = poland_region
+	NOT = { area = silesia_area } #Schlesisch instead
+	NOT = { area = lower_silesia_area } #^^^
+}
+
+baltendeutsch_culture_region = {
+	OR = {
+		AND = {
+			region = baltic_region
+			NOT = { area = east_prussia_area }
+			NOT = { area = west_prussia_area }
+			NOT = { area = pomerelia_area }
+		}
+		province_id = 7126 #Braslaw (Cleaner cultural borders)
+	}
+}
+
+pannoniendeutsch_culture_region = {
+	OR = {
+		area = slovakia_area
+		AND = {
+			area = transdanubia_area
+			NOT = { province_id = 3051 } #Burgenland
+		}
+		AND = {
+			area = carpathian_ruthenia_area
+			NOT = { province_id = 1952 } #Maramaros
+		}
+		area = alfold_area
+		area = slavonia_area
+		province_id = 131 #Zagreb
+		province_id = 7739 #Vukovar
+		province_id = 7718 #Srem
+		AND = {
+			area = banat_area
+			NOT = { province_id = 7744 } #Lugoj
+			NOT = { province_id = 7746 } #Caransebes
+		}
+	}
+}
+
+dinaridendeutsch_culture_region = {
+	OR = {
+		AND = {
+			area = croatia_area
+			NOT = { province_id = 3191 } #Pflaum
+			NOT = { province_id = 131 } #Zagreb
+		}
+		area = krajina_area
+		area = bosnia_area
+		area = herzegovina_area
+		province_id = 3187 #Podrinje
+		province_id = 4239 #Belgrade
+		area = east_adriatic_coast_area
+		area = montenegro_area
+		province_id = 7144 #Qarku i Dibrës
+		area = rascia_area
+		area = serbia_area
+		AND = {
+			area = vidin_area
+			NOT = { province_id = 7707 } #Vratsa
+		}
+		province_id = 7705 #Pirot
+		province_id = 3000 #Nis
+		province_id = 7711 #Vranje
+	}
+}
+
+ruthenisch_culture_region = {
+	OR = {
+		area = red_ruthenia_area
+		area = central_galicia_area
+		area = western_podolia_area
+		area = eastern_volhynia_area
+		province_id = 7268 #Peremyl
+		area = west_dniepr_area #West Dniepr
+		area = cherkasy_area #West Dnieper
+		area = podolia_volhynia_area #East Podolia
+		area = chernigov_area
+		area = east_dniepr_area
+		area = western_severia
+		area = eastern_severia
+	}
+}
+
+weissdeutsch_culture_region = {
+	OR = {
+		area = pripyat_area #Brest
+		area = novogrudok_area #Novgrudok
+		area = mazur_area #Mazyr
+		area = minsk_area
+		AND = {
+			area = polotsk_area
+			NOT = { province_id = 7216 } #Braslaw
+		}
+		area = white_ruthenia_area #Gomel
+		area = mstislavl_area
+		area = vitebsk_area
+		area = bryansk_area
+		province_id = 293 #Smolenkas
+		province_id = 3301 #Dorogobuzas
+		province_id = 5684 #Velizh
+	}
+}
+
+siebenburger_culture_region = {
+	OR = {
+		area = transylvania_area
+		area = southern_transylvania_area
+		province_id = 1952 #Maramaros
+		province_id = 7744 #Lugoj
+		province_id = 7746 #Caransebes
+		area = oltenia_area
+		area = upper_muntenia_area
+		area = wallachia_area
+	}
+}
+
+bessarabiendeutsch_culture_region = {
+	OR = {
+		area = moldavia_area
+		area = bukovina_area
+		area = western_moldovia
+	}
+}
+
+wolgadeutsch_culture_region = {
+	OR = { #If East of Weißdeutsch and Ruthenisch, and North of Caucasus Mountains and west of Ural Mountains
+		AND = {
+			region = russia_region
+			NOT = { area = karelia_area }
+			NOT = { area = laponia_area }
+			NOT = { province_id = 293 #Smolenkas } #Weißdeutsch
+			NOT = { province_id = 3301 #Dorogobuzas } #^^^
+			NOT = { province_id = 5684 #Velizh } #^^^
+		}
+		AND = {
+			region = ural_region
+			NOT = { area = ural_area }
+			NOT = { province_id = 1072 } #East of Ural Mountains
+			NOT = { province_id = 1966 } #East of Ural Mountains
+			NOT = { province_id = 2444 } #East of Ural Mountains
+			NOT = { province_id = 2420 } #Mountain range now minor enough should be Caspian German instead
+		}
+		area = middle_don_area
+		area = lower_don_area
+		area = astrakhan_area
+		province_id = 3291 #Oskol
+		area = lower_yik_area #Creates nicer borders against Caspian German
+	}
+}
+
+schwarzmeererdeutsch_culture_region = {
+	OR = {
+		area = yedisan_area
+		area = western_zaporizhia_area
+		area = lower_dnieper_area
+		area = pryazovia_area
+		area = zaporizhia_area #East Zaporizhia
+		area = sloboda_ukraine_area #???
+		area = azov_area
+		province_id = 2447 #Matrega
+	}
+}
+
+krimdeutsch_culture_region = {
+	OR = {
+		area = crimea_area
+	}
+}
+
+kaukasusdeutsch_culture_region = {
+	OR = {
+		area = circassia_area
+		area = dagestan_area
+		province_id = 2195 #Odyghe (North of the Kaukasus Mountains)
+	}
+}

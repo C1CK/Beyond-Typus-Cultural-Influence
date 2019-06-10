@@ -1,0 +1,586 @@
+namespace = cultural_influence_south_slavic
+#Not too much going on here, but some fun interplay
+
+province_event = { #Croatian/Bosniak -> Serbian (Calling Croatian a Catholic Serbo-Croat dialect)
+	id = cultural_influence_south_slavic.1
+	title = serbian_assimilation.title
+	desc = serbian_assimilation.desc
+	picture = ARTWORK_eventPicture
+
+	trigger = {
+		OR = {
+			culture = croatian
+			culture = bosnian #Heal the Islamic divide
+		}
+		religion = orthodox
+		has_global_flag = CI_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+	}
+
+	option = {
+		name = serbian_assimilation.a
+
+		change_culture = serbian
+	}
+}
+
+province_event = { #Serbian/Bosniak -> Croatian (Calling Serbian an Orthodox Serbo-Croat dialect)
+	id = cultural_influence_south_slavic.2
+	title = croatian_assimilation.title
+	desc = croatian_assimilation.desc
+	picture = ARTWORK_eventPicture
+
+	trigger = {
+		OR = {
+			culture = serbian
+			culture = bosnian #Heal the Islamic divide
+		}
+		religion = catholic
+		has_global_flag = CI_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+	}
+
+	option = {
+		name = croatian_assimilation.a
+
+		change_culture = croatian
+	}
+}
+
+province_event = { #Serbian/Croatian -> Bosniak (Calling Bosniak an Islamic Serbo-Croat dialect)
+	id = cultural_influence_south_slavic.3
+	title = croatian_assimilation.title
+	desc = croatian_assimilation.desc
+	picture = ARTWORK_eventPicture
+
+	trigger = {
+		OR = {
+			culture = croatian
+			culture = serbian
+		}
+		owner = { primary_culture = bosnian } #Must be Bosnian as this is more of a stretch than Serbo-Croat shift
+		religion_group = muslim
+		has_global_flag = CI_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+	}
+
+	option = {
+		name = bosniak_assimilation.a
+
+		change_culture = bosnian
+	}
+}
+
+province_event = { #Serbo-Croat settlement (Dalmatia, Istria)
+	id = cultural_influence_south_slavic.4
+	title = serbo_croat_settlement.title
+	desc = serbo_croat_settlement.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		serbo_croat_homeland = yes #Part of their Traditional Homeland (Kinda dodgy doing this but it's the best way to handle this tbh)
+		NOT = { #Not already Serbo-Croat
+			OR = {
+				culture = serbian
+				culture = croatian
+				culture = bosnian
+			}
+		}
+		owner = { culture_group = south_slavic }
+		any_neighbor_province = { #Neighbouring province is Serbo-Croat
+			OR = {
+				culture = serbian
+				culture = croatian
+				culture = bosnian
+			}
+		}
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		AND = {
+			is_city = yes
+			has_colonist = yes
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			development = 10
+		}
+		modifier = {
+			factor = 1.5
+			development = 15
+		}
+		modifier = {
+			factor = 1.5
+			development = 20
+		}
+		modifier = {
+			factor = 1.5
+			development = 25
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					OR = {
+						culture = serbian
+						culture = croatian
+						culture = bosnian
+					}
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					OR = {
+						culture = serbian
+						culture = croatian
+						culture = bosnian
+					}
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = serbo_croat_settlement.a
+
+		if = { #This should handle all cases appropriately, Croat West based/Catholic dialect, Serb Orthodox/East based dialect, Bosniak purely Islamic.
+			limit = {
+				OR = { #Either Orthodox nation, Serbian, or Bulgarian
+					OWNER = { religion = orthodox }
+					OWNER = { primary_culture = serbian }
+					OWNER = { primary_culture = bulgarian }
+				}
+			}
+			change_culture = serbian
+		}
+		if = {
+			limit = {
+				OR = { #Either Catholic nation, Croatian, or Slovenian
+					OWNER = { religion = catholic }
+					OWNER = { primary_culture = croatian }
+					OWNER = { primary_culture = slovenian }
+				}
+			}
+			change_culture = croatian
+		}
+		if = {
+			limit = {
+				OR = {
+					OWNER = { religion_group = muslim }
+					OWNER = { primary_culture = bosniak }
+				}
+			}
+			change_culture = bosniak
+		}
+	}
+}
+
+province_event = { #Greater Bulgaria! settlement (Low dev)
+	id = cultural_influence_south_slavic.5
+	title = greater_bulgaria_settlement.title
+	desc = greater_bulgaria_settlement.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		greater_bulgarian_region = yes
+		NOT = { culture = bulgarian }
+		any_neighbor_province = { culture = bulgarian }
+		NOT = { development = 15 }
+		AND = {
+			is_city = yes
+			has_colonist = yes
+		}
+		has_country_flag = bulgarization_of_greater_bulgaria
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			development = 10
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = bulgarian
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = bulgarian
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = greater_bulgaria_settlement.a
+
+		change_culture = bulgarian
+
+		add_province_modifier = {
+			name = new_bulgarian_settlements
+			duration = 3650 #10 years
+		}
+	}
+}
+
+province_event = { #Greater Bulgaria! assimilation (High dev)
+	id = cultural_influence_south_slavic.6
+	title = greater_bulgaria_assimilation.title
+	desc = greater_bulgaria_assimilation.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		greater_bulgaria_region = yes
+		NOT = { culture = bulgarian }
+		calc_true_if = {
+			all_neighbor_province = {
+				culture = bulgarian
+			}
+			amount = 2
+		}
+		development = 15
+		has_country_flag = bulgarization_of_greater_bulgaria
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 60
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			development = 20
+		}
+		modifier = {
+			factor = 1.5
+			development = 25
+		}
+		modifier = {
+			factor = 1.5
+			development = 30
+		}
+		modifier = {
+			factor = 1.5
+			development = 35
+		}
+		modifier = {
+			factor = 1.5
+			development = 40
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = bulgarian
+				}
+				amount = 3
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = bulgarian
+				}
+				amount = 4
+			}
+		}
+	}
+
+	option = {
+		name = greater_bulgaria_assimilation.a
+
+		change_culture = bulgarian
+	}
+}
+
+province_event = { #Slovene expansion (Settlement)
+	id = cultural_influence_south_slavic.7
+	title = greater_slovenia_settlement.title
+	desc = greater_slovenia_settlement.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		greater_slovenia_region = yes
+		NOT = { culture = slovene }
+		any_neighbor_province = {
+			culture = slovene
+		}
+		NOT = { development = 15 }
+		AND = {
+			is_city = yes
+			has_colonist = yes
+		}
+		has_country_flag = slovenization_of_greater_slovenia
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			development = 10
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = slovene
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = slovene
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = greater_slovenia_settlement.a
+
+		change_culture = slovene
+
+		add_province_modifier = {
+			name = new_slovenian_settlements
+			duration = 3650 #10 years
+		}
+	}
+}
+
+province_event = { #Slovene expansion (Assimilation)
+	id = cultural_influence_south_slavic.8
+	title = greater_slovenia_assimilation.title
+	desc = greater_slovenia_assimilation.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		greater_slovenia_region = yes
+		NOT = { culture = slovene }
+		calc_true_if = {
+			all_neighbor_province = {
+				culture = slovene
+			}
+			amount = 2
+		}
+		development = 15
+		has_country_flag = slovenization_of_greater_slovenia
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 60
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			development = 20
+		}
+		modifier = {
+			factor = 1.5
+			development = 25
+		}
+		modifier = {
+			factor = 1.5
+			development = 30
+		}
+		modifier = {
+			factor = 1.5
+			development = 35
+		}
+		modifier = {
+			factor = 1.5
+			development = 40
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = slovene
+				}
+				amount = 3
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = slovene
+				}
+				amount = 4
+			}
+		}
+	}
+
+	option = {
+		name = greater_slovenia_assimilation.a
+
+		change_culture = slovene
+	}
+}

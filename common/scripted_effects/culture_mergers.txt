@@ -1,0 +1,322 @@
+#Scripted Effects
+#Mergers file for Celtic, Slavic, etc
+
+merge_celtic = { #Merges Brythonic and Goidelic into Celtic
+	every_country = {
+		limit = { primary_culture = irish }
+		change_primary_culture = celtic_irish
+	}
+	every_country = {
+		limit = { primary_culture = highland_scottish }
+		change_primary_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { primary_culture = gallgaidheil }
+		change_primary_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { primary_culture = manx }
+		change_primary_culture = celtic_manx
+	}
+	every_country = {
+		limit = { primary_culture = welsh }
+		change_primary_culture = celtic_welsh
+	}
+	every_country = {
+		limit = { primary_culture = breton }
+		change_primary_culture = celtic_breton
+	}
+	every_country = {
+		limit = { primary_culture = cornish }
+		change_primary_culture = celtic_cornish
+	}
+	#Accepted Cultures
+
+	every_country = {
+		limit = { accepted_culture = irish }
+		remove_accepted_culture = irish
+		add_accepted_culture = celtic_irish
+	}
+	every_country = {
+		limit = { accepted_culture = highland_scottish }
+		remove_accepted_culture = highland_scottish
+		add_accepted_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { accepted_culture = gallgaidheil }
+		remove_accepted_culture = gallgaidheil
+		add_accepted_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { accepted_culture = manx }
+		remove_accepted_culture = manx
+		add_accepted_culture = celtic_manx
+	}
+	every_country = {
+		limit = { accepted_culture = welsh }
+		remove_accepted_culture = welsh
+		add_accepted_culture = celtic_welsh
+	}
+	every_country = {
+		limit = { accepted_culture = breton }
+		remove_accepted_culture = breton
+		add_accepted_culture = celtic_breton
+	}
+	every_country = {
+		limit = { accepted_culture = cornish }
+		remove_accepted_culture = cornish
+		add_accepted_culture = celtic_cornish
+	}
+	#Provinces
+
+	every_province = {
+		limit = { culture = irish }
+		change_culture = celtic_irish
+	}
+	every_province = {
+		limit = { culture = highland_scottish }
+		change_culture = celtic_highlander
+	}
+	every_province = {
+		limit = { culture = gallgaidheil }
+		change_culture = celtic_highlander
+	}
+	every_province = {
+		limit = { culture = manx }
+		change_culture = celtic_manx
+	}
+	every_province = {
+		limit = { culture = welsh }
+		change_culture = celtic_welsh
+	}
+	every_province = {
+		limit = { culture = breton }
+		change_culture = celtic_breton
+	}
+	every_province = {
+		limit = { culture = cornish }
+		change_culture = celtic_cornish
+	}
+	#Rulers
+
+	every_country = {
+		limit = { ruler_culture = irish }
+		set_ruler_culture = celtic_irish
+	}
+	every_country = {
+		limit = { ruler_culture = highland_scottish }
+		set_ruler_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { ruler_culture = gallgaidheil }
+		set_ruler_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { ruler_culture = manx }
+		set_ruler_culture = celtic_manx
+	}
+	every_country = {
+		limit = { ruler_culture = welsh }
+		set_ruler_culture = celtic_welsh
+	}
+	every_country = {
+		limit = { ruler_culture = breton }
+		set_ruler_culture = celtic_breton
+	}
+	every_country = {
+		limit = { ruler_culture = cornish }
+		set_ruler_culture = celtic_cornish
+	}
+	#Heirs
+
+	every_country = {
+		limit = { heir_culture = irish }
+		set_heir_culture = celtic_irish
+	}
+	every_country = {
+		limit = { heir_culture = highland_scottish }
+		set_heir_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { heir_culture = gallgaidheil }
+		set_heir_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { heir_culture = manx }
+		set_heir_culture = celtic_manx
+	}
+	every_country = {
+		limit = { heir_culture = welsh }
+		set_heir_culture = celtic_welsh
+	}
+	every_country = {
+		limit = { heir_culture = breton }
+		set_heir_culture = celtic_breton
+	}
+	every_country = {
+		limit = { heir_culture = cornish }
+		set_heir_culture = celtic_cornish
+	}
+	#Consorts
+
+	every_country = {
+		limit = { consort_culture = irish }
+		set_consort_culture = celtic_irish
+	}
+	every_country = {
+		limit = { consort_culture = highland_scottish }
+		set_consort_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { consort_culture = gallgaidheil }
+		set_consort_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { consort_culture = manx }
+		set_consort_culture = celtic_manx
+	}
+	every_country = {
+		limit = { consort_culture = welsh }
+		set_consort_culture = celtic_welsh
+	}
+	every_country = {
+		limit = { consort_culture = breton }
+		set_consort_culture = celtic_breton
+	}
+	every_country = {
+		limit = { consort_culture = cornish }
+		set_consort_culture = celtic_cornish
+	}
+}
+
+merge_russka = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = byelorussian
+				culture = ukrainian
+				culture = rusyn
+			}
+		}
+		change_culture = ruthenian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = byelorussian
+				primary_culture = ukrainian
+				primary_culture = rusyn
+			}
+		}
+		change_primary_culture = ruthenian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = byelorussian
+				has_accepted_culture = ukrainian
+				has_accepted_culture = rusyn
+			}
+		}
+		remove_accepted_culture = byelorussian
+		remove_accepted_culture = ukrainian
+		remove_accepted_culture = rusyn
+		add_accepted_culture = ruthenian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = byelorussian
+				ruler_culture = ukrainian
+				ruler_culture = rusyn
+			}
+		}
+		set_ruler_culture = ruthenian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = byelorussian
+				heir_culture = ukrainian
+				heir_culture = rusyn
+			}
+		}
+		set_heir_culture = ruthenian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = byelorussian
+				consort_culture = ukrainian
+				consort_culture = rusyn
+			}
+		}
+		set_ruler_culture = ruthenian
+	}
+}
+
+merge_russki = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = novgorodian
+				culture = muscovite
+				culture = ryazanian
+			}
+		}
+		change_culture = russian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = novgorodian
+				primary_culture = muscovite
+				primary_culture = ryazanian
+			}
+		}
+		change_primary_culture = russian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = novgorodian
+				has_accepted_culture = muscovite
+				has_accepted_culture = ryazanian
+			}
+		}
+		remove_accepted_culture = novgorodian
+		remove_accepted_culture = muscovite
+		remove_accepted_culture = ryazanian
+		add_accepted_culture = russian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = novgorodian
+				ruler_culture = muscovite
+				ruler_culture = ryazanian
+			}
+		}
+		set_ruler_culture = russian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = novgorodian
+				heir_culture = muscovite
+				heir_culture = ryazanian
+			}
+		}
+		set_heir_culture = russian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = novgorodian
+				consort_culture = muscovite
+				consort_culture = ryazanian
+			}
+		}
+		set_ruler_culture = russian
+	}
+}

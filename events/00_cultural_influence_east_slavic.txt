@@ -1,0 +1,1358 @@
+namespace = cultural_influence_east_slavic
+#Kyyivan Rus'
+
+country_event = { #Russka Splinter (Hidden Event)
+	id = cultural_influence_east_slavic.1
+	title = russka_splinter.title
+	desc = russka_splinter.desc
+	picture = CITY_VIEW_eventPicture
+
+	major = yes
+
+	trigger = {
+		year = 1500 #Delay until 1500
+		any_owned_province = { #Make sure it actually fires for someone relevant
+			culture = ruthenian
+		}
+		OR = {
+			AND = { #Provinces fell to Foreign rule (Ruthenian nation)
+				primary_culture = ruthenian
+				calc_true_if = {
+					all_province = {
+						culture = ruthenian
+						owner = { NOT = { primary_culture = ruthenian } }
+					}
+					amount = 30
+				}
+			}
+			AND = { #No signifigant Ruthenian nation exists
+				NOT = { primary_culture = ruthenian }
+				NOT = { #No Such Nation exists
+					any_country = { #Any Nation exists that owns 40 Ruthenian provinces
+						limit = {
+							culture = ruthenian
+						}
+						calc_true_if = { #Owns 40 Ruthenian provinces
+							all_owned_province = {
+								culture = ruthenian
+							}
+							amount = 40
+						}
+					}
+				}
+			}
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			split_russka = yes
+
+			every_country = {
+				limit = {
+					primary_culture = ruthenian
+				}
+				country_event = {
+					id = cultural_influence_east_slavic.2 #Pick new Primary
+					days = 0
+				}
+			}
+		}
+	}
+
+	option = {
+		name = russka_spinter.a
+	}
+}
+
+country_event = { #Choose new Primary
+	id = cultural_influence_east_slavic.2
+	title = russka_splinter_new_primary.title
+	desc = russka_splinter_new_primary.desc
+	picture = CITY_VIEW_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #Ukrainian
+		name = russka_splinter_new_primary.a
+
+		remove_accepted_culture = ukrainian
+		change_primary_culture = ukrainian
+		set_ruler_culture = ukrainian
+		set_heir_culture = ukrainian
+		set_consort_culture = ukrainian
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = ukrainian
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { ukrainian_culture_region = yes }
+			}
+		}
+	}
+
+	option = { #Belarussian
+		name = russka_splinter_new_primary.b
+
+		remove_accepted_culture = byelorussian
+		change_primary_culture = byelorussian
+		set_ruler_culture = byelorussian
+		set_heir_culture = byelorussian
+		set_consort_culture = byelorussian
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = byelorussian
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { belarussian_culture_region = yes }
+			}
+		}
+	}
+
+	option = { #Rusyn
+		name = russka_splinter_new_primary.c
+
+		remove_accepted_culture = rusyn
+		change_primary_culture = rusyn
+		set_ruler_culture = rusyn
+		set_heir_culture = rusyn
+		set_consort_culture = rusyn
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = rusyn
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { rusyn_culture_region = yes }
+			}
+		}
+	}
+}
+
+country_event = { #Russki Splinter (Hidden Event)
+	id = cultural_influence_east_slavic.3
+	title = russki_splinter.title
+	desc = russki_splinter.desc
+	picture = CITY_VIEW_eventPicture
+
+	major = yes
+
+	trigger = {
+		year = 1500 #Delay until 1500
+		any_owned_province = { #Make sure it actually fires for someone relevant
+			culture = russian
+		}
+		OR = {
+			AND = { #Provinces fell to Foreign rule (Russian nation)
+				primary_culture = russian
+				calc_true_if = {
+					all_province = {
+						culture = russian
+						owner = { NOT = { primary_culture = russian } }
+					}
+					amount = 20
+				}
+			}
+			AND = { #No signifigant Russian nation exists
+				NOT = { primary_culture = russian }
+				NOT = { #No Such Nation exists
+					any_country = { #Any Nation exists that owns 30 Russian provinces
+						limit = {
+							culture = russian
+						}
+						calc_true_if = { #Owns 30 Russian provinces
+							all_owned_province = {
+								culture = russian
+							}
+							amount = 30
+						}
+					}
+				}
+			}
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			split_russki = yes
+
+			every_country = {
+				limit = {
+					primary_culture = russian
+				}
+				country_event = {
+					id = cultural_influence_east_slavic.4 #Pick new Primary
+					days = 0
+				}
+			}
+		}
+	}
+
+	option = {
+		name = russki_spinter.a
+	}
+}
+
+country_event = { #Choose new Primary
+	id = cultural_influence_east_slavic.4
+	title = russka_splinter_new_primary.title
+	desc = russka_splinter_new_primary.desc
+	picture = CITY_VIEW_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #Northern
+		name = russki_splinter_new_primary.a
+
+		remove_accepted_culture = novgorodian
+		change_primary_culture = novgorodian
+		set_ruler_culture = novgorodian
+		set_heir_culture = novgorodian
+		set_consort_culture = novgorodian
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = novgorodian
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { northern_russian_culture_region = yes }
+			}
+		}
+	}
+
+	option = { #Middle
+		name = russka_splinter_new_primary.b
+
+		remove_accepted_culture = muscovite
+		change_primary_culture = muscovite
+		set_ruler_culture = muscovite
+		set_heir_culture = muscovite
+		set_consort_culture = muscovite
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = muscovite
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { middle_russian_culture_region = yes }
+			}
+		}
+	}
+
+	option = { #Southern
+		name = russki_splinter_new_primary.c
+
+		remove_accepted_culture = ryazanian
+		change_primary_culture = ryazanian
+		set_ruler_culture = ryazanian
+		set_heir_culture = ryazanian
+		set_consort_culture = ryazanian
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = ryazanian
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { southern_russian_culture_region = yes }
+			}
+		}
+	}
+
+	option = { #Cossack
+		name = russki_splinter_new_primary.d
+
+		remove_accepted_culture = cossack
+		change_primary_culture = cossack
+		set_ruler_culture = cossack
+		set_heir_culture = cossack
+		set_consort_culture = cossack
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = cossack
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { cossack_rule_region = yes }
+			}
+		}
+	}
+}
+
+country_event = { #Russka Merger
+	id = cultural_influence_east_slavic.5
+	title = russka_merger.title
+	desc = russka_merger.desc
+	picture = GREAT_BUILDING_eventPicture
+
+	trigger = {
+		OR = {
+			primary_culture = byelorussian
+			primary_culture = ukrainian
+			primary_culture = rusyn
+		}
+		NOT = { #Owns all relevant provinces in Europe
+			any_province = {
+				AND = {
+					OR = {
+						culture = byelorussian
+						culture = ukrainian
+						culture = rusyn
+					}
+					NOT = { owned_by = ROOT }
+					continent = europe
+				}
+			}
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	immediate = {
+		hidden_effect = {
+			merge_russka = yes
+		}
+	}
+
+	option = {
+		name = russka_merger.a
+
+		prestige = 20
+	}
+}
+
+country_event = { #Russki Merger
+	id = cultural_influence_east_slavic.6
+	title = russki_merger.title
+	desc = russki_merger.desc
+	picture = GREAT_BUILDING_eventPicture
+
+	trigger = {
+		OR = {
+			primary_culture = novgorodian
+			primary_culture = muscovite
+			primary_culture = ryazanian
+		}
+		NOT = { #Owns all relevant provinces in Europe
+			any_province = {
+				AND = {
+					OR = {
+						culture = novgorodian
+						culture = muscovite
+						culture = ryazanian
+					}
+					NOT = { owned_by = ROOT }
+					continent = europe
+				}
+			}
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	immediate = {
+		hidden_effect = {
+			merge_russki = yes
+		}
+	}
+
+	option = {
+		name = russki_merger.a
+
+		prestige = 20
+	}
+}
+
+province_event = { #Russka expansion
+	id = cultural_influence_east_slavic.6
+	title = russka_expansion.title
+	desc = russka_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture = ruthenian }
+		NOT = { culture_group = east_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = east_slavic
+			}
+			num_of_times_improved = 5
+		}
+		russka_culture_region = yes
+		cossack_rule_region = no
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			is_city = yes
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+	}
+
+	option = {
+		name = russka_expansion.a
+
+		change_culture = ruthenian
+	}
+}
+
+province_event = { #Russki expansion
+	id = cultural_influence_east_slavic.7
+	title = russki_expansion.title
+	desc = russki_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture = russian }
+		NOT = { culture_group = east_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = east_slavic
+			}
+			num_of_times_improved = 5
+		}
+		russki_culture_region = yes
+		cossack_rule_region = no
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			is_city = yes
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+	}
+
+	option = {
+		name = russki_expansion.a
+
+		change_culture = russian
+	}
+}
+
+province_event = { #Ukrainian expansion (Used for after Ruthenian Diverges)
+	id = cultural_influence_east_slavic.8
+	title = ukrainian_expansion.title
+	desc = ukrainian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OR = {
+			owner = { primary_culture = ukrainian }
+			owner = { primary_culture = russian }
+		}
+		NOT = { culture_group = east_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = east_slavic
+			}
+			num_of_times_improved = 5
+		}
+		ukrainian_culture_region = yes
+		cossack_rule_region = no
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			is_city = yes
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+	}
+
+	option = {
+		name = ukrainian_expansion.a
+
+		change_culture = ukrainian
+	}
+}
+
+province_event = { #Belarussian expansion (Used for after Ruthenian Diverges)
+	id = cultural_influence_east_slavic.9
+	title = belarussian_expansion.title
+	desc = belarussian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OR = {
+			owner = { primary_culture = byelorussian }
+			owner = { primary_culture = russian }
+		}
+		NOT = { culture_group = east_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = east_slavic
+			}
+			num_of_times_improved = 5
+		}
+		belarussian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			is_city = yes
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+	}
+
+	option = {
+		name = belarussian_expansion.a
+
+		change_culture = byelorussian
+	}
+}
+
+province_event = { #Northern Russian expansion (Used for after Russian Diverges)
+	id = cultural_influence_east_slavic.10
+	title = novgorodian_expansion.title
+	desc = novgorodian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OR = {
+			owner = { primary_culture = novgorodian }
+			owner = { primary_culture = ruthenian }
+		}
+		NOT = { culture_group = east_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = east_slavic
+			}
+			num_of_times_improved = 5
+		}
+		northern_russian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			is_city = yes
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+	}
+
+	option = {
+		name = novgorodian_expansion.a
+
+		change_culture = novgorodian
+	}
+}
+
+province_event = { #Middle Russian expansion (Used for after Russian Diverges)
+	id = cultural_influence_east_slavic.11
+	title = muscovite_expansion.title
+	desc = muscovite_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OR = {
+			owner = { primary_culture = novgorodian }
+			owner = { primary_culture = ruthenian }
+		}		NOT = { culture_group = east_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = east_slavic
+			}
+			num_of_times_improved = 5
+		}
+		middle_russian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			is_city = yes
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+	}
+
+	option = {
+		name = muscovite_expansion.a
+
+		change_culture = muscovite
+	}
+}
+
+province_event = { #Southern Russian expansion (Used for after Russian Diverges)
+	id = cultural_influence_east_slavic.12
+	title = ryazanian_expansion.title
+	desc = ryazanian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OR = {
+			owner = { primary_culture = novgorodian }
+			owner = { primary_culture = ruthenian }
+		}
+		NOT = { culture_group = east_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = east_slavic
+			}
+			num_of_times_improved = 5
+		}
+		southern_russian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			is_city = yes
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+	}
+
+	option = {
+		name = ryazanian_expansion.a
+
+		change_culture = ryazanian
+	}
+}
+
+province_event = { #Cossack expansion
+	id = cultural_influence_east_slavic.13
+	title = cossack_expansion.title
+	desc = cossack_expansion.desc
+	picture = HORSE_ON_HORSEBACK_eventPicture
+
+	trigger = {
+		owner = { culture_group = east_slavic }
+		owner = { is_nomad = no } #Cossack Hosts have a different event
+		NOT = { culture_group = east_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		any_neighbor_province = {
+			culture_group = east_slavic
+		}
+		cossack_rule_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.6
+			has_province_modifier = settling_russians_in_steppe #Not sure where this comes from, but it's in Vanilla somewhere
+		}
+	}
+
+	option = {
+		name = cossack_expansion.a
+
+		change_culture = cossack
+		change_religion = orthodox #Cossacks are always Orthodox
+	}
+}
+
+province_event = { #Cossack expansion for Cossack Hosts (Used alongside standard Nomadic settlements outside of the Cossack rule region
+	id = cultural_influence_east_slavic.14
+	title = cossack_nomads.title
+	desc = cossack_nomads.desc
+	picture = HORSE_ON_HORSEBACK_eventPicture
+
+	trigger = {
+		owner = { primary_culture = cossack }
+		owner = { is_nomad = yes }
+		NOT = { culture_group = east_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		any_neighbor_province = {
+			culture_group = east_slavic
+		}
+		owner = { manpower_percentage = 0.50 }
+		NOT = { development = 20 }
+		cossack_rule_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			owner = { manpower_percentage = 0.7 }
+		}
+		modifier = {
+			factor = 0.8
+			owner = { manpower_percentage = 0.9 }
+		}
+
+		modifier = {
+			factor = 
+		}
+	}
+
+	option = {
+		name = cossack_nomads.a
+
+		change_culture = cossack
+		change_religion = OWNER
+
+		add_yearly_manpower = -1
+
+		ai_chance = { factor = 25 }
+	}
+
+	option = {
+		name = cossack_nomads.b
+	}
+}
+
+province_event = { #Major Steppe Cities assimilation
+	id = cultural_influence_east_slavic.15
+	title = cossack_assimilation.title
+	desc = cossack_assimilation.desc
+	picture = CITY_DEVELOPMENT_eventPicture
+
+	trigger = {
+		owner = { NOT = { culture = cossack } }
+		owner = { culture_group = east_slavic }
+		NOT = { culture_group = east_slavic }
+		culture = cossack
+		russki_culture_region = yes
+		development = 30 #Major City
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			any_neighbor_province = {
+				culture = russian
+			}
+		}
+		modifier = {
+			factor = 0.8
+			development = 35
+		}
+		modifier = {
+			factor = 0.8
+			development = 40
+		}
+		modifier = {
+			factor = 0.8
+			development = 45
+		}
+		modifier = {
+			factor = 0.8
+			development = 50
+		}
+	}
+
+	option = {
+		name = cossack_assmilation.a
+
+		if = {
+			limit = {
+				ukrainian_culture_region = yes
+				any_province = {
+					culture = ukrainian
+				}
+			}
+
+			change_culture = ukrainian
+		}
+
+		if = {
+			limit = {
+				russka_culture_region = yes
+				any_province = {
+					culture = ruthenian
+				}
+			}
+
+			change_culture = ruthenian
+		}
+
+		if = {
+			limit = {
+				russka_culture_region = yes
+				any_province = {
+					culture = russian
+				}
+			}
+
+			change_culture = russian
+		}
+	}
+}

@@ -1,0 +1,135 @@
+#Scripted Effects
+#Splitters file for Slavic, etc
+
+split_russka = { #Splits Russka in to Belarussian, Ukrainian, and Rusyn
+	#Provinces
+	every_province = { #Belarussian
+		limit = {
+			culture = ruthenian
+			belarussian_culture_region = yes
+		}
+		change_culture = byelorussian
+	}
+	every_province = { #Ukrainian
+		limit = {
+			culture = ruthenian
+			ukrainian_culture_region = yes
+			rusyn_culture_region = no #subset of Ukrainian lands
+		}
+		change_culture = ukrainian
+	}
+	every_province = { #Neither
+		limit = {
+			culture = ruthenian
+			rusyn_culture_region = yes
+		}
+		change_culture = rusyn
+	}
+	#Handle Primary switches via event to offer a choice
+	#Accepted Cultures
+	every_country = {
+		limit = {
+			has_accepted_culture = ruthenian
+		}
+		if = { #If owns Ukrainian land
+			limit = {
+				any_owned_province = {
+					belarussian_culture_region = yes
+				}
+			}
+			add_accepted_culture = byelorussian
+		}
+		if = { #If owns Ukrainian land
+			limit = {
+				any_owned_province = {
+					ukrainian_culture_region = yes
+					rusyn_culture_region = no #subset of Ukrainian lands
+				}
+			}
+			add_accepted_culture = ukrainian
+		}
+		if = { #If owns Rusyn land
+			limit = {
+				any_owned_province = {
+					rusyn_culture_region = yes #subset of Ukrainian lands
+				}
+			}
+			add_accepted_culture = rusyn
+		}
+		remove_accepted_culture = ruthenian
+	}
+	#Handle Rulers, Heirs, and Consorts via event to offer a choice
+}
+
+split_russki = { #Splits Russki into Northern, Middle, and Southern
+	#Provinces
+	every_province = { #Northern
+		limit = {
+			culture = russian
+			northern_russian_culture_region = yes
+		}
+		change_culture = novgorodian
+	}
+	every_province = { #Middle
+		limit = {
+			culture = russian
+			middle_russian_culture_region = yes
+		}
+		change_culture = muscovite
+	}
+	every_province = { #Southern
+		limit = {
+			culture = russian
+			southern_russian_culture_region = yes
+		}
+		change_culture = ryazanian
+	}
+	every_province = { #Cossack
+		limit = {
+			culture = russian
+			cossack_culture_region = yes
+		}
+		change_culture = cossack
+	}
+	#Handle Primary switches via event to offer a choice
+	#Accepted Cultures
+	every_country = {
+		limit = {
+			has_accepted_culture = russian
+		}
+		if = { #If owns Northern land
+			limit = {
+				any_owned_province = {
+					northern_russian_culture_region = yes
+				}
+			}
+			add_accepted_culture = novgorodian
+		}
+		if = { #If owns Middle land
+			limit = {
+				any_owned_province = {
+					middle_russian_culture_region = yes
+				}
+			}
+			add_accepted_culture = muscovite
+		}
+		if = { #If owns Southern land
+			limit = {
+				any_owned_province = {
+					southern_russian_culture_region = yes
+				}
+			}
+			add_accepted_culture = ryazanian
+		}
+		if = { #If owns Cossack land
+			limit = {
+				any_owned_province = {
+					cossack_rule_region = yes
+				}
+			}
+			add_accepted_culture = cossack
+		}
+		remove_accepted_culture = russian
+	}
+	#Handle Rulers, Heirs, and Consorts via event to offer a choice
+}

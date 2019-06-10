@@ -1,0 +1,96 @@
+namespace = cultural_influence_french
+
+province_event = { #French expansion
+	id = cultural_influence_french.1
+	title = french_expansion.title
+	desc = french_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture = OWNER }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = OWNER
+			}
+			AND = { #Since the Channel Islands don't have a strait annoyingly
+				province_id = 3110 #Channel Islands
+				OR = { #Specifically to exclude Finistere due to distance
+					4385 = { culture = OWNER } #Cotentin
+					4384 = { culture = OWNER } #Rennes
+					169	= { culture = OWNER } #Saint Brieuc
+				}
+			}
+		}
+		
+		french_homeland = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = french_expansion.a
+
+		change_culture = OWNER
+	}
+}

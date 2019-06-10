@@ -1,0 +1,319 @@
+namespace = cultural_influence_norraen
+#WIP!
+
+country_event = { #Norraen Standardised
+	id = cultural_influence_norraen.1
+	title = norraen_standardisation.title
+	desc = norraen_standardisation.desc
+	picture = ARTWORK_eventPicture
+
+	trigger = {
+		norraen_conditions = yes
+	}
+
+	immediate = {
+		set_global_flag = norraen_standardised_flag
+		change_primary_culture = norraen
+		every_province = {
+			limit = {
+				OR = {
+					culture = norwegian
+					culture = danish
+					culture = swedish
+                    culture = icelandic
+                    culture = gotlander
+                    culture = faroese
+				}
+			}
+			change_culture = norraen
+		}
+		set_ruler_culture = norraen
+		set_heir_culture = norraen
+		if = {
+			limit = {
+				NOT = { has_foreign_consort = yes }
+			}
+			set_consort_culture = norraen
+		}
+	}
+
+	option = { #Sjaelland
+		name = norraen_standardisation.a
+
+		12 = {
+			add_base_tax = 2
+			add_base_production = 1
+			add_base_manpower = 1
+
+			hidden_effect = {
+				add_permanent_province_modifier = {
+					name = senter_for_nordic_languages_modifier
+					desc = senter_for_nordic_languages_desc
+					duration = -1
+				}
+			}
+		}
+
+		17 = {
+			add_base_tax = 2
+		}
+
+		1 = {
+			add_base_tax = 2
+		}
+	}
+
+	option = { #Oslo
+		name = norraen_standardisation.b
+
+		17 = {
+			add_base_tax = 2
+			add_base_production = 1
+			add_base_manpower = 1
+
+		hidden_effect = {
+			add_permanent_province_modifier = {
+					name = senter_for_nordic_languages_modifier
+					desc = senter_for_nordic_languages_desc
+					duration = -1
+				}
+			}
+		}
+
+		12 = {
+			add_base_tax = 2
+		}
+
+		1 = {
+			add_base_tax = 2
+		}
+	}
+
+	option = { #Stockholm
+		name = norraen_standardisation.c
+
+		1 = {
+			add_base_tax = 2
+			add_base_production = 1
+			add_base_manpower = 1
+
+			hidden_effect = {
+				add_permanent_province_modifier = {
+					name = senter_for_nordic_languages_modifier
+					desc = senter_for_nordic_languages_desc
+					duration = -1
+				}
+			}
+		}
+
+		12 = {
+			add_base_tax = 2
+		}
+
+		17 = {
+			add_base_tax = 2
+		}
+	}
+}
+
+province_event = { #Norraen Spread
+	id = cultural_influence_norraen.3
+	title = norraen_spread.title
+	desc = norraen_spread.desc
+	picture = HARBOUR_eventPicture
+
+	trigger = {
+		OR = {
+			owner = { primary_culture = norraen }
+			owner = { allowed_to_settle_nordic = yes }
+		}
+		NOT = { culture_group = scandinavian }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = scandinavian
+			}
+			num_of_times_improved = 5
+		}
+		norraen_culture_region = yes
+		has_global_flag = norraen_standardised_flag
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 50
+
+		modifier = {
+			factor = 0.8
+			religion = norse_pagan_reformed
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = norraen
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = norraen
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = norraen
+				}
+				amount = 3
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = norraen
+				}
+				amount = 4
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	immediate = {
+		change_culture = norraen
+	}
+
+	option = {
+		name = norraen_spread.a
+	}
+}

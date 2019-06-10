@@ -1,0 +1,84 @@
+country_decisions = {
+	institute_administrative_language = {
+		major = yes
+		potential = {
+			NOT = { has_country_modifier = mandated_administrative_language }
+		}
+
+		allow = {
+			government_rank = 3
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "mandated_administrative_language"
+				duration = -1
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	disable_CI_events = {
+		major = yes
+		potential = {
+			has_global_flag = CI_events_enabled
+			AI = no
+		}
+
+		allow = {
+			always = yes
+		}
+
+		effect = {
+			set_global_flag = CI_events_disabled
+			clr_global_flag = CI_events_enabled
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	enable_CI_events = {
+		major = yes
+		potential = {
+			has_global_flag = CI_events_disabled
+			AI = no
+		}
+
+		allow = {
+			always = yes
+		}
+
+		effect = {
+			set_global_flag = CI_events_enabled
+			clr_global_flag = CI_events_disabled
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	adjust_CI_MTTH = {
+		major = yes
+		potential = {
+			AI = no
+		}
+
+		allow = {
+			always = yes
+		}
+
+		effect = {
+			country_event = { id = cultural_influence_mechanics.1 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

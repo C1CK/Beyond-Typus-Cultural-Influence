@@ -1,0 +1,548 @@
+namespace = cultural_influence_oghuz
+#Not fully-featured yet, but adds some minor stuff
+
+country_event = { #Qirim -> Kirim
+	id = cultural_influence_oghuz.1
+	title = oghuz_crimean_merger.title
+	desc = oghuz_crimean_merger.desc
+	picture = ARTWORK_eventPicture
+
+	trigger = {
+		culture_group = turkish_g
+		government_rank = 3
+		accepted_culture = crimean
+		NOT = { #Own all European crimean provinces
+			any_province = {
+				AND = {
+					culture = crimean
+					NOT = { owned_by = ROOT }
+					continent = europe
+				}
+			}
+		}
+		every_owned_province = { #Provinces happy (Don't want generic unrest here - since that isn't relevant to linguistic drift)
+			limit = {
+				culture = crimean
+			}
+			nationalism = 0
+			has_owner_religion = yes
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	option = {
+		name = oghuz_crimean_merger.a
+
+		CRI = {
+			change_primary_culture = oghuz_crimean
+		}
+		every_province = {
+			limit = {
+				culture = crimean
+			}
+			change_culture = oghuz_crimean
+		}
+		remove_accepted_culture = crimean
+	}
+}
+
+province_event = { #Kurdish settlements in Kurdistan
+	id = cultural_influence_oghuz.2
+	title = oghuz_kurdistan_settlements.title
+	desc = oghuz_kurdistan_settlements.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { has_country_flag = ottomans_granted_kurdish_autonomy_flag } #Granted autonomy
+		NOT = { culture = kurdish }
+		has_province_modifier = kurdish_autonomous_sanjak #Owned by Kurdish Sanjaks
+		NOT = { development = 20 } #Not actually a developed city
+		has_global_flag = CI_events_enabled
+		any_neighbor_province = {
+			culture = kurdish
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 1.5
+			development = 10
+		}
+		modifier = {
+			factor = 1.5
+			development = 15
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = kurdish
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = kurdish
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = oghuz_kurdistan_settlements.a
+
+		change_culture = kurdish
+		change_religion = OWNER
+
+		add_province_modifier = {
+			name = kurdish_settlements
+			duration = 9125 #25 years
+		}
+
+		add_base_tax = 1
+		add_base_production = 1
+		add_base_manpower = 1
+	}
+}
+
+province_event = { #Kurdish conflict in Kurdistan (AKA dev is too high)
+	id = cultural_influence_oghuz.3
+	title = oghuz_kurdistan_conflict.title
+	desc = oghuz_kurdistan_conflict.desc
+	picture = REVOLUTION_eventPicture
+
+	trigger = {
+		owner = { has_country_flag = ottomans_granted_kurdish_autonomy_flag } #Granted autonomy
+		NOT = { culture = kurdish }
+		has_province_modifier = kurdish_autonomous_sanjak #Owned by Kurdish Sanjaks
+		development = 20 #Actually a developed city
+		has_global_flag = CI_events_enabled
+		any_neighbor_province = {
+			culture = kurdish
+		}
+		NOT = { has_province_modifier = kurdish_conflict }
+	}
+
+	mean_time_to_happen = {
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 1.5
+			development = 25
+		}
+		modifier = {
+			factor = 1.5
+			development = 30
+		}
+		modifier = {
+			factor = 1.5
+			development = 35
+		}
+		modifier = {
+			factor = 1.5
+			development = 40
+		}
+	}
+
+	option = { #Purge the troublemakers
+		name = oghuz_kurdistan_conflict.a
+
+		add_base_tax = -1
+		add_base_production = -1
+		add_base_manpower = -1
+
+		add_province_modifier = {
+			name = oghuz_kurdish_conflict
+		}
+
+		ai_chance = { factor = 25 } #AI must always do this
+	}
+
+	option = { #Revoke Kurdish control
+		name = oghuz_kurdistan_conflict.b
+
+		remove_province_modifier = kurdish_autonomous_sanjak
+
+		spawn_rebels = {
+			type = particularist_rebels
+			size = 2
+		}
+	}
+}
+
+province_event = { #Bosniaks
+	id = cultural_influence_oghuz.4
+	title = bosniak_spread.title
+	desc = bosniak_spread.desc
+	picture = ARTWORK_eventPicture
+
+	trigger = {
+		area = bosnia_area #Limit to Bosnia
+		religion_group = muslim
+		culture_group = south_slavic
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			owner = { religion_group = muslim }
+		}
+	}
+
+	option = {
+		name = bosniak_spread.a
+
+		change_culture = bosnian
+
+		if = {
+			limit = {
+				NOT = { accepted_culture = bosnian }
+				religion_group = muslim
+			}
+			owner = { add_accepted_culture = bosnian }
+		}
+	}
+}
+
+province_event = { #Greek Traders settle in Western Anatolia
+	id = cultural_influence_oghuz.5
+	title = oghuz_greek_traders.title
+	desc = oghuz_greek_traders.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { has_idea = millets } #Millets system ensured a Unified Greek adminstation under Ottoman control
+		owner = { owns_core_province = 151 } #Phanariote Greeks based in Constantinople
+		owner = { primary_culture = turkish }
+		owner = { has_accepted_culture = greek }
+		OR = { #Either in pre-defined region (West Anatolian Coast), or Greek center of trade
+			phanariote_greek_settlement_region = yes
+			AND = {
+				culture = greek
+				province_trade_power = 5
+			}
+		}
+		owner = { NOT = { has_country_modifier = growing_greek_influence } } #Not on cooldown
+		owner = { NOT = { has_country_modifier = phanariote_greeks_scorned } } #Not on cooldown
+		owner = { NOT = { has_country_flag = renounced_enumenical_patriach_flag } }
+		NOT = { has_province_modifier = phanariote_greeks }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			province_trade_power = 5
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 10
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 15
+		}
+		modifier = {
+			factor = 0.8
+			province_trade_power = 20
+		}
+		modifier = {
+			factor = 0.8
+			any_neighbor_province = {
+				culture = greek
+			}
+		}
+	}
+
+	option = { #Do not meddle in their affairs
+		name = oghuz_greek_traders.a
+
+		add_base_tax = 1
+		add_base_production = 2
+
+		change_culture = greek
+		change_religion = orthodox
+
+		add_province_modifier = {
+			name = phanariote_greeks
+			duration = -1
+		}
+
+		owner = {
+			add_country_modifier = {
+				name = growing_greek_influence
+				duration = 3650 #10 years
+			}
+		}
+
+		ai_chance = { factor = 25 } #AI must always do this
+	}
+
+	option = { #Send these people back to Greece!
+		name = oghuz_greek_traders.a
+
+		owner = {
+			add_country_modifier = {
+				name = phanariote_greeks_scorned
+				duration = 7300 #20 years
+			}
+		}
+	}
+}
+
+province_event = { #Turkish settlement in Thrace
+	id = cultural_influence_oghuz.6
+	title = turkish_settlement_of_thrace.title
+	desc = turkish_settlement_of_thrace.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		turkish_settlement_region = yes
+		NOT = { culture = turkish }
+		NOT = { has_province_modifier = phanariote_greeks }
+		has_country_flag = turkish_thrace_settlement
+		any_neighbor_province = {
+			culture = turkish
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			is_city = yes
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.5
+			development = 10
+		}
+		modifier = {
+			factor = 1.5
+			development = 15
+		}
+		modifier = {
+			factor = 1.5
+			development = 20
+		}
+		modifier = {
+			factor = 1.5
+			development = 25
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = turkish
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = turkish
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = turkish_settlement_of_thrace.a
+
+		change_culture = turkish
+		change_religion = OWNER
+
+		add_province_modifier = {
+			name = kurdish_settlements
+			duration = 9125 #25 years
+		}
+
+		add_base_tax = 1
+		add_base_production = 1
+		add_base_manpower = 1
+	}
+}
+
+province_event = { #Turkish assimilation in Turkey
+	id = cultural_influence_oghuz.7
+	title = turkish_assimilation.title
+	desc = turkish_assimilation.desc
+	picture = ARTWORK_eventPicture
+
+	trigger = {
+		religion_group = muslim #Must be Islamic to do this
+		region = anatolia_region
+		owner = {
+			primary_culture = turkish
+			religion_group = muslim
+		}
+		#No cooldown neccesary
+		OR = {
+			culture_group = byzantine
+			culture_group = armenian_g
+			culture_group = aramaic
+		}
+		any_neighbor_province = {
+			culture = turkish
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 1.5
+			development = 10
+		}
+		modifier = {
+			factor = 1.5
+			development = 15
+		}
+		modifier = {
+			factor = 1.5
+			development = 20
+		}
+		modifier = {
+			factor = 1.5
+			development = 25
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = turkish
+				}
+				amount = 2
+			}
+		}
+	}
+
+	option = {
+		name = turkish_assimilation.a
+
+		change_culture = turkish
+	}
+}

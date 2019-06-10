@@ -1,0 +1,839 @@
+country_decisions = {
+	prepare_reeducation_of_brittany = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_brittany_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				area = brittany_area
+				NOT = { culture = standard_french }
+				NOT = { culture = standard_occitan }
+			}
+		}
+		
+		allow = {
+			treasury = 500
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_brittany_tooltip
+			hidden_effect = {
+				country_event = {
+					id = cultural_influence_french.16 #Reeducated Brittany
+					days = 5400
+					random = 3600
+				}
+			}
+			add_treasury = -500
+			every_owned_province = {
+				limit = {
+					area = brittany_area
+					NOT = { culture = standard_french }
+					NOT = { culture = standard_occitan }
+				}
+				set_province_flag = reeducating_brittany_province_flag
+			}
+			set_country_flag = reeducating_brittany_flag
+		}
+	}
+
+	prepare_reeducation_of_britannia = { #We're calling it this because of CK2 lol
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_britannia_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				franglais_culture_region = yes
+				NOT = { culture = franglais }
+			}
+		}
+		
+		provinces_to_highlight = {
+			franglais_initial_culture_region = yes
+		}
+
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				franglais_initial_culture_region = yes
+			}
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_britannia_tooltip
+			hidden_effect = {
+				country_event = {
+					id = cultural_influence_french.17 #Reeducated British Isles
+					days = 5400
+					random = 3600
+				}
+			}
+			add_treasury = -500
+			every_owned_province = { #Generic Creation (More complex due to Islands)
+				limit = {
+					if = {
+						limit = {
+							is_island = yes
+						}
+						franglais_culture_region = yes
+						any_friendly_coast_border_province = {
+							culture = franglais
+						}
+						NOT = { culture = franglais }
+					}
+					else = {
+						franglais_culture_region = yes
+						any_neighbor_province = {
+							culture = franglais
+						}
+						NOT = { culture = franglais }
+					}
+				}
+				set_province_flag = reeducating_britannia_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = franglais } }
+				}
+				random_owned_area = {
+					limit = {
+						franglais_initial_culture_region = yes
+					}
+					set_province_flag = reeducating_britannia_province_flag
+				}
+			}
+			set_country_flag = reeducating_britannia_flag
+		}
+	}
+	
+	prepare_reeducation_of_ireland = { 
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_ireland_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				gaelique_culture_region = yes
+				NOT = { culture = gaelique }
+			}
+		}
+
+		provinces_to_highlight = {
+			gaelique_initial_culture_region = yes
+		}
+		
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				gaelique_initial_culture_region = yes
+			}
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_ireland_tooltip
+			hidden_effect = {
+				country_event = {
+					id = cultural_influence_french.18 #Reeducated Ireland
+					days = 5400
+					random = 3600
+				}
+			}
+			add_treasury = -500
+			every_owned_province = { #Generic Creation
+				limit = {
+					gaelique_culture_region = yes
+					any_neighbor_province = {
+						culture = gaelique
+					}
+					NOT = { culture = gaelique }
+				}
+				set_province_flag = reeducating_ireland_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = gaelique } }
+				}
+				random_owned_area = {
+					limit = {
+						gaelique_initial_culture_region = yes
+					}
+					set_province_flag = reeducating_ireland_province_flag
+				}
+			}
+			set_country_flag = reeducating_ireland_flag
+		}
+	}
+
+	prepare_reeducation_of_low_countries = { 
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_low_countries_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				AND = {
+					bas_francais_culture_region = yes
+				}
+				NOT = { culture = bas_francais }
+			}
+		}
+		
+		provinces_to_highlight = {
+			bas_francais_initial_culture_region = yes
+		}
+
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				bas_francais_initial_culture_region = yes
+			}
+		}
+
+		effect = {
+			custom_tooltip = prepare_reeducation_of_low_countries_tooltip
+			country_event = {
+				id = cultural_influence_french.19 #Reeducated Low Countries
+				days = 5400
+				random = 3600
+			}
+			add_treasury = -500
+			every_owned_province = { #Generic Creation
+				limit = {
+					bas_francais_culture_region = yes
+					any_neighbor_province = {
+						culture = bas_francais
+					}
+					NOT = { culture = bas_francais }
+				}
+				set_province_flag = reeducating_low_countries_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = bas_francais } }
+				}
+				random_owned_area = {
+					limit = {
+						bas_francais_initial_culture_region = yes
+					}
+					set_province_flag = reeducating_low_countries_province_flag
+				}
+			}
+			set_country_flag = reeducating_low_countries_flag
+		}
+	}
+	
+	prepare_reeducation_of_spain = { 
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_spain_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = { 
+				iberique_central_culture_region = yes
+				NOT = { culture = iberique_central }
+			}
+		}
+
+		provinces_to_highlight = {
+			iberique_central_initial_culture_region = yes
+		}
+		
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				iberique_central_initial_culture_region = yes
+			}
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_spain_tooltip
+			country_event = {
+				id = cultural_influence_french.20 #Reeducated Spain
+				days = 5400
+				random = 3600
+			}
+			add_treasury = -500
+			every_owned_province = { #Generic Creation
+				limit = {
+					iberique_central_culture_region = yes
+					any_neighbor_province = {
+						culture = iberique_central
+					}
+					NOT = { culture = iberique_central }
+				}
+				set_province_flag = reeducating_spain_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = iberique_central } }
+				}
+				random_owned_area = {
+					limit = {
+						iberique_central_initial_culture_region = yes
+					}
+					set_province_flag = reeducating_spain_province_flag
+				}
+			}
+			set_country_flag = reeducating_spain_flag
+		}
+	}
+
+	prepare_reeducation_of_catalonia = { 
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_catalonia_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				catalonien_culture_region = yes
+				NOT = { culture = catalonien }
+			}
+		}
+		
+		provinces_to_highlight = {
+			catalonien_initial_culture_region = yes
+		}
+
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				catalonien_initial_culture_region = yes
+			}
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_catalonia_tooltip
+			country_event = {
+				id = cultural_influence_french.21 #Reeducated Catalonia
+				days = 5400
+				random = 3600
+			}
+			add_treasury = -500
+			every_owned_province = { #Generic Creation
+				limit = {
+					catalonien_culture_region = yes
+					any_neighbor_province = {
+						culture = catalonien
+					}
+					NOT = { culture = catalonien }
+				}
+				set_province_flag = reeducating_catalonia_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = catalonien } }
+				}
+				random_owned_area = {
+					limit = {
+						catalonien_initial_culture_region = yes
+					}
+					set_province_flag = reeducating_catalonia_province_flag
+				}
+				333 = { #Maillogres (Mallorca)
+					set_province_flag = reeducating_catalonia_province_flag
+				}
+			}
+			set_country_flag = reeducating_catalonia_flag
+		}
+	}
+	
+	prepare_reeducation_of_portugal = { 
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_portugal_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				galicien_culture_region = yes
+				NOT = { culture = galicien }
+			}
+		}
+		
+		provinces_to_highlight = {
+			galicien_initial_culture_region = yes
+		}
+
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				galicien_initial_culture_region = yes
+			}
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_portugal_tooltip
+			country_event = {
+				id = cultural_influence_french.22 #Reeducated Portugal
+				days = 5400
+				random = 3600
+			}
+			add_treasury = -500
+			every_owned_province = {
+				limit = {
+					galicien_culture_region = yes
+					any_neighbor_province = {
+						culture = galicien
+					}
+					NOT = { culture = galicien }
+				}
+				set_province_flag = reeducating_portugal_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = galicien } }
+				}
+				random_owned_area = {
+					limit = {
+						galicien_initial_culture_region = yes
+					}
+					set_province_flag = reeducating_portugal_province_flag
+				}
+			}
+			set_country_flag = reeducating_portugal_flag
+		}
+	}
+	
+	prepare_reeducation_of_rhine = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_rhine_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				rhin_culture_region = yes
+				NOT = { culture = rhin }
+			}
+		}
+		
+		provinces_to_highlight = {
+			rhin_initial_culture_region = yes
+		}
+
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				rhin_initial_culture_region = yes
+			}
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_rhine_tooltip
+			country_event = {
+				id = cultural_influence_french.23 #Reeducated Rhine
+				days = 5400
+				random = 3600
+			}
+			add_treasury = -500
+			every_owned_province = {
+				limit = {
+					rhin_culture_region = yes
+					any_neighbor_province = {
+						culture = rhin
+					}
+					NOT = { culture = rhin }
+				}
+				set_province_flag = reeducating_rhine_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = rhin } }
+				}
+				188 = { #Metz
+					set_province_flag = reeducating_rhine_province_flag
+				}
+			}
+			set_country_flag = reeducating_rhine_flag
+		}
+	}
+
+	prepare_reeducation_of_south_germany = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_south_germany_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				sud_allemand_culture_region = yes
+				NOT = { culture = sud_allemand }
+			}
+		}
+		
+		provinces_to_highlight = {
+			sud_allemand_initial_culture_region = yes
+		}
+
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				sud_allemand_initial_culture_region = yes
+			}
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_south_germany_tooltip
+			country_event = {
+				id = cultural_influence_french.24 #Reeducated South Germany
+				days = 5400
+				random = 3600
+			}
+			add_treasury = -500
+			every_owned_province = {
+				limit = {
+					sud_allemand_culture_region = yes
+					NOT = { culture = sud_allemand }
+					any_neighbor_province = {
+						culture = sud_allemand
+					}
+				}
+				set_province_flag = reeducating_south_germany_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = sud_allemand } }
+				}
+				random_owned_area = {
+					limit = {
+						sud_allemand_initial_culture_region = yes
+					}
+					set_province_flag = reeducating_south_germany_province_flag
+				}
+			}
+			set_country_flag = reeducating_south_germany_flag
+		}
+	}
+
+	prepare_reeducation_of_north_germany = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_north_germany_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				nord_allemand_culture_region = yes
+				NOT = { culture = nord_allemand }
+			}
+		}
+		
+		provinces_to_highlight = {
+			nord_allemand_initial_culture_region = yes
+		}
+
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				nord_allemand_initial_culture_region = yes
+			}
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_north_germany_tooltip
+			country_event = {
+				id = cultural_influence_french.25 #Reeducated North Germany
+				days = 5400
+				random = 3600
+			}
+			add_treasury = -500
+			every_owned_province = {
+				limit = {
+					nord_allemand_culture_region = yes
+					NOT = { culture = nord_allemand }
+					any_neighbor_province = {
+						culture = nord_allemand
+					}
+				}
+				set_province_flag = reeducating_north_germany_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = nord_allemand } }
+				}
+				random_owned_area = {
+					limit = {
+						nord_allemand_initial_culture_region = yes
+					}
+					set_province_flag = reeducating_north_germany_province_flag
+				}
+			}
+			set_country_flag = reeducating_north_germany_flag
+		}
+	}
+
+	prepare_reeducation_of_west_germany = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_west_germany_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				ouest_allemand_culture_region = yes
+				NOT = { culture = ouest_allemand }
+			}
+		}
+		
+		provinces_to_highlight = {
+			ouest_allemand_initial_culture_region = yes
+		}
+
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				ouest_allemand_initial_culture_region = yes
+			}
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_west_germany_tooltip
+			country_event = {
+				id = cultural_influence_french.26 #Reeducated West Germany
+				days = 5400
+				random = 3600
+			}
+			add_treasury = -500
+			every_owned_province = {
+				limit = {
+					ouest_allemand_culture_region = yes
+					NOT = { culture = ouest_allemand }
+					any_neighbor_province = {
+						culture = ouest_allemand
+					}
+				}
+				set_province_flag = reeducating_west_germany_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = ouest_allemand } }
+				}
+				random_owned_area = {
+					limit = {
+						ouest_allemand_initial_culture_region = yes
+					}
+					set_province_flag = reeducating_west_germany_province_flag
+				}
+			}
+			set_country_flag = reeducating_west_germany_flag
+		}
+	}
+
+	prepare_reeducation_of_alps = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_alps_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				alpin_culture_region = yes
+				NOT = { culture = alpin }
+			}
+		}
+		
+		provinces_to_highlight = {
+			alpin_initial_culture_region = yes
+		}
+
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				alpin_initial_culture_region = yes
+			}
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_alps_tooltip
+			country_event = {
+				id = cultural_influence_french.27 #Reeducated The Alps
+				days = 5400
+				random = 3600
+			}
+			add_treasury = -500
+			every_owned_province = {
+				limit = {
+                	alpin_culture_region = yes
+                	any_neighbor_province = {
+                	culture = alpin
+                    }
+                    NOT = { culture = alpin }
+                }
+				set_province_flag = reeducating_alps_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = alpin } }
+				}
+				random_owned_area = {
+					limit = {
+						alpin_initial_culture_region = yes
+					}
+					set_province_flag = reeducating_alps_province_flag
+				}
+			}
+			set_country_flag = reeducating_alps_flag
+		}
+	}
+
+	prepare_reeducation_of_new_provence = { #Northern Italy
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_new_provence_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				nouveau_provencal_culture_region = yes
+				NOT = { culture = nouveau_provencal }
+			}
+		}
+		
+		provinces_to_highlight = {
+			nouveau_provencal_initial_culture_region = yes
+		}
+
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				nouveau_provencal_initial_culture_region = yes
+			}
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_new_provence_tooltip
+			country_event = {
+				id = cultural_influence_french.28 #Reeducated New Provence
+				days = 5400
+				random = 3600
+			}
+			add_treasury = -500
+			every_owned_province = {
+				limit = {
+					nouveau_provencal_culture_region = yes
+					NOT = { culture = nouveau_provencal }
+					any_neighbor_province = {
+						culture = nouveau_provencal
+					}
+				}
+				set_province_flag = reeducating_new_provence_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = nouveau_provencal } }
+				}
+				random_owned_area = {
+					limit = {
+						nouveau_provencal_initial_culture_region = yes
+					}
+					set_province_flag = reeducating_new_provence_province_flag
+				}
+			}
+			set_country_flag = reeducating_new_provence_flag
+		}
+	}
+
+	prepare_reeducation_of_central_italy = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_central_italy_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				apennine_central_culture_region = yes
+				NOT = { culture = apennine_central }
+			}
+		}
+		
+		provinces_to_highlight = {
+			apennine_central_initial_culture_region = yes
+		}
+
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				apennine_central_initial_culture_region = yes
+			}
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_central_italy_tooltip
+			country_event = {
+				id = cultural_influence_french.29 #Reeducated Central Italy
+				days = 5400
+				random = 3600
+			}
+			add_treasury = -500
+			every_owned_province = {
+				limit = {
+					apennine_central_culture_region = yes
+					any_neighbor_province = {
+						culture = apennine_central
+					}
+					NOT = { culture = apennine_central }
+				}
+				set_province_flag = reeducating_central_italy_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = apennine_central } }
+				}
+				random_owned_area = {
+					limit = {
+						apennine_central_initial_culture_region = yes
+					}
+					set_province_flag = reeducating_central_italy_province_flag
+				}
+			}
+			set_country_flag = reeducating_central_italy_flag
+		}
+	}
+
+	prepare_reeducation_of_south_italy = { #Southern Italy and The Island of Sicily
+		major = yes
+		potential = {
+			NOT = { has_country_flag = reeducating_south_italy_flag }
+			has_country_flag = french_cultural_crisis_over_flag
+			any_owned_province = {
+				sud_apennine_culture_region = yes
+				NOT = { culture = sud_apennine }
+			}
+		}
+		
+		provinces_to_highlight = {
+			sud_apennine_initial_culture_region = yes
+		}
+
+		allow = {
+			treasury = 500
+			any_owned_province = {
+				sud_apennine_initial_culture_region = yes
+			}
+		}
+		
+		effect = {
+			custom_tooltip = prepare_reeducation_of_south_italy_tooltip
+			country_event = {
+				id = cultural_influence_french.30 #Reeducated Southern Italy
+				days = 5400
+				random = 3600
+			}
+			add_treasury = -500
+			every_owned_province = { #Generic Creation (More complex due to Islands)
+				limit = {
+					if = {
+						limit = {
+							is_island = yes
+						}
+						sud_apennine_culture_region = yes
+						any_friendly_coast_border_province = {
+							culture = sud_apennine
+						}
+						NOT = { culture = sud_apennine }
+					}
+					else = {
+						sud_apennine_culture_region = yes
+						any_neighbor_province = {
+							culture = sud_apennine
+						}
+						NOT = { culture = sud_apeninne }
+					}
+				}
+				set_province_flag = reeducating_south_italy_province_flag
+			}
+			if = { #Initial Creation
+				limit = {
+					NOT = { any_province = { culture = sud_apennine } }
+				}
+				random_owned_area = {
+					limit = {
+						sud_apennine_initial_culture_region = yes
+					}
+					set_province_flag = reeducating_south_italy_province_flag
+				}
+			}
+			set_country_flag = reeducating_south_italy_flag
+		}
+	}
+}

@@ -1,0 +1,241 @@
+country_decisions = {
+	establish_kurdish_sanjaks = { #Decision to grant the Kurds autonomy, which leads to Kurdish settlements in Modern-Day Kurdistan
+		major = no
+		potential = {
+			NOT = { has_country_flag = ottomans_granted_kurdish_autonomy_flag }
+			tag = TUR
+			primary_culture = turkish
+			government_rank = 3
+		}
+
+		provinces_to_highlight = {
+			kurdish_sanjaks_region = yes
+			NOT = { is_core = ROOT }
+		}
+
+		allow = {
+			calc_true_if = { #Need signifigant Kurdish population already
+				all_owned_province = {
+					culture = kurdish
+				}
+				amount = 3
+			}
+			north_kurdistan_area = { #Own all relevant areas
+				type = all
+				is_core = ROOT
+			}
+			erzurum_area = {
+				type = all
+				is_core = ROOT
+			}
+			mardin_area = {
+				type = all
+				is_core = ROOT
+			}
+			owns_core_province = 411 #Mosul
+			owns_core_province = 5296 #Nusaybin
+		}
+
+		effect = {
+			set_country_flag = ottomans_granted_kurdish_autonomy_flag
+			add_accepted_culture = kurdish
+			every_owned_province = { #Grant Modifier
+				limit = {
+					kurdish_sanjaks_region = yes
+				}
+				add_province_modifier = {
+					name = kurdish_autonomous_sanjak
+					duration = -1
+				}
+			}
+			custom_tooltip = kurdish_allegiance_change_to_turks_tooltip
+			hidden_effect = {
+				every_owned_province = { #Kurdish allegiances switch to the Turks
+					limit = {
+						culture = kurdish
+					}
+					add_nationalism = -20
+				}
+				every_province = { #Kurdish allegiances switch to the Turks
+					limit = {
+						culture = kurdish
+						NOT = { owned_by = ROOT }
+					}
+					add_nationalism = 20
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	revoke_kurdish_autonomy = {
+		major = no
+		potential = {
+			has_country_flag = ottomans_granted_kurdish_autonomy_flag
+			tag = TUR
+			calc_true_if = { #Should reasonably want to curtail their authority
+				all_owned_province = {
+					culture = kurdish
+					has_province_modifier = kurdish_autonomous_sanjak
+				}
+				amount = 12 #12 of 20 potential Kurdish settlement in 1444
+			}
+		}
+
+		allow = {
+			adm_power = 100 #Should be expensive
+			mil_power = 100 #^^^
+		}
+
+		effect = {
+			every_province = { #Fire Separatists in every Kurdish province
+				limit = {
+					has_province_modifier = kurdish_autonomous_sanjak
+					culture = kurdish
+				}
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 1
+				}
+			}
+			custom_tooltip = revoke_kurdish_autonomy_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						has_province_modifier = kurdish_autonomous_sanjak
+					}
+					remove_province_modifier = kurdish_autonomous_sanjak
+				}
+			}
+			add_adm_power = -100
+			add_mil_power = -100
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = { #Not if before 1650
+				factor = 0
+				NOT = { is_year = 1650 }
+			}
+		}
+	}
+
+	renounce_ecumenical_patriach = { #Effectively destroy the Millet system in Greece - Extremely Radical!
+		major = no
+		potential = {
+			NOT = { has_country_flag = renounced_enumenical_patriach_flag }
+			has_idea = millets
+			calc_true_if = { #Should reasonably want to curtail their authority
+				all_owned_province = {
+					has_modifier = phanariote_greeks
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			adm_power = 100 #Should be expensive
+			mil_power = 100 #^^^
+		}
+
+		effect = {
+			add_adm_power = -100
+			add_mil_power = -100
+			every_owned_province = { #Fire Separatists in every Phanariote province
+				limit = {
+					has_province_modifier = phanariote_greeks
+					culture = greek
+				}
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 2 #Even more powerful than the Kurds
+				}
+			}
+			every_owned_province = { #Fire Separatists in every Phanariote province
+				limit = {
+					development = 20
+					culture = greek
+				}
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 1
+				}
+			}
+			custom_tooltip = renounce_ecumenical_patriarch_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						has_province_modifier = phanariote_greeks
+					}
+					remove_province_modifier = phanariote_greeks
+				}
+				every_province = {
+					limit = {
+						culture_group = greek
+					}
+					add_core = GRE
+				}
+			}
+			set_country_flag = renounced_enumenical_patriach_flag
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = { #Not if before 1700
+				factor = 0
+				NOT = { is_year = 1700 }
+			}
+		}
+	}
+
+	settle_thrace = { #The rich lands of Thrace have been left in disarray
+		major = no
+		potential = {
+			primary_culture = turkish
+			anatolia_region = {
+				type = all
+				is_core = ROOT
+			}
+			NOT = { has_country_flag = turkish_thrace_settlement }
+		}
+
+		provinces_to_highlight = {
+			turkish_settlement_region = yes
+			NOT = { is_core = ROOT }
+		}
+
+		allow = {
+			total_development = 800 #Powerful
+			thrace_area = { #Eastern Thrace
+				type = all
+				is_core = ROOT
+			}
+			western_thrace_area = {
+				type = all
+				is_core = ROOT
+			}
+			adm_power = 200
+			OR = {
+				full_idea_group = economic_ideas
+				is_year = 1700
+			}
+		}
+
+		effect = {
+			add_adm_power = -200
+			custom_tooltip = enables_turkish_thrace_settlement
+			set_country_flag = turkish_thrace_settlement
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = { #Not if before 1600
+				factor = 0
+				NOT = { is_year = 1600 }
+			}
+		}
+	}
+}

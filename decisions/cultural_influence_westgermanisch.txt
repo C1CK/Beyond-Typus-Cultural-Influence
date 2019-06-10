@@ -1,0 +1,44 @@
+country_decisions = {
+	adopt_policy_of_ostsiedlung = {
+		major = yes
+		potential = { #Expanded to be more difficult with the Dharma update
+			NOT = { has_country_modifier = ostsiedlung}
+			allowed_to_settle_germanic = yes
+			government_rank = 2
+			calc_true_if = { #This check permits both Teutonic order and the Livonian order
+				all_owned_province = {
+					NOT = { culture_group = germanic }
+				}
+				amount = 5
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "ostsiedlung"
+				duration = -1
+			}
+		}
+	}
+
+	standardize_low_german = {
+		major = yes
+		potential = {
+			always = no
+		}
+	}
+
+	standardize_high_german = {
+		major = yes
+		potential = {
+			always = no
+		}
+	}
+
+	merge_the_languages = { #Merge Low & High German
+		major = yes
+		potential = {
+			always = no
+		}
+	}
+}
