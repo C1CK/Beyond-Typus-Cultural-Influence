@@ -1184,3 +1184,30 @@ bosporusdeutsch_culture_region = {
 		
 	}
 }
+
+niler_culture_region = {
+	OR = {
+		area = said_area
+		area = bahari_area
+		area = lower_nubia_area
+		area = upper_nubia_area
+		area = delta_area
+		province_id = 2325
+		province_id = 5272
+	}
+}
+
+agyptdeutsch_culture_region = {
+	OR = {
+		area = vostani_area
+		area = dongola_area
+		AND = {
+			area = red_sea_coast_area
+			NOT = { province_id = 5283 }
+		}
+	}
+}
+levantiner_culture_region = {
+	region = mashriq_region
+	NOT = { area = cyprus_area }
+}
