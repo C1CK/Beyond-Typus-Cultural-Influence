@@ -2489,7 +2489,7 @@ province_event = { #New Norse spread
 	}
 }
 
-country_event = { #Birth of ∆nglisch (Personal)
+country_event = { #Birth of √Ünglisch (Personal)
 	id = cultural_influence_germanic.19
 	title = birth_of_anglisch_loc.title
 	desc = birth_of_anglisch_loc.desc
@@ -2613,7 +2613,7 @@ country_event = { #Birth of ∆nglisch (Personal)
 	}
 
 	immediate = {
-		hidden_effect = { #Pick province for the birth of ∆nglisch
+		hidden_effect = { #Pick province for the birth of √Ünglisch
 			random_owned_province = {
 				limit = {
 					anglisch_culture_group = yes
@@ -2642,7 +2642,7 @@ country_event = { #Birth of ∆nglisch (Personal)
 	}
 }
 
-country_event = { #Birth of ∆nglisch (Junior Partner)
+country_event = { #Birth of √Ünglisch (Junior Partner)
 	id = cultural_influence_germanic.20
 	title = birth_of_anglisch_JP_loc.title
 	desc = birth_of_anglisch_JP_loc.desc
@@ -2763,7 +2763,7 @@ country_event = { #Birth of ∆nglisch (Junior Partner)
 	}
 
 	immediate = {
-		hidden_effect = { #Pick province for the birth of ∆nglisch
+		hidden_effect = { #Pick province for the birth of √Ünglisch
 			random_owned_province = {
 				limit = {
 					anglisch_culture_group = yes
@@ -2799,7 +2799,7 @@ country_event = { #Birth of ∆nglisch (Junior Partner)
 	}
 }
 
-country_event = { #Birth of ∆nglisch (Information event for overlord)
+country_event = { #Birth of √Ünglisch (Information event for overlord)
 	id = cultural_influence_germanic.21
 	title = birth_of_anglisch_loc.title
 	desc = birth_of_anglisch_loc.desc
@@ -2812,19 +2812,19 @@ country_event = { #Birth of ∆nglisch (Information event for overlord)
 	}
 }
 
-province_event = { #∆nglisch spread
+province_event = { #√Ünglisch spread
 	id = cultural_influence_germanic.22
 	title = anglisch_spread.title
 	desc = anglisch_spread.desc
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		OR = { #Either owned by German Empire or is junior partner, with Standard German or ∆nglish as primary culture, of German Empire with Standard German as primary culture
+		OR = { #Either owned by German Empire or is junior partner, with Standard German or √Ünglish as primary culture, of German Empire with Standard German as primary culture
 			OWNER = { #German Empire
 				has_country_modifier = mandated_administrative_language
 				primary_culture = standard_german
 			}
-			OWNER = { #Junior partner, with Standard German or ∆nglish as primary culture, of German Empire with Standard German as primary culture
+			OWNER = { #Junior partner, with Standard German or √Ünglish as primary culture, of German Empire with Standard German as primary culture
 				OVERLORD = { #German Empire overlord
 					has_country_modifier = mandated_administrative_language
 					primary_culture = standard_german
@@ -2848,7 +2848,7 @@ province_event = { #∆nglisch spread
 
 	mean_time_to_happen = {
 		years = 25
-		modifier = { #∆nglish rule
+		modifier = { #√Ünglish rule
 			factor = 0.7
 			OWNER = { primary_culture = anglisch }
 		}
@@ -2903,7 +2903,7 @@ province_event = { #∆nglisch spread
 	}
 }
 
-province_event = { #Preuﬂisch expands
+province_event = { #Preu√üisch expands
 	id = cultural_influence_germanic.23
 	title = prussian_expands.title
 	desc = prussian_expands.desc
@@ -3093,7 +3093,7 @@ province_event = { #Preuﬂisch expands
 					culture = standard_german
 				}
 				NOT = {
-					any_neighbor_province = { #Does not border Preuﬂisch
+					any_neighbor_province = { #Does not border Preu√üisch
 						culture = prussian
 					}
 				}
@@ -3106,16 +3106,16 @@ province_event = { #Preuﬂisch expands
 	}
 }
 
-province_event = { #Weiﬂdeutsch supplanted local culture
+province_event = { #Wei√üdeutsch supplanted local culture
 	id = cultural_influence_germanic.24
 	title = weissdeutsch_spread.title
 	desc = {
 		desc = weissdeutsch_spread_first.desc
-		trigger = { NOT = { any_province = { culture = weissdeutsch } } } #Weiﬂe Deutsch doesn't exist
+		trigger = { NOT = { any_province = { culture = weissdeutsch } } } #Wei√üe Deutsch doesn't exist
 	}
 	desc = {
 		desc = weissdeutsch_spread.desc
-		trigger = { any_province = { culture = weissdeutsch } } #Weiﬂe Deutsch exists
+		trigger = { any_province = { culture = weissdeutsch } } #Wei√üe Deutsch exists
 	}
 	picture = RELIGIOUS_CONVERSION_eventPicture
 
@@ -4188,7 +4188,7 @@ province_event = { #Dutch settlement of Wallonia
 	}
 }
 
-country_event = { #Birth of Fr‰nkisch (Personal)
+country_event = { #Birth of Fr√§nkisch (Personal)
 	id = cultural_influence_germanic.30
 	title = birth_of_frankisch_loc.title
 	desc = birth_of_frankisch_loc.desc
@@ -4354,7 +4354,7 @@ country_event = { #Birth of Fr‰nkisch (Personal)
 	}
 }
 
-country_event { #Birth of Fr‰nkisch (Junior Partner)
+country_event { #Birth of Fr√§nkisch (Junior Partner)
 	id = cultural_influence_germanic.31
 	title = birth_of_frankisch_JP_loc.title
 	desc = birth_of_frankisch_JP_loc.desc
@@ -4528,7 +4528,7 @@ country_event { #Birth of Fr‰nkisch (Junior Partner)
 	}
 }
 
-country_event = { #Birth of Fr‰nkisch (Information event for overlord)
+country_event = { #Birth of Fr√§nkisch (Information event for overlord)
 	id = cultural_influence_germanic.32
 	title = birth_of_frankisch_loc.title
 	desc = birth_of_frankisch_loc.desc
@@ -4541,7 +4541,7 @@ country_event = { #Birth of Fr‰nkisch (Information event for overlord)
 	}
 }
 
-province_event = { #Fr‰nkisch spread
+province_event = { #Fr√§nkisch spread
 	id = cultural_influence_germanic.33
 	title = frankisch_spread.title
 	desc = frankisch_spread.desc
@@ -6259,7 +6259,7 @@ province_event = { #Dinaridendeutsch supplanted local culture
 	}
 }
 
-province_event = { #Siebenb¸rger supplanted local culture
+province_event = { #Siebenb√ºrger supplanted local culture
 	id = cultural_influence_germanic.45
 	title = siebenburger_spread.title
 	desc = {
@@ -6843,3 +6843,4 @@ province_event = { #Bessarabiendeutsch supplanted local culture
 		change_culture = bessarabiendeutsch
 	}
 }
+
