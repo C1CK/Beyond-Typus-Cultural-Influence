@@ -6843,3 +6843,4790 @@ province_event = { #Bessarabiendeutsch supplanted local culture
 		change_culture = bessarabiendeutsch
 	}
 }
+
+
+#Discord Bot's Stuff -Needs Review
+province_event = { #Suebisch spread
+	id = cultural_influence_germanic.48
+	title = suebisch_spread.title
+	desc = suebisch_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		OR = { #Either owned by German Empire or is junior partner, with Standard German or suebisch as primary culture, of German Empire with Standard German as primary culture
+			OWNER = { #German Empire
+				has_country_modifier = mandated_administrative_language
+				primary_culture = standard_german
+			}
+			OWNER = { #Junior partner, with Standard German or suebisch as primary culture, of German Empire with Standard German as primary culture
+				OVERLORD = { #German Empire overlord
+					has_country_modifier = mandated_administrative_language
+					primary_culture = standard_german
+				}
+				is_lesser_in_union = yes
+				OR = {
+					primary_culture = suebisch
+					primary_culture = standard_german
+				}
+			}
+		}
+		OR = {
+			suebisch_culture_group = yes
+			suebisch_culture_region = yes
+		}
+		has_global_flag = birth_of_suebisch_flag
+		nationalism = 0
+		not = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+		modifier = { #suebisch rule
+			factor = 0.7
+			OWNER = { primary_culture = suebisch }
+		}
+		modifier = { #Germanic influences
+			factor = 0.8
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+		}
+		modifier = { #Thematically correct influence
+			factor = 0.8
+			any_neighbor_province = {
+				culture = standard_german
+			}
+		}
+		modifier = { #Spread of assimilated culture
+			factor = 0.6
+			any_neighbor_province = {
+				culture = suebisch
+			}
+		}
+		modifier = { #Rural communities reluctant to convert
+			factor = 1.2
+			NOT = { development = 10 }
+		}
+		modifier = { #More extreme rural communities
+			factor = 1.5
+			NOT = { development = 5 }
+		}
+		modifier = { #Townships more connected to capital
+			factor = 0.9
+			development = 10
+		}
+		modifier = { #Cities even more connected
+			factor = 0.8
+			development = 20
+		}
+		modifier = { #Larger city means more connection
+			factor = 0.7
+			development = 30
+		}
+		modifier = { #Stop developing pls. k thx
+			factor = 0.6
+			development = 40
+		}
+	}
+
+	option = {
+		name = suebisch_spread.a
+
+		change_culture = suebisch
+	}
+}
+
+country_event = { #Birth of Suebisch (Personal)
+	id = cultural_influence_germanic.49
+	title = birth_of_suebisch.title
+	desc = birth_of_suebisch.desc
+	picture = ARTWORK_eventPicture
+
+	trigger = {
+		primary_culture = standard_german
+		OR = {
+			calc_true_if = {
+				ROOT = {
+					accepted_culture = galician
+				}
+				amount = 1
+			}
+		}
+		has_country_modifier = mandated_administrative_language
+		NOT = { has_global_flag = birth_of_suebisch_flag }
+		calc_true_if = { #If have 10 Galician provinces with no nationalism
+			all_owned_province = {
+				suebisch_culture_group = yes
+				nationalism = 0
+			}
+			amount = 10
+		}
+		any_owned_province = { #Check is any province valid for the birth of Frankisch
+			suebisch_culture_group = yes
+			OR = {
+				any_neighbor_province = { culture = standard_german }
+				province_trade_power = 10
+			}
+			development = 15
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 1 #Resistant
+		modifier = { #If owns all French provinces
+			factor = 0.8
+			NOT = {
+				any_province = {
+					continent = europe
+					suebisch_culture_group = yes
+					NOT = { owned_by = ROOT }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.9
+			national_focus = adm
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				consort_culture = galician
+			}
+		}
+		modifier = {
+			factor = 0.9
+			has_parliament = yes
+		}
+		modifier = {
+			factor = 0.8
+			government = republic
+		}
+		modifier = {
+			factor = 0.9
+			any_owned_province = {
+				suebisch_culture_group = yes
+				has_seat_in_parliament = yes
+			}
+		}
+		modifier = {
+			factor = 0.9
+			calc_true_if = { #If two galician provinces have a seat in parliament
+				all_owned_province = {
+					suebisch_culture_group = yes
+					has_seat_in_parliament = yes
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.9
+			calc_true_if = { #If three galician provinces have a seat in parliament
+				all_owned_province = {
+					suebisch_culture_group = yes
+					has_seat_in_parliament = yes
+				}
+				amount = 3
+			}
+		}
+		modifier = {
+			factor = 0.9
+			calc_true_if = { #If four galician provinces have a seat in parliament
+				all_owned_province = {
+					suebisch_culture_group = yes
+					has_seat_in_parliament = yes
+				}
+				amount = 4
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = { #Pick province for the birth of Suebisch
+			random_owned_province = {
+				limit = {
+					suebisch_culture_group = yes
+					OR = {
+						any_neighbor_province = { culture = standard_german }
+						province_trade_power = 10
+					}
+					development = 15
+				}
+				save_event_target_as = birth_province
+			}
+		}
+	}
+
+	option = {
+		name = birth_of_suebisch.a
+
+		event_target:birth_province = {
+			change_culture = suebisch
+			add_permanent_province_modifier = {
+				name = birthplace_of_suebisch_modifier
+				duration = -1
+			}
+		}
+		set_global_flag = birth_of_suebisch_flag
+	}
+}
+
+country_event { #Birth of suebisch (Junior Partner)
+	id = cultural_influence_germanic.50
+	title = birth_of_suebisch_JP.title
+	desc = birth_of_suebisch_JP.desc
+
+	trigger = {
+		is_lesser_in_union = yes
+		primary_culture = standard_german
+		OVERLORD = { primary_culture = standard_german }
+		OR = {
+			calc_true_if = {
+				ROOT = {
+					accepted_culture = galician
+				}
+				amount = 1
+			}
+		}
+		OVERLORD = { has_country_modifier = mandated_administrative_language }
+		NOT = { has_global_flag = birth_of_suebisch_flag }
+		calc_true_if = { #If have 20 suebisch provinces with no nationalism
+			all_owned_province = {
+				suebisch_culture_group = yes
+				nationalism = 0
+			}
+			amount = 10
+		}
+		any_owned_province = { #Check is any province valid for the birth of suebisch
+			suebisch_culture_group = yes
+			OR = {
+				any_neighbor_province = { culture = standard_german }
+				province_trade_power = 10
+			}
+			development = 15
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 1 #Resistant
+		modifier = { #If owns all suebisch provinces
+			factor = 0.8
+			NOT = {
+				any_province = {
+					continent = europe
+					suebisch_culture_group = yes
+					NOT = { owned_by = ROOT }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.9
+			national_focus = adm
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				consort_culture = galician
+			}
+		}
+		modifier = {
+			factor = 0.9
+			has_parliament = yes
+		}
+		modifier = {
+			factor = 0.8
+			government = republic
+		}
+		modifier = {
+			factor = 0.9
+			any_owned_province = {
+				suebisch_culture_group = yes
+				has_seat_in_parliament = yes
+			}
+		}
+		modifier = {
+			factor = 0.9
+			calc_true_if = { #If two suebisch provinces have a seat in parliament
+				all_owned_province = {
+					suebisch_culture_group = yes
+					has_seat_in_parliament = yes
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.9
+			calc_true_if = { #If three suebisch provinces have a seat in parliament
+				all_owned_province = {
+					suebisch_culture_group = yes
+					has_seat_in_parliament = yes
+				}
+				amount = 3
+			}
+		}
+		modifier = {
+			factor = 0.9
+			calc_true_if = { #If four suebisch provinces have a seat in parliament
+				all_owned_province = {
+					suebisch_culture_group = yes
+					has_seat_in_parliament = yes
+				}
+				amount = 4
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = { #Pick province for the birth of Suebisch
+			random_owned_province = {
+				limit = {
+					suebisch_culture_group = yes
+					OR = {
+						any_neighbor_province = { culture = standard_german }
+						province_trade_power = 10
+					}
+					development = 15
+				}
+				save_event_target_as = birth_province
+			}
+		}
+	}
+
+	option = {
+		name = birth_of_suebisch_JP.a
+
+		OVERLORD = {
+			country_event = {
+				id = cultural_influence_germanic.51
+				days = 0
+			}
+		}
+
+		event_target:birth_province = {
+			change_culture = suebisch
+			add_permanent_province_modifier = {
+				name = birthplace_of_suebisch_modifier
+				duration = -1
+			}
+		}
+		set_global_flag = birth_of_suebisch_flag
+	}
+}
+
+country_event = { #Birth of Suebisch (Information event for overlord)
+	id = cultural_influence_germanic.51
+	title = birth_of_suebisch.title
+	desc = birth_of_suebisch.desc
+	picture = ARTWORK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = birth_of_suebisch.a
+	}
+}
+
+province_event = { #Westgotisch spread
+	id = cultural_influence_germanic.52
+	title = westgotisch_spread.title
+	desc = westgotisch_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		OR = { #Either owned by German Empire or is junior partner, with Standard German or suebisch as primary culture, of German Empire with Standard German as primary culture
+			OWNER = { #German Empire
+				has_country_modifier = mandated_administrative_language
+				primary_culture = standard_german
+			}
+			OWNER = { #Junior partner, with Standard German or suebisch as primary culture, of German Empire with Standard German as primary culture
+				OVERLORD = { #German Empire overlord
+					has_country_modifier = mandated_administrative_language
+					primary_culture = standard_german
+				}
+				is_lesser_in_union = yes
+				OR = {
+					primary_culture = westgotisch
+					primary_culture = standard_german
+				}
+			}
+		}
+		OR = {
+			westgotisch_culture_group = yes
+			westgotisch_culture_region = yes
+		}
+		has_global_flag = birth_of_westgotisch_flag
+		nationalism = 0
+		not = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+		modifier = { #westgotisch rule
+			factor = 0.7
+			OWNER = { primary_culture = westgotisch }
+		}
+		modifier = { #Germanic influences
+			factor = 0.8
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+		}
+		modifier = { #Thematically correct influence
+			factor = 0.8
+			any_neighbor_province = {
+				culture = standard_german
+			}
+		}
+		modifier = { #Spread of assimilated culture
+			factor = 0.6
+			any_neighbor_province = {
+				culture = westgotisch
+			}
+		}
+		modifier = { #Rural communities reluctant to convert
+			factor = 1.2
+			NOT = { development = 10 }
+		}
+		modifier = { #More extreme rural communities
+			factor = 1.5
+			NOT = { development = 5 }
+		}
+		modifier = { #Townships more connected to capital
+			factor = 0.9
+			development = 10
+		}
+		modifier = { #Cities even more connected
+			factor = 0.8
+			development = 20
+		}
+		modifier = { #Larger city means more connection
+			factor = 0.7
+			development = 30
+		}
+		modifier = { #Stop developing pls. k thx
+			factor = 0.6
+			development = 40
+		}
+	}
+
+	option = {
+		name = westgotisch_spread.a
+
+		change_culture = westgotisch
+	}
+}
+
+country_event = { #Birth of westgotisch (Personal)
+	id = cultural_influence_germanic.53
+	title = birth_of_westgotisch.title
+	desc = birth_of_westgotisch.desc
+	picture = ARTWORK_eventPicture
+
+	trigger = {
+		primary_culture = standard_german
+		OR = {
+			calc_true_if = {
+				ROOT = {
+					accepted_culture = aragonese
+					accepted_culture = catalan
+					accepted_culture = andalucian
+					accepted_culture = andalusi_culture
+				}
+				amount = 2
+			}
+		}
+		has_country_modifier = mandated_administrative_language
+		NOT = { has_global_flag = birth_of_westgotisch_flag }
+		calc_true_if = { #If have 10 westgotisch provinces with no nationalism
+			all_owned_province = {
+				westgotisch_culture_group = yes
+				nationalism = 0
+			}
+			amount = 10
+		}
+		any_owned_province = { #Check is any province valid for the birth of westgotisch
+			westgotisch_culture_group = yes
+			OR = {
+				any_neighbor_province = { culture = standard_german }
+				province_trade_power = 10
+			}
+			development = 15
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 1 #Resistant
+		modifier = { #If owns all westgotisch provinces
+			factor = 0.8
+			NOT = {
+				any_province = {
+					continent = europe
+					westgotisch_culture_group = yes
+					NOT = { owned_by = ROOT }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.9
+			national_focus = adm
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				consort_culture = catalan
+				consort_culture = aragonese
+				consort_culture = andalucian
+				consort_culture = andalusi_culture
+			}
+		}
+		modifier = {
+			factor = 0.9
+			has_parliament = yes
+		}
+		modifier = {
+			factor = 0.8
+			government = republic
+		}
+		modifier = {
+			factor = 0.9
+			any_owned_province = {
+				westgotisch_culture_group = yes
+				has_seat_in_parliament = yes
+			}
+		}
+		modifier = {
+			factor = 0.9
+			calc_true_if = { #If two westgotisch provinces have a seat in parliament
+				all_owned_province = {
+					westgotisch_culture_group = yes
+					has_seat_in_parliament = yes
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.9
+			calc_true_if = { #If three westgotisch provinces have a seat in parliament
+				all_owned_province = {
+					westgotisch_culture_group = yes
+					has_seat_in_parliament = yes
+				}
+				amount = 3
+			}
+		}
+		modifier = {
+			factor = 0.9
+			calc_true_if = { #If four westgotisch provinces have a seat in parliament
+				all_owned_province = {
+					westgotisch_culture_group = yes
+					has_seat_in_parliament = yes
+				}
+				amount = 4
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = { #Pick province for the birth of westgotisch
+			random_owned_province = {
+				limit = {
+					westgotisch_culture_group = yes
+					OR = {
+						any_neighbor_province = { culture = standard_german }
+						province_trade_power = 10
+					}
+					development = 15
+				}
+				save_event_target_as = birth_province
+			}
+		}
+	}
+
+	option = {
+		name = birth_of_westgotisch.a
+
+		event_target:birth_province = {
+			change_culture = westgotisch
+			add_permanent_province_modifier = {
+				name = birthplace_of_westgotisch_modifier
+				duration = -1
+			}
+		}
+		set_global_flag = birth_of_westgotisch_flag
+	}
+}
+
+country_event { #Birth of westgotisch (Junior Partner)
+	id = cultural_influence_germanic.98
+	title = birth_of_westgotisch_JP.title
+	desc = birth_of_westgotisch_JP.desc
+
+	trigger = {
+		is_lesser_in_union = yes
+		primary_culture = standard_german
+		OVERLORD = { primary_culture = standard_german }
+		OR = {
+			calc_true_if = {
+				ROOT = {
+					accepted_culture = catalan
+					accepted_culture = andalucian
+					accepted_culture = andalusi_culture
+					accepted_culture = aragonese
+				}
+				amount = 2
+			}
+		}
+		OVERLORD = { has_country_modifier = mandated_administrative_language }
+		NOT = { has_global_flag = birth_of_westgotisch_flag }
+		calc_true_if = { #If have 20 westgotisch provinces with no nationalism
+			all_owned_province = {
+				westgotisch_culture_group = yes
+				nationalism = 0
+			}
+			amount = 10
+		}
+		any_owned_province = { #Check is any province valid for the birth of westgotisch
+			westgotisch_culture_group = yes
+			OR = {
+				any_neighbor_province = { culture = standard_german }
+				province_trade_power = 10
+			}
+			development = 15
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 1 #Resistant
+		modifier = { #If owns all westgotisch provinces
+			factor = 0.8
+			NOT = {
+				any_province = {
+					continent = europe
+					westgotisch_culture_group = yes
+					NOT = { owned_by = ROOT }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.9
+			national_focus = adm
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				consort_culture = catalan
+				consort_culture = aragonese
+				consort_culture = andalucian
+				consort_culture = andalusi_culture
+			}
+		}
+		modifier = {
+			factor = 0.9
+			has_parliament = yes
+		}
+		modifier = {
+			factor = 0.8
+			government = republic
+		}
+		modifier = {
+			factor = 0.9
+			any_owned_province = {
+				westgotisch_culture_group = yes
+				has_seat_in_parliament = yes
+			}
+		}
+		modifier = {
+			factor = 0.9
+			calc_true_if = { #If two westgotisch provinces have a seat in parliament
+				all_owned_province = {
+					westgotisch_culture_group = yes
+					has_seat_in_parliament = yes
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.9
+			calc_true_if = { #If three westgotisch provinces have a seat in parliament
+				all_owned_province = {
+					westgotisch_culture_group = yes
+					has_seat_in_parliament = yes
+				}
+				amount = 3
+			}
+		}
+		modifier = {
+			factor = 0.9
+			calc_true_if = { #If four westgotisch provinces have a seat in parliament
+				all_owned_province = {
+					westgotisch_culture_group = yes
+					has_seat_in_parliament = yes
+				}
+				amount = 4
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = { #Pick province for the birth of westgotisch
+			random_owned_province = {
+				limit = {
+					westgotisch_culture_group = yes
+					OR = {
+						any_neighbor_province = { culture = standard_german }
+						province_trade_power = 10
+					}
+					development = 15
+				}
+				save_event_target_as = birth_province
+			}
+		}
+	}
+
+	option = {
+		name = birth_of_westgotisch_JP.a
+
+		OVERLORD = {
+			country_event = {
+				id = cultural_influence_germanic.99
+				days = 0
+			}
+		}
+
+		event_target:birth_province = {
+			change_culture = westgotisch
+			add_permanent_province_modifier = {
+				name = birthplace_of_westgotisch_modifier
+				duration = -1
+			}
+		}
+		set_global_flag = birth_of_westgotisch_flag
+	}
+}
+
+country_event = { #Birth of westgotisch (Information event for overlord)
+	id = cultural_influence_germanic.99
+	title = birth_of_westgotisch.title
+	desc = birth_of_westgotisch.desc
+	picture = ARTWORK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = birth_of_westgotisch.a
+	}
+}
+
+province_event = { #Deutschthracian supplanted local culture
+	id = cultural_influence_germanic.54
+	title = deutschthracian_spread.title
+	desc = {
+		desc = deutschthracian_spread_first.desc
+		trigger = { NOT = { any_province = { culture = deutschthracian } } }
+	}
+	desc = {
+		desc = deutschthracian_spread.desc
+		trigger = { any_province = { culture = deutschthracian } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = deutschthracian }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		deutschthracian_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = deutschthracian
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = deutschthracian_spread.a
+
+		change_culture = deutschthracian
+	}
+}
+
+province_event = { #dobrudschadeutsche supplanted local culture
+	id = cultural_influence_germanic.201
+	title = dobrudschadeutsche_spread.title
+	desc = {
+		desc = dobrudschadeutsche_spread_first.desc
+		trigger = { NOT = { any_province = { culture = dobrudschadeutsche } } }
+	}
+	desc = {
+		desc = dobrudschadeutsche_spread.desc
+		trigger = { any_province = { culture = dobrudschadeutsche } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = dobrudschadeutsche }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		dobrudschadeutsche_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = dobrudschadeutsche
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = dobrudschadeutsche_spread.a
+
+		change_culture = dobrudschadeutsche
+	}
+}
+
+province_event = { #Griechischdeutsch supplanted local culture
+	id = cultural_influence_germanic.55
+	title = griechischdeutsch_spread.title
+	desc = {
+		desc = griechischdeutsch_spread_first.desc
+		trigger = { NOT = { any_province = { culture = griechischdeutsch } } }
+	}
+	desc = {
+		desc = griechischdeutsch_spread.desc
+		trigger = { any_province = { culture = griechischdeutsch } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = griechischdeutsch }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		griechischdeutsch_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = griechischdeutsch
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = griechischdeutsch_spread.a
+
+		change_culture = griechischdeutsch
+	}
+}
+
+province_event = { #Moldauisch supplanted local culture
+	id = cultural_influence_germanic.57
+	title = moldauisch_spread.title
+	desc = {
+		desc = moldauisch_spread_first.desc
+		trigger = { NOT = { any_province = { culture = moldauisch } } }
+	}
+	desc = {
+		desc = moldauisch_spread.desc
+		trigger = { any_province = { culture = moldauisch } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = moldauisch }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		moldauisch_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = moldauisch			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = moldauisch_spread.a
+
+		change_culture = moldauisch	}
+}
+
+province_event = { #American
+	id = cultural_influence_germanic.60
+	title = german_amerika.title
+	desc = german_amerika.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		german_american_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 0
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = german_amerika.a
+
+		change_culture = amerikaaner
+	}
+}
+
+province_event = { #Brazilian
+	id = cultural_influence_germanic.61
+	title = german_brazilian.title
+	desc = german_brazilian.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		germanic_brazilian_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 0
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = german_brazilian.a
+
+		change_culture = deutschbrasiliooner
+	}
+}
+
+province_event = { #Brazilian
+	id = cultural_influence_germanic.160
+	title = kleinvenezianer.title
+	desc = kleinvenezianer.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		kleinvenezianer_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 0
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = kleinvenezianer.a
+
+		change_culture = kleinvenezianer
+	}
+}
+
+province_event = { #Brazilian
+	id = cultural_influence_germanic.161
+	title = katharinensisch.title
+	desc = katharinensisch.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		katharinensisch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 0
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = katharinensisch.a
+
+		change_culture = katharinensisch
+	}
+}
+
+province_event = { #Brazilian
+	id = cultural_influence_germanic.162
+	title = patagonier.title
+	desc = patagonier.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		patagonier_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 0
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = patagonier.a
+
+		change_culture = patagonier
+	}
+}
+
+province_event = { #South African
+	id = cultural_influence_germanic.62
+	title = german_south_african.title
+	desc = german_south_african.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		OR = {
+			german_south_afrikaner_culture_region = yes
+			any_neighbor_province = {
+			culture = bavarian
+			culture = swabian
+			culture = franconian
+			culture = hessian #rhenish
+			culture = saxon
+			culture = hannoverian #westphalian
+			culture = pommeranian
+			culture = hochdeutsch
+			}
+		}
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = german_south_african.a
+
+		change_culture = afrikaner
+	}
+}
+
+province_event = { #South Eastern Afrika
+	id = cultural_influence_germanic.78
+	title = german_namibia.title
+	desc = german_namibia.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		OR = {
+			german_namibia_culture_region = yes
+			any_neighbor_province = {
+			culture = bavarian
+			culture = swabian
+			culture = franconian
+			culture = hessian #rhenish
+			culture = saxon
+			culture = hannoverian #westphalian
+			culture = pommeranian
+			culture = hochdeutsch
+			}
+		}
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = german_namibia.a
+
+		change_culture = sudwesterdeutsch
+	}
+}
+
+province_event = { #Eastern Afrika
+	id = cultural_influence_germanic.79
+	title = german_tanzania.title
+	desc = german_tanzania.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		OR = {
+			german_tanzania_culture_region = yes
+			any_neighbor_province = {
+			culture = bavarian
+			culture = swabian
+			culture = franconian
+			culture = hessian #rhenish
+			culture = saxon
+			culture = hannoverian #westphalian
+			culture = pommeranian
+			culture = hochdeutsch
+			}
+		}
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = german_tanzania.a
+
+		change_culture = kitsuaheli
+	}
+}
+
+province_event = { #Australia
+	id = cultural_influence_germanic.80
+	title = german_australian.title
+	desc = german_australian.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		german_australian_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = german_australian.a
+
+		change_culture = deutschaustralier
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.81
+	title = german_unserdeutsch.title
+	desc = german_unserdeutsch.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		unserdeutsch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = german_unserdeutsch.a
+
+		change_culture = unserdeutsch
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.82
+	title = petjo_spread.title
+	desc = petjo_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		petjo_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = petjo_spread.a
+
+		change_culture = petjo
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.83
+	title = javindo_spread.title
+	desc = javindo_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		javindo_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = javindo_spread.a
+
+		change_culture = javindo
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.84
+	title = makatesisch_spread.title
+	desc = makatesisch_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		makatesisch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = makatesisch_spread.a
+
+		change_culture = makatesisch
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.85
+	title = indusdeutsch_spread.title
+	desc = indusdeutsch_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		indusdeutsch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = indusdeutsch_spread.a
+
+		change_culture = indusdeutsch
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.86
+	title = ganges_brahmaputriner_spread.title
+	desc = ganges_brahmaputriner_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		ganges_brahmaputriner_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = ganges_brahmaputriner_spread.a
+
+		change_culture = gangesbrahmaputriner
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.87
+	title = palkisch_spread.title
+	desc = palkisch_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		palkisch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = palkisch_spread.a
+
+		change_culture = palkisch
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.88
+	title = saurashtreser_spread.title
+	desc = saurashtreser_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		saurashtreser_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = saurashtreser_spread.a
+
+		change_culture = saurashtreser
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.89
+	title = maissurdeutsch_spread.title
+	desc = maissurdeutsch_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		maissurdeutsch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = maissurdeutsch_spread.a
+
+		change_culture = maissurdeutsch
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.90
+	title = maharash_gondwaner_spread.title
+	desc = maharash_gondwaner_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		maharash_gondwaner_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = maharash_gondwaner_spread.a
+
+		change_culture = maharashgondwaner
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.91
+	title = orissa_orientalisch_spread.title
+	desc = orissa_orientalisch_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		orissa_orientalisch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = orissa_orientalisch_spread.a
+
+		change_culture = orissaorientalisch
+	}
+}
+
+province_event = { #Prariendeutsch
+	id = cultural_influence_germanic.125
+	title = prariendeutsch_spread.title
+	desc = prariendeutsch_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		prariendeutsch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 0
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = prariendeutsch_spread.a
+
+		change_culture = prariendeutsch
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.102
+	title = deutschkanadier_spread.title
+	desc = deutschkanadier_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		deutschkanadier_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = deutschkanadier_spread.a
+
+		change_culture = deutschkanadier
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.103
+	title = plautdietsch_spread.title
+	desc = plautdietsch_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		plautdietsch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = plautdietsch_spread.a
+
+		change_culture = plautdietsch
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.104
+	title = westkustendeutsch_spread.title
+	desc = westkustendeutsch_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		westkustendeutsch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = westkustendeutsch_spread.a
+
+		change_culture = westkustendeutsch
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.105
+	title = westkustendeutsch_spread.title
+	desc = westkustendeutsch_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		westkustendeutsch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = westkustendeutsch_spread.a
+
+		change_culture = westkustendeutsch
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.200
+	title = hanauer_spread.title
+	desc = hanauer_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		westkustendeutsch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = hanauer_spread.a
+
+		change_culture = hanauer
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.106
+	title = deutschmexikaner_spread.title
+	desc = deutschmexikaner_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		deutschmexikaner_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = deutschmexikaner_spread.a
+
+		change_culture = deutschmexikaner
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.107
+	title = deutschtexaner_spread.title
+	desc = deutschtexaner_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		deutschtexaner_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = deutschtexaner_spread.a
+
+		change_culture = deutschtexaner
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.108
+	title = deutschkuster_spread.title
+	desc = deutschkuster_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		deutschkuster_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = deutschkuster_spread.a
+
+		change_culture = deutschkuster
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.109
+	title = pennsilfaanischdeitsche_spread.title
+	desc = pennsilfaanischdeitsche_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		pennsilfaanischdeitsche_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = pennsilfaanischdeitsche_spread.a
+
+		change_culture = pennsilfaanischdeitsche
+	}
+}
+
+province_event = { #Indo
+	id = cultural_influence_germanic.110
+	title = karibisch_spread.title
+	desc = karibisch_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		karibisch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = karibisch_spread.a
+
+		change_culture = karibisch
+	}
+}
+
+province_event = { #North Afrika
+	id = cultural_influence_germanic.64
+	title = vandals.title
+	desc = vandals.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		vandalisch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = vandals.a
+
+		change_culture = vandalisch
+	}
+}
+
+province_event = { #vilnisch supplanted local culture
+	id = cultural_influence_germanic.65
+	title = vilnisch_spread.title
+	desc = {
+		desc = vilnisch_spread_first.desc
+		trigger = { NOT = { any_province = { culture = vilnisch } } }
+	}
+	desc = {
+		desc = vilnisch_spread.desc
+		trigger = { any_province = { culture = vilnisch } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = vilnisch }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		vilnisch_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = vilnisch			
+				}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = vilnisch_spread.a
+
+		change_culture = vilnisch	
+	}
+}
+
+province_event = { #wiekisch supplanted local culture
+	id = cultural_influence_germanic.67
+	title = wiekisch_spread.title
+	desc = {
+		desc = wiekisch_spread_first.desc
+		trigger = { NOT = { any_province = { culture = wiekisch } } }
+	}
+	desc = {
+		desc = wiekisch_spread.desc
+		trigger = { any_province = { culture = wiekisch } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		NOT = { culture = wiekisch }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = wiekisch }
+			total_development = 35
+		}
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+			total_development = 35
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+				
+			}
+			num_of_times_improved = 5
+			total_development = 35
+		}
+		wiekisch_culture_region = yes
+		total_development = 35
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = wiekisch			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = wiekisch_spread.a
+
+		change_culture = wiekisch	}
+}
+
+province_event = { #lieflandisch supplanted local culture
+	id = cultural_influence_germanic.68
+	title = lieflandisch_spread.title
+	desc = {
+		desc = lieflandisch_spread_first.desc
+		trigger = { NOT = { any_province = { culture = lieflandisch } } }
+	}
+	desc = {
+		desc = lieflandisch_spread.desc
+		trigger = { any_province = { culture = lieflandisch } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = lieflandisch }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		lieflandisch_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = lieflandisch			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = lieflandisch_spread.a
+
+		change_culture = lieflandisch	}
+}
+
+province_event = { #kurlandisch supplanted local culture
+	id = cultural_influence_germanic.69
+	title = kurlandisch_spread.title
+	desc = {
+		desc = kurlandisch_spread_first.desc
+		trigger = { NOT = { any_province = { culture = kurlandisch } } }
+	}
+	desc = {
+		desc = kurlandisch_spread.desc
+		trigger = { any_province = { culture = kurlandisch } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = kurlandisch }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		kurlandisch_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = kurlandisch			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = kurlandisch_spread.a
+
+		change_culture = kurlandisch	}
+}
+
+province_event = { #rigisch supplanted local culture
+	id = cultural_influence_germanic.70
+	title = rigisch_spread.title
+	desc = {
+		desc = rigisch_spread_first.desc
+		trigger = { NOT = { any_province = { culture = rigisch } } }
+	}
+	desc = {
+		desc = rigisch_spread.desc
+		trigger = { any_province = { culture = rigisch } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = rigisch }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		rigisch_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = rigisch			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = rigisch_spread.a
+
+		change_culture = rigisch	}
+}
+
+province_event = { #sudauer supplanted local culture
+	id = cultural_influence_germanic.71
+	title = sudauer_spread.title
+	desc = {
+		desc = sudauer_spread_first.desc
+		trigger = { NOT = { any_province = { culture = sudauer } } }
+	}
+	desc = {
+		desc = sudauer_spread.desc
+		trigger = { any_province = { culture = sudauer } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = sudauer }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		sudauer_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = sudauer			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = sudauer_spread.a
+
+		change_culture = sudauer	}
+}
+
+province_event = { #galizier supplanted local culture
+	id = cultural_influence_germanic.72
+	title = galizier_spread.title
+	desc = {
+		desc = galizier_spread_first.desc
+		trigger = { NOT = { any_province = { culture = galizier } } }
+	}
+	desc = {
+		desc = galizier_spread.desc
+		trigger = { any_province = { culture = galizier } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = galizier }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		galizier_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = galizier			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = galizier_spread.a
+
+		change_culture = galizier	}
+}
+
+province_event = { #ingermanisch supplanted local culture
+	id = cultural_influence_germanic.73
+	title = ingermanisch_spread.title
+	desc = {
+		desc = ingermanisch_spread_first.desc
+		trigger = { NOT = { any_province = { culture = ingermanisch } } }
+	}
+	desc = {
+		desc = ingermanisch_spread.desc
+		trigger = { any_province = { culture = ingermanisch } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = ingermanisch }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		ingermanisch_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = ingermanisch			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = ingermanisch_spread.a
+
+		change_culture = ingermanisch	}
+}
+
+province_event = { #petschorisch supplanted local culture
+	id = cultural_influence_germanic.74
+	title = petschorisch_spread.title
+	desc = {
+		desc = petschorisch_spread_first.desc
+		trigger = { NOT = { any_province = { culture = petschorisch } } }
+	}
+	desc = {
+		desc = petschorisch_spread.desc
+		trigger = { any_province = { culture = petschorisch } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = petschorisch }
+		}
+		NOT = { culture = petschorisch }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		petschorisch_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = petschorisch			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = petschorisch_spread.a
+
+		change_culture = petschorisch	}
+}
+
+province_event = { #weissmeerer supplanted local culture
+	id = cultural_influence_germanic.75
+	title = weissmeerer_spread.title
+	desc = {
+		desc = weissmeerer_spread_first.desc
+		trigger = { NOT = { any_province = { culture = weissmeerer } } }
+	}
+	desc = {
+		desc = weissmeerer_spread.desc
+		trigger = { any_province = { culture = weissmeerer } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = weissmeerer }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		weissmeerer_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = weissmeerer			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = weissmeerer_spread.a
+
+		change_culture = weissmeerer	}
+}
+
+province_event = { #uraldeutsch supplanted local culture
+	id = cultural_influence_germanic.76
+	title = uraldeutsch_spread.title
+	desc = {
+		desc = uraldeutsch_spread_first.desc
+		trigger = { NOT = { any_province = { culture = uraldeutsch } } }
+	}
+	desc = {
+		desc = uraldeutsch_spread.desc
+		trigger = { any_province = { culture = uraldeutsch } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = uraldeutsch }
+		}
+		NOT = { culture = uraldeutsch }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		uraldeutsch_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = uraldeutsch			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = uraldeutsch_spread.a
+
+		change_culture = uraldeutsch	
+	}
+}
+
+province_event = { #Siberia
+	id = cultural_influence_germanic.77
+	title = stolypindeutsch_spread.title
+	desc = stolypindeutsch_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		stolypindeutsch_culture_region = yes
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = stolypindeutsch_spread.a
+
+		change_culture = stolypindeutsch
+	}
+}
+
+province_event = { #kasachstandeutsche supplanted local culture
+	id = cultural_influence_germanic.150
+	title = kasachstandeutsche_spread.title
+	desc = {
+		desc = kasachstandeutsche_spread_first.desc
+		trigger = { NOT = { any_province = { culture = kasachstandeutsche } } }
+	}
+	desc = {
+		desc = kasachstandeutsche_spread.desc
+		trigger = { any_province = { culture = kasachstandeutsche } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = kasachstandeutsche }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		kasachstandeutsche_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = kasachstandeutsche			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = kasachstandeutsche_spread.a
+
+		change_culture = kasachstandeutsche	
+	}
+}
+
+province_event = { #bosporusdeutsch supplanted local culture
+	id = cultural_influence_germanic.100
+	title = bosporusdeutsch_spread.title
+	desc = {
+		desc = bosporusdeutsch_spread_first.desc
+		trigger = { NOT = { any_province = { culture = bosporusdeutsch } } }
+	}
+	desc = {
+		desc = bosporusdeutsch_spread.desc
+		trigger = { any_province = { culture = bosporusdeutsch } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = bosporusdeutsch }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		bosporusdeutsch_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = bosporusdeutsch			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = bosporusdeutsch_spread.a
+
+		change_culture = bosporusdeutsch	
+	}
+}
