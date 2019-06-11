@@ -10748,7 +10748,7 @@ province_event = { #petschorisch supplanted local culture
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { primary_culture = petschorisch }
 		}
-		NOT = { culture = petschorisch }
+		NOT = { primary_culture = petschorisch }
 		OR = {
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -11096,7 +11096,7 @@ province_event = { #uraldeutsch supplanted local culture
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { primary_culture = uraldeutsch }
 		}
-		NOT = { culture = uraldeutsch }
+		NOT = { primary_culture = uraldeutsch }
 		OR = {
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -12928,5 +12928,47 @@ province_event = { #Griechischdeutsch supplanted local culture
 		name = epiroten_spread.a
 
 		change_culture = epiroten
+	}
+}
+
+
+province_event = { #The Sahara
+	id = cultural_influence_germanic.220
+	title = german_levant.title
+	desc = german_levant.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		OR = {
+			saharadeutsch_culture_region = yes
+			any_neighbor_province = {
+			culture = bavarian
+			culture = swabian
+			culture = franconian
+			culture = hessian #rhenish
+			culture = saxon
+			culture = hannoverian #westphalian
+			culture = pommeranian
+			culture = hochdeutsch
+			}
+		}
+		is_city = yes
+		german_new_world = no
+		owner = { culture_group = germanic }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+
+		modifier = {
+			factor = 1
+			hochdeutsch_culture_group = yes
+		}
+	}
+
+	option = {
+		name = german_levant.a
+
+		change_culture = saharadeutsch
 	}
 }
