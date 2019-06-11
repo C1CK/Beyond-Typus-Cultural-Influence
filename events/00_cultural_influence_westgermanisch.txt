@@ -3621,7 +3621,7 @@ province_event = { #Neunordisch settlement of Fenno-Scandinavia
 	}
 }
 
-province_event = { #Wolgadeutsch supplanted local culture (Absolute Unit!) (in all seriousness this is far too big and will be cut down to size later - but tbh most of this land is within the Volga watershed or just outside and too small of a region to justify a different culture)
+province_event = { #Wolgadeutsch supplanted local culture
 	id = cultural_influence_germanic.27
 	title = wolgadeutsch_spread.title
 	desc = {
@@ -11947,5 +11947,986 @@ province_event = { #The Levant
 		name = german_levant.a
 
 		change_culture = levantiner
+	}
+}
+
+country_event = { #Birth of Yola (Personal)
+
+	id = cultural_influence_germanic.214
+
+	title = birth_of_yola_loc.title
+
+	desc = birth_of_yola_loc.desc
+
+	picture = ARTWORK_eventPicture
+
+
+
+	trigger = {
+
+		primary_culture = standard_german
+
+		calc_true_if = { #Must accept irish culture
+
+			ROOT = {
+
+				accepted_culture = irish
+
+			}
+
+			amount = 1
+
+		}
+
+		has_country_modifier = mandated_administrative_language
+
+		NOT = { has_global_flag = birth_of_yola_flag }
+
+		calc_true_if = { #If have 6 irish provinces with no nationalism
+
+			all_owned_province = {
+
+				OR = {
+
+					culture = irish
+				}
+
+				nationalism = 0
+
+			}
+
+			amount = 6
+
+		}
+
+		any_owned_province = { #Check is any province valid for the birth of Yola
+
+			yola_culture_group = yes
+
+			OR = {
+
+				any_neighbor_province = { culture = standard_german }
+
+				province_trade_power = 4
+
+			}
+
+			development = 15
+
+		}
+
+		has_global_flag = CI_events_enabled
+
+	}
+
+
+
+	mean_time_to_happen = {
+
+		years = 25
+
+		modifier = { #If owns all Irish provinces
+
+			factor = 0.8
+
+			NOT = {
+
+				any_province = {
+
+					continent = europe
+
+					yola_culture_group = yes
+
+					NOT = { owned_by = ROOT }
+
+				}
+
+			}
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			adm = 4
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			adm = 5
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			adm = 6
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			national_focus = adm
+
+		}
+
+		modifier = {
+
+			factor = 0.8
+
+			OR = {
+
+				consort_culture = irish
+
+			}
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			has_parliament = yes
+
+		}
+
+		modifier = {
+
+			factor = 0.8
+
+			government = republic
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			any_owned_province = {
+
+				yola_culture_group = yes
+
+				has_seat_in_parliament = yes
+
+			}
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			calc_true_if = { #If two Irish provinces have a seat in parliament
+
+				all_owned_province = {
+
+					yola_culture_group = yes
+
+					has_seat_in_parliament = yes
+
+				}
+
+				amount = 2
+
+			}
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			calc_true_if = { #If three Irish provinces have a seat in parliament
+
+				all_owned_province = {
+
+					yola_culture_group = yes
+
+					has_seat_in_parliament = yes
+
+				}
+
+				amount = 3
+
+			}
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			calc_true_if = { #If four Irish provinces have a seat in parliament
+
+				all_owned_province = {
+
+					yola_culture_group = yes
+
+					has_seat_in_parliament = yes
+
+				}
+
+				amount = 4
+
+			}
+
+		}
+
+	}
+
+
+
+	immediate = {
+
+		hidden_effect = { #Pick province for the birth of Yola
+
+			random_owned_province = {
+
+				limit = {
+
+					yola_culture_group = yes
+
+					OR = {
+
+						any_neighbor_province = { culture = standard_german }
+
+						province_trade_power = 4
+
+					}
+
+					development = 15
+
+				}
+
+				save_event_target_as = birth_province
+
+			}
+
+		}
+
+	}
+
+
+
+	option = {
+
+		name = birth_of_yola_loc.a
+
+
+
+		event_target:birth_province = {
+
+			change_culture = yola
+
+			add_permanent_province_modifier = {
+
+				name = birthplace_of_yola_modifier
+
+				duration = -1
+
+			}
+
+		}
+
+		set_global_flag = birth_of_yola_flag
+
+	}
+
+}
+
+
+
+country_event = { #Birth of Yola (Junior Partner)
+
+	id = cultural_influence_germanic.215
+
+	title = birth_of_yola_JP_loc.title
+
+	desc = birth_of_yola_JP_loc.desc
+
+
+
+	trigger = {
+
+		is_lesser_in_union = yes
+
+		primary_culture = standard_german
+
+		OVERLORD = { primary_culture = standard_german }
+
+		calc_true_if = { #Must accept irish culture
+
+			ROOT = {
+
+				accepted_culture = irish
+
+			}
+
+			amount = 1
+
+		}
+
+		OVERLORD = { has_country_modifier = mandated_administrative_language }
+
+		NOT = { has_global_flag = birth_of_yola_flag }
+
+		calc_true_if = { #If have 6 Irish provinces with no nationalism
+
+			all_owned_province = {
+
+				yola_culture_group = yes
+
+				nationalism = 0
+
+			}
+
+			amount = 6
+
+		}
+
+		any_owned_province = { #Check is any province valid for the birth of Yola
+
+			yola_culture_group = yes
+
+			OR = {
+
+				any_neighbor_province = { culture = standard_german }
+
+				province_trade_power = 4
+
+			}
+
+			development = 15
+
+		}
+
+		has_global_flag = CI_events_enabled
+
+	}
+
+
+
+	mean_time_to_happen = {
+
+		years = 25
+
+		modifier = { #If owns all Irish provinces
+
+			factor = 0.8
+
+			NOT = {
+
+				any_province = {
+
+					continent = europe
+
+					yola_culture_group = yes
+
+					NOT = { owned_by = ROOT }
+
+				}
+
+			}
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			adm = 4
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			adm = 5
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			adm = 6
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			national_focus = adm
+
+		}
+
+		modifier = {
+
+			factor = 0.8
+
+			OR = {
+
+				consort_culture = irish
+
+			}
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			has_parliament = yes
+
+		}
+
+		modifier = {
+
+			factor = 0.8
+
+			government = republic
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			any_owned_province = {
+
+				yola_culture_group = yes
+
+				has_seat_in_parliament = yes
+
+			}
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			calc_true_if = { #If two Irish provinces have a seat in parliament
+
+				all_owned_province = {
+
+					yola_culture_group = yes
+
+					has_seat_in_parliament = yes
+
+				}
+
+				amount = 2
+
+			}
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			calc_true_if = { #If three Irish provinces have a seat in parliament
+
+				all_owned_province = {
+
+					yola_culture_group = yes
+
+					has_seat_in_parliament = yes
+
+				}
+
+				amount = 3
+
+			}
+
+		}
+
+		modifier = {
+
+			factor = 0.9
+
+			calc_true_if = { #If four Irish provinces have a seat in parliament
+
+				all_owned_province = {
+
+					yola_culture_group = yes
+
+					has_seat_in_parliament = yes
+
+				}
+
+				amount = 4
+
+			}
+
+		}
+
+	}
+
+
+
+	immediate = {
+
+		hidden_effect = { #Pick province for the birth of Yola
+
+			random_owned_province = {
+
+				limit = {
+
+					yola_culture_group = yes
+
+					OR = {
+
+						any_neighbor_province = { culture = standard_german }
+
+						province_trade_power = 4
+
+					}
+
+					development = 15
+
+				}
+
+				save_event_target_as = birth_province
+
+			}
+
+		}
+
+	}
+
+
+
+	option = {
+
+		name = birth_of_yola_JP_loc.a
+
+
+
+		OVERLORD = {
+
+			country_event = {
+
+				id = cultural_influence_germanic.216
+
+				days = 0
+
+			}
+
+		}
+
+
+
+		event_target:birth_province = {
+
+			change_culture = yola
+
+			add_permanent_province_modifier = {
+
+				name = birthplace_of_yola_modifier
+
+				duration = -1
+
+			}
+
+		}
+
+		set_global_flag = birth_of_yola_flag
+
+	}
+
+}
+
+
+
+country_event = { #Birth of Yola (Information event for overlord)
+
+	id = cultural_influence_germanic.217
+
+	title = birth_of_yola_loc.title
+
+	desc = birth_of_yola_loc.desc
+
+	picture = ARTWORK_eventPicture
+
+
+
+	is_triggered_only = yes
+
+
+
+	option = {
+
+		name = birth_of_yola_loc.a
+
+	}
+
+}
+
+
+
+province_event = { #Yola spread
+
+	id = cultural_influence_germanic.218
+
+	title = yola_spread.title
+
+	desc = yola_spread.desc
+
+	picture = CULTURE_eventPicture
+
+
+
+	trigger = {
+
+		OR = { #Either owned by German Empire or is junior partner, with Standard German or Ænglish as primary culture, of German Empire with Standard German as primary culture
+
+			OWNER = { #German Empire
+
+				has_country_modifier = mandated_administrative_language
+
+				primary_culture = standard_german
+
+			}
+
+			OWNER = { #Junior partner, with Standard German or Yola as primary culture, of German Empire with Standard German as primary culture
+
+				OVERLORD = { #German Empire overlord
+
+					has_country_modifier = mandated_administrative_language
+
+					primary_culture = standard_german
+
+				}
+
+				is_lesser_in_union = yes
+
+				OR = {
+
+					primary_culture = yola
+
+					primary_culture = standard_german
+
+				}
+
+			}
+
+		}
+
+		OR = {
+
+			yola_culture_group = yes
+
+			yola_culture_region = yes
+
+		}
+
+		has_global_flag = birth_of_yola_flag
+
+		nationalism = 0
+
+		not = { culture_group = germanic }
+
+		has_global_flag = CI_events_enabled
+
+	}
+
+
+
+	mean_time_to_happen = {
+
+		years = 25
+
+		modifier = { #Yola rule
+
+			factor = 0.7
+
+			OWNER = { primary_culture = yola }
+
+		}
+
+		modifier = { #Germanic influences
+
+			factor = 0.8
+
+			any_neighbor_province = {
+
+				culture_group = germanic
+
+			}
+
+		}
+
+		modifier = { #Thematically correct influence
+
+			factor = 0.8
+
+			any_neighbor_province = {
+
+				culture = standard_german
+
+			}
+
+		}
+
+		modifier = { #Spread of assimilated culture
+
+			factor = 0.6
+
+			any_neighbor_province = {
+
+				culture = yola
+
+			}
+
+		}
+
+		modifier = { #Rural communities reluctant to convert
+
+			factor = 1.2
+
+			NOT = { development = 10 }
+
+		}
+
+		modifier = { #More extreme rural communities
+
+			factor = 1.5
+
+			NOT = { development = 5 }
+
+		}
+
+		modifier = { #Townships more connected to capital
+
+			factor = 0.9
+
+			development = 10
+
+		}
+
+		modifier = { #Cities even more connected
+
+			factor = 0.8
+
+			development = 20
+
+		}
+
+		modifier = { #Larger city means more connection
+
+			factor = 0.7
+
+			development = 30
+
+		}
+
+		modifier = { #Stop developing pls. k thx
+
+			factor = 0.6
+
+			development = 40
+
+		}
+
+	}
+
+
+
+	option = {
+
+		name = yola_spread.a
+
+
+
+		change_culture = yola
+
+	}
+
+}
+
+province_event = { #Griechischdeutsch supplanted local culture
+	id = cultural_influence_germanic.219
+	title = epiroten_spread.title
+	desc = {
+		desc = epiroten_spread_first.desc
+		trigger = { NOT = { any_province = { culture = epiroten } } }
+	}
+	desc = {
+		desc = epiroten_spread.desc
+		trigger = { any_province = { culture = epiroten } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = epiroten }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		epiroten_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = epiroten
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = epiroten_spread.a
+
+		change_culture = epiroten
 	}
 }
