@@ -1128,3 +1128,53 @@ province_event = { #South African
 }
 
 #Considered adding India to this list, but the influence of English in India 1600-1947 was fairly insignificant, if someone can convince me otherwise, please do - Sam
+
+province_event = {
+	id = cultural_influence_british.55
+	title = frisian_split.title
+	desc = frisian_split.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		is_year = 1500
+		all_province = {
+			culture = frisian
+			NOT = { OWNER = { primary_culture = frisian } }
+		}
+		NOT = { has_global_flag = frisian_split }
+		OR = {
+			all_province = {
+			limit = {
+				culture = frisian
+			}
+				OR = {
+					OWNER = { primary_culture = danish }
+					OWNER = { primary_culture = dutch }
+				}
+			}
+		}
+		nationalism = 0
+	}
+	
+	mean_time_to_happen = {
+			years = 1
+	}
+		option = {
+			name = frisian_split.a
+			every_province = {
+    				limit = {
+        				culture = frisian
+        				area = schleswig_area
+    				}
+    			change_culture = nordfriesisch
+		}
+		every_province = {
+    				limit = {
+        				culture = frisian
+        				NOT = { area = schleswig_area }
+    				}
+    			change_culture = westfriesisch
+		}
+	}
+}
+				
