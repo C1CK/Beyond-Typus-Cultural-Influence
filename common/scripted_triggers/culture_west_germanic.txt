@@ -344,6 +344,8 @@ posisch_culture_region = {
 	region = poland_region
 	NOT = { area = silesia_area } #Schlesisch instead
 	NOT = { area = lower_silesia_area } #^^^
+	NOT = { area = malopolska_area }
+	province_id = 269
 }
 
 baltendeutsch_culture_region = {
@@ -413,11 +415,9 @@ dinaridendeutsch_culture_region = {
 
 ruthenisch_culture_region = {
 	OR = {
-		area = red_ruthenia_area
-		area = central_galicia_area
 		area = western_podolia_area
 		area = eastern_volhynia_area
-		province_id = 7268 #Peremyl
+		area = volhynia_area #Peremyl
 		area = west_dniepr_area #West Dniepr
 		area = cherkasy_area #West Dnieper
 		area = podolia_volhynia_area #East Podolia
@@ -425,6 +425,10 @@ ruthenisch_culture_region = {
 		area = east_dniepr_area
 		area = western_severia
 		area = eastern_severia
+		AND = {
+			area = podlasie_area
+			NOT = { province_id = 269 }
+		}
 	}
 }
 
@@ -548,8 +552,6 @@ kaukasusdeutsch_culture_region = {
 		primary_culture = niler
 		primary_culture = levantiner
 		primary_culture = saharadeutsch
-		primary_culture = uraldeutsch
-		primary_culture = petschorisch
 	}	
 }
 
