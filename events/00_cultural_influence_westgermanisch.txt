@@ -11669,6 +11669,183 @@ province_event = { #bosporusdeutsch supplanted local culture
 	}
 }
 
+province_event = { #
+	id = cultural_influence_germanic.180
+	title = reussisch_spread.title
+	desc = {
+		desc = reussisch_spread_first.desc
+		trigger = { NOT = { any_province = { culture = reussisch } } } #reussisch doesn't exist
+	}
+	desc = {
+		desc = reussisch_spread.desc
+		trigger = { any_province = { culture = reussisch } } #reussisch exists
+	}
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { allowed_to_settle_germanic = yes }
+		OR = {
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { primary_culture = reussisch }
+		}
+		NOT = { culture_group = germanic }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = germanic
+			}
+			num_of_times_improved = 5
+		}
+		reussisch_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = reussisch
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = reussisch_spread.a
+
+		change_culture = reussisch
+	}
+}
+
 province_event = { #Schleswigisch reinsurgence
 	id = cultural_influence_germanic.210
 	title = schleswigischclaim.title
