@@ -62,10 +62,20 @@ country_event = { #German Standardization
 				limit = {
 					OR = {
 						culture = austrian
+						culture = steirisch
+						culture = tirolerisch
 						hochdeutsch_culture_group = yes
 						AND = {
 							culture = austrian
 							ROOT = { primary_culture = austrian }
+						}
+						AND = {
+							culture = steirisch
+							ROOT = { primary_culture = steirisch }
+						}
+						AND = {
+							culture = tirolerisch
+							ROOT = { primary_culture = tirolerisch }
 						}
 						AND = {
 							culture = frisian
@@ -121,6 +131,14 @@ country_event = { #German Standardization
 						AND = {
 							culture = austrian
 							ROOT = { primary_culture = austrian }
+						}
+						AND = {
+							culture = steirisch
+							ROOT = { primary_culture = steirisch }
+						}
+						AND = {
+							culture = tirolerisch
+							ROOT = { primary_culture = tirolerisch }
 						}
 						AND = {
 							culture = frisian
@@ -227,6 +245,14 @@ country_event = { #German Standardization
 							ROOT = { primary_culture = austrian }
 						}
 						AND = {
+							culture = steirisch
+							ROOT = { primary_culture = steirisch }
+						}
+						AND = {
+							culture = tirolerisch
+							ROOT = { primary_culture = tirolerisch }
+						}
+						AND = {
 							culture = frisian
 							ROOT = { primary_culture = frisian }
 						}
@@ -280,6 +306,14 @@ country_event = { #German Standardization
 						AND = {
 							culture = austrian
 							ROOT = { primary_culture = austrian }
+						}
+						AND = {
+							culture = steirisch
+							ROOT = { primary_culture = steirisch }
+						}
+						AND = {
+							culture = tirolerisch
+							ROOT = { primary_culture = tirolerisch }
 						}
 						AND = {
 							culture = frisian
@@ -668,6 +702,8 @@ province_event = { #Austrian integration
 	trigger = {
 		has_global_flag = german_standardized
 		culture = austrian
+		culture = tirolerisch
+		culture = steirisch
 		owner = {
 			government_rank = 3
 			primary_culture = standard_german
@@ -857,6 +893,8 @@ province_event = { #Frisian integration
 	trigger = {
 		has_global_flag = german_standardized
 		culture = frisian
+		culture = nordfriesisch
+		culture = westfriesisch
 		owner = {
 			government_rank = 3
 			primary_culture = standard_german
