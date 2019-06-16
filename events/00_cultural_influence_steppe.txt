@@ -1,0 +1,144 @@
+namespace = cultural_influence_steppe
+#Generic Nomad events, The intent here is to make nomadic cultures and development centres more dynamic, whilst retaining the inportance of certain cities
+
+province_event = { #Rape and Pillage of XXX
+	id = cultural_influence_steppe.1
+	title = nomadic_conquest_culture_change.title
+	desc = nomadic_conquest_culture_change.desc
+
+	trigger = {
+		NOT = { culture = OWNER }
+		OWNER = { is_nomad = yes }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		any_neighbor_province = {
+			culture = OWNER
+		}
+		steppe_culture_region = yes
+		NOT = { has_province_modifier = steppe_city }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = nomadic_conquest_culture_change.a
+
+		add_base_tax = -4
+		add_base_production = -4
+		add_base_manpower = -4
+		change_culture = OWNER
+		change_religion = OWNER
+	}
+}
+
+province_event = { #Nomadic growth
+	id = cultural_influence_steppe.2
+	title = nomadic_growth.title
+	desc = nomadic_growth.desc
+
+	trigger = {
+		steppe_culture_region = yes
+		NOT = { has_province_modifier = steppe_city }
+		owner = { is_nomad = yes }
+		NOT = { development = 25 } #Limit for nomadic populations
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 2.5
+		modifier = {
+			factor = 2
+			development = 10
+		}
+		modifier = {
+			factor = 3
+			development = 15
+		}
+		modifier = {
+			factor = 4
+			development = 20
+		}
+	}
+
+	option = {
+		name = nomadic_growth.a
+
+		random_list = {
+			1 = {
+				add_base_manpower = 1
+			}
+			1 = {
+				add_base_production = 1
+			}
+			1 = {
+				add_base_tax = 1
+			}
+		}
+	}
+}
+
+province_event = { #Rise of Steppe City
+	id = cultural_influence_steppe.3
+	title = rise_of_steppe_city.title
+	desc = rise_of_steppe_city.desc
+
+	trigger = {
+		steppe_culture_region = yes
+		NOT = { has_province_modifier = steppe_city }
+		owner = { is_nomad = yes }
+		development = 20
+		province_has_center_of_trade_level = 2
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+		modifier = {
+			factor = 0.6
+			development = 30
+		}
+	}
+
+	option = {
+		rise_of_steppe_city.a
+
+		add_permanent_province_modifier = { 
+			name = steppe_city
+			duration = -1  
+		}
+	}
+}
+
+province_event = { #Decline of Steppe City
+	id = cultural_influence_steppe.4
+	title = decline_of_steppe_city.title
+	desc = decline_of_steppe_city.desc
+
+	trigger = {
+		steppe_culture_region = yes
+		has_province_modifier = steppe_city
+		owner = { is_nomad = yes }
+		province_has_center_of_trade_level = 1
+		NOT = { province_has_center_of_trade_level = 2 }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+		modifier = {
+			factor = 0.6
+			NOT = { development = 20 }
+		}
+	}
+
+	option = {
+		decline_of_steppe_city.a
+
+		remove_province_modifier = steppe_city
+	}
+}
