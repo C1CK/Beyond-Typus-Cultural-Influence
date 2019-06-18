@@ -346,6 +346,7 @@ posisch_culture_region = {
 	NOT = { area = lower_silesia_area } #^^^
 	NOT = { area = malopolska_area }
 	province_id = 269
+	province_id = 1938
 }
 
 baltendeutsch_culture_region = {
@@ -420,7 +421,10 @@ ruthenisch_culture_region = {
 		area = volhynia_area #Peremyl
 		area = west_dniepr_area #West Dniepr
 		area = cherkasy_area #West Dnieper
-		area = podolia_volhynia_area #East Podolia
+		AND = {
+			area = podolia_volhynia_area #East Podolia
+			NOT = { province_id = 7272 }
+		}
 		area = chernigov_area
 		area = east_dniepr_area
 		area = western_severia
@@ -949,7 +953,10 @@ galizier_culture_region = {
 
 sudauer_culture_region = {
 	OR = {
-		area = yotvingia_area
+		AND = {
+			area = yotvingia_area
+			NOT = { province_id = 1938 }
+		}
 		province_id = 1937
 		province_id = 270
 		province_id = 4536
