@@ -1,0 +1,65 @@
+agaio_culture_region = { #Should work for Greek settlement in West Anatolia and the Balkans
+	OR = {
+		area = hudavendigar_area #Bithynia
+		area = karasi_area #Mysia
+		area = aydin_area #Asia
+		area = lydia_area #Lydia
+		area = germiyan_area #Phrygia
+		area = morea_area #Morea
+		area = western_aegean_area #Hellas		
+		area = thessaly_area #Thessaly
+		area = western_macedonia_area #West Macedonia
+		area = eastern_macedonia_area #East Macedonia
+		area = aegean_archipelago_area #Aegean Islands
+		area = eastern_mediterrenean_islands_area #Crete
+		area = northern_epirus_area #Ionian Islands
+		area = albania_area #Albania
+		area = northern_macedonia_area #Northern Macedonia
+		area = upper_thrace_area #Upper Thrace
+		area = northern_thrace_area #Northern Thrace
+		area = bulgaria_area #Bulgaria
+		area = lower_danube_area #Dobruja
+		area = danubian_plain_area #Lower Moesia
+		area = vidin_area #Vidin
+		province_id = 3182
+		province_id = 5094
+		province_id = 7702
+		province_id = 7701
+		province_id = 1766
+		province_id = 7700
+		province_id = 5162 #Likya
+		province_id = 2298 #Antalya
+	}
+}
+
+illyrion_culture_region = { #Should work for Greek settlement in Old Illyria
+	OR = {
+		area = east_adriatic_coast_area
+		area = herzegovina_area
+		area = bosnia_area
+		area = syrmia_area
+		area = slavonia_area
+		area = croatia_area
+		area = friuli_area
+		area = serbia_area #Serbia
+		province_id = 138
+		province_id = 7708
+		province_id = 7709
+		province_id = 7710
+		province_id = 7712
+		province_id = 76
+		province_id = 1768
+		province_id = 7098
+		area = inner_austria_area
+		area = carniola_area
+	}
+}
+graiko_culture_region = { #Should work for Greek settlement in Italy
+	OR = {
+		AND = {
+			region = italy_region
+			NOT = { area = friuli_area}
+			NOT = {province_id = 7098}
+		}
+	}
+}
