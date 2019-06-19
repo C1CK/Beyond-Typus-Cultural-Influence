@@ -40,7 +40,8 @@ province_event = { #Greater Czech Expansion
 	}
 
 	mean_time_to_happen = {
-		years = 30
+		#Template Settled MTTH
+		years = 10
 
 		modifier = {
 			factor = 0.5
@@ -58,45 +59,56 @@ province_event = { #Greater Czech Expansion
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
 		modifier = {
-			factor = 1.5
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
 			development = 10
 		}
 		modifier = {
-			factor = 1.5
-			development = 15
-		}
-		modifier = {
-			factor = 1.5
+			factor = 1.4
 			development = 20
 		}
 		modifier = {
-			factor = 1.5
-			development = 25
+			factor = 1.4
+			development = 30
 		}
 		modifier = {
-			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					OR = {
-						culture = czech
-						culture = ceskoslovensky
-					}
-				}
-				amount = 2
-			}
+			factor = 1.2
+			has_owner_religion = no
 		}
 		modifier = {
-			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					OR = {
-						culture = czech
-						culture = ceskoslovensky
-					}
-				}
-				amount = 3
-			}
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
 		}
 	}
 
@@ -118,7 +130,7 @@ province_event = { #Greater Czech Expansion
 }
 
 province_event = { #Greater Slovak settlement
-	id = cultural_influece_west_slavic.2
+	id = cultural_influence_west_slavic.2
 	title = greater_slovak_expansion.title
 	desc = greater_slovak_expansion.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
@@ -156,7 +168,8 @@ province_event = { #Greater Slovak settlement
 	}
 
 	mean_time_to_happen = {
-		years = 30
+		#Template Settled MTTH
+		years = 10
 
 		modifier = {
 			factor = 0.5
@@ -174,45 +187,56 @@ province_event = { #Greater Slovak settlement
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
 		modifier = {
-			factor = 1.5
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
 			development = 10
 		}
 		modifier = {
-			factor = 1.5
-			development = 15
-		}
-		modifier = {
-			factor = 1.5
+			factor = 1.4
 			development = 20
 		}
 		modifier = {
-			factor = 1.5
-			development = 25
+			factor = 1.4
+			development = 30
 		}
 		modifier = {
-			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					OR = {
-						culture = slovak
-						culture = ceskoslovensky
-					}
-				}
-				amount = 2
-			}
+			factor = 1.2
+			has_owner_religion = no
 		}
 		modifier = {
-			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					OR = {
-						culture = slovak
-						culture = ceskoslovensky
-					}
-				}
-				amount = 3
-			}
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
 		}
 	}
 
@@ -230,5 +254,565 @@ province_event = { #Greater Slovak settlement
 		else = {
 			change_culture = slovak
 		}
+	}
+}
+
+province_event = { #Polish settlements and assimilation
+	id = cultural_influence_west_slavic.3
+	title = polish_settlements.title
+	desc = polish_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = west_slavic }
+		NOT = { culture_group = west_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = west_slavic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		polish_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = polish_settlements.a
+
+		change_culture = polish
+	}
+}
+
+province_event = { #Silesian settlements and assimilation
+	id = cultural_influence_west_slavic.4
+	title = silesian_settlements.title
+	desc = silesian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = west_slavic }
+		NOT = { culture_group = west_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = west_slavic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		silesian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = silesian_settlements.a
+
+		change_culture = schlesian
+	}
+}
+
+province_event = { #Pomeransky settlements and assimilation
+	id = cultural_influence_west_slavic.5
+	title = pomeransky_settlements.title
+	desc = pomeransky_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = west_slavic }
+		NOT = { culture_group = west_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = west_slavic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		silesian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = pomeransky_settlements.a
+
+		change_culture = pomeransky
+	}
+}
+
+province_event = { #Sorbian settlements and assimilation
+	id = cultural_influence_west_slavic.5
+	title = sorbian_settlements.title
+	desc = sorbian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = west_slavic }
+		NOT = { culture_group = west_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = west_slavic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		sorbian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = sorbian_settlements.a
+
+		change_culture = sorbian
+	}
+}
+
+province_event = { #Czech settlements and assimilation
+	id = cultural_influence_west_slavic.7
+	title = czech_settlements.title
+	desc = czech_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = west_slavic }
+		NOT = { culture_group = west_slavic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = west_slavic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		silesian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = czech_settlements.a
+
+		change_culture = czech
 	}
 }

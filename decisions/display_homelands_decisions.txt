@@ -26,8 +26,7 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 		major = no
 		potential = {
 			culture_group = east_slavic
-			NOT = { primary_culture = ukrainian }
-			NOT = { primary_culture = byelorussian }
+			any_province = { culture = ruthenian }
 		}
 
 		provinces_to_highlight = {
@@ -51,9 +50,7 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 		major = no
 		potential = {
 			culture_group = east_slavic
-			NOT = { primary_culture = novgorodian }
-			NOT = { primary_culture = muscovite }
-			NOT = { primary_culture = ryazanian }
+			any_province = { culture = russian }
 		}
 
 		provinces_to_highlight = {
@@ -99,7 +96,8 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	ukrainian_homelands = {
 		major = no
 		potential = {
-			primary_culture = ukrainian
+			culture_group = east_slavic
+			NOT = { any_province = { culture = ruthenian } }
 		}
 
 		provinces_to_highlight = {
@@ -122,7 +120,8 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	belarussian_homelands = {
 		major = no
 		potential = {
-			primary_culture = belarussian
+			culture_group = east_slavic
+			NOT = { any_province = { culture = ruthenian } }
 		}
 
 		provinces_to_highlight = {
@@ -145,7 +144,8 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	northern_russian_dialect_area = {
 		major = no
 		potential = {
-			primary_culture = novgorodian
+			culture_group = east_slavic
+			NOT = { any_province = { culture = russian } }
 		}
 
 		provinces_to_highlight = {
@@ -168,7 +168,8 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	middle_russian_dialect_area = {
 		major = no
 		potential = {
-			primary_culture = muscovite
+			culture_group = east_slavic
+			NOT = { any_province = { culture = russian } }
 		}
 
 		provinces_to_highlight = {
@@ -191,7 +192,8 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	southern_russian_dialect_area = {
 		major = no
 		potential = {
-			primary_culture = ryazanian
+			culture_group = east_slavic
+			NOT = { any_province = { culture = russian } }
 		}
 
 		provinces_to_highlight = {
@@ -219,6 +221,98 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 
 		provinces_to_highlight = {
 			french_homeland = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	polish_homelands = {
+		major = no
+		potential = {
+			culture_group = west_slavic
+		}
+
+		provinces_to_highlight = {
+			polish_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	pomeransky_homelands = {
+		major = no
+		potential = {
+			culture_group = west_slavic
+		}
+
+		provinces_to_highlight = {
+			pomeransky_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	sorbian_homelands = {
+		major = no
+		potential = {
+			culture_group = west_slavic
+		}
+
+		provinces_to_highlight = {
+			sorbian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	silesian_homelands = {
+		major = no
+		potential = {
+			culture_group = west_slavic
+		}
+
+		provinces_to_highlight = {
+			silesian_culture_region = yes
 		}
 
 		allow = {
