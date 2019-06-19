@@ -1,185 +1,315 @@
-ï»¿hochdeutsch_culture_region = {
-	OR = {
-		region = north_german_region #Fully German
-		AND = { #Split off Bohemia
-			region = south_german_region
-			NOT = { area = erzgebirge_area }
-			NOT = { area = bohemia_area }
-			NOT = { area = moravia_area }
-		}
-		province_id = 94 #Luxembourg
-		province_id = 188 #Metz
-		area = frisia_area
-		province_id = 3135 #Nordfriesland
-		area = pomeralia_area
-		area = west_prussia_area
-		area = east_prussia_area
-		area = masuria_area
-		area = nadruvia_area
-		#Settled areas
-		
-	}
-}
-
-plaatduutsch_culture_region = { #Initially only modern Germany, later extends to Prussian region, Posisch region, and Silesian region
-	OR = {
-		region = north_german_region
-		area = frisia_area
-		province_id = 3135 #North Friesland
-	}
-}
-
-irminonic_culture_region = { #Initially only modern Germany, later extends to Austrian region, Swiss region, and possibly Sudeten region if Germany is super strong
-	OR = {
-		AND = {
-			region = south_german_region #Fully German
-			NOT = { area = erzgebirge_area }
-			NOT = { area = bohemia_area }
-			NOT = { area = moravia_area }
-			NOT = { area = switzerland_area } #Swiss!
-			NOT = { area = romandie_area } #Swiss!
-		}
-		area = trentino_area
-		province_id = 3051 #Burgenland
-	}
-}
-
-allowed_to_settle_germanic = { #Incomplete since Discord Bot's additions
-	OR = {
-		primary_culture = austrian
-		primary_culture = bavarian
-		primary_culture = swabian
-		primary_culture = franconian
-		primary_culture = hessian #rhenish
-		primary_culture = saxon
-		primary_culture = hannoverian #westphalian
-		primary_culture = pommeranian
-		primary_culture = prussian
-		primary_culture = swiss
-		primary_culture = standard_german
-		primary_culture = sudeten
-		primary_culture = anglisch #Ã†nglisch
-		primary_culture = juten
-		primary_culture = neunordisch
-		primary_culture = posisch
-		primary_culture = baltendeutsch
-		primary_culture = schlesisch
-		primary_culture = weissdeutsch #WeiÃŸdeutsch
-		primary_culture = ruthenisch
-		primary_culture = wolgadeutsch
-		primary_culture = schwarzmeererdeutsch
-		primary_culture = krimdeutsch
-		primary_culture = bessarabiendeutsch
-		primary_culture = kaukasusdeutsch
-		primary_culture = pannonischdeutsch
-		primary_culture = dinarischdeutsch
-		primary_culture = siebenburger
-		primary_culture = frankisch
-		primary_culture = langobardin
-		primary_culture = dobrudschadeutsch
-		primary_culture = kuberisch
-		primary_culture = epiroten
-		primary_culture = yola
-		primary_culture = bosporusdeutsch
-		primary_culture = wiekisch
-		primary_culture = kasachstandeutsche
-		primary_culture = lieflandisch
-		primary_culture = kurlandisch
-		primary_culture = rigisch
-		primary_culture = sudauer
-		primary_culture = galizier
-		primary_culture = ingermanisch
-		primary_culture = weissmeerer
-		primary_culture = vilnisch
-		primary_culture = westgotisch
-		primary_culture = suebisch
-		primary_culture = deutschthracian
-		primary_culture = griechischdeutsch
-		primary_culture = moldauisch
-		primary_culture = reussisch
-		##New German Divisions
-		primary_culture = markisch
-		primary_culture = lausitzisch
-		primary_culture = brandenburgisch
-		primary_culture = ostniedersachsisch
-		primary_culture = ostfalisch
-		primary_culture = moselfrankisch
-		primary_culture = nordniedersachsisch
-		primary_culture = holsteinisch
-		primary_culture = elsassisch
-		primary_culture = niederalemannisch
-		primary_culture = alemannisch
-		primary_culture = sudfrankisch
-		primary_culture = oberpfalzisch
-		primary_culture = rheinfrankisch
-		primary_culture = ripuarisch
-		primary_culture = thuringisch
-		primary_culture = luxembourgisch
-		primary_culture = pfalzisch
-		primary_culture = oberbairisch
-		primary_culture = schleswigisch
-		primary_culture = tirolerisch
-		primary_culture = niederbairisch
-		primary_culture = steirisch
-	}
-}
-
-
-hochdeutsch_culture_group = {
-	OR = {
+hochdeutsch_cultures = { #The definitions are nebulous at best here and at worst completely undefined
+	OR = { #Only Core cultures -That is to say the ones that /must/ be Hochdeutsch
 		culture = bavarian
-		culture = swabian
-		culture = franconian
-		culture = hessian #rhenish
+		primary_culture = bavarian
+		culture = alemannish
+		primary_culture = alemannish
+		culture = east_franconian
+		primary_culture = east_franconian
+	}
+}
+
+hochdeutsch_region = {
+	OR = {
+		bavarian_culture_region = yes
+		alemannisch_culture_region = yes
+		east_franconian_culture_region = yes
+	}
+}
+
+hochdeutsch_sudeten_cultures = {
+	OR = {
+		culture = sudeten
+		primary_culture = sudeten
+	}
+}
+
+hochdeutsch_sudeten_region = {
+	OR = {
+		sudeten_culture_region = yes
+	}
+}
+
+hochdeutsch_swiss_exemption = { #Areas allowed to be not owned for Hochdeutsch, but will instead become Swiss! (Can be integrated later)
+	OR = {
+		area = switzerland_area
+		area = romandie_area
+		province_id = 3053 #Vorarlberg
+		area = east_lombardy_area #Upper Lombardy
+	}
+}
+
+hochdeutsch_austrian_exemption = { #Areas allowed to be not owned for Hochdeutsch, but will instead become Austrian! (Can be integrated later)
+	OR = {
+		area = austria_proper_area
+		area = inner_austria_area
+		province_id = 76 #Salzburg
+		province_id = 3051 #Burgenland
+		province_id = 73 #Tirol
+		area = trentino_area
+		province_id = 1768 #Lienz
+		area = carnia_area
+		area = friuli_area
+		area = carniola_area
+		province_id = 3191 #Pflaum
+	}
+}
+
+plattduutsch_cultures = { #The definitions are nebulous at best here and at worst completely undefined
+	OR = { #Only Core cultures -That is to say the ones that /must/ be Plattduutch
+		culture = rhine_franconian
+		primary_culture = rhine_franconian
+		culture = central_franconian
+		primary_culture = central_franconian
 		culture = saxon
-		culture = hannoverian #westphalian
+		primary_culture = saxon
+		culture = westphalian
+		primary_culture = westphalian
+		culture = eastphalian
+		primary_culture = eastphalian
+		culture = northern_low_saxon
+		primary_culture = northern_low_saxon
 		culture = pommeranian
-		culture = markisch
-		culture = lausitzisch
-		culture = brandenburgisch
-		culture = ostniedersachsisch
-		culture = ostfalisch
-		culture = moselfrankisch
-		culture = nordniedersachsisch
-		culture = holsteinisch
-		culture = elsassisch
-		culture = niederalemannisch
-		culture = alemannisch
-		culture = sudfrankisch
-		culture = oberpfalzisch
-		culture = rheinfrankisch
-		culture = ripuarisch
-		culture = thuringisch
-		culture = luxembourgish
-		culture = pfalzisch
-		culture = oberbairisch
-		culture = schleswigisch
-		culture = niederbairisch
-		culture = irminonic
-		culture = plattduutsch
+		primary_culture = pommeranian
+		culture = markish
+		primary_culture = markish
 	}
 }
 
-lausitzisch_culture_region = {
+plattduutsch_region = {
 	OR = {
-		province_id = 1763 #Dolni Luzice
-		province_id = 60 #Oberlausitz
+		rhine_franconian_culture_region = yes
+		central_franconian_culture_region = yes
+		saxon_culture_region = yes
+		westphalian_culture_region = yes
+		eastphalian_culture_region = yes
+		northern_low_saxon_culture_region = yes
+		pommeranian_culture_region = yes
+		markish_culture_region = yes
 	}
 }
 
-schleswigisch_culture_region = {
+plattduutsch_dutch_low_saxon_exemption = {
 	OR = {
+		province_id = 3058 #Drente
+		province_id = 4381 #Overijssel
+		province_id = 100 #West Frisia
+		province_id = 4382 #Ommelannen
+	}
+}
+
+plattduutsch_low_franconian_cultures = {
+	OR = {
+		culture = low_franconian
+		primary_culture = low_franconian
+	}
+}
+
+plattduutsch_low_franconian_region = {
+	OR = {
+		low_franconian_culture_region = yes
+	}
+}
+
+plattduutsch_schlesisch_cultures = {
+	OR = {
+		culture = schlesisch
+		primary_culture = schlesisch
+	}
+}
+
+plattduutsch_sclesisch_region = {
+	OR = {
+		schlesisch_culture_region = yes
+	}
+}
+
+plattduutsch_preussisch_cultures = {
+	OR = {
+		culture = prussian
+		primary_culture = prussian
+	}
+}
+
+plattduutsch_preussisch_region = {
+	OR = {
+		preussisch_culture_region = yes
+	}
+}
+
+dutch_cultures = {
+	OR = {
+		culture = low_franconian
+		primary_culture = low_franconian
+		culture = dutch_low_saxon
+		primary_culture = dutch_low_saxon
+	}
+}
+
+dutch_region = {
+	OR = {
+		region = low_countries_region
+		province_id = 87 #Calais
+		province_id = 88 #Artois
+	}
+}
+
+northern_low_saxon_culture_region = {
+	OR = {
+		area = weser_area
+		province_id = 53 #Lüneburg
+		area = holstein_area
 		area = schleswig_area
+		province_id = 1931 #East Frisia
 	}
 }
 
-preussisch_culture_region = { #Assimilates into Hochdeutsch
+pommeranian_culture_region = {
+	OR = {
+		province_id = 7810 #Marschvogetei
+		AND = {
+			area = mecklenburg_area
+			NOT = { province_id = 3217 } #Stargard
+		}
+		area = vorpommern_area
+		area = hinter_pommern_area
+	}
+}
+
+preussisch_culture_region = { #Sizable Expansion
 	OR = {
 		area = pomerelia_area
 		area = west_prussia_area
 		area = east_prussia_area
 		area = masuria_area
 		area = nadruvia_area
+	}
+}
+
+westphalian_culture_region = {
+	OR = {
+		province_id = 3058 #Drente
+		province_id = 4381 #Overijssel
+		area = muenster_area
+		area = westphalia_area
+		province_id = 3200 #Mark
+		province_id = 100 #West Frisia
+		province_id = 4382 #Ommelannen
+	}
+}
+
+eastphalian_culture_region = {
+	OR = {
+		province_id = 1758 #Hanover
+		province_id = 57 #Braunschweig
+		province_id = 3215 #Göttingen
+		area = northern_saxony_area
+	}
+}
+
+markish_culture_region = {
+	OR = {
+		area = mittelmark_area
+		province_id = 3217 #Stargard
+		AND = {
+			area = neumark_area
+			NOT = { province_id = 1763 } #Dolni Luzice
+			NOT = { province_id = 60 } #Budysínsko
+		}
+	}
+}
+
+saxon_culture_region = {
+	OR = {
+		area = thuringia_area
+		area = lower_saxony_area
+	}
+}
+
+low_franconian_culture_region = {
+	OR = {
+		area = netherlands_area
+		province_id = 99 #Veluwe
+		province_id = 3060 #Betuwe
+		province_id = 3063 #Overmaas
+		province_id = 2975 #Cleve
+		province_id = 3199 #Essen
+		area = brabant_area
+		province_id = 2974 #Loon
+		province_id = 1742 #Limburg
+		AND = {
+			area = flanders_area
+			NOT = { province_id = 3065 } #Ryssel
+		}
+		province_id = 87 #Calais
+	}
+}
+
+central_franconian_culture_region = {
+	OR = {
+		province_id = 85 #Cologne
+		province_id = 84 #Berg
+		province_id = 3201 #Siegen
+		AND = {
+			area = lower_rhineland_area
+			NOT = { province_id = 3198 } #Saarland
+		}
+		province_id = 94 #Luxembourg
+	}
+}
+
+rhine_franconian_culture_region = {
+	OR = {
+		province_id = 188 #Metz
+		province_id = 3198 #Saarland
+		province_id = 1761 #Pfalz
+		province_id = 78 #Mainz
+		province_id = 3207 #Darmstadt
+		area = hesse_area
+	}
+}
+
+east_franconian_culture_region = {
+	OR = {
+		province_id = 3208 #Aschaffenburg
+		province_id = 77 #Heidelberg
+		province_id = 3206 #Heilbronn
+		province_id = 76 #Ansbach
+		area = franconia_area
+	}
+}
+
+alemannisch_culture_region = { #Sizable expansion
+	OR = {
+		area = upper_rhineland_area
+		province_id = 70 #Württemburg
+		province_id = 3204 #Hohenzollern
+		province_id = 1872 #Ulm
+		area = romandie_area
+		area = switzerland_area
+		province_id = 3205 #Konstantz
+		province_id = 69 #Ravensburg
+		province_id = 68 #Memmingen
+		province_id = 3053 #Vorarlberg
+		area = east_lombardy_area #Upper Lombardy
+	}
+}
+
+bavarian_culture_region = { #Sizable expansion
+	OR = {
+		province_id = 1868 #Augsburg
+		area = upper_bavaria_area
+		area = lower_bavaria_area
+		area = austria_proper_area
+		area = inner_austria_area
+		province_id = 3051 #Burgenland
+		province_id = 73 #Tirol
+		area = trentino_area
+		province_id = 1768 #Lienz
+		area = carnia_area
+		area = friuli_area
+		area = carniola_area
+		province_id = 3191 #Pflaum
 	}
 }
 
@@ -400,7 +530,7 @@ dinaridendeutsch_culture_region = {
 		province_id = 4239 #Belgrade
 		area = east_adriatic_coast_area
 		area = montenegro_area
-		province_id = 7144 #Qarku i DibrÃ«s
+		province_id = 7144 #Qarku i Dibrës
 		area = rascia_area
 		area = serbia_area
 		AND = {
@@ -471,7 +601,7 @@ bessarabiendeutsch_culture_region = {
 }
 
 wolgadeutsch_culture_region = { #Updated Wolgadeutsch -Needs review
-	OR = { #If East of WeiÃŸdeutsch and Ruthenisch, and North of Caucasus Mountains and west of Ural Mountains
+	OR = { #If East of Weißdeutsch and Ruthenisch, and North of Caucasus Mountains and west of Ural Mountains
 		area = saratov_area
 		area = middle_don_area
 		area = lower_don_area
@@ -597,7 +727,7 @@ reussisch_culture_region = {
 		region = russia_region
 		NOT = { area = karelia_area }
 		NOT = { area = laponia_area }
-		NOT = { province_id = 293 } #Smolenkas (WeiÃŸdeutsch)
+		NOT = { province_id = 293 } #Smolenkas (Weißdeutsch)
 		NOT = { province_id = 3301 } #Dorogobuzas (^^^)
 		NOT = { province_id = 5684 } #Velizh (^^^)
 		NOT = { area = pomor_area }

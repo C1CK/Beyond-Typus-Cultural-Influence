@@ -21,24 +21,126 @@ country_decisions = {
 		}
 	}
 
-	standardize_low_german = {
+	standardize_sudeten_german = {
 		major = yes
 		potential = {
-			always = no
+			culture_group = germanic
+			OR = {
+				primary_culture = hochdeutsch
+				accepted_culture = hochdeutsch
+			}
+			accepted_culture = sudeten
+		}
+
+		provinces_to_highlight = {
+			hochdeutsch_sudeten_region = yes
+			NOT = { owned_by = ROOT }
+			NOT = { culture = hochdeutsch_sudeten_cultures = yes }
+		}
+
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = bohemia_germanicized_trigger_tt
+				europe = {
+					OR = {
+						hochdeutsch_sudeten_region = no
+						AND = {
+							owned_by = ROOT
+							hochdeutsch_sudeten_cultures = yes
+						}
+					}
+					type = all
+				}
+			}
+		}
+
+		effect = {
+			every_owned_province = {
+				limit = { hochdeutsch_sudeten_cultures = yes }
+				change_culture = hochdeutsch
+			}
 		}
 	}
 
-	standardize_high_german = {
+	standardize_schlesisch_german = {
 		major = yes
 		potential = {
-			always = no
+			culture_group = germanic
+			OR = {
+				primary_culture = plattduutsch
+				accepted_culture = plattduutsch
+			}
+			accepted_culture = schlesisch
+		}
+
+		provinces_to_highlight = {
+			plattduutsch_schlesisch_region = yes
+			NOT = { owned_by = ROOT }
+			NOT = { culture = plattduutsch_schlesisch_cultures = yes }
+		}
+
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = silesia_germanicized_trigger_tt
+				europe = {
+					OR = {
+						plattduutsch_schlesisch_region = no
+						AND = {
+							owned_by = ROOT
+							plattduutsch_schlesisch_cultures = yes
+						}
+					}
+					type = all
+				}
+			}
+		}
+
+		effect = {
+			every_owned_province = {
+				limit = { plattduutsch_schlesisch_cultures = yes }
+				change_culture = plattduutsch
+			}
 		}
 	}
 
-	merge_the_languages = { #Merge Low & High German
+	standardize_preussisch_german = {
 		major = yes
 		potential = {
-			always = no
+			culture_group = germanic
+			OR = {
+				primary_culture = plattduutsch
+				accepted_culture = plattduutsch
+			}
+			accepted_culture = preussisch
+		}
+
+		provinces_to_highlight = {
+			plattduutsch_preussisch_region = yes
+			NOT = { owned_by = ROOT }
+			NOT = { culture = plattduutsch_preussisch_cultures = yes }
+		}
+
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = prussia_germanicized_trigger_tt
+				europe = {
+					OR = {
+						plattduutsch_preussisch_region = no
+						AND = {
+							owned_by = ROOT
+							plattduutsch_preussisch_cultures = yes
+						}
+					}
+					type = all
+				}
+			}
+		}
+
+		effect = {
+			every_owned_province = {
+				limit = { plattduutsch_preussisch_cultures = yes }
+				change_culture = plattduutsch
+			}
 		}
 	}
 }
