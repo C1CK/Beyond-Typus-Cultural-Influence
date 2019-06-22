@@ -1,0 +1,6156 @@
+namespace = cultural_influence_greek
+#(Something in Greek!)
+
+province_event = { #Irish reclamation event except for greek
+	id = cultural_influence_greek.1
+	title = greek_reclamation.title
+	desc = greek_reclamation.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { has_global_flag = rhomaio_formed}
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		agaio_culture_region = yes
+	}
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = greek
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_reclamation.a
+
+		change_culture = greek
+	}
+}
+province_event = { #Irish reclamation event except for illyrion
+	id = cultural_influence_greek.2
+	title = greek_reclamation.title
+	desc = greek_reclamation.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		illyrion_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = illyrion
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_reclamation.b
+
+		change_culture = illyrion
+	}
+}
+
+province_event = { #Irish reclamation event except for Southern Italy
+	id = cultural_influence_greek.3
+	title = greek_reclamation.title
+	desc = greek_reclamation.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		graiko_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = griko
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_reclamation.c
+
+		change_culture = griko
+	}
+}
+province_event = { #Irish reclamation event except for Pontic greek
+	id = cultural_influence_greek.4
+	title = greek_reclamation.title
+	desc = greek_reclamation.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { has_global_flag = rhomaio_formed}
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		pontic_greek_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = pontic_greek
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_reclamation.d
+
+		change_culture = pontic_greek
+	}
+}
+province_event = { #Irish reclamation event except for Cappadocian Greeks
+	id = cultural_influence_greek.5
+	title = greek_reclamation.title
+	desc = greek_reclamation.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { has_global_flag = rhomaio_formed}
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		cappadocian_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = cappadocian
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_reclamation.d
+
+		change_culture = cappadocian
+	}
+}
+province_event = { #Irish reclamation event except for Assimilation of Armenians
+	id = cultural_influence_greek.6
+	title = greek_reclamation.title
+	desc = greek_reclamation.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		nkreko_armenio_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = nkreko_armenio
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_reclamation.e
+
+		change_culture = nkreko_armenio
+	}
+}
+province_event = { #Irish reclamation event except for Greeks in Alexandria and Egypt
+	id = cultural_influence_greek.7
+	title = greek_reclamation.title
+	desc = greek_reclamation.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		alexandrian_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = alexandrian
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_reclamation.f
+
+		change_culture = alexandrian
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Arabia
+	id = cultural_influence_greek.8
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		aravikos_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = aravikos
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.a
+
+		change_culture = aravikos
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Ireland
+	id = cultural_influence_greek.9
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		hibernian_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = hibernian
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.b
+
+		change_culture = hibernian
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Britain
+	id = cultural_influence_greek.10
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		albian_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = albian
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.c
+
+		change_culture = albian
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Scandinavia
+	id = cultural_influence_greek.11
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		varangian_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = varangian
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.d
+
+		change_culture = varangian
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of the Horn of Africa
+	id = cultural_influence_greek.12
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		avissinos_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = avissinos
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.e
+
+		change_culture = avissinos
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of the levant
+	id = cultural_influence_greek.13
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		antiocheia_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = anatolian
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.f
+
+		change_culture = anatolian
+	}
+}
+
+province_event = { #Irish reclamation event except it's greek conquest of Persia
+	id = cultural_influence_greek.14
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		persic_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = persic
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.g
+
+		change_culture = persic
+	}
+}
+country_event = { #Rhomaio merge
+	id = cultural_influence_greek.15
+	title = goidelic_brythonic_merger.title
+	desc = goidelic_brythonic_merger.desc
+	picture = GREAT_BUILDING_eventPicture
+
+	major = yes
+	fire_only_once = yes
+
+	trigger = {
+		AND = {
+			anatolia_region = {
+   					culture_group = byzantine
+    					type = all
+			}
+			mashriq_region = {
+   					culture_group = byzantine
+    					type = all
+			}
+			balkan_region = {
+   					culture_group = byzantine
+    					type = all
+			}	
+		}
+		
+	}
+
+	immediate = {
+		hidden_effect = {
+			merge_rhomaio = yes
+			set_global_flag = rhomaio_formed
+		}
+	}
+
+	option = {
+		name = goidelic_brythonic_merger.a
+
+		custom_tooltip = goidelic_brythonic_merger.tooltip
+	}
+}
+province_event = { #Irish reclamation event except for rhomaio
+	id = cultural_influence_greek.16
+	title = greek_reclamation.title
+	desc = greek_reclamation.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		has_global_flag = rhomaio_formed
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		rhomaio_culture_region = yes
+	}
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = rhomaio
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_reclamation.a
+
+		change_culture = rhomaio
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of the Maghreb
+	id = cultural_influence_greek.17
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		kirenike_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = kirenike
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.h
+
+		change_culture = kirenike
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of the Maghreb
+	id = cultural_influence_greek.18
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		karchidoniac_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = karchidoniac
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.i
+
+		change_culture = karchidoniac
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of the Maghreb
+	id = cultural_influence_greek.19
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		mavritanias_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = mavritanias
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.j
+
+		change_culture = mavritanias
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of steppe land
+	id = cultural_influence_greek.20
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		skythis_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = scythian
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.k
+
+		change_culture = scythian
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of east persia
+	id = cultural_influence_greek.21
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		vaktrianos_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = vaktrianos
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.l
+
+		change_culture = vaktrianos
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of north-west india
+	id = cultural_influence_greek.22
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		indiki_koilada_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = indiki_koilada
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = indiki_koilada
+	}
+}
+
+province_event = { #Irish reclamation event except it's greek conquest of the western Mediterranean
+	id = cultural_influence_greek.23
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		massalian_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = massalian
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = massalian
+	}
+}
+
+province_event = { #Irish reclamation event except it's greek conquest of Northern Italy
+	id = cultural_influence_greek.24
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		italiote_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = italiote
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = italiote
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Northern Iberia
+	id = cultural_influence_greek.25
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		septimanikion_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = septimanikion
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = septimanikion
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Southern Iberia
+	id = cultural_influence_greek.26
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		karpessosion_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = hesperic
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = hesperic
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Southern France
+	id = cultural_influence_greek.27
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		galatian_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = galatian
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = galatian
+	}
+}
+
+province_event = { #Irish reclamation event except it's greek conquest of Northern France and the lands south and west of the Rhine.
+	id = cultural_influence_greek.28
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		velgoi_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = velgoi
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = velgoi
+	}
+}
+
+province_event = { #Irish reclamation event except it's greek conquest of Pannonia.
+	id = cultural_influence_greek.29
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		pannonion_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = pannonion
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = pannonion
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Dacia.
+	id = cultural_influence_greek.30
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		dacion_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = dacion
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = dacion
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Southwestern Germania
+	id = cultural_influence_greek.31
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		notiodytiki_germanikos_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = notiodytiki_germanikos
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = notiodytiki_germanikos
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Northwestern Germania
+	id = cultural_influence_greek.32
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		voreiodytiki_germanikos_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = voreiodytiki_germanikos
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = voreiodytiki_germanikos
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Southeastern Germania
+	id = cultural_influence_greek.33
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		notioanatolikosgermanikos_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = notioanatolikos_germanikos
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = notioanatolikos_germanikos
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Southeastern Germania
+	id = cultural_influence_greek.34
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		voreioanatolikosgermanikos_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = voreioanatolikos_germanikos
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = voreioanatolikos_germanikos
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of the Baltic
+	id = cultural_influence_greek.35
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		kefalés_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = kefalés
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = kefalés
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Ruthenia
+	id = cultural_influence_greek.36
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		savramáta_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = savramáta
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = savramáta
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of Russia
+	id = cultural_influence_greek.37
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		krios_savramáta_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = krios_savramáta
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = krios_savramáta
+	}
+}
+province_event = { #Irish reclamation event except it's greek conquest of the Uralic Region
+	id = cultural_influence_greek.38
+	title = greek_conquest.title
+	desc = greek_conquest.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		#Template Settled Triggers
+		owner = { culture_group = greek }
+		NOT = { culture_group = greek }
+		OR = {
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture_group = greek
+			}
+			num_of_times_improved = 5
+		}
+		vounos_savramáta_culture_region = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 1
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = vounos__savramáta
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = greek_conquest.m
+
+		change_culture = vounos_savramáta
+	}
+}
