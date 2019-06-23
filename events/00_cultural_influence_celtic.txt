@@ -1437,11 +1437,11 @@ country_event = { #Brythonaidd Spawned
 
 	trigger = {
 		has_country_flag = brythonaidd_nation_flag
-		every_province = {
-			limit = {
-				brythonaidd_culture_group = yes
+		all_province = {
+			OR = {
+				brythonaidd_culture_group = no
+				owned_by = ROOT
 			}
-			owned_by = ROOT
 		}
 	}
 
@@ -1676,11 +1676,11 @@ country_event = { #Goidhealach Spawned
 
 	trigger = {
 		has_country_flag = goidhealach_nation_flag
-		every_province = {
-			limit = {
-				goidhealach_culture_group = yes
+		all_province = {
+			OR = {
+				goidhealach_culture_group = no
+				owned_by = ROOT
 			}
-			owned_by = ROOT
 		}
 	}
 
