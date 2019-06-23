@@ -556,13 +556,10 @@ province_event = { #Irish -> British
 		OWNER = { primary_culture = standard_british }
 		culture = anglo_irish
 		has_owner_religion = yes #Catholic/Protestant divide
-		every_province = { #Ireland already Anglicized
-			limit = {
-				region = ireland_area
-				OR = {
-					culture = anglo_irish
-					culture = standard_british
-				}
+		ireland_area = { #Ireland already Anglicized
+			OR = {
+				culture = anglo_irish
+				culture = standard_british
 			}
 		}
 	}
