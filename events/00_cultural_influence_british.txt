@@ -1134,43 +1134,33 @@ province_event = {
 	
 	trigger = {
 		is_year = 1500
-		all_province = {
-			culture = frisian
-			NOT = { OWNER = { primary_culture = frisian } }
-		}
+		culture = frisian
+		NOT = { owner = { culture_group = british } } #Frisian-Anglic
+		NOT = { any_country = { primary_culture = frisian } }
 		NOT = { has_global_flag = frisian_split }
-		OR = {
-			all_province = {
-			limit = {
-				culture = frisian
-			}
-				OR = {
-					OWNER = { primary_culture = danish }
-					OWNER = { primary_culture = dutch }
-				}
-			}
-		}
 		nationalism = 0
 	}
 	
 	mean_time_to_happen = {
 			years = 1
 	}
-		option = {
-			name = frisian_split.a
-			every_province = {
-    				limit = {
-        				culture = frisian
-        				area = schleswig_area
-    				}
-    			change_culture = north_frisian
+
+	option = {
+		name = frisian_split.a
+
+		every_province = {
+			limit = {
+				culture = frisian
+				area = schleswig_area
+			}
+			change_culture = north_frisian
 		}
 		every_province = {
-    				limit = {
-        				culture = frisian
-        				NOT = { area = schleswig_area }
-    				}
-    			change_culture = west_frisian
+			limit = {
+				culture = frisian
+				NOT = { area = schleswig_area }
+			}
+			change_culture = west_frisian
 		}
 	}
 }
