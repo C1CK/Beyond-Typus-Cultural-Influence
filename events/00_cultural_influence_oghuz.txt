@@ -20,12 +20,14 @@ country_event = { #Qirim -> Kirim
 				}
 			}
 		}
-		every_owned_province = { #Provinces happy (Don't want generic unrest here - since that isn't relevant to linguistic drift)
-			limit = {
+		all_owned_province = { #Provinces happy (Don't want generic unrest here - since that isn't relevant to linguistic drift)
+			OR = {
 				culture = crimean
+				AND = {
+					nationalism = 0
+					has_owner_religion = yes
+				}
 			}
-			nationalism = 0
-			has_owner_religion = yes
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -278,7 +280,7 @@ province_event = { #Greek Traders settle in Western Anatolia
 		owner = { has_idea = millets } #Millets system ensured a Unified Greek adminstation under Ottoman control
 		owner = { owns_core_province = 151 } #Phanariote Greeks based in Constantinople
 		owner = { primary_culture = turkish }
-		owner = { has_accepted_culture = greek }
+		owner = { accepted_culture = greek }
 		OR = { #Either in pre-defined region (West Anatolian Coast), or Greek center of trade
 			phanariote_greek_settlement_region = yes
 			AND = {
