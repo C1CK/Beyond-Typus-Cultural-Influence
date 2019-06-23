@@ -1,0 +1,140 @@
+namespace = cultural_influence_flavour
+#Various events surrounding national awakening, akin to the Greek event
+
+country_event = { #Sons of Barak Khan's revolt (Kazakh revolts, pushes the Uzbeks out and created Kazakh) (Kinda railroady, but then it's really grim for the Uzbeks to be in the wrong place and for the Kazakhs to not even have a chance at conquest)
+	id = cultural_influence_flavour.1
+	title = barak_khans_revolt.title
+	desc = barak_khans_revolt.desc
+	picture = NOMAD_ESTATE_eventPicture
+
+	major = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = SHY #Uzbek
+		any_owned_province = {
+			culture = khazak
+		}
+		NOT = { is_year = 1480 }
+		owns = 476
+	}
+
+	mean_time_to_happen = {
+		years = 20
+
+		modifier = {
+			factor = 0.01
+			is_year = 1470
+		}
+	}
+
+	option = { #Accept demands
+		name = barak_khans_revolt.a
+
+		SHY = {
+			add_prestige = -25
+			every_owned_province = { #Kazakhs get their land
+				limit = {
+					OR = {
+						region = west_siberia_region
+						region = ural_region
+						region = mongolia_region
+						area = balchasj_area
+						area = kazakhstan_area
+					}
+				}
+				remove_core = SHY
+				add_core = KZH
+			}
+			release = KZH
+			khiva_area = { #Uzbeks head south
+				add_core = SHY
+			}
+			transoxiana_area = { #Uzbeks head south
+				add_core = SHY
+			}
+		}
+		KZH = {
+			add_prestige = 10
+		}
+
+		ai_chance = {
+			factor = 90
+		}
+	}
+
+	option = { #Accept demands -Player, switch to Kazakh
+		name = barak_khans_revolt.b
+
+		trigger = {
+			SHY = { ai = no }
+		}
+
+		SHY = {
+			add_prestige = -25
+			every_owned_province = { #Kazakhs get their land
+				limit = {
+					OR = {
+						region = west_siberia_region
+						region = ural_region
+						region = mongolia_region
+						area = balchasj_area
+						area = kazakhstan_area
+					}
+				}
+				remove_core = SHY
+				add_core = KZH
+			}
+			release = KZH
+			khiva_area = { #Uzbeks head south
+				add_core = SHY
+			}
+			transoxiana_area = { #Uzbeks head south
+				adD_core = SHY
+			}
+		}
+		KZH = {
+			add_prestige = 10
+		}
+		switch_tag = KZH
+	}
+
+	option = { #Resist
+		name = barak_khans_revolt.c
+
+		SHY = {
+			add_prestige = -25
+			every_owned_province = { #Kazakhs get their land
+				limit = {
+					OR = {
+						region = west_siberia_region
+						region = ural_region
+						region = mongolia_region
+						area = balchasj_area
+						area = kazakhstan_area
+					}
+				}
+				add_core = KZH
+				add_nationalism = 10
+			}
+			khiva_area = { #Uzbeks head south
+				add_core = SHY
+			}
+			transoxiana_area = { #Uzbeks head south
+				add_core = SHY
+			}
+		}
+
+		476 = {
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 2
+				friend = KZH
+			}
+		}
+
+		ai_chance = {
+			factor = 10
+		}
+	}
+}

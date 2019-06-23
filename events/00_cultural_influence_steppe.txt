@@ -1,10 +1,47 @@
 namespace = cultural_influence_steppe
 #Generic Nomad events, The intent here is to make nomadic cultures and development centres more dynamic, whilst retaining the inportance of certain cities
 
-province_event = { #Rape and Pillage of XXX
+country_event = { #Add Steppe modifiers
 	id = cultural_influence_steppe.1
+	title = null
+	desc = null
+
+	hidden = yes
+
+	trigger = {
+		464 = { NOT = { has_province_modifier = steppe_owned_by_nomad } } #Astrakhan
+		has_global_flag = CI_events_enabled
+	}
+
+	immediate = {
+		every_province = {
+			limit = {
+				has_terrain = steppe
+			}
+			add_province_triggered_modifier = steppe_owned_by_nomad
+		}
+		every_province = {
+			limit = {
+				steppe_culture_region = yes
+				OWNER = { is_nomad = yes }
+			}
+			add_permanent_province_modifier = { 
+				name = nomadic_province
+				duration = -1
+			}
+		}
+	}
+
+	option = {
+		name = null
+	}
+}
+
+province_event = { #Rape and Pillage of XXX
+	id = cultural_influence_steppe.2
 	title = nomadic_conquest_culture_change.title
 	desc = nomadic_conquest_culture_change.desc
+	picture = COSSACK_ESTATE_RAIDERS_eventPicture
 
 	trigger = {
 		NOT = { culture = OWNER }
@@ -15,8 +52,10 @@ province_event = { #Rape and Pillage of XXX
 		}
 		any_neighbor_province = {
 			culture = OWNER
+			owned_by = PREV.OWNER
 		}
 		steppe_culture_region = yes
+		owner = { manpower = 2.5 } #2500
 		NOT = { has_province_modifier = steppe_city }
 		has_global_flag = CI_events_enabled
 	}
@@ -25,27 +64,39 @@ province_event = { #Rape and Pillage of XXX
 		years = 5
 	}
 
-	option = {
+	option = { #To the victor go the spoils!
 		name = nomadic_conquest_culture_change.a
 
+		trigger = {
+			owner = { manpower = 2.5 } #2500
+		}
+
+		owner = { add_manpower = -2.5 } #2500
 		add_base_tax = -4
 		add_base_production = -4
 		add_base_manpower = -4
 		change_culture = OWNER
 		change_religion = OWNER
 	}
+
+	option = { #We must exercise restraint
+		name = nomadic_conquest_culture_change.b
+	}
 }
 
 province_event = { #Nomadic growth
-	id = cultural_influence_steppe.2
+	id = cultural_influence_steppe.3
 	title = nomadic_growth.title
 	desc = nomadic_growth.desc
+	picture = HORSE_ON_HORSEBACK_eventPicture
 
 	trigger = {
 		steppe_culture_region = yes
+		has_owner_accepted_culture = yes
 		NOT = { has_province_modifier = steppe_city }
 		owner = { is_nomad = yes }
 		NOT = { development = 25 } #Limit for nomadic populations
+		owner = { manpower = 1 } #1000
 		has_global_flag = CI_events_enabled
 	}
 
@@ -65,8 +116,23 @@ province_event = { #Nomadic growth
 		}
 	}
 
-	option = {
+	immediate = {
+		hidden_effect = {
+			add_permanent_province_modifier = { 
+				name = nomadic_province
+				duration = -1
+			}
+		}
+	}
+
+	option = { #Land grants for Mingghan
 		name = nomadic_growth.a
+
+		trigger = {
+			owner = { manpower = 1 } #1000
+		}
+
+		owner = { add_manpower = -1 } #1000
 
 		random_list = {
 			1 = {
@@ -80,12 +146,17 @@ province_event = { #Nomadic growth
 			}
 		}
 	}
+
+	option = { #We need the men
+		name = nomadic_growth.b
+	}
 }
 
 province_event = { #Rise of Steppe City
-	id = cultural_influence_steppe.3
+	id = cultural_influence_steppe.4
 	title = rise_of_steppe_city.title
 	desc = rise_of_steppe_city.desc
+	picture = BURGHER_ESTATE_eventPicture
 
 	trigger = {
 		steppe_culture_region = yes
@@ -107,24 +178,33 @@ province_event = { #Rise of Steppe City
 	option = {
 		name = rise_of_steppe_city.a
 
+		remove_province_modifier = nomadic_province
 		add_permanent_province_modifier = { 
 			name = steppe_city
 			duration = -1  
 		}
+		add_base_tax = 2
+		add_base_production = 2
+		add_base_manpower = 2
 	}
 }
 
 province_event = { #Decline of Steppe City
-	id = cultural_influence_steppe.4
+	id = cultural_influence_steppe.5
 	title = decline_of_steppe_city.title
 	desc = decline_of_steppe_city.desc
+	picture = MERCHANTS_ARGUING_eventPicture
 
 	trigger = {
-		steppe_culture_region = yes
 		has_province_modifier = steppe_city
-		owner = { is_nomad = yes }
-		province_has_center_of_trade_of_level = 1
-		NOT = { province_has_center_of_trade_of_level = 2 }
+		OR = { #Crappy trade, Crappy dev, or no longer nomadic
+			AND = {
+				province_has_center_of_trade_of_level = 1
+				NOT = { province_has_center_of_trade_of_level = 2 }
+			}
+			NOT = { development = 20 }
+			owner = { is_nomad = no }
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -140,5 +220,38 @@ province_event = { #Decline of Steppe City
 		name = decline_of_steppe_city.a
 
 		remove_province_modifier = steppe_city
+		add_permanent_province_modifier = { 
+			name = nomadic_province
+			duration = -1
+		}
+		add_base_tax = -2
+		add_base_production = -2
+		add_base_manpower = -2
+	}
+}
+
+province_event = { #Nomads flee
+	id = cultural_influence_steppe.6
+	title = nomads_flee.title
+	desc = nomads_flee.desc
+	picture = HORSE_ON_HORSEBACK_eventPicture
+
+	trigger = {
+		has_province_modifier = nomadic_province
+		owner = { is_nomad = no }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 2
+	}
+
+	option = {
+		name = nomads_flee.a
+
+		remove_province_modifier = nomadic_province
+		add_base_tax = -4
+		add_base_production = -4
+		add_base_manpower = -4
 	}
 }
