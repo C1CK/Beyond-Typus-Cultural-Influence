@@ -8,11 +8,14 @@ province_event = { #Greater Czech Expansion
 	picture = RELIGIOUS_CONVERSION_eventPicture
 
 	trigger = {
-		greater_czech_culture_region = yes
 		NOT = { culture = czech }
 		NOT = { culture = ceskoslovensky }
 		owner = { culture_group = west_slavic }
 		owner = { has_country_flag = czechization_of_greater_czechia }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
 		OR = {
 			AND = { #Improving dev via a colonist
 				has_colonist = yes
@@ -31,14 +34,8 @@ province_event = { #Greater Czech Expansion
 				}
 			}
 		}
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		AND = {
-			is_city = yes
-			has_colonist = yes
-		}
+		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
+		greater_czech_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -129,6 +126,29 @@ province_event = { #Greater Czech Expansion
 		else = {
 			change_culture = czech
 		}
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
 	}
 }
 
@@ -139,11 +159,14 @@ province_event = { #Greater Slovak settlement
 	picture = RELIGIOUS_CONVERSION_eventPicture
 
 	trigger = {
-		greater_slovakian_culture_region = yes
 		NOT = { culture = slovak }
 		NOT = { culture = ceskoslovensky }
 		owner = { culture_group = west_slavic }
 		owner = { has_country_flag = slovakization_of_greater_slovakia }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
 		OR = {
 			AND = { #Improving dev via a colonist
 				has_colonist = yes
@@ -162,14 +185,8 @@ province_event = { #Greater Slovak settlement
 				}
 			}
 		}
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		AND = {
-			is_city = yes
-			has_colonist = yes
-		}
+		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
+		greater_slovakian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -260,6 +277,29 @@ province_event = { #Greater Slovak settlement
 		else = {
 			change_culture = slovak
 		}
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
 	}
 }
 
@@ -294,6 +334,7 @@ province_event = { #Polish settlements and assimilation
 				}
 			}
 		}
+		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
 		polish_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -375,6 +416,29 @@ province_event = { #Polish settlements and assimilation
 		name = polish_settlements.a
 
 		change_culture = polish
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
 	}
 }
 
@@ -409,6 +473,7 @@ province_event = { #Silesian settlements and assimilation
 				}
 			}
 		}
+		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
 		silesian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -490,6 +555,29 @@ province_event = { #Silesian settlements and assimilation
 		name = silesian_settlements.a
 
 		change_culture = schlesian
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
 	}
 }
 
@@ -524,6 +612,7 @@ province_event = { #Pomeransky settlements and assimilation
 				}
 			}
 		}
+		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
 		pomeransky_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -605,6 +694,29 @@ province_event = { #Pomeransky settlements and assimilation
 		name = pomeransky_settlements.a
 
 		change_culture = pomeransky
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
 	}
 }
 
@@ -639,6 +751,7 @@ province_event = { #Sorbian settlements and assimilation
 				}
 			}
 		}
+		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
 		sorbian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -720,6 +833,29 @@ province_event = { #Sorbian settlements and assimilation
 		name = sorbian_settlements.a
 
 		change_culture = sorbian
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
 	}
 }
 
@@ -754,6 +890,7 @@ province_event = { #Czech settlements and assimilation
 				}
 			}
 		}
+		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
 		czech_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -835,5 +972,28 @@ province_event = { #Czech settlements and assimilation
 		name = czech_settlements.a
 
 		change_culture = czech
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = west_slavic_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
 	}
 }
