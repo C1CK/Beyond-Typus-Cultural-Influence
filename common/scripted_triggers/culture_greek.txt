@@ -151,7 +151,10 @@ avissinos_culture_region = {
 }
 antiocheia_culture_region = {
 	OR = {
-		region = mashriq_region
+		AND = {
+			NOT = {area = cyprus_area}
+			region = mashriq_region
+		}	
 		area = rakka_area
 		area = al_jazira_area
 	}
@@ -245,6 +248,8 @@ vaktrianos_culture_region = {
 		region = khorasan_region
 		area = khiva_area
 		area = transcaspia_area
+		area = transoxiana_area
+		area = termez_area
 	}
 }
 indiki_koilada_culture_region = {
@@ -479,6 +484,7 @@ savramáta_culture_region = {
 			NOT = {area = polotsk_area}
 			NOT = {area = volhynia_area}	
 			NOT = {area = red_ruthenia_area}
+			NOT = {area = yotvingia_area}
 			NOT = {province_id = 269}
 			NOT = {province_id = 277}
 			NOT = {province_id = 7262}
@@ -541,13 +547,17 @@ sogdanika_culture_region = {
 	OR = {
 		AND = {
 			region = mongolia_region
-			region = manchuria_region
 			NOT = {area = north_zungaria}
 			NOT = {area = zungaria_area}
 			NOT = {area = turpan_kumul_area}
-			NOT = {area = liaoning_area}
-			NOT = {province_id = 2102}
+			NOT = {area = tannu_uriankhai_area}
 		}
+		AND = {
+			region = manchuria_region
+			NOT = {area = liaoning_area}
+			NOT = {province_id = 2102}			
+		}
+		area = west_gansu_area
 	}
 }	
 helika_culture_region = {
@@ -590,9 +600,9 @@ anatoliarianka_culture_region = {
 	OR = {
 		AND = {
 			region = bengal_region
-			NOT = {orissa_area}
-			NOT = {garjat_area}
-			NOT = {upper_mahanadi_area}
+			NOT = {area = orissa_area}
+			NOT = {area = garjat_area}
+			NOT = {area = upper_mahanadi_area}
 		}
 		area = upper_doab_area
 		area = himalayan_hills_area
@@ -685,6 +695,66 @@ polinesika_culture_region = {
 		province_id = 1702
 		province_id = 1695
 	}
+}
+erimos_aethiopas_culture_region = {
+	OR = {
+		AND = {
+			region = sahel_region
+			NOT = {area = fezzan_area}
+			NOT = {area = northwest_sahara_area}
+		}
+	}
+}
+nkini_culture_region = {
+	OR = {
+		region = niger_region
+		area = cap_verde_area
+		area = jolof_area
+		area = futa_jallon_area
+	}	
 }	
-
-	
+akti_aethiopas_culture_region = {
+	OR = {
+		AND = {
+			region = guinea_region
+			NOT = {area = cap_verde_area}
+			NOT = {area = jolof_area}
+			NOT = {area = futa_jallon_area}
+		}
+		area = coastal_kongo
+		area = angola_namibia_area
+		area = kongo_area
+	}
+}	
+esoterikos_aethiopas_culture_region = {
+	OR = {
+		region = central_africa_region
+		area = matamba_area
+		area = lower_kasai
+		area = kasai_area
+		
+		area = zimbabwe_area
+		area = butua_area
+		area = shire_area
+		area = upper_zambezi_area
+		area = lower_zambezi_area
+		area = ruvuma_area	
+		area = uticulo_makuana_area
+		area = jubba_area
+	}
+}		
+souachiliaktikos_culture_region = {
+	OR = {
+		AND = {
+			region = east_africa_region
+			NOT = {area = zimbabwe_area}
+			NOT = {area = butua_area}
+			NOT = {area = shire_area}
+			NOT = {area = upper_zambezi_area}
+			NOT = {area = lower_zambezi_area}
+			NOT = {area = ruvuma_area}
+			NOT = {area = uticulo_makuana_area}
+			NOT = {area = jubba_area}
+		}
+	}
+}	
