@@ -1,0 +1,88 @@
+leebi_culture_region = {
+	OR = {
+		area = fezzan_area
+		area = nafusa_mountains_area
+		area = cyrenaica_area
+		area = tripolitania_area
+	}
+}
+
+maghribiin_culture_region = {
+	OR = {
+		area = northern_morocco_area
+		area = southern_morocco_area
+		area = western_morocco_area
+		area = northwest_sahara_area
+		area = marrakesh_area
+		area = sus_area
+		area = tafilalt_area
+	}
+}
+
+altuwnisia_culture_region = {
+	OR = {
+		area = tunisia_area
+		area = djerba_area
+		province_id = 5313
+		province_id = 5315
+	}
+}
+
+jzayry_culture_region = {
+	OR = {
+		area = hautes_plaines_area
+		area = barbary_coast_area
+		area = north_saharan_area
+		area = kabylia_area
+		province_id = 5326
+		province_id = 5320
+		province_id = 5325
+	}
+}
+
+masri_culture_region = {
+	OR = {
+		region = egypt_region
+		area = butana_area
+		area = sennar_area
+		area = white_nile_area
+		area = southeast_sahara_area
+		area = kurdufan_area
+		AND = {
+			area = darfur_central_sahara_area
+            NOT = {province_id = 2932 }
+        }
+	}
+}
+
+shamal_ifriqiya_culture_region = {
+	OR = {
+		region = maghreb_region
+		region = egypt_region
+		area = butana_area
+		area = sennar_area
+		area = white_nile_area
+		area = southeast_sahara_area
+		area = kurdufan_area
+		AND = {
+			area = darfur_central_sahara_area
+            NOT = {province_id = 2932 }
+        }
+		
+	}
+}
+taht_al_sahara_culture_region = {
+	OR = {
+	AND = {
+		region = sahel_region
+		NOT = {area = southeast_sahara_area}
+		NOT = {area = kurdufan_area}
+		NOT = {area = northwest_sahara_area}
+		NOT = {area = fezzan_area}
+		NOT = {province_id = 774}
+		NOT = {province_id = 1219}
+		NOT = {province_id = 2802}
+		NOT = {province_id = 2801
+        }
+	}
+}
