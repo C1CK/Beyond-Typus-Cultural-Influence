@@ -1193,8 +1193,8 @@ province_event = { #Cossack expansion for Cossack Hosts (Used alongside standard
 	picture = HORSE_ON_HORSEBACK_eventPicture
 
 	trigger = {
-		owner = { primary_culture = cossack }
-		owner = { is_nomad = yes }
+		owner = { culture_group = east_slavic }
+		owner = { is_subject_of_type = cossack_host_CI }
 		NOT = { culture_group = east_slavic }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -1353,6 +1353,57 @@ province_event = { #Major Steppe Cities assimilation
 			}
 
 			change_culture = russian
+		}
+	}
+}
+
+country_event = {
+	id = cultural_influence_east_slavic.20
+	title = cossack_nomads.title
+	desc = cossack_nomads.desc
+	picture = HORSE_ON_HORSEBACK_eventPicture
+	is_triggered_only = yes
+
+	trigger = {
+	}
+
+	option = {
+		name = sdfghjkl
+		3291 = {
+			cede_province = UKR
+		}
+		299 = {
+			cede_province = KBC
+		}
+		5671 = {
+			cede_province = TKC
+		}
+		467 = {
+			cede_province = DNC
+		}
+		3265 = {
+			cede_province = ORC
+		}
+		2418 = {
+			cede_province = ULC
+		}
+		474 = {
+			cede_province = SMC
+		}
+		2366 = {
+			cede_province = SBC
+		}
+		472 = {
+			cede_province = IKC
+		}
+		2351 = {
+			cede_province = TBC
+		}
+		2353 = {
+			cede_province = USC
+		}
+		2369 = {
+			cede_province = RUS
 		}
 	}
 }

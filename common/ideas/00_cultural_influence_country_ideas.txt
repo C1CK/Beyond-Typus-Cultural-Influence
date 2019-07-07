@@ -79,3 +79,54 @@ GAU_ideas = {
 		prestige = 1.0 #Seems strong but Silesia starts with this, so w/e
 	}
 }
+
+COS_ideas = {
+    start = {
+        loot_amount = 0.25
+        manpower_recovery_speed = 0.2
+    }
+    
+    bonus = {
+        prestige_from_land = 1
+    }
+    
+    trigger = {
+    	OR = {
+    		tag = ZAZ
+        	tag = DNC
+        	tag = IKC
+        	tag = KBC
+        	tag = ORC
+        	tag = SBC
+        	tag = SMC
+        	tag = TBC
+        	tag = TKC
+        	tag = ULC
+        	tag = USC
+        	tag = AMC
+    	}
+    }
+    free = yes
+    
+    zaz_fort_builders = {
+        development_cost = -0.1
+    }
+    zaz_hetmanate = {
+        global_unrest = -2
+    }
+    zaz_steppe_riders = {
+        land_attrition = -0.15
+    }
+    zaz_cossack_hit_and_run = {
+        leader_land_manuever = 1
+    }
+    zaz_classy_diplomacy = {
+        republican_tradition = 0.3  
+    }
+    zaz_zaporzhian_tolerance = {
+        no_religion_penalty = yes   
+    }
+    zaz_army_first = {
+        global_manpower_modifier = 0.2
+    }
+}

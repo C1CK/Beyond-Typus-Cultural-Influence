@@ -1,6 +1,6 @@
 namespace = cultural_influence_french
 
-province_event = { #French expansion
+province_event = { #French expansion (Home Region)
 	id = cultural_influence_french.1
 	title = french_expansion.title
 	desc = french_expansion.desc
@@ -13,20 +13,17 @@ province_event = { #French expansion
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			any_neighbor_province = {
-				culture = OWNER
-			}
-			AND = { #Since the Channel Islands don't have a strait annoyingly
-				province_id = 3110 #Channel Islands
-				OR = { #Specifically to exclude Finistere due to distance
-					4385 = { culture = OWNER } #Cotentin
-					4384 = { culture = OWNER } #Rennes
-					169	= { culture = OWNER } #Saint Brieuc
-				}
-			}
+		any_neighbor_province = {
+			culture = OWNER
 		}
-		
+		calc_true_if = {
+			all_owned_province = {
+				is_core = ROOT
+				region = france_region
+
+			}
+			amount = 45				#At least ~2/3 of France's 71 provinces
+		}
 		french_homeland = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -94,3 +91,2320 @@ province_event = { #French expansion
 		change_culture = OWNER
 	}
 }
+
+#####################Latin (Assimilated) Cultures#####################
+
+province_event = { #Castillane expansion
+	id = cultural_influence_french.2
+	title = castillane_expansion.title
+	desc = castillane_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture = castillane }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = OWNER
+			}
+			any_neighbor_province = {
+				culture = galicien
+			}
+			any_neighbor_province = {
+				culture = castillane
+			}
+			any_neighbor_province = {
+				culture = valencien
+			}
+		}
+		castillane_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = castillane_expansion.a
+
+		change_culture = castillane
+	}
+}
+
+province_event = { #Galicien expansion
+	id = cultural_influence_french.3
+	title = galicien_expansion.title
+	desc = galicien_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture = galicien }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = OWNER
+			}
+			any_neighbor_province = {
+				culture = galicien
+			}
+			any_neighbor_province = {
+				culture = castillane
+			}
+			any_neighbor_province = {
+				culture = valencien
+			}
+		}
+		galicien_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = galicien_expansion.a
+
+		change_culture = galicien
+	}
+}
+
+province_event = { #Valencien expansion
+	id = cultural_influence_french.4
+	title = valencien_expansion.title
+	desc = valencien_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture = valencien }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = OWNER
+			}
+			any_neighbor_province = {
+				culture = galicien
+			}
+			any_neighbor_province = {
+				culture = castillane
+			}
+			any_neighbor_province = {
+				culture = valencien
+			}
+		}
+		valencien_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = valencien_expansion.a
+
+		change_culture = valencien
+	}
+}
+
+province_event = { #Apennine Central expansion
+	id = cultural_influence_french.5
+	title = apennine_central_expansion.title
+	desc = apennine_central_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture = apennine_central }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = OWNER
+			}
+			any_neighbor_province = {
+				culture = apennine_central
+			}
+			any_neighbor_province = {
+				culture = sud_apennine
+			}
+			any_neighbor_province = {
+				culture = nouveau_provencal
+			}
+		}
+		apennine_central_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = apennine_central_expansion.a
+
+		change_culture = apennine_central
+	}
+}
+
+province_event = { #Sud Apennine expansion
+	id = cultural_influence_french.6
+	title = sud_apennine_expansion.title
+	desc = sud_apennine_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture = sud_apennine }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = OWNER
+			}
+			any_neighbor_province = {
+				culture = apennine_central
+			}
+			any_neighbor_province = {
+				culture = sud_apennine
+			}
+			any_neighbor_province = {
+				culture = nouveau_provencal
+			}
+		}
+		sud_apennine_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = sud_apennine_expansion.a
+
+		change_culture = sud_apennine
+	}
+}
+
+province_event = { #Nouveau Provençal expansion
+	id = cultural_influence_french.7
+	title = nouveau_provencal_expansion.title
+	desc = nouveau_provencal_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture = nouveau_provencal }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = OWNER
+			}
+			any_neighbor_province = {
+				culture = apennine_central
+			}
+			any_neighbor_province = {
+				culture = sud_apennine
+			}
+			any_neighbor_province = {
+				culture = nouveau_provencal
+			}
+		}
+		nouveau_provencal_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = nouveau_provencal_expansion.a
+
+		change_culture = nouveau_provencal
+	}
+}
+
+province_event = { #Corse expansion
+	id = cultural_influence_french.8
+	title = corse_expansion.title
+	desc = corse_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture = corse }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			NOT = {
+				any_province = {
+					culture = corse
+					corse_culture_region = yes
+				}
+			}
+			any_neighbor_province = {
+				culture = sarde
+			}
+			any_neighbor_province = {
+				culture = corse
+			}
+		}
+		corse_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = corse_expansion.a
+
+		change_culture = corse
+	}
+}
+
+province_event = { #Sarde expansion
+	id = cultural_influence_french.9
+	title = sarde_expansion.title
+	desc = sarde_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture = sarde }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			NOT = {
+				any_province = {
+					culture = sarde
+					sarde_culture_region = yes
+				}
+			}
+			any_neighbor_province = {
+				culture = corse
+			}
+			any_neighbor_province = {
+				culture = sarde
+			}
+		}
+		sarde_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = sarde_expansion.a
+
+		change_culture = sarde
+	}
+}
+
+#####################Re-educated (Settled) Cultures#####################
+
+province_event = { #Franglais settlements and assimilation
+	id = cultural_influence_french.10
+	title = franglais_settlements.title
+	desc = franglais_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		franglais_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = franglais_settlements.a
+
+		change_culture = franglais
+	}
+}
+
+province_event = { #Bas Francais settlements and assimilation
+	id = cultural_influence_french.11
+	title = bas_francais_settlements.title
+	desc = bas_francais_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		bas_francais_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = bas_francais_settlements.a
+
+		change_culture = bas_francais
+	}
+}
+
+province_event = { #Gaelique settlements and assimilation
+	id = cultural_influence_french.12
+	title = gaelique_settlements.title
+	desc = gaelique_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		gaelique_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = gaelique_settlements.a
+
+		change_culture = gaelique
+	}
+}
+
+province_event = { #Celtique settlements and assimilation
+	id = cultural_influence_french.13
+	title = celtique_settlements.title
+	desc = celtique_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		celtique_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = celtique_settlements.a
+
+		change_culture = celtique
+	}
+}
+
+province_event = { #Joutais settlements and assimilation
+	id = cultural_influence_french.14
+	title = joutais_settlements.title
+	desc = joutais_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		joutais_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = joutais_settlements.a
+
+		change_culture = joutais
+	}
+}
+
+#id15 Pomeranian
+
+province_event = { #Alpin settlements and assimilation
+	id = cultural_influence_french.16
+	title = alpin_settlements.title
+	desc = alpin_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		alpin_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = alpin_settlements.a
+
+		change_culture = alpin
+	}
+}
+
+#id17 West German
+#id18 Czech
+#id19 Adriatic
+#id20 Poland
+#id21 Pannonian
+
+province_event = { #Marocain settlements and assimilation
+	id = cultural_influence_french.22
+	title = marocain_settlements.title
+	desc = marocain_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		marocain_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = marocain_settlements.a
+
+		change_culture = marocain
+	}
+}
+
+province_event = { #Algerien settlements and assimilation
+	id = cultural_influence_french.23
+	title = algerien_settlements.title
+	desc = algerien_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		algerien_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = algerien_settlements.a
+
+		change_culture = algerien
+	}
+}
+
+province_event = { #Tunisien settlements and assimilation
+	id = cultural_influence_french.24
+	title = tunisien_settlements.title
+	desc = tunisien_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		tunisien_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = tunisien_settlements.a
+
+		change_culture = tunisien
+	}
+}
+
+#####################Crusader Cultures#####################
+
+#id30 Romain
+#id31 Outre Mer
+#id32 Galate
+#id33 Nil Français
+
+#####################Colonial Cultures#####################
+
+#New World
+province_event = { #Quebecois spread
+	id = cultural_influence_french.35
+	title = quebecois_spread.title
+	desc = quebecois_spread.desc
+	picture = CULTURE_eventPicture
+	hidden = yes
+
+	trigger = {
+		is_city = yes
+		quebecois_culture_region = yes
+		NOT = { culture = quebecois }
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 15
+
+		modifier = {
+			factor = 0
+			culture_group = french
+		}
+	}
+
+	immediate = {
+		change_culture = quebecois
+	}
+
+	option = {
+		name = quebecois_spread.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+ 
+province_event = { #Californienne spread
+	id = cultural_influence_french.36
+	title = californienne_spread.title
+	desc = californienne_spread.desc
+	picture = CULTURE_eventPicture
+	hidden = yes
+
+	trigger = {
+		is_city = yes
+		californienne_culture_region = yes
+		NOT = { culture = californienne }
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 15
+
+		modifier = {
+			factor = 0
+			culture_group = french
+		}
+	}
+
+	immediate = {
+		change_culture = californienne
+	}
+
+	option = {
+		name = californienne_spread.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#Former Creole
+#id37 Metropolitaine Colonial Cultures
+
+province_event = { #Karipounais spread
+	id = cultural_influence_french.39
+	title = karipounais_spread.title
+	desc = karipounais_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_city = yes
+		karipounais_culture_region = yes
+		OR = {
+			development = 40
+			AND = {
+				any_neighbor_province = {
+					culture = karipounais
+				}
+				development = 20
+			}
+		}
+		OWNER = { culture_group = french }
+		culture = kweyol_kawipouna
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = karipounais_spread.a
+		change_culture = karipounais
+	}
+}
+
+province_event = { #Quechois spread
+	id = cultural_influence_french.40
+	title = quechois_spread.title
+	desc = quechois_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_city = yes
+		quechois_culture_region = yes
+		OR = {
+			development = 40
+			AND = {
+				any_neighbor_province = {
+					culture = quechois
+				}
+				development = 20
+			}
+		}
+		OWNER = { culture_group = french }
+		culture = kweyol_kechwa
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = quechois_spread.a
+		change_culture = quechois
+	}
+}
+
+province_event = { #Circumcaraïbes spread
+	id = cultural_influence_french.41
+	title = circumcaraibes_spread.title
+	desc = circumcaraibes_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_city = yes
+		circumcaraibes_culture_region = yes
+		OR = {
+			development = 40
+			AND = {
+				any_neighbor_province = {
+					culture = circumcaraibes
+				}
+				development = 20
+			}
+		}
+		OWNER = { culture_group = french }
+		culture = kreyol_ayisyen
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = circumcaraibes_spread.a
+		change_culture = circumcaraibes
+	}
+}
+
+province_event = { #Louisianais spread
+	id = cultural_influence_french.42
+	title = louisianais_spread.title
+	desc = louisianais_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_city = yes
+		louisianais_culture_region = yes
+		OR = {
+			development = 40
+			AND = {
+				any_neighbor_province = {
+					culture = louisianais
+				}
+				development = 20
+			}
+		}
+		OWNER = { culture_group = french }
+		culture = kreyol_la_lwizyan
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = louisianais_spread.a
+		change_culture = louisianais
+	}
+}
+
+#Old World
+#id43 Mozambique
+#id44 Subsaharienne
+#id45 Sud Africain
+#id38 Indochinois
+
+######################Creole Cultures######################
+
+province_event = { #Kreyol La Lwizyan spread
+	id = cultural_influence_french.46
+	title = kreyol_la_lwizyan_spread.title
+	desc = kreyol_la_lwizyan_spread.desc
+	picture = CULTURE_eventPicture
+	hidden = yes
+
+	trigger = {
+		is_city = yes
+		kreyol_la_lwizyan_culture_region = yes
+		NOT = { culture = kreyol_la_lwizyan }
+		NOT = { culture = louisianais }
+		OR = {
+			OWNER = { culture_group = french }
+			OWNER = { culture_group = french_creole }
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 15
+
+		modifier = {
+			factor = 0
+			culture_group = french
+		}
+	}
+
+	immediate = {
+		change_culture = kreyol_la_lwizyan
+	}
+
+	option = {
+		name = kreyol_la_lwizyan_spread.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#id47 Kreyol La Lwizyan (Choice)
+
+province_event = { #Kreyol Ayisyen spread
+	id = cultural_influence_french.48
+	title = kreyol_ayisyen_spread.title
+	desc = kreyol_ayisyen_spread.desc
+	picture = CULTURE_eventPicture
+	hidden = yes
+
+	trigger = {
+		is_city = yes
+		kreyol_ayisyen_culture_region = yes
+		NOT = { development = 40 }
+		NOT = { culture = kreyol_ayisyen }
+		NOT = { culture = circumcaraibes }
+		OR = {
+			OWNER = { culture_group = french }
+			OWNER = { culture_group = french_creole }
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 15
+
+		modifier = {
+			factor = 0
+			culture_group = french
+		}
+	}
+
+	immediate = {
+		change_culture = kreyol_ayisyen
+	}
+
+	option = {
+		name = kreyol_ayisyen_spread.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#id49 Kreyol Ayisyen (Choice)
+
+province_event = { #Kreol Morisien spread
+	id = cultural_influence_french.50
+	title = kreol_morisien_spread.title
+	desc = kreol_morisien_spread.desc
+	picture = CULTURE_eventPicture
+	hidden = yes
+
+	trigger = {
+		is_city = yes
+		kreol_morisien_culture_region = yes
+		NOT = { development = 40 }
+		NOT = { culture = kreol_morisien }
+		NOT = { culture = metropolitaine }
+		OR = {
+			OWNER = { culture_group = french }
+			OWNER = { culture_group = french_creole }
+		}
+		has_global_flag = CI_events_enabled
+	}
+	
+	mean_time_to_happen = {
+		years = 15
+
+		modifier = {
+			factor = 0
+			culture_group = french
+		}
+	}
+
+	immediate = {
+		change_culture = kreol_morisien
+	}
+
+	option = {
+		name = kreol_morisien_spread.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#id51 Kreol Morisien (Choice)
+
+province_event = { #Kreol Renieone spread
+	id = cultural_influence_french.52
+	title = kreol_renieone_spread.title
+	desc = kreol_renieone_spread.desc
+	picture = CULTURE_eventPicture
+	hidden = yes
+
+	trigger = {
+		is_city = yes
+		kreol_renieone_culture_region = yes
+		NOT = { development = 40 }
+		NOT = { culture = kreol_renieone }
+		NOT = { culture = metropolitaine }
+		OR = {
+			OWNER = { culture_group = french }
+			OWNER = { culture_group = french_creole }
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 15
+
+		modifier = {
+			factor = 0
+			culture_group = french
+		}
+	}
+
+	immediate = {
+		change_culture = kreol_renieone
+	}
+
+	option = {
+		name = kreol_renieone_spread.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#id53 Kreol Renieone (Choice)
+
+province_event = { #Kreol Seselwa spread
+	id = cultural_influence_french.52
+	title = kreol_seselwa_spread.title
+	desc = kreol_seselwa_spread.desc
+	picture = CULTURE_eventPicture
+	hidden = yes
+
+	trigger = {
+		is_city = yes
+		kreol_seselwa_culture_region = yes
+		NOT = { development = 40 }
+		NOT = { culture = kreol_seselwa }
+		NOT = { culture = metropolitaine }
+		OR = {
+			OWNER = { culture_group = french }
+			OWNER = { culture_group = french_creole }
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 15
+
+		modifier = {
+			factor = 0
+			culture_group = french
+		}
+	}
+
+	immediate = {
+		change_culture = kreol_seselwa
+	}
+
+	option = {
+		name = kreol_seselwa_spread.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#id55 Kreol Seselwa (Choice)
+
+province_event = { #Kweyol Kawipouna spread
+	id = cultural_influence_french.56
+	title = kweyol_kawipouna_spread.title
+	desc = kweyol_kawipouna_spread.desc
+	picture = CULTURE_eventPicture
+	hidden = yes
+
+	trigger = {
+		is_city = yes
+		kweyol_kawipouna_culture_region = yes
+		NOT = { development = 40 }
+		NOT = { culture = kweyol_kawipouna }
+		NOT = { culture = karipounais }
+		OR = {
+			OWNER = { culture_group = french }
+			OWNER = { culture_group = french_creole }
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 15
+
+		modifier = {
+			factor = 0
+			culture_group = french
+		}
+	}
+
+	immediate = {
+		change_culture = kweyol_kawipouna
+	}
+
+	option = {
+		name = kweyol_kawipouna_spread.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#id57 Kweyol Kawipouna (Choice)
+
+province_event = { #Kweyol Kechwa spread
+	id = cultural_influence_french.58
+	title = kweyol_kechwa_spread.title
+	desc = kweyol_kechwa_spread.desc
+	picture = CULTURE_eventPicture
+	hidden = yes
+
+	trigger = {
+		is_city = yes
+		kweyol_kechwa_culture_region = yes
+		NOT = { development = 40 }
+		NOT = { culture = kweyol_kechwa }
+		NOT = { culture = quechois }
+		OR = {
+			OWNER = { culture_group = french }
+			OWNER = { culture_group = french_creole }
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 15
+
+		modifier = {
+			factor = 0
+			culture_group = french
+		}
+	}
+
+	immediate = {
+		change_culture = kweyol_kechwa
+	}
+
+	option = {
+		name = kweyol_kechwa_spread.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#id59 Kweyol Kechwa (Choice)
+
+######################Metropolitaine######################
+
+#id60 Metropolitaine
+
+######################Free Event IDS######################
+#id34 Free ID
+#id29 Free ID
+#id26 Free ID
+#id27 Free ID
+#id25 Free ID
+#id28 Free ID
