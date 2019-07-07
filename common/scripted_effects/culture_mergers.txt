@@ -320,3 +320,77 @@ merge_russki = {
 		set_ruler_culture = russian
 	}
 }
+
+merge_rhomaio = {
+ every_province = {
+	limit = {
+		OR = {
+			culture = greek
+			culture = pontic_greek
+			culture = cappadocian
+			culture = cypriot
+			}
+		}
+		change_culture = rhomaio
+	}
+	every_country = {
+		limit = {
+			OR = {
+			primary_culture = greek
+			primary_culture = pontic_greek
+			primary_culture = cappadocian
+			primary_culture = cypriot
+			}
+		}
+		change_primary_culture = rhomaio
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = greek
+				has_accepted_culture = pontic_greek
+				has_accepted_culture = cappadocian
+				has_accepted_culture = cypriot
+			}
+		}
+		remove_accepted_culture = greek
+		remove_accepted_culture = pontic_greek
+		remove_accepted_culture = cappadocian
+		remove_accepted_culture = cypriot
+		add_accepted_culture = rhomaio
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = greek
+				ruler_culture = pontic_greek
+				ruler_culture = cappadocian
+				ruler_culture = cypriot
+			}
+		}
+		set_ruler_culture = rhomaio
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = greek
+				heir_culture = pontic_greek
+				heir_culture = cappadocian
+				heir_culture = cypriot
+			}
+		}
+		set_heir_culture = rhomaio
+	}
+	every_country = {
+		limit = {
+			OR = {
+			consort_culture = greek
+			consort_culture = pontic_greek
+			consort_culture = cappadocian
+			consort_culture = cypriot
+			}
+		}
+		set_consort_culture = rhomaio
+	}
+}
+	
