@@ -2801,7 +2801,50 @@ province_event = { #Kreyol La Lwizyan spread
 	}
 }
 
-#id47 Kreyol La Lwizyan (Choice)
+country_event = { #Kreyol La Lwizyan (Choice)
+	id = cultural_influence_french.47
+	title = kreyol_la_lwizyan_choice.title
+	desc = kreyol_la_lwizyan_choice.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_former_colonial_nation = yes
+		OR = {
+			primary_culture = kreyol_la_lwizyan
+			culture_group = french
+		}
+		capital_scope = {
+			kreyol_la_lwizyan_culture_region = yes
+		}
+		NOT = { has_country_flag = CI_chosen_creole_flag }
+		NOT = { has_country_flag = CI_chosen_french_flag }
+		has_global_flag = CI_events_enabled
+	}
+
+	option = {
+		name = kreyol_la_lwizyan_choice.a
+		hidden_effect = {
+			set_ruler_culture = kreyol_la_lwizyan
+		}
+		change_primary_culture = kreyol_la_lwizyan
+		ai_chance = {
+			factor = 10
+		}
+		set_country_flag = CI_chosen_creole_flag
+	}
+
+	option = {
+		name = kreyol_la_lwizyan_choice.b
+		hidden_effect = {
+			set_ruler_culture = louisianais
+		}
+		change_primary_culture = louisianais
+		ai_chance = {
+			factor = 90
+		}
+		set_country_flag = CI_chosen_french_flag
+	}
+}
 
 province_event = { #Kreyol Ayisyen spread
 	id = cultural_influence_french.48
@@ -2844,7 +2887,50 @@ province_event = { #Kreyol Ayisyen spread
 	}
 }
 
-#id49 Kreyol Ayisyen (Choice)
+country_event = { #Kreyol Ayisyen (Choice)
+	id = cultural_influence_french.49
+	title = kreyol_ayisyen_choice.title
+	desc = kreyol_ayisyen_choice.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_former_colonial_nation = yes
+		OR = {
+			primary_culture = kreyol_ayisyen
+			culture_group = french
+		}
+		capital_scope = {
+			kreyol_ayisyen_culture_region = yes
+		}
+		NOT = { has_country_flag = CI_chosen_creole_flag }
+		NOT = { has_country_flag = CI_chosen_french_flag }
+		has_global_flag = CI_events_enabled
+	}
+
+	option = {
+		name = kreyol_ayisyen_choice.a
+		hidden_effect = {
+			set_ruler_culture = kreyol_ayisyen
+		}
+		change_primary_culture = kreyol_ayisyen
+		ai_chance = {
+			factor = 10
+		}
+		set_country_flag = CI_chosen_creole_flag
+	}
+
+	option = {
+		name = kreyol_ayisyen_choice.b
+		hidden_effect = {
+			set_ruler_culture = circumcaraibes
+		}
+		change_primary_culture = circumcaraibes
+		ai_chance = {
+			factor = 90
+		}
+		set_country_flag = CI_chosen_french_flag
+	}
+}
 
 province_event = { #Kreol Morisien spread
 	id = cultural_influence_french.50
@@ -2887,8 +2973,6 @@ province_event = { #Kreol Morisien spread
 	}
 }
 
-#id51 Kreol Morisien (Choice)
-
 province_event = { #Kreol Renieone spread
 	id = cultural_influence_french.52
 	title = kreol_renieone_spread.title
@@ -2929,8 +3013,6 @@ province_event = { #Kreol Renieone spread
 		}
 	}
 }
-
-#id53 Kreol Renieone (Choice)
 
 province_event = { #Kreol Seselwa spread
 	id = cultural_influence_french.52
@@ -2973,8 +3055,6 @@ province_event = { #Kreol Seselwa spread
 	}
 }
 
-#id55 Kreol Seselwa (Choice)
-
 province_event = { #Kweyol Kawipouna spread
 	id = cultural_influence_french.56
 	title = kweyol_kawipouna_spread.title
@@ -3016,7 +3096,50 @@ province_event = { #Kweyol Kawipouna spread
 	}
 }
 
-#id57 Kweyol Kawipouna (Choice)
+country_event = { #Kweyol Kawipouna (Choice)
+	id = cultural_influence_french.57
+	title = kweyol_kawipouna_choice.title
+	desc = kweyol_kawipouna_choice.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_former_colonial_nation = yes
+		OR = {
+			primary_culture = kweyol_kawipouna
+			culture_group = french
+		}
+		capital_scope = {
+			kweyol_kawipouna_culture_region = yes
+		}
+		NOT = { has_country_flag = CI_chosen_creole_flag }
+		NOT = { has_country_flag = CI_chosen_french_flag }
+		has_global_flag = CI_events_enabled
+	}
+
+	option = {
+		name = kweyol_kawipouna_choice.a
+		hidden_effect = {
+			set_ruler_culture = kweyol_kawipouna
+		}
+		change_primary_culture = kweyol_kawipouna
+		ai_chance = {
+			factor = 10
+		}
+		set_country_flag = CI_chosen_creole_flag
+	}
+
+	option = {
+		name = kweyol_kawipouna_choice.b
+		hidden_effect = {
+			set_ruler_culture = karipounais
+		}
+		change_primary_culture = karipounais
+		ai_chance = {
+			factor = 90
+		}
+		set_country_flag = CI_chosen_french_flag
+	}
+}
 
 province_event = { #Kweyol Kechwa spread
 	id = cultural_influence_french.58
@@ -3059,16 +3182,63 @@ province_event = { #Kweyol Kechwa spread
 	}
 }
 
-#id59 Kweyol Kechwa (Choice)
+country_event = { #Kweyol Kechwa (Choice)
+	id = cultural_influence_french.59
+	title = kweyol_kechwa_choice.title
+	desc = kweyol_kechwa_choice.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_former_colonial_nation = yes
+		OR = {
+			primary_culture = kweyol_kechwa
+			culture_group = french
+		}
+		capital_scope = {
+			kweyol_kechwa_culture_region = yes
+		}
+		NOT = { has_country_flag = CI_chosen_creole_flag }
+		NOT = { has_country_flag = CI_chosen_french_flag }
+		has_global_flag = CI_events_enabled
+	}
+
+	option = {
+		name = kweyol_kechwa_choice.a
+		hidden_effect = {
+			set_ruler_culture = kweyol_kechwa
+		}
+		change_primary_culture = kweyol_kechwa
+		ai_chance = {
+			factor = 10
+		}
+		set_country_flag = CI_chosen_creole_flag
+	}
+
+	option = {
+		name = kweyol_kechwa_choice.b
+		hidden_effect = {
+			set_ruler_culture = quechois
+		}
+		change_primary_culture = quechois
+		ai_chance = {
+			factor = 90
+		}
+		set_country_flag = CI_chosen_french_flag
+	}
+}
 
 ######################Metropolitaine######################
 
 #id60 Metropolitaine
 
 ######################Free Event IDS######################
-#id34 Free ID
-#id29 Free ID
+
+#id25 Free ID
 #id26 Free ID
 #id27 Free ID
-#id25 Free ID
 #id28 Free ID
+#id29 Free ID
+#id34 Free ID
+#id51 Free ID
+#id53 Free ID
+#id55 Free ID
