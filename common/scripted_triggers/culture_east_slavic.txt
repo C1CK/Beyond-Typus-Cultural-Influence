@@ -1,58 +1,70 @@
 russki_culture_region = {
 	OR = {
+		province_id = 7808 #Serdobal
+		province_id = 32 #Korela
+		province_id = 30 #Viborg
 		region = russia_region
-		area = west_karelia_area
-		AND = { #West of the Ural Mountains
-			region = ural_region
-			NOT = { area = ural_area }
-			NOT = { province_id = 1072 } #Obdorsk, East of Ural Mountains
-			NOT = { province_id = 1966 } #East of Ural Mountains
-			NOT = { province_id = 2444 } #East of Ural Mountains
-			NOT = { province_id = 2420 } #Should be Central Asian instead
+		province_id = 1842 #Narva
+		province_id = 7847 #Marienhausen
+		province_id = 7846 #Rositten
+		area = polotsk_area
+		AND = {
+			area = vitebsk_area
+			NOT = { province_id = 4242 } #Barysavas
 		}
+		AND = {
+			area = white_ruthenia_area #Gomel
+			NOT = { province_id = 7234 } #Svietlahorsk
+			NOT = { province_id = 7236 } #Rechytsa
+		}
+		area = bryansk_area
+		province_id = 7248 #Sosnytsia
+		area = severia_area
+		area = sloboda_ukraine_area #Slobozhanshchyna
+		province_id = 3302 #Bakhmut
+		province_id = 7204 #Luhansk
+		province_id = 7202 #Donetsk
+		area = pryazovia_area
+		area = crimea_area
 		area = middle_don_area
 		area = lower_don_area
 		area = astrakhan_area
-		#North of Caucasus Mountains
-		province_id = 2195
+		area = azov_area
+		province_id = 2195 #Adyghe
 		area = circassia_area
 		area = dagestan_area
-		#Western parts of Central Asia
 		area = lower_yik_area
-		#Russification of Russka land
-		area = polotsk_area
-		area = vitebsk_area
-		province_id = 4246 #Mstislavlis
-		province_id = 7238 #Krychaw
-		province_id = 7229 #Chavusy
-		area = bryansk_area
-		area = eastern_severia
+		AND = { #West of the Ural Mountains
+			region = ural_region
+			NOT = { area = ural_area }
+			NOT = { province_id = 1072 } #Obdorsk -East of Ural Mountains
+			NOT = { province_id = 1966 } #Chelyaba -East of Ural Mountains
+			NOT = { province_id = 2444 } #Bashgird -East of Ural Mountains
+			NOT = { province_id = 2420 } #Agyidel -South of Ural River
+		}
 	}
 }
 
 russka_culture_region = {
 	OR = {
-		region = ruthenia_region
-		province_id = 293 #Smolenskas, Belarussian RoI
-		province_id = 5684 #Velizh, Belarussian RoI
+		province_id = 3146 #Ung
+		province_id = 1952 #Máramaros
+		area = moldavia_area #Bessarabia
+		AND = {
+			region = ruthenia_region
+			NOT = { province_id = 1938 } #Wizna
+		}
+		province_id = 7216 #Braslaw
+		province_id = 4535 #Vilkmerge
 		province_id = 5661 #Velizas, Belarussian RoI
 		province_id = 7880 #Zhizhets, Belarussian RoI
-		province_id = 7881 #Verzhavsk, Belarussian RoI
-		province_id = 3301 #Dorogbuzas, Belarussian RoI
-		area = carpathian_ruthenia
-		province_id = 7267 #Sanok
-		province_id = 2424 #Przemysl
-		province_id = 7266 #Szczcebrzesyn
-		province_id = 4538 #Chelm
-		province_id = 3223 #Balstoge
-		province_id = 1937 #Gardinas
-		province_id = 4536 #Lyda
-		province_id = 770 #Beslauja
-		province_id = 7219 #Myadzel
-		area = podlasie_area
+		AND = {
+			area = smolensk_area
+			NOT = { province_id = 3271 } #Belas
+			NOt = { province_id = 4245 } #Viazma
+		}
 		province_id = 7274 #Bukovina
 		province_id = 7275 #Khotyn
-		area = moldavia_area #Bessarabia
 		AND = {
 			region = crimea_region #Pontic Steppe
 			NOT = { area = middle_don_area } #Russki
@@ -81,133 +93,182 @@ cossack_rule_region = { #These provinces must be made Cossack first before they 
 
 belarussian_culture_region = {
 	OR = {
-		area = podlasie_area
-		province_id = 3223 #Balstoge
-		province_id = 1937 #Gardinas
-		province_id = 4536 #Lyda
-		province_id = 770 #Beslauja
-		province_id = 7219 #Myadzel
-		area = novogrudok_area
-		area = pripyat_area #Brest
-		area = mazur_area #Mazyr
-		area = minsk_area
+		AND = {
+			area = yotvingia_area
+			NOT = { province_id = 1938 } #Wizna
+		}
+		area = trakai_area
+		province_id = 7216 #Braslaw
+		province_id = 4535 #Vilkmerge
 		area = polotsk_area
+		area = podlasie_area
+		area = novogrudok_area
+		area = minsk_area
 		area = vitebsk_area
-		area = white_ruthenia_area #Gomel
-		area = mstislavl_area
-		area = bryansk_area
-		province_id = 293 #Smolenskas, Belarussian RoI
-		province_id = 5684 #Velizh, Belarussian RoI
 		province_id = 5661 #Velizas, Belarussian RoI
 		province_id = 7880 #Zhizhets, Belarussian RoI
-		province_id = 7881 #Verzhavsk, Belarussian RoI
-		province_id = 3301 #Dorogbuzas, Belarussian RoI
+		AND = {
+			area = smolensk_area
+			NOT = { province_id = 3271 } #Belas
+			NOt = { province_id = 4245 } #Viazma
+		}
+		area = pripyat_area
+		area = white_ruthenia_area #Gomel
+		area = bryansk_area
 	}
 }
 
 ukrainian_culture_region = {
 	OR = {
-		area = carpathian_ruthenia_area
-		province_id = 7267 #Sanok
-		province_id = 2424 #Przemysl
-		area = central_galicia_area
-		area = red_ruthenia_area #East Galicia
-		province_id = 7266 #Szczcebrzesyn
-		province_id = 4538 #Chelm
-		area = volhynia_area
+		area = red_ruthenia_area #Galicia
+		area = volhynia_area #West Volhynia
 		area = eastern_volhynia_area
-		area = western_podolia_area
+		area = podolia_volhynia_area #Podolia
 		province_id = 7274 #Bukovina
 		province_id = 7275 #Khotyn
+		area = west_dniepr_area #Kiev
+		area = east_dniepr_area
 		area = moldavia_area #Bessarabia
-		area = west_dniepr_area
-		area = podolia_volhynia_area #Eastern Podolia
-		area = cherkasy_area
-		area = chernigov_area
+		area = severia_area
 		AND = {
 			region = crimea_region #Pontic Steppe
 			NOT = { area = middle_don_area } #Russki
 			NOT = { area = lower_don_area } #Russki
 			NOT = { area = astrakhan_area } #Russki
 		}
-		area = east_dniepr_area
-		area = western_severia
-		area = eastern_severia
 	}
 }
 
 rusyn_culture_region = {
 	OR = {
-		area = carpathian_ruthenia_area
+		province_id = 3146 #Ung
+		province_id = 1952 #Máramaros
 	}
 }
 
 northern_russian_culture_region = {
 	OR = {
 		area = laponia_area #Kola
-		area = karelia_area #East Karelia
-		area = west_karelia_area
-		area = north_karelia_area #Ingria
-		area = arkhangelsk_area #Onega
-		area = pskov_area
-		area = novgorod_area
-		area = vladimir_area #Svir
-		area = valdai_area
-		area = beloozero_area
-		area = pomor_area #Northern Dvina
-		area = yaroslavl_area
-		area = vologda_area #Sukhona
-		area = galich_area
-		area = mezen_area
+		area = karelia_area
+		province_id = 7808 #Serdobal
+		province_id = 32 #Korela
+		province_id = 30 #Viborg
 		AND = {
-			area = nenets_area
-			NOT = { province_id = 1072 } #Obdorsk, East of Ural Mountains
+			area = north_karelia_area #Ingria
+			NOT = { province_id = 5644 } #Yama
 		}
-		area = pechora_area
-		area = vychegda_area
-		area = yatka_area
-		province_id = 4266 #Izhkar
+		province_id = 7871 #Budkovo
+		province_id = 310 #Novgorod
+		area = vladimir_area #Obonezhsk
+		AND = {
+			area = beloozero_area #Bezhetsk
+			NOT = { province_id = 1959 } #Torzhok
+		}
+		area = arkhangelsk_area #Onega
+		area = yaroslavl_area
+		area = pomor_area #Dvina
+		area = vologda_area #Sukhona
+		province_id = 3278 #Gorodets
+		AND = {
+			area = pechora_area
+			NOT = { province_id = 1072 } #Obdorsk
+		}
 		area = perm_area
+		area = vyatka_area
+		province_id = 1083 #Vetluga
+		province_id = 3280 #Mari
+		area = kama_area
+		province_id = 475 #Bashkortostan
 	}
 }
 
 middle_russian_culture_region = {
 	OR = {
-		area = polotsk_area
-		area = vitebsk_area
-		area = toropets_area
-		province_id = 4246 #Mstislavlis
-		province_id = 7238 #Krychaw
-		province_id = 7229 #Chavusy
-		province_id = 5685 #Roslavl
-		province_id = 5662 #Mosalk
-		area = smolensk_area
-		area = rzhev_area
-		area = valdai_area
+		province_id = 1842 #Narva
+		province_id = 5644 #Yama
+		province_id = 7847 #Marienhausen
+		province_id = 7846 #Rositten
+		area = pskov_area
+		AND = {
+			area = novgorod_area
+			NOT = {	province_id = 7871 } #Budkovo
+			NOT = { province_id = 310 } #Novgorod
+		}
+		province_id = 4148 #Velikiye Luki
+		province_id = 4243 #Toropiecas
 		area = tver_area
-		area = moscow_area
-		area = northern_upper_oka_area
-		area = suzdal_area #Zalesye
-		area = nizhny_novgorod_area
-		area = kazan_area
+		province_id = 3271 #Belas
+		province_id = 4245 #Viazma
+		province_id = 1959 #Torzhok
+		AND = {
+			area = moscow_area
+			NOT = { province_id = 5682 } #Tarusa
+		}
+		AND = {
+			area = suzdal_area #Zalesye
+			NOT = { province_id = 3278 } #Gorodets
+		}
+		province_id = 1754 #Murom
+		province_id = 1778 #Kasimov
+		province_id = 306 #Nizhny Novgorod
+		province_id = 3279 #Sarov
+		province_id = 5672 #Morshank
+		province_id = 304 #Penza
+		province_id = 2423 #Alatyr
+		province_id = 4264 #Kurmysh
+		province_id = 2422 #Veda-Suvar
+		province_id = 1082 #Kazan
+		area = samara_area
+		province_id = 474 #Yaik
+		province_id = 1965 #Buzuluk
 	}
 }
 
 southern_russian_culture_region = {
 	OR = {
+		area = polotsk_area
+		province_id = 5661 #Velizas
+		province_id = 7880 #Zhizhets
 		AND = {
-			area = bryansk_area
-			NOT = { province_id = 5685 } #Roslavl
+			area = vitebsk_area
+			NOT = { province_id = 4242 } #Barysavas
 		}
 		AND = {
-			area = west_oka_area #Western Upper OKA
-			NOT = { province_id = 5662 } #Mosalk
+			area = smolensk_area
+			NOT = { province_id = 3271 } #Belas
+			NOt = { province_id = 4245 } #Viazma
 		}
-		area = eastern_severia
-		area = oka_area #Eastern Upper Oka
-		area = upper_don_area
-		area = ryazan_area
-		area = murom_area
-		#Rest of the South is being Cossack
+		AND = {
+			area = white_ruthenia_area #Gomel
+			NOT = { province_id = 7234 } #Svietlahorsk
+			NOT = { province_id = 7236 } #Rechytsa
+		}
+		area = bryansk_area
+		area = oka_area #Upper Oka
+		province_id = 5682 #Tarusa
+		area = galich_area #Upper Don
+		province_id = 301 #Ryazan
+		province_id = 5669 #Ryazhsk
+		province_id = 7248 #Sosnytsia
+		area = severia_area
+		area = middle_don_area
+		province_id = 302 #Tambov
+		province_id = 2415 #Etkara
+		area = sloboda_ukraine_area #Slobozhanshchyna
+		area = lower_don_area
+		AND = {
+			area = lower_yik_area
+			NOT = { province_id = 474 } #Yaik
+		}
+		province_id = 7204 #Donetsk
+		province_id = 3302 #Bakhmut
+		province_id = 7204 #Luhansk
+		area = pryazovia_area
+		area = crimea_area
+		area = azov_area
+		area = astrakhan_area
+		province_id = 2195 #Adyghe
+		area = circassia_area
+		area = dagestan_area
 	}
 }
