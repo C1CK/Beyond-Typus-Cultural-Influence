@@ -174,13 +174,29 @@ celtique_culture_region = {
 
 joutais_culture_region = {
 	OR = {
-
+		area = schleswig_area
+		area = jutland_area
+		area = denmark_area
+		area = skaneland_area
 	}
 }
 
 surlamerais_culture_region = {
 	OR = {
-
+		area = holstein_area
+		area = mecklenburg_area
+		area = vorpommern_area
+		area = hinter_pommern_area
+		area = mittelmark_area
+		area = northern_saxony_area
+		area = lower_saxony_area
+		province_id = 54
+		province_id = 50
+		province_id = 2993
+		province_id = 49
+		province_id = 2969
+		province_id = 7821
+		province_id = 7820
 	}
 }
 
@@ -199,31 +215,76 @@ alpin_culture_region = {
 
 franque_culture_region = {
 	OR = {
-
+		area = upper_swabia_area
+		area = lower_swabia_area
+		area = hesse_area
+		area = franconia_area
+		area = thuringia_area
+		area = lower_bavaria_area
+		province_id = 72
+		province_id = 74
+		province_id = 77
+		province_id = 3207
+		province_id = 3208
+		province_id = 65
+		province_id = 2955
 	}
 }
 
 tcheque_culture_region = {
 	OR = {
-
+		area = south_saxony_area
+		area = erzgebirge_area
+		area = bohemia_area
+		area = moravia_area
+		area = lower_silesia_area
+		area = silesia_area
+		province_id = 1763
+		province_id = 60
 	}
 }
 
 illyrien_culture_region = {
 	OR = {
-
+		AND = {
+			region = balkan_region
+			hellenique_culture_region = no
+		}
 	}
 }
 
 varsovien_culture_region = {
 	OR = {
-
+		area = malopolska_area
+		area = central_poland_area
+		area = sandomierz_area
+		area = mazovia_area
+		area = kuyavia_area
+		area = wielkopolska_area
+		area = masuria_area
+		area = east_prussia_area
+		area = west_prussia_area
+		area = nadruvia_area
 	}
 }
 
 danubienne_culture_region = {
 	OR = {
+		AND = {
+			region = carpathia_region
+			NOT = { area = moldavia_area }
+			NOT = { area = western_moldovia }
+			NOT = { area = bukovina_area }
+		}
+	}
+}
 
+hellenique_culture_region = {
+	OR = {
+		AND = {
+			romain_culture_region = yes
+			NOT = { region = anatolia_region }
+		}
 	}
 }
 
@@ -263,7 +324,6 @@ tunisien_culture_region = {
 
 romain_culture_region = {
 	OR = {
-		#Greece
 		area = aegean_archipelago_area
 		area = eastern_mediterrenean_islands_area #Crete
 		area = morea_area #South Peloponnese

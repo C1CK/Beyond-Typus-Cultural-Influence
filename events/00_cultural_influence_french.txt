@@ -1416,7 +1416,117 @@ province_event = { #Joutais settlements and assimilation
 	}
 }
 
-#id15 Pomeranian
+province_event = { #Surlamerais settlements and assimilation
+	id = cultural_influence_french.15
+	title = surlamerais_settlements.title
+	desc = surlamerais_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		surlamerais_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = surlamerais_settlements.a
+
+		change_culture = surlamerais
+	}
+}
 
 province_event = { #Alpin settlements and assimilation
 	id = cultural_influence_french.16
@@ -1530,11 +1640,565 @@ province_event = { #Alpin settlements and assimilation
 	}
 }
 
-#id17 West German
-#id18 Czech
-#id19 Adriatic
-#id20 Poland
-#id21 Pannonian
+province_event = { #Franque settlements and assimilation
+	id = cultural_influence_french.17
+	title = franque_settlements.title
+	desc = franque_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		franque_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = franque_settlements.a
+
+		change_culture = franque
+	}
+}
+
+province_event = { #Tcheque settlements and assimilation
+	id = cultural_influence_french.18
+	title = tcheque_settlements.title
+	desc = tcheque_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		tcheque_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = tcheque_settlements.a
+
+		change_culture = tcheque
+	}
+}
+
+province_event = { #Illyrien settlements and assimilation
+	id = cultural_influence_french.19
+	title = illyrien_settlements.title
+	desc = illyrien_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		illyrien_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = illyrien_settlements.a
+
+		change_culture = illyrien
+	}
+}
+
+province_event = { #Varsovien settlements and assimilation
+	id = cultural_influence_french.20
+	title = varsovien_settlements.title
+	desc = varsovien_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		varsovien_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = varsovien_settlements.a
+
+		change_culture = varsovien
+	}
+}
+
+province_event = { #Danubienne settlements and assimilation
+	id = cultural_influence_french.21
+	title = danubienne_settlements.title
+	desc = danubienne_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				NOT = { has_dlc = "Dharma" }
+				OR = {
+					any_neighbor_province = {
+						culture_group = french
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		danubienne_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = danubienne_settlements.a
+
+		change_culture = danubienne
+	}
+}
 
 province_event = { #Marocain settlements and assimilation
 	id = cultural_influence_french.22
