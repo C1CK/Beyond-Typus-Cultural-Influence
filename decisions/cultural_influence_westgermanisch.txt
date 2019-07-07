@@ -2,9 +2,12 @@ country_decisions = {
 	adopt_policy_of_ostsiedlung = {
 		major = yes
 		potential = { #Expanded to be more difficult with the Dharma update
-			NOT = { has_country_modifier = ostsiedlung}
+			NOT = { has_country_modifier = ostsiedlung }
 			culture_group = germanic
 			government_rank = 2
+		}
+
+		allow = {
 			calc_true_if = { #This check permits both Teutonic order and the Livonian order
 				all_owned_province = {
 					NOT = { culture_group = germanic }

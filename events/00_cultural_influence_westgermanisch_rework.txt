@@ -885,7 +885,7 @@ country_event = { #Dutch Standardization (On formation of NED, then spreads)
 	}
 }
 
-province_event = { #Dutch spreads (Only to low_franconian provinces, or Low Countries region)
+province_event = { #Dutch Integration (Only to low_franconian provinces, or Low Countries region)
 	id = cultural_influence_germanic_rework.10
 	title = dutch_spread.title
 	desc = dutch_spread.desc
@@ -907,6 +907,7 @@ province_event = { #Dutch spreads (Only to low_franconian provinces, or Low Coun
 				culture = dutch
 			}
 		}
+		culture_group = germanic #The rest settles
 		has_global_flag = CI_events_enabled
 	}
 
@@ -947,5 +948,7435 @@ province_event = { #Dutch spreads (Only to low_franconian provinces, or Low Coun
 		name = dutch_spread.a
 
 		change_culture = dutch
+	}
+}
+
+province_event = { #Dutch settlements and assimilation (Works for Low Franconian & Dutch)
+	id = cultural_influence_germanic_rework.11
+	title = low_franconian_settlements.title
+	desc = {
+		desc = low_franconian_settlements.desc
+		trigger = { NOT = { owner = { primary_culture = dutch } } }
+	}
+	desc = {
+		desc = dutch_settlements.desc
+		trigger = { owner = { primary_culture = dutch } }
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		dutch_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = low_franconian_settlements.a
+
+		if = {
+			limit = {
+				primary_culture = dutch
+			}
+			change_culture = dutch
+		}
+		if = {
+			limit = {
+				NOT = { primary_culture = dutch }
+				NOT = { any_neighbor_province = { culture = plattduutsch } }
+			}
+			change_culture = low_franconian
+		}
+		if = {
+			limit = {
+				NOT = { primary_culture = dutch }
+				any_neighbor_province = { culture = plattduutsch }
+			}
+			change_culture = plattduutsch
+		}
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Northern Low Saxon settlements and assimilation
+	id = cultural_influence_germanic_rework.12
+	title = northern_low_saxon_settlements.title
+	desc = northern_low_saxon_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		northern_low_saxon_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = northern_low_saxon_settlements.a
+
+		change_culture = northern_low_saxon
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Pommeranian settlements and assimilation
+	id = cultural_influence_germanic_rework.13
+	title = pommeranian_settlements.title
+	desc = pommeranian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		pommeranian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = pommeranian_settlements.a
+
+		change_culture = pommeranian
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Prussian settlements and assimilation
+	id = cultural_influence_germanic_rework.14
+	title = prussian_settlements.title
+	desc = prussian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		preussisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = prussian_settlements.a
+
+		change_culture = prussian
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Westphalian settlements and assimilation
+	id = cultural_influence_germanic_rework.15
+	title = westphalian_settlements.title
+	desc = westphalian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		westphalian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = westphalian_settlements.a
+
+		change_culture = westphalian
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Eastphalian settlements and assimilation
+	id = cultural_influence_germanic_rework.16
+	title = eastphalian_settlements.title
+	desc = eastphalian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		eastphalian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = eastphalian_settlements.a
+
+		change_culture = eastphalian
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Markish settlements and assimilation
+	id = cultural_influence_germanic_rework.17
+	title = markish_settlements.title
+	desc = markish_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		markish_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = markish_settlements.a
+
+		change_culture = markish
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Saxon settlements and assimilation
+	id = cultural_influence_germanic_rework.18
+	title = saxon_settlements.title
+	desc = saxon_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		saxon_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = saxon_settlements.a
+
+		change_culture = saxon
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Central Franconian settlements and assimilation
+	id = cultural_influence_germanic_rework.19
+	title = central_franconian_settlements.title
+	desc = central_franconian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		central_franconian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = central_franconian_settlements.a
+
+		change_culture = central_franconian
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Rhine Franconian settlements and assimilation
+	id = cultural_influence_germanic_rework.20
+	title = rhine_franconian_settlements.title
+	desc = rhine_franconian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		rhine_franconian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = rhine_franconian_settlements.a
+
+		change_culture = rhine_franconian
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #East Franconian settlements and assimilation
+	id = cultural_influence_germanic_rework.21
+	title = east_franconian_settlements.title
+	desc = east_franconian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		east_franconian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = east_franconian_settlements.a
+
+		change_culture = east_franconian
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Alemannish settlements and assimilation
+	id = cultural_influence_germanic_rework.22
+	title = alemannish_settlements.title
+	desc = alemannish_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		alemannisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = alemannish_settlements.a
+
+		change_culture = alemannish
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Bavarian settlements and assimilation
+	id = cultural_influence_germanic_rework.23
+	title = bavarian_settlements.title
+	desc = bavarian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		bavarian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = bavarian_settlements.a
+
+		change_culture = bavarian
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Schlesisch settlements and assimilation
+	id = cultural_influence_germanic_rework.24
+	title = schlesisch_settlements.title
+	desc = schlesisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		schlesisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = schlesisch_settlements.a
+
+		change_culture = schlesisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Sudeten settlements and assimilation
+	id = cultural_influence_germanic_rework.25
+	title = sudeten_settlements.title
+	desc = sudeten_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		sudeten_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = sudeten_settlements.a
+
+		change_culture = sudeten
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Posisch settlements and assimilation
+	id = cultural_influence_germanic_rework.26
+	title = posisch_settlements.title
+	desc = posisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		posisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = posisch_settlements.a
+
+		change_culture = posisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Baltendeutsch settlements and assimilation
+	id = cultural_influence_germanic_rework.27
+	title = baltendeutsch_settlements.title
+	desc = baltendeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		baltendeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = baltendeutsch_settlements.a
+
+		change_culture = baltendeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Pannoniendeutsch settlements and assimilation
+	id = cultural_influence_germanic_rework.28
+	title = pannoniendeutsch_settlements.title
+	desc = pannoniendeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		pannoniendeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = pannoniendeutsch_settlements.a
+
+		change_culture = pannoniendeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Dinaridendeutsch settlements and assimilation
+	id = cultural_influence_germanic_rework.29
+	title = dinaridendeutsch_settlements.title
+	desc = dinaridendeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		dinaridendeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = dinaridendeutsch_settlements.a
+
+		change_culture = dinaridendeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Epiroten settlements and assimilation
+	id = cultural_influence_germanic_rework.30
+	title = epiroten_settlements.title
+	desc = epiroten_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		epiroten_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = epiroten_settlements.a
+
+		change_culture = epiroten
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Nowgoroder settlements and assimilation
+	id = cultural_influence_germanic_rework.31
+	title = nowgoroder_settlements.title
+	desc = nowgoroder_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		nowgoroder_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = nowgoroder_settlements.a
+
+		change_culture = nowgoroder
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Weissdeutsch settlements and assimilation
+	id = cultural_influence_germanic_rework.32
+	title = weissdeutsch_settlements.title
+	desc = weissdeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		weissdeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = weissdeutsch_settlements.a
+
+		change_culture = weissdeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Ruthenisch settlements and assimilation
+	id = cultural_influence_germanic_rework.33
+	title = ruthenisch_settlements.title
+	desc = ruthenisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		weissdeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = ruthenisch_settlements.a
+
+		change_culture = ruthenisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Siebenbürger settlements and assimilation
+	id = cultural_influence_germanic_rework.34
+	title = siebenburger_settlements.title
+	desc = siebenburger_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		siebenburger_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = siebenburger_settlements.a
+
+		change_culture = siebenburger
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Deutschthracian settlements and assimilation
+	id = cultural_influence_germanic_rework.35
+	title = deutschthracian_settlements.title
+	desc = deutschthracian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		deutschthracian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = deutschthracian_settlements.a
+
+		change_culture = deutschthracian
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Schwarzmeererdeutsch settlements and assimilation
+	id = cultural_influence_germanic_rework.36
+	title = schwarzmeererdeutsch_settlements.title
+	desc = schwarzmeererdeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		schwarzmeererdeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = schwarzmeererdeutsch_settlements.a
+
+		change_culture = schwarzmeererdeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Krimdeutsch settlements and assimilation
+	id = cultural_influence_germanic_rework.37
+	title = krimdeutsch_settlements.title
+	desc = krimdeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		krimdeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = krimdeutsch_settlements.a
+
+		change_culture = krimdeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Bosporusdeutsch settlements and assimilation
+	id = cultural_influence_germanic_rework.38
+	title = bosporusdeutsch_settlements.title
+	desc = bosporusdeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		bosporusdeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = bosporusdeutsch_settlements.a
+
+		change_culture = bosporusdeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Moskauer-Rjasaner settlements and assimilation
+	id = cultural_influence_germanic_rework.39
+	title = moskauer_rjasaner_settlements.title
+	desc = moskauer_rjasaner_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		moskauer_rjasaner_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = moskauer_rjasaner_settlements.a
+
+		change_culture = moskauer_rjasaner
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Wolgadeutsch settlements and assimilation
+	id = cultural_influence_germanic_rework.40
+	title = wolgadeutsch_settlements.title
+	desc = wolgadeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		wolgadeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = wolgadeutsch_settlements.a
+
+		change_culture = wolgadeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Kubandeutsch settlements and assimilation
+	id = cultural_influence_germanic_rework.41
+	title = kubandeutsch_settlements.title
+	desc = kubandeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		kubandeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = kubandeutsch_settlements.a
+
+		change_culture = kubandeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Kaukasusdeutsch settlements and assimilation
+	id = cultural_influence_germanic_rework.42
+	title = kaukasusdeutsch_settlements.title
+	desc = kaukasusdeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		kaukasusdeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = kaukasusdeutsch_settlements.a
+
+		change_culture = kaukasusdeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Weissmeererdeutsch settlements and assimilation
+	id = cultural_influence_germanic_rework.43
+	title = weissmeererdeutsch_settlements.title
+	desc = weissmeererdeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		weissmeererdeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = weissmeererdeutsch_settlements.a
+
+		change_culture = weissmeererdeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Perm-Kasaner settlements and assimilation
+	id = cultural_influence_germanic_rework.44
+	title = perm_kasaner_settlements.title
+	desc = perm_kasaner_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		perm_kasaner_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = perm_kasaner_settlements.a
+
+		change_culture = perm_kasaner
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Juten settlements and assimilation
+	id = cultural_influence_germanic_rework.45
+	title = juten_settlements.title
+	desc = juten_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		juten_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = juten_settlements.a
+
+		change_culture = juten
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Schwedisch settlements and assimilation
+	id = cultural_influence_germanic_rework.46
+	title = schwedisch_settlements.title
+	desc = schwedisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		schwedisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = schwedisch_settlements.a
+
+		change_culture = schwedisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Norwegisch settlements and assimilation
+	id = cultural_influence_germanic_rework.47
+	title = norwegisch_settlements.title
+	desc = norwegisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		norwegisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = norwegisch_settlements.a
+
+		change_culture = norwegisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Norwegisch settlements and assimilation
+	id = cultural_influence_germanic_rework.48
+	title = anglisch_norwegisch_conflict_region_settlements.title
+	desc = {
+		desc = norwegisch_settlements.desc
+		trigger = {
+			NOT = { culture_group = british }
+		}
+	}
+	desc = {
+		desc = anglisch_settlements.desc
+		trigger = {
+			culture_group = british
+		}
+	}
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		anglisch_norwegisch_conflict_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = norwegisch_settlements.a
+
+		if = {
+			limit = {
+				NOT = { culture_group = british }
+			}
+			change_culture = norwegisch
+		}
+		if = {
+			limit = {
+				culture_group = british
+			}
+			change_culture = anglisch
+		}
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Finnisch settlements and assimilation
+	id = cultural_influence_germanic_rework.49
+	title = finnisch_settlements.title
+	desc = finnisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		finnisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = finnisch_settlements.a
+
+		change_culture = finnisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Ænglisch settlements and assimilation
+	id = cultural_influence_germanic_rework.50
+	title = anglisch_settlements.title
+	desc = anglisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		anglisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = anglisch_settlements.a
+
+		change_culture = anglisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Lottrínger settlements and assimilation
+	id = cultural_influence_germanic_rework.51
+	title = lottringer_settlements.title
+	desc = lottringer_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		lottringer_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = lottringer_settlements.a
+
+		change_culture = lottringer
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Old Frankisch settlements and assimilation
+	id = cultural_influence_germanic_rework.52
+	title = frankisch_settlements.title
+	desc = frankisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		frankisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = frankisch_settlements.a
+
+		change_culture = frankisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Langobardisch settlements and assimilation
+	id = cultural_influence_germanic_rework.53
+	title = langobardisch_settlements.title
+	desc = langobardisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		langobardisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = langobardisch_settlements.a
+
+		change_culture = langobardisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Riviera-Savoyerdeutsch settlements and assimilation
+	id = cultural_influence_germanic_rework.54
+	title = rivieradeutsch_settlements.title
+	desc = rivieradeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		rivieradeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = rivieradeutsch_settlements.a
+
+		change_culture = rivieradeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Suebisch settlements and assimilation
+	id = cultural_influence_germanic_rework.55
+	title = suebisch_settlements.title
+	desc = suebisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		suebisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = suebisch_settlements.a
+
+		change_culture = suebisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Westgotisch settlements and assimilation
+	id = cultural_influence_germanic_rework.56
+	title = westgotisch_settlements.title
+	desc = westgotisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		westgotisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = westgotisch_settlements.a
+
+		change_culture = westgotisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Italienisch settlements and assimilation
+	id = cultural_influence_germanic_rework.57
+	title = italienisch_settlements.title
+	desc = italienisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		italienisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = italienisch_settlements.a
+
+		change_culture = italienisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Vandalisch settlements and assimilation
+	id = cultural_influence_germanic_rework.58
+	title = vandalisch_settlements.title
+	desc = vandalisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		vandalisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = vandalisch_settlements.a
+
+		change_culture = vandalisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Morokkanisch settlements and assimilation -Uncolonized land
+	id = cultural_influence_germanic_rework.59
+	title = morokkanisch_settlements.title
+	desc = morokkanisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		#NOT = { culture_group = germanic } #Uncolonized land
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		morokkanisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = germanic
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = morokkanisch_settlements.a
+
+		change_culture = morokkanisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Syrisch settlements and assimilation
+	id = cultural_influence_germanic_rework.60
+	title = syrisch_settlements.title
+	desc = syrisch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		syrisch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = syrisch_settlements.a
+
+		change_culture = syrisch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Niler settlements and assimilation
+	id = cultural_influence_germanic_rework.61
+	title = niler_settlements.title
+	desc = niler_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture_group = germanic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		niler_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = niler_settlements.a
+
+		change_culture = niler
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Saharadeutsch settlements and assimilation -Uncolonized land
+	id = cultural_influence_germanic_rework.62
+	title = saharadeutsch_settlements.title
+	desc = saharadeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		#NOT = { culture_group = germanic } #Uncolonized land
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		saharadeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = germanic
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = saharadeutsch_settlements.a
+
+		change_culture = saharadeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
+	}
+}
+
+province_event = { #Rotesmeerdeutsch settlements and assimilation -Uncolonized land
+	id = cultural_influence_germanic_rework.63
+	title = rotesmeerdeutsch_settlements.title
+	desc = rotesmeerdeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		#NOT = { culture_group = germanic } #Uncolonized land
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = germanic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
+		rotesmeerdeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = germanic
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = rotesmeerdeutsch_settlements.a
+
+		change_culture = rotesmeerdeutsch
+
+		if = {
+			limit = {
+				NOT = { owner = { num_of_colonists = 2 } }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 3650 #10 years
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { num_of_colonists = 2 }
+			}
+			owner = {
+				add_country_modifier = {
+					name = german_settlement_cooldown
+					duration = 1825 #5 years
+				}
+			}
+		}
 	}
 }
