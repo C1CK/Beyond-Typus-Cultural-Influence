@@ -1,22 +1,10 @@
-#French
+##########################################French##########################################
 
-#Standardised French Cultures
-
-standard_french_culture_region = {
-	OR = {
-		AND = {
-			region = france_region
-			NOT = { province_id = 188 } #Metz
-		}
-		province_id = 3056 #Ginevra (Geneva)
-		province_id = 1867 #Losanna
-	}
-}
+#####################Metropolitan French#####################
 
 french_homeland = {
 	OR = {
 		region = france_region
-		province_id = 96 #Zeeland
 		area = brabant_area
 		area = luxemburg_liege_area
 		area = lorraine_area
@@ -25,6 +13,20 @@ french_homeland = {
 		area = wallonia_area
 		area = romandie_area
 		area = flanders_area
+		area = south_piedmont_area
+		AND = {
+			area = north_piedmont_area
+			NOT = { province_id = 2979 } #Novara
+		}
+		AND = {
+			area = piedmont_area
+			NOT = { province_id = 7048 } #Tortona
+		}
+		AND = {
+			area = liguria_area
+			NOT = { province_id = 7055 } #A Speza
+		}
+		province_id = 96 #Zeeland
 		province_id = 3060 #Betuwe
 		province_id = 3063 #Overmaas
 		province_id = 2975 #Cleves
@@ -34,267 +36,60 @@ french_homeland = {
 		province_id = 1761 #Pfalz
 		province_id = 75 #Alsace
 		province_id = 1880 #Sundgau
-		province_id = 3045 #Aosta
 		province_id = 197 #Rousillon
 	}
 }
 
-standard_occitan_initial_culture_region = {
+#####################Latin (Assimilated) Cultures#####################
+
+castillane_culture_region = {
 	OR = {
-		AND = {
-			area = pyrenees_area #Gascony
-			NOT = { province_id = 173 } #Labourd
-		}
-		AND = {
-			area = guyenne_area
-			NOT = { province_id = 4387 } #Angoumois
-		}
-		AND = {
-			area = massif_central_area
-			NOT = { province_id = 190 } #Bourbonnais
-		}
-		province_id = 3089 #Valence
-		area = languedoc_area
-		area = provence_area	
-	}
-}
-
-#Re-educated French Cultures
-
-franglais_culture_region = {
-	OR = {	
-		region = british_isles_region
-		province_id = 1978 #Orkney
-		province_id = 369 #Shetlands
-	}
-}
-
-franglais_initial_culture_region = {
-	OR = {
-		area = cornwall_area
-		area = wessex_area
-		area = home_counties_area #Essex
-	}
-}
-
-gaelique_culture_region = {
-	region = ireland_area
-}
-
-gaelique_initial_culture_region = {
-	OR = {
-		area = leinster_area
-		area = munster_area
-	}
-}
-
-bas_francais_culture_region = {
-	region = low_countries_region
-	NOT = { province_id = 94 } #Luxemburg
-	NOT = { province_id = 1742 } #Limburg
-	NOT = { province_id = 4382 } #Ommelannen
-	NOT = { province_id = 1931 } #Eastfryslan
-}
-
-bas_francais_initial_culture_region = {
-	area = brabant_area
-}
-
-iberique_central_culture_region = {
-	region = iberia_region
-	NOT = { area = aragon_area }
-	NOT = { area = catalonia_area }
-	NOT = { area = valencia_area }
-	NOT = { area = alentejo_area }
-	NOT = { area = beieras_area }
-	NOT = { area = spanish_galicia_area }
-	NOT = { area = macaronesia_area }
-	NOT = { area = balearic_islands_area }
-}
-
-iberique_central_initial_culture_region = {
-	OR = {
-		area = lower_andalucia_area
+		area = asturias_area
 		area = toledo_area
-	}
-}
-
-catalonien_culture_region = {
-	OR = {
-		area = catalonia_area
-		area = balearic_islands_area
-		area = valencia_area
-		area = aragon_area
-	}
-}
-
-catalonien_initial_culture_region = {
-	OR = {
-		area = catalonia_area
-		area = valencia_area
+		area = castille_area
+		area = basque_area
+		area = leon_area
+		area = extremadura_area
 	}
 }
 
 galicien_culture_region = {
 	OR = {
-		area = spanish_galicia_area
 		area = alentejo_area
 		area = beieras_area
+		area = galicia_area
 	}
 }
 
-galicien_initial_culture_region = {
-	area = alentejo_area
-}
-
-rhin_culture_region = {
+valencien_culture_region = {
 	OR = {
-		area = upper_rhineland_area
-		area = lower_rhineland_area
-		area = north_rhine_area
-		province_id = 188 #Metz
-		province_id = 94 #Luxemburg
-		province_id = 1742 #Limburg
-		province_id = 1761 #Pfalz
-		province_id = 78 #Mainz
-	}
-}
-
-rhin_initial_culture_region = {
-	province_id = 188 #Metz
-}
-
-sud_allemand_culture_region = {
-	region = south_german_region
-	NOT = { area = romandie_area }
-	NOT = { area = tirol_area }
-	NOT = { area = inner_austria_area }
-	NOT = { area = switzerland_area }
-	NOT = { area = bohemia_area }
-	NOT = { area = moravia_area }
-	NOT = { area = erzgebirge_area }
-	NOT = { area = carinthia_area } #I'm guessing this is Carniola?
-	NOT = { area = upper_rhineland_area }
-	NOT = { province_id = 1761 } #Pfalz
-	NOT = { province_id = 78 } #Mainz
-	NOT = { province_id = 76 } #Salzburg
-}
-
-sud_allemand_initial_culture_region = {
-	OR = {
-		area = upper_swabia_area
-		area = austria_proper_area
-	}
-}
-
-nord_allemand_culture_region = {
-	OR = {
-		area = hinter_pommern_area
-		area = vorpommern_area
-		area = mecklenburg_area
-		area = mittelmark_area
-		area = neumark_area
-		area = south_saxony_area
-		area = northern_saxony_area
-		province_id = 3213 #Weimar
-		province_id = 3214 #Saale
-	}
-}
-
-nord_allemand_initial_culture_region = {
-    OR = {
-        area = hinter_pommern_area
-        area = neumark_area
-    }
-}
-
-ouest_allemand_culture_region = {
-	OR = {
-		area = weser_area
-		area = muenster_area
-		area = hesse_area
-		area = westphalia_area
-		area = lower_saxony_area
-		area = holstein_area
-		area = schleswig_area
-		province_id = 4382 #Ommelannen
-		province_id = 1931 #Eastfryslan
-		province_id = 63 #Thüringen
-		province_id = 3211 #Coburg
-	}
-}
-
-ouest_allemand_initial_culture_region = {
-    OR = {
-        area = weser_area
-        area = muenster_area
-    }
-}
-
-alpin_culture_region = {
-	OR = { 
-		area = inner_austria_area
-		area = tirol_area
-		area = switzerland_area
-		province_id = 76 #Salzburg
-		province_id = 3191 #Pflaum
-		province_id = 129 #Krain
-		province_id = 3045 #Aoste
-		province_id = 1871 #Wallis
-		province_id = 165 #Bern
-		province_id = 3055 #Basel
-	}
-}
-
-alpin_initial_culture_region = {
-    OR =  {
-        area = romandie_area
-        area = inner_austria_area
-    }
-}
-
-nouveau_provencal_culture_region = {
-	OR = {
-		area = venetia_area
-		area = emilia_area
-		area = liguria_area
-		area = lombardy_area
+		area = aragon_area
+		area = valencia_area
+		area = murcia_area
+		area = upper_andalucia_area
+		area = lower_andalucia_area
+		area = baleares_area
 		AND = {
-			area = piedmont_area 
-			NOT = { province_id = 3045 } #Aoste
-		}
-		AND = {
-			area = carinthia_area
-			NOT = { province_id = 3191 } #Pflaum
-			NOT = { province_id = 129 } #Krain
+			area = catalonia_area
+			NOT = { province_id = 197 } #Rousillon
 		}
 	}
-}
-
-nouveau_provencal_initial_culture_region = {
-    OR = {
-        area = liguria_area
-        area = venetia_area
-    }
 }
 
 apennine_central_culture_region = {
 	OR = {
 		area = tuscany_area
 		area = emilia_romagna_area
+		area = north_marche_area
+		area = umbria_area
 		area = central_italy_area
+		area = south_tuscany_area
 	}
-}
-
-apennine_central_initial_culture_region = {
-    OR = {
-        area = central_italy_area
-        area = tuscany_area
-    }
 }
 
 sud_apennine_culture_region = {
 	OR = {
+		area = abruzzo_area
 		area = naples_area
 		area = calabria_area
 		area = apulia_area
@@ -302,80 +97,237 @@ sud_apennine_culture_region = {
 	}
 }
 
-sud_apennine_initial_culture_region = {
-    OR = {
-        area = naples_area
-        area = sicily_area
-    }
+nouveau_provencal_culture_region = {
+	OR = {
+		area = lombardy_area
+		area = north_piedmont_area
+		area = emilia_area
+		province_id = 7048
+		province_id = 7055
+	}
 }
 
-#Settled French Cultures
+corse_culture_region = {
+	OR = {
+		area = corsica_sardinia_area
+	}
+}
 
 sarde_culture_region = {
 	OR = {
-		area = corsica_sardinia_area
 		area = sardinia_area
+	}
+}
+
+#####################Re-educated (Settled) Cultures#####################
+
+bas_francais_culture_region = {
+	OR = {
+		area = frisia_area
+		area = muenster_area
+		area = westphalia_area
+		province_id = 1874 
+		province_id = 55
+		province_id = 2971
+		province_id = 99
+		province_id = 4381
+		province_id = 3058
+		province_id = 4383
+		province_id = 97
+		province_id = 98
+		province_id = 3199
+		province_id = 84
+		province_id = 3200
+		province_id = 3201
+	}
+}
+
+franglais_culture_region = {
+	OR = {
+		AND = {
+			region = british_isles_region
+			NOT = { area = kingdom_of_the_isles_area }
+			NOT = { area = lowlands_area }
+			NOT = { area = highlands_area }
+			NOT = { area = scottish_marches_area }
+		}
+	}
+}
+
+gaelique_culture_region = {
+	OR = {
+		region = ireland_area
+	}
+}
+
+celtique_culture_region = {
+	OR = {
+		area = kingdom_of_the_isles_area 
+		area = lowlands_area
+		area = highlands_area
+		area = scottish_marches_area
+		province_id = 1979
+		province_id = 1978
+		province_id = 369
+	}
+}
+
+joutais_culture_region = {
+	OR = {
+		area = schleswig_area
+		area = jutland_area
+		area = denmark_area
+		area = skaneland_area
+	}
+}
+
+surlamerais_culture_region = {
+	OR = {
+		area = holstein_area
+		area = mecklenburg_area
+		area = vorpommern_area
+		area = hinter_pommern_area
+		area = mittelmark_area
+		area = northern_saxony_area
+		area = lower_saxony_area
+		province_id = 54
+		province_id = 50
+		province_id = 2993
+		province_id = 49
+		province_id = 2969
+		province_id = 7821
+		province_id = 7820
+	}
+}
+
+alpin_culture_region = {
+	OR = {
+		area = austria_proper_area
+		area = inner_austria_area
+		area = tirol_area
+		area = trentino_area
+		area = carnia_area
+		area = switzerland_area
+		area = east_lombardy_area
+		province_id = 76 #Salzburg
+	}
+}
+
+franque_culture_region = {
+	OR = {
+		area = upper_swabia_area
+		area = lower_swabia_area
+		area = hesse_area
+		area = franconia_area
+		area = thuringia_area
+		area = lower_bavaria_area
+		province_id = 72
+		province_id = 74
+		province_id = 77
+		province_id = 3207
+		province_id = 3208
+		province_id = 65
+		province_id = 2955
+	}
+}
+
+tcheque_culture_region = {
+	OR = {
+		area = south_saxony_area
+		area = erzgebirge_area
+		area = bohemia_area
+		area = moravia_area
+		area = lower_silesia_area
+		area = silesia_area
+		province_id = 1763
+		province_id = 60
+	}
+}
+
+illyrien_culture_region = {
+	OR = {
+		AND = {
+			region = balkan_region
+			hellenique_culture_region = no
+		}
+	}
+}
+
+varsovien_culture_region = {
+	OR = {
+		area = malopolska_area
+		area = central_poland_area
+		area = sandomierz_area
+		area = mazovia_area
+		area = kuyavia_area
+		area = wielkopolska_area
+		area = masuria_area
+		area = east_prussia_area
+		area = west_prussia_area
+		area = nadruvia_area
+	}
+}
+
+danubienne_culture_region = {
+	OR = {
+		AND = {
+			region = carpathia_region
+			NOT = { area = moldavia_area }
+			NOT = { area = western_moldovia }
+			NOT = { area = bukovina_area }
+		}
+	}
+}
+
+hellenique_culture_region = {
+	OR = {
+		AND = {
+			romain_culture_region = yes
+			NOT = { region = anatolia_region }
+		}
+	}
+}
+
+marocain_culture_region = {
+	OR = {
+		area = sus_area
+		area = macaronesia_area
+		area = marrekesh_area
+		area = western_morocco_area
+		area = tafilalt_area
+		area = southern_morocco_area
+		area = northern_morocco_area
+	}
+}
+
+algerien_culture_region = {
+	OR = {
+		area = hautes_plaines_area
+		area = barbary_coast_area
+		area = kabylia_area
+		area = north_saharan_area
+		area = ouled_nail_area
 	}
 }
 
 tunisien_culture_region = {
 	OR = {
 		area = tunisia_area
-		area = constantine_area
 		area = djerba_area
-		area = east_aures_area
-	}
-}
-
-algerien_culture_region = {
-	OR = {
-		area = kabylia_area
-		area = algiers_area
-		area = oran_area
-		province_id = 2465 #Oudja
-	}
-}
-
-marocain_culture_region = {
-	OR = {
-		area = marrekesh_area
-		area = sus_area
-		area = northern_morocco_area
-		area = western_morocco_area
-	}
-}
-
-alexandre_culture_region = {
-	OR = {
-		area = delta_area
-		area = bahari_area
-		area = gulf_of_arabia_area
-		province_id = 5272 #Matruh
-		province_id = 2325 #El-Alamein
-	}
-}
-
-tripolitaine_culture_region = {
-	OR = {
+		area = nafusa_mountains_area
 		area = tripolitania_area
-		province_id = 5274 #Agdabiya
-		province_id = 356 #Banghazi
-		province_id = 357 #Darnah
-		province_id = 2326 #Tubruq
+		area = cyrenaica_area
 	}
 }
 
-#Crusader French Cultures
+#####################Crusader Cultures#####################
 
 romain_culture_region = {
 	OR = {
-		#Greece
 		area = aegean_archipelago_area
-		eastern_mediterrenean_islands_area #Crete
+		area = eastern_mediterrenean_islands_area #Crete
 		area = morea_area #South Peloponnese
-		area = northern_peloponnesus_area
 		area = western_aegean_area #Hellas
-		area = euboea_area
 		area = thessaly_area
 		area = aetolia_area
 		area = northern_epirus_area #Ioanian Islands
@@ -383,16 +335,21 @@ romain_culture_region = {
 		area = western_macedonia_area
 		area = macedonia_area #South Macedonia
 		area = eastern_macedonia_area
-		province_id = 7151 #Stenimachos
-		province_id = 3168 #Hasköy
-		area = western_thrace_area
-		area = eastern_thrace_area
-		#Western Anatolia
+		area = thrace_area
+		area = upper_thrace_area
+		area = northern_thrace_area
 		area = hudavendigar_area #Bithynia
 		area = karasi_area #Mysia
 		area = aydin_area #Asia
-		area = lydia_area #???
+		area = lydia_area #Lydia
 		area = germiyan_area #Phrygia
+		area = lower_danube_area #Dobruja
+		area = northern_macedonia_are
+		area = danubian_plain_area
+		area = albania_area
+		province_id = 7703 #Samokov
+		province_id = 1765 #Sofya
+		province_id = 7704 #Velbazhd
 		province_id = 5162 #Likya
 		province_id = 2298 #Antalya
 	}
@@ -400,24 +357,226 @@ romain_culture_region = {
 
 outre_mer_culture_region = {
 	OR = {
-		area = ankara_area
-		area = cukurova_area
-		area = dulkadir_area
-		area = rum_area
-		area = kastamonu_area
-		area = karaman_area
-		area = palestine_area
-		area = cyprus_area
-		area = aleppo_area
-		area = trans_jordan_area
-		area = syrian_desert_area
-		area = tripoli_area
+		region = mesopotamia_region
+		region = arabia_region
 		AND = {
-			area = syria_area
+			region = mashriq_region
 			NOT = { province_id = 405 } #Tadmor
 		}
-		province_id = 2303 #Malatya
+		area = cukurova_area
+		area = dulkadir_area
+		area = karaman_area
 		province_id = 5147 #Alaiye
 		province_id = 2302 #Gazipasa
+	}
+}
+
+galate_culture_region = {
+	OR = {
+		area = ankara_area
+		area = kastamonu_area
+		area = rum_area
+		area = pontus_area
+	}
+}
+
+nil_francais_culture_region = {
+	OR = {
+		region = egypt_region
+	}
+}
+
+#####################Colonial Cultures#####################
+
+metropolitaine_colonial_culture_region = {
+	OR = {
+		area = melanesia_area
+		area = micronesia_area
+		area = polynesia_area
+		area = northern_polynesia_area
+		area = mascarenes_area
+	}
+}
+
+indochinois_culture_region = {
+	OR = {
+		region = indo_china_region
+	}
+}
+
+quebecois_culture_region = {
+	OR = {
+		region = canada_region
+		region = northeast_america_region
+		region = hudson_bay_region
+		region = great_lakes_region
+		region = northwest_territories_region
+		region = alaska_region
+	}
+}
+
+louisianais_culture_region = {
+	OR = {
+		region = mississippi_region
+		region = southeast_america_region
+	}
+}
+
+karipounais_culture_region = {
+	OR = {
+		region = brazil_region
+		AND = {
+			region = colombia_region
+			NOT = { area = panama_area }
+			NOT = { area = popayan_area }
+		}
+		AND = {
+			region = la_plata_region
+			NOT = { area = southern_chile_area }
+			NOT = { area = central_chile_area }
+			NOT = { area = cuyo_area }
+			NOT = { area = nehuenken_area }
+		}
+		area = beni_area
+		area = paraguay_area
+		area = chaco_area
+		area = moxos_area
+	}
+}
+
+quechois_culture_region = {
+	OR = {
+		region = peru_region
+		region = central_america_region
+		AND = {
+			region = upper_peru_region
+			NOT = { area = beni_area }
+			NOT = { area = paraguay_area }
+			NOT = { area = chaco_area }
+			NOT = { area = moxos_area }
+		}
+		area = panama_area
+		area = popayan_area
+		area = southern_chile_area
+		area = central_chile_area
+		area = cuyo_area
+		area = nehuenken_area
+	}
+}
+
+mozambicaine_culture_region = {
+	OR = {
+		region = horn_of_africa_region
+		region = central_africa_region
+		AND = {
+			region = east_africa_region
+			NOT = { area = mascarenes_area }
+		} 
+	}
+}
+
+subsaharienne_culture_region = {
+	OR = {
+		region = guinea_region
+		region = niger_region
+		region = sahel_region
+		region = kongo_region
+	}
+}
+
+sud_africain_culture_region = {
+	OR = {
+		region = south_africa_region
+	}
+}
+
+circumcaraibes_culture_region = {
+	OR = {
+		region = carribeans_region
+	}
+}
+
+californienne_culture_region = {
+	OR = {
+		region = california_region
+		region = great_plains_region
+		region = cascadia_region
+		region = mexico_region
+		region = rio_grande_region
+	}
+}
+
+######################Creole Cultures#####################
+
+kreyol_la_lwizyan_culture_region = {
+	OR = {
+		region = mississippi_region
+		region = southeast_america_region
+	}
+}
+
+kreyol_ayisyen_culture_region = {
+	OR = {
+		region = carribeans_region
+	}
+}
+
+kreol_morisien_culture_region = {
+	OR = {
+		province_id = 1102 #Mauritius
+	}
+}
+
+kreol_renieone_culture_region = {
+	OR = {
+		province_id = 1103 #Ile Bourbon
+	}
+}
+
+kreol_seselwa_culture_region = {
+	OR = {
+		province_id = 1100 #Mahe
+	}
+}
+
+kweyol_kawipouna_culture_region = {
+	OR = {
+		region = brazil_region
+		AND = {
+			region = colombia_region
+			NOT = { area = panama_area }
+			NOT = { area = popayan_area }
+		}
+		AND = {
+			region = la_plata_region
+			NOT = { area = southern_chile_area }
+			NOT = { area = central_chile_area }
+			NOT = { area = cuyo_area }
+			NOT = { area = nehuenken_area }
+		}
+		area = beni_area
+		area = paraguay_area
+		area = chaco_area
+		area = moxos_area
+	}
+}
+
+kweyol_kechwa_culture_region = {
+	OR = {
+		region = peru_region
+		region = central_america_region
+		AND = {
+			region = upper_peru_region
+			NOT = { area = beni_area }
+			NOT = { area = paraguay_area }
+			NOT = { area = chaco_area }
+			NOT = { area = moxos_area }
+		}
+		area = panama_area
+		area = popayan_area
+		area = southern_chile_area
+		area = central_chile_area
+		area = cuyo_area
+		area = nehuenken_area
 	}
 }
