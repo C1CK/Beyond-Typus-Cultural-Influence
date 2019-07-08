@@ -1,0 +1,280 @@
+leebi_culture_region = {
+	OR = {
+		area = fezzan_area
+		area = nafusa_mountains_area
+		area = cyrenaica_area
+		area = tripolitania_area
+	}
+}
+
+maghribiin_culture_region = {
+	OR = {
+		area = northern_morocco_area
+		area = southern_morocco_area
+		area = western_morocco_area
+		area = northwest_sahara_area
+		area = marrakesh_area
+		area = sus_area
+		area = tafilalt_area
+	}
+}
+
+altuwnisia_culture_region = {
+	OR = {
+		area = tunisia_area
+		area = djerba_area
+		province_id = 5313
+		province_id = 5315
+	}
+}
+
+jzayry_culture_region = {
+	OR = {
+		area = hautes_plaines_area
+		area = barbary_coast_area
+		area = north_saharan_area
+		area = kabylia_area
+		province_id = 5326
+		province_id = 5320
+		province_id = 5325
+	}
+}
+
+masri_culture_region = {
+	OR = {
+		region = egypt_region
+		area = butana_area
+		area = sennar_area
+		area = white_nile_area
+		area = southeast_sahara_area
+		area = kurdufan_area
+		area = syrian_desert_area
+		AND = {
+			area = darfur_central_sahara_area
+            NOT = {province_id = 2932 }
+        }
+	}
+}
+
+ifriqiya_cultures = {
+	OR = {
+		culture = libyan_arabic
+		primary_culture = libyan_arabic
+		culture = moroccan
+		primary_culture = moroccan
+		culture = algerian
+		primary_culture = algerian
+		culture = tunisian
+		primary_culture = tunisian
+		culture = chadic_arabic
+		primary_culture = chadic_arabic
+	}
+}
+
+ifriqiya_region = {
+	OR = {
+		leebi_culture_region = yes
+		altuwnisia_culture_region = yes
+		maghribiin_culture_region = yes
+		jzayry_culture_region = yes
+		taht_al_sahara_culture_region = yes
+	}
+}
+
+taht_al_sahara_culture_region = {
+	OR = {
+		AND = {
+			region = sahel_region
+			NOT = {area = southeast_sahara_area}
+			NOT = {area = kurdufan_area}
+			NOT = {area = northwest_sahara_area}
+			NOT = {area = fezzan_area}
+			NOT = {province_id = 774}
+			NOT = {province_id = 1219}
+			NOT = {province_id = 2802}
+			NOT = {province_id = 2801}
+        }
+	}
+}
+
+alshaamia_culture_region = {
+	OR = {
+		area = rakka_area
+		AND = {
+			NOT = {area = syrian_desert_area}
+			region = mashriq_region
+		}	
+	}
+}
+
+eiraqiin_culture_region = {
+	OR = {
+		area = khuzestan_area
+		area = luristan_area
+		area = shahrizor_area
+		AND ={
+			region = mesopotamia_region
+			NOT = {area = erzurum_area}
+			NOT = {area = north_kurdistan_area}
+			NOT = {area = rakka_area}
+		}		
+	}
+}
+
+khaleeji_culture_region = {
+	OR = {
+		area = bahrain_area
+		area = pirate_coast_area
+		area = mogostan_area
+		area = persian_gulf_coast
+		area = persian_gulf_islands_area
+	}
+}
+
+iiraniun_culture_region = {
+	OR = {
+		area = iraq_e_ajam_area
+		area = kerman_area
+		area = isfahan_area
+		area = tabarestan_area
+		area = farsistan_area
+		region = khorasan_region
+	}
+}
+
+qawqazi_culture_region = {
+	OR = {
+		area = tabriz_area
+		area = azerbaijan_area
+		area = erzurum_area
+		area = north_kurdistan_area
+		region = caucasia_region
+	}
+}
+
+anadul_culture_region = {
+	OR = {
+		region = anatolia_region
+	}
+}
+
+yamani_culture_region = {
+	OR = {
+		area = hadramut_area
+		area = upper_yemen_area
+		area = yemen_area
+		province_id = 386
+		province_id = 391
+		province_id = 2346 
+	}
+}
+
+umaani_culture_region = {
+	OR = {
+		area = dhofar_area
+		area = oman_area
+		area = mascat_area
+	}
+}
+
+najdi_culture_region = {
+	OR = {
+		area = yamamah_area
+		area = nafud_area
+		area = mahra_area
+		area = qasim_area
+		province_id = 4282
+		province_id = 5235
+	}
+}
+
+hijaazi_culture_region = {
+	OR = {
+		area =tabuk_area
+		area = medina_area
+		area = mecca_area
+		AND ={
+			area = tihama_al_yemen_area
+			NOT ={province_id = 2346}
+		}
+	}
+}
+
+mashriqi_cultures = {
+	OR = {
+		culture = al_suryah_arabic
+		primary_culture = al_suryah_arabic
+		culture = al_iraqiya_arabic
+		primary_culture = al_iraqiya_arabic
+		culture = gulf_arabic
+		primary_culture = gulf_arabic
+		culture = yemeni_culture
+		primary_culture = yemeni_culture
+		culture = omani_culture
+		primary_culture = omani_culture
+		culture = bedouin_arabic
+		primary_culture = bedouin_arabic
+		culture = hejazi_culture
+		primary_culture = hejazi_culture
+		culture = al_misr_arabic
+		primary_culture = al_misr_arabic
+	
+	}
+}
+
+mashriqi_region = {
+	OR = {
+		najdi_culture_region = yes
+		hijaazi_culture_region = yes
+		umaani_culture_region = yes
+		yamani_culture_region = yes
+		khaleeji_culture_region = yes
+		eiraqiin_culture_region = yes
+		alshaamia_culture_region = yes
+		masri_culture_region = yes
+	}
+}
+
+andalusi_culture_region = {
+	OR = {
+		region = iberia_region 
+	}
+}
+
+alfransi_culture_region= {
+	OR = {
+		area = guyenne_area
+		area = massif_central_area
+		area = savoy_dauphine_area
+		area = pyrenees_area
+		area = languedoc_area
+		area = provence_area
+	}
+}
+
+malti_culture_region = {
+	OR = {
+		area = sicily_area
+		area = naples_area
+		area = calabria_area
+		area = apulia_area
+		area = corsica_sardinia_area
+		area = sardinia_area
+		area = abruzzo_area
+	}
+}
+
+allatini_culture_region = {
+	OR = {
+		AND {
+			region = italy_region
+			NOT = { area = sicily_area}
+			NOT = { area = naples_area}
+			NOT = { area = calabria_area}
+			NOT = { area = apulia_area}
+			NOT = { area = corsica_sardinia_area}
+			NOT = { area = sardinia_area}
+			NOT = { area = abruzzo_area}
+		}
+	}
+}
