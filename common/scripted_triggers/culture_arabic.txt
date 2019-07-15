@@ -1,0 +1,393 @@
+mashriqi_cultures = {
+	OR = { #Only Core cultures -That is to say the ones that /must/ be Mashriqi
+		culture = al_suryah_arabic
+		primary_culture = al_suryah_arabic
+		culture = al_iraqiya_arabic
+		primary_culture = al_iraqiya_arabic
+		culture = gulf_arabic
+		primary_culture = gulf_arabic
+		culture = yemeni_culture
+		primary_culture = yemeni_culture
+		culture = omani_culture
+		primary_culture = omani_culture
+		culture = dhofari_arabic
+		primary_culture = dhofari_arabic
+		culture = bedouin_arabic
+		primary_culture = bedouin_arabic
+		culture = hejazi_culture
+		primary_culture = hejazi_culture
+		culture = al_misr_arabic
+		primary_culture = al_misr_arabic
+	}
+}
+
+mashriqi_region = {
+	OR = {
+		levantine_culture_region = yes
+		mesopotamian_culture_region = yes
+		gulf_culture_region = yes
+		yemeni_culture_region = yes
+		omani_culture_region = yes
+		dhofari_culture_region = yes
+		najdi_culture_region = yes
+		hejazi_culture_region = yes
+		masri_culture_region = yes
+	}
+}
+
+maghrebi_cultures = {
+	OR = {
+		culture = libyan_arabic
+		primary_culture = libyan_arabic
+		culture = tunisian
+		primary_culture = tunisian
+		culture = algerian
+		primary_culture = algerian
+		culture = moroccan
+		primary_culture = moroccan
+	}
+}
+
+maghrebi_region = {
+	OR = {
+		libyan_culture_region = yes
+		tunisian_culture_region = yes
+		algerian_culture_region = yes
+		moroccan_culture_region = yes
+	}
+}
+
+libyan_culture_region = { #Sulaym
+	OR = {
+		area = fezzan_area
+		area = nafusa_mountains_area
+		area = cyrenaica_area
+		province_id = 5272 #Matruh
+		province_id = 5273 #Siwah
+		area = tripolitania_area
+		province_id = 353 #Medinine
+		province_id = 2450 #Jebil
+	}
+}
+
+moroccan_culture_region = { #M'qil
+	OR = {
+		area = northern_morocco_area #Rif
+		area = southern_morocco_area #Tagmudant
+		area = western_morocco_area #Fez
+		area = marrekesh_area
+		province_id = 1110 #Agadir n Yighir
+		province_id = 5212 #Sus
+		province_id = 2466 #Asif en Dra
+		area = tafilalt_area
+		province_id = 5222 #Talbalbala
+		province_id = 5221 #Béchar
+	}
+}
+
+tunisian_culture_region = { #Sharqeea Halaalee
+	OR = {
+		province_id = 1882 #Annaba
+		province_id = 5315 #Al-Kaf
+		area = tunisia_area
+		province_id = 5312 #Gabes
+		province_id = 2954 #Djerba
+	}
+}
+
+algerian_culture_region = { #Wasat Halaalee
+	OR = {
+		area = hautes_plaines_area
+		area = barbary_coast_area
+		area = north_saharan_area
+		AND = {
+			area = kabylia_area
+			NOT = { province_id = 1882 } #Annaba
+		}
+		AND = {
+			area = ouled_nail_area #Aures
+			NOT = { province_id = 5315 } #Al-Kaf
+		}
+		province_id = 5316 #Tuzer
+		province_id = 352 #Gafsa
+	}
+}
+
+masri_culture_region = { #Maasra
+	OR = {
+		province_id = 2325 #El-Alamein
+		province_id = 2318 #El-Wahat el-bahnasa
+		province_id = 4323 #Dakhla
+		province_id = 1233 #El-Kharga
+		area = delta_area #Nile Delta
+		area = bahari_area #Lower Egypt
+		province_id = 2315 #as-Suways
+		province_id = 4321 #Es-Sahra es-Sarqia
+		province_id = 2320 #Ras Gareb
+		area = vostani_area #Upper Egypt
+		province_id = 5278 #Fila
+		province_id = 1234 #Ibrim
+		province_id = 4322 #Ababda
+	}
+}
+
+masri_levantine_confict_region = {
+	OR = {
+		area = syrian_desert_area #Sinai
+	}
+}
+
+levantine_culture_region = { #Shaameea
+	OR = {
+		province_id = 5138 #Osmaniye
+		province_id = 327 #Adana
+		AND = {
+			region = mashriq_region #Levant
+			NOT = { area = syrian_desert_area } #Sinai
+			NOT = { province_id = 4270 } #Ma'an
+		}	
+	}
+}
+
+mesopotamian_culture_region = { #`Raaqeea
+	OR = {
+		province_id = 412 #Suq al-Ahwaz
+		province_id = 4290 #Hoveyzeh
+		province_id = 4289 #Tustar
+		province_id = 2209 #Ilam
+		AND = {
+			area = basra_area
+			NOT = { province_id = 2340 } #Grane
+		}
+		area = iraq_arabi_area
+		AND = {
+			area = shahrizor_area
+			NOT = { province_id = 2211 } #Erdelan
+		}
+		area = al_jazira_area
+		area = rakka_area
+	}
+}
+
+gulf_culture_region = { #Xhaleejee
+	OR = {
+		province_id = 2340 #Grane
+		area = bahrain_area
+		AND = {
+			area = pirate_coast_area
+			NOT = { province_id = 4286 } #Al-Fugaira
+		area = mogostan_area
+		area = persian_gulf_coast
+		area = persian_gulf_islands_area
+	}
+}
+
+shirvani_arabic_culture_region = { #Sheerfaanee
+	OR = {
+		AND = {
+			area = dagestan_area
+			NOT = { province_id = 2208 } #Terek
+		}
+		province_id = 2201 #Alania
+		province_id = 4301 #Gori
+		province_id = 2203 #Kakheti
+		province_id = 423 #Tbilisi
+		area = shirvan_area
+		AND = {
+			area = armenia_area
+			NOT = { province_id = 2204 } #Lomsia
+		}
+		area = tabriz_area
+		area = azerbaijan_area
+		province_id = 4339 #Fuman
+		province_id = 417 #Lahijan
+		province_id = 2211 #Erdelan
+	}
+}
+
+yemeni_culture_region = { #(Eemneea) Includes Somalia
+	OR = {
+		province_id = 2346 #Jazan
+		province_id = 386 #Asir
+		province_id = 391 #Najran
+		area = upper_yemen_area
+		area = yemen_area #Lower Yemen
+		province_id = 5241 #Shuqra
+		province_id = 2343 #Hadramawt
+		province_id = 389 #Al-Mukalla
+		province_id = 1099 #Socotra
+		#Somali-Yemeni
+		province_id = 5298 #Zula
+		province_id = 2765 #Assab
+		province_id = 1215 #Tajura
+		province_id = 1212 #Zeyila
+		province_id = 2793 #Harigesa
+		area = somaliland_area
+		area = majarteen_area
+		area = ajuuran_area
+		area = mogadishu_area
+		province_id = 2777 #Bardera
+	}
+}
+
+omani_culture_region = { #`Maaneea
+	OR = {
+		province_id = 4286 #Al-Fugaira
+		area = mascat_area #Batinah
+		area = oman_area
+		province_id = 5244 #Jiddat
+		province_id = 2342 #Al-Wusta
+	}
+}
+
+dhofari_culture_region = {
+	OR = {
+		province_id = 4284 #Thamud
+		province_id = 402 #Mahra
+		province_id = 5243 #Thumrait
+		province_id = 401 #Dhofar
+		province_id = 4283 #Mirbat
+	}
+}
+
+najdi_culture_region = { #Najdeea
+	OR = {
+		area = yamamah_area #Al Yamana
+		area = nafud_area #Najd
+		province_id = 4270 #Ma'an
+		area = mahra_area #Al Ahsa
+		province_id = 2339 #Yabrin
+		province_id = 5235 #Al-Baha
+		province_id = 4282 #Qa'lat Bisah
+	}
+}
+
+hejazi_culture_region = { #Hajaazee
+	OR = {
+		area = tabuk_area
+		area = medina_area
+		area = mecca_area
+		AND = {
+			area = tihama_al_yemen_area
+			NOT = { province_id = 2346 } #Jazan
+		}
+		#Bedawi
+		province_id = 2321 #El Oser
+		province_id = 5271 #El-Haras
+		area = red_sea_coast_area
+		province_id = 5288 #Karura
+		province_id = 1230 #Massawa
+	}
+}
+
+andalusian_culture_region = {
+	OR = {
+		region = iberia_region
+	}
+}
+
+andalusian_sicilian_conflict_region = {
+	OR = {
+		area = sardinia_area
+		area = corsica_sardinia_area
+	}
+}
+
+sicilian_arabic_culture_region = {
+	OR = {
+		area = sicily_area
+		area = naples_area
+		area = calabria_area
+		area = apulia_area
+		area = corsica_sardinia_area
+		area = sardinia_area
+		area = abruzzo_area
+	}
+}
+
+septimanian_culture_region = {
+	OR = {
+		area = guyenne_area
+		area = massif_central_area
+		AND = {
+			area = savoy_dauphine_area
+			NOT = { province_id = 3046 } #Genevese
+			NOT = { province_id = 205 } #Savoy
+		}
+		area = pyrenees_area #Gascony
+		area = languedoc_area
+		area = provence_area
+	}
+}
+
+hassaniya_culture_region = {
+	OR = {
+		area = cap_verde_area
+		province_id = 347 #Tan-Tan
+		province_id = 5228 #Sidi Ifni
+		province_id = 5223 #Tindouf
+		province_id = 1127 #Tuat
+		province_id = 1128 #Taudeni
+		province_id = 1129 #Azawad
+		province_id = 1130 #Tadmekka
+		province_id = 1133 #Gao
+		province_id = 2262 #Karabara
+		province_id = 1132 #Timbuktu
+		province_id = 2260 #Mema
+		province_id = 2247 #Hodh
+		province_id = 2246 #Baghena
+		province_id = 2243 #Termes
+		province_id = 2244 #Tagant
+		province_id = 1115 #Brakna
+		province_id = 1112 #Trarza
+	}
+}
+
+saharan_arabic_culture_region = {
+	OR = {
+		province_id = 2271 #Azawagh
+		province_id = 2272 #Azbin
+		province_id = 2274 #Aïr
+		area = east_azbin_area
+	}
+}
+
+central_sudanese_culture_region = {
+	OR = {
+		province_id = 2269 #Zarmaganda
+		province_id = 2270 #Dallol
+		province_id = 2273 #Ader
+		province_id = 2276 #Itesan
+		province_id = 1156 #Damagaram
+		area = katsina_area
+		area = zazzau_area
+		area = hausa_area #Kano
+		province_id = 1161 #Bauchi
+		province_id = 1249 #Yola
+		province_id = 2285 #Marghi
+		area = bornu_area
+		area = kanem_area
+		province_id = 2932 #Waddai
+		province_id = 774 #Genina
+		province_id = 1219 #Daju
+	}
+}
+
+eastern_sudanese_culture_region = {
+	OR = {
+		province_id = 5301 #Selima
+		province_id = 2322 #Faras
+		province_id = 5277 #Batn-el-Hajar
+		province_id = 2323 #Al-Shanka
+		province_id = 1229 #Amarar
+		province_id = 5280 #Hadendoa
+		area = southeast_sahara_area
+		area = upper_nubia_area
+		province_id = 2801 #Ain Farah
+		province_id = 2802 #Daein
+		area = kurdufan_area
+		area = white_nile_area
+		area = sennar_area #Blue Nile
+		area = butana_area
+	}
+}
