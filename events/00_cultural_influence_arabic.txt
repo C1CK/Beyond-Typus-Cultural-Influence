@@ -1,1011 +1,334 @@
 namespace = cultural_influence_arabic
 #(Something in Arabic!)
+#Hardcoded to only permit Islamic Arabs to do this
 
-
-province_event = { #Irish reclamation event except for Leebi
+country_event = { #Mashriqi creation
 	id = cultural_influence_arabic.1
-	title = arab_reclamation_NAfrica.title
-	desc = arab_reclamation_NAfrica.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = libyan_arabic }
-		NOT = { has_global_flag = ifriqiya_formed}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		leebi_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = libyan_arabic
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = libyan_arabic
-	}
-}
-
-province_event = { #Irish reclamation event except for Maghribiin
-	id = cultural_influence_arabic.2
-	title = arab_reclamation_NAfrica.title
-	desc = arab_reclamation_NAfrica.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = moroccan}
-		NOT = { has_global_flag = ifriqiya_formed}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		maghribiin_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = moroccan
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = moroccan
-	}
-}
-
-province_event = { #Irish reclamation event except for Altuwnisia
-	id = cultural_influence_arabic.3
-	title = arab_reclamation_NAfrica.title
-	desc = arab_reclamation_NAfrica.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = tunisian}
-		NOT = { has_global_flag = ifriqiya_formed}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		altuwnisia_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = tunisian
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = tunisian
-	}
-}
-
-province_event = { #Irish reclamation event except for Jzayry
-	id = cultural_influence_arabic.4
-	title = arab_reclamation_NAfrica.title
-	desc = arab_reclamation_NAfrica.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = algerian}
-		NOT = { has_global_flag = ifriqiya_formed}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		jzayry_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = algerian
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = algerian
-	}
-}
-
-province_event = { #Irish reclamation event except for masri
-	id = cultural_influence_arabic.5
-	title = arab_reclamation_Egypt.title
-	desc = arab_reclamation_Egypt.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = al_misr_arabic}
-		NOT = { has_global_flag = mashriqi_formed}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		masri_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = al_misr_arabic
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = al_misr_arabic
-	}
-}
-
-country_event = { #ifriqiya merge
-	id = cultural_influence_arabic.6
-	title = ifriqiya_merger.title
-	desc = ifriqiya_merger.desc
+	title = mashriqi_standardization.title
+	desc = mashriqi_standardization.desc
 	picture = GREAT_BUILDING_eventPicture
 
 	major = yes
 	fire_only_once = yes
 
 	trigger = {
-		ifriqiya_cultures = yes
-		all_province = {
-			OR = { #Either in ifriqiya region and Arabic, or not in ifriqiya region
-				AND = {
-					ifriqiya_region = yes
-					ifriqiya_cultures = yes
-					owned_by = ROOT
-				}
-				ifriqiya_region = no			
-			type = all
+		government_rank = 3
+		mashriqi_cultures = yes
+		NOT = { has_global_flag = mashriqi_created_flag }
+		asia = { #Owned by ROOT, or not needed
+			OR = {
+				mashriqi_cultures = no
+				owned_by = ROOT
 			}
-	
+			type = all
 		}
+		has_global_flag = CI_events_enabled
 	}
-	
+
 	immediate = {
 		hidden_effect = {
-			merge_ifriqiya = yes
-			set_global_flag = ifriqiya_formed
+			set_global_flag = mashriqi_created_flag
+			change_primary_culture = mashriqi
+			every_province = {
+				limit = {
+					mashriqi_cultures = yes
+				}
+				change_culture = mashriqi
+			}
 		}
 	}
 
-	option = {
-		name = arab_resettlement.a
+	option = { #Cairo
+		name = mashriqi_standardization.a
 
-		custom_tooltip = goidelic_brythonic_merger.tooltip
+		trigger = {
+			owns = 361 #Cairo
+		}
+
+		361 = { #Add College to Cairo
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_mashriq
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Mecca
+		name = mashriqi_standardization.b
+
+		trigger = {
+			owns = 385 #Mecca
+		}
+
+		385 = { #Add College to Mecca
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_mashriq
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Baghdad
+		name = mashriqi_standardization.c
+
+		trigger = {
+			owns = 410 #Baghdad
+		}
+
+		410 = { #Add College to Baghdad
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_mashriq
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #What's Aleppo?
+		name = mashriqi_standardization.d
+
+		trigger = {
+			owns = 377 #Aleppo
+		}
+
+		377 = { #Add College to Aleppo
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_mashriq
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Damascus
+		name = mashriqi_standardization.e
+
+		trigger = {
+			owns = 382 #Damascus
+		}
+
+		382 = { #Add College to Damascus
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_mashriq
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
 	}
 }
 
-province_event = { #Irish reclamation event except for taht_al_sahara
-	id = cultural_influence_arabic.7
-	title = arab_reclamation_NAfrica.title
-	desc = arab_reclamation_NAfrica.desc
+country_event = { #Maghrebi creation
+	id = cultural_influence_arabic.2
+	title = maghrebi_standardization.title
+	desc = maghrebi_standardization.desc
+	picture = GREAT_BUILDING_eventPicture
+
+	major = yes
+	fire_only_once = yes
+
+	trigger = {
+		government_rank = 3
+		maghrebi_cultures = yes
+		NOT = { has_global_flag = mashriqq_created_flag }
+		asia = { #Owned by ROOT, or not needed
+			OR = {
+				maghrebi_cultures = no
+				owned_by = ROOT
+			}
+			type = all
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = maghrebi_created_flag
+			change_primary_culture = maghrebi
+			every_province = {
+				limit = {
+					maghrebi_cultures = yes
+				}
+				change_culture = maghrebi
+			}
+		}
+	}
+
+	option = { #Fez
+		name = maghrebi_standardization.a
+
+		trigger = {
+			owns = 343 #Fez
+		}
+
+		343 = { #Add College to Fez
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_maghreb
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Tlemcen
+		name = maghrebi_standardization.b
+
+		trigger = {
+			owns = 336 #Tlemcen
+		}
+
+		336 = { #Add College to Tlemcen
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_maghreb
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Constantine
+		name = maghrebi_standardization.c
+
+		trigger = {
+			owns = 340 #Constantine
+		}
+
+		340 = { #Add College to Constantine
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_maghreb
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Tunis
+		name = maghrebi_standardization.d
+
+		trigger = {
+			owns = 341 #Tunis
+		}
+
+		341 = { #Add College to Tunis
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_maghreb
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Tripoli
+		name = maghrebi_standardization.e
+
+		trigger = {
+			owns = 354 #Tripoli
+		}
+
+		354 = { #Add College to Tripoli
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_maghreb
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Masri)
+	id = cultural_influence_arabic.3
+	title = masri_adoption.title
+	desc = masri_adoption.desc
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		#Template Settled Triggers
 		owner = { culture_group = turko_semitic }
-		NOT = { culture = chadic_arabic}
-		NOT = { has_global_flag = ifriqiya_formed}
-		OR = {
+		NOT = { culture = al_misr_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
 		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
 		}
-		taht_al_sahara_culture_region = yes
+		masri_culture_region = yes
+		has_global_flag = CI_events_enabled
 	}
+
 	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
 
 		modifier = {
 			factor = 0.8
 			has_idea_to_settle_faster = yes
 		}
 		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = chadic_arabic
-			}
+			factor = 0.8
+			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
-			has_owner_religion = no
+			development = 30
 		}
 		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
+			factor = 1.4
+			development = 40
 		}
 		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
+			factor = 1.4
+			development = 50
 		}
 		modifier = {
 			factor = 0.9
@@ -1024,153 +347,1841 @@ province_event = { #Irish reclamation event except for taht_al_sahara
 			national_focus = adm
 		}
 	}
+
 	option = {
-		name = arab_resettlement.a
+		name = masri_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = al_misr_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Sinai) (Masri)
+	id = cultural_influence_arabic.4
+	title = masri_adoption.title
+	desc = masri_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = al_misr_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		masri_levantine_confict_region = yes
+		OWNER = { capital_region = { continent = africa } }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = masri_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = al_misr_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Levantine)
+	id = cultural_influence_arabic.5
+	title = levantine_adoption.title
+	desc = levantine_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = al_suryah_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		levantine_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = levantine_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = al_suryah_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Sinai) (Levantine)
+	id = cultural_influence_arabic.6
+	title = levantine_adoption.title
+	desc = levantine_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = al_suryah_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		masri_levantine_confict_region = yes
+		NOT = { OWNER = { capital_region = { continent = africa } } }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = levantine_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = al_suryah_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Mesopotamian)
+	id = cultural_influence_arabic.7
+	title = mesopotamian_adoption.title
+	desc = mesopotamian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = al_iraqiya_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		mesopotamian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = mesopotamian_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = al_iraqiya_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Najdi)
+	id = cultural_influence_arabic.8
+	title = najdi_adoption.title
+	desc = najdi_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = bedouin_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		najdi_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = najdi_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = bedouin_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Gulf)
+	id = cultural_influence_arabic.9
+	title = gulf_adoption.title
+	desc = gulf_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = gulf_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		gulf_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = gulf_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = gulf_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Omani)
+	id = cultural_influence_arabic.10
+	title = omani_adoption.title
+	desc = omani_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = omani_culture }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		omani_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = omani_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = omani_culture
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Dhofari)
+	id = cultural_influence_arabic.11
+	title = dhofari_adoption.title
+	desc = dhofari_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = dhofari_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		dhofari_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = dhofari_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = dhofari_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Yemeni)
+	id = cultural_influence_arabic.12
+	title = yemeni_adoption.title
+	desc = yemeni_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = yemeni_culture }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		yemeni_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = yemeni_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = yemeni_culture
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Hejazi)
+	id = cultural_influence_arabic.13
+	title = hejazi_adoption.title
+	desc = hejazi_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = hejazi_culture }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		hejazi_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = hejazi_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = hejazi_culture
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Eastern Sudanese)
+	id = cultural_influence_arabic.14
+	title = eastern_sudanese_adoption.title
+	desc = eastern_sudanese_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = sudanese_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		eastern_sudanese_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = eastern_sudanese_adoption.a
+
+		change_culture = sudanese_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Sulaym)
+	id = cultural_influence_arabic.15
+	title = sulaym_adoption.title
+	desc = sulaym_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = libyan_arabic }
+		NOT = { culture = maghrebi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		libyan_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = sulaym_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = maghrebi_created_flag
+			}
+			change_culture = maghrebi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = maghrebi_created_flag }
+			}
+			change_culture = libyan_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Eastern Hilalian)
+	id = cultural_influence_arabic.16
+	title = tunisian_adoption.title
+	desc = tunisian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = tunisian }
+		NOT = { culture = maghrebi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		tunisian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = tunisian_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = maghrebi_created_flag
+			}
+			change_culture = maghrebi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = maghrebi_created_flag }
+			}
+			change_culture = tunisian
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Central Hilalian)
+	id = cultural_influence_arabic.17
+	title = algerian_adoption.title
+	desc = algerian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = algerian }
+		NOT = { culture = maghrebi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		algerian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = algerian_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = maghrebi_created_flag
+			}
+			change_culture = maghrebi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = maghrebi_created_flag }
+			}
+			change_culture = algerian
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Maqil)
+	id = cultural_influence_arabic.18
+	title = moroccan_adoption.title
+	desc = moroccan_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = moroccan }
+		NOT = { culture = maghrebi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		moroccan_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = moroccan_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = maghrebi_created_flag
+			}
+			change_culture = maghrebi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = maghrebi_created_flag }
+			}
+			change_culture = moroccan
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Hassaniya)
+	id = cultural_influence_arabic.19
+	title = hassaniya_adoption.title
+	desc = hassaniya_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = hassaniya }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		hassaniya_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = hassaniya_adoption.a
+
+		change_culture = hassaniya
+	}
+}
+
+province_event = { #Arabic adoption (Saharan)
+	id = cultural_influence_arabic.20
+	title = saharan_adoption.title
+	desc = saharan_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = saharan_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		saharan_arabic_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = saharan_adoption.a
+
+		change_culture = saharan_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Central Sudanese)
+	id = cultural_influence_arabic.21
+	title = central_sudanese_adoption.title
+	desc = central_sudanese_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = chadic_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		development = 10 #To prevent Sahara converting
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		central_sudanese_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = central_sudanese_adoption.a
 
 		change_culture = chadic_arabic
 	}
 }
 
-province_event = { #Irish reclamation event except for Alshaamia
-	id = cultural_influence_arabic.8
-	title = arab_reclamation_MEast.title
-	desc = arab_reclamation_MEast.desc
+province_event = { #Arabic adoption (Andalusian)
+	id = cultural_influence_arabic.22
+	title = andalusian_adoption.title
+	desc = andalusian_adoption.desc
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		#Template Settled Triggers
 		owner = { culture_group = turko_semitic }
-		NOT = { culture = al_suryah_arabic  }
-		NOT = { has_global_flag = mashriqi_formed}
-		OR = {
+		NOT = { culture = andalusi_culture }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
+		religion_group = muslim
 		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
 		}
-		alshaamia_culture_region = yes
+		andalusian_sicilian_conflict_region = yes
+		OWNER = {  }
+		has_global_flag = CI_events_enabled
 	}
+
 	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
 
 		modifier = {
 			factor = 0.8
 			has_idea_to_settle_faster = yes
 		}
 		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = al_suryah_arabic
-			}
+			factor = 0.8
+			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
-			has_owner_religion = no
+			development = 30
 		}
 		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
+			factor = 1.4
+			development = 40
 		}
 		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
+			factor = 1.4
+			development = 50
 		}
 		modifier = {
 			factor = 0.9
@@ -1189,2000 +2200,76 @@ province_event = { #Irish reclamation event except for Alshaamia
 			national_focus = adm
 		}
 	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = al_suryah_arabic
-	}
-}
-
-province_event = { #Irish reclamation event except for Eiraqiin
-	id = cultural_influence_arabic.9
-	title = arab_reclamation_MEast.title
-	desc = arab_reclamation_MEast.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = al_iraqiya_arabic }
-		NOT = { has_global_flag = mashriqi_formed}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		eiraqiin_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = al_iraqiya_arabic
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = al_iraqiya_arabic
-	}
-}
-
-province_event = { #Irish reclamation event except for khaleeji
-	id = cultural_influence_arabic.10
-	title = arab_reclamation_MEast.title
-	desc = arab_reclamation_MEast.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = gulf_arabic}
-		NOT = { has_global_flag = mashriqi_formed}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		khaleeji_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = gulf_arabic
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = gulf_arabic
-	}
-}
-
-province_event = { #Irish reclamation event except for Iiraniun
-	id = cultural_influence_arabic.11
-	title = arab_reclamation_Ira.title
-	desc = arab_reclamation_Ira.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = iranian_arabic }
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		iiraniun_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = iranian_arabic
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = iranian_arabic
-	}
-}
-
-province_event = { #Irish reclamation event except for Qawqazi
-	id = cultural_influence_arabic.12
-	title = arab_reclamation_Cau.title
-	desc = arab_reclamation_Cau.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = caucasian_arabic}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		qawqazi_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = caucasian_arabic
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = caucasian_arabic
-	}
-}
-
-province_event = { #Irish reclamation event except for Anadul
-	id = cultural_influence_arabic.13
-	title = arab_reclamation_Tur.title
-	desc = arab_reclamation_Tur.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = anatolian_arabic }
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		anadul_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = anatolian_arabic
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = anatolian_arabic
-	}
-}
-
-province_event = { #Irish reclamation event except for Yamani
-	id = cultural_influence_arabic.14
-	title = arab_reclamation_MEast.title
-	desc = arab_reclamation_MEast.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = yemeni_culture }
-		NOT = { has_global_flag = mashriqi_formed}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		yamani_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = yemeni_culture
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = yemeni_culture
-	}
-}
-
-province_event = { #Irish reclamation event except for Umaani
-	id = cultural_influence_arabic.15
-	title = arab_reclamation_MEast.title
-	desc = arab_reclamation_MEast.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = omani_culture }
-		NOT = { has_global_flag = mashriqi_formed}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		umaani_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = omani_culture
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = omani_culture
-	}
-}
-
-province_event = { #Irish reclamation event except for Najdi
-	id = cultural_influence_arabic.16
-	title = arab_reclamation_MEast.title
-	desc = arab_reclamation_MEast.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = bedouin_arabic }
-		NOT = { has_global_flag = mashriqi_formed}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		najdi_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = bedouin_arabic
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = bedouin_arabic
-	}
-}
-
-province_event = { #Irish reclamation event except for Hijaazi
-	id = cultural_influence_arabic.17
-	title = arab_reclamation_MEast.title
-	desc = arab_reclamation_MEast.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = hejazi_culture}
-		NOT = { has_global_flag = mashriqi_formed}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		hijaazi_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = hejazi_culture
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = hejazi_culture
-	}
-}
-
-country_event = { #mashriqi merge
-	id = cultural_influence_arabic.18
-	title = mashriqi_merger.title
-	desc = mashriqi_merger.desc
-	picture = GREAT_BUILDING_eventPicture
-
-	major = yes
-	fire_only_once = yes
-
-	trigger = {
-		mashriqi_cultures = yes
-		all_province = {
-		OR = { #Either in Mashriqi region and Arabic, or not in Mashriqi region
-			AND = {
-				mashriqi_region = yes
-				mashriqi_cultures = yes
-				owned_by = ROOT
-			}
-			mashriqi_region = no
-		}
-		type = all
-		}
-	}
-
-	immediate = {
-		hidden_effect = {
-			merge_mashriqi = yes
-			set_global_flag = mashriqi_formed
-		}
-	}
 
 	option = {
-		name = arab_resettlement.a
-
-		custom_tooltip = goidelic_brythonic_merger.tooltip
-	}
-}
-
-province_event = { #Irish reclamation event except for Malti
-	id = cultural_influence_arabic.19
-	title = arab_reclamation_Euro.title
-	desc = arab_reclamation_Euro.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = maltese}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		malti_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = maltese
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
-
-		change_culture = maltese
-	}
-}
-
-province_event = { #Irish reclamation event except for Andalusi
-	id = cultural_influence_arabic.20
-	title = arab_reclamation_Euro.title
-	desc = arab_reclamation_Euro.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		#Template Settled Triggers
-		owner = { culture_group = turko_semitic }
-		NOT = { culture = andalusi_culture}
-		OR = {
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
-		}
-		andalusi_culture_region = yes
-	}
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
-
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = andalusi_culture
-			}
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
-		}
-		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-	option = {
-		name = arab_resettlement.a
+		name = andalusian_adoption.a
 
 		change_culture = andalusi_culture
 	}
 }
 
-province_event = { #Irish reclamation event except for Alfransi
-	id = cultural_influence_arabic.21
-	title = arab_reclamation_Euro.title
-	desc = arab_reclamation_Euro.desc
+province_event = { #Mozarabs
+	id = cultural_influence_arabic.23
+	title = mozarab_adoption.title
+	desc = mozarab_adoption.desc
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		#Template Settled Triggers
 		owner = { culture_group = turko_semitic }
-		NOT = { culture = alfransi_arabic}
-		OR = {
+		NOT = { culture = mozarabs }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
+		religion_group = christian
+		has_estate = estate_dhimmi
 		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
 		}
-		alfransi_culture_region = yes
+		latin_languages_trigger = yes
+		has_global_flag = CI_events_enabled
 	}
+
 	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
 
 		modifier = {
 			factor = 0.8
 			has_idea_to_settle_faster = yes
 		}
 		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = alfransi_arabic
-			}
+			factor = 0.8
+			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
-			has_owner_religion = no
+			development = 30
 		}
 		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
+			factor = 1.4
+			development = 40
 		}
 		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
+			factor = 1.4
+			development = 50
 		}
 		modifier = {
 			factor = 0.9
@@ -3201,152 +2288,76 @@ province_event = { #Irish reclamation event except for Alfransi
 			national_focus = adm
 		}
 	}
-	option = {
-		name = arab_resettlement.a
 
-		change_culture = alfransi_arabic
+	option = {
+		name = mozarab_adoption.a
+
+		change_culture = mozarabs
 	}
 }
 
-province_event = { #Irish reclamation event except for Allatini
-	id = cultural_influence_arabic.22
-	title = arab_reclamation_Euro.title
-	desc = arab_reclamation_Euro.desc
+province_event = { #Arabic adoption (Sardinia) (Andalusian)
+	id = cultural_influence_arabic.24
+	title = andalusian_adoption.title
+	desc = andalusian_adoption.desc
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		#Template Settled Triggers
 		owner = { culture_group = turko_semitic }
-		NOT = { culture = italian_arabic }
-		OR = {
+		NOT = { culture = andalusi_culture }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
+		religion_group = muslim
 		OR = {
-			any_neighbor_province = {
-				culture_group = turko_semitic
-			}
-			num_of_times_improved = 5
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
 		}
-		allatini_culture_region = yes
+		andalusian_sicilian_conflict_region = yes
+		OWNER = { primary_culture = andalusi_culture }
+		has_global_flag = CI_events_enabled
 	}
+
 	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 1
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
 
 		modifier = {
 			factor = 0.8
 			has_idea_to_settle_faster = yes
 		}
 		modifier = {
-			factor = 0.6
-			any_neighbor_province = {
-				culture = italian_arabic
-			}
+			factor = 0.8
+			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
-			has_owner_religion = no
+			development = 30
 		}
 		modifier = {
-			factor = 0.75
-			num_of_times_improved = 1
+			factor = 1.4
+			development = 40
 		}
 		modifier = {
-			factor = 0.80
-			num_of_times_improved = 2
-		}
-		modifier = {
-			factor = 0.85
-			num_of_times_improved = 3
-		}
-		modifier = {
-			factor = 0.9
-			num_of_times_improved = 4
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 5
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 6
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 7
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 8
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 9
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 10
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 11
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 12
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 13
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 14
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 15
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 16
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 17
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 18
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 19
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 20
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 21
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 22
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 23
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 24
-		}
-		modifier = {
-			factor = 0.95
-			num_of_times_improved = 25
+			factor = 1.4
+			development = 50
 		}
 		modifier = {
 			factor = 0.9
@@ -3365,9 +2376,359 @@ province_event = { #Irish reclamation event except for Allatini
 			national_focus = adm
 		}
 	}
-	option = {
-		name = arab_resettlement.a
 
-		change_culture = italian_arabic
+	option = {
+		name = andalusian_adoption.a
+
+		change_culture = andalusi_culture
+	}
+}
+
+province_event = { #Arabic adoption (Sicilian)
+	id = cultural_influence_arabic.25
+	title = sicilian_adoption.title
+	desc = sicilian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = siculo_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		andalusian_sicilian_conflict_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = sicilian_adoption.a
+
+		change_culture = siculo_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Sardinia) (Sicilian)
+	id = cultural_influence_arabic.26
+	title = sicilian_adoption.title
+	desc = sicilian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = siculo_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		andalusian_sicilian_conflict_region = yes
+		OWNER = { NOT = { primary_culture = andalusi_culture } }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = sicilian_adoption.a
+
+		change_culture = siculo_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Septimanian)
+	id = cultural_influence_arabic.27
+	title = septimanian_adoption.title
+	desc = septimanian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = septimanian_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		septimanian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = septimanian_adoption.a
+
+		change_culture = septimanian_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Shirvani)
+	id = cultural_influence_arabic.28
+	title = shirvani_adoption.title
+	desc = shirvani_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = shirvani_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		shirvani_arabic_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = shirvani_adoption.a
+
+		change_culture = shirvani_arabic
 	}
 }
