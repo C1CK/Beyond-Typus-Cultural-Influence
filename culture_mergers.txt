@@ -1,0 +1,1074 @@
+#Scripted Effects
+#Mergers file for Celtic, Slavic, etc
+
+merge_celtic = { #Merges Brythonic and Goidelic into Celtic
+	every_country = {
+		limit = { primary_culture = irish }
+		change_primary_culture = celtic_irish
+	}
+	every_country = {
+		limit = { primary_culture = highland_scottish }
+		change_primary_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { primary_culture = gallgaidheil }
+		change_primary_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { primary_culture = manx }
+		change_primary_culture = celtic_manx
+	}
+	every_country = {
+		limit = { primary_culture = welsh }
+		change_primary_culture = celtic_welsh
+	}
+	every_country = {
+		limit = { primary_culture = breton }
+		change_primary_culture = celtic_breton
+	}
+	every_country = {
+		limit = { primary_culture = cornish }
+		change_primary_culture = celtic_cornish
+	}
+	#Accepted Cultures
+
+	every_country = {
+		limit = { accepted_culture = irish }
+		remove_accepted_culture = irish
+		add_accepted_culture = celtic_irish
+	}
+	every_country = {
+		limit = { accepted_culture = highland_scottish }
+		remove_accepted_culture = highland_scottish
+		add_accepted_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { accepted_culture = gallgaidheil }
+		remove_accepted_culture = gallgaidheil
+		add_accepted_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { accepted_culture = manx }
+		remove_accepted_culture = manx
+		add_accepted_culture = celtic_manx
+	}
+	every_country = {
+		limit = { accepted_culture = welsh }
+		remove_accepted_culture = welsh
+		add_accepted_culture = celtic_welsh
+	}
+	every_country = {
+		limit = { accepted_culture = breton }
+		remove_accepted_culture = breton
+		add_accepted_culture = celtic_breton
+	}
+	every_country = {
+		limit = { accepted_culture = cornish }
+		remove_accepted_culture = cornish
+		add_accepted_culture = celtic_cornish
+	}
+	#Provinces
+
+	every_province = {
+		limit = { culture = irish }
+		change_culture = celtic_irish
+	}
+	every_province = {
+		limit = { culture = highland_scottish }
+		change_culture = celtic_highlander
+	}
+	every_province = {
+		limit = { culture = gallgaidheil }
+		change_culture = celtic_highlander
+	}
+	every_province = {
+		limit = { culture = manx }
+		change_culture = celtic_manx
+	}
+	every_province = {
+		limit = { culture = welsh }
+		change_culture = celtic_welsh
+	}
+	every_province = {
+		limit = { culture = breton }
+		change_culture = celtic_breton
+	}
+	every_province = {
+		limit = { culture = cornish }
+		change_culture = celtic_cornish
+	}
+	#Rulers
+
+	every_country = {
+		limit = { ruler_culture = irish }
+		set_ruler_culture = celtic_irish
+	}
+	every_country = {
+		limit = { ruler_culture = highland_scottish }
+		set_ruler_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { ruler_culture = gallgaidheil }
+		set_ruler_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { ruler_culture = manx }
+		set_ruler_culture = celtic_manx
+	}
+	every_country = {
+		limit = { ruler_culture = welsh }
+		set_ruler_culture = celtic_welsh
+	}
+	every_country = {
+		limit = { ruler_culture = breton }
+		set_ruler_culture = celtic_breton
+	}
+	every_country = {
+		limit = { ruler_culture = cornish }
+		set_ruler_culture = celtic_cornish
+	}
+	#Heirs
+
+	every_country = {
+		limit = { heir_culture = irish }
+		set_heir_culture = celtic_irish
+	}
+	every_country = {
+		limit = { heir_culture = highland_scottish }
+		set_heir_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { heir_culture = gallgaidheil }
+		set_heir_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { heir_culture = manx }
+		set_heir_culture = celtic_manx
+	}
+	every_country = {
+		limit = { heir_culture = welsh }
+		set_heir_culture = celtic_welsh
+	}
+	every_country = {
+		limit = { heir_culture = breton }
+		set_heir_culture = celtic_breton
+	}
+	every_country = {
+		limit = { heir_culture = cornish }
+		set_heir_culture = celtic_cornish
+	}
+	#Consorts
+
+	every_country = {
+		limit = { consort_culture = irish }
+		set_consort_culture = celtic_irish
+	}
+	every_country = {
+		limit = { consort_culture = highland_scottish }
+		set_consort_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { consort_culture = gallgaidheil }
+		set_consort_culture = celtic_highlander
+	}
+	every_country = {
+		limit = { consort_culture = manx }
+		set_consort_culture = celtic_manx
+	}
+	every_country = {
+		limit = { consort_culture = welsh }
+		set_consort_culture = celtic_welsh
+	}
+	every_country = {
+		limit = { consort_culture = breton }
+		set_consort_culture = celtic_breton
+	}
+	every_country = {
+		limit = { consort_culture = cornish }
+		set_consort_culture = celtic_cornish
+	}
+}
+
+merge_russka = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = byelorussian
+				culture = ukrainian
+				culture = rusyn
+			}
+		}
+		change_culture = ruthenian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = byelorussian
+				primary_culture = ukrainian
+				primary_culture = rusyn
+			}
+		}
+		change_primary_culture = ruthenian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = byelorussian
+				has_accepted_culture = ukrainian
+				has_accepted_culture = rusyn
+			}
+		}
+		remove_accepted_culture = byelorussian
+		remove_accepted_culture = ukrainian
+		remove_accepted_culture = rusyn
+		add_accepted_culture = ruthenian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = byelorussian
+				ruler_culture = ukrainian
+				ruler_culture = rusyn
+			}
+		}
+		set_ruler_culture = ruthenian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = byelorussian
+				heir_culture = ukrainian
+				heir_culture = rusyn
+			}
+		}
+		set_heir_culture = ruthenian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = byelorussian
+				consort_culture = ukrainian
+				consort_culture = rusyn
+			}
+		}
+		set_ruler_culture = ruthenian
+	}
+}
+merge_north_chinese = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = xibei
+				culture = jin
+				culture = chihan
+				culture = zhongyuan
+				culture = shandong_culture
+			}
+		}
+	change_culture = north_chinese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = xibei
+				primary_culture = jin
+				primary_culture = chihan
+				primary_culture = zhongyuan
+				primary_culture = shandong_culture
+			}
+		}
+	change_primary_culture = north_chinese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = xibei
+				has_accepted_culture = jin
+				has_accepted_culture = chihan
+				has_accepted_culture = zhongyuan
+				has_accepted_culture = shandong_culture
+			}
+		}
+		remove_accepted_culture = xibei
+		remove_accepted_culture = jin
+		remove_accepted_culture = chihan
+		remove_accepted_culture = zhongyuan
+		remove_accepted_culture = shandong_culture
+		add_accepted_culture = north_chinese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = xibei
+				ruler_culture = jin
+				ruler_culture = chihan
+				ruler_culture = zhongyuan
+				ruler_culture = shandong_culture
+			}
+		}
+	set_ruler_culture = north_chinese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = xibei
+				heir_culture = jin
+				heir_culture = chihan
+				heir_culture = zhongyuan
+				heir_culture = shandong_culture
+			}
+		}
+		set_heir_culture = north_chinese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = xibei
+				consort_culture = jin
+				consort_culture = chihan
+				consort_culture = zhongyuan
+				consort_culture = shandong_culture
+			}
+		}
+		set_consort_culture = north_chinese
+	}
+}
+merge_south_chinese = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = jianghuai
+				culture = hubei
+				culture = xiang
+				culture = gan
+				culture = wu
+				culture = chimin
+				culture = hakka
+				culture = cantonese
+				culture = chimin
+			}
+		}
+	change_culture = south_chinese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = jianghuai
+				primary_culture = hubei
+				primary_culture = xiang
+				primary_culture = gan
+				primary_culture = wu
+				primary_culture = chimin
+				primary_culture = hakka
+				primary_culture = cantonese
+				primary_culture = chimin
+			}
+		}
+		change_primary_culture = south_chinese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = jianghuai
+				has_accepted_culture = hubei
+				has_accepted_culture = xiang
+				has_accepted_culture = gan
+				has_accepted_culture = wu
+				has_accepted_culture = chimin
+				has_accepted_culture = hakka
+				has_accepted_culture = cantonese
+				has_accepted_culture = chimin
+				}
+			}
+		remove_accepted_culture = jianghuai
+		remove_accepted_culture = hubei
+		remove_accepted_culture = xiang
+		remove_accepted_culture = gan
+		remove_accepted_culture = wu
+		remove_accepted_culture = chimin
+		remove_accepted_culture = hakka
+		remove_accepted_culture = cantonese
+		remove_accepted_culture = chimin
+		add_accepted_culture = south_chinese
+	}
+	every_country = {
+		limit = {
+			OR = {
+			ruler_culture = jianghuai
+			ruler_culture = hubei
+			ruler_culture = xiang
+			ruler_culture = gan
+			ruler_culture = wu
+			ruler_culture = chimin
+			ruler_culture = hakka
+			ruler_culture = cantonese
+			ruler_culture = chimin
+			}
+		}
+	set_ruler_culture = south_chinese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = jianghuai
+				heir_culture = hubei
+				heir_culture = xiang
+				heir_culture = gan
+				heir_culture = wu
+				heir_culture = chimin
+				heir_culture = hakka
+				heir_culture = cantonese
+				heir_culture = chimin
+			}
+		}
+		set_heir_culture = south_chinese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = jianghuai
+				consort_culture = hubei
+				consort_culture = xiang
+				consort_culture = gan
+				consort_culture = wu
+				consort_culture = chimin
+				consort_culture = hakka
+				consort_culture = cantonese
+				consort_culture = chimin
+				}
+			}
+		set_consort_culture = south_chinese
+	}
+}
+merge_xinan = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = neobai
+				culture = sichuanese
+			}
+		}
+		change_culture = xinan
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = neobai
+				primary_culture = sichuanese
+				}
+			}
+		change_culture = xinan
+	}
+	every_country = {
+		limit = {
+			OR = { 
+				has_accepted_culture = neobai
+				has_accepted_culture = sichuanese
+			}
+		}
+		remove_accepted_culture = neobai
+		remove_accepted_culture = sichuanese
+		add_accepted_culture = xinan
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = neobai
+				ruler_culture = sichuanese
+			}
+		}
+		set_ruler_culture = xinan
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = neobai
+				heir_culture = sichuanese
+				}
+			}
+		 set_heir_culture = xinan
+		}
+		every_country = {
+			limit = {
+				OR = {
+					consort_culture = neobai
+					consort_culture = sichuanese
+					}
+				}
+			set_consort_culture = xinan
+		}
+}
+
+merge_manchu_chinese = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = manchu
+			}
+		}
+		change_culture = neomanchu
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = manchu
+				}
+			}
+		change_primary_culture = neomanchu
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = manchu
+				}
+			}
+		remove_accepted_culture = manchu
+		add_accepted_culture = neomanchu
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = manchu
+				}
+			}
+		set_ruler_culture = neomanchu
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = manchu
+				}
+			}
+		set_heir_culture = neomanchu
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = manchu
+				}
+			}
+		set_consort_culture = neomanchu
+	}
+}
+merge_tibetan_chinese = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = amdo
+				culture = tibetan
+				culture = kham
+			}
+		}
+		change_culture = neotibetan
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = amdo
+				primary_culture = tibetan
+				primary_culture = kham
+				}
+			}
+		change_primary_culture = neotibetan
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = amdo
+				has_accepted_culture = tibetan
+				has_accepted_culture = kham
+				}
+			}
+		remove_accepted_culture = amdo
+		remove_accepted_culture = tibetan
+		remove_accepted_culture = kham
+		add_accepted_culture = neotibetan
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = amdo
+				ruler_culture = tibetan
+				has_accepted_culture = kham
+				}
+			}
+		set_ruler_culture = neotibetan
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = amdo
+				heir_culture = tibetan
+				heir_culture = kham
+				}
+			}
+		set_heir_culture = neotibetan
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = amdo
+				consort_culture = tibetan
+				consort_culture = kham
+				}
+			}
+		set_consort_culture = neotibetan
+	}
+}
+merge_mongol_chinese = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = chahar
+				culture = mongol
+				culture = oirats
+				culture = khalkha
+				culture = buryat
+				culture = kalmyk
+				culture = khitan
+			}
+		}
+		change_culture = neomongol
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = chahar
+				primary_culture = mongol
+				primary_culture = oirats
+				primary_culture = khalkha
+				primary_culture = buryat
+				primary_culture = kalmyk
+				primary_culture = khitan
+				}
+			}
+		change_primary_culture = neomongol
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = chahar
+				has_accepted_culture = mongol
+				has_accepted_culture = oirats
+				has_accepted_culture = khalkha
+				has_accepted_culture = buryat
+				has_accepted_culture = kalmyk
+				has_accepted_culture = khitan
+				}
+			}
+		remove_accepted_culture = chahar
+		remove_accepted_culture = mongol
+		remove_accepted_culture = oirats
+		remove_accepted_culture = khalkha
+		remove_accepted_culture = buryat
+		remove_accepted_culture = kalmyk
+		remove_accepted_culture = khitan
+		add_accepted_culture = neomongol
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = chahar
+				ruler_culture = mongol
+				ruler_culture = oirats
+				ruler_culture = khalkha
+				ruler_culture = buryat
+				ruler_culture = kalmyk
+				ruler_culture = khitan
+				}
+			}
+		set_ruler_culture = neomongol
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = chahar
+				heir_culture = mongol
+				heir_culture = oirats
+				heir_culture = khalkha
+				heir_culture = buryat
+				heir_culture = kalmyk
+				heir_culture = khitan
+				}
+			}
+		set_heir_culture = neomongol
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = chahar
+				consort_culture = mongol
+				consort_culture = oirats
+				consort_culture = khalkha
+				consort_culture = buryat
+				consort_culture = kalmyk
+				consort_culture = khitan
+				}
+			}
+		set_consort_culture = neomongol
+	}
+}
+merge_japanese_chinese = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = togoku
+				culture = japanese
+				culture = kyushuan
+			}
+		}
+		change_culture = neojapanese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = togoku
+				primary_culture = japanese
+				primary_culture = kyushuan
+				}
+			}
+		change_primary_culture = neojapanese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = togoku
+				has_accepted_culture = japanese
+				has_accepted_culture = kyushuan
+				}
+			}
+		remove_accepted_culture = togoku
+		remove_accepted_culture = japanese
+		remove_accepted_culture = kyushuan
+		add_accepted_culture = neojapanese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = togoku
+				ruler_culture = japanese
+				ruler_culture = kyushuan
+				}
+			}
+		set_ruler_culture = neojapanese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = togoku
+				heir_culture = japanese
+				heir_culture = kyushuan
+				}
+			}
+		set_heir_culture = neojapanese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = togoku
+				consort_culture = japanese
+				consort_culture = kyushuan
+				}
+			}
+		set_consort_culture = neojapanese
+	}
+}
+merge_korean_chinese = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = korean
+			}
+		}
+		change_culture = neokorean
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = korean
+				}
+			}
+		change_primary_culture = neokorean
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = korean
+				}
+			}
+		remove_accepted_culture = korean
+		add_accepted_culture = neokorean
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = korean
+				}
+			}
+		set_ruler_culture = neokorean
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = korean
+				}
+			}
+		set_heir_culture = neokorean
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = korean
+				}
+			}
+		set_consort_culture = neokorean
+	}
+}
+merge_chinese_siberian = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = dong_xiboliyaren
+				culture = xi_xiboliyaren
+			}
+		}
+		change_culture = xiboliyaren
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = dong_xiboliyaren
+				primary_culture = xi_xiboliyaren
+			}
+		}
+		change_primary_culture = xiboliyaren
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = dong_xiboliyaren
+				has_accepted_culture = xi_xiboliyaren
+			}
+		}
+		remove_accepted_culture = dong_xiboliyaren
+		remove_accepted_culture = xi_xiboliyaren
+		add_accepted_culture = xiboliyaren
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = dong_xiboliyaren
+				ruler_culture = xi_xiboliyaren
+				}
+			}
+		set_ruler_culture = xiboliyaren
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = dong_xiboliyaren
+				heir_culture = xi_xiboliyaren
+				}
+			}
+		set_heir_culture = xiboliyaren
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = dong_xiboliyaren
+				consort_culture = xi_xiboliyaren
+			}
+		}
+		set_consort_culture = xiboliyaren
+	}
+}
+merge_vietnamese_chinese = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = vietnamese
+			}
+		}
+		change_culture = neovietnamese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = vietnamese
+				}
+			}
+		change_primary_culture = neovietnamese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = vietnamese
+				}
+			}
+		remove_accepted_culture = vietnamese
+		add_accepted_culture = neovietnamese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = vietnamese
+				}
+			}
+		set_ruler_culture = neovietnamese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = vietnamese
+				}
+			}
+		set_heir_culture = neovietnamese
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = vietnamese
+				}
+			}
+		set_consort_culture = neovietnamese
+	}
+}
+merge_russki = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = novgorodian
+				culture = muscovite
+				culture = ryazanian
+			}
+		}
+		change_culture = russian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = novgorodian
+				primary_culture = muscovite
+				primary_culture = ryazanian
+			}
+		}
+		change_primary_culture = russian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = novgorodian
+				has_accepted_culture = muscovite
+				has_accepted_culture = ryazanian
+			}
+		}
+		remove_accepted_culture = novgorodian
+		remove_accepted_culture = muscovite
+		remove_accepted_culture = ryazanian
+		add_accepted_culture = russian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = novgorodian
+				ruler_culture = muscovite
+				ruler_culture = ryazanian
+			}
+		}
+		set_ruler_culture = russian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = novgorodian
+				heir_culture = muscovite
+				heir_culture = ryazanian
+			}
+		}
+		set_heir_culture = russian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = novgorodian
+				consort_culture = muscovite
+				consort_culture = ryazanian
+			}
+		}
+		set_ruler_culture = russian
+	}
+}
+
+merge_rhomaio = {
+ every_province = {
+	limit = {
+		OR = {
+			culture = greek
+			culture = pontic_greek
+			culture = cappadocian
+			culture = cypriot
+			}
+		}
+		change_culture = rhomaio
+	}
+	every_country = {
+		limit = {
+			OR = {
+			primary_culture = greek
+			primary_culture = pontic_greek
+			primary_culture = cappadocian
+			primary_culture = cypriot
+			}
+		}
+		change_primary_culture = rhomaio
+	}
+	every_country = {
+		limit = {
+			OR = {
+				has_accepted_culture = greek
+				has_accepted_culture = pontic_greek
+				has_accepted_culture = cappadocian
+				has_accepted_culture = cypriot
+			}
+		}
+		remove_accepted_culture = greek
+		remove_accepted_culture = pontic_greek
+		remove_accepted_culture = cappadocian
+		remove_accepted_culture = cypriot
+		add_accepted_culture = rhomaio
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = greek
+				ruler_culture = pontic_greek
+				ruler_culture = cappadocian
+				ruler_culture = cypriot
+			}
+		}
+		set_ruler_culture = rhomaio
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = greek
+				heir_culture = pontic_greek
+				heir_culture = cappadocian
+				heir_culture = cypriot
+			}
+		}
+		set_heir_culture = rhomaio
+	}
+	every_country = {
+		limit = {
+			OR = {
+			consort_culture = greek
+			consort_culture = pontic_greek
+			consort_culture = cappadocian
+			consort_culture = cypriot
+			}
+		}
+		set_consort_culture = rhomaio
+	}
+}
+	
