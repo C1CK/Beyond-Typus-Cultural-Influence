@@ -5425,7 +5425,7 @@ province_event = { #Kaukasusdeutsch settlements and assimilation
 	}
 }
 
-province_event = { #Weissmeererdeutsch settlements and assimilation
+province_event = { #Weissmeererdeutsch settlements and assimilation -Uncolonized land
 	id = cultural_influence_germanic_rework.43
 	title = weissmeererdeutsch_settlements.title
 	desc = weissmeererdeutsch_settlements.desc
@@ -5433,7 +5433,8 @@ province_event = { #Weissmeererdeutsch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		#NOT = { culture_group = germanic } #Uncolonized land
+		NOT = { culture = weissmeererdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -7671,15 +7672,16 @@ province_event = { #Vandalisch settlements and assimilation
 	}
 }
 
-province_event = { #Morokkanisch settlements and assimilation -Uncolonized land
+province_event = { #Marokkanisch settlements and assimilation -Uncolonized land
 	id = cultural_influence_germanic_rework.59
-	title = morokkanisch_settlements.title
-	desc = morokkanisch_settlements.desc
+	title = marokkanisch_settlements.title
+	desc = marokkanisch_settlements.desc
 	picture = CULTURE_eventPicture
 
 	trigger = {
 		owner = { culture_group = germanic }
 		#NOT = { culture_group = germanic } #Uncolonized land
+		NOT = { culture = marokkanisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -7703,7 +7705,7 @@ province_event = { #Morokkanisch settlements and assimilation -Uncolonized land
 			}
 		}
 		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
-		morokkanisch_culture_region = yes
+		marokkanisch_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -7786,9 +7788,9 @@ province_event = { #Morokkanisch settlements and assimilation -Uncolonized land
 	}
 
 	option = {
-		name = morokkanisch_settlements.a
+		name = marokkanisch_settlements.a
 
-		change_culture = morokkanisch
+		change_culture = marokkanisch
 
 		if = {
 			limit = {
@@ -8102,6 +8104,7 @@ province_event = { #Saharadeutsch settlements and assimilation -Uncolonized land
 	trigger = {
 		owner = { culture_group = germanic }
 		#NOT = { culture_group = germanic } #Uncolonized land
+		NOT = { culture = saharadeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -8246,6 +8249,7 @@ province_event = { #Rotesmeerdeutsch settlements and assimilation -Uncolonized l
 	trigger = {
 		owner = { culture_group = germanic }
 		#NOT = { culture_group = germanic } #Uncolonized land
+		NOT = { culture = rotesmeerdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
