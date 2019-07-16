@@ -966,7 +966,9 @@ province_event = { #Dutch settlements and assimilation (Works for Low Franconian
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = dutch }
+		NOT = { culture = low_franconian }
+		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -1124,7 +1126,8 @@ province_event = { #Northern Low Saxon settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = northern_low_saxon }
+		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -1228,7 +1231,18 @@ province_event = { #Northern Low Saxon settlements and assimilation
 	option = {
 		name = northern_low_saxon_settlements.a
 
-		change_culture = northern_low_saxon
+		if = {
+			limit = {
+				has_global_flag = plattduutsch_created_flag
+			}
+			change_culture = plattduutsch
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = plattduutsch_created_flag }
+			}
+			change_culture = northern_low_saxon
+		}
 
 		if = {
 			limit = {
@@ -1263,7 +1277,8 @@ province_event = { #Pommeranian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = pommeranian }
+		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -1367,7 +1382,18 @@ province_event = { #Pommeranian settlements and assimilation
 	option = {
 		name = pommeranian_settlements.a
 
-		change_culture = pommeranian
+		if = {
+			limit = {
+				has_global_flag = plattduutsch_created_flag
+			}
+			change_culture = plattduutsch
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = plattduutsch_created_flag }
+			}
+			change_culture = pommeranian
+		}
 
 		if = {
 			limit = {
@@ -1402,7 +1428,8 @@ province_event = { #Prussian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = prussian }
+		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -1541,7 +1568,8 @@ province_event = { #Westphalian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = westphalian }
+		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -1645,7 +1673,18 @@ province_event = { #Westphalian settlements and assimilation
 	option = {
 		name = westphalian_settlements.a
 
-		change_culture = westphalian
+		if = {
+			limit = {
+				has_global_flag = plattduutsch_created_flag
+			}
+			change_culture = plattduutsch
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = plattduutsch_created_flag }
+			}
+			change_culture = westphalian
+		}
 
 		if = {
 			limit = {
@@ -1680,7 +1719,8 @@ province_event = { #Eastphalian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = eastphalian }
+		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -1784,7 +1824,18 @@ province_event = { #Eastphalian settlements and assimilation
 	option = {
 		name = eastphalian_settlements.a
 
-		change_culture = eastphalian
+		if = {
+			limit = {
+				has_global_flag = plattduutsch_created_flag
+			}
+			change_culture = plattduutsch
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = plattduutsch_created_flag }
+			}
+			change_culture = eastphalian
+		}
 
 		if = {
 			limit = {
@@ -1819,7 +1870,8 @@ province_event = { #Markish settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = markish }
+		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -1923,7 +1975,18 @@ province_event = { #Markish settlements and assimilation
 	option = {
 		name = markish_settlements.a
 
-		change_culture = markish
+		if = {
+			limit = {
+				has_global_flag = plattduutsch_created_flag
+			}
+			change_culture = plattduutsch
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = plattduutsch_created_flag }
+			}
+			change_culture = markish
+		}
 
 		if = {
 			limit = {
@@ -1958,7 +2021,8 @@ province_event = { #Saxon settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = low_franconian }
+		NOT = { culture = saxon }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -2062,7 +2126,18 @@ province_event = { #Saxon settlements and assimilation
 	option = {
 		name = saxon_settlements.a
 
-		change_culture = saxon
+		if = {
+			limit = {
+				has_global_flag = plattduutsch_created_flag
+			}
+			change_culture = plattduutsch
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = plattduutsch_created_flag }
+			}
+			change_culture = saxon
+		}
 
 		if = {
 			limit = {
@@ -2097,7 +2172,8 @@ province_event = { #Central Franconian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = central_franconian }
+		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -2201,7 +2277,18 @@ province_event = { #Central Franconian settlements and assimilation
 	option = {
 		name = central_franconian_settlements.a
 
-		change_culture = central_franconian
+		if = {
+			limit = {
+				has_global_flag = plattduutsch_created_flag
+			}
+			change_culture = plattduutsch
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = plattduutsch_created_flag }
+			}
+			change_culture = central_franconian
+		}
 
 		if = {
 			limit = {
@@ -2236,7 +2323,8 @@ province_event = { #Rhine Franconian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = rhine_franconian }
+		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -2340,7 +2428,18 @@ province_event = { #Rhine Franconian settlements and assimilation
 	option = {
 		name = rhine_franconian_settlements.a
 
-		change_culture = rhine_franconian
+		if = {
+			limit = {
+				has_global_flag = plattduutsch_created_flag
+			}
+			change_culture = plattduutsch
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = plattduutsch_created_flag }
+			}
+			change_culture = rhine_franconian
+		}
 
 		if = {
 			limit = {
@@ -2375,7 +2474,8 @@ province_event = { #East Franconian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = east_franconian }
+		NOT = { culture = hochdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -2479,7 +2579,18 @@ province_event = { #East Franconian settlements and assimilation
 	option = {
 		name = east_franconian_settlements.a
 
-		change_culture = east_franconian
+		if = {
+			limit = {
+				has_global_flag = hochdeutsch_created_flag
+			}
+			change_culture = hochdeutsch
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = hochdeutsch_created_flag }
+			}
+			change_culture = east_franconian
+		}
 
 		if = {
 			limit = {
@@ -2514,7 +2625,8 @@ province_event = { #Alemannish settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = alemannish }
+		NOT = { culture = hochdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -2618,7 +2730,18 @@ province_event = { #Alemannish settlements and assimilation
 	option = {
 		name = alemannish_settlements.a
 
-		change_culture = alemannish
+		if = {
+			limit = {
+				has_global_flag = hochdeutsch_created_flag
+			}
+			change_culture = hochdeutsch
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = hochdeutsch_created_flag }
+			}
+			change_culture = alemannish
+		}
 
 		if = {
 			limit = {
@@ -2653,7 +2776,9 @@ province_event = { #Bavarian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = bavarian }
+		NOT = { culture = austrian }
+		NOT = { culture = hochdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -2757,7 +2882,18 @@ province_event = { #Bavarian settlements and assimilation
 	option = {
 		name = bavarian_settlements.a
 
-		change_culture = bavarian
+		if = {
+			limit = {
+				has_global_flag = hochdeutsch_created_flag
+			}
+			change_culture = hochdeutsch
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = hochdeutsch_created_flag }
+			}
+			change_culture = bavarian
+		}
 
 		if = {
 			limit = {
@@ -2792,7 +2928,8 @@ province_event = { #Schlesisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = schlesisch }
+		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -2931,7 +3068,8 @@ province_event = { #Sudeten settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = sudeten }
+		NOT = { culture = hochdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -3070,7 +3208,7 @@ province_event = { #Posisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = posisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -3209,7 +3347,7 @@ province_event = { #Baltendeutsch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = baltendeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -3348,7 +3486,7 @@ province_event = { #Pannoniendeutsch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = pannoniendeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -3487,7 +3625,7 @@ province_event = { #Dinaridendeutsch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = dinaridendeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -3626,7 +3764,7 @@ province_event = { #Epiroten settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = epiroten }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -3765,7 +3903,7 @@ province_event = { #Nowgoroder settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = nowgoroder }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -3904,7 +4042,7 @@ province_event = { #Weissdeutsch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = weissdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -4043,7 +4181,7 @@ province_event = { #Ruthenisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = ruthenisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -4182,7 +4320,7 @@ province_event = { #Siebenbürger settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = siebenburger }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -4321,7 +4459,7 @@ province_event = { #Deutschthracian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = deutschthracian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -4460,7 +4598,7 @@ province_event = { #Schwarzmeererdeutsch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = schwarzmeererdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -4599,7 +4737,7 @@ province_event = { #Krimdeutsch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = krimdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -4738,7 +4876,7 @@ province_event = { #Bosporusdeutsch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = bosporusdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -4877,7 +5015,7 @@ province_event = { #Moskauer-Rjasaner settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = moskauer_rjasaner }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -5016,7 +5154,7 @@ province_event = { #Wolgadeutsch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = wolgadeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -5155,7 +5293,7 @@ province_event = { #Kubandeutsch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = kubandeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -5294,7 +5432,7 @@ province_event = { #Kaukasusdeutsch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = kaukasusdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -5425,16 +5563,16 @@ province_event = { #Kaukasusdeutsch settlements and assimilation
 	}
 }
 
-province_event = { #Weissmeererdeutsch settlements and assimilation -Uncolonized land
+province_event = { #Weissmeerer settlements and assimilation -Uncolonized land
 	id = cultural_influence_germanic_rework.43
-	title = weissmeererdeutsch_settlements.title
-	desc = weissmeererdeutsch_settlements.desc
+	title = weissmeerer_settlements.title
+	desc = weissmeerer_settlements.desc
 	picture = CULTURE_eventPicture
 
 	trigger = {
 		owner = { culture_group = germanic }
 		#NOT = { culture_group = germanic } #Uncolonized land
-		NOT = { culture = weissmeererdeutsch }
+		NOT = { culture = weissmeerer }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -5456,15 +5594,21 @@ province_event = { #Weissmeererdeutsch settlements and assimilation -Uncolonized
 					num_of_times_improved = 5
 				}
 			}
+			culture_group = germanic
 		}
 		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
-		weissmeererdeutsch_culture_region = yes
+		weissmeerer_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
 		#Template Settled MTTH
 		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = germanic
+		}
 
 		modifier = {
 			factor = 0.5
@@ -5536,7 +5680,7 @@ province_event = { #Weissmeererdeutsch settlements and assimilation -Uncolonized
 	}
 
 	option = {
-		name = weissmeererdeutsch_settlements.a
+		name = weissmeerer_settlements.a
 
 		change_culture = weissmeererdeutsch
 
@@ -5573,7 +5717,7 @@ province_event = { #Perm-Kasaner settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = perm_kasaner }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -5712,7 +5856,7 @@ province_event = { #Juten settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = juten }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -5851,7 +5995,7 @@ province_event = { #Schwedisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = schwedisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -5990,7 +6134,7 @@ province_event = { #Norwegisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = norwegisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -6140,7 +6284,8 @@ province_event = { #Norwegisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = norwegisch }
+		NOT = { culture = anglisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -6290,7 +6435,7 @@ province_event = { #Finnisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = finnisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -6429,7 +6574,7 @@ province_event = { #Ænglisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = anglisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -6568,7 +6713,7 @@ province_event = { #Lottrínger settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = lottringer }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -6707,7 +6852,7 @@ province_event = { #Old Frankisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = frankisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -6846,7 +6991,7 @@ province_event = { #Langobardisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = langobardisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -6985,7 +7130,7 @@ province_event = { #Riviera-Savoyerdeutsch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = rivieradeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -7124,7 +7269,7 @@ province_event = { #Suebisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = suebisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -7263,7 +7408,7 @@ province_event = { #Westgotisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = westgotisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -7402,7 +7547,7 @@ province_event = { #Italienisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = italienisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -7541,7 +7686,7 @@ province_event = { #Vandalisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = vandalisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -7825,7 +7970,7 @@ province_event = { #Syrisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = syrisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -7964,7 +8109,7 @@ province_event = { #Niler settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture_group = germanic }
+		NOT = { culture = niler }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -8126,6 +8271,7 @@ province_event = { #Saharadeutsch settlements and assimilation -Uncolonized land
 					num_of_times_improved = 5
 				}
 			}
+			culture_group = germanic
 		}
 		NOT = { owner = { has_country_modifier = german_settlement_cooldown } }
 		saharadeutsch_culture_region = yes
