@@ -255,3 +255,41 @@ province_event = { #Nomads flee
 		add_base_manpower = -4
 	}
 }
+
+country_event = { #Settlement of capital region (Basically for Uzbek)
+	id = cultural_influence_steppe.7
+	title = nomadic_capital_settlements.title
+	desc = nomadic_capital_settlements.desc
+	picture = HORSE_ON_HORSEBACK_eventPicture
+
+	trigger = {
+		manpower = 10 #10000
+		is_nomad = yes
+		capital_scope = { has_owner_culture = yes }
+		capital_scope = { steppe_culture_region = yes }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 20
+	}
+
+	option = { #Go Ahead
+		name = nomadic_capital_settlements.a
+
+		trigger = {
+			manpower = 10 #10000
+		}
+
+		add_manpower = -10 #10000
+		capital_scope = { change_culture = ROOT }
+		capital_scope = { change_religion = ROOT }
+		add_base_tax = 2
+		add_base_production = 2
+		add_base_manpower = 2
+	}
+
+	option = { #Nah
+		name = nomadic_capital_settlements.b
+	}
+}
