@@ -1,0 +1,53 @@
+country_decisions = {
+	adopt_arab_identity = {
+		major = yes
+		potential = {
+			religion_group = muslim
+			capital_scope = { #Has Arab cultures for their land
+				arab_cultural_region = yes
+			}
+			NOT = { culture_group = turko_semitic }
+		}
+
+		allow = {
+			adm_power = 300
+			total_development = 300 #Prohibits TLC and MOR. but permits a united Morocco, QAR, and a strong Sub-Saharan Nation
+			any_ally = { #Someone to Arabicize from
+				culture_group = turko_semitic
+				religion_group = muslim
+				has_opinion = {
+					who = ROOT
+					value = 180
+				}
+				total_development = 300 #Permits MAM, and almost TUN
+			}
+			NOT = { dominant_culture = CAPITAL }
+			OR = {
+				dominant_religion = sunni
+				dominant_religion = shiite
+				dominant_religion = ibadi
+			}
+		}
+
+		effect = {
+			add_adm_power = -300
+			change_technology_group = muslim
+			random_ally = { #Ally to Arabicize from
+				limit = {
+					culture_group = turko_semitic
+					religion_group = muslim
+					has_opinion = {
+						who = ROOT
+						value = 180
+					}
+					total_development = 300 #Permits TUR, MAM, and almost TUN
+				}
+				ROOT = { change_primary_culture = PREV }
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
