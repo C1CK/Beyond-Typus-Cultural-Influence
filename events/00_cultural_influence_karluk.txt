@@ -1,0 +1,119 @@
+namespace = cultural_influence_karluk
+#(Something in Chagatai)
+
+country_event = { #Splinter of Chagatai (Uzbek)
+	id = cultural_influence_karluk.1
+	title = karluk_splinter_uzbek.title
+	desc = karluk_splinter_uzbek.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_year = 1470
+		primary_culture = chagatai
+		capital_scope = { uzbek_region = yes }
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = karluk_splinter_uzbek.a
+
+		change_primary_culture = uzbehk
+
+		every_owned_province = {
+			limit = { culture = chagatai }
+			change_culture = uzbehk
+		}
+	}
+}
+
+country_event = { #Splinter of Chagatai (Uighur)
+	id = cultural_influence_karluk.2
+	title = karluk_splinter_uighur.title
+	desc = karluk_splinter_uighur.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_year = 1470
+		primary_culture = chagatai
+		capital_scope = { uighur_region = yes }
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = karluk_splinter_uighur.b
+
+		change_primary_culture = uyghur
+
+		every_owned_province = {
+			limit = { culture = chagatai }
+			change_culture = uyghur
+		}
+	}
+}
+
+country_event = { #Splinter of Chagatai (Moghul)
+	id = cultural_influence_karluk.3
+	title = karluk_splinter_moghul.title
+	desc = karluk_splinter_moghul.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_year = 1470
+		primary_culture = chagatai
+		capital_scope = { moghul_region = yes }
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = karluk_splinter_moghul.b
+
+		change_primary_culture = moghul
+
+		every_owned_province = {
+			limit = { culture = chagatai }
+			change_culture = moghul
+		}
+	}
+}
+
+country_event = { #Chagatai -> Uighur #Fallback not meant to fire
+	id = cultural_influence_karluk.4
+	title = chagatai_uighur.title
+	desc = chagatai_uighur.desc
+	picture = CULTURE_eventPicture
+
+	major = yes
+
+	trigger = {
+		is_year = 1490
+		any_owned_province = {
+			culture = chagatai
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 1
+	}
+
+	immediate = {
+		every_province = {
+			limit = {
+				culture = chagatai
+			}
+			change_culture = uighur
+		}
+	}
+
+	option = {
+		name = chagatai_uighur.a
+	}
+}

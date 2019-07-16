@@ -1,0 +1,36 @@
+uzbek_region = {
+	OR = {
+		AND = {
+			region = central_asia
+			NOT = { area = shanshan_area }
+			NOT = { area = tarim_basin_area } #Central Altishahr
+			NOT = { area = kashgaria_area }
+			NOT = { area = jetysuu_area }
+		}
+		area = merv_area
+		region = ural_region
+		region = west_siberia_region
+		region = crimea_region
+	}
+}
+
+uighur_region = {
+	OR = {
+		region = mongolia_region
+		region = tibet_region
+		region = north_china_region
+		region = manchuria_region
+		region = east_siberia_region
+		area = shanshan_area
+		area = tarim_basin_area #Central Altishahr
+		area = kashgaria_area
+		area = jetysuu_area
+	}
+}
+
+moghul_region = {
+	AND = {
+		uzbek_region = no
+		uighur_region = no
+	}
+}
