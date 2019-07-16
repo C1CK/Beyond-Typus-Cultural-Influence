@@ -68,3 +68,193 @@ country_event = { #West Germanic explanatory
 		name = CI_west_germanic_nation.a
 	}
 }
+
+namespace = colonial_settlement
+
+province_event = { #Basic Colonial Settlement Event
+	id = colonial_settlement.1
+	title = colonial_settlement.title
+	desc = colonial_settlement.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		OR = {
+			colonial_region = colonial_alaska
+			colonial_region = colonial_canada
+			colonial_region = colonial_hudson_bay
+			colonial_region = colonial_newfoundland
+			colonial_region = colonial_acadia
+			colonial_region = colonial_northwest_territories
+			colonial_region = colonial_greenland
+			colonial_region = colonial_eastern_america
+			colonial_region = colonial_louisiana
+			colonial_region = colonial_california
+			colonial_region = colonial_cascadia
+			colonial_region = colonial_mexico
+			colonial_region = colonial_cuba
+			colonial_region = colonial_bahamas
+			colonial_region = colonial_hispaniola
+			colonial_region = colonial_the_carribean	
+			colonial_region = colonial_colombia	
+			colonial_region = colonial_brazil
+			colonial_region = colonial_peru
+			colonial_region = colonial_la_plata
+			colonial_region = colonial_cape		
+			colonial_region = colonial_australia	
+			colonial_region = colonial_polynesia			
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = OWNER
+			}
+			num_of_times_improved = 5
+		}	
+		AND = {
+			NOT = {technology_group = north_american}
+			NOT = {technology_group = mesoamerican}
+			NOT = {technology_group = south_american}
+			NOT = {technology_group = andean}
+		}	
+		NOT = {culture = OWNER}
+	}
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 50
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = OWNER
+			}
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			num_of_times_improved = 1
+		}
+		modifier = {
+			factor = 0.80
+			num_of_times_improved = 2
+		}
+		modifier = {
+			factor = 0.85
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.9
+			num_of_times_improved = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 6
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 7
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 8
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 9
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 10
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 11
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 12
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 13
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 14
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 15
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 16
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 17
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 18
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 19
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 20
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 21
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 22
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 23
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 24
+		}
+		modifier = {
+			factor = 0.95
+			num_of_times_improved = 25
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+	option = {
+		name = colonial_settlement.a
+
+		change_culture = OWNER
+	}
+}
