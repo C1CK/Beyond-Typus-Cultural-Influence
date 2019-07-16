@@ -52,7 +52,6 @@ province_event = { #Rape and Pillage of XXX
 		}
 		any_neighbor_province = {
 			culture = OWNER
-			owned_by = PREV.OWNER
 		}
 		steppe_culture_region = yes
 		owner = { manpower = 2.5 } #2500
@@ -97,6 +96,7 @@ province_event = { #Nomadic growth
 		owner = { is_nomad = yes }
 		NOT = { development = 25 } #Limit for nomadic populations
 		owner = { manpower = 1 } #1000
+		NOT = { devastation = 1 }
 		has_global_flag = CI_events_enabled
 	}
 
