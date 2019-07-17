@@ -1,0 +1,38 @@
+province_event = { #Frisian Splinter
+	id = cultural_influence_british.55
+	title = frisian_split.title
+	desc = frisian_split.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		is_year = 1500
+		culture = frisian
+		NOT = { owner = { culture_group = anglo_frisian } }
+		NOT = { any_country = { primary_culture = frisian } }
+		NOT = { has_global_flag = frisian_split }
+		nationalism = 0
+	}
+	
+	mean_time_to_happen = {
+			years = 1
+	}
+
+	option = {
+		name = frisian_split.a
+
+		every_province = {
+			limit = {
+				culture = frisian
+				area = schleswig_area
+			}
+			change_culture = north_frisian
+		}
+		every_province = {
+			limit = {
+				culture = frisian
+				NOT = { area = schleswig_area }
+			}
+			change_culture = west_frisian
+		}
+	}
+}
