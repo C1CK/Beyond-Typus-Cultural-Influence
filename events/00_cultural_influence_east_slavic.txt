@@ -25,22 +25,21 @@ country_event = { #Russka Splinter (Hidden Event)
 					amount = 30
 				}
 			}
-			AND = { #No significant Ruthenian nation exists
+			AND = { #No significant Russian nation exists
 				NOT = { primary_culture = ruthenian }
 				NOT = { #No Such Nation exists
 					any_country = { #Any Nation exists that owns 40 Ruthenian provinces
-						culture = ruthenian
-						calc_true_if = { #Owns 40 Ruthenian provinces
-							all_owned_province = {
-								culture = ruthenian
-							}
-							amount = 40
+						primary_culture = ruthenian
+						num_of_owned_provinces_with = {
+							value = 40
+							culture = ruthenian
 						}
 					}
 				}
 			}
 		}
 		has_global_flag = CI_events_enabled
+		NOT = { has_global_flag = RUSSKA_SPLINTER_FLAG }
 	}
 
 	mean_time_to_happen = {
@@ -67,6 +66,8 @@ country_event = { #Russka Splinter (Hidden Event)
 	immediate = {
 		hidden_effect = {
 			split_russka = yes
+
+			set_global_flag = RUSSKA_SPLINTER_FLAG
 
 			every_country = {
 				limit = {
@@ -188,18 +189,17 @@ country_event = { #Russki Splinter (Hidden Event)
 				NOT = { primary_culture = russian }
 				NOT = { #No Such Nation exists
 					any_country = { #Any Nation exists that owns 30 Russian provinces
-						culture = russian
-						calc_true_if = { #Owns 30 Russian provinces
-							all_owned_province = {
-								culture = russian
-							}
-							amount = 30
+						primary_culture = russian
+						num_of_owned_provinces_with = {
+							value = 30
+							culture = russian
 						}
 					}
 				}
 			}
 		}
 		has_global_flag = CI_events_enabled
+		NOT = { has_global_flag = RUSSKI_SPLINTER_FLAG }
 	}
 
 	mean_time_to_happen = {
@@ -226,6 +226,8 @@ country_event = { #Russki Splinter (Hidden Event)
 	immediate = {
 		hidden_effect = {
 			split_russki = yes
+
+			set_global_flag = RUSSKI_SPLINTER_FLAG
 
 			every_country = {
 				limit = {
@@ -363,6 +365,7 @@ country_event = { #Russka Merger
 			type = all
 		}
 		has_global_flag = CI_events_enabled
+		has_global_flag = RUSSKA_SPLINTER_FLAG
 	}
 
 	mean_time_to_happen = {
@@ -372,6 +375,7 @@ country_event = { #Russka Merger
 	immediate = {
 		hidden_effect = {
 			merge_russka = yes
+			clr_global_flag = RUSSKA_SPLINTER_FLAG
 		}
 	}
 
@@ -404,6 +408,7 @@ country_event = { #Russki Merger
 			type = all
 		}
 		has_global_flag = CI_events_enabled
+		has_global_flag = RUSSKI_SPLINTER_FLAG
 	}
 
 	mean_time_to_happen = {
@@ -413,6 +418,7 @@ country_event = { #Russki Merger
 	immediate = {
 		hidden_effect = {
 			merge_russki = yes
+			clr_global_flag = RUSSKI_SPLINTER_FLAG
 		}
 	}
 
@@ -457,6 +463,7 @@ province_event = { #Russka expansion
 		russka_culture_region = yes
 		cossack_rule_region = no #Needs to be Cossack instead
 		has_global_flag = CI_events_enabled
+		NOT = { has_global_flag = RUSSKA_SPLINTER_FLAG }
 	}
 
 	mean_time_to_happen = {
@@ -573,6 +580,7 @@ province_event = { #Russki expansion
 		russki_culture_region = yes
 		cossack_rule_region = no #Needs to be Cossack instead
 		has_global_flag = CI_events_enabled
+		NOT = { has_global_flag = RUSSKI_SPLINTER_FLAG }
 	}
 
 	mean_time_to_happen = {
@@ -689,6 +697,7 @@ province_event = { #Ukrainian expansion (Used for after Ruthenian Diverges)
 		ukrainian_culture_region = yes
 		cossack_rule_region = no #Needs to be Cossack instead
 		has_global_flag = CI_events_enabled
+		has_global_flag = RUSSKA_SPLINTER_FLAG
 	}
 
 	mean_time_to_happen = {
@@ -804,6 +813,7 @@ province_event = { #Belarussian expansion (Used for after Ruthenian Diverges)
 		}
 		belarussian_culture_region = yes
 		has_global_flag = CI_events_enabled
+		has_global_flag = RUSSKA_SPLINTER_FLAG
 	}
 
 	mean_time_to_happen = {
@@ -919,6 +929,7 @@ province_event = { #Northern Russian expansion (Used for after Russian Diverges)
 		}
 		northern_russian_culture_region = yes
 		has_global_flag = CI_events_enabled
+		has_global_flag = RUSSKI_SPLINTER_FLAG
 	}
 
 	mean_time_to_happen = {
@@ -1034,6 +1045,7 @@ province_event = { #Middle Russian expansion (Used for after Russian Diverges)
 		}
 		middle_russian_culture_region = yes
 		has_global_flag = CI_events_enabled
+		has_global_flag = RUSSKI_SPLINTER_FLAG
 	}
 
 	mean_time_to_happen = {
@@ -1150,6 +1162,7 @@ province_event = { #Southern Russian expansion (Used for after Russian Diverges)
 		southern_russian_culture_region = yes
 		cossack_rule_region = no #Needs to be Cossack instead
 		has_global_flag = CI_events_enabled
+		has_global_flag = RUSSKI_SPLINTER_FLAG
 	}
 
 	mean_time_to_happen = {
@@ -1291,7 +1304,7 @@ province_event = { #Cossack expansion
 	}
 }
 
-province_event = { #Cossack expansion for Cossack Hosts (Used alongside standard Nomadic settlements outside of the Cossack rule region
+province_event = { #Cossack expansion for Cossack Hosts (Used alongside standard Nomadic settlements outside of the Cossack rule region)
 	id = cultural_influence_east_slavic.14
 	title = cossack_nomads.title
 	desc = cossack_nomads.desc
@@ -1299,7 +1312,14 @@ province_event = { #Cossack expansion for Cossack Hosts (Used alongside standard
 
 	trigger = {
 		owner = { culture_group = east_slavic }
-		owner = { is_subject_of_type = cossack_host_CI }
+		OR = { #AI will not conserve manpower in preparation for events
+			owner = { manpower = 2.5 } #2500
+			ai = yes
+		}
+		OR = {
+			owner = { is_subject_of_type = cossack_host_CI }
+			is_nomad = yes
+		}
 		NOT = { culture_group = east_slavic }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -1348,7 +1368,7 @@ province_event = { #Cossack expansion for Cossack Hosts (Used alongside standard
 		name = cossack_expansion.a
 
 		trigger = {
-			owner = { manpower = 2.5 } #2500
+			ai = no
 		}
 
 		add_manpower = -2.5 #2500
@@ -1356,8 +1376,23 @@ province_event = { #Cossack expansion for Cossack Hosts (Used alongside standard
 		change_religion = orthodox #Cossacks are always Orthodox
 	}
 
-	option = { #Not yet
+	option = { #Option for AI as AI will not pool manpower in preparation for events
 		name = cossack_expansion.b
+
+		trigger = {
+			ai = yes
+		}
+
+		ai_chance = { factor = 1 }
+
+		change_culture = cossack
+		change_religion = orthodox #Cossacks are always Orthodox
+	}
+
+	option = { #Not yet
+		name = cossack_expansion.c
+
+		ai_chance = { factor = 0 }
 	}
 }
 
