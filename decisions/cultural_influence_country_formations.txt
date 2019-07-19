@@ -1,102 +1,49 @@
 country_decisions = {
-	form_dual_monarchy_of_england_and_france = {
+	form_england_france_ENG_military = { #For ENG via conquest
 		major = yes
 		potential = {
+			bt_generic_can_form_potential_check = yes
+			NOT = { tag = UEF }
 			NOT = { exists = UEF }
 			NOT = { exists = UNK }
+			NOT = { exists = GBR }
 			NOT = { has_country_flag = formed_UEF_flag }
-			bt_generic_can_form_potential_check = yes
-			OR = {
-				primary_culture = standard_french
-				primary_culture = standard_occitan
-				primary_culture = standard_english #Devolved
-				primary_culture = standard_british #Non-Devolved
-			}
+			tag = ENG
 		}
 
 		provinces_to_highlight = {
 			OR = {
-				AND = {
-					OR = {
-						ROOT = { primary_culture = standard_french }
-						ROOT = { primary_culture = standard_occitan }
-					}
-					OR = {
-						area = cornwall_area
-						area = wessex_area
-						area = home_counties_area #Essex
-						area = east_midlands_area
-						area = west_midlands_area
-						area = east_anglia_area
-						area = yorkshire_area
-						area = northern_england_area
-					}
-					NOT = { culture_group = french }
-				}
-				AND = {
-					OR = {
-						ROOT = { primary_culture = standard_english } #Devolved
-						ROOT = { primary_culture = standard_british } #Non-Devolved
-					}
-					OR = {
-						region = france_region
-					}
-					NOT = { culture_group = british }
-				}
+				province_id = 236 #London
+				province_id = 239 #Gloucester
+				province_id = 243 #Lincolnshi
+				province_id = 244 #Lancashire
+				province_id = 238 #Essex
+				province_id = 183 #Paris
+				province_id = 177 #Maine
+				province_id = 178 #Anjou
+				province_id = 174 #Aquitaine
+				province_id = 184 #Orleanais
 			}
+			NOT = { is_core = ROOT }
 		}
 
 		allow = {
-			is_at_war = no
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
-			OR = {
-				custom_trigger_tooltip = {
-					tooltip = form_dual_monarchy_of_england_and_france_FRA_tooltip
-					AND = { #French Side
-						NOT = { exists = ENG }
-						OR = {
-							primary_culture = standard_french
-							primary_culture = standard_occitan
-						}
-						france_region = {
-							owned_by = ROOT
-							type = all
-						}
-						calc_true_if = {
-							all_owned_province = {
-								culture = franglais
-							}
-							amount = 26 #All provinces in ENG
-						}
-					}
-				}
-				custom_trigger_tooltip = {
-					tooltip = form_dual_monarchy_of_england_and_france_ENG_tooltip
-					AND = {
-						NOT = { exists = FRA }
-						OR = {
-							primary_culture = standard_english #Devolved
-							primary_culture = standard_british #Non-Devolved
-						}
-						british_isles_region = {
-							owned_by = ROOT
-							type = all
-						}
-						calc_true_if = {
-							all_owned_province = {
-								OR = {
-									culture = anglo_norman
-									culture = anglo_gascon
-									culture = anglo_occitan
-									culture = anglo_burgundian
-								}
-							}
-							amount = 60 #Of France region's 75
-						}
-					}
-				}
-			}
+			government_rank = 2
+			#adm_tech = 10 #Not needed
+			NOT = { exists = FRA }
+			#England
+			is_core = 236 #London
+			is_core = 239 #Gloucestershire
+			is_core = 243 #Lincolnshire
+			is_core = 244 #Lancashire
+			is_core = 238 #Essex
+			#France
+			is_core = 183 #Paris
+			is_core = 177 #Maine
+			is_core = 178 #Anjou
+			is_core = 174 #Aquitaine
+			is_core = 184 #Orleanais
+			total_development = 800
 		}
 
 		effect = {
@@ -106,22 +53,111 @@ country_decisions = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
-			if = {
-				limit = { NOT = { government_rank = 3 } }
-				set_government_rank = 3
+			add_prestige = 50
+			set_country_flag = formed_UEF_flag
+			hidden_effect = {
+				complete_mission = vassalize_france
 			}
-			every_province = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					OR = {
-						region = france_region
-						region = british_isles_region
-					}
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+		}
+	}
+
+	form_england_france_ENG_diplomatic = { #For ENG via PU
+		major = yes
+		potential = {
+			bt_generic_can_form_potential_check = yes
+			NOT = { tag = UEF }
+			NOT = { exists = UEF }
+			NOT = { exists = UNK }
+			NOT = { exists = GBR }
+			NOT = { has_country_flag = formed_UEF_flag }
+			tag = ENG
+			exists = FRA
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 236 #London
+				province_id = 239 #Gloucester
+				province_id = 243 #Lincolnshi
+				province_id = 244 #Lancashire
+				province_id = 238 #Essex
+				province_id = 183 #Paris
+				province_id = 177 #Maine
+				province_id = 178 #Anjou
+				province_id = 174 #Aquitaine
+				province_id = 184 #Orleanais
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			government_rank = 2
+			adm_tech = 10 #An attempt at balancing
+			FRA = { #France must be a PU and /really/ like you
+				is_subject_of_type = personal_union
+				is_subject_of = ROOT
+				has_opinion = {
+					who = ROOT
+					value = 200
 				}
-				add_permanent_claim = ROOT
+				NOT = { liberty_desire = 10 }
+			}
+			#England
+			is_core = 236 #London
+			is_core = 239 #Gloucestershire
+			is_core = 243 #Lincolnshire
+			is_core = 244 #Lancashire
+			is_core = 238 #Essex
+			#France (Must be owned directly or via France, since this is a union of FRA & ENG, not ENG and whatever vassals they've made)
+			183 = { #Paris
+				OR = {
+					is_core = ROOT
+					is_core = FRA
+				}
+			}
+			177 = { #Maine
+				OR = {
+					is_core = ROOT
+					is_core = FRA
+				}
+			}
+			178 = { #Anjou
+				OR = {
+					is_core = ROOT
+					is_core = FRA
+				}
+			}
+			174 = { #Aquitaine
+				OR = {
+					is_core = ROOT
+					is_core = FRA
+				}
+			}
+			184 = { #Orleanais
+				OR = {
+					is_core = ROOT
+					is_core = FRA
+				}
+			}
+			total_development = 800
+		}
+
+		effect = {
+			inherit = FRA
+			change_tag = UEF
+			remove_non_electors_emperors_from_empire_effect = yes
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
 			}
 			add_prestige = 50
 			set_country_flag = formed_UEF_flag
+			hidden_effect = {
+				complete_mission = vassalize_france
+			}
+			swap_non_generic_missions = yes
 		}
 	}
 
