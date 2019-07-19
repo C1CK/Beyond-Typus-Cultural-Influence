@@ -2188,13 +2188,17 @@ country_decisions = {
 			is_nomad = no
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
+			OR = {
+				NOT = { tag = TEU }
+				religion = protestant
+			}
 			owns_core_province = 41			# Königsberg
 			OR = {
 				owns_core_province = 43		# Danzig
 				owns_core_province = 2995	# Stolp
 			}
-			total_development = 75			#Normal requirement for rank 2 is 300 dev, so this is 75 percent discounted
-			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
+			total_development = 150
+			prestige = 25
 		}
 		effect = {
 			change_tag = PRU
