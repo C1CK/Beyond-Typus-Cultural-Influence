@@ -211,6 +211,7 @@ country_decisions = {
 			NOT = { exists = ANI }
 			NOT = { exists = IRE }
 			culture_group = british #CI added as only British nations can form the UK and thus inherit ANI
+			NOT = { has_country_flag = anglicizing_ireland_flag } #To prevent appearing twice, or being done when it doesn't make sense
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
