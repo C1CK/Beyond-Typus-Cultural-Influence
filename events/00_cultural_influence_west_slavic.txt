@@ -4,7 +4,22 @@ namespace = cultural_influence_west_slavic
 province_event = { #Czech settlements and assimilation
 	id = cultural_influence_west_slavic.1
 	title = czech_settlements.title
-	desc = czech_settlements.desc
+	desc = { #Hardcoded Grrr....
+		desc = czech_settlements.desc
+		trigger = {
+			area = erzgebirge_area
+			area = bohemia_area
+		}
+	}
+	desc = {
+		desc = greater_czech_settlements.desc
+		trigger = {
+			OR = {
+				province_id = 1770 #Ostmark
+				province_id = 134 #Vienna
+			}
+		}
+	}
 	picture = CULTURE_eventPicture
 
 	trigger = {
@@ -141,8 +156,8 @@ province_event = { #Czech settlements and assimilation
 
 province_event = { #Slovak settlements and assimilation
 	id = cultural_influence_west_slavic.2
-	title = greater_slovak_expansion.title
-	desc = greater_slovak_expansion.desc
+	title = slovak_settlements.title
+	desc = slovak_settlements.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
 
 	trigger = {
@@ -260,7 +275,7 @@ province_event = { #Slovak settlements and assimilation
 	}
 
 	option = {
-		name = greater_slovak_expansion.a
+		name = slovak_settlements.a
 
 		if = {
 			limit = {
