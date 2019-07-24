@@ -6,7 +6,63 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 		}
 
 		provinces_to_highlight = {
-			serbo_croat_homeland = yes
+			OR = {
+				serbo_croat_culture_region = yes
+				serbo_croat_bulgarian_conflict_region = yes
+				serbo_croat_slovene_conflict_region = yes
+			}
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	bulgarian_homelands = {
+		major = no
+		potential = {
+			culture_group = south_slavic
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				bulgarian_culture_region = yes
+				serbo_croat_bulgarian_conflict_region = yes
+			}
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	slovene_homelands = {
+		major = no
+		potential = {
+			culture_group = south_slavic
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				slovene_culture_region = yes
+				serbo_croat_slovene_conflict_region = yes
+			}
 		}
 
 		allow = {
