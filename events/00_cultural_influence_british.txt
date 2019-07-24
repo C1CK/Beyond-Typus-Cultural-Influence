@@ -1,7 +1,5 @@
 namespace = cultural_influence_british
-#GOD SAVE THE QUEEN!
-
-#Standard English Events
+#Oust the Monarchy!
 
 country_event = { #Northumbrian -> English / English -> Northumbrian
 	id = cultural_influence_british.1
@@ -14,11 +12,16 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 
 	trigger = {
 		government_rank = 2
-		OR = {
-			primary_culture = english
-			primary_culture = northumbrian
-		}
+		culture_group = british
 		NOT = { has_global_flag = british_first_unification_flag }
+		europe = { #Owned by ROOT, or not needed
+			OR = {
+				NOT = { culture = english }
+				NOT = { culture = northumbrian }
+				owned_by = ROOT
+			}
+			type = all
+		}
 		NOT = { #Owns all English and Northumbrian provinces in Europe
 			any_province = {
 				OR = {
@@ -30,7 +33,7 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 			}
 		}
 		OR = {
-			has_country_flag = had_war_of_the_roses
+			has_country_flag = war_of_the_roses_ended
 			NOT = { current_age = age_of_discovery }
 		}
 	}
@@ -45,23 +48,33 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 		custom_tooltip = british_first_unification.effect
 		hidden_effect = {
 			set_global_flag = british_first_unification_flag
-			change_primary_culture = ROOT
-			set_ruler_culture = ROOT
-			set_heir_culture = ROOT
 			if = {
 				limit = {
-					NOT = { has_foreign_consort = yes }
+					NOT = { primary_culture = northumbrian }
 				}
-				set_consort_culture = ROOT
-			}
-			every_province = {
-				limit = {
-					OR = {
-						culture = english
-						culture = northumbrian
+				every_province = {
+					limit = {
+						OR = {
+							culture = english
+							culture = northumbrian
+						}
 					}
+					change_culture = english
 				}
-					change_culture = ROOT
+			}
+			if = {
+				limit = {
+					primary_culture = northumbrian
+				}
+				every_province = {
+					limit = {
+						OR = {
+							culture = english
+							culture = northumbrian
+						}
+					}
+					change_culture = northumbrian
+				}
 			}
 		}
 		239 = { #Gloucestershire
@@ -101,8 +114,6 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 	}
 }
 
-#Anglo-Welsh Events
-
 province_event = { #Anglo-Welsh (Assimilation)
 	id = cultural_influence_british.3
 	title = british_anglo_welsh_spread.title
@@ -120,63 +131,27 @@ province_event = { #Anglo-Welsh (Assimilation)
 	}
 
 	mean_time_to_happen = {
-		#Template One Event Assimilated MTTH
-		years = 25
-		modifier = {
-			factor = 0.8
-			has_idea_to_assimilate_faster = yes
-		}
-		modifier = {
-			factor = 0.8
-			OWNER = { primary_culture = anglo_welsh }
-		}
-		modifier = {
-			factor = 0.8
-			province_trade_power = 10
-		}
-		modifier = {
-			factor = 0.8
-			province_trade_power = 20
-		}
-		modifier = {
-			factor = 0.8
-			province_trade_power = 30
-		}
-		modifier = { #Rural communities reluctant to convert
-			factor = 1.2
-			NOT = { development = 8 }
-		}
-		modifier = { #More extreme rural communities
-			factor = 1.5
-			NOT = { development = 5 }
-		}
-		modifier = { #Townships more connected to capital
-			factor = 0.9
-			development = 10
-		}
-		modifier = { #Cities even more connected
-			factor = 0.8
-			development = 20
-		}
-		modifier = { #Larger city means more connection
-			factor = 0.7
-			development = 30
-		}
-		modifier = { #Stop developing pls. k thx
-			factor = 0.6
-			development = 40
-		}
+		years = 10
 	}
 
 
 	option = {
 		name = british_anglo_welsh_spread.a
 
-		change_culture = anglo_welsh
+		if = {
+			limit = {
+				NOT = { primary_culture = standard_british }
+			}
+			change_culture = anglo_welsh
+		}
+		if = {
+			limit = {
+				primary_culture = standard_british
+			}
+			change_culture = standard_british
+		}
 	}
 }
-
-#Anglo-Irish Events
 
 province_event = { #Anglo-Irish (Assimilation)
 	id = cultural_influence_british.4
@@ -195,62 +170,30 @@ province_event = { #Anglo-Irish (Assimilation)
 	}
 
 	mean_time_to_happen = {
-		#Template One Event Assimilated MTTH
-		years = 50
+		years = 25
 		modifier = {
 			factor = 0.8
 			has_idea_to_assimilate_faster = yes
-		}
-		modifier = {
-			factor = 0.8
-			OWNER = { primary_culture = anglo_irish }
-		}
-		modifier = {
-			factor = 0.8
-			province_trade_power = 10
-		}
-		modifier = {
-			factor = 0.8
-			province_trade_power = 20
-		}
-		modifier = {
-			factor = 0.8
-			province_trade_power = 30
-		}
-		modifier = { #Rural communities reluctant to convert
-			factor = 1.2
-			NOT = { development = 8 }
-		}
-		modifier = { #More extreme rural communities
-			factor = 1.5
-			NOT = { development = 5 }
-		}
-		modifier = { #Townships more connected to capital
-			factor = 0.9
-			development = 10
-		}
-		modifier = { #Cities even more connected
-			factor = 0.8
-			development = 20
-		}
-		modifier = { #Larger city means more connection
-			factor = 0.7
-			development = 30
-		}
-		modifier = { #Stop developing pls. k thx
-			factor = 0.6
-			development = 40
 		}
 	}
 
 	option = {
 		name = british_anglo_irish_spread.a
 
-		change_culture = anglo_irish
+		if = {
+			limit = {
+				NOT = { primary_culture = standard_british }
+			}
+			change_culture = anglo_irish
+		}
+		if = {
+			limit = {
+				primary_culture = standard_british
+			}
+			change_culture = standard_british
+		}
 	}
 }
-
-#Scottish Events
 
 province_event = { #Scottish (Assimilation)
 	id = cultural_influence_british.5
@@ -260,7 +203,7 @@ province_event = { #Scottish (Assimilation)
 
 	trigger = {
 		OR = {
-			owner = { has_country_flag = anglicizing_highlands_flag }
+			owner = { has_country_flag = anglicizing_scotland_flag }
 			OR = { #Allow Lowlands before decision
 				area = lowlands_area #Eastern Lowlands
 				area = scottish_marches_area #Western Lowlands
@@ -275,78 +218,46 @@ province_event = { #Scottish (Assimilation)
 		anglo_scottish_culture_region = yes
 		OR = {
 			development = 10
-			any_neighbor_province = { culture = british }
+			any_neighbor_province = { culture_group = british }
 		}
 	}
 
 	mean_time_to_happen = {
-		#Template One Event Assimilated MTTH
-		years = 25
-		modifier = {
-			factor = 0.8
-			has_idea_to_assimilate_faster = yes
-		}
-		modifier = {
-			factor = 0.8
-			OWNER = { primary_culture = scottish }
-		}
-		modifier = {
-			factor = 0.8
-			province_trade_power = 10
-		}
-		modifier = {
-			factor = 0.8
-			province_trade_power = 20
-		}
-		modifier = {
-			factor = 0.8
-			province_trade_power = 30
-		}
-		modifier = { #Rural communities reluctant to convert
-			factor = 1.2
-			NOT = { development = 8 }
-		}
-		modifier = { #More extreme rural communities
-			factor = 1.5
-			NOT = { development = 5 }
-		}
-		modifier = { #Townships more connected to capital
-			factor = 0.9
-			development = 10
-		}
-		modifier = { #Cities even more connected
-			factor = 0.8
-			development = 20
-		}
-		modifier = { #Larger city means more connection
-			factor = 0.7
-			development = 30
-		}
-		modifier = { #Stop developing pls. k thx
-			factor = 0.6
-			development = 40
-		}
+		years = 10
 	}
 	
 	option = {
 		name = british_scottish_spread.a
 
-		change_culture = scottish
 
 		if = {
 			limit = {
 				province_id = 4365 #Mann
 				OR = {
-					primary_culture = english
-					primary_culture = northumbrian
+					owner = { primary_culture = scottish }
+					owner = { primary_culture = english }
+					owner = { primary_culture = northumbrian }
+					owner = { primary_culture = anglo_irish }
 				}
 			}
 			change_culture = ROOT
 		}
+		if = {
+			limit = {
+				NOT = { primary_culture = standard_british }
+				NOT = { province_id = 4365 } #Mann
+			}
+			change_culture = scottish
+		}
+		if = {
+			limit = {
+				primary_culture = standard_british
+				NOT = { province_id = 4365 } #Mann
+			}
+			change_culture = standard_british
+		}
 	}
 }
-
-#Standard British Events
 
 country_event = { #Devolution of Parliament Option Event
 	id = cultural_influence_british.6
@@ -363,9 +274,23 @@ country_event = { #Devolution of Parliament Option Event
 		name = devolution_of_parliament_1.a
 
 		set_country_flag = devolution_of_parliament
-		country_event = {
-			id = cultural_influence_british.9
-			days = 0
+		custom_tooltip = devolution_of_parliament_2.effect
+
+		add_country_modifier = {
+			name = devolution_modifier
+			duration = -1
+		}
+		236 = { #London
+			add_province_triggered_modifier = english_devolved_parliament_modifier
+			add_base_tax = 2
+		}
+		248 = { #Lothian
+			add_province_triggered_modifier = scottish_devolved_parliament_modifier
+			add_base_tax = 2
+		}
+		241 = { #Glamorgan
+			add_province_triggered_modifier = welsh_devolved_parliament_modifier
+			add_base_tax = 2
 		}
 	}
 
@@ -561,6 +486,7 @@ province_event = { #Irish -> British
 				culture = anglo_irish
 				culture = standard_british
 			}
+			type = all
 		}
 	}
 
@@ -571,193 +497,1905 @@ province_event = { #Irish -> British
 			factor = 0.8
 			has_idea_to_assimilate_faster = yes
 		}
+	}
+
+
+	option = {
+		name = british_third_unification.a
+
+		change_culture = standard_british
+	}
+}
+
+province_event = { #Arctic settlements & Assimilation -Uncolonized land
+	id = cultural_influence_british.9
+	title = arctic_settlements.title
+	desc = arctic_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = british }
+		NOT = { culture = anglo_arctic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		NOT = { owner = { has_country_modifier = british_settlement_cooldown } }
+		anglo_arctic_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
 		modifier = {
-			factor = 0.8
-			OWNER = { primary_culture = standard_british }
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
 		}
 		modifier = {
-			factor = 0.8
-			province_trade_power = 10
-		}
-		modifier = {
-			factor = 0.8
-			province_trade_power = 20
-		}
-		modifier = {
-			factor = 0.8
-			province_trade_power = 30
-		}
-		modifier = { #Rural communities reluctant to convert
-			factor = 1.2
-			NOT = { development = 8 }
-		}
-		modifier = { #More extreme rural communities
 			factor = 1.5
-			NOT = { development = 5 }
+			has_global_flag = 15_CI_MTTH_flag
 		}
-		modifier = { #Townships more connected to capital
-			factor = 0.9
-			development = 10
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
 		}
-		modifier = { #Cities even more connected
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
 			factor = 0.8
-			development = 20
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
 		}
-		modifier = { #Larger city means more connection
-			factor = 0.7
-			development = 30
-		}
-		modifier = { #Stop developing pls. k thx
+		modifier = {
 			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
 			development = 40
 		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
 	}
-
-
-    option = {
-    	name = british_third_unification.a
-
-    	change_culture = standard_british
-    }
-}
-
-country_event = { #Devolution of Parliament
-	id = cultural_influence_british.9
-	title = devolution_of_parliament_2.title
-	desc = devolution_of_parliament_2.desc
-	picture = ARTWORK_eventPicture
-
-	fire_only_once = yes
-	major =  yes
-	is_triggered_only = yes
 
 	option = {
-		name = devolution_of_parliament_2.a
-		custom_tooltip = devolution_of_parliament_2.effect
+		name = arctic_settlements.a
 
-		add_country_modifier = {
-			name = devolution_modifier
-			duration = -1
-		}
-		236 = { #London
-			add_province_triggered_modifier = english_devolved_parliament_modifier
-			add_base_tax = 2
-		}
-		248 = { #Lothian
-			add_province_triggered_modifier = scottish_devolved_parliament_modifier
-			add_base_tax = 2
-		}
-		241 = { #Glamorgan
-			add_province_triggered_modifier = welsh_devolved_parliament_modifier
-			add_base_tax = 2
-		}
+		change_culture = anglo_arctic
 	}
 }
 
-country_event = { #Unite Anglo-French Cultures
+province_event = { #Norman settlements & Assimilation -Continental Settlements Plan
 	id = cultural_influence_british.10
-	title = unite_anglo_french.title
-	desc = unite_anglo_french.desc
-	picture = GREAT_BUILDING_eventPicture
-
-	fire_only_once = yes
+	title = norman_settlements.title
+	desc = norman_settlements.desc
+	picture = CULTURE_eventPicture
 
 	trigger = {
-		has_country_flag = not_devolution_of_parliament
-		owns_core_province = 183 #paris
-		owns_core_province = 174 #Aquitaine
-		tag = UEF
-		culture_group = british
-	}
-
-	option = {
-		name = unite_anglo_french.a
-
-		every_province = {
-			limit = {
-				culture = anglo_norman
-				culture = anglo_gascon
-				culture = anglo_occitan
-				culture = anglo_burgundian
+		owner = { culture_group = british }
+		NOT = { culture = anglo_norman_english } #Not French
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
 			}
-			change_culture = anglo_french
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
 		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_norman_english_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = norman_settlements.a
+
+		change_culture = anglo_norman_english
 	}
 }
 
-country_event = { #Granting of Irish Parliament
+province_event = { #Aquitanian settlements & Assimilation -Continental Settlements Plan
 	id = cultural_influence_british.11
-	title = anglo_irish_parliament.title
-	desc = anglo_irish_parliament.desc
-	picture = GREAT_BUILDING_eventPicture
+	title = aquitanian_settlements.title
+	desc = aquitanian_settlements.desc
+	picture = CULTURE_eventPicture
 
 	trigger = {
-		has_country_flag = devolution_of_parliament
-		373 = { owned_by = ROOT }
-		373 = { culture = anglo_irish }
-		NOT = { 373 = { has_province_modifier = irish_devolved_parliament_modifier } }
+		owner = { culture_group = british }
+		NOT = { culture = anglo_aquitanian }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_aquitanian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
 	}
 
 	option = {
-		name = anglo_irish_parliament.a
+		name = aquitanian_settlements.a
 
-		373 = { #The Pale
-			hidden_effect = { add_province_triggered_modifier = irish_devolved_parliament_modifier }
-			add_base_tax = 2
-		}
+		change_culture = anglo_aquitanian
 	}
 }
 
-country_event = { #Granting of Norman Parliament
+province_event = { #Burgundian settlements & Assimilation -Continental Settlements Plan
 	id = cultural_influence_british.12
-	title = anglo_norman_parliament.title
-	desc = anglo_norman_parliament.desc
-	picture = GREAT_BUILDING_eventPicture
+	title = burgundian_settlements.title
+	desc = burgundian_settlements.desc
+	picture = CULTURE_eventPicture
 
 	trigger = {
-		has_country_flag = devolution_of_parliament
-		183 = { owned_by = ROOT }
-		183 = { culture = anglo_norman }
-		NOT = { 183 = { has_province_modifier = french_devolved_parliament_modifier } }
+		owner = { culture_group = british }
+		NOT = { culture = anglo_burgundian }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_burgundian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
 	}
 
 	option = {
-		name = anglo_norman_parliament.a
+		name = burgundian_settlements.a
 
-		183 = { #Devolve Paris
-			hidden_effect = { add_province_triggered_modifier = french_devolved_parliament_modifier }
-			add_base_tax = 2
-		}
+		change_culture = anglo_burgundian
 	}
 }
 
-country_event = { #Granting of Gascon Parliament
+province_event = { #Toulousain settlements & Assimilation -Continental Settlements Plan
 	id = cultural_influence_british.13
-	title = anglo_gascon_parliament.title
-	desc = anglo_gascon_parliament.desc
-	picture = GREAT_BUILDING_eventPicture
+	title = toulousain_settlements.title
+	desc = toulousain_settlements.desc
+	picture = CULTURE_eventPicture
 
 	trigger = {
-		has_country_flag = devolution_of_parliament
-		174 = { owned_by = ROOT }
-		174 = { culture = anglo_gascon }
-		NOT = { 174 = { has_province_modifier = gascon_devolved_parliament_modifier } }
+		owner = { culture_group = british }
+		NOT = { culture = anglo_toulousain }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_toulousain_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
 	}
 
 	option = {
-		name = anglo_gascon_parliament.a
+		name = toulousain_settlements.a
 
-		174 = { #Devolve Aquitaine
-			hidden_effect = { add_province_triggered_modifier = gascon_devolved_parliament_modifier }
-			add_base_tax = 2
-		}
+		change_culture = anglo_toulousain
 	}
 }
 
-#event IDs 12-20 saved for Standard British Special Events
+province_event = { #Lower Rhenish settlements & Assimilation -Continental Settlements Plan
+	id = cultural_influence_british.14
+	title = lower_rhenish_settlements.title
+	desc = lower_rhenish_settlements.desc
+	picture = CULTURE_eventPicture
 
+	trigger = {
+		owner = { culture_group = british }
+		NOT = { culture = anglo_lower_rhenish }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_lower_rhenish_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
 
-#event IDs 35-40 saved for European Cultures
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = lower_rhenish_settlements.a
+
+		change_culture = anglo_lower_rhenish
+	}
+}
+
+province_event = { #Frisian settlements & Assimilation -Continental Settlements Plan
+	id = cultural_influence_british.15
+	title = frisian_settlements.title
+	desc = frisian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = british }
+		NOT = { culture = anglo_anglo_frisian }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_frisian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = frisian_settlements.a
+
+		change_culture = anglo_frisian
+	}
+}
+
+province_event = { #Upper Rhenish settlements & Assimilation -Continental Settlements Plan
+	id = cultural_influence_british.16
+	title = upper_rhenish_settlements.title
+	desc = upper_rhenish_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = british }
+		NOT = { culture = anglo_upper_rhenish }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_upper_rhenish_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = upper_rhenish_settlements.a
+
+		change_culture = anglo_upper_rhenish
+	}
+}
+
+province_event = { #Danish settlements & Assimilation -Continental Settlements Plan
+	id = cultural_influence_british.17
+	title = danish_settlements.title
+	desc = danish_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = british }
+		NOT = { culture = anglo_danish }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_danish_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = danish_settlements.a
+
+		change_culture = anglo_danish
+	}
+}
+
+province_event = { #Norwegian settlements & Assimilation -Continental Settlements Plan
+	id = cultural_influence_british.18
+	title = norwegian_settlements.title
+	desc = norwegian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = british }
+		NOT = { culture = anglo_norwegian }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_norwegian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = norwegian_settlements.a
+
+		change_culture = anglo_norwegian
+	}
+}
+
+province_event = { #Swedish settlements & Assimilation -Continental Settlements Plan
+	id = cultural_influence_british.19
+	title = swedish_settlements.title
+	desc = swedish_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = british }
+		NOT = { culture = anglo_swedish }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_swedish_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = swedish_settlements.a
+
+		change_culture = anglo_swedish
+	}
+}
+
+province_event = { #Finnish settlements & Assimilation -Continental Settlements Plan
+	id = cultural_influence_british.20
+	title = finnish_settlements.title
+	desc = finnish_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = british }
+		NOT = { culture = anglo_finnish }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_finnish_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = finnish_settlements.a
+
+		change_culture = anglo_finnish
+	}
+}
+
+province_event = { #Laplander settlements & Assimilation -Continental Settlements Plan
+	id = cultural_influence_british.21
+	title = laplander_settlements.title
+	desc = laplander_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = british }
+		NOT = { culture = anglo_laplander }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_laplander_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = laplander_settlements.a
+
+		change_culture = anglo_laplander
+	}
+}
+
+province_event = { #Baltic settlements & Assimilation -Continental Settlements Plan
+	id = cultural_influence_british.22
+	title = baltic_settlements.title
+	desc = baltic_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = british }
+		NOT = { culture = anglo_baltic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_baltic_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = baltic_settlements.a
+
+		change_culture = anglo_baltic
+	}
+}
+
+province_event = { #Pomeranian settlements & Assimilation -Continental Settlements Plan
+	id = cultural_influence_british.23
+	title = pomeranian_settlements.title
+	desc = pomeranian_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = british }
+		NOT = { culture = anglo_pomeranian }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		anglo_pomeranian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = british
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = pomeranian_settlements.a
+
+		change_culture = anglo_pomeranian
+	}
+}
 
 #Colonial Cultures
 
@@ -912,34 +2550,7 @@ province_event = { #Canadian
 	}
 }
 
-province_event = { #Greenlander
-	id = cultural_influence_british.46
-	title = british_greenlander.title
-	desc = british_greenlander.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		anglo_greenlander_culture_region = yes
-		is_city = yes
-		british_new_world = no
-		owner = { culture_group = british }
-	}
-
-	mean_time_to_happen = {
-		years = 25
-
-		modifier = {
-			factor = 0
-			british_european = yes
-		}
-	}
-
-	option = {
-		name = british_greenlander.a
-
-		change_culture = anglo_greenlander
-	}
-}
+####Free ID 46
 
 province_event = { #Newfoundlander
 	id = cultural_influence_british.47
@@ -1125,43 +2736,3 @@ province_event = { #South African
 }
 
 #Considered adding India to this list, but the influence of English in India 1600-1947 was fairly insignificant, if someone can convince me otherwise, please do - Sam
-
-province_event = {
-	id = cultural_influence_british.55
-	title = frisian_split.title
-	desc = frisian_split.desc
-	picture = CULTURE_eventPicture
-	
-	trigger = {
-		is_year = 1500
-		culture = frisian
-		NOT = { owner = { culture_group = british } } #Frisian-Anglic
-		NOT = { any_country = { primary_culture = frisian } }
-		NOT = { has_global_flag = frisian_split }
-		nationalism = 0
-	}
-	
-	mean_time_to_happen = {
-			years = 1
-	}
-
-	option = {
-		name = frisian_split.a
-
-		every_province = {
-			limit = {
-				culture = frisian
-				area = schleswig_area
-			}
-			change_culture = north_frisian
-		}
-		every_province = {
-			limit = {
-				culture = frisian
-				NOT = { area = schleswig_area }
-			}
-			change_culture = west_frisian
-		}
-	}
-}
-				

@@ -1,3 +1,4 @@
+#These all use anglo_ to prevent any conflicts
 #Culture Classifications
 
 british_european = {
@@ -78,7 +79,8 @@ anglo_scottish_culture_region = {
 		area = highlands_area
 		area = lowlands_area
 		area = scottish_marches_area
-		area = subarctic_islands_area
+		province_id = 369 #Orkney
+		province_id = 1978 #Shetland
 	}
 }
 
@@ -88,11 +90,19 @@ standard_british_culture_region = {
 		region = ireland_area #Why is this called ireland_area when it's a region?
 		province_id = 369 #Orkney
 		province_id = 1978 #Shetland
-		province_id = 226 #Gibraltar
 	}
 }
 
-anglo_norman_culture_region = {
+anglo_arctic_culture_region = {
+	OR = {
+		province_id = 1979 #Faroes
+		province_id = 5591 #Jan Mayen
+		area = iceland_area
+		area = greenland_area
+	}
+}
+
+anglo_norman_english_culture_region = {
 	OR = {
 		area = brittany_area
 		area = normandy_area
@@ -101,136 +111,201 @@ anglo_norman_culture_region = {
 		province_id = 178 #Anjou
 		province_id = 177 #Maine
 		province_id = 3075 #Dunois
+		area = flanders_area
+		province_id = 1743 #Cambray
+		province_id = 91 #Hainaut
 	}
 }
 
-anglo_gascon_culture_region = {
+anglo_aquitanian_culture_region = {
 	OR = {
+		province_id = 4389 #Tours
 		area = poitou_area
+		AND = {
+			area = guyenne_area
+			NOT = { province_id = 198 } #Rouergue
+		}
+		AND = {
+			area = massif_central_area
+			NOT = { province_id = 190 } #Bourbonnais
+			NOT = { province_id = 3088 } #Forez
+		}
 		area = pyrenees_area
-		province_id = 4389 #Touraine
-		province_id = 174 #Aquitaine
-		province_id = 3081 #Agenais
-		province_id = 194 #Périgord
-		province_id = 4397 #Angoumois
-	}
-}
-
-anglo_occitan_culture_region = {
-	OR = {
-		area = languedoc_area
-		area = massif_central_area
-		area = savoy_dauphine_area
-		area = provence_area
-		province_id = 4112 #Quercy
-		province_id = 198 #Rouergue
 	}
 }
 
 anglo_burgundian_culture_region = {
 	OR = {
-		area = lorraine_area
-		area = bourgogne_area
-		area = champagne_area
 		province_id = 179 #Berry
 		province_id = 184 #Orleanais
+		province_id = 190 #Bourbonnais
+		area = bourgogne_area #Burgundy
+		area = champagne_area
+		area = lorraine_area
+		province_id = 1866 #Namur
+		province_id = 93 #Liege
+		province_id = 3066 #Arlon
+		province_id = 94 #Luxembourg
+		province_id = 3198 #Saarland
+		province_id = 75 #Alsace
+		province_id = 1880 #Sundgau
 	}
 }
 
-anglo_dutch_culture_region = {
-	region = low_countries_region
+anglo_toulousain_culture_region = {
+	OR = {
+		area = languedoc_area
+		province_id = 197 #Rosellón
+		province_id = 198 #Rouergue
+		province_id = 3088 #Forez
+		area = savoy_dauphine_area #Savoy
+		area = provence_area
+	}
 }
 
-anglo_westphalian_culture_region = {
+anglo_lower_rhenish_culture_region = {
 	OR = {
-		area = westphalia_area
-		area = weser_area
-		area = muenster_area
-		area = braunschweig_area
+		area = netherlands_area
+		area = brabant_area
+		province_id = 99 #Veluwe
+		province_id = 3060 #Betuwe
+		province_id = 3063 #Overmaas
+		province_id = 2975 #Kleef
+		province_id = 3199 #Essen
+		province_id = 84 #Berg
+		province_id = 85 #Köln
+		province_id = 3197 #Jülich
+		province_id = 1878 #Aachen
+		province_id = 2974 #Looz
+		province_id = 1742 #Limburg
+	}
+}
+
+anglo_frisian_culture_region = {
+	OR = {
+		area = frisia_area
+		AND = {
+			area = weser_area
+			NOT = { province_id = 54 } #Stade
+		}
+		province_id = 3058 #Drente
+		province_id = 4381 #Overijssel
+		area = muenster_area #Münster
+		province_id = 3202 #Minden
+	}
+}
+
+anglo_upper_rhenish_culture_region = {
+	OR = {
+		AND = {
+			area = westphalia_area
+			NOT = { province_id = 3202 } #Minden
+		}
+		province_id = 3200 #Mark
+		province_id = 3201 #Siegen
 		area = hesse_area
-		area = north_rhine_area
-		area = lower_rhineland_area
+		province_id = 1760 #Koblenz
+		province_id = 80 #Trier
+		area = palatinate_area
+		province_id = 79 #Würzburg
+		AND = {
+			area = lower_swabia_area
+			NOT = { province_id = 71 } #Ansbach
+		}
+		province_id = 74 #Baden
+		province_id = 72 #Breisgau
+		province_id = 3205 #Constance
+		province_id = 69 #Oberschwaben
 	}
 }
 
 anglo_danish_culture_region = {
 	OR = {
-		area = holstein_area
-		area = schleswig_area
 		area = jutland_area
+		area = schleswig_area
+		area = holstein_area
+		province_id = 54 #Stade
+		province_id = 2996 #Wismar
 		area = denmark_area
 	}
 }
 
 anglo_norwegian_culture_region = {
 	OR = {
-		area = eastern_norway
 		area = western_norway
-		province_id = 10 #Jemtland
-		province_id = 20 #Trondelag
+		area = southern_norway_area
+		area = eastern_norway_area
+		province_id = 7787 #Raumsdalr
+		province_id = 20 #Troendalog
+		province_id = 7788 #Sparbyggjafylki
+		area = northern_norway_area
+		province_id = 1777 #Kola
+		province_id = 5650 #Varzuga
 	}
 }
 
 anglo_swedish_culture_region = {
 	OR = {
-		area = gotaland_area
 		area = skaneland_area
+		area = vastra_gotaland_area #Westrogothia
+		area = gotaland_area #Ostrogothia
 		area = svealand_area
-		area = vastra_gotaland_area
-		area = ostra_svealand_area
-		province_id = 3124 #Ångermanland
-		province_id = 9 #Helsingjaland
 	}
 }
 
 anglo_finnish_culture_region = {
 	OR = {
 		area = finland_area
-		area = north_karelia_area #Ingria
-		province_id = 32 #Kexholm
-		province_id = 4124 #Karjala
 		province_id = 19 #Österbotten
+		province_id = 7801 #Kokkola
+		province_id = 4113 #Peräpohjola
+		province_id = 4152 #Kainuu
+		area = north_karelia_area #Ingria
+		area = west_karelia_area
+		area = karelia_area
 	}
 }
 
-anglo_sami_culture_region = {
+anglo_laplander_culture_region = {
 	OR = {
-		area = laponia_area
-		province_id = 21 #Hálogaland
-		province_id = 3119 #Trums
-		province_id = 315 #Finnmork
-		province_id = 18 #Lappland
-		province_id = 11 #Västerbotten
-		province_id = 4114 #Lappi
-		province_id = 4113 #Kajanaland
-		province_id = 4152 #Kainuu
+		province_id = 7796 #Herjárdalr
+		province_id = 10 #Jamtaland
+		area = norrland_area
+		province_id = 4151 #Enare
+		province_id = 7802 #Rovaniemi
+		province_id = 7864 #Kuolajarvi
+		province_id = 5649 #Kandalaksha
 	}
 }
 
 anglo_baltic_culture_region = {
 	OR = {
-		area = livonia_area
-		area = estonia_ingria_area
-		area = curonia_area
+		region = baltic_region
+		province_id = 3225 #Sudovia
+		province_id = 7211 #Wizajny
 	}
 }
 
-anglo_prussian_culture_region = {
+anglo_pomeranian_culture_region = {
 	OR = {
-		area = west_prussia_area
-		area = east_prussia_area
-		area = samogitia_area
+		area = lower_saxony_area
+		area = northern_saxony_area
+		area = mittelmark_area
+		AND = {
+			area = mecklenburg_area
+			NOT = { province_id = 2996 } #Wismar
+		}
+		area = vorpommern_area #Cispomerania
+		area = hinter_pommern_area #Transpomerania
+		AND = {
+			area = neumark_area
+			NOT = { province_id = 1763 } #Dolni Luzice
+			NOt = { province_id = 60 } #Budysínsko
+		}
 	}
 }
 
-anglo_pommmeranian_culture_region = {
-	OR = {
-		area = pomerelia_area
-		area = vorpommern_area
-		area = hinter_pommern_area
-		area = mecklenburg_area
-	}	
-}
+###Colonial###
 
 anglo_australian_culture_region = {
 	region = australia_region
@@ -272,13 +347,6 @@ anglo_canadian_culture_region = {
 		}
 		region = alaska_region
 		region = northwest_territories_region
-	}
-}
-
-anglo_greenlander_culture_region = {
-	OR = {
-		area = greenland_area
-		area = east_greenland_area
 	}
 }
 
