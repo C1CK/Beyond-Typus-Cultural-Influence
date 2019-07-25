@@ -22,19 +22,19 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 			}
 			type = all
 		}
-		NOT = { #Owns all English and Northumbrian provinces in Europe
-			any_province = {
+		NOT = { #Invert
+			any_province = { #Any province that is English/Inglish lacks printing press
+				continent = europe
 				OR = {
 					culture = english
-					culture = northumbrian
+					culture = northumbrian #Inglish
 				}
-				continent = europe
-				NOT = { owned_by = ROOT }
+				NOT = { printing_press = 100 }
 			}
 		}
 		OR = {
-			has_country_flag = war_of_the_roses_ended
-			NOT = { current_age = age_of_discovery }
+			religion = anglican #Prayer Book
+			has_institution = printing_press
 		}
 	}
 
@@ -42,61 +42,47 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 		months = 6
 	}
 
-	option = {
+	immediate = {
+		set_global_flag = british_first_unification_flag
+	}
+
+	option = { #Southern
 		name = british_first_unification.a
 
-		custom_tooltip = british_first_unification.effect
+		trigger = { primary_culture = english }
+
+		custom_tooltip = british_first_unification_english.effect
 		hidden_effect = {
-			set_global_flag = british_first_unification_flag
-			if = {
+			every_province = {
 				limit = {
-					NOT = { primary_culture = northumbrian }
-				}
-				every_province = {
-					limit = {
-						OR = {
-							culture = english
-							culture = northumbrian
-						}
+					OR = {
+						culture = english
+						culture = northumbrian
 					}
-					change_culture = english
 				}
-			}
-			if = {
-				limit = {
-					primary_culture = northumbrian
-				}
-				every_province = {
-					limit = {
-						OR = {
-							culture = english
-							culture = northumbrian
-						}
-					}
-					change_culture = northumbrian
-				}
+				change_culture = english
 			}
 		}
 		239 = { #Gloucestershire
-			add_base_tax = 1
+			add_base_tax = 2
 		}
-		4375 = { #Cheshire
-			add_base_tax = 1
+		capital_scope = { #Capital
+			add_base_tax = 2
 		}
 		if = { #House of York
 			limit = {
 				dynasty = York
 			}
-			4367 = {
-				add_base_tax = 2
+			4367 = { #York
+				add_base_tax = 4
 			}
 		}
 		if = { #House of Lancaster
 			limit = {
 				dynasty = Lancaster
 			}
-			244 = {
-				add_base_tax = 2
+			244 = { #Lancaster
+				add_base_tax = 4
 			}
 		}
 		if = { #If this is you, you're probably a Tudor 
@@ -104,12 +90,113 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 				NOT = { dynasty = York }
 				NOT = { dynasty = Lancaster }
 			}
-			4367 = {
-				add_base_tax = 1
+			4367 = { #York
+				add_base_tax = 2
 			}
-			244 = {
-				add_base_tax = 1
+			244 = { #Lancaster
+				add_base_tax = 2
 			}
+		}
+	}
+
+	option = { #Northern
+		name = british_first_unification.a
+
+		trigger = { primary_culture = northumbrian }
+
+		custom_tooltip = british_first_unification_northumbrian.effect
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						culture = english
+						culture = northumbrian
+					}
+				}
+				change_culture = northumbrian
+			}
+		}
+		246 = { #Northumberland
+			add_base_tax = 2
+		}
+		243 = { #Lincolnshire
+			add_base_tax = 2
+		}
+		capital_scope = { #Capital
+			add_base_tax = 2
+		}
+		244 = { #Lancaster
+			add_base_tax = 2
+		}
+	}
+
+	option = { #Scottish & Maybe Irish (Southern)
+		name = british_first_unification.a
+
+		trigger = {
+			NOT = { primary_culture = english }
+			NOT = { primary_culture = northumbrian }
+		}
+
+		custom_tooltip = british_first_unification_english.effect
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						culture = english
+						culture = northumbrian
+					}
+				}
+				change_culture = english
+			}
+		}
+		capital_scope = { #Capital
+			add_base_tax = 4
+		}
+		239 = { #Gloucestershire
+			add_base_tax = 2
+		}
+		238 = { #Essex
+			add_base_tax = 2
+		}
+
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	option = { #Scottish & Maybe Irish (Northern)
+		name = british_first_unification.a
+
+		trigger = {
+			NOT = { primary_culture = english }
+			NOT = { primary_culture = northumbrian }
+		}
+
+		custom_tooltip = british_first_unification_northumbrian.effect
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						culture = english
+						culture = northumbrian
+					}
+				}
+				change_culture = northumbrian
+			}
+		}
+		capital_scope = { #Capital
+			add_base_tax = 4
+		}
+		4375 = { #Chester
+			add_base_tax = 2
+		}
+		4367 = { #York
+			add_base_tax = 2
+		}
+
+		ai_chance = {
+			factor = 1
 		}
 	}
 }
