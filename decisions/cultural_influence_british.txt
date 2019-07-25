@@ -2,7 +2,7 @@ country_decisions = {
 	institute_english_prayerbooks = { #Convert Cornwall
 		major = no
 		potential = {
-			has_global_flag = british_first_unification_flag
+			has_global_flag = british_first_unification_flag #Left here since it complicates the effect otherwise
 			NOT = { has_country_flag = cornish_devolved_parliament_flag }
 			culture_group = british
 			OR = {
@@ -24,18 +24,10 @@ country_decisions = {
 		effect = {
 			if = {
 				limit = {
-					NOT = { primary_culture = northumbrian }
 					NOT = { primary_culture = standard_british }
 				}
 				233 = { change_culture = english }
 				4373 = { change_culture = english }
-			}
-			if = {
-				limit = {
-					primary_culture = northumbrian
-				}
-				233 = { change_culture = northumbrian }
-				4373 = { change_culture = northumbrian }
 			}
 			if = {
 				limit = {
@@ -102,6 +94,7 @@ country_decisions = {
 			add_dip_power = -300
 			remove_accepted_culture = welsh
 			remove_accepted_culture = celtic_welsh
+			add_accepted_culture = anglo_welsh
 		}
 
 		ai_will_do = {
@@ -155,6 +148,7 @@ country_decisions = {
 			add_dip_power = -300
 			remove_accepted_culture = highland_scottish
 			remove_accepted_culture = celtic_highlander
+			add_accepted_culture = scottish
 		}
 
 		ai_will_do = {
@@ -219,6 +213,7 @@ country_decisions = {
 			add_dip_power = -300
 			remove_accepted_culture = irish
 			remove_accepted_culture = celtic_irish
+			add_accepted_culture = anglo_irish
 		}
 
 		ai_will_do = {
@@ -230,6 +225,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			NOT = { has_country_flag = parliamentary_choice_flag }
+			has_global_flag = british_first_unification_flag
 			culture_group = british #Uniquely British
 			has_parliament = yes
 			OR = {
