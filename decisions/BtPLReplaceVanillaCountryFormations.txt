@@ -598,6 +598,7 @@ country_decisions = {
 			bt_generic_can_form_potential_check = yes
 			NOT = { has_country_flag = formed_great_britain_flag }
 			NOT = { tag = GBR }
+			NOT = { tag = UEF }
 			OR = {
 				tag = ENG
 				tag = SCO
@@ -695,6 +696,7 @@ country_decisions = {
 			bt_generic_can_form_potential_check = yes
 			NOT = { has_country_flag = formed_great_britain_flag }
 			NOT = { tag = GBR }
+			NOT = { tag = UEF }
 			OR = {
 				tag = ENG
 				tag = SCO
@@ -913,6 +915,7 @@ country_decisions = {
 			NOT = { has_country_flag = formed_england_flag }
 			NOT = { tag = ENG }
 			NOT = { tag = GBR }
+			NOT = { tag = UEF }
 			OR = {
 				primary_culture = english
 				primary_culture = northumbrian
@@ -2185,13 +2188,17 @@ country_decisions = {
 			is_nomad = no
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
+			OR = {
+				NOT = { tag = TEU }
+				religion = protestant
+			}
 			owns_core_province = 41			# Königsberg
 			OR = {
 				owns_core_province = 43		# Danzig
 				owns_core_province = 2995	# Stolp
 			}
-			total_development = 75			#Normal requirement for rank 2 is 300 dev, so this is 75 percent discounted
-			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
+			total_development = 150
+			prestige = 25
 		}
 		effect = {
 			change_tag = PRU

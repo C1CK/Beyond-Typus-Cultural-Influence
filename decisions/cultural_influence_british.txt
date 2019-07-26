@@ -2,14 +2,12 @@ country_decisions = {
 	institute_english_prayerbooks = { #Convert Cornwall
 		major = no
 		potential = {
-			has_global_flag = british_first_unification_flag
+			has_global_flag = british_first_unification_flag #Left here since it complicates the effect otherwise
 			NOT = { has_country_flag = cornish_devolved_parliament_flag }
 			culture_group = british
 			OR = {
 				233 = { culture = cornish }
 				4373 = { culture = cornish }
-			}
-			OR = {
 				233 = { culture = celtic_cornish }
 				4373 = { culture = celtic_cornish }
 			}
@@ -17,14 +15,27 @@ country_decisions = {
 
 		allow = {
 			OR = {
-				is_year = 1500 #Just before historic rebellion
+				is_year = 1540 #Just before historic rebellion
 				full_idea_group = religious_ideas
+				religion = anglican
 			}
 		}
 
 		effect = {
-			233 = { change_culture = english }
-			4373 = { change_culture = english }
+			if = {
+				limit = {
+					NOT = { primary_culture = standard_british }
+				}
+				233 = { change_culture = english }
+				4373 = { change_culture = english }
+			}
+			if = {
+				limit = {
+					primary_culture = standard_british
+				}
+				233 = { change_culture = standard_british }
+				4373 = { change_culture = standard_british }
+			}
 			233 = {
 				spawn_rebels = {
 					type = nationalist_rebels
@@ -34,18 +45,13 @@ country_decisions = {
 		}
 
 		ai_will_do = {
-			factor = 0
-			modifier = {
-				is_year = 1540
-				factor = 100
-			}
+			factor = 1
 		}
 	}
 
 	anglicize_the_welsh = {
 		major = no
 		potential = {
-			has_global_flag = british_first_unification_flag
 			culture_group = british
 			NOT = { has_country_flag = anglicizing_wales_flag }
 			any_owned_province = {
@@ -54,8 +60,8 @@ country_decisions = {
 		}
 
 		allow = {
-			NOT = { accepted_culture = welsh }
-			NOT = { accepted_culture = celtic_welsh }
+			#NOT = { accepted_culture = welsh } #Removed -AI is dumb
+			#NOT = { accepted_culture = celtic_welsh } #Removed -Ai is dumb
 			wales_area = {
 				type = all
 				is_core = ROOT
@@ -84,24 +90,21 @@ country_decisions = {
 
 		effect = {
 			set_country_flag = anglicizing_wales_flag
+			custom_tooltip = enables_anglicization_of_wales
 			add_dip_power = -300
 			remove_accepted_culture = welsh
 			remove_accepted_culture = celtic_welsh
+			add_accepted_culture = anglo_welsh
 		}
 
 		ai_will_do = {
-			factor = 0
-			modifier = {
-				factor = 100
-				is_year = 1700 #Happened remarkably late compared to Irish and such
-			}
+			factor = 1
 		}
 	}
 
 	anglicize_the_scottish = { #Highland clearances (Also allows Northern Isles but doesn't require it to pass)
 		major = no
 		potential = {
-			has_global_flag = british_first_unification_flag
 			culture_group = british
 			NOT = { has_country_flag = anglicizing_scotland_flag }
 			any_owned_province = {
@@ -141,68 +144,80 @@ country_decisions = {
 
 		effect = {
 			set_country_flag = anglicizing_scotland_flag
+			custom_tooltip = enables_anglicization_of_the_highlands
 			add_dip_power = -300
 			remove_accepted_culture = highland_scottish
 			remove_accepted_culture = celtic_highlander
+			add_accepted_culture = scottish
 		}
 
 		ai_will_do = {
-			factor = 0
-			modifier = {
-				factor = 100
-				is_year = 1650 #Happened remarkably late compared to Irish and such
-			}
+			factor = 1
 		}
 	}
 
-	establish_irish_plantations = { #Gaeilge -> Irish (I'm calling modern Irish Irish here since they speak English, just because they are in the same culture group does not mean that they belong together, don't @me IRA)
+	establish_irish_plantations = { #Gaeilge -> Irish (I'm calling modern Irish Irish here since they speak English, just because they are in the same culture group does not mean that they belong together, don't @me IRA) (Tudor Conquests)
 		major = no
 		potential = {
-			has_global_flag = british_first_unification_flag
 			culture_group = british
+			OR = {
+				any_owned_province = {
+					anglo_irish_culture_region = yes
+				}
+				ANI = { #Viceroy of IRE
+					is_subject_of = ROOT
+				}
+			}
 			NOT = { has_country_flag = anglicizing_ireland_flag }
 		}
 
 		allow = {
-			NOT = { tag = ANI }
-			ANI = { #Viceroy of IRE
-				is_subject_of = ROOT
+			OR = { #Which tags can do this
+				ANI = { #Viceroy of IRE
+					is_subject_of = ROOT
+				}
+				tag = UNK
+				AND = {
+					tag = ANI
+					is_subject = no
+				}
 			}
 			ireland_area = {
-				is_core = ANI
+				OR = {
+					is_core = ANI
+					is_core = ROOT
+				}
 				type = all
 			}
-			custom_trigger_tooltip = {
-				tooltip = irish_x_trigger
-				OR = {
-					is_year = 1600 #Fallback
-					any_owned_province = {
-						anglo_irish_culture_region = yes
-						
-					}
-				}
+			OR = {
+				is_year = 1600 #Fallback
+				religion = anglican
+				tag = ANI
 			}
 			dip_power = 300
 		}
 
 		provinces_to_highlight = {
 			anglo_irish_culture_region = yes
-			NOT = { is_core = ROOT }
+			AND = {
+				NOT = { is_core = ROOT }
+				NOT = { is_core = ANI }
+			}
 		}
 
 		effect = {
 			set_country_flag = anglicizing_ireland_flag
+			ANI = { set_country_flag = anglicizing_ireland_flag }
+			custom_tooltip = enables_anglicization_of_ireland
+			4379 = { change_culture = anglo_irish } #King's County
 			add_dip_power = -300
 			remove_accepted_culture = irish
 			remove_accepted_culture = celtic_irish
+			add_accepted_culture = anglo_irish
 		}
 
 		ai_will_do = {
-			factor = 0
-			modifier = {
-				factor = 100
-				is_year = 1600
-			}
+			factor = 1
 		}
 	}
 
@@ -210,11 +225,12 @@ country_decisions = {
 		major = yes
 		potential = {
 			NOT = { has_country_flag = parliamentary_choice_flag }
+			has_global_flag = british_first_unification_flag
 			culture_group = british #Uniquely British
 			has_parliament = yes
-			capital_scope = {
-				region = british_isles_region
-				region = ireland_area
+			OR = {
+				capital_scope = { region = british_isles_region }
+				capital_scope = { region = ireland_area }
 			}
 		}
 
@@ -400,5 +416,216 @@ country_decisions = {
 		}
 	}
 
+	grant_aquitaine_devolution = {
+		major = no
+		potential = {
+			has_parliament = yes
+			has_country_flag = devolution_of_parliament
+			NOT = { 174 = { has_province_modifier = aquitaine_devolved_parliament_modifier } }
+		}
+
+		allow = {
+			owns_core_province = 174 #Aquitaine
+		}
+
+		effect = {
+			174 = { #Aquitaine
+				add_province_triggered_modifier = aquitaine_devolved_parliament_modifier
+				add_base_tax = 2
+			}
+		}
+	}
+
 	#I could grant devolution forever but for now I'll leave it here
+
+	restore_the_plantagenets = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = restored_plantagenets_flag }
+			OR = {
+				tag = ENG
+				AND = {
+					tag = UEF
+					culture_group = british
+				}
+			}
+			178 = { #Anjou
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = { dynasty = "Plantagenet" }
+			religion_group = christian
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = normandy_area
+				province_id = 177
+				province_id = 3075
+				province_id = 4389
+				province_id = 178
+				area = poitou_area
+				province_id = 3109
+				province_id = 199
+				province_id = 3087
+				province_id = 195
+				province_id = 4387
+				province_id = 194
+				province_id = 174
+				province_id = 3081
+				area = pyrenees_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = { #Angevin Empire trigger
+			normandy_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+				type = ALL
+			}
+			brittany_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+				type = ALL
+			}
+			177 = { #Maine
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			3075 = { #Dunois
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4389 = { #Touraine
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			178 = { #Anjou
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			poitou_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+				type = ALL
+			}
+			3109 = { #La Marche
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			199 = { #Auvergne
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			3087 = { #Aurillac
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			195 = { #Limousin
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4387 = { #Angoumois
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			194 = { #Perigord
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			174 = { #Aquitaine
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			3081 = { #Agenais
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			pyrenees_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+				type = ALL
+			}
+			dip_power = 200
+		}
+
+		effect = {
+			set_country_flag = restored_plantagenets_flag
+			add_dip_power = -200
+			add_legitimacy = 20
+			add_prestige = 25
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				remove_heir = yes
+			}
+			define_heir = {
+				dynasty = "Plantagenet"
+				age = 12
+				claim = 90
+				male = yes
+				adm = 2
+				max_random_adm = 4
+				dip = 2
+				max_random_dip = 4
+				mil = 3
+				max_random_mil = 5
+			}
+		}
+	}
+
+	british_continental_settlements_plan = {
+		major = yes
+		potential = {
+			NOR = { has_country_modifier = british_continental_settlements_plans_modifier }
+			culture_group = british
+			any_owned_province = {
+				OR = {
+					region = france_region
+					region = low_countries_region
+				}
+			}
+		}
+
+		allow = {
+			calc_true_if = {
+				all_province = {
+					OR = {
+						region = france_region
+						region = low_countries_region
+					}
+					is_core = ROOT
+				}
+				amount = 20 #Roughly Plantagenet holdings
+			}
+			NOT = { colony = 1 } #No Colonies allowed
+			adm_power = 400
+			dip_power = 200
+		}
+
+		effect = {
+			add_adm_power = -400
+			add_dip_power = -200
+			add_country_modifier = {
+				name = "british_continental_settlement_plans_modifier"
+				duration = -1
+			}
+		}
+	}
+
+	union_with_ireland = { #Integrate ANI
+		major = yes
+		potential = {
+			exists = ANI
+			ANI = { #Viceroy of IRE
+				is_subject_of = ROOT
+			}
+			adm_tech = 15
+			has_country_flag = anglicizing_ireland_flag
+		}
+
+		allow = {
+			ireland_area = {
+				culture_group = british
+				owned_by = ANI
+				type = all
+			}
+			dip_power = 300
+		}
+
+		provinces_to_highlight = {
+			anglo_irish_culture_region = yes
+			NOT = { culture_group = british }
+		}
+
+		effect = {
+			add_dip_power = -300
+			inherit = ANI
+		}
+	}
 }

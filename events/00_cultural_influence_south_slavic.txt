@@ -89,8 +89,8 @@ province_event = { #Serbian/Bosniak -> Croatian (Calling Serbian an Orthodox Ser
 
 province_event = { #Serbian/Croatian -> Bosniak (Calling Bosniak an Islamic Serbo-Croat dialect)
 	id = cultural_influence_south_slavic.3
-	title = croatian_assimilation.title
-	desc = croatian_assimilation.desc
+	title = bosniak_assimilation.title
+	desc = bosniak_assimilation.desc
 	picture = ARTWORK_eventPicture
 
 	trigger = {
@@ -130,42 +130,52 @@ province_event = { #Serbian/Croatian -> Bosniak (Calling Bosniak an Islamic Serb
 	}
 }
 
-province_event = { #Serbo-Croat settlement (Dalmatia, Istria)
+province_event = { #Serbo-Croat settlements and assimilation
 	id = cultural_influence_south_slavic.4
-	title = serbo_croat_settlement.title
-	desc = serbo_croat_settlement.desc
+	title = serbo_croat_settlements.title
+	desc = serbo_croat_settlements.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
 
 	trigger = {
-		serbo_croat_homeland = yes #Part of their Traditional Homeland (Kinda dodgy doing this but it's the best way to handle this tbh)
-		NOT = { #Not already Serbo-Croat
-			OR = {
-				culture = serbian
-				culture = croatian
-				culture = bosnian
-			}
-		}
 		owner = { culture_group = south_slavic }
-		any_neighbor_province = { #Neighbouring province is Serbo-Croat
-			OR = {
-				culture = serbian
-				culture = croatian
-				culture = bosnian
-			}
-		}
+		NOT = { culture = serbian }
+		NOT = { culture = croatian }
+		NOT = { culture = bosnian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		AND = {
-			is_city = yes
-			has_colonist = yes
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = south_slavic
+					}
+					num_of_times_improved = 5
+				}
+			}
 		}
+		owner = { has_country_modifier = south_slavic_settlements }
+		serbo_croat_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 30
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = south_slavic
+		}
 
 		modifier = {
 			factor = 0.5
@@ -183,69 +193,79 @@ province_event = { #Serbo-Croat settlement (Dalmatia, Istria)
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 1.5
-			development = 10
-		}
-		modifier = {
-			factor = 1.5
-			development = 15
-		}
-		modifier = {
-			factor = 1.5
-			development = 20
-		}
-		modifier = {
-			factor = 1.5
-			development = 25
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
 		}
 		modifier = {
 			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					OR = {
-						culture = serbian
-						culture = croatian
-						culture = bosnian
-					}
-				}
-				amount = 2
-			}
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
 		}
 		modifier = {
 			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					OR = {
-						culture = serbian
-						culture = croatian
-						culture = bosnian
-					}
-				}
-				amount = 3
-			}
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
 		}
 	}
 
 	option = {
-		name = serbo_croat_settlement.a
+		name = serbo_croat_settlements.a
 
-		if = { #This should handle all cases appropriately, Croat West based/Catholic dialect, Serb Orthodox/East based dialect, Bosniak purely Islamic.
+		if = { #Using religion of the province to determine what dialect to use
 			limit = {
-				OR = { #Either Orthodox nation, Serbian, or Bulgarian
-					OWNER = { religion = orthodox }
-					OWNER = { primary_culture = serbian }
-					OWNER = { primary_culture = bulgarian }
+				OR = {
+					religion = orthodox
 				}
 			}
 			change_culture = serbian
 		}
 		if = {
 			limit = {
-				OR = { #Either Catholic nation, Croatian, or Slovenian
-					OWNER = { religion = catholic }
-					OWNER = { primary_culture = croatian }
-					OWNER = { primary_culture = slovenian }
+				OR = {
+					religion = catholic
 				}
 			}
 			change_culture = croatian
@@ -253,8 +273,7 @@ province_event = { #Serbo-Croat settlement (Dalmatia, Istria)
 		if = {
 			limit = {
 				OR = {
-					OWNER = { religion_group = muslim }
-					OWNER = { primary_culture = bosniak }
+					religion_group = muslim
 				}
 			}
 			change_culture = bosniak
@@ -262,27 +281,57 @@ province_event = { #Serbo-Croat settlement (Dalmatia, Istria)
 	}
 }
 
-province_event = { #Greater Bulgaria! settlement (Low dev)
+province_event = { #Serbo-Croat settlements and assimilation (Skopje)
 	id = cultural_influence_south_slavic.5
-	title = greater_bulgaria_settlement.title
-	desc = greater_bulgaria_settlement.desc
+	title = serbo_croat_settlements.title
+	desc = serbo_croat_settlements.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
 
 	trigger = {
-		greater_bulgaria_region = yes
-		NOT = { culture = bulgarian }
-		any_neighbor_province = { culture = bulgarian }
-		NOT = { development = 15 }
-		AND = {
-			is_city = yes
-			has_colonist = yes
+		owner = { culture_group = south_slavic }
+		OR = { #Is Serbo-Croat
+			owner = { primary_culture = serbian }
+			owner = { primary_culture = croatian }
+			owner = { primary_culture = bosnian }
 		}
-		has_country_flag = bulgarization_of_greater_bulgaria
+		NOT = { culture = serbian }
+		NOT = { culture = croatian }
+		NOT = { culture = bosnian }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = south_slavic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = south_slavic_settlements }
+		serbo_croat_bulgarian_conflict_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 30
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = south_slavic
+		}
 
 		modifier = {
 			factor = 0.5
@@ -300,151 +349,145 @@ province_event = { #Greater Bulgaria! settlement (Low dev)
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 1.5
-			development = 10
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
 		}
 		modifier = {
 			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					culture = bulgarian
-				}
-				amount = 2
-			}
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
 		}
 		modifier = {
 			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					culture = bulgarian
-				}
-				amount = 3
-			}
-		}
-	}
-
-	option = {
-		name = greater_bulgaria_settlement.a
-
-		change_culture = bulgarian
-
-		add_province_modifier = {
-			name = new_bulgarian_settlements
-			duration = 3650 #10 years
-		}
-	}
-}
-
-province_event = { #Greater Bulgaria! assimilation (High dev)
-	id = cultural_influence_south_slavic.6
-	title = greater_bulgaria_assimilation.title
-	desc = greater_bulgaria_assimilation.desc
-	picture = RELIGIOUS_CONVERSION_eventPicture
-
-	trigger = {
-		greater_bulgaria_region = yes
-		NOT = { culture = bulgarian }
-		calc_true_if = {
-			all_neighbor_province = {
-				culture = bulgarian
-			}
-			amount = 2
-		}
-		development = 15
-		has_country_flag = bulgarization_of_greater_bulgaria
-		has_global_flag = CI_events_enabled
-	}
-
-	mean_time_to_happen = {
-		years = 60
-
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
+			has_idea_to_settle_faster = yes
 		}
 		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
+			factor = 1.4
+			NOT = { development = 10 }
 		}
 		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
+			factor = 1.2
+			NOT = { development = 20 }
 		}
+		#Ideal dev is around 30
 		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			development = 20
-		}
-		modifier = {
-			factor = 1.5
-			development = 25
-		}
-		modifier = {
-			factor = 1.5
-			development = 30
-		}
-		modifier = {
-			factor = 1.5
-			development = 35
-		}
-		modifier = {
-			factor = 1.5
+			factor = 1.2
 			development = 40
 		}
 		modifier = {
-			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					culture = bulgarian
-				}
-				amount = 3
-			}
+			factor = 1.4
+			development = 50
 		}
 		modifier = {
-			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					culture = bulgarian
-				}
-				amount = 4
-			}
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
 		}
 	}
 
 	option = {
-		name = greater_bulgaria_assimilation.a
+		name = serbo_croat_settlements.a
 
-		change_culture = bulgarian
+		if = { #Using religion of the province to determine what dialect to use
+			limit = {
+				OR = {
+					religion = orthodox
+				}
+			}
+			change_culture = serbian
+		}
+		if = {
+			limit = {
+				OR = {
+					religion = catholic
+				}
+			}
+			change_culture = croatian
+		}
+		if = {
+			limit = {
+				OR = {
+					religion_group = muslim
+				}
+			}
+			change_culture = bosniak
+		}
 	}
 }
 
-province_event = { #Slovene expansion (Settlement)
-	id = cultural_influence_south_slavic.7
-	title = greater_slovenia_settlement.title
-	desc = greater_slovenia_settlement.desc
+province_event = { #Serbo-Croat settlements and assimilation (Istria)
+	id = cultural_influence_south_slavic.6
+	title = serbo_croat_settlements.title
+	desc = serbo_croat_settlements.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
 
 	trigger = {
-		greater_slovenia_region = yes
-		NOT = { culture = slovene }
-		any_neighbor_province = {
-			culture = slovene
+		owner = { culture_group = south_slavic }
+		OR = { #Is Serbo-Croat
+			owner = { primary_culture = serbian }
+			owner = { primary_culture = croatian }
+			owner = { primary_culture = bosnian }
 		}
-		NOT = { development = 15 }
-		AND = {
-			is_city = yes
-			has_colonist = yes
+		NOT = { culture = serbian }
+		NOT = { culture = croatian }
+		NOT = { culture = bosnian }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
 		}
-		has_country_flag = slovenization_of_greater_slovenia
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = south_slavic
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = south_slavic_settlements }
+		serbo_croat_slovene_conflict_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 30
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = south_slavic
+		}
 
 		modifier = {
 			factor = 0.5
@@ -462,64 +505,526 @@ province_event = { #Slovene expansion (Settlement)
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 1.5
-			development = 10
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
 		}
 		modifier = {
 			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					culture = slovene
-				}
-				amount = 2
-			}
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
 		}
 		modifier = {
 			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					culture = slovene
-				}
-				amount = 3
-			}
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
 		}
 	}
 
 	option = {
-		name = greater_slovenia_settlement.a
+		name = serbo_croat_settlements.a
+
+		if = { #Using religion of the province to determine what dialect to use
+			limit = {
+				OR = {
+					religion = orthodox
+				}
+			}
+			change_culture = serbian
+		}
+		if = {
+			limit = {
+				OR = {
+					religion = catholic
+				}
+			}
+			change_culture = croatian
+		}
+		if = {
+			limit = {
+				OR = {
+					religion_group = muslim
+				}
+			}
+			change_culture = bosniak
+		}
+	}
+}
+
+province_event = { #Bulgarian settlements and assimilation
+	id = cultural_influence_south_slavic.7
+	title = bulgarian_settlements.title
+	desc = bulgarian_settlements.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = south_slavic }
+		NOT = { culture = bulgarian }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = south_slavic_settlements }
+		bulgarian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = south_slavic
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = bulgarian_settlements.a
+
+		change_culture = bulgarian
+	}
+}
+
+province_event = { #Bulgarian settlements and assimilation (Skopje)
+	id = cultural_influence_south_slavic.8
+	title = bulgarian_settlements.title
+	desc = bulgarian_settlements.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = south_slavic }
+		AND = { #Isn't Serbo-Croat
+			NOT = { owner = { primary_culture = serbian } }
+			NOT = { owner = { primary_culture = croatian } }
+			NOT = { owner = { primary_culture = bosnian } }
+		}
+		NOT = { culture = bulgarian }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = south_slavic_settlements }
+		bulgarian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = south_slavic
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = bulgarian_settlements.a
+
+		change_culture = bulgarian
+	}
+}
+
+province_event = { #Slovene settlements and assimilation
+	id = cultural_influence_south_slavic.9
+	title = slovene_settlements.title
+	desc = slovene_settlements.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = south_slavic }
+		NOT = { culture = slovene }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = south_slavic_settlements }
+		slovene_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = south_slavic
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = slovene_settlements.a
 
 		change_culture = slovene
-
-		add_province_modifier = {
-			name = new_slovenian_settlements
-			duration = 3650 #10 years
-		}
 	}
 }
 
-province_event = { #Slovene expansion (Assimilation)
-	id = cultural_influence_south_slavic.8
-	title = greater_slovenia_assimilation.title
-	desc = greater_slovenia_assimilation.desc
+province_event = { #Slovene settlements and assimilation (Istria)
+	id = cultural_influence_south_slavic.9
+	title = slovene_settlements.title
+	desc = slovene_settlements.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
 
 	trigger = {
-		greater_slovenia_region = yes
-		NOT = { culture = slovene }
-		calc_true_if = {
-			all_neighbor_province = {
-				culture = slovene
-			}
-			amount = 2
+		owner = { culture_group = south_slavic }
+		AND = { #Isn't Serbo-Croat
+			NOT = { owner = { primary_culture = serbian } }
+			NOT = { owner = { primary_culture = croatian } }
+			NOT = { owner = { primary_culture = bosnian } }
 		}
-		development = 15
-		has_country_flag = slovenization_of_greater_slovenia
+		NOT = { culture = slovene }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = british
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = south_slavic_settlements }
+		slovene_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 60
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = south_slavic
+		}
 
 		modifier = {
 			factor = 0.5
@@ -537,48 +1042,66 @@ province_event = { #Slovene expansion (Assimilation)
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 1.5
-			development = 20
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
 		}
 		modifier = {
-			factor = 1.5
-			development = 25
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
 		}
 		modifier = {
-			factor = 1.5
-			development = 30
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
 		}
 		modifier = {
-			factor = 1.5
-			development = 35
+			factor = 0.8
+			has_idea_to_settle_faster = yes
 		}
 		modifier = {
-			factor = 1.5
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
 			development = 40
 		}
 		modifier = {
-			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					culture = slovene
-				}
-				amount = 3
-			}
+			factor = 1.4
+			development = 50
 		}
 		modifier = {
-			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					culture = slovene
-				}
-				amount = 4
-			}
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
 		}
 	}
 
 	option = {
-		name = greater_slovenia_assimilation.a
+		name = slovene_settlements.a
 
 		change_culture = slovene
 	}

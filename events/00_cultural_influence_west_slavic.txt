@@ -1,17 +1,31 @@
 namespace = cultural_influence_west_slavic
 #Great Moravia shall rise again!
 
-province_event = { #Greater Czech Expansion
+province_event = { #Czech settlements and assimilation
 	id = cultural_influence_west_slavic.1
-	title = greater_czech_expansion.title
-	desc = greater_czech_expansion.desc
-	picture = RELIGIOUS_CONVERSION_eventPicture
+	title = czech_settlements.title
+	desc = { #Hardcoded Grrr....
+		desc = czech_settlements.desc
+		trigger = {
+			area = erzgebirge_area
+			area = bohemia_area
+		}
+	}
+	desc = {
+		desc = greater_czech_settlements.desc
+		trigger = {
+			OR = {
+				province_id = 1770 #Ostmark
+				province_id = 134 #Vienna
+			}
+		}
+	}
+	picture = CULTURE_eventPicture
 
 	trigger = {
+		owner = { culture_group = west_slavic }
 		NOT = { culture = czech }
 		NOT = { culture = ceskoslovensky }
-		owner = { culture_group = west_slavic }
-		owner = { has_country_flag = czechization_of_greater_czechia }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -34,14 +48,19 @@ province_event = { #Greater Czech Expansion
 				}
 			}
 		}
-		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
-		greater_czech_culture_region = yes
+		owner = { has_country_modifier = west_slavic_settlements }
+		czech_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
 		#Template Settled MTTH
 		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = west_slavic
+		}
 
 		modifier = {
 			factor = 0.5
@@ -79,16 +98,21 @@ province_event = { #Greater Czech Expansion
 			has_idea_to_settle_faster = yes
 		}
 		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
 			factor = 1.2
-			development = 10
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
 		}
 		modifier = {
 			factor = 1.4
-			development = 20
-		}
-		modifier = {
-			factor = 1.4
-			development = 30
+			development = 50
 		}
 		modifier = {
 			factor = 1.2
@@ -113,56 +137,33 @@ province_event = { #Greater Czech Expansion
 	}
 
 	option = {
-		name = greater_czech_expansion.a
+		name = czech_settlements.a
 
 		if = {
 			limit = {
-				any_province = {
-					culture = ceskoslovensky
-				}
+				has_global_flag = czechoslovak_created_flag
 			}
 			change_culture = ceskoslovensky
 		}
-		else = {
+		if = {
+			limit = {
+				NOT = { has_global_flag = czechoslovak_created_flag }
+			}
 			change_culture = czech
-		}
-
-		if = {
-			limit = {
-				NOT = { owner = { num_of_colonists = 2 } }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 3650 #10 years
-				}
-			}
-		}
-		if = {
-			limit = {
-				owner = { num_of_colonists = 2 }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 1825 #5 years
-				}
-			}
 		}
 	}
 }
 
-province_event = { #Greater Slovak settlement
+province_event = { #Slovak settlements and assimilation
 	id = cultural_influence_west_slavic.2
-	title = greater_slovak_expansion.title
-	desc = greater_slovak_expansion.desc
+	title = slovak_settlements.title
+	desc = slovak_settlements.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
 
 	trigger = {
+		owner = { culture_group = west_slavic }
 		NOT = { culture = slovak }
 		NOT = { culture = ceskoslovensky }
-		owner = { culture_group = west_slavic }
-		owner = { has_country_flag = slovakization_of_greater_slovakia }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -186,13 +187,18 @@ province_event = { #Greater Slovak settlement
 			}
 		}
 		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
-		greater_slovakian_culture_region = yes
+		slovakian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
 		#Template Settled MTTH
 		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = west_slavic
+		}
 
 		modifier = {
 			factor = 0.5
@@ -230,16 +236,21 @@ province_event = { #Greater Slovak settlement
 			has_idea_to_settle_faster = yes
 		}
 		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
 			factor = 1.2
-			development = 10
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
 		}
 		modifier = {
 			factor = 1.4
-			development = 20
-		}
-		modifier = {
-			factor = 1.4
-			development = 30
+			development = 50
 		}
 		modifier = {
 			factor = 1.2
@@ -264,41 +275,19 @@ province_event = { #Greater Slovak settlement
 	}
 
 	option = {
-		name = greater_slovak_expansion.a
+		name = slovak_settlements.a
 
 		if = {
 			limit = {
-				any_province = {
-					culture = ceskoslovensky
-				}
+				has_global_flag = czechoslovak_created_flag
 			}
 			change_culture = ceskoslovensky
 		}
-		else = {
+		if = {
+			limit = {
+				NOT = { has_global_flag = czechoslovak_created_flag }
+			}
 			change_culture = slovak
-		}
-
-		if = {
-			limit = {
-				NOT = { owner = { num_of_colonists = 2 } }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 3650 #10 years
-				}
-			}
-		}
-		if = {
-			limit = {
-				owner = { num_of_colonists = 2 }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 1825 #5 years
-				}
-			}
 		}
 	}
 }
@@ -311,7 +300,7 @@ province_event = { #Polish settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = west_slavic }
-		NOT = { culture_group = west_slavic }
+		NOT = { culture = polish }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -334,7 +323,7 @@ province_event = { #Polish settlements and assimilation
 				}
 			}
 		}
-		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
+		owner = { has_country_modifier = west_slavic_settlements }
 		polish_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -342,6 +331,11 @@ province_event = { #Polish settlements and assimilation
 	mean_time_to_happen = {
 		#Template Settled MTTH
 		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = west_slavic
+		}
 
 		modifier = {
 			factor = 0.5
@@ -379,16 +373,21 @@ province_event = { #Polish settlements and assimilation
 			has_idea_to_settle_faster = yes
 		}
 		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
 			factor = 1.2
-			development = 10
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
 		}
 		modifier = {
 			factor = 1.4
-			development = 20
-		}
-		modifier = {
-			factor = 1.4
-			development = 30
+			development = 50
 		}
 		modifier = {
 			factor = 1.2
@@ -416,29 +415,6 @@ province_event = { #Polish settlements and assimilation
 		name = polish_settlements.a
 
 		change_culture = polish
-
-		if = {
-			limit = {
-				NOT = { owner = { num_of_colonists = 2 } }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 3650 #10 years
-				}
-			}
-		}
-		if = {
-			limit = {
-				owner = { num_of_colonists = 2 }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 1825 #5 years
-				}
-			}
-		}
 	}
 }
 
@@ -450,7 +426,7 @@ province_event = { #Silesian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = west_slavic }
-		NOT = { culture_group = west_slavic }
+		NOT = { culture = schlesian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -473,7 +449,7 @@ province_event = { #Silesian settlements and assimilation
 				}
 			}
 		}
-		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
+		owner = { has_country_modifier = west_slavic_settlements }
 		silesian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -481,6 +457,11 @@ province_event = { #Silesian settlements and assimilation
 	mean_time_to_happen = {
 		#Template Settled MTTH
 		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = west_slavic
+		}
 
 		modifier = {
 			factor = 0.5
@@ -518,16 +499,21 @@ province_event = { #Silesian settlements and assimilation
 			has_idea_to_settle_faster = yes
 		}
 		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
 			factor = 1.2
-			development = 10
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
 		}
 		modifier = {
 			factor = 1.4
-			development = 20
-		}
-		modifier = {
-			factor = 1.4
-			development = 30
+			development = 50
 		}
 		modifier = {
 			factor = 1.2
@@ -555,29 +541,6 @@ province_event = { #Silesian settlements and assimilation
 		name = silesian_settlements.a
 
 		change_culture = schlesian
-
-		if = {
-			limit = {
-				NOT = { owner = { num_of_colonists = 2 } }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 3650 #10 years
-				}
-			}
-		}
-		if = {
-			limit = {
-				owner = { num_of_colonists = 2 }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 1825 #5 years
-				}
-			}
-		}
 	}
 }
 
@@ -589,7 +552,7 @@ province_event = { #Pomeransky settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = west_slavic }
-		NOT = { culture_group = west_slavic }
+		NOT = { culture = pomeransky }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -612,7 +575,7 @@ province_event = { #Pomeransky settlements and assimilation
 				}
 			}
 		}
-		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
+		owner = { has_country_modifier = west_slavic_settlements }
 		pomeransky_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -620,6 +583,11 @@ province_event = { #Pomeransky settlements and assimilation
 	mean_time_to_happen = {
 		#Template Settled MTTH
 		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = west_slavic
+		}
 
 		modifier = {
 			factor = 0.5
@@ -657,16 +625,21 @@ province_event = { #Pomeransky settlements and assimilation
 			has_idea_to_settle_faster = yes
 		}
 		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
 			factor = 1.2
-			development = 10
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
 		}
 		modifier = {
 			factor = 1.4
-			development = 20
-		}
-		modifier = {
-			factor = 1.4
-			development = 30
+			development = 50
 		}
 		modifier = {
 			factor = 1.2
@@ -694,29 +667,6 @@ province_event = { #Pomeransky settlements and assimilation
 		name = pomeransky_settlements.a
 
 		change_culture = pomeransky
-
-		if = {
-			limit = {
-				NOT = { owner = { num_of_colonists = 2 } }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 3650 #10 years
-				}
-			}
-		}
-		if = {
-			limit = {
-				owner = { num_of_colonists = 2 }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 1825 #5 years
-				}
-			}
-		}
 	}
 }
 
@@ -728,7 +678,7 @@ province_event = { #Sorbian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = west_slavic }
-		NOT = { culture_group = west_slavic }
+		NOT = { culture = sorbian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -751,7 +701,7 @@ province_event = { #Sorbian settlements and assimilation
 				}
 			}
 		}
-		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
+		owner = { has_country_modifier = west_slavic_settlements }
 		sorbian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -759,6 +709,11 @@ province_event = { #Sorbian settlements and assimilation
 	mean_time_to_happen = {
 		#Template Settled MTTH
 		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = west_slavic
+		}
 
 		modifier = {
 			factor = 0.5
@@ -796,16 +751,21 @@ province_event = { #Sorbian settlements and assimilation
 			has_idea_to_settle_faster = yes
 		}
 		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
 			factor = 1.2
-			development = 10
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
 		}
 		modifier = {
 			factor = 1.4
-			development = 20
-		}
-		modifier = {
-			factor = 1.4
-			development = 30
+			development = 50
 		}
 		modifier = {
 			factor = 1.2
@@ -833,167 +793,5 @@ province_event = { #Sorbian settlements and assimilation
 		name = sorbian_settlements.a
 
 		change_culture = sorbian
-
-		if = {
-			limit = {
-				NOT = { owner = { num_of_colonists = 2 } }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 3650 #10 years
-				}
-			}
-		}
-		if = {
-			limit = {
-				owner = { num_of_colonists = 2 }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 1825 #5 years
-				}
-			}
-		}
-	}
-}
-
-province_event = { #Czech settlements and assimilation
-	id = cultural_influence_west_slavic.7
-	title = czech_settlements.title
-	desc = czech_settlements.desc
-	picture = CULTURE_eventPicture
-
-	trigger = {
-		owner = { culture_group = west_slavic }
-		NOT = { culture_group = west_slavic }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			AND = { #Improving dev via a colonist
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						culture_group = west_slavic
-					}
-					num_of_times_improved = 5
-				}
-			}
-		}
-		NOT = { owner = { has_country_modifier = west_slavic_settlement_cooldown } }
-		czech_culture_region = yes
-		has_global_flag = CI_events_enabled
-	}
-
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 10
-
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-
-		modifier = { #Non-Dharma
-			factor = 3
-			NOT = { has_dlc = "Dharma" }
-		}
-		modifier = {
-			factor = 0.8
-			num_of_times_improved = 5
-			NOT = { has_dlc = "Dharma" }
-		}
-		modifier = {
-			factor = 0.6
-			num_of_times_improved = 10
-			NOT = { has_dlc = "Dharma" }
-		}
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.2
-			development = 10
-		}
-		modifier = {
-			factor = 1.4
-			development = 20
-		}
-		modifier = {
-			factor = 1.4
-			development = 30
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-
-	option = {
-		name = czech_settlements.a
-
-		change_culture = czech
-
-		if = {
-			limit = {
-				NOT = { owner = { num_of_colonists = 2 } }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 3650 #10 years
-				}
-			}
-		}
-		if = {
-			limit = {
-				owner = { num_of_colonists = 2 }
-			}
-			owner = {
-				add_country_modifier = {
-					name = west_slavic_settlement_cooldown
-					duration = 1825 #5 years
-				}
-			}
-		}
 	}
 }

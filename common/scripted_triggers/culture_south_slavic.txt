@@ -1,11 +1,6 @@
-serbo_croat_homeland = {
+serbo_croat_culture_region = {
 	OR = {
-		area = istria_area
 		area = croatia_area
-		province_id = 7082 #Mitterburg
-		province_id = 7090 #Rovigno
-		province_id = 130 #Pola
-		province_id = 1049 #Trieste
 		area = krajina_area
 		area = slavonia_area
 		area = syrmia_area
@@ -20,11 +15,26 @@ serbo_croat_homeland = {
 		area = montenegro_area
 		province_id = 3000 #Nis
 		province_id = 7711 #Vranje
+	}
+}
+
+serbo_croat_bulgarian_conflict_region = {
+	OR = {
 		province_id = 3001 #Skopje
 	}
 }
 
-greater_bulgaria_region = {
+serbo_croat_slovene_conflict_region = {
+	OR = {
+		province_id = 7090 #Rovigno
+		province_id = 130 #Pola
+		province_id = 3049 #Trieste
+		province_id = 7082 #Mitterburg
+		province_id = 3191 #Pflaum
+	}
+}
+
+bulgarian_culture_region = {
 	OR = {
 		area = vidin_area
 		AND = {
@@ -35,9 +45,11 @@ greater_bulgaria_region = {
 		area = danubian_plain_area #Lower Moesia
 		area = upper_thrace_area
 		area = lower_danube_area #Dobruja
-		area = northern_macedonia_area
-		area = western_macedonia_area
-		area = macedonia_area #South Macedonia
+		AND = {
+			area = northern_macedonia_area
+			NOT = { province_id = 3001 } #Skopje
+		}
+		area = macedonia_area #Western Macedonia
 		area = eastern_macedonia_area
 		area = upper_thrace_area
 		area = northern_thrace_area
@@ -46,15 +58,16 @@ greater_bulgaria_region = {
 	}
 }
 
-greater_slovenia_region = {
+slovene_culture_region = {
 	OR = {
 		area = carniola_area
-		province_id = 3191 #Pflaum
+		province_id = 7091 #Tolmìn
+		province_id = 1769 #Görz
 		area = inner_austria_area
 		province_id = 3052 #Kalonisberg
-		area = friuli_area
-		area = venetia_area
-		area = carnia_area
-		province_id = 1768 #Lienz
+		AND = {
+			area = transdanubia_area
+			NOT = { province_id = 153 } #Pest
+		}
 	}
 }

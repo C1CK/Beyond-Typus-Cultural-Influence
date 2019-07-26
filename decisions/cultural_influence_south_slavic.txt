@@ -1,85 +1,21 @@
 country_decisions = {
-	declare_greater_bulgaria = {
+	south_slavic_settlements_decision = {
 		major = yes
 		potential = {
+			NOT = { has_country_modifier = south_slavic_settlements }
 			culture_group = south_slavic
-			NOT = { has_country_flag = bulgarization_of_greater_bulgaria }
-		}
-
-		provinces_to_highlight = {
-			greater_bulgaria_region = yes
-			NOT = { is_core = ROOT }
 		}
 
 		allow = {
-			total_development = 1000 #Powerful
-			government_rank = 3 #Empire
-			custom_trigger_tooltip = { #Easier than writing out all of the areas
-				tooltip = owns_greater_bulgaria_tooltip
-				calc_true_if = {
-					all_owned_province = {
-						greater_bulgaria_region = yes
-					}
-					amount = 60 #Own all of the provinces
-				}
-			}
-			adm_power = 200
-			mil_power = 100
-			OR = {
-				full_idea_group = economic_ideas #Settlements
-				is_year = 1700 #Nationalism
-			}
+			government_rank = 2
+			total_development = 600 #Poor Yugoslavs
 		}
 
 		effect = {
-			add_adm_power = -200
-			add_mil_power = -100
-			custom_tooltip = enables_bulgarization_of_greater_bulgaria
-			set_country_flag = bulgarization_of_greater_bulgaria
-		}
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
-
-	declare_greater_slovenia = {
-		major = yes
-		potential = {
-			culture_group = south_slavic
-			NOT = { has_country_flag = slovenization_of_greater_slovenia }
-		}
-
-		provinces_to_highlight = {
-			greater_slovenia_region = yes
-			NOT = { is_core = ROOT }
-		}
-
-		allow = {
-			total_development = 800 #Powerful
-			government_rank = 3 #Empire
-			custom_trigger_tooltip = { #Easier than writing out all of the areas
-				tooltip = owns_greater_slovenia_tooltip
-				calc_true_if = {
-					all_owned_province = {
-						greater_slovenia_region = yes
-					}
-					amount = 35 #Own all of the provinces
-				}
+			add_country_modifier = {
+				name = south_slavic_settlements
+				duration = -1
 			}
-			adm_power = 200
-			mil_power = 100
-			OR = {
-				full_idea_group = economic_ideas #Settlements
-				is_year = 1700 #Nationalism
-			}
-		}
-
-		effect = {
-			add_adm_power = -200
-			add_mil_power = -100
-			custom_tooltip = enables_slovenization_of_greater_slovenia
-			set_country_flag = slovenization_of_greater_slovenia
 		}
 
 		ai_will_do = {

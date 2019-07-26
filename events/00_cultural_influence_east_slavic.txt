@@ -1,7 +1,7 @@
 namespace = cultural_influence_east_slavic
 #Kyyivan Rus'
 
-country_event = { #Russka Splinter (Hidden Event)
+country_event = { #Russka Splinter
 	id = cultural_influence_east_slavic.1
 	title = russka_splinter.title
 	desc = russka_splinter.desc
@@ -25,7 +25,7 @@ country_event = { #Russka Splinter (Hidden Event)
 					amount = 30
 				}
 			}
-			AND = { #No significant Russian nation exists
+			AND = { #No significant Ruthenian nation exists
 				NOT = { primary_culture = ruthenian }
 				NOT = { #No Such Nation exists
 					any_country = { #Any Nation exists that owns 40 Ruthenian provinces
@@ -39,7 +39,7 @@ country_event = { #Russka Splinter (Hidden Event)
 			}
 		}
 		has_global_flag = CI_events_enabled
-		NOT = { has_global_flag = RUSSKA_SPLINTER_FLAG }
+		NOT = { has_global_flag = russka_splinter_flag }
 	}
 
 	mean_time_to_happen = {
@@ -67,7 +67,7 @@ country_event = { #Russka Splinter (Hidden Event)
 		hidden_effect = {
 			split_russka = yes
 
-			set_global_flag = RUSSKA_SPLINTER_FLAG
+			set_global_flag = russka_splinter_flag
 
 			every_country = {
 				limit = {
@@ -161,7 +161,7 @@ country_event = { #Choose new Primary
 	}
 }
 
-country_event = { #Russki Splinter (Hidden Event)
+country_event = { #Russki Splinter
 	id = cultural_influence_east_slavic.3
 	title = russki_splinter.title
 	desc = russki_splinter.desc
@@ -199,7 +199,7 @@ country_event = { #Russki Splinter (Hidden Event)
 			}
 		}
 		has_global_flag = CI_events_enabled
-		NOT = { has_global_flag = RUSSKI_SPLINTER_FLAG }
+		NOT = { has_global_flag = russki_splinter_flag }
 	}
 
 	mean_time_to_happen = {
@@ -227,7 +227,7 @@ country_event = { #Russki Splinter (Hidden Event)
 		hidden_effect = {
 			split_russki = yes
 
-			set_global_flag = RUSSKI_SPLINTER_FLAG
+			set_global_flag = russki_splinter_flag
 
 			every_country = {
 				limit = {
@@ -357,15 +357,17 @@ country_event = { #Russka Merger
 		}
 		europe = { #Owned by ROOT, or not needed
 			OR = {
-				NOT = { culture = byelorussian }
-				NOT = { culture = ukrainian }
-				NOT = { culture = rusyn }
+				AND = {
+					NOT = { culture = byelorussian }
+					NOT = { culture = ukrainian }
+					NOT = { culture = rusyn }
+				}
 				owned_by = ROOT
 			}
 			type = all
 		}
 		has_global_flag = CI_events_enabled
-		has_global_flag = RUSSKA_SPLINTER_FLAG
+		has_global_flag = russka_splinter_flag
 	}
 
 	mean_time_to_happen = {
@@ -375,7 +377,7 @@ country_event = { #Russka Merger
 	immediate = {
 		hidden_effect = {
 			merge_russka = yes
-			clr_global_flag = RUSSKA_SPLINTER_FLAG
+			clr_global_flag = russka_splinter_flag
 		}
 	}
 
@@ -400,15 +402,17 @@ country_event = { #Russki Merger
 		}
 		europe = { #Owned by ROOT, or not needed
 			OR = {
-				NOT = { culture = novgorodian }
-				NOT = { culture = muscovite }
-				NOT = { culture = ryazanian }
+				AND = {
+					NOT = { culture = novgorodian }
+					NOT = { culture = muscovite }
+					NOT = { culture = ryazanian }
+				}
 				owned_by = ROOT
 			}
 			type = all
 		}
 		has_global_flag = CI_events_enabled
-		has_global_flag = RUSSKI_SPLINTER_FLAG
+		has_global_flag = russki_splinter_flag
 	}
 
 	mean_time_to_happen = {
@@ -418,7 +422,7 @@ country_event = { #Russki Merger
 	immediate = {
 		hidden_effect = {
 			merge_russki = yes
-			clr_global_flag = RUSSKI_SPLINTER_FLAG
+			clr_global_flag = russki_splinter_flag
 		}
 	}
 
@@ -463,7 +467,7 @@ province_event = { #Russka expansion
 		russka_culture_region = yes
 		cossack_rule_region = no #Needs to be Cossack instead
 		has_global_flag = CI_events_enabled
-		NOT = { has_global_flag = RUSSKA_SPLINTER_FLAG }
+		NOT = { has_global_flag = russka_splinter_flag }
 	}
 
 	mean_time_to_happen = {
@@ -580,7 +584,7 @@ province_event = { #Russki expansion
 		russki_culture_region = yes
 		cossack_rule_region = no #Needs to be Cossack instead
 		has_global_flag = CI_events_enabled
-		NOT = { has_global_flag = RUSSKI_SPLINTER_FLAG }
+		NOT = { has_global_flag = russki_splinter_flag }
 	}
 
 	mean_time_to_happen = {
@@ -697,7 +701,7 @@ province_event = { #Ukrainian expansion (Used for after Ruthenian Diverges)
 		ukrainian_culture_region = yes
 		cossack_rule_region = no #Needs to be Cossack instead
 		has_global_flag = CI_events_enabled
-		has_global_flag = RUSSKA_SPLINTER_FLAG
+		has_global_flag = russka_splinter_flag
 	}
 
 	mean_time_to_happen = {
@@ -813,7 +817,7 @@ province_event = { #Belarussian expansion (Used for after Ruthenian Diverges)
 		}
 		belarussian_culture_region = yes
 		has_global_flag = CI_events_enabled
-		has_global_flag = RUSSKA_SPLINTER_FLAG
+		has_global_flag = russka_splinter_flag
 	}
 
 	mean_time_to_happen = {
@@ -929,7 +933,7 @@ province_event = { #Northern Russian expansion (Used for after Russian Diverges)
 		}
 		northern_russian_culture_region = yes
 		has_global_flag = CI_events_enabled
-		has_global_flag = RUSSKI_SPLINTER_FLAG
+		has_global_flag = russki_splinter_flag
 	}
 
 	mean_time_to_happen = {
@@ -1045,7 +1049,7 @@ province_event = { #Middle Russian expansion (Used for after Russian Diverges)
 		}
 		middle_russian_culture_region = yes
 		has_global_flag = CI_events_enabled
-		has_global_flag = RUSSKI_SPLINTER_FLAG
+		has_global_flag = russki_splinter_flag
 	}
 
 	mean_time_to_happen = {
@@ -1162,7 +1166,7 @@ province_event = { #Southern Russian expansion (Used for after Russian Diverges)
 		southern_russian_culture_region = yes
 		cossack_rule_region = no #Needs to be Cossack instead
 		has_global_flag = CI_events_enabled
-		has_global_flag = RUSSKI_SPLINTER_FLAG
+		has_global_flag = russki_splinter_flag
 	}
 
 	mean_time_to_happen = {
