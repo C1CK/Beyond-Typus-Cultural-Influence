@@ -16,20 +16,19 @@ province_event = { #French expansion (Home Region)
 		any_neighbor_province = {
 			culture = OWNER
 		}
-		calc_true_if = {
-			all_owned_province = {
-				is_core = ROOT
-				region = france_region
-
-			}
-			amount = 45				#At least ~2/3 of France's 71 provinces
-		}
+		owner = {
+			num_of_owned_provinces_with = {
+				value = 45 #At least ~2/3 of France's 71 provinces
+				is_state = yes
+				french_homeland = yes
+			}	
+		}				
 		french_homeland = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 50
+		years = 25
 
 		modifier = {
 			factor = 0.5
