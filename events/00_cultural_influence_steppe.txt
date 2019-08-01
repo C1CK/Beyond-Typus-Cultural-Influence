@@ -103,10 +103,26 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 		add_base_manpower = -4
 		change_culture = OWNER
 		change_religion = OWNER
+
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				NOT = { owner = { manpower_percentage = 0.40 } }
+			}
+		}
 	}
 
 	option = { #We must exercise restraint
 		name = nomadic_conquest_culture_change.b
+
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 100
+				owner = { manpower_percentage = 0.75 }
+			}
+		}
 	}
 }
 
@@ -179,10 +195,26 @@ province_event = { #Nomadic growth
 				add_base_tax = 1
 			}
 		}
+
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				NOT = { owner = { manpower_percentage = 0.40 } }
+			}
+		}
 	}
 
 	option = { #We need the men
 		name = nomadic_growth.b
+
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 100
+				owner = { manpower_percentage = 0.75 }
+			}
+		}
 	}
 }
 
@@ -332,6 +364,10 @@ country_event = { #Settlement of capital region (Basically for Uzbek)
 		add_base_tax = 2
 		add_base_production = 2
 		add_base_manpower = 2
+
+		ai_chance = {
+			factor = 1000
+		}
 	}
 
 	option = { #Nah
