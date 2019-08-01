@@ -140,14 +140,13 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 	}
 }
 
-province_event = { #Nomadic growth
+country_event = { #Nomadic growth
 	id = cultural_influence_steppe.3
 	title = nomadic_growth.title
 	desc = nomadic_growth.desc
 	picture = HORDE_ON_HORSEBACK_eventPicture
 
 	trigger = {
-		steppe_culture_region = yes
 		OR = {
 			AND = {
 				has_owner_accepted_culture = yes
@@ -155,38 +154,34 @@ province_event = { #Nomadic growth
 			}
 			has_owner_culture = yes
 		}
-		has_province_modifier = nomadic_province #Nomadic Ruthenians are fake news
-		NOT = { has_province_modifier = steppe_city }
-		owner = { is_nomad = yes }
-		owner = { is_at_war = no }
-		NOT = { development = 25 } #Limit for nomadic populations
-		owner = { manpower = 1 } #1000
+		is_nomad = yes
+		manpower = 1 #1000
 		NOT = { devastation = 1 }
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 2.5
+		years = 15
+
 		modifier = {
 			factor = 2
-			development = 10
+			NOT = { manpower = 5 } #5000
 		}
 		modifier = {
-			factor = 3
-			development = 15
+			factor = 0.8
+			manpower = 12.5 #12500
 		}
 		modifier = {
-			factor = 4
-			development = 20
+			factor = 0.8
+			manpower = 20 #20000
 		}
-	}
-
-	immediate = {
-		hidden_effect = {
-			add_permanent_province_modifier = { 
-				name = nomadic_province
-				duration = -1
-			}
+		modifier = {
+			factor = 0.8
+			manpower = 30 #30000
+		}
+		modifier = {
+			factor = 0.1
+			manpower_percentage = 0.90 #90%
 		}
 	}
 
@@ -199,15 +194,23 @@ province_event = { #Nomadic growth
 
 		owner = { add_manpower = -1 } #1000
 
-		random_list = {
-			1 = {
-				add_base_manpower = 1
+		random_owned_province = {
+			limit = {
+				steppe_culture_region = yes
+				has_province_modifier = nomadic_province #Nomadic Ruthenians are fake news
+				NOT = { has_province_modifier = steppe_city } #Maybe redundant
+				NOT = { development = 25 } #Limit for nomadic populations
 			}
-			1 = {
-				add_base_production = 1
-			}
-			1 = {
-				add_base_tax = 1
+			random_list = {
+				1 = {
+					add_base_manpower = 1
+				}
+				1 = {
+					add_base_production = 1
+				}
+				1 = {
+					add_base_tax = 1
+				}
 			}
 		}
 
@@ -218,6 +221,10 @@ province_event = { #Nomadic growth
 				NOT = { owner = { manpower_percentage = 0.40 } }
 			}
 		}
+	}
+
+	option = { #Land grants for Tumen
+
 	}
 
 	option = { #We need the men
