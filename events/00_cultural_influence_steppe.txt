@@ -33,6 +33,16 @@ country_event = { #Add Steppe modifiers
 		every_province = {
 			limit = {
 				steppe_culture_region = yes
+				OWNER = { is_nomad = yes }
+			}
+			add_province_modifier = {
+				name = non_nomadic_province
+				duration = -1
+			}
+		}
+		every_province = {
+			limit = {
+				steppe_culture_region = yes
 				owner = { is_nomad = yes }
 				development = 20
 				province_has_center_of_trade_of_level = 2
@@ -376,6 +386,31 @@ province_event = { #Dispersion of nomads (Dev moves away from over-centralizatio
 				steppe_culture_region = yes
 			}
 			add_base_manpower = 1
+		}
+	}
+}
+
+province_event = { #Non-Nomadic land owned by nomad
+	id = cultural_influence_steppe.9
+	title = non_nomadic_land_event.title
+	desc = non_nomadic_land_event.desc
+	picture = SIEGE_eventPicture
+
+	trigger = {
+		owner = { is_nomad = yes }
+		steppe_culture_region = no
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = non_nomadic_land_event.a
+
+		add_province_modifier = {
+			name = non_nomadic_province
+			duration = -1
 		}
 	}
 }
