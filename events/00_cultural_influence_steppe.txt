@@ -30,6 +30,19 @@ country_event = { #Add Steppe modifiers
 				duration = -1
 			}
 		}
+		every_province = {
+			limit = {
+				steppe_culture_region = yes
+				owner = { is_nomad = yes }
+				development = 20
+				province_has_center_of_trade_of_level = 2
+			}
+			remove_province_modifier = nomadic_province
+			add_permanent_province_modifier = {
+				name = steppe_city
+				duration = -1
+			}
+		}
 	}
 
 	option = {
@@ -37,7 +50,7 @@ country_event = { #Add Steppe modifiers
 	}
 }
 
-province_event = { #Rape and Pillage of XXX
+province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 	id = cultural_influence_steppe.2
 	title = nomadic_conquest_culture_change.title
 	desc = nomadic_conquest_culture_change.desc
@@ -71,6 +84,10 @@ province_event = { #Rape and Pillage of XXX
 		}
 
 		owner = { add_manpower = -2.5 } #2500
+		add_permanent_province_modifier = { 
+			name = nomadic_province
+			duration = -1
+		}
 		add_base_tax = -4
 		add_base_production = -4
 		add_base_manpower = -4
@@ -92,6 +109,7 @@ province_event = { #Nomadic growth
 	trigger = {
 		steppe_culture_region = yes
 		has_owner_accepted_culture = yes
+		has_province_modifier = nomadic_province #Nomadic Ruthenians are fake news
 		NOT = { has_province_modifier = steppe_city }
 		owner = { is_nomad = yes }
 		NOT = { development = 25 } #Limit for nomadic populations
@@ -162,13 +180,24 @@ province_event = { #Rise of Steppe City
 		steppe_culture_region = yes
 		NOT = { has_province_modifier = steppe_city }
 		owner = { is_nomad = yes }
+		has_province_modifier = nomadic_province
 		development = 20
+		NOT = { devastation = 1 }
 		province_has_center_of_trade_of_level = 2
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 10
+		years = 20
+
+		modifier = {
+			factor = 0.8
+			province_has_center_of_trade_of_level = 3
+		}
+		modifier = {
+			factor = 0.8
+			development = 25
+		}
 		modifier = {
 			factor = 0.6
 			development = 30
@@ -291,5 +320,62 @@ country_event = { #Settlement of capital region (Basically for Uzbek)
 
 	option = { #Nah
 		name = nomadic_capital_settlements.b
+	}
+}
+
+province_event = { #Dispersion of nomads (Dev moves away from over-centralization)
+	id = cultural_influence_steppe.8
+	title = nomadic_over_centralization.title
+	desc = nomadic_over_centralization.desc
+	picture = HORSE_ON_HORSEBACK_eventPicture
+
+	trigger = {
+		owner = { is_nomad = yes }
+		has_province_modifier = nomadic_province
+		development = 20
+	}
+
+	mean_time_to_happen = {
+		years = 20
+
+		modifier = {
+			factor = 0.8
+			development = 25
+		}
+		modifier = {
+			factor = 0.6
+			development = 30
+		}
+		modifier = {
+			factor = 0.4
+			development = 35
+		}
+	}
+
+	option = {
+		name = nomadic_over_centralization.a
+
+		add_base_tax = -1
+		add_base_production = -1
+		add_base_manpower = -1
+
+		random_owned_province = {
+			limit = {
+				steppe_culture_region = yes
+			}
+			add_base_tax = 1
+		}
+		random_owned_province = {
+			limit = {
+				steppe_culture_region = yes
+			}
+			add_base_production = 1
+		}
+		random_owned_province = {
+			limit = {
+				steppe_culture_region = yes
+			}
+			add_base_manpower = 1
+		}
 	}
 }
