@@ -397,6 +397,7 @@ province_event = { #Non-Nomadic land owned by nomad
 	picture = SIEGE_eventPicture
 
 	trigger = {
+		NOT = { has_province_modifier = non_nomadic_province }
 		owner = { is_nomad = yes }
 		steppe_culture_region = no
 	}
