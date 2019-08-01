@@ -68,7 +68,8 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 
 	trigger = {
 		NOT = { culture = OWNER }
-		OWNER = { is_nomad = yes }
+		owner = { is_nomad = yes }
+		owner = { is_at_war = no }
 		OR = {
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -157,6 +158,7 @@ province_event = { #Nomadic growth
 		has_province_modifier = nomadic_province #Nomadic Ruthenians are fake news
 		NOT = { has_province_modifier = steppe_city }
 		owner = { is_nomad = yes }
+		owner = { is_at_war = no }
 		NOT = { development = 25 } #Limit for nomadic populations
 		owner = { manpower = 1 } #1000
 		NOT = { devastation = 1 }
