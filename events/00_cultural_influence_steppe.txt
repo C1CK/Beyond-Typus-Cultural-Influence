@@ -74,7 +74,7 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 			owner = { ai = yes }
 		}
 		any_neighbor_province = {
-			culture = OWNER
+			culture = PREV.OWNER
 		}
 		steppe_culture_region = yes
 		owner = { manpower = 2.5 } #2500
@@ -118,7 +118,13 @@ province_event = { #Nomadic growth
 
 	trigger = {
 		steppe_culture_region = yes
-		has_owner_accepted_culture = yes
+		OR = {
+			AND = {
+				has_owner_accepted_culture = yes
+				owner = { ai = no }
+			}
+			has_owner_culture = yes
+		}
 		has_province_modifier = nomadic_province #Nomadic Ruthenians are fake news
 		NOT = { has_province_modifier = steppe_city }
 		owner = { is_nomad = yes }
