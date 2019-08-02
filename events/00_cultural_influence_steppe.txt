@@ -78,7 +78,7 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 			culture = OWNER
 		}
 		steppe_culture_region = yes
-		owner = { manpower = 2.5 } #2500
+		owner = { manpower = 2 } #2000
 		NOT = { has_province_modifier = steppe_city }
 		has_global_flag = CI_events_enabled
 	}
@@ -91,10 +91,10 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 		name = nomadic_conquest_culture_change.a
 
 		trigger = {
-			owner = { manpower = 2.5 } #2500
+			owner = { manpower = 2 } #2000
 		}
 
-		owner = { add_manpower = -2.5 } #2500
+		owner = { add_manpower = -2 } #2000
 		if = { #Eh.. other Nomads can assimilate or whatever
 			limit = {
 				has_province_modifier = nomadic_province
@@ -133,7 +133,7 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 		ai_chance = {
 			factor = 10
 			modifier = {
-				factor = 100
+				factor = 0
 				owner = { manpower_percentage = 0.75 }
 			}
 		}
