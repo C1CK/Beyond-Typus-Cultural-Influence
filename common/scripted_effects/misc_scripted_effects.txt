@@ -1,0 +1,28 @@
+steppe_gain_random_dev = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				AND = {
+					has_owner_accepted_culture = yes
+					owner = { ai = no }
+				}
+				has_owner_culture = yes
+			}
+			steppe_culture_region = yes
+			has_province_modifier = nomadic_province #Nomadic Ruthenians are fake news
+			NOT = { has_province_modifier = steppe_city } #Maybe redundant
+			NOT = { development = 25 } #Limit for nomadic populations
+		}
+		random_list = {
+			1 = {
+				add_base_manpower = 1
+			}
+			1 = {
+				add_base_production = 1
+			}
+			1 = {
+				add_base_tax = 1
+			}
+		}
+	}
+}
