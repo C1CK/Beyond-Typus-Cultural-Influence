@@ -78,13 +78,21 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 			culture = OWNER
 		}
 		steppe_culture_region = yes
-		owner = { manpower = 2 } #2000
+		OR = {
+			owner = { manpower = 2 } #2000
+			has_province_modifier = province_razed
+		}
 		NOT = { has_province_modifier = steppe_city }
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 5
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_province_modifier = province_razed
+		}
 	}
 
 	option = { #To the victor go the spoils!
@@ -94,10 +102,42 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 			owner = { manpower = 2 } #2000
 		}
 
-		owner = { add_manpower = -2 } #2000
-		if = { #Eh.. other Nomads can assimilate or whatever
+		#Remove manpower
+		if = {
+			limit = {
+				has_province_modifier = province_razed
+			}
+			owner = { add_manpower = -1 } #1000
+		}
+		if = {
+			limit = {
+				NOT = { has_province_modifier = province_razed }
+			}
+			owner = { add_manpower = -2 } #2000
+		}
+
+		#Remove dev
+		if = { #Razed nomadic... You've already killed the province
 			limit = {
 				has_province_modifier = nomadic_province
+				has_province_modifier = province_razed
+			}
+			add_base_tax = -1 #Fuck tax in particular!
+			#add_base_production = -0
+			#add_base_manpower = -0 #Manpower Biased
+		}
+		if = { #Razed sedentary or non-razed nomadic
+			limit = {
+				OR = {
+					AND = {
+						has_province_modifier = province_razed
+						has_province_modifier = nomadic_province
+					}
+					AND = {
+						has_province_modifier = province_razed
+						NOT = { has_province_modifier = nomadic_province }
+					}
+				}
 			}
 			add_base_tax = -2
 			add_base_production = -2
@@ -105,12 +145,14 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 		}
 		if = { #Non-Nomadic gets deleted
 			limit = {
+				NOT = { has_province_modifier = province_razed }
 				NOT = { has_province_modifier = nomadic_province }
 			}
 			add_base_tax = -4
 			add_base_production = -4
 			add_base_manpower = -4
 		}
+
 		add_permanent_province_modifier = { 
 			name = nomadic_province
 			duration = -1
