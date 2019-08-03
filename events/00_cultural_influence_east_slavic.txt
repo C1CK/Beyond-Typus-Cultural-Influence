@@ -1514,4 +1514,76 @@ province_event = { #Major Steppe Cities assimilation
 			change_culture = ryazanian
 		}
 	}
-}
+}	
+	
+province_event = { #Alaskan Colonialism
+	id = cultural_influence_east_slavic.16
+	title = russian_alaska.title
+	desc = russian_alaska.desc
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+		OR = {
+			colonial_region = colonial_alaska	
+		}
+		culture_group = east_slavic		
+		NOT = { culture = alaskan_russian }
+	}
+
+	mean_time_to_happen = {
+		months = 960 #80 years
+		
+		#Generic 7 factors
+		modifier = { #Colonial culture owner speeds it up dramatically
+			factor = 0.2
+			owner = { primary_culture = alaskan_russian }
+		}
+		modifier = { #More likely in later years
+			factor = 0.8
+			is_year = 1600
+		}
+		modifier = { #More likely in later years
+			factor = 0.8
+			is_year = 1675
+		}
+		modifier = { #More likely in later years
+			factor = 0.8
+			is_year = 1750
+		}
+		modifier = { #Larger settlements convert more slowly
+			factor = 1.25
+			development = 5
+		}
+		modifier = { #Larger settlements convert more slowly
+			factor = 1.25
+			development = 10
+		}
+		modifier = { #Larger settlements convert more slowly
+			factor = 1.25
+			development = 20
+		}
+		#Special factors per culture
+	}
+
+	option = { # Okay
+		name = "BeyondTypusColonialCultures.EVTOPTA2"
+		add_local_autonomy = 10
+		change_culture = alaskan_russian
+		if = {
+			limit = { owner = { NOT = { accepted_culture = alaskan_russian } } }
+			add_accepted_culture = alaskan_russian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				owner = {
+					OR = {
+					culture_group = east_slavic
+					}
+				}
+			}
+			change_primary_culture = alaskan_russian
+		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.
+	}
+}		
