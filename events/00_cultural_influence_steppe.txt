@@ -130,7 +130,7 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 			limit = {
 				OR = {
 					AND = {
-						has_province_modifier = province_razed
+						NOT = { has_province_modifier = province_razed }
 						has_province_modifier = nomadic_province
 					}
 					AND = {
