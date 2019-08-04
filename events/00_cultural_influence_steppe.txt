@@ -189,8 +189,9 @@ country_event = { #Nomadic growth (Manpower for dev)
 
 	trigger = {
 		is_nomad = yes
-		manpower = 1 #1000
+		manpower = 15 #15000
 		has_global_flag = CI_events_enabled
+		NOT = { has_country_modifier = nomadic_growth_cooldown }
 		any_owned_province = { #Any province valid for growth below 20 dev
 			OR = {
 				AND = {
@@ -202,29 +203,25 @@ country_event = { #Nomadic growth (Manpower for dev)
 			steppe_culture_region = yes
 			has_province_modifier = nomadic_province #Nomadic Ruthenians are fake news
 			NOT = { has_province_modifier = steppe_city } #Maybe redundant
-			NOT = { development = 20 }
+			NOT = { development = 15 }
 			NOT = { devastation = 1 }
 		}
 	}
 
 	mean_time_to_happen = {
-		years = 15
+		years = 10
 
 		modifier = {
-			factor = 2
-			NOT = { manpower = 5 } #5000
+			factor = 0.8
+			manpower = 25 #25000
 		}
 		modifier = {
 			factor = 0.8
-			manpower = 12.5 #12500
+			manpower = 40 #40000
 		}
 		modifier = {
 			factor = 0.8
-			manpower = 20 #20000
-		}
-		modifier = {
-			factor = 0.8
-			manpower = 30 #30000
+			manpower = 75 #75000
 		}
 		modifier = {
 			factor = 0.1
@@ -314,6 +311,11 @@ country_event = { #Nomadic growth (Manpower for dev)
 
 	option = { #We need the men
 		name = nomadic_growth.d
+
+		add_country_modifier = {
+			name = nomadic_growth_cooldown
+			days = 3600 #10 Years
+		}
 
 		ai_chance = {
 			factor = 10
