@@ -449,7 +449,7 @@ country_event = { #Settlement of capital region (Basically for Uzbek)
 	trigger = {
 		manpower = 10 #10000
 		is_nomad = yes
-		capital_scope = { has_owner_culture = yes }
+		capital_scope = { has_owner_culture = no }
 		capital_scope = { steppe_culture_region = yes }
 		has_global_flag = CI_events_enabled
 	}
@@ -468,9 +468,9 @@ country_event = { #Settlement of capital region (Basically for Uzbek)
 		add_manpower = -10 #10000
 		capital_scope = { change_culture = ROOT }
 		capital_scope = { change_religion = ROOT }
-		add_base_tax = 2
-		add_base_production = 2
-		add_base_manpower = 2
+		capital_scope = { add_base_tax = 2 }
+		capital_scope = { add_base_production = 2 }
+		capital_scope = { add_base_manpower = 2 }
 
 		ai_chance = {
 			factor = 1000
