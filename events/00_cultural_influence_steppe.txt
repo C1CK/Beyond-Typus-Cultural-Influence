@@ -482,62 +482,7 @@ country_event = { #Settlement of capital region (Basically for Uzbek)
 	}
 }
 
-province_event = { #Dispersion of nomads (Dev moves away from over-centralization)
-	id = cultural_influence_steppe.8
-	title = nomadic_over_centralization.title
-	desc = nomadic_over_centralization.desc
-	picture = HORDE_ON_HORSEBACK_eventPicture
-
-	trigger = {
-		owner = { is_nomad = yes }
-		has_province_modifier = nomadic_province
-		development = 20
-	}
-
-	mean_time_to_happen = {
-		years = 20
-
-		modifier = {
-			factor = 0.8
-			development = 25
-		}
-		modifier = {
-			factor = 0.6
-			development = 30
-		}
-		modifier = {
-			factor = 0.4
-			development = 35
-		}
-	}
-
-	option = {
-		name = nomadic_over_centralization.a
-
-		add_base_tax = -1
-		add_base_production = -1
-		add_base_manpower = -1
-
-		random_owned_province = {
-			limit = {
-				steppe_culture_region = yes
-			}
-			add_base_tax = 1
-		}
-		random_owned_province = {
-			limit = {
-				steppe_culture_region = yes
-			}
-			add_base_production = 1
-		}
-		random_owned_province = {
-			limit = {
-				steppe_culture_region = yes
-			}
-			add_base_manpower = 1
-		}
-	}
-}
+####Free ID 8
 
 province_event = { #Non-Nomadic land owned by nomad
 	id = cultural_influence_steppe.9
