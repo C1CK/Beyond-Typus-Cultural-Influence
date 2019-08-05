@@ -24,11 +24,12 @@ province_event = { #French expansion (Home Region)
 			}	
 		}				
 		french_homeland = yes
+		has_institution = printing_press
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 20
 
 		modifier = {
 			factor = 0.5
@@ -120,12 +121,13 @@ province_event = { #Castillane expansion
 				culture = valencien
 			}
 		}
+		has_institution = printing_press
 		castillane_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 50
+		years = 30
 
 		modifier = {
 			factor = 0.5
@@ -215,12 +217,13 @@ province_event = { #Galicien expansion
 				culture = valencien
 			}
 		}
+		has_institution = printing_press
 		galicien_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 50
+		years = 30
 
 		modifier = {
 			factor = 0.5
@@ -310,12 +313,13 @@ province_event = { #Valencien expansion
 				culture = valencien
 			}
 		}
+		has_institution = printing_press
 		valencien_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 50
+		years = 30
 
 		modifier = {
 			factor = 0.5
@@ -405,12 +409,13 @@ province_event = { #Apennine Central expansion
 				culture = nouveau_provencal
 			}
 		}
+		has_institution = printing_press
 		apennine_central_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 50
+		years = 30
 
 		modifier = {
 			factor = 0.5
@@ -500,12 +505,13 @@ province_event = { #Sud Apennine expansion
 				culture = nouveau_provencal
 			}
 		}
+		has_institution = printing_press
 		sud_apennine_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 50
+		years = 30
 
 		modifier = {
 			factor = 0.5
@@ -595,12 +601,13 @@ province_event = { #Nouveau Provençal expansion
 				culture = nouveau_provencal
 			}
 		}
+		has_institution = printing_press
 		nouveau_provencal_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 50
+		years = 30
 
 		modifier = {
 			factor = 0.5
@@ -690,12 +697,13 @@ province_event = { #Corse expansion
 				culture = corse
 			}
 		}
+		has_institution = printing_press
 		corse_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 50
+		years = 30
 
 		modifier = {
 			factor = 0.5
@@ -785,12 +793,13 @@ province_event = { #Sarde expansion
 				culture = sarde
 			}
 		}
+		has_institution = printing_press
 		sarde_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 50
+		years = 30
 
 		modifier = {
 			factor = 0.5
@@ -2537,10 +2546,214 @@ province_event = { #Tunisien settlements and assimilation
 
 #####################Crusader Cultures#####################
 
-#id30 Romain
-#id31 Outre Mer
-#id32 Galate
-#id33 Nil Français
+
+province_event = { #Romain Spread
+	id = cultural_influence_french.30
+	title = romain_spread.title
+	desc = romain_spread.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OWNER = { religion = catholic }
+		OWNER = { culture_group = french }
+		OR = {
+			OWNER = { full_idea_group = religious_ideas }
+			OWNER = { is_papal_controller = yes }
+			current_age = age_of_discovery
+			current_age = age_of_reformation
+			TAG = KOJ
+		}
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			NOT = { religion = catholic }
+			NOT = { culture_group = french }
+		}
+		romain_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	option = {
+		name = romain_spread.a
+
+		add_base_tax = -2
+		add_base_manpower = -2
+		add_base_production = -2
+		change_religion = OWNER
+		change_culture = romain
+		add_province_modifier = {
+			name = french_new_catholic_settlements
+			duration = 9000
+			desc = desc_french_new_catholic_settlements
+		}
+	}
+
+	option = {
+		name = romain_spread.b
+	}
+}
+
+province_event = { #Outre Mer Spread
+	id = cultural_influence_french.31
+	title = outre_mer_spread.title
+	desc = outre_mer_spread.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OWNER = { religion = catholic }
+		OWNER = { culture_group = french }
+		OR = {
+			OWNER = { full_idea_group = religious_ideas }
+			OWNER = { is_papal_controller = yes }
+			current_age = age_of_discovery
+			current_age = age_of_reformation
+			TAG = KOJ
+		}
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			NOT = { religion = catholic }
+			NOT = { culture_group = french }
+		}
+		outre_mer_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	option = {
+		name = outre_mer_spread.a
+
+		add_base_tax = -2
+		add_base_manpower = -2
+		add_base_production = -2
+		change_religion = OWNER
+		change_culture = outre_mer
+		add_province_modifier = {
+			name = french_new_catholic_settlements
+			duration = 9000
+			desc = desc_french_new_catholic_settlements
+		}
+	}
+
+	option = {
+		name = outre_mer_spread.b
+	}
+}
+
+province_event = { #Galate Spread
+	id = cultural_influence_french.32
+	title = galate_spread.title
+	desc = galate_spread.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OWNER = { religion = catholic }
+		OWNER = { culture_group = french }
+		OR = {
+			OWNER = { full_idea_group = religious_ideas }
+			OWNER = { is_papal_controller = yes }
+			current_age = age_of_discovery
+			current_age = age_of_reformation
+			TAG = KOJ
+		}
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			NOT = { religion = catholic }
+			NOT = { culture_group = french }
+		}
+		galate_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	option = {
+		name = galate_spread.a
+
+		add_base_tax = -2
+		add_base_manpower = -2
+		add_base_production = -2
+		change_religion = OWNER
+		change_culture = galate
+		add_province_modifier = {
+			name = french_new_catholic_settlements
+			duration = 9000
+			desc = desc_french_new_catholic_settlements
+		}
+	}
+
+	option = {
+		name = galate_spread.b
+	}
+}
+
+province_event = { #Nil Francais Spread
+	id = cultural_influence_french.33
+	title = nil_francais_spread.title
+	desc = nil_francais_spread.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OWNER = { religion = catholic }
+		OWNER = { culture_group = french }
+		OR = {
+			OWNER = { full_idea_group = religious_ideas }
+			OWNER = { is_papal_controller = yes }
+			current_age = age_of_discovery
+			current_age = age_of_reformation
+			TAG = KOJ
+		}
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			NOT = { religion = catholic }
+			NOT = { culture_group = french }
+		}
+		nil_francais_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	option = {
+		name = nil_francais_spread.a
+
+		add_base_tax = -2
+		add_base_manpower = -2
+		add_base_production = -2
+		change_religion = OWNER
+		change_culture = nil_francais
+		add_province_modifier = {
+			name = french_new_catholic_settlements
+			duration = 9000
+			desc = desc_french_new_catholic_settlements
+		}
+	}
+
+	option = {
+		name = nil_francais_spread.b
+	}
+}
 
 #####################Colonial Cultures#####################
 
@@ -2554,6 +2767,10 @@ province_event = { #Quebecois spread
 
 	trigger = {
 		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
 		quebecois_culture_region = yes
 		NOT = { culture = quebecois }
 		OWNER = { culture_group = french }
@@ -2590,6 +2807,10 @@ province_event = { #Californienne spread
 
 	trigger = {
 		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
 		californienne_culture_region = yes
 		NOT = { culture = californienne }
 		OWNER = { culture_group = french }
@@ -2618,7 +2839,43 @@ province_event = { #Californienne spread
 }
 
 #Former Creole
-#id37 Metropolitaine Colonial Cultures
+
+province_event = { #Indian Ocean Islands primary spread
+	id = cultural_influence_french.37
+	title = french_indian_islands_spread.title
+	desc = french_indian_islands_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_city = yes
+		development = 20
+		OWNER = { culture_group = french }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			kreol_renieone_culture_region = yes
+			kreol_morisien_culture_region = yes
+			kreol_seselwa_culture_region = yes 
+		}
+		OR = {
+			culture = kreol_renieone
+			culture = kreol_morisien
+			culture = kreol_seselwa
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = french_indian_islands_spread.a
+		change_culture = OWNER
+	}
+}
 
 province_event = { #Karipounais spread
 	id = cultural_influence_french.39
@@ -2628,6 +2885,10 @@ province_event = { #Karipounais spread
 
 	trigger = {
 		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
 		karipounais_culture_region = yes
 		OR = {
 			development = 40
@@ -2661,6 +2922,10 @@ province_event = { #Quechois spread
 
 	trigger = {
 		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
 		quechois_culture_region = yes
 		OR = {
 			development = 40
@@ -2694,6 +2959,10 @@ province_event = { #Circumcaraïbes spread
 
 	trigger = {
 		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
 		circumcaraibes_culture_region = yes
 		OR = {
 			development = 40
@@ -2727,6 +2996,10 @@ province_event = { #Louisianais spread
 
 	trigger = {
 		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
 		louisianais_culture_region = yes
 		OR = {
 			development = 40
@@ -2753,10 +3026,247 @@ province_event = { #Louisianais spread
 }
 
 #Old World
-#id43 Mozambique
-#id44 Subsaharienne
-#id45 Sud Africain
-#id38 Indochinois
+
+province_event = { #Mozambicaine spread
+	id = cultural_influence_french.43
+	title = mozambicaine_spread.title
+	desc = mozambicaine_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			development = 30
+			AND = {
+				is_owned_by_trade_company = yes
+				OR = {
+					ai = yes #the AI doesn't understand so will spend all its monarch points developing coal provinces even at the expense of tech
+					development = 20
+				}
+			}
+			any_neighbor_province = { culture_group = french }
+		}
+		NOT = { culture = mozambicaine }
+		mozambicaine_culture_region = yes
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years =  30
+
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
+
+	option = {
+		name = mozambicaine_spread.a
+
+		change_culture = mozambicaine
+	}
+}
+
+province_event = { #Subsaharienne spread
+	id = cultural_influence_french.44
+	title = subsaharienne_spread.title
+	desc = subsaharienne_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			development = 30
+			AND = {
+				is_owned_by_trade_company = yes
+				OR = {
+					ai = yes #the AI doesn't understand so will spend all its monarch points developing coal provinces even at the expense of tech
+					development = 20
+				}
+			}
+			any_neighbor_province = { culture_group = french }
+		}
+		NOT = { culture = subsaharienne }
+		subsaharienne_culture_region = yes
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years =  30
+
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
+
+	option = {
+		name = subsaharienne_spread.a
+
+		change_culture = subsaharienne
+	}
+}
+
+province_event = { #Sud Africain spread
+	id = cultural_influence_french.45
+	title = sud_africain_spread.title
+	desc = sud_africain_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			development = 30
+			AND = {
+				is_owned_by_trade_company = yes
+				OR = {
+					ai = yes #the AI doesn't understand so will spend all its monarch points developing coal provinces even at the expense of tech
+					development = 20
+				}
+			}
+			any_neighbor_province = { culture_group = french }
+		}
+		NOT = { culture = sud_africain }
+		sud_africain_culture_region = yes
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years =  30
+
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
+
+	option = {
+		name = sud_africain_spread.a
+
+		change_culture = sud_africain
+	}
+}
+
+province_event = { #Sud Africain (Colonial Region)
+	id = cultural_influence_french.26
+	title = sud_africain_colonial_spread.title
+	desc = sud_africain_colonial_spread.desc
+	picture = CULTURE_eventPicture
+	hidden = yes
+
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		sud_africain_culture_region = yes
+		colonial_region = colonial_cape
+		NOT = { culture = sud_africain }
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	immediate = {
+		change_culture = sud_africain
+	}
+
+	option = {
+		name = sud_africain_colonial_spread.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+province_event = { #Indochinois spread
+	id = cultural_influence_french.38
+	title = indochinois_spread.title
+	desc = indochinois_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			development = 30
+			AND = {
+				is_owned_by_trade_company = yes
+				OR = {
+					ai = yes #the AI doesn't understand so will spend all its monarch points developing coal provinces even at the expense of tech
+					development = 20
+				}
+			}
+			any_neighbor_province = { culture_group = french }
+		}
+		NOT = { culture = indochinois }
+		indochinois_culture_region = yes
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years =  30
+
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
+
+	option = {
+		name = indochinois_spread.a
+
+		change_culture = indochinois
+	}
+}
+
+province_event = { #Old World primary spread
+	id = cultural_influence_french.25
+	title = french_old_world_spread.title
+	desc = french_old_world_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		development = 10
+		OWNER = { culture_group = french }
+		metropolitaine_colonial_culture_region = yes
+		NOT = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = french_old_world_spread.a
+		change_culture = OWNER
+	}	
+}
 
 ######################Creole Cultures######################
 
@@ -3228,12 +3738,10 @@ country_event = { #Kweyol Kechwa (Choice)
 
 ######################Metropolitaine######################
 
-#id60 Metropolitaine
+#id60 Metropolitaine ############## Possibly for a future update not really relevant for gameplay as it is just a rename event ###############
 
 ######################Free Event IDS######################
-
-#id25 Free ID
-#id26 Free ID
+#These IDs came from scrapped events so should be used before adding new IDs
 #id27 Free ID
 #id28 Free ID
 #id29 Free ID

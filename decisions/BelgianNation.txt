@@ -1,0 +1,154 @@
+country_decisions = {
+	belgian_vassal_nation = { #Used to form a Belgian buffer state
+		major = yes
+		potential = {
+			bt_generic_can_form_potential_check = yes
+			NOT = { has_country_flag = formed_belgian_flag }
+			NOT = { primary_culture = wallonian }
+			NOT = { primary_culture = low_franconian }
+			NOT = { primary_culture = dutch }
+			any_owned_province = {
+				belgian_provinces_trigger = yes
+			}
+			any_owned_province = {
+				is_capital = yes 
+				continent = europe
+				belgian_provinces_trigger = no
+			}
+			num_of_cities = 30			#With more than 30 cities, so that smaller countries don't destabilise themselves by forming it
+		}
+		provinces_to_highlight = {
+			belgian_provinces_trigger = yes
+		}
+		allow = {
+			NOT = { exists = BEL }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			owns_core_province = 92 # Brussel
+			calc_true_if = {
+				all_owned_province = {
+					belgian_provinces_trigger = yes
+				}
+				amount = 7			#At least 2/3 of Belgium's 11 provinces (approximate)
+			}
+			total_development = 500
+			prestige = 50
+		}
+		effect = {
+			every_province = {
+				limit = { belgian_provinces_trigger = yes }
+				add_permanent_claim = BEL
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = { belgian_provinces_trigger = yes }
+					remove_core = ROOT
+					add_core = BEL
+				}
+			}
+			every_owned_province = {
+				limit = { belgian_provinces_trigger = yes }
+				cede_province = BEL
+			}
+			hidden_effect = {
+				BEL = {
+					set_government_rank = 2
+					change_government = republic
+					add_government_reform = dutch_republic
+					add_historical_friend = ROOT
+					change_religion = ROOT
+					set_country_flag = formed_belgian_flag
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						OR = {
+							culture_group = french
+							culture_group = germanic
+						}
+					}
+					trigger_switch = {
+						on_trigger = culture_group
+						french = { BEL = { change_primary_culture = wallonian } }
+						germanic = {
+							if = {
+								limit = { has_global_flag = dutch_created_flag }
+								BEL = { change_primary_culture = dutch }
+							}
+							if = {
+								limit = { NOT = { has_global_flag = dutch_created_flag } }
+								BEL = { change_primary_culture = low_franconian }
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { culture_group = french }
+						NOT = { culture_group = germanic }
+					}
+					92 = {
+						trigger_switch = {
+	    					on_trigger = culture
+	    					wallonian = { BEL = { change_primary_culture = wallonian } }
+	    					dutch = { BEL = { change_primary_culture = dutch } }
+	    					low_franconian = { BEL = { change_primary_culture = low_franconian } }	
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				BEL = {
+					define_ruler = {
+					    name = "Dominique"
+					    dynasty = "Bogaert"
+					    adm = 5
+					    dip = 3
+					    mil = 4
+					    age = 20
+					    claim = 95
+					}
+				}
+			}
+			create_subject = {
+				subject_type = march
+				subject = BEL
+			}
+			hidden_effect = {
+				every_province = {
+					limit = {
+						NOT = { owned_by = ROOT }
+						OR = {
+							province_id = 96 #Zeeland
+							province_id = 4383 #Gravenhage
+							province_id = 97 #Amsterdam
+							province_id = 98 #Utrecht
+							province_id = 95 #Breda
+							province_id = 3061 #Den Bosch
+							province_id = 1742 #Limburg
+							province_id = 3063 #Overmaas
+							province_id = 3060 #Betuwe
+							province_id = 99 #Veluwe
+							province_id = 4381 #Overjissel
+							province_id = 3058 #Drente
+							province_id = 4382 #Ommelannen
+							province_id = 100 #Fryslan
+							province_id = 94 #Luxembourg
+						}
+					}
+					add_permanent_claim = BEL
+				}
+			}
+			set_country_flag = formed_belgian_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { total_development = 750 }
+			}
+		}
+	}
+}
