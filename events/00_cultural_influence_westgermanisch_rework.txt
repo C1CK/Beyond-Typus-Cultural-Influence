@@ -776,8 +776,10 @@ country_event = { #Dutch Standardization (On formation of NED, then spreads)
 
 	trigger = {
 		tag = NED #Only allowed for the Dutch
-		primary_culture = low_franconian
-		primary_culture = dutch_low_saxon
+		OR = {
+			primary_culture = low_franconian
+			primary_culture = dutch_low_saxon
+		)
 		NOT = { has_global_flag = dutch_created_flag }
 		has_global_flag = CI_events_enabled
 	}
@@ -790,6 +792,7 @@ country_event = { #Dutch Standardization (On formation of NED, then spreads)
 				limit = {
 					dutch_cultures = yes
 				}
+				change_culture = dutch
 			}
 		}
 	}
