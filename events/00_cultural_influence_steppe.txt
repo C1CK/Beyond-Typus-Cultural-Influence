@@ -63,7 +63,14 @@ country_event = { #Add Steppe modifiers
 province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 	id = cultural_influence_steppe.2
 	title = nomadic_conquest_culture_change.title
-	desc = nomadic_conquest_culture_change.desc
+	desc = {
+		desc = nomadic_conquest_culture_change_nomadic.desc
+		trigger = { has_province_modifier = nomadic_province }
+	}
+	desc = {
+		desc = nomadic_conquest_culture_change_settled.desc
+		trigger = { NOT = { has_province_modifier = nomadic_province } }
+	}
 	picture = COSSACK_ESTATE_RAIDERS_eventPicture
 
 	trigger = {
