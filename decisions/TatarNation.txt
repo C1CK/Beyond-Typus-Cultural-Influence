@@ -1,6 +1,6 @@
 country_decisions = {
 
-	tatar_nation = {
+	tatar_nation = { #Golden Horde
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
@@ -17,7 +17,13 @@ country_decisions = {
 			NOT = { tag = TUR }
 			NOT = { tag = BYZ }
 			NOT = { exists = GLH }
-			culture_group = kipchak
+			OR = {
+				culture_group = kipchak
+				culture_group = oghur
+				primary_culture = turkmeni
+				primary_culture = pecheneg
+				primary_culture = turkish_khorasani
+			}
 			is_nomad = yes
 			is_colonial_nation = no
 			OR = {
