@@ -392,4 +392,170 @@ country_decisions = {
 			add_republican_tradition = 10
 		}
 	}
+
+	form_chagatai_khanate = { #Old Chagatai is now Moghul
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_chagatai_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = MUG }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = PAP }
+			NOT = { tag = TUR }
+			NOT = { tag = BYZ }
+			NOT = { exists = JAG }
+			OR = {
+				culture_group = karluk
+			}
+			is_nomad = yes
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			OR = {
+				ai = no
+				num_of_cities = 20
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+					}
+					OR = {
+						province_id = 461 #Almaty
+						province_id = 2124 #Yarkand
+						province_id = 2118 #Urzhar
+						province_id = 457 #Tashkent
+						province_id = 441 #Khiva
+						province_id = 442 #Bukhara
+						province_id = 454 #Samarqand
+					}
+				}
+				AND = {
+					OR = {
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					OR = {
+						province_id = 451 #Kabul
+						province_id = 440 #Qaraqalpak
+						province_id = 446 #Herat
+						province_id = 476 #Kypshak
+					}
+				}
+			}
+		}
+		allow = {
+			NOT = { exists = JAG }
+			is_nomad = yes
+			owns_core_province = 461 #Almaty
+			owns_core_province = 2124 #Yarkand
+			owns_core_province = 2118 #Urzhar
+			owns_core_province = 457 #Tashkent
+			owns_core_province = 441 #Khiva
+			owns_core_province = 442 #Bukhara
+			owns_core_province = 454 #Samarqand
+			451 = { #Kabul
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			440 = { #Qaraqalpak
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			446 = { #Herat
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			476 = { #Kypshak
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			num_of_cities = 30
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+		}
+		effect = {
+			change_tag = JAG
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					OR = {
+						ai = no
+						AND = {
+							ai = yes
+							has_idea_group = default_ideas
+						}
+					}
+				}
+				set_country_flag = formed_chagatai_horde_flag
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			shanshan_area = {
+				add_permanent_claim = JAG
+			}
+			tarim_basin_area = { #Central Altishahr
+				add_permanent_claim = JAG
+			}
+			kashgaria_area = {
+				add_permanent_claim = JAG
+			}
+			ferghana_area = {
+				add_permanent_claim = JAG
+			}
+			termez_area = { #Khuttalan
+				add_permanent_claim = JAG
+			}
+			transoxiana_area = {
+				add_permanent_claim = JAG
+			}
+			khiva_area = {
+				add_permanent_claim = JAG
+			}
+			kyzylkum_area = {
+				add_permanent_claim = JAG
+			}
+			arys_area = {
+				add_permanent_claim = JAG
+			}
+			syr_darya_area = {
+				add_permanent_claim = JAG
+			}
+			jetysuu_area = {
+				add_permanent_claim = JAG
+			}
+			zungaria_area = { #South Zungaria
+				add_permanent_claim = JAG
+			}
+			north_zungaria = {
+				add_permanent_claim = JAG
+			}
+			turpan_kumul_area = {
+				add_permanent_claim = JAG
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
 }
