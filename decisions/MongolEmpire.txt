@@ -10,9 +10,20 @@ country_decisions = {
 				tag = ILK
 				was_never_end_game_tag_trigger = yes
 			}
-			OR = {
-				culture_group = altaic
-				culture_group = tartar
+			OR = { #Any culture present in the Mongol empire plus some others
+					#Golden Horde
+				culture_group = kipchak
+				culture_group = oghur
+				primary_culture = turkmeni
+				primary_culture = pecheneg
+				primary_culture = turkish_khorasani
+				#primary_culture = azerbaijani #Ilkhanate cut as not nomadic
+					#Chagatai
+				culture_group = karluk
+				#culture_group = ilkhan_group #Ilkhanate cut as not nomadic
+					#Mongolia
+				culture_group = mongolic
+				#primary_culture = manchu #No? You do Qing instead
 			}
 			NOT = { has_country_flag = mongol_empire_flag }
 			NOT = { tag = HLR }
@@ -50,10 +61,14 @@ country_decisions = {
 			}
 		}
 		allow = {
-			OR = {
-				tag = YUA
+			is_nomad = yes
+			OR = { #Successor States
+				#tag = YUA #Only Northern Yuan was Nomadic, this isn't Northern Yuan, this is a Chinese Dynasty
+				tag = KHA #Mongolia, Using this as a successor state for everything east of Chagatai
 				tag = GLH
-				tag = ILK
+				#tag = CHG #Exists at the start, but this was a Nomadic successor state -and tbh I'm pretty sure Chagatai shouldn't exist in 1444 and should instead be a formable like the Golden Horde
+				tag = JAG #New Chagatai tag, formable for Karluks
+				#tag = ILK #This isn't Nomadic, and frankly is a renamed Persia
 			}
 			custom_trigger_tooltip = {
 				tooltip = mongolia_decision_tooltip
@@ -73,14 +88,22 @@ country_decisions = {
 				type = all
 				owned_by = ROOT
 			}
-			1816 = { owned_by = ROOT } # beijing		
-			1821 = { owned_by = ROOT }
-			667 = { owned_by = ROOT }
+			1816 = { country_or_non_sovereign_subject_holds = ROOT } #Beijing (No longer need direct control of China)
+			1821 = { country_or_non_sovereign_subject_holds = ROOT } #Nanjing
+			667 = { country_or_non_sovereign_subject_holds = ROOT } #Guangzhou
 			khorasan_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			persia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			caucasia_region = { #New
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_china_region = { #New
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
