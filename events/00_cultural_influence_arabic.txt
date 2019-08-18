@@ -2368,15 +2368,15 @@ province_event = { #Arabic adoption (Andalusian)
 	}
 }
 
-province_event = { #Mozarabs
+province_event = { #Mozarabic
 	id = cultural_influence_arabic.23
-	title = mozarab_adoption.title
-	desc = mozarab_adoption.desc
+	title = mozarabic_adoption.title
+	desc = mozarabic_adoption.desc
 	picture = CULTURE_eventPicture
 
 	trigger = {
 		owner = { culture_group = turko_semitic }
-		NOT = { culture = mozarabs }
+		NOT = { culture = mozarabic }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -2455,9 +2455,9 @@ province_event = { #Mozarabs
 	}
 
 	option = {
-		name = mozarab_adoption.a
+		name = mozarabic_adoption.a
 
-		change_culture = mozarabs
+		change_culture = mozarabic
 	}
 }
 
