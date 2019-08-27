@@ -526,3 +526,33 @@ province_event = { #Non-Nomadic land owned by nomad
 		}
 	}
 }
+
+province_event = { #Nomadic gain
+	id = cultural_influence_steppe.10
+	title = null
+	desc = null
+
+	hidden = yes
+
+	trigger = {
+		steppe_culture_region = yes
+		culture = OWNER
+		owner = { is_nomad = yes }
+		NOT = { has_province_modifier = nomadic_province }
+	}
+
+	mean_time_to_happen = {
+		years = 1
+	}
+
+	immediate = {
+		add_permanent_province_modifier = { 
+			name = nomadic_province
+			duration = -1
+		}
+	}
+
+	option = {
+		name = null
+	}
+}
