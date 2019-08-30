@@ -1584,7 +1584,12 @@ country_decisions = {
 			NOT = { has_country_flag = formed_italy_flag }
 			NOT = { tag = ITL }
 			NOT = { tag = ITA }
-			culture_group = latin
+			OR = {
+				culture_group = latin
+				culture_group = gallo_italic
+				culture_group = veneto_dalmatic
+				culture_group = island_romance
+			}
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -1602,10 +1607,10 @@ country_decisions = {
 			is_nomad = no
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
-			owns_core_province = 101	# Genoa
-			owns_core_province = 104	# Milan
-			owns_core_province = 112	# Venice
-			owns_core_province = 116	# Florence
+			owns_core_province = 101 #Genoa
+			owns_core_province = 104 #Milan
+			owns_core_province = 112 #Venice
+			owns_core_province = 116 #Florence
 			custom_trigger_tooltip = {
 				tooltip = hegemony_over_italy_tooltip
 				calc_true_if = {
