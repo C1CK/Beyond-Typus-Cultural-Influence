@@ -216,59 +216,7 @@ province_event = { #Kurdish conflict in Kurdistan (AKA dev is too high)
 	}
 }
 
-province_event = { #Bosniaks
-	id = cultural_influence_oghuz.4
-	title = bosniak_spread.title
-	desc = bosniak_spread.desc
-	picture = ARTWORK_eventPicture
-
-	trigger = {
-		area = bosnia_area #Limit to Bosnia
-		religion_group = muslim
-		culture_group = south_slavic
-		has_global_flag = CI_events_enabled
-	}
-
-	mean_time_to_happen = {
-		years = 20
-
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-
-		modifier = {
-			factor = 0.5
-			owner = { religion_group = muslim }
-		}
-	}
-
-	option = {
-		name = bosniak_spread.a
-
-		change_culture = bosnian
-
-		if = {
-			limit = {
-				NOT = { accepted_culture = bosnian }
-				religion_group = muslim
-			}
-			owner = { add_accepted_culture = bosnian }
-		}
-	}
-}
+####Free IF 4
 
 province_event = { #Greek Traders settle in Western Anatolia
 	id = cultural_influence_oghuz.5
@@ -478,16 +426,13 @@ province_event = { #Turkish assimilation in Turkey
 
 	trigger = {
 		religion_group = muslim #Must be Islamic to do this
-		region = anatolia_region
+		OR = {
+			region = anatolia_region
+			province_id = 2313 #Antioch
+		}
 		owner = {
 			primary_culture = turkish
 			religion_group = muslim
-		}
-		#No cooldown neccesary
-		OR = {
-			culture_group = byzantine
-			culture_group = armenian_g
-			culture_group = aramaic
 		}
 		any_neighbor_province = {
 			culture = turkish
