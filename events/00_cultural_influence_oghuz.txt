@@ -426,7 +426,7 @@ province_event = { #Turkish assimilation in Turkey
 
 	trigger = {
 		religion_group = muslim #Must be Islamic to do this
-		OR = {
+		OR = { #Quick and dirty, will make a trigger once more Oghuz cultures are added
 			region = anatolia_region
 			province_id = 2313 #Antioch
 		}
@@ -441,7 +441,7 @@ province_event = { #Turkish assimilation in Turkey
 	}
 
 	mean_time_to_happen = {
-		years = 20
+		years = 25
 
 		modifier = {
 			factor = 0.5
@@ -461,29 +461,40 @@ province_event = { #Turkish assimilation in Turkey
 		}
 
 		modifier = {
-			factor = 1.5
-			development = 10
-		}
-		modifier = {
-			factor = 1.5
-			development = 15
-		}
-		modifier = {
-			factor = 1.5
-			development = 20
-		}
-		modifier = {
-			factor = 1.5
-			development = 25
+			factor = 0.8
+			has_idea_to_settle_faster = yes
 		}
 		modifier = {
 			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					culture = turkish
-				}
-				amount = 2
-			}
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
 		}
 	}
 
