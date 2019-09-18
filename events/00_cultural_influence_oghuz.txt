@@ -192,18 +192,39 @@ province_event = { #Turkish settlement in Thrace
 	picture = RELIGIOUS_CONVERSION_eventPicture
 
 	trigger = {
-		turkish_settlement_region = yes
-		NOT = { culture = turkish }
 		NOT = { has_province_modifier = phanariote_greeks }
-		has_country_flag = turkish_thrace_settlement
-		any_neighbor_province = {
-			culture = turkish
+		owner = { culture_group = turkish_g }
+		NOT = { culture = turkish }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
 		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = turkish_g
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = turkish_thrace_settlement }
+		turkish_settlement_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 30
+		#Template Settled MTTH
+		years = 10
 
 		modifier = {
 			factor = 0.5
@@ -222,44 +243,60 @@ province_event = { #Turkish settlement in Thrace
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = {
-			factor = 0.5
-			is_city = yes
-			has_colonist = yes
-		}
-		modifier = {
-			factor = 1.5
-			development = 10
-		}
-		modifier = {
-			factor = 1.5
-			development = 15
-		}
-		modifier = {
-			factor = 1.5
-			development = 20
-		}
-		modifier = {
-			factor = 1.5
-			development = 25
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
 		}
 		modifier = {
 			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					culture = turkish
-				}
-				amount = 2
-			}
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
 		}
 		modifier = {
 			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					culture = turkish
-				}
-				amount = 3
-			}
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
 		}
 	}
 
@@ -268,11 +305,6 @@ province_event = { #Turkish settlement in Thrace
 
 		change_culture = turkish
 		change_religion = OWNER
-
-		add_province_modifier = {
-			name = kurdish_settlements
-			duration = 9125 #25 years
-		}
 
 		add_base_tax = 1
 		add_base_production = 1
