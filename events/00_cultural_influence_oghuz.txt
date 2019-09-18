@@ -52,174 +52,12 @@ country_event = { #Qirim -> Kirim
 	}
 }
 
-province_event = { #Kurdish settlements in Kurdistan
-	id = cultural_influence_oghuz.2
-	title = oghuz_kurdistan_settlements.title
-	desc = oghuz_kurdistan_settlements.desc
-	picture = RELIGIOUS_CONVERSION_eventPicture
+####Free ID 2
 
-	trigger = {
-		owner = { has_country_flag = ottomans_granted_kurdish_autonomy_flag } #Granted autonomy
-		NOT = { culture = kurdish }
-		has_province_modifier = kurdish_autonomous_sanjak #Owned by Kurdish Sanjaks
-		NOT = { development = 20 } #Not actually a developed city
-		has_global_flag = CI_events_enabled
-		any_neighbor_province = {
-			culture = kurdish
-		}
-	}
-
-	mean_time_to_happen = {
-		years = 30
-
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-
-		modifier = {
-			factor = 1.5
-			development = 10
-		}
-		modifier = {
-			factor = 1.5
-			development = 15
-		}
-		modifier = {
-			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					culture = kurdish
-				}
-				amount = 2
-			}
-		}
-		modifier = {
-			factor = 0.8
-			calc_true_if = {
-				all_neighbor_province = {
-					culture = kurdish
-				}
-				amount = 3
-			}
-		}
-	}
-
-	option = {
-		name = oghuz_kurdistan_settlements.a
-
-		change_culture = kurdish
-		change_religion = OWNER
-
-		add_province_modifier = {
-			name = kurdish_settlements
-			duration = 9125 #25 years
-		}
-
-		add_base_tax = 1
-		add_base_production = 1
-		add_base_manpower = 1
-	}
-}
-
-province_event = { #Kurdish conflict in Kurdistan (AKA dev is too high)
-	id = cultural_influence_oghuz.3
-	title = oghuz_kurdistan_conflict.title
-	desc = oghuz_kurdistan_conflict.desc
-	picture = REVOLUTION_eventPicture
-
-	trigger = {
-		owner = { has_country_flag = ottomans_granted_kurdish_autonomy_flag } #Granted autonomy
-		NOT = { culture = kurdish }
-		has_province_modifier = kurdish_autonomous_sanjak #Owned by Kurdish Sanjaks
-		development = 20 #Actually a developed city
-		has_global_flag = CI_events_enabled
-		any_neighbor_province = {
-			culture = kurdish
-		}
-		NOT = { has_province_modifier = kurdish_conflict }
-	}
-
-	mean_time_to_happen = {
-		years = 40
-
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-
-		modifier = {
-			factor = 1.5
-			development = 25
-		}
-		modifier = {
-			factor = 1.5
-			development = 30
-		}
-		modifier = {
-			factor = 1.5
-			development = 35
-		}
-		modifier = {
-			factor = 1.5
-			development = 40
-		}
-	}
-
-	option = { #Purge the troublemakers
-		name = oghuz_kurdistan_conflict.a
-
-		add_base_tax = -1
-		add_base_production = -1
-		add_base_manpower = -1
-
-		add_province_modifier = {
-			name = oghuz_kurdish_conflict
-		}
-
-		ai_chance = { factor = 25 } #AI must always do this
-	}
-
-	option = { #Revoke Kurdish control
-		name = oghuz_kurdistan_conflict.b
-
-		remove_province_modifier = kurdish_autonomous_sanjak
-
-		spawn_rebels = {
-			type = particularist_rebels
-			size = 2
-		}
-	}
-}
-
-####Free ID 4
+####Free ID 3
 
 province_event = { #Greek Traders settle in Western Anatolia
-	id = cultural_influence_oghuz.5
+	id = cultural_influence_oghuz.4
 	title = oghuz_greek_traders.title
 	desc = oghuz_greek_traders.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
@@ -320,6 +158,30 @@ province_event = { #Greek Traders settle in Western Anatolia
 				duration = 7300 #20 years
 			}
 		}
+	}
+}
+
+province_event = { #Greek Traders cease operations (No longer under Ottoman rule)
+	id = cultural_influence_oghuz.5
+	title = oghuz_greek_traders_leave.title
+	desc = oghuz_greek_traders_leave.desc
+	picture = HARBOUR_eventPicture
+
+	trigger = {
+		has_province_modifier = phanariote_greeks
+		NOT = { tag = TUR } #Ottomans
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = oghuz_greek_traders_leave.a
+
+		remove_province_modifier = phanariote_greeks
+		add_base_tax = -1
+		add_base_production = -1
 	}
 }
 
