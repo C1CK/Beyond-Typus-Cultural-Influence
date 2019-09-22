@@ -1720,3 +1720,343 @@ province_event = { #Ruthenian influences (Russian/Russian Splinter -> Ruthenian)
 		change_culture = ruthenian
 	}
 }
+
+province_event = { #Northern Russian influences (Belarussian/Ukrainian -> Russian)
+	id = cultural_influence_east_slavic.19
+	title = northern_russian_influences.title
+	desc = northern_russian_influences.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		northern_russian_culture_region = yes
+		OWNER = { primary_culture = novgorodian }
+		#OWNER = { government_rank = 3 } #Empire (Inappropriate for splinters)
+		OR = {
+			culture = ruthenian
+			culture = byelorussian
+			culture = ukrainian
+			culture = muscovite
+			culture = ryazanian
+		}
+		any_neighbor_province = {
+			culture = novgorodian
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = northern_russian_influences.a
+
+		change_culture = novgorodian
+	}
+}
+
+province_event = { #Middle Russian influences (Belarussian/Ukrainian -> Russian)
+	id = cultural_influence_east_slavic.20
+	title = middle_russian_influences.title
+	desc = middle_russian_influences.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		middle_russian_culture_region = yes
+		OWNER = { primary_culture = muscovite }
+		#OWNER = { government_rank = 3 } #Empire (Inappropriate for splinters)
+		OR = {
+			culture = ruthenian
+			culture = byelorussian
+			culture = ukrainian
+			culture = novgorodian
+			culture = ryazanian
+		}
+		any_neighbor_province = {
+			culture = muscovite
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = middle_russian_influences.a
+
+		change_culture = muscovite
+	}
+}
+
+province_event = { #Southern Russian influences (Belarussian/Ukrainian -> Russian)
+	id = cultural_influence_east_slavic.21
+	title = southern_russian_influences.title
+	desc = southern_russian_influences.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		southern_russian_culture_region = yes
+		OWNER = { primary_culture = ryazanian }
+		#OWNER = { government_rank = 3 } #Empire (Inappropriate for splinters)
+		OR = {
+			culture = ruthenian
+			culture = byelorussian
+			culture = ukrainian
+			culture = novgorodian
+			culture = muscovite
+		}
+		any_neighbor_province = {
+			culture = ryazanian
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = southern_russian_influences.a
+
+		change_culture = ryazanian
+	}
+}
+
+province_event = { #Belarussian influences (Russian/Russian Splinter -> Belarussian)
+	id = cultural_influence_east_slavic.22
+	title = belarussian_influences.title
+	desc = belarussian_influences.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		belarussian_culture_region = yes
+		OWNER = { primary_culture = byelorussian }
+		#OWNER = { government_rank = 3 } #Empire (Inappropriate for splinters)
+		OR = {
+			culture = russian
+			culture = novgorodian
+			culture = muscovite
+			culture = ryazanian
+			culture = ukrainian
+		}
+		any_neighbor_province = {
+			culture = byelorussian
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = belarussian_influences.a
+
+		change_culture = byelorussian
+	}
+}
+
+province_event = { #Ukrainian influences (Russian/Russian Splinter -> Ukrainian)
+	id = cultural_influence_east_slavic.23
+	title = ukrainian_influences.title
+	desc = ukrainian_influences.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		ukrainian_culture_region = yes
+		OWNER = { primary_culture = ukrainian }
+		#OWNER = { government_rank = 3 } #Empire (Inappropriate for splinters)
+		OR = {
+			culture = russian
+			culture = novgorodian
+			culture = muscovite
+			culture = ryazanian
+			culture = byelorussian
+		}
+		any_neighbor_province = {
+			culture = ukrainian
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = ukrainian_influences.a
+
+		change_culture = ukrainian
+	}
+}
