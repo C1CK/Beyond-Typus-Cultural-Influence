@@ -433,7 +433,7 @@ country_event = { #Russki Merger
 	}
 }
 
-province_event = { #Russka expansion
+province_event = { #Russka expansion (Settle)
 	id = cultural_influence_east_slavic.7
 	title = russka_expansion.title
 	desc = russka_expansion.desc
@@ -550,7 +550,7 @@ province_event = { #Russka expansion
 	}
 }
 
-province_event = { #Russki expansion
+province_event = { #Russki expansion (Settle)
 	id = cultural_influence_east_slavic.8
 	title = russki_expansion.title
 	desc = russki_expansion.desc
@@ -667,7 +667,7 @@ province_event = { #Russki expansion
 	}
 }
 
-province_event = { #Ukrainian expansion (Used for after Ruthenian Diverges)
+province_event = { #Ukrainian expansion (Used for after Ruthenian Diverges) (Settle)
 	id = cultural_influence_east_slavic.9
 	title = ukrainian_expansion.title
 	desc = ukrainian_expansion.desc
@@ -784,7 +784,7 @@ province_event = { #Ukrainian expansion (Used for after Ruthenian Diverges)
 	}
 }
 
-province_event = { #Belarussian expansion (Used for after Ruthenian Diverges)
+province_event = { #Belarussian expansion (Used for after Ruthenian Diverges) (Settle)
 	id = cultural_influence_east_slavic.10
 	title = belarussian_expansion.title
 	desc = belarussian_expansion.desc
@@ -900,7 +900,7 @@ province_event = { #Belarussian expansion (Used for after Ruthenian Diverges)
 	}
 }
 
-province_event = { #Northern Russian expansion (Used for after Russian Diverges)
+province_event = { #Northern Russian expansion (Used for after Russian Diverges) (Settle)
 	id = cultural_influence_east_slavic.11
 	title = novgorodian_expansion.title
 	desc = novgorodian_expansion.desc
@@ -1016,7 +1016,7 @@ province_event = { #Northern Russian expansion (Used for after Russian Diverges)
 	}
 }
 
-province_event = { #Middle Russian expansion (Used for after Russian Diverges)
+province_event = { #Middle Russian expansion (Used for after Russian Diverges) (Settle)
 	id = cultural_influence_east_slavic.12
 	title = muscovite_expansion.title
 	desc = muscovite_expansion.desc
@@ -1132,7 +1132,7 @@ province_event = { #Middle Russian expansion (Used for after Russian Diverges)
 	}
 }
 
-province_event = { #Southern Russian expansion (Used for after Russian Diverges)
+province_event = { #Southern Russian expansion (Used for after Russian Diverges) (Settle)
 	id = cultural_influence_east_slavic.13
 	title = ryazanian_expansion.title
 	desc = ryazanian_expansion.desc
@@ -1651,5 +1651,72 @@ province_event = { #Russian influences (Belarussian/Ukrainian -> Russian)
 		name = russian_influences.a
 
 		change_culture = russian
+	}
+}
+
+province_event = { #Ruthenian influences (Russian/Russian Splinter -> Ruthenian)
+	id = cultural_influence_east_slavic.18
+	title = ruthenian_influences.title
+	desc = ruthenian_influences.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		russka_culture_region = yes
+		OWNER = { primary_culture = ruthenian }
+		OWNER = { government_rank = 3 } #Empire
+		OR = {
+			culture = russian
+			culture = novgorodian
+			culture = muscovite
+			culture = ryazanian
+		}
+		any_neighbor_province = {
+			culture = ruthenian
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = ruthenian_influences.a
+
+		change_culture = ruthenian
 	}
 }
