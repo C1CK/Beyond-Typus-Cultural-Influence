@@ -1586,4 +1586,70 @@ province_event = { #Alaskan Colonialism
 			change_primary_culture = alaskan_russian
 		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.
 	}
-}		
+}
+
+province_event = { #Russian influences (Belarussian/Ukrainian -> Russian)
+	id = cultural_influence_east_slavic.17
+	title = russian_influences.title
+	desc = russian_influences.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		russki_culture_region = yes
+		OWNER = { primary_culture = russian }
+		OWNER = { government_rank = 3 } #Empire
+		OR = {
+			culture = ruthenian
+			culture = byelorussian
+			culture = ukrainian
+		}
+		any_neighbor_province = {
+			culture = russian
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = russian_influences.a
+
+		change_culture = russian
+	}
+}
