@@ -37,7 +37,6 @@ russki_culture_region = {
 		AND = { #West of the Ural Mountains
 			region = ural_region
 			NOT = { area = ural_area }
-			NOT = { province_id = 1072 } #Obdorsk -East of Ural Mountains
 			NOT = { province_id = 1966 } #Chelyaba -East of Ural Mountains
 			NOT = { province_id = 2444 } #Bashgird -East of Ural Mountains
 			NOT = { province_id = 2420 } #Agyidel -South of Ural River
@@ -185,10 +184,7 @@ northern_russian_culture_region = {
 		area = pomor_area #Dvina
 		area = vologda_area #Sukhona
 		province_id = 3278 #Gorodets
-		AND = {
-			area = pechora_area
-			NOT = { province_id = 1072 } #Obdorsk
-		}
+		area = pechora_area #Extends slightly past the Urals, but they are minor at this point and is more linked through the Arctic ocean than the land
 		area = perm_area
 		area = vyatka_area
 		province_id = 1083 #Vetluga
@@ -286,6 +282,12 @@ southern_russian_culture_region = {
 		province_id = 2195 #Adyghe
 		area = circassia_area
 		area = dagestan_area
+	}
+}
+
+siberian_russian_culture_region = {
+	OR = {
+
 	}
 }
 
