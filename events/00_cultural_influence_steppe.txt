@@ -5,6 +5,7 @@ country_event = { #Add Steppe modifiers
 	id = cultural_influence_steppe.1
 	title = null
 	desc = null
+	picture = null
 
 	hidden = yes
 
@@ -109,6 +110,7 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 			owner = { manpower = 2 } #2000
 		}
 
+		remove_province_modifier = settled_steppe
 		#Remove manpower
 		if = {
 			limit = {
@@ -393,13 +395,12 @@ province_event = { #Decline of Steppe City
 
 	trigger = {
 		has_province_modifier = steppe_city
-		OR = { #Crappy trade, Crappy dev, or no longer nomadic
+		OR = { #Crappy trade, Crappy dev
 			AND = {
 				province_has_center_of_trade_of_level = 1
 				NOT = { province_has_center_of_trade_of_level = 2 }
 			}
 			NOT = { development = 20 }
-			owner = { is_nomad = no }
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -426,29 +427,40 @@ province_event = { #Decline of Steppe City
 	}
 }
 
-province_event = { #Nomads flee
+province_event = { #Plow advances into the steppe, must have converted province to your culture, then lose the nomadic province modifier and return to standard settled land
 	id = cultural_influence_steppe.6
-	title = nomads_flee.title
-	desc = nomads_flee.desc
-	picture = HORDE_ON_HORSEBACK_eventPicture
+	title = null
+	desc = null
+	picture = null
+
+	hidden = yes
 
 	trigger = {
-		has_province_modifier = nomadic_province
+		OR = {
+			has_province_modifier = nomadic_province
+			has_province_modifier = steppe_city
+		}
+		culture_group = OWNER #Convert first, represents settlements
 		owner = { is_nomad = no }
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
-		years = 2
+	immediate = {
+		remove_province_modifier = nomadic_province
+		remove_province_modifier = steppe_city
+		if = {
+			limit = {
+				has_terrain = steppe
+			}
+			add_permanent_province_modifier = { 
+				name = settled_steppe
+				duration = -1
+			}
+		}
 	}
 
 	option = {
-		name = nomads_flee.a
-
-		remove_province_modifier = nomadic_province
-		add_base_tax = -3
-		add_base_production = -3
-		add_base_manpower = -3
+		name = null
 	}
 }
 
@@ -494,7 +506,28 @@ country_event = { #Settlement of capital region (Basically for Uzbek)
 	}
 }
 
-####Free ID 8
+province_event = { #Silently remove steppe_city modifier, I don't like people losing dev for conquering what are essentially normal cities; There are many instances of entire cities being razed when conquered by Russia, but the largest steppe city at the start of the game, Qazan, was not razed and continued to prosper under settled rule.
+	id = cultural_influence_steppe.8
+	title = null
+	desc = null
+	picture = null
+
+	hidden = yes
+
+	trigger = {
+		has_province_modifier = steppe_city
+		owner = { is_nomad = no }
+		has_global_flag = CI_events_enabled
+	}
+
+	immediate = {
+		remove_province_modifier = steppe_city
+	}
+
+	option = {
+		name = null
+	}
+}
 
 province_event = { #Non-Nomadic land owned by nomad
 	id = cultural_influence_steppe.9
