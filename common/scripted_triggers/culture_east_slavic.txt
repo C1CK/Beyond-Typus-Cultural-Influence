@@ -37,35 +37,16 @@ russka_culture_region = {
 	}
 }
 
-#Cossack regions don't do anything anymore with the addition of the nomadic province modifier, but I'll leave these here for legacy support
-cossack_rule_region = { #These provinces must be made Cossack first before they can be Russified. (Even then the rural Steppe land will remain Cossack)
-	OR = {
-		#Old Triggers
-		#region = crimea_region #Pontic Steppe
-		#province_id = 2195
-		#area = circassia_area
-		#area = dagestan_area
-		#area = lower_yik_area
-		#area = saratov_area
-		#area = tambov_area
-		#area = samara_area
-		#province_id = 1082 #Kazan
-		#area = kama_area
-		#province_id = 475 #Bashkortostan
-		#province_id = 1965 #Buzuluk
-
-		DNC_cossack_region = yes
-		IKC_cossack_region = yes
-		KBC_cossack_region = yes
-		ORC_cossack_region = yes
-		SBC_cossack_region = yes
-		SMC_cossack_region = yes
-		TBC_cossack_region = yes
-		TKC_cossack_region = yes
-		ULC_cossack_region = yes
-		USC_cossack_region = yes
-		ZAZ_cossack_region = yes
-		AMC_cossack_region = yes
+cossack_rule_region = { #Provinces that are valid for Nomadic Cossacks, provided the province hasn't already been settled. (Even then the rural Steppe land will remain Cossack)
+	OR = { #Slightly too large, but it makes writing the trigger quicker, and won't matter anyways since the province needs to both be in here, and nomadic
+		region = crimea_region #Pontic Steppe
+		region = caucasia_region
+		area = lower_yik_area
+		AND = {
+			region = ural_region
+			NOT = { area = ural_area }
+		}
+		cossack_only_region = yes #Central asia stuff
 	}
 }
 
