@@ -1,46 +1,9 @@
 russki_culture_region = {
-	OR = {
-		province_id = 7808 #Serdobal
-		province_id = 32 #Korela
-		province_id = 30 #Viborg
-		region = russia_region
-		province_id = 1842 #Narva
-		province_id = 7847 #Marienhausen
-		province_id = 7846 #Rositten
-		area = polotsk_area
-		AND = {
-			area = vitebsk_area
-			NOT = { province_id = 4242 } #Barysavas
-		}
-		AND = {
-			area = white_ruthenia_area #Gomel
-			NOT = { province_id = 7234 } #Svietlahorsk
-			NOT = { province_id = 7236 } #Rechytsa
-		}
-		area = bryansk_area
-		province_id = 7248 #Sosnytsia
-		area = severia_area
-		area = sloboda_ukraine_area #Slobozhanshchyna
-		province_id = 3302 #Bakhmut
-		province_id = 7204 #Luhansk
-		province_id = 7202 #Donetsk
-		area = pryazovia_area
-		area = crimea_area
-		area = middle_don_area
-		area = lower_don_area
-		area = astrakhan_area
-		area = azov_area
-		province_id = 2195 #Adyghe
-		area = circassia_area
-		area = dagestan_area
-		area = lower_yik_area
-		AND = { #West of the Ural Mountains
-			region = ural_region
-			NOT = { area = ural_area }
-			NOT = { province_id = 1966 } #Chelyaba -East of Ural Mountains
-			NOT = { province_id = 2444 } #Bashgird -East of Ural Mountains
-			NOT = { province_id = 2420 } #Agyidel -South of Ural River
-		}
+	OR = { #Splinters used for definition for future proofing
+		northern_russian_culture_region = yes
+		middle_russian_culture_region = yes
+		southern_russian_culture_region = yes
+		siberian_russian_culture_region = yes
 	}
 }
 
@@ -74,6 +37,7 @@ russka_culture_region = {
 	}
 }
 
+#Cossack regions don't do anything anymore with the addition of the nomadic province modifier, but I'll leave these here for legacy support
 cossack_rule_region = { #These provinces must be made Cossack first before they can be Russified. (Even then the rural Steppe land will remain Cossack)
 	OR = {
 		#Old Triggers
@@ -102,6 +66,24 @@ cossack_rule_region = { #These provinces must be made Cossack first before they 
 		USC_cossack_region = yes
 		ZAZ_cossack_region = yes
 		AMC_cossack_region = yes
+	}
+}
+
+cossack_only_region = { #Same as above, except these provinces are hard locked to remain Cossack (for now! later will be removed and given new Russian dialects) (Basically central Asia and the Eastern Steppe)
+	OR = {
+		AND = {
+			region = central_asia_region
+			NOT = { area = kashgaria_area }
+			NOT = { area = tarim_basin_area } #Central Altishahr
+			NOT = { area = shanshan_area }
+			NOT = { area = lower_yik_area }
+		}
+		area = merv_area
+		province_id = 2369 #Kustanay
+		province_id = 2357 #Kokchetav
+		province_id = 479 #Atbasarsk
+		province_id = 2354 #Akmolinsk
+		province_id = 2434 #Barnau
 	}
 }
 
@@ -287,7 +269,30 @@ southern_russian_culture_region = {
 
 siberian_russian_culture_region = {
 	OR = {
-
+		area = ural_area
+		province_id = 2444 #Bashgird
+		province_id = 2420 #Agyidel
+		province_id = 1966 #Chelyaba
+		AND = {
+			region = west_siberia_region
+			province_id = 2369 #Kustanay
+			province_id = 2357 #Kokchetav
+			province_id = 479 #Atbasarsk
+			province_id = 2354 #Akmolinsk
+			province_id = 2434 #Barnau
+		}
+		province_id = 1065 #Kuznetsk
+		region = east_siberia_region
+		province_id = 4220 #Khiagt
+		area = east_heilongjiang_area
+		area = ilan_hala_area #North Ilan Hala
+		AND = {
+			area = central_jilin_area #South Ilan Hala
+			NOT = { province_id = 731 } #Ilan Hala
+		}
+		province_id = 2186 #Imam
+		province_id = 1850 #Yaran
+		province_id = 2106 #Furdan
 	}
 }
 
