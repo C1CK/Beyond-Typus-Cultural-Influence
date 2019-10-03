@@ -2060,3 +2060,47 @@ province_event = { #Ukrainian influences (Russian/Russian Splinter -> Ukrainian)
 		change_culture = ukrainian
 	}
 }
+
+province_event = { #Colony culture correcting (Exists to ensure that when colonies are finished they are the right culture, and not Ukrainian in Siberia)
+	id = cultural_influence_east_slavic.24
+	title = null
+	desc = null
+	picture = null
+
+	hidden = yes
+
+	trigger = {
+		has_province_flag = ci_recently_colonized_flag
+		culture_group = east_slavic
+		OWNER = { primary_culture = east_slavic }
+	}
+
+	immediate = {
+		clr_province_flag = ci_recently_colonized_flag
+		if = {
+			limit = {
+				NOT = { has_global_flag = russki_splinter_flag }
+				russki_culture_region = yes
+			}
+			change_culture = russian
+		}
+		if = {
+			limit = {
+				has_global_flag = russki_splinter_flag
+				northern_russian_culture_region = yes
+			}
+			change_culture = novgorodian
+		}
+		if = {
+			limit = {
+				has_global_flag = russki_splinter_flag
+				siberian_russian_culture_region = yes
+			}
+			change_culture = siberian_russian
+		}
+	}
+
+	option = {
+		name = null
+	}
+}
