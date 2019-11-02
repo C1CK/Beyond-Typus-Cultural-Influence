@@ -1,24 +1,27 @@
-# 1743 Cambray
+#3057 - Ommelanden
 #Region - Low Countries
-#Area - Wallonia
+#Area - Frisia
 
-owner = CMB
-controller = CMB
-add_core = CMB
-capital = "Cambray"
+owner = GRN
+controller = GRN
+capital = "Groningen"
 is_city = yes
-culture = picard_culture
+culture = hannoverian
 religion = catholic
 hre = yes
-base_tax = 7
-base_production = 7
-trade_goods = cloth			#Early on focused on both agriculture as well as weaving, but weaving, more specifically batiste (a great speaciality of the city), would eventually win out and dominate trade.
-base_manpower = 4 
+base_tax = 5			#Population/economic centre of the Northern Netherlands (probably around 10k people) and one of the more important settlements until the formation of the united Netherlands
+base_production = 5
+trade_goods = bt_trade_good_beer 
+base_manpower = 2 
+add_core = GRN
 
 discovered_by = western
 discovered_by = muslim
 discovered_by = ottoman
 discovered_by = eastern
+
+extra_cost = 8
+center_of_trade = 1
 
 
 #Province history completed by - Draiocht
@@ -45,7 +48,13 @@ discovered_by = eastern
 #	remove_core = XXX
 #} #Return to proper mod added owners and cuts vanilla core, typically.
 
-#1291 - 1444
+1350.1.1 = {
+	add_center_of_trade_level = 1
+	extra_cost = 12
+	base_tax = 6
+	base_production = 6
+	base_manpower = 3
+} #After joining Hanseatic League (exact date not easily found, 1350 is good enough), Groningen became even more important and extended its hegemony.
 
 #1444.11.13 = { #BeyondTypus batch edit shortcut the second shattering begins
 #	owner = XXX
@@ -69,18 +78,3 @@ discovered_by = eastern
 #} #Return to proper mod added owners and cuts vanilla core, typically.
 
 #1444 on
-
-
-1444.11.16 = { #BeyondTypus batch edit shortcut no vassal start date begin
-	owner = BUR
-	controller = BUR
-	add_core = BUR
-}
-1444.11.18 = { #BeyondTypus batch edit shortcut no vassal start date end
-	owner = CMB
-	controller = CMB
-	remove_core = BUR
-}
-1677.4.19 = { owner = FRA controller = FRA add_core = FRA } # Captured by Louis XIV
-1789.5.5 = { base_tax = 10 base_production = 10 } # The General Estates
-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved

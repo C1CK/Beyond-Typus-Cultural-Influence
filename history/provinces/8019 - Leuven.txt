@@ -1,19 +1,17 @@
-# 1743 Cambray
-#Region - Low Countries
-#Area - Wallonia
+#BT's Western Europe Overhaul in 12.0
 
-owner = CMB
-controller = CMB
-add_core = CMB
-capital = "Cambray"
-is_city = yes
-culture = picard_culture
+owner = BRB
+controller = BRB
+add_core = BRB
+culture = dutch
 religion = catholic
-hre = yes
+capital = "Leuven"
 base_tax = 7
 base_production = 7
-trade_goods = cloth			#Early on focused on both agriculture as well as weaving, but weaving, more specifically batiste (a great speaciality of the city), would eventually win out and dominate trade.
-base_manpower = 4 
+base_manpower = 4
+trade_goods = cloth			#Such a centre of cloth trade that in the 14th and 15th centuries it gave its name to linnen. 
+is_city = yes
+hre = yes
 
 discovered_by = western
 discovered_by = muslim
@@ -45,7 +43,9 @@ discovered_by = eastern
 #	remove_core = XXX
 #} #Return to proper mod added owners and cuts vanilla core, typically.
 
-#1291 - 1444
+1425.1.1 = {
+	trade_goods = bt_trade_good_books
+}	#Oldest (and largest) remaining university in the entire Low Countries is founded, heralding a new golden age for the city.
 
 #1444.11.13 = { #BeyondTypus batch edit shortcut the second shattering begins
 #	owner = XXX
@@ -69,18 +69,3 @@ discovered_by = eastern
 #} #Return to proper mod added owners and cuts vanilla core, typically.
 
 #1444 on
-
-
-1444.11.16 = { #BeyondTypus batch edit shortcut no vassal start date begin
-	owner = BUR
-	controller = BUR
-	add_core = BUR
-}
-1444.11.18 = { #BeyondTypus batch edit shortcut no vassal start date end
-	owner = CMB
-	controller = CMB
-	remove_core = BUR
-}
-1677.4.19 = { owner = FRA controller = FRA add_core = FRA } # Captured by Louis XIV
-1789.5.5 = { base_tax = 10 base_production = 10 } # The General Estates
-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
