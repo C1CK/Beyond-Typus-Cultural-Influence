@@ -104,48 +104,59 @@ anglo_arctic_culture_region = {
 
 anglo_norman_english_culture_region = {
 	OR = {
+		province_id = 7935 #Chinion
+		province_id = 4389 #Tours
+		province_id = 7936 #Lochtes
 		area = brittany_area
+		area = lower_brittany_area
+		area = lower_normandy_area
 		area = normandy_area
-		area = ile_de_france_area
 		area = picardy_area
-		province_id = 178 #Anjou
-		province_id = 177 #Maine
-		province_id = 3075 #Dunois
+		area = maine_anjou_area
 		area = flanders_area
-		province_id = 1743 #Cambray
-		province_id = 91 #Hainaut
+		area = wallonia_area
+		AND = {
+			area = ile_de_france_area
+			NOT = { province_id = 185 } #Gatinais
+		}
+		AND = {
+			area = loire_area
+			NOT = { province_id = 7958 } #Montargis
+			NOT = { province_id = 7978 } #Blois
+			NOT = { province_id = 184 } #Orleans
+			NOT = { province_id = 7957 } #Etampes
+		}
 	}
 }
 
 anglo_aquitanian_culture_region = {
 	OR = {
-		province_id = 4389 #Tours
 		area = poitou_area
-		AND = {
-			area = guyenne_area
-			NOT = { province_id = 198 } #Rouergue
-		}
-		AND = {
-			area = massif_central_area
-			NOT = { province_id = 190 } #Bourbonnais
-			NOT = { province_id = 3088 } #Forez
-		}
+		area = guyenne_area
+		area = 
 		area = pyrenees_area
+		area = upper_gascony
 	}
 }
 
 anglo_burgundian_culture_region = {
 	OR = {
 		province_id = 179 #Berry
-		province_id = 184 #Orleanais
-		province_id = 190 #Bourbonnais
+		province_id = 7959 #Sancerres
+		province_id = 7937 #Cheateauroux
+		province_id = 190 #Moulins
+		province_id = 7916 #Riom
+		province_id = 7917 #Montlucon
 		area = bourgogne_area #Burgundy
 		area = champagne_area
 		area = lorraine_area
-		province_id = 1866 #Namur
-		province_id = 93 #Liege
-		province_id = 3066 #Arlon
-		province_id = 94 #Luxembourg
+		area = luxembourg_area
+		area = franche_comte_area
+		area = limousin_area
+		province_id = 7958 #Montargis
+		province_id = 7978 #Blois
+	    province_id = 184 #Orleans
+		province_id = 7957 #Etampes
 		province_id = 3198 #Saarland
 		province_id = 75 #Alsace
 		province_id = 1880 #Sundgau
@@ -155,11 +166,18 @@ anglo_burgundian_culture_region = {
 anglo_toulousain_culture_region = {
 	OR = {
 		area = languedoc_area
-		province_id = 197 #Rosellón
-		province_id = 198 #Rouergue
-		province_id = 3088 #Forez
+		area = west_languedoc_area
+		area = lyonnais_area
 		area = savoy_dauphine_area #Savoy
 		area = provence_area
+		area = dauphine_area
+		area = upper_guyenne_area
+		AND = {
+			area = massif_central_area
+			NOT = { province_id = 190 } #Moulins
+			NOT = { province_id = 7916 } #Riom
+			NOT = { province_id = 7917 } #Montlucon
+		}
 	}
 }
 
@@ -167,17 +185,10 @@ anglo_lower_rhenish_culture_region = {
 	OR = {
 		area = netherlands_area
 		area = brabant_area
-		province_id = 99 #Veluwe
-		province_id = 3060 #Betuwe
-		province_id = 3063 #Overmaas
-		province_id = 2975 #Kleef
-		province_id = 3199 #Essen
-		province_id = 84 #Berg
-		province_id = 85 #Köln
-		province_id = 3197 #Jülich
-		province_id = 1878 #Aachen
-		province_id = 2974 #Looz
-		province_id = 1742 #Limburg
+		area = guelders_area
+		area = luxemburg_liege_area
+		area = north_rhine_area
+		area = lower_rhineland_area
 	}
 }
 
