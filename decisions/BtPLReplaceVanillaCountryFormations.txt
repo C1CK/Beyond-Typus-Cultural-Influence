@@ -5,8 +5,8 @@ country_decisions = {
 #Note that, as a general rule, I'm removing religion requirements, most capital switching, most non-specific culture flipping, most government type switching, and most anything else that limits the decision to a certain historical path. With the current system of primary tags and cultures,
 #Everything is far too linked with culture for some of this clutter, and I don't want to establish a precedent of making a new, different religion or differnt gov type versions for every tag in the game. If people want a new capital, they can set it themselves, if people want to change culture, unless
 #it is a very logical switch, they can do so manually, if people want to reform their gov type and it isn't prevented by the tag's starting type, they can also do that manually.
-#I'm also making allow requirements more consistant and stable. General 1 to 3 specific provinces for the main capitals of the tag and 2/3rds of the kingdom's traditional territory, plus 150 dev (50% discount from default 300 to achieve rank 2), and 25 prestige (also 50% discount).
-#For empires, I'm typically going for 1 to 5 specific provinces and 3/4ths of the empire's traditional territory, as well as 500 dev (50% discount from default 1000 to achieve rank 3) and 40 prestige (default 75). Note I am making a few exceptions to all these rules on a case by case basis.
+#I'm also making allow requirements more consistant and stable. General 2 to 3 specific provinces for the main capitals of the tag and 2/3rds of the kingdom's traditional territory, plus 150 dev (50% discount from default 300 to achieve rank 2), and 25 prestige (also 50% discount).
+#For empires, I'm typically going for 3 to 5 specific provinces and 3/4ths of the empire's traditional territory, as well as 500 dev (50% discount from default 1000 to achieve rank 3) and 40 prestige (default 75). Note I am making a few exceptions to all these rules on a case by case basis.
 
 #Note this is the file specifically for vanilla decisions which are replaced in BT. New tags and vanilla tags which lack a vanilla decision are instead moved to BtPLNewCountryFormations.txt and a couple really odd or unique new ones are going in BtPLNewCountryFormationsSpecial.txt.
 
@@ -192,7 +192,7 @@ country_decisions = {
 					is_core = ROOT
 					region = iberia_region
 				}
-				amount = 42			#At least 2/3 of Iberia's 63 provinces
+				amount = 103			#At least 2/3 of Iberia's 153 provinces. This is Portugal plus 72 other provinces, roughly half of non Portuguese Iberia.
 			}
 			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted
 			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
@@ -1059,14 +1059,16 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 183			# Paris
-			owns_core_province = 186			# Rheims
-			owns_core_province = 201			# Marseilles
+
+			owns_core_province = 186			# Rheims, coronation site
+			owns_core_province = 203			# Lyon
+			owns_core_province = 4389			# Tours
 			calc_true_if = {
 				all_owned_province = {
 					is_core = ROOT
 					region = france_region
 				}
-				amount = 50			#At least 2/3 of France's 75 provinces
+				amount = 111			#At least 2/3 of France's 166 provinces
 			}
 			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted
 			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
@@ -1088,8 +1090,24 @@ country_decisions = {
 				limit = {
 					NOT = { owned_by = ROOT }
 					NOT = { is_core = ROOT }
+					NOT = { area = brittany_area }
+					NOT = { area = lower_brittany_area }
 				}
 				add_permanent_claim = FRA
+			}
+			brittany_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_claim = FRA
+			}
+			lower_brittany_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_claim = FRA
 			}
 			if = {
 				limit = {
@@ -1592,10 +1610,7 @@ country_decisions = {
 			}
 		}
 		provinces_to_highlight = {
-			OR = {
-				bt_trigger_italy_areas = yes
-				bt_trigger_central_italy_areas = yes
-			}
+			region = italy_region
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { is_core = ROOT }
@@ -1607,22 +1622,20 @@ country_decisions = {
 			is_nomad = no
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
-			owns_core_province = 101 #Genoa
-			owns_core_province = 104 #Milan
-			owns_core_province = 112 #Venice
-			owns_core_province = 116 #Florence
+			owns_core_province = 104	# Milan
+			owns_core_province = 116	# Florence
+			owns_core_province = 112	# Venice
+			owns_core_province = 101	# Genoa
+			owns_core_province = 109	# Mantova
 			custom_trigger_tooltip = {
 				tooltip = hegemony_over_italy_tooltip
 				calc_true_if = {
 					all_owned_province = {
-						OR = {
-							bt_trigger_italy_areas = yes
-							bt_trigger_central_italy_areas = yes
-						}
+						region = italy_region
 						country_or_vassal_holds = ROOT
 						is_core = owner
 					}
-					amount = 86			#At least 75 percent of N Italy's 114 provinces. Also note this is 90 percent of Northern Italy's 95 provinces. (Italy also has another 34 in Naples and 11 in the islands, of which 86 is about 54 percent of total)
+					amount = 106			#At least 65 percent of N Italy's 163 provinces. Also note this is 90 percent of continental, non-Neapolitan Italy's 118 provinces. (Italy has 34 in Naples-Sicily and 11 in Sardinia-Corsica)
 				}
 			}
 			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted
@@ -2580,20 +2593,20 @@ country_decisions = {
 		allow = {
 			NOT = { exists = SPA }
 			NOT = { exists = IBE }			#Special, no doubling up on Iberia superpowers
+			NOT = { exists = ADU }			#Special, no doubling up on Iberia superpowers
 			is_nomad = no
 			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			owns_core_province = 208	# Leon
-			owns_core_province = 214	# Zaragoza
-			owns_core_province = 215	# Castilla La Vieja
-			owns_core_province = 219	# Toledo
-			owns_core_province = 224	# Sevilla
+			owns_or_vassal_of = 208	# Leon
+			owns_or_vassal_of = 214	# Zaragoza
+			owns_or_vassal_of = 215	# Valladolid
+			owns_or_vassal_of = 219	# Toledo
+			owns_or_vassal_of = 1746	# Burgos
 			calc_true_if = {
 				all_owned_province = {
 					is_core = ROOT
 					region = iberia_region
 				}
-				amount = 42			#At least 2/3 of Iberia's 63 provinces
+				amount = 103			#At least 2/3 of Iberia's 153 provinces (note modern Spain is 123 provinces, 81 in Castile, 41 more in Aragon, Granada, and Navarre, and another 1 in Portugal). This is also 85% of non Portuguese Iberia.
 			}
 			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted
 			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
@@ -2667,12 +2680,13 @@ country_decisions = {
 				tag = ARA
 				AND = {
 					primary_culture = basque
-					num_of_cities = 21			#Giving Basque a break. At least 1/3 of Iberia's 63 provinces to see if Basque
+					num_of_cities = 39			#Giving Basque a break. At least 1/4 of Iberia's 153 provinces to see if Basque
 				}
 				AND = {
 					culture_group = iberian
 					NOT = { primary_culture = portugese }				#Portuguese go for Iberia tag
-					num_of_cities = 32			#At least 1/2 of Iberia's 63 provinces to see, if not CAS, ARA, or Basque
+	
+					num_of_cities = 77			#At least 1/2 of Iberia's 153 provinces to see, if not CAS, ARA, or Basque
 				}
 			}
 		}
@@ -2686,6 +2700,7 @@ country_decisions = {
 		allow = {
 			NOT = { exists = SPA }
 			NOT = { exists = IBE }			#Special, no doubling up on Iberia superpowers
+			NOT = { exists = ADU }			#Special, no doubling up on Iberia superpowers
 			is_nomad = no
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
@@ -2694,11 +2709,12 @@ country_decisions = {
 				legitimacy = 100
 			}
 			adm_tech = 10			#Diplo tech requirement
+
 			owns_or_vassal_of = 208	# Leon
 			owns_or_vassal_of = 214	# Zaragoza
-			owns_or_vassal_of = 215	# Castilla La Vieja
+			owns_or_vassal_of = 215	# Valladolid
 			owns_or_vassal_of = 219	# Toledo
-			owns_or_vassal_of = 224	# Sevilla
+			owns_or_vassal_of = 1746	# Burgos
 			custom_trigger_tooltip = {
 				tooltip = hegemony_over_iberia_tooltip
 				calc_true_if = {
@@ -2707,7 +2723,7 @@ country_decisions = {
 						country_or_vassal_holds = ROOT
 						is_core = owner
 					}
-					amount = 47			#At least 75 percent of Iberia's 63 provinces (Note Portugal has 14, so Castile or Aragon needs everything but Portugal and 2 others)
+					amount = 115			#At least 75 percent of Iberia's 153 provinces (Note Portugal has 31, so Castile or Aragon needs everything but Portugal and 7 others). This is also 95 percent of non Portuguese Iberia.
 				}
 			}
 			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted
