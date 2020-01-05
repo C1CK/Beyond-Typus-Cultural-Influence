@@ -80,10 +80,18 @@ goidhealach_culture_region = { #Goidelic
 
 brezhoneg_culture_region = { #Breton
 	OR = {
-		area = brittany_area
-		area = normandy_area #Expansion into Norman land
-		province_id = 177 #Maine
-		province_id = 178 #Anjou
+		area = lower_brittany_area
+		area = brittany_area #Upper Brittany
+		area = maine_anjou_area
+		area = lower_normandy_area
+		area = normandy_area #Upper Normandy
+		province_id = 7979 #Vendome
+		province_id = 3075 #Dunois
+		province_id = 7981 #Dreux
+		province_id = 4388 #Chartres
+		province_id = 7963 #Beauvais
+		province_id = 7962 #Mantois
+		province_id = 7960 #Hurepoix
 	}
 }
 
@@ -105,72 +113,80 @@ goidhealach_culture_group = {
 	}
 }
 
-belgae_culture_region = { #Messy due to following the Rhine
+belgae_culture_region = {
 	OR = {
 		area = picardy_area
-		area = ile_de_france_area
+		province_id = 3070 #Laon
+		province_id = 7961 #Soissons
+		province_id = 182 #Valois
+		province_id = 185 #Gatinais
+		AND = {
+			area = champagne_area
+			NOT = { province_id = 7950 } #Langres
+		}
 		area = flanders_area
-		area = champagne_area
 		area = wallonia_area
+		area = luxembourg_area
+		area = lorraine_area
+		province_id = 7944 #Hagenau
+		province_id = 75 #Alsace
+		province_id = 7943 #Colmar
 		province_id = 96 #Zeeland
+		province_id = 8112 #Rotterdam
+		province_id = 7975 #Dordrecht
 		area = brabant_area
 		area = luxemburg_liege_area
-		area = lorraine_area
-		area = lower_rhineland_area
-		province_id = 3060 #Betuwe
-		province_id = 3063 #Overmaas
+		province_id = 3060 #Nijmegen
+		province_id = 8017 #Cuijk
 		province_id = 2975 #Cleves
-		province_id = 3179 #Jülich
 		province_id = 85 #Köln
+		area = lower_rhineland_area
 		province_id = 78 #Mainz
 		province_id = 1761 #Pfalz
-		province_id = 75 #Alsace
 	}
 }
 
 pictone_culture_region = {
 	OR = {
 		area = poitou_area
+		area = berry_touraine_area
+		province_id = 7978 #Blois
+		province_id = 184 #Orleans
+		province_id = 7957 #Etampes
+		province_id = 7958 #Montargis
+		area = bay_of_biscay_area
+		area = limousin_area
+		area = pyrenees_area #Lower Gascony
+		area = upper_gascony
+		province_id = 4112 #Quercy
+		province_id = 7907 #Montauban
 		AND = {
-			area = guyenne_area
-			NOT = { province_id = 198 } #Rouergue
+			area = west_languedoc_area
+			NOT = { province_id = 7900 } #Beziers
 		}
-		area = pyrenees_area #Gascony
-		AND = {
-			area = loire_area
-			NOT = { province_id = 178 } #Anjou
-			NOT = { province_id = 177 } #Maine
-		}
-		province_id = 3109 #La Marche
-		province_id = 195 #Limousin
-		province_id = 196 #Toulouse
-		province_id = 3084 #Foix
 	}
 }
 
 arverni_culture_region = {
 	OR = {
 		area = bourgogne_area
+		province_id = 7950 #Langres
+		area = franche_comte_area
 		province_id = 1880 #Sundgau
-		AND = {
-			area = massif_central_area
-			NOT = { province_id = 3109 } #La Marche
-			NOT = { province_id = 195 } #Limousin
-		}
-		province_id = 198 #Rouergue
-		AND = {
-			area = languedoc_area
-			NOT = { province_id = 196 } #Toulouse
-			NOT = { province_id = 3084 } #Foix
-		}
-		area = switzerland_area
-		area = savoy_dauphine_area #Savoy
-		area = provence_area
+		area = massif_central_area
+		area = lyonnais_area
+		area = savoy_dauphine_area
+		area = romandie_area
 		area = north_piedmont_area
-		area = piedmont_area #Central Piedmont
+		province_id = 198 #Rodez
+		province_id = 7905 #Millau
+		province_id = 7900 #Beziers
+		area = languedoc_area
+		area = dauphine_area
+		area = provence_area
+		area = piedmont_area
+		province_id = 3043 #Pavea
 		area = south_piedmont_area
-		area = maritime_alps_area
-		area = montferrat_area
 		AND = {
 			area = liguria_area
 			NOT = { province_id = 7055 } #La Spezia
