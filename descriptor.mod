@@ -10,4 +10,4 @@ dependencies={
 picture="Thumbnail.png"
 name="!Beyond Typus Addon : Cultural Influence"
 supported_version="1.29.*.*"
-remote_file_id="1961030916"
+remote_file_id="1374507960"
