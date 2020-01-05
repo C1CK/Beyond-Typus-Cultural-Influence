@@ -150,7 +150,11 @@ dutch_region = {
 	OR = {
 		region = low_countries_region
 		province_id = 87 #Calais
-		province_id = 88 #Artois
+		province_id = 88 #Arras
+		province_id = 7974 #Bethune
+		province_id = 7973 #Saint-Pol
+		province_id = 7969 #Boulogne
+		province_id = 7948 #Thionville
 	}
 }
 
@@ -189,12 +193,17 @@ preussisch_culture_region = { #Sizable Expansion
 westphalian_culture_region = {
 	OR = {
 		province_id = 3058 #Drente
+		province_id = 8118 #Groningen
+		province_id = 4382 #Ommelannen
+		province_id = 8120 #Twente
 		province_id = 4381 #Overijssel
+		province_id = 99 Veluwe
+		province_id = 8032 #Zutphen
 		area = muenster_area
 		area = westphalia_area
 		province_id = 3200 #Mark
 		province_id = 100 #West Frisia
-		province_id = 4382 #Ommelannen
+		
 	}
 }
 
@@ -226,24 +235,24 @@ saxon_culture_region = {
 	}
 }
 
-low_franconian_culture_region = {
-	OR = {
-		area = netherlands_area
-		province_id = 99 #Veluwe
-		province_id = 3060 #Betuwe
-		province_id = 3063 #Overmaas
-		province_id = 2975 #Cleve
-		province_id = 3199 #Essen
-		area = brabant_area
-		province_id = 2974 #Loon
-		province_id = 1742 #Limburg
-		AND = {
-			area = flanders_area
-			NOT = { province_id = 3065 } #Ryssel
-		}
-		province_id = 87 #Calais
-	}
-}
+#low_franconian_culture_region = { #Unused?
+#	OR = {
+#		area = netherlands_area
+#		province_id = 99 #Veluwe
+#		province_id = 3060 #Betuwe
+#		province_id = 3063 #Overmaas
+#		province_id = 2975 #Cleve
+#		province_id = 3199 #Essen
+#		area = brabant_area
+#		province_id = 2974 #Loon
+#		province_id = 1742 #Limburg
+#		AND = {
+#			area = flanders_area
+#			NOT = { province_id = 3065 } #Ryssel
+#		}
+#		province_id = 87 #Calais
+#	}
+#}
 
 central_franconian_culture_region = {
 	OR = {
@@ -254,13 +263,17 @@ central_franconian_culture_region = {
 			area = lower_rhineland_area
 			NOT = { province_id = 3198 } #Saarland
 		}
+		province_id = 8027 #St. Vith
 		province_id = 94 #Luxembourg
+		province_id = 3066 #Arelerland
+		province_id = 7948 #Thionville
 	}
 }
 
 rhine_franconian_culture_region = {
 	OR = {
 		province_id = 188 #Metz
+		province_id = 7949 #Sarreguemines
 		province_id = 3198 #Saarland
 		province_id = 1761 #Pfalz
 		province_id = 78 #Mainz
@@ -281,6 +294,7 @@ east_franconian_culture_region = {
 
 alemannisch_culture_region = { #Sizable expansion
 	OR = {
+		province_id = 7945 #Sarrebourg
 		area = upper_rhineland_area
 		province_id = 70 #Württemburg
 		province_id = 3204 #Hohenzollern
@@ -291,7 +305,11 @@ alemannisch_culture_region = { #Sizable expansion
 		province_id = 69 #Ravensburg
 		province_id = 68 #Memmingen
 		province_id = 3053 #Vorarlberg
-		area = east_lombardy_area #Upper Lombardy
+		province_id = 3054 #Lugano
+		province_id = 7074 #Como
+		province_id = 3047 #Bergamo
+		province_id = 3294 #Valtellina
+		province_id = 7083 #Val Camonica
 	}
 }
 
@@ -735,24 +753,44 @@ anglisch_culture_region = {
 lottringer_culture_region = {
 	OR = {
 		province_id = 3069 #Verdun
-		province_id = 189 #Lorraine
-		province_id = 187 #Barrois
-		area = champagne_area
+		province_id = 189 #Barrois
+		province_id = 189 #Nancy
+		province_id = 7947 #Toul
+		province_id = 7946 #Epinal
+		AND = {
+			area = champagne_area
+			NOT = { province_id = 7956 } #Meaux
+			NOT = { province_id = 7955 } #Sens
+		}
 		area = bourgogne_area #Burgundy
+		area = franche_comte_area
 	}
 }
 
 frankisch_culture_region = {
 	OR = {
-		province_id = 89 #Picardie
-		area = normandy_area
-		area = ile_de_france_area
-		area = brittany_area
+		province_id = 7965 #Ponthieu
+		province_id = 89 #Amiens
+		province_id = 7966 #Vermandois
+		province_id = 7968 #Guise
+		province_id = 7956 #Meaux
+		province_id = 7955 #Sens
+		area = lower_brittany_area
+		area = brittany_area #Upper Brittany
+		area = lower_normandy_area
+		area = normandy_area #Upper Normandy
+		area = maine_anjou_area
 		area = loire_area
+		area = ile_de_france_area
 		area = poitou_area
-		area = massif_central_area
+		area = berry_touraine_area
 		area = guyenne_area
-		area = pyrenees_area #Gascony
+		area = limousin_area
+		area = massif_central_area
+		area = pyrenees_area
+		area = upper_gascony
+		area = west_languedoc_area
+		area = upper_guyenne_area
 		area = languedoc_area
 	}
 }
@@ -760,7 +798,12 @@ frankisch_culture_region = {
 langobardisch_culture_region = {
 	OR = {
 		area = venetia_area
-		area = lombardy_area #Lower Lombardy
+		province_id = 104 #Milan
+		province_id = 3043 #Pavia
+		province_id = 7078 #Lodi
+		province_id = 107 #Brescia
+		province_id = 1862 #Cremona
+		province_id = 109 #Mantua
 		area = north_piedmont_area
 		area = piedmont_area #Central Piedmont
 		area = emilia_area
@@ -770,7 +813,9 @@ langobardisch_culture_region = {
 
 rivieradeutsch_culture_region = { #French & Italian
 	OR = {
+		area = lyonnais_area
 		area = savoy_dauphine_area #Savoy
+		area = dauphine_area
 		area = provence_area
 		area = south_piedmont_area
 		area = liguria_area
@@ -779,35 +824,52 @@ rivieradeutsch_culture_region = { #French & Italian
 
 suebisch_culture_region = {
 	OR = {
-		area = leon_area
 		area = galicia_area
+		province_id = 8038 #Eonavia
+		province_id = 8039 #Tineo
+		province_id = 8037 #Aviles
+		province_id = 207 #Oviedo
+		province_id = 8035 #Gijon
+		area = minho_duoro_area
+		area = leon_area
 		area = beieras_area
-		province_id - 207 #Asturias
+		area = extremadura_area 
+		area = estremadura_area
 		area = alentejo_area
-		area = extremadura_area
-		AND = {
-			area = lower_andalucia_area
-			NOT = { province_id = 1748 } #Jaén
-		}
+		area = algarve_area
+		area = lower_andalucia_area
+		province_id = 8073 #Los Pedroches
+		province_id = 8074 #Palma del Rio
+		province_id = 225 #Cordoba
+		province_id = 8072 #Lucena
+		province_id = 8081 #Antequera
 		province_id = 4546 #Malaga
-		province_id = 226 #Gibraltar
 		province_id = 367 #Azores
 	}
 }
 
 westgotisch_culture_region = {
 	OR = {
-		province_id = 1745 #Cantabria
+		province_id = 1745 #Santander
+		province_id = 8034 #Campoo
+		province_id = 8033 #Laredo
 		area = basque_area
 		area = castille_area
-		area = toledo_area
 		area = aragon_area
 		area = catalonia_area
+		area = segovia_area
+		area = new_castile_area
 		area = valencia_area
+		area = toledo_area
 		area = murcia_area
-		province_id = 1748 #Jaén
-		province_id = 223 #Granada
-		province_id = 222 #Almeria
+		province_id = 8071 #Andujar
+		province_id = 1748 #Jaen
+		province_id = 8070 #Ubeda
+		AND = {
+			area = upper_andalucia_area
+			NOT = { province_id = 8081 } #Antequera
+			NOT = { province_id = 4546 } #Malaga
+		}
 	}
 }
 
