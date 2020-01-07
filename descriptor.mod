@@ -1,4 +1,4 @@
-version="0.5.0"
+version="0.5.5"
 tags={
 	"Events"
 	"Gameplay"
@@ -8,6 +8,6 @@ dependencies={
 	"BT Addon: Bugfixing BT 12.0"
 }
 picture="Thumbnail.png"
-name="!Beyond Typus Addon : Cultural Influence"
+name="[BETA] Beyond Typus Addon : Cultural Influence | Version 0.5.5 Overhaul"
 supported_version="1.29.*.*"
 remote_file_id="1374507960"
