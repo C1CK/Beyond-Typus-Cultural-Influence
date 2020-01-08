@@ -1,0 +1,99 @@
+namespace = cultural_influence_coptic
+#Literal Ancient Egypt Lmao
+#Hardcoded to only permit Coptic Egyptians to do this
+
+province_event = { #Coptic spread along the Nile
+	id = cultural_influence_coptic.1
+	title = coptic_adoption.title
+	desc = coptic_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = egyptian_group }
+		NOT = { culture = coptic_culture }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion = coptic
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = egyptian_group
+		}
+		OR = {
+			any_neighbor_province = { culture_group = egyptian_group }
+			is_capital = yes
+		}
+		coptic_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = egyptian_group
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name =  coptic_adoption.a
+
+		change_culture = coptic_culture
+	}
+}
