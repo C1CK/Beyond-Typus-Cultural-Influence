@@ -27,7 +27,10 @@ country_decisions = {
 				calc_true_if = {
 					all_owned_province = {
 						is_core = ROOT
-						region = british_isles_region
+						OR = {
+							region = british_isles_region
+							region = ireland_area
+						}
 					}
 					amount = 44			#44 of Britain and Ireland's 66 provinces
 				}
@@ -223,7 +226,10 @@ country_decisions = {
 				#ANI removed due to being anglocentric Ireland -CI
 				num_of_cities = 17 #Don't want to be able to see this too early. First goal should be forming provincial kingdoms and then Ireland or overthrowing Scotland.
 			}
-			capital_scope = { region = british_isles_region }
+			OR = {
+				capital_scope = { region = british_isles_region }
+				capital_scope = { region = ireland_area }
+			}
 		}
 
 		provinces_to_highlight = {
