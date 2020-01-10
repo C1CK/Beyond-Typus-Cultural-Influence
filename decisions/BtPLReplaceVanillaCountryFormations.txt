@@ -1042,6 +1042,8 @@ country_decisions = {
 			NOT = { tag = UEF }
 			OR = {
 				culture_group = french
+				culture_group = occitano_romance #CI
+				culture_group = francoprovencal #CI
 				#primary_culture = basque
 				#primary_culture = breton #Bizarre CI disabled this since Gaul has such similar borders and is more appropriate
 			}
@@ -1291,7 +1293,7 @@ country_decisions = {
 			NOT = { tag = PRU }
 			NOT = { tag = HSA }
 			NOT = { tag = SWI }
-			primary_culture = hannoverian #Westphalian
+			primary_culture = northern_low_saxon #CI
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -1484,7 +1486,7 @@ country_decisions = {
 			bt_generic_can_form_potential_check = yes
 			NOT = { has_country_flag = formed_ireland_flag }
 			NOT = { tag = IRE }
-			NOT = { tag = SCO }
+			NOT = { tag = SCO } #Shared culture, don't want you to be able to flip between them
 			NOT = { tag = ANI }
 			NOT = { tag = TNA }
 			OR = {
@@ -1604,9 +1606,10 @@ country_decisions = {
 			NOT = { tag = ITA }
 			OR = {
 				culture_group = latin
-				culture_group = gallo_italic
-				culture_group = veneto_dalmatic
-				culture_group = island_romance
+				culture_group = gallo_italic #CI
+				culture_group = veneto_dalmatic #CI
+				culture_group = island_romance #CI
+				culture_group = rhaetian #CI
 			}
 		}
 		provinces_to_highlight = {
@@ -2281,7 +2284,10 @@ country_decisions = {
 			NOT = { has_country_flag = formed_romania_flag }
 			NOT = { tag = RMN }
 			NOT = { exists = ROM }
-			primary_culture = romanian
+			OR = {
+				primary_culture = romanian
+				primary_culture = siebenburger
+			}
 		}
 		provinces_to_highlight = {
 			culture = romanian
@@ -2579,6 +2585,7 @@ country_decisions = {
 				AND = {
 					culture_group = iberian
 					NOT = { primary_culture = portugese }				#Portuguese go for Iberia tag
+					NOT = { primary_culture = galicien }				#Portuguese go for Iberia tag
 				} 
 				primary_culture = basque
 			}
@@ -2685,6 +2692,7 @@ country_decisions = {
 				AND = {
 					culture_group = iberian
 					NOT = { primary_culture = portugese }				#Portuguese go for Iberia tag
+					NOT = { primary_culture = galicien }				#Portuguese go for Iberia tag
 	
 					num_of_cities = 77			#At least 1/2 of Iberia's 153 provinces to see, if not CAS, ARA, or Basque
 				}
@@ -2814,10 +2822,14 @@ country_decisions = {
 			NOT = { tag = SCO }			#Hide this decision for Scotland... duh....
 			NOT = { tag = GBR }			#Scottish GBR shouldn't see this
 			NOT = { tag = TNA }			#Prevent any possible exploit of tag switching
+			NOT = { tag = IRE } #Shared culture, don't want you to be able to flip between them
+			NOT = { tag = CEL }
 			OR = {
 				primary_culture = scottish
 				primary_culture = gallgaidheil
 				primary_culture = highland_scottish
+				primary_culture = celtic_highlander #CI
+				primary_culture = goidhealach #CI
 			}	#One of the Scottish cultures
 			any_owned_province = {
 				OR = {
@@ -3261,8 +3273,10 @@ country_decisions = {
 			NOT = { tag = HSA }
 			NOT = { tag = SWI }
 			OR = {
-				primary_culture = hannoverian #Westphalian
-				primary_culture = hessian
+				primary_culture = westphalian #CI
+				primary_culture = eastphalian #CI
+				primary_culture = rhine_franconian #CI, These two have nothing to form, so I'm being kind
+				primary_culture = central_franconian #CI, These two have nothing to form, so I'm being kind
 				capital_scope = { area = westphalia_area }
 			}
 		}

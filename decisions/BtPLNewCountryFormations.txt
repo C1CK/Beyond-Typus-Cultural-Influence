@@ -208,8 +208,10 @@ country_decisions = {
 			NOT = { tag = SPA }
 			OR = {
 				culture_group = french
-				primary_culture = basque
-				primary_culture = breton
+				culture_group = occitano_romance #CI
+				culture_group = francoprovencal #CI
+				#primary_culture = basque
+				#primary_culture = breton #Bizarre CI disabled this since Gaul has such similar borders and is more appropriate
 			}
 			num_of_cities = 54			#At least 1/3 of France's 161 provinces to see for anyone
 		}
@@ -316,7 +318,10 @@ country_decisions = {
 			NOT = { tag = IBE }
 			NOT = { tag = SPA }
 			NOT = { tag = ADU }
-			primary_culture = portugese
+			OR = {
+				primary_culture = portugese
+				primary_culture = galicien #CI, I feel like the Galicians would think like the Portuguese here and go with this
+			}
 		}
 		provinces_to_highlight = {
 			region = iberia_region
@@ -638,6 +643,7 @@ country_decisions = {
 #######################################			Moravia			 ############################################			#Note needs work
 ###################################################################################################
 	#More or less HR's work with only a few adjustments from Draiocht
+	#CI adjusts this quite heavily, as I majorly dislike the requirements on this one
 	moravian_nation = {
 		major = yes
 		potential = {
@@ -645,20 +651,29 @@ country_decisions = {
 			NOT = { has_country_flag = formed_moravia_flag_btp }
 			NOT = { tag = GMV }
 			NOT = { tag = PLC }
-			culture_group = west_slavic
+			OR = {
+				primary_culture = czech
+				primary_culture = schlesian
+				primary_culture = slovak
+				primary_culture = ceskoslovensky
+				primary_culture = bohemian #Don't exist, but will in earlier start dates
+				primary_culture = moravian #Don't exist, but will in earlier start dates
+			}
 		}
 		provinces_to_highlight = {
 			OR = {
-				province_id = 60			# Lusatia
-				province_id = 154		# Nitra
-				province_id = 257		# Warsaw
-				province_id = 262		# Krakow
-				province_id = 263		# Ratibor
-				province_id = 264		# Breslau
-				province_id = 265		# Brno
-				province_id = 266		# Prague
-				province_id = 1763		# Lusatia
-				province_id = 1772		# Bratislava
+				province_id = 60 #Lusatia
+				province_id = 154 #Nitra
+				#province_id = 257 #Warsaw #CI, why this far?
+				province_id = 262 #Krakow
+				province_id = 263 #Ratibor
+				province_id = 264 #Breslau
+				province_id = 265 #Brno
+				province_id = 266 #Prague
+				province_id = 1763 #Lusatia
+				province_id = 1772 #Bratislava
+				#CI
+				province_id = 134 #Wien
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -670,16 +685,18 @@ country_decisions = {
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			owns_core_province = 60			# Lusatia
-			owns_core_province = 1763		# Lusatia
-			owns_core_province = 263		# Ratibor
-			owns_core_province = 264		# Breslau
-			owns_core_province = 265		# Brno
-			owns_core_province = 266		# Prague
-			owns_core_province = 154		# Nitra
-			owns_core_province = 1772		# Bratislava
-			owns_core_province = 262		# Krakow
-			owns_core_province = 257		# Warsaw
+			owns_core_province = 60 #Lusatia
+			owns_core_province = 1763 #Lusatia
+			owns_core_province = 263 #Ratibor
+			owns_core_province = 264 #Breslau
+			owns_core_province = 265 #Brno
+			owns_core_province = 266 #Prague
+			owns_core_province = 154 #Nitra
+			owns_core_province = 1772 #Bratislava
+			owns_core_province = 262 #Krakow
+			#owns_core_province = 257 #Warsaw #CI, why this far?
+			#CI
+			owns_core_province = 134 #Wien
 			total_development = 500			#Special discount. Normal requirement for rank 3 is 2000 dev, so this is 75 percent discounted.
 			prestige = 40			#Normal requirement for rank 3 is 75 prestige.
 		}
