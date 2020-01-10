@@ -1,0 +1,97 @@
+namespace = cultural_influence_occitano
+#Vive la Catalonia!
+
+province_event = { #Occitano expansion (Home Region)
+	id = cultural_influence_occitano.1
+	title = occitano_expansion.title
+	desc = occitano_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = occitano_romance }
+		NOT = { culture = OWNER }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = OWNER
+			}
+			is_island = yes
+		}
+		owner = {
+			num_of_owned_provinces_with = {
+				value = 80 #Couldn't be bothered to count them, I'm probably going to make a decision to enable this soon anyways
+				is_state = yes
+				occitano_homeland = yes
+			}
+		}
+		occitano_homeland = yes
+		printing_press = 100 #Check if province has institution not country
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = occitano_expansion.a
+
+		change_culture = OWNER
+	}
+}
