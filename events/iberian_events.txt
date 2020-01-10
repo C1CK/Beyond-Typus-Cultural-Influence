@@ -14,8 +14,11 @@ province_event = { #Iberian expansion (Home Region)
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		any_neighbor_province = {
-			culture = OWNER
+		OR = {
+			any_neighbor_province = {
+				culture = OWNER
+			}
+			is_island = yes
 		}
 		owner = {
 			num_of_owned_provinces_with = {
