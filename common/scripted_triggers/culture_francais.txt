@@ -7,7 +7,7 @@ french_homeland = {
 		region = france_region
 		area = brabant_area
 		area = luxemburg_liege_area #Now Called Liege
-		area = luxembourg_area 
+		area = luxembourg_area
 		area = lorraine_area
 		area = lower_rhineland_area
 		area = maritime_alps_area
@@ -16,19 +16,15 @@ french_homeland = {
 		area = flanders_area
 		area = south_piedmont_area
 		area = franche_comte_area
-		AND = {
-			area = north_piedmont_area
-			NOT = { province_id = 2979 } #Novara
-		}
-		AND = {
-			area = piedmont_area
-			NOT = { province_id = 7048 } #Tortona
-		}
+		area = north_piedmont_area
+		province_id = 3043 #Pavia
+		area = piedmont_area
 		AND = {
 			area = liguria_area
 			NOT = { province_id = 7055 } #A Speza
 		}
 		province_id = 96 #Zeeland
+		province_id = 7975 #Dordrecht
 		province_id = 3060 #Betuwe
 		province_id = 3063 #Overmaas
 		province_id = 2975 #Cleves
@@ -105,10 +101,12 @@ sud_apennine_culture_region = {
 
 nouveau_provencal_culture_region = {
 	OR = {
-		area = lombardy_area
+		AND = {
+			area = lombardy_area
+			NOT = { province_id = 3043 } #Pavia
+		}
 		area = north_piedmont_area
 		area = emilia_area
-		province_id = 7048
 		province_id = 7055
 	}
 }
