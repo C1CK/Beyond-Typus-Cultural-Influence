@@ -28,7 +28,7 @@ eng_british_conquest = {
 		completed_by = 1450.1.1
 		
 		trigger = {
-			army_size_percentage = 1
+			army_size_percentage = 0.8 #CI reduced to 80%
 			manpower_percentage = 0.6
 			num_of_generals = 1
 		}
@@ -411,15 +411,12 @@ eng_french_conquest = {
 		position = 5
 		
 		provinces_to_highlight = {
-			area = ile_de_france_area
+			province_id = 183 #Paris
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		
 		trigger = {
-			ile_de_france_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			183 = { country_or_non_sovereign_subject_holds = ROOT } #CI reduced to only Paris since vassals own other parts of Ile de France
 		}
 		
 		effect = {

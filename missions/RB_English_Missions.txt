@@ -878,7 +878,10 @@ eng_rb_conquest_europe = {
 		position = 4
 		
 		provinces_to_highlight = {
-			area = brittany_area
+			OR = {
+				area = brittany_area
+				area = lower_brittany_area
+			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		
@@ -887,6 +890,11 @@ eng_rb_conquest_europe = {
 			modifier = {
 				factor = 0
 				brittany_area = {
+					owner = {
+						alliance_with = ROOT
+					}
+				}
+				lower_brittany_area = {
 					owner = {
 						alliance_with = ROOT
 					}
@@ -900,12 +908,16 @@ eng_rb_conquest_europe = {
 		trigger = {
 			brittany_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				owned_by = ROOT
+			}
+			lower_brittany_area = {
+				type = all
+				owned_by = ROOT
 			}
 		}
 		
 		effect = {
-			1276 = {
+			174 = {
 				add_trade_modifier = {
 					who = root
 					duration = 5475
@@ -920,53 +932,147 @@ eng_rb_conquest_europe = {
 				}
 				add_permanent_claim = ROOT
 			}
-			brittany_area = {
+			lower_normandy_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			177 = { #Maine
+			maine_anjou_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
-			3075 = { #Dunois
-				add_permanent_claim = ROOT
-			}
-			4389 = { #Touraine
-				add_permanent_claim = ROOT
-			}
-			178 = { #Anjou
+			7979 = { #Vendome
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
 			poitou_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
-			3109 = { #La Marche
+			4389 = { #Tours
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
-			199 = { #Auvergne
+			7935 = { #Chinon
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			7936 = { #Loches
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			7937 = { #Chateauroux
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			limousin_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			7916 = { #Riom
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			199 = { #Clermont
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			7914 = { #Thiers
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
 			3087 = { #Aurillac
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
-			195 = { #Limousin
+			7915 = { #St Flour
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
-			4387 = { #Angoumois
+			guyenne_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
-			194 = { #Perigord
+			3083 = { #Albret
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
-			174 = { #Aquitaine
+			173 = { #Labourd
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
-			3081 = { #Agenais
+			7924 = { #Dax
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
-			pyrenees_area = {
+			7926 = { #Mont de Marsan
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			176 = { #Bearn
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			upper_gascony_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -984,21 +1090,27 @@ eng_rb_conquest_europe = {
 		provinces_to_highlight = {
 			OR = {
 				area = normandy_area
-				area = brittany_area
-				province_id = 177
-				province_id = 3075
-				province_id = 4389
-				province_id = 178
+				area = lower_normandy_area
+				area = maine_anjou_area
+				province_id = 7979 #Vendome
 				area = poitou_area
-				province_id = 3109
-				province_id = 199
-				province_id = 3087
-				province_id = 195
-				province_id = 4387
-				province_id = 194
-				province_id = 174
-				province_id = 3081
-				area = pyrenees_area
+				province_id = 4389 #Tours
+				province_id = 7935 #Chinon
+				province_id = 7936 #Loches
+				province_id = 7937 #Chateauroux
+				area = limousin_area
+				province_id = 7916 #Riom
+				province_id = 199 #Clermont
+				province_id = 7914 #Thiers
+				province_id = 3087 #Aurillac
+				province_id = 7915 #St Flour
+				area = guyenne_area
+				province_id = 3083 #Albret
+				province_id = 173 #Labourd
+				province_id = 7924 #Dax
+				province_id = 7926 #Mont de Marsan
+				province_id = 176 #Bearn
+				area = upper_gascony_area
 			}
 			NOT = { owned_by = ROOT }
 		}
@@ -1008,51 +1120,72 @@ eng_rb_conquest_europe = {
 				owned_by = ROOT
 				type = all
 			}
-			brittany_area = {
+			lower_normandy_area = {
 				owned_by = ROOT
 				type = all
 			}
-			177 = { #Maine
+			maine_anjou_area = {
 				owned_by = ROOT
+				type = all
 			}
-			3075 = { #Dunois
-				owned_by = ROOT
-			}
-			4389 = { #Touraine
-				owned_by = ROOT
-			}
-			178 = { #Anjou
+			7979 = { #Vendome
 				owned_by = ROOT
 			}
 			poitou_area = {
 				owned_by = ROOT
 				type = all
 			}
-			3109 = { #La Marche
+			4389 = { #Tours
 				owned_by = ROOT
 			}
-			199 = { #Auvergne
+			7935 = { #Chinon
+				owned_by = ROOT
+			}
+			7936 = { #Loches
+				owned_by = ROOT
+			}
+			7937 = { #Chateauroux
+				owned_by = ROOT
+			}
+			limousin_area = {
+				owned_by = ROOT
+				type = all
+			}
+			7916 = { #Riom
+				owned_by = ROOT
+			}
+			199 = { #Clermont
+				owned_by = ROOT
+			}
+			7914 = { #Thiers
 				owned_by = ROOT
 			}
 			3087 = { #Aurillac
 				owned_by = ROOT
 			}
-			195 = { #Limousin
+			7915 = { #St Flour
 				owned_by = ROOT
 			}
-			4387 = { #Angoumois
+			guyenne_area = {
+				owned_by = ROOT
+				type = all
+			}
+			3083 = { #Albret
 				owned_by = ROOT
 			}
-			194 = { #Perigord
+			173 = { #Labourd
 				owned_by = ROOT
 			}
-			174 = { #Aquitaine
+			7924 = { #Dax
 				owned_by = ROOT
 			}
-			3081 = { #Agenais
+			7926 = { #Mont de Marsan
 				owned_by = ROOT
 			}
-			pyrenees_area = {
+			176 = { #Bearn
+				owned_by = ROOT
+			}
+			upper_gascony_area = {
 				owned_by = ROOT
 				type = all
 			}
