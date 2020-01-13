@@ -636,4 +636,67 @@ country_decisions = {
 		}
 		ai_importance = 400
 	}
+
+	form_kurdistan = {
+		major = yes
+		potential = {
+			NOT = { exists = KRD }
+			NOT = { has_country_flag = formed_KRD_flag }
+			bt_generic_can_form_potential_check = yes
+			primary_culture = kurdish
+		}
+
+		provinces_to_highlight = {
+			kurdish_culture_region = yes
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+
+		allow = {
+			NOT = { exists = KRD }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			owns_core_province = 411 #Mosul
+			owns_core_province = 2211 #Erdelan
+			owns_core_province = 4296 #Bidlis
+			calc_true_if = {
+				all_owned_province = {
+					is_core = ROOT
+					kurdish_culture_region = yes
+				}
+				amount = 18			#At least 2/3 of Greater Armenia's 24 provinces (approximate)
+			}
+			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted Note base in Greater Armenia alone is about 168.
+			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
+		}
+
+		effect = {
+			change_tag = KRD
+			remove_non_electors_emperors_from_empire_effect = yes
+			add_country_modifier = {
+				name = centralization_modifier
+				duration = 7300
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			every_province = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					galianeg_culture_region = yes
+				}
+				add_permanent_claim = KRD
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 }
+			}
+			set_country_flag = formed_KRD_flag
+		}
+	}
 }
