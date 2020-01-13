@@ -52,7 +52,87 @@ country_event = { #Qirim -> Kirim
 	}
 }
 
-####Free ID 2
+province_event = { #Kurdish settlements in Kurdistan
+	id = cultural_influence_oghuz.2
+	title = oghuz_kurdistan_settlements.title
+	desc = oghuz_kurdistan_settlements.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { has_country_flag = ottomans_granted_kurdish_autonomy_flag } #Granted autonomy
+		NOT = { culture = kurdish }
+		has_province_modifier = kurdish_autonomous_sanjak #Owned by Kurdish Sanjaks
+		#NOT = { development = 20 } #Not actually a developed city #Removing the limit on development as I don't really like the weird dev lowering thing, just feels very odd...
+		has_global_flag = CI_events_enabled
+		any_neighbor_province = {
+			culture = kurdish
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 1.5
+			development = 10
+		}
+		modifier = {
+			factor = 1.5
+			development = 15
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = kurdish
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = kurdish
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = oghuz_kurdistan_settlements.a
+
+		change_culture = kurdish
+		change_religion = OWNER
+
+		add_province_modifier = {
+			name = kurdish_settlements
+			duration = 9125 #25 years
+		}
+
+		add_base_tax = 1
+		add_base_production = 1
+		add_base_manpower = 1
+	}
+}
 
 ####Free ID 3
 
