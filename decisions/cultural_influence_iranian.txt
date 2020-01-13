@@ -1,0 +1,25 @@
+country_decisions = {
+	kurdish_settlements_decision = { #Repopulate the Armenian valleys
+		major = yes
+		potential = {
+			NOT = { has_country_modifier = kurdish_settlements }
+			primary_culture = kurdish
+		}
+
+		allow = {
+			government_rank = 2 #They can get this by forming Kurdistan, so isn't that rough
+			total_development = 300 #QQ only starts with 352 dev, so I feel even 300 dev req. is too high, but I don't want any OPMs to be doing this
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = kurdish_settlements
+				duration = -1
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

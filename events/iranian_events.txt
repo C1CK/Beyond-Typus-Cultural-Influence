@@ -1,0 +1,128 @@
+namespace = cultural_influence_iranian
+#Currently only has mechanics for the Kurds, but more to come in the future
+
+province_event = { #Kurdish settlements and assimilation
+	id = cultural_influence_iranian.1
+	title = kurdish_settlements.title
+	desc = kurdish_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = iranian }
+		NOT = { culture = kurdish }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			AND = { #Improving dev via a colonist
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = {
+				OR = { #AI uses this one
+					NOT = { has_dlc = "Dharma" }
+					owner = { ai = yes }
+				}
+				OR = {
+					any_neighbor_province = {
+						culture_group = iranian
+					}
+					num_of_times_improved = 5
+				}
+			}
+		}
+		owner = { has_country_modifier = west_slavic_settlements }
+		kurdish_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = iranian
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = kurdish_settlements.a
+
+		change_culture = kurdish
+	}
+}
