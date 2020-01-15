@@ -22,6 +22,13 @@ country_event = { #Mashriqi creation
 			}
 			type = all
 		}
+		africa = { #Owned by ROOT, or not needed
+			OR = {
+				mashriqi_cultures = no
+				owned_by = ROOT
+			}
+			type = all
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -146,8 +153,8 @@ country_event = { #Maghrebi creation
 	trigger = {
 		government_rank = 3
 		maghrebi_cultures = yes
-		NOT = { has_global_flag = mashriqq_created_flag }
-		asia = { #Owned by ROOT, or not needed
+		NOT = { has_global_flag = maghrebi_created_flag }
+		africa = { #Owned by ROOT, or not needed
 			OR = {
 				maghrebi_cultures = no
 				owned_by = ROOT
