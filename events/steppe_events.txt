@@ -567,6 +567,7 @@ province_event = { #Nomadic gain
 		steppe_culture_region = yes
 		culture = OWNER
 		owner = { is_nomad = yes }
+		NOT = { has_province_modifier = steppe_city }
 		NOT = { has_province_modifier = nomadic_province }
 	}
 
@@ -579,6 +580,34 @@ province_event = { #Nomadic gain
 			name = nomadic_province
 			duration = -1
 		}
+	}
+
+	option = {
+		name = null
+	}
+}
+
+province_event = { #Nomadic loss
+	id = cultural_influence_steppe.11
+	title = null
+	desc = null
+
+	hidden = yes
+
+	trigger = {
+		steppe_culture_region = yes
+		culture = OWNER
+		owner = { is_nomad = yes }
+		has_province_modifier = steppe_city
+		has_province_modifier = nomadic_province
+	}
+
+	mean_time_to_happen = {
+		years = 1
+	}
+
+	immediate = {
+		remove_province_modifier = nomadic_province
 	}
 
 	option = {
