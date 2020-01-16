@@ -191,152 +191,7 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 	}
 }
 
-country_event = { #Nomadic growth (Manpower for dev)
-	id = cultural_influence_steppe.3
-	title = nomadic_growth.title
-	desc = nomadic_growth.desc
-	picture = HORDE_ON_HORSEBACK_eventPicture
-
-	trigger = {
-		is_nomad = yes
-		manpower = 15 #15000
-		has_global_flag = CI_events_enabled
-		NOT = { has_country_modifier = nomadic_growth_cooldown }
-		any_owned_province = { #Any province valid for growth below 20 dev
-			OR = {
-				AND = {
-					has_owner_accepted_culture = yes
-					owner = { ai = no }
-				}
-				has_owner_culture = yes
-			}
-			steppe_culture_region = yes
-			has_province_modifier = nomadic_province #Nomadic Ruthenians are fake news
-			NOT = { has_province_modifier = steppe_city } #Maybe redundant
-			NOT = { development = 15 }
-			NOT = { devastation = 1 }
-		}
-	}
-
-	mean_time_to_happen = {
-		years = 10
-
-		modifier = {
-			factor = 0.8
-			manpower = 25 #25000
-		}
-		modifier = {
-			factor = 0.8
-			manpower = 40 #40000
-		}
-		modifier = {
-			factor = 0.8
-			manpower = 75 #75000
-		}
-		modifier = {
-			factor = 0.4
-			manpower_percentage = 0.90 #90%
-		}
-	}
-
-	option = { #Land grants for Mingghan (1000 manpower for 2 dev)
-		name = nomadic_growth.a
-
-		trigger = {
-			manpower = 1 #1000
-		}
-
-		add_manpower = -1 #1000
-
-		custom_tooltip = land_grants_mingghan.effect
-		hidden_effect = {
-			steppe_gain_random_dev = yes #2
-			steppe_gain_random_dev = yes
-		}
-
-		ai_chance = {
-			factor = 25
-			modifier = {
-				factor = 0
-				NOT = { manpower_percentage = 0.40 }
-			}
-		}
-	}
-
-	option = { #Land grants for Tumen (10000 manpower for 25 dev)
-		name = nomadic_growth.b
-
-		trigger = {
-			manpower = 10 #10000
-			num_of_owned_provinces_with = { #Require at least 18 valid provinces
-				value = 18
-				OR = {
-					AND = {
-						has_owner_accepted_culture = yes
-						owner = { ai = no }
-					}
-					has_owner_culture = yes
-				}
-				steppe_culture_region = yes
-				has_province_modifier = nomadic_province #Nomadic Ruthenians are fake news
-				NOT = { has_province_modifier = steppe_city } #Maybe redundant
-				NOT = { development = 15 } #Limit for nomadic populations
-				NOT = { devastation = 1 }
-			}
-		}
-
-		add_manpower = -10 #10000
-
-		custom_tooltip = land_grants_tumen.effect
-		hidden_effect = { #This gives the same dev type, I am aware but I don't know how to fix it
-			steppe_gain_random_dev = yes #20
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-			steppe_gain_random_dev = yes
-		}
-
-		ai_chance = {
-			factor = 10
-			modifier = {
-				factor = 0
-				NOT = { manpower_percentage = 0.60 }
-			}
-		}
-	}
-
-	option = { #We need the men
-		name = nomadic_growth.d
-
-		add_country_modifier = {
-			name = nomadic_growth_cooldown
-			duration = 3600 #10 Years
-		}
-
-		ai_chance = {
-			factor = 10
-			modifier = {
-				factor = 0
-				manpower_percentage = 0.75
-			}
-		}
-	}
-}
+###Free ID 3
 
 province_event = { #Rise of Steppe City
 	id = cultural_influence_steppe.4
@@ -608,6 +463,123 @@ province_event = { #Nomadic loss
 
 	immediate = {
 		remove_province_modifier = nomadic_province
+	}
+
+	option = {
+		name = null
+	}
+}
+
+province_event = { #Nomadic Growth -Hidden event, province level
+	id = cultural_influence_steppe.12
+	title = null
+	desc = null
+
+	hidden = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				has_owner_accepted_culture = yes
+				owner = { ai = no }
+			}
+			has_owner_culture = yes
+		}
+		steppe_culture_region = yes #Just to make sure
+		has_province_modifier = nomadic_province #Nomadic Ruthenians are fake news
+		NOT = { has_province_modifier = steppe_city } #Maybe redundant
+		NOT = { development = 15 } #Limit for nomadic populations
+		owner = { is_nomad = yes }
+		OR = {
+			NOT = { devastation = 1 }
+			AND = {
+				NOT = { development = 8 } #Allow devastated provinces to get 8
+				devastation = 1
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 15
+
+		modifier = { #Happy Nomads
+			factor = 1.2
+			NOT = { horde_unity = 50 }
+		}
+		modifier = {
+			factor = 0.9
+			horde_unity = 75
+		}
+		modifier = {
+			factor = 0.9
+			horde_unity = 90
+		}
+		modifier = {
+			factor = 0.8
+			horde_unity = 99
+		}
+
+		modifier = { #Local Stability
+			factor = 1.5
+			unrest = 0.1
+		}
+
+		modifier = { #Pax Mongolica (National stability)
+			factor = 0.9
+			stability = 1
+		}
+		modifier = {
+			factor = 0.9
+			stability = 2
+		}
+		modifier = {
+			factor = 0.8
+			stability = 3
+		}
+
+		modifier = { #Dev checks
+			factor = 0.8
+			NOT = { development = 6 }
+		}
+		modifier = {
+			factor = 1.4
+			development = 12
+		}
+
+		modifier = { #Free men to grant land
+			factor = 0.9
+			manpower = 25 #25,000
+		}
+		modifier = {
+			factor = 0.9
+			manpower = 50 #50,000
+		}
+		modifier = {
+			factor = 0.9
+			manpower = 75 #50,000
+		}
+		modifier = {
+			factor = 0.9
+			manpower = 100 #100,000
+		}
+		modifier = {
+			factor = 0.8
+			manpower_percentage = 0.90 #90%
+		}
+	}
+
+	immediate = {
+		random_list = {
+			1 = {
+				add_base_manpower = 1
+			}
+			1 = {
+				add_base_production = 1
+			}
+			1 = {
+				add_base_tax = 1
+			}
+		}
 	}
 
 	option = {
