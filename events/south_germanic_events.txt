@@ -764,7 +764,7 @@ province_event = { #Low Franconian Integration (Not Dutch!)
 	}
 }
 
-country_event = { #Dutch Standardization (On formation of NED, then spreads)
+country_event = { #Dutch Standardization (On formation of NED, then spreads) (Mass converts the Low countries to this new culture, leaves the German ones)
 	id = cultural_influence_germanic_rework.9
 	title = dutch_standardization.title
 	desc = dutch_standardization.desc
@@ -792,6 +792,19 @@ country_event = { #Dutch Standardization (On formation of NED, then spreads)
 					dutch_cultures = yes
 				}
 				change_culture = dutch
+			}
+			low_countries_region = {
+				limit = {
+					dutch_cultures = yes
+				}
+				change_culture = dutch
+			}
+			every_country = {
+				limit = {
+					dutch_cultures = yes
+					capital_scope = { region = low_countries_region }
+				}
+				change_primary_culture = dutch
 			}
 		}
 	}
