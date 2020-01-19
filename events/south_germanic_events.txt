@@ -799,10 +799,19 @@ country_event = { #Dutch Standardization (On formation of NED, then spreads) (Ma
 				}
 				change_culture = dutch
 			}
+			france_region = {
+				limit = {
+					dutch_cultures = yes
+				}
+				change_culture = dutch
+			}
 			every_country = {
 				limit = {
 					dutch_cultures = yes
-					capital_scope = { region = low_countries_region }
+					OR = {
+						capital_scope = { region = low_countries_region }
+						capital_scope = { region = france_region }
+					}
 				}
 				change_primary_culture = dutch
 			}
