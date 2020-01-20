@@ -1,0 +1,66 @@
+namespace = cultural_influence_colonial
+#Some experimental colonial events, for now I'm only dealing with trade companies since I don't know how to stop the culture changing in colonized provinces...
+
+province_event = { #Established colonial centre (Converts best province in the area with the Township colonial investment)
+	id = cultural_influence_colonial.1
+	title = colonial_capital_established.title
+	desc = colonial_capital_established.desc
+	picture = GREAT_BUILDING_eventPicture
+
+	major = yes #Maybe annoying, but this is a very significant event for the colonial powers
+
+	trigger = {
+		is_owned_by_trade_company = yes
+		development = 40 #At least 40 dev needed
+		#Altogether these investments cost 1600 ducats, and you are lmiited to one per company
+		has_trade_company_investment_in_area = { #Has the required investments
+			investment = district
+			investor = OWNER
+		}
+		has_trade_company_investment_in_area = { #Has the required investments
+			investment = townships
+			investor = OWNER
+		}
+		has_building = university #Serves as a tech gate here (1622)
+		province_has_center_of_trade_of_level = 2
+		#Highest dev in area check goes here, but it doesn't exist so I'm just going with the University building and then only allowing this to happen once in the area
+		NOT = { any_owned_province = { has_province_modifier = colonial_capital_province_modifier } } #I really want to check for area here, but 'area = ROOT' crashes the game, so until I can find a fix you are limited to one per empire, which is acceptable I guess...
+	}
+
+	mean_time_to_happen = {
+		months = 30
+	}
+
+	option = { #Convert
+		name = colonial_capital_established.a
+
+		add_adm_power = -300
+		add_dip_power = -200
+		change_culture = ROOT
+		change_religion = ROOT
+
+		add_base_production = 4
+		add_province_modifier = {
+			name = colonial_capital_province_modifier
+			duration = -1
+		}
+
+		ai_chance = { #AI does this one
+			factor = 1
+		}
+	}
+
+	option = { #No, preserve the indigenous populace
+		name = colonial_capital_established.b
+
+		add_base_production = 4
+		add_province_modifier = {
+			name = colonial_capital_province_modifier
+			duration = -1
+		}
+
+		ai_chance = { 
+			factor = 0
+		}
+	}
+}
