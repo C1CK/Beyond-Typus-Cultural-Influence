@@ -57,15 +57,17 @@ ANI_ideas = {
 }
 
 #Let's be honest here, this is majorly OPed ;D. Might rebalance later. -Draiocht
-#Seem much more balanced now ^^^ -Katy
+#Reworked these to be more Insular Celt focused since Gaul exists in CI ^^^ -C1CK
+#Removed most of the meta modifiers that feel kind of forced in, like tech cost and core creation cost, hopefully their should be more flavour here now
+#Maybe I'll relocalize these to be a bit more appropriate later, but for now most of these are ripped from other countries
 CEL_ideas = {
 	start = {
 		infantry_power = 0.1
-		land_morale = 0.1
+		tolerance_own = 1 #Catholics!
 	}
 
 	bonus = {
-		army_tradition = 1
+		production_efficiency = 0.1 #Celtic industrialization
 	}
 	
 	trigger = {
@@ -76,20 +78,36 @@ CEL_ideas = {
 	celts_survival = {
 		war_exhaustion = -0.03
 	}
-	celts_six_nations = {
-		idea_cost = -0.1	
+	#celts_six_nations = { #Bretons not needed anymore, so... not six nations (Maybe if we include the Britons? Even still I don't want the meta-y idea cost modifier)
+	#	idea_cost = -0.1	
+	#}
+	crn_pirates_of_penzance = { #You know I had to do it to 'em (Adjusted a little to actually be good once you've united the isles)
+		capture_ship_chance = 0.1
+		#privateer_efficiency = 0.2 #Replaced with Light ship cost
+		light_ship_cost = -0.20
 	}
-	celts_monastic_schools = {
-		technology_cost = -0.05
+	#celts_monastic_schools = { #Replaced with Gaelia's Monastic idea, which is so much better it's not even funny, why was this ever used instead of the Gael's?
+	#	technology_cost = -0.05
+	#}
+	tirnangael_monastic_heritage = {
+		global_missionary_strength = 0.02
+		papal_influence = 1
 	}
-	celts_soldiers = {
-		discipline = 0.05
+	#celts_soldiers = { #Discipline is far too meta, and this is in the same slot as Gael's exploration idea
+	#	discipline = 0.05
+	#}
+	tirnangael_explorers_legacy = {
+		range = 0.33
+		may_explore = yes
 	}
-	celts_memory = {
-		core_creation = -0.1		
-	}
-	celts_illuminated_manuscripts = {
-		prestige = 1
+	#celts_memory = { #Literally the most boring idea possible, but at least it's meta
+	#	core_creation = -0.1
+	#}
+	#celts_illuminated_manuscripts = { #Replaced with Arthurian Romanticism
+	#	prestige = 1
+	#}
+	crn_arthurian_romanticism = { #This feels nicer and achieves the same goal
+		prestige_decay = -0.01
 	}
 	celts_resettle = {
 		development_cost = -0.1 #CI replaced culture conversion due to it being a redundant mechanic with CI enabled
