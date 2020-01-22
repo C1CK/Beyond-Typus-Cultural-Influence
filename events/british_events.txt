@@ -16,8 +16,10 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 		NOT = { has_global_flag = british_first_unification_flag }
 		europe = { #Owned by ROOT, or not needed
 			OR = {
-				NOT = { culture = english }
-				NOT = { culture = northumbrian }
+				AND = {
+					NOT = { culture = english }
+					NOT = { culture = northumbrian }
+				}
 				owned_by = ROOT
 			}
 			type = all
