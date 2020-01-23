@@ -187,12 +187,30 @@ country_decisions = {
 			owns_core_province = 223			# Granada
 			owns_core_province = 224			# Andalucia
 			owns_core_province = 225			# Cordoba
-			calc_true_if = {
-				all_owned_province = {
-					is_core = ROOT
-					region = iberia_region
+			owns_core_province = 221			# Murcia
+			owns_core_province = 220			# Valencia
+			if = {
+				limit = {
+					NOT = { #Any tags that end up with the Granadan mission tree.
+						has_mission = gra_restore_the_andalusian_caliphate
+					}
 				}
-				amount = 103			#At least 2/3 of Iberia's 153 provinces. This is Portugal plus 72 other provinces, roughly half of non Portuguese Iberia.
+				calc_true_if = {
+					all_owned_province = {
+						is_core = ROOT
+						region = iberia_region
+					}
+					amount = 103			#At least 2/3 of Iberia's 153 provinces. This is Portugal plus 72 other provinces, roughly half of non Portuguese Iberia.
+				}
+			}
+			else = { #Taifa tags get discount, because their mission tree will not continue unless they form Andalusia, which entails 40 provinces. Hence, the formation of the tag needs to be done earlier.
+				calc_true_if = {
+					all_owned_province = {
+						is_core = ROOT
+						region = iberia_region
+					}
+					amount = 40			#All provinces in the three Andalusia areas (27) + Murcia (7) & Valencia (6) areas, which the missions give claims to.
+				}
 			}
 			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted
 			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
@@ -228,12 +246,87 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
-			iberia_region = {
+			if = {
 				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
+					NOT = { #Any tags that end up with the Granadan mission tree.
+						has_mission = gra_restore_the_andalusian_caliphate
+					}
 				}
-				add_permanent_claim = ADU
+				iberia_region = {
+					limit = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+					}
+					add_permanent_claim = ADU
+				}
+			}
+			else = { #You have the above mission, therefore you have GC as well, hence you potentially have the ability to complete the below missions.
+				if = { #Portuguese mission claims
+					limit = {
+						mission_completed = gra_reconquer_sevilla
+						has_dlc = "Golden Century"
+					}
+					#Claims
+					custom_tooltip = adu_conquer_portugal_claims
+					hidden_effect = {
+						every_province = {
+							limit = {
+								gc_cas_spa_reconquista_two_provinces = yes
+								NOT = { is_core = ROOT }
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ROOT
+						}
+					}
+				}
+				if = { #Sardinian-Corsican mission claims
+					limit = {
+						mission_completed = gra_restore_trade_superiority
+						has_dlc = "Golden Century"
+					}
+					#Claims
+					custom_tooltip = adu_conquer_med_islands_claims
+					hidden_effect = {
+						every_province = {
+							limit = {
+								adu_conquer_med_islands_provinces = yes
+								NOT = { is_core = ROOT }
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ROOT
+						}
+					}
+				}
+				if = { #Tunisian-Moroccan mission claims
+					limit = {
+						mission_completed = gra_restore_faith_in_the_throne
+						has_dlc = "Golden Century"
+					}
+					#Claims
+					custom_tooltip = adu_moroccan_conquest_claims
+					hidden_effect = {
+						every_province = {
+							limit = {
+								adu_moroccan_conquest_provinces = yes
+								NOT = { is_core = ROOT }
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ROOT
+						}
+					}
+					#Claims
+					custom_tooltip = adu_own_tunisia_1_claims
+					hidden_effect = {
+						every_province = {
+							limit = {
+								adu_own_tunisia_1_provinces = yes
+								NOT = { is_core = ROOT }
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ROOT
+						}
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -247,161 +340,7 @@ country_decisions = {
 				change_government = monarchy
 				set_legacy_government = despotic_monarchy #Desert tribes settling down, theocracies become monarchies.
 			}
-			if = {
-				limit = {
-					has_custom_ideas = no
-					NOT = { has_idea_group = GRA_ideas }
-				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
 			set_country_flag = formed_andalusia_flag
-			if = {
-				limit = {
-					mission_completed = gra_reconquer_sevilla
-					has_dlc = "Golden Century"
-				}
-				alentejo_area = {
-					limit = {
-						NOT = {
-							owned_by = ROOT
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-				beieras_area = {
-					limit = {
-						NOT = {
-							owned_by = ROOT
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			if = {
-				limit = {
-					mission_completed = gra_restore_trade_superiority
-					has_dlc = "Golden Century"
-				}
-				corsica_sardinia_area = {
-					limit = {
-						NOT = {
-							owned_by = ROOT
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-				baleares_area = {
-					limit = {
-						NOT = {
-							owned_by = ROOT
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			if = {
-				limit = {
-					mission_completed = gra_restore_faith_in_the_throne
-					has_dlc = "Golden Century"
-				}
-				hautes_plaines_area = {
-					limit = {
-						NOT = {
-							owned_by = ROOT
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-				barbary_coast_area = {
-					limit = {
-						NOT = {
-							owned_by = ROOT
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-				kabylia_area = {
-					limit = {
-						NOT = {
-							owned_by = ROOT
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-				tunisia_area = {
-					limit = {
-						NOT = {
-							owned_by = ROOT
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-				djerba_area = {
-					limit = {
-						NOT = {
-							owned_by = ROOT
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-				tripolitania_area = {
-					limit = {
-						NOT = {
-							owned_by = ROOT
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			if = {
-				limit = {
-					mission_completed = gra_restore_faith_in_the_throne
-					has_dlc = "Golden Century"
-				}
-				northern_morocco_area = {
-					limit = {
-						NOT = {
-							owned_by = ROOT
-						}
-						NOT = {
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-				marrekesh_area = {
-					limit = {
-						NOT = {
-							owned_by = ROOT
-						}
-						NOT = {
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-				western_morocco_area = {
-					limit = {
-						NOT = {
-							owned_by = ROOT
-						}
-						NOT = {
-							is_core = ROOT
-						}
-					}
-					add_permanent_claim = ROOT
-				}
-			}
 			if = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
@@ -1633,7 +1572,7 @@ country_decisions = {
 			custom_trigger_tooltip = {
 				tooltip = hegemony_over_italy_tooltip
 				calc_true_if = {
-					all_owned_province = {
+					all_province = { #Cannot use all_owned_province in this case.
 						region = italy_region
 						country_or_vassal_holds = ROOT
 						is_core = owner
@@ -1646,8 +1585,8 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = ITL
-			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
+			swap_non_generic_missions = yes #Moved down so that it removes HRE missions properly.
 			if = {
 				limit = { NOT = { government_rank = 2 } }
 				set_government_rank = 2
@@ -2653,6 +2592,9 @@ country_decisions = {
 					NOT = { area = macaronesia_area }
 					NOT = { area = alentejo_area }
 					NOT = { area = beieras_area }
+					NOT = { area = minho_duoro_area }
+					NOT = { area = estremadura_area }
+					NOT = { area = algarve_area }
 				}
 				add_permanent_claim = SPA
 			}
@@ -2717,7 +2659,6 @@ country_decisions = {
 				legitimacy = 100
 			}
 			adm_tech = 10			#Diplo tech requirement
-
 			owns_or_vassal_of = 208	# Leon
 			owns_or_vassal_of = 214	# Zaragoza
 			owns_or_vassal_of = 215	# Valladolid
@@ -2744,6 +2685,7 @@ country_decisions = {
 					ai = yes
 					capital_scope = { region = iberia_region }
 					OR = {
+						ROOT = { ai = yes } #Quick bandaid to not stop Spain from integrating Aragon if they've blobbed too much or the wedding happens after they integrate their subjects.
 						NOT = { num_of_cities = 12 }
 						AND = {
 							tag = ARA
@@ -2786,6 +2728,9 @@ country_decisions = {
 					NOT = { area = macaronesia_area }
 					NOT = { area = alentejo_area }
 					NOT = { area = beieras_area }
+					NOT = { area = minho_duoro_area }
+					NOT = { area = estremadura_area }
+					NOT = { area = algarve_area }
 				}
 				add_permanent_claim = SPA
 			}
@@ -3224,7 +3169,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = TUS
-			remove_non_electors_emperors_from_empire_effect = yes
+			#remove_non_electors_emperors_from_empire_effect = yes
 			every_province = {
 				limit = {
 					NOT = { owned_by = ROOT }
