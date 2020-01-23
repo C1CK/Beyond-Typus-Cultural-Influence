@@ -1665,9 +1665,13 @@ country_decisions = {
 					ai = no
 					tag = CYP
 				}
-				AND = {
+				AND = { #Still allowed as the county of Provence was in union with Anjou
 					ai = no
 					tag = PRO
+				}
+				AND = {
+					ai = no
+					tag = ANJ
 				}
 			}
 			OR = {
@@ -1716,6 +1720,7 @@ country_decisions = {
 							NOT = { tag = KNI }
 							NOT = { tag = CYP }
 							NOT = { tag = PRO }
+							NOT = { tag = ANJ }
 						}
 						was_never_end_game_tag_trigger = no
 					}
@@ -1729,6 +1734,7 @@ country_decisions = {
 						tag = KNI
 						tag = CYP
 						tag = PRO
+						tag = ANJ
 					}
 					was_never_end_game_tag_trigger = yes
 				}
