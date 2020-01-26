@@ -95,3 +95,76 @@ province_event = { #Iberian expansion (Home Region)
 		change_culture = OWNER
 	}
 }
+
+country_event = { #Christian Granada Latinizes
+	id = cultural_influence_iberian.2
+	title = christian_moors.title
+	desc = christian_moors.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		culture = andalusi_culture
+		capital_scope = { region = iberia_region }
+		religion_group = christian
+		NOT = { has_country_flag = ci_declined_latinization }
+	}
+
+	mean_time_to_happen = {
+		months = 30
+	}
+
+	option = { #Latinize
+		name = christian_moors.a
+
+		#Subject ifs
+		if = { #Iberian subject
+			limit = {
+				is_subject = yes
+				overlord = {
+					culture_group = iberian
+				}
+			}
+			change_primary_culture = andalucian
+			capital_scope = { change_culture = andalucian }
+		}
+		if = { #Occitan subject
+			limit = {
+				is_subject = yes
+				overlord = {
+					culture_group = occitano_romance
+				}
+			}
+			change_primary_culture = occitan_andalucian
+			capital_scope = { change_culture = occitan_andalucian }
+		}
+
+		#Indep. ifs
+		if = { #Iberian dominant
+			limit = {
+				is_subject = no
+				NOT = { has_global_flag = ci_restoration_of_aragonese_flag }
+			}
+			change_primary_culture = andalucian
+			capital_scope = { change_culture = andalucian }
+		}
+		if = { #Occitan dominant
+			limit = {
+				is_subject = no
+				has_global_flag = ci_restoration_of_aragonese_flag
+			}
+			change_primary_culture = occitan_andalucian
+			capital_scope = { change_culture = occitan_andalucian }
+		}
+
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { #No
+		name = christian_moors.b
+
+		add_prestige = 10
+		set_country_flag = ci_declined_latinization
+	}
+}
