@@ -1,4 +1,254 @@
 namespace = cultural_influence_occitano
 #Vive la Catalonia!
 
-#ID 1 reserved
+country_event = { #Decline of Navarro-Aragonese (Mandatory event required for the recovery of Navarro-Aragonese)
+	id = cultural_influence_occitano.1
+	title = decline_of_aragonese.title
+	desc = decline_of_aragonese.desc
+	picture = CULTURE_eventPicture
+
+	fire_only_once = yes
+	major = yes #Just so Castille is aware
+
+	trigger = {
+		tag = ARA
+		primary_culture = aragonese
+		NOT = { has_global_flag = ci_decline_of_aragonese_flag }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			NOT = { dominant_culture = aragonese }
+		}
+	}
+
+	immediate = {
+		set_global_flag = ci_decline_of_aragonese_flag
+		every_province = {
+			limit = {
+				culture = aragonese
+			}
+			change_culture = aragonese_decline
+		}
+	}
+
+	option = { #Switch to Castillian
+		name = decline_of_aragonese.a
+
+		change_primary_culture = castillian
+
+		add_historical_friend = CAS
+		CAS = { add_historical_friend = ARA }
+
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				factor = 0
+				is_rival = CAS
+			}
+		}
+	}
+
+	option = { #Preserve Aragonese
+		name = decline_of_aragonese.b
+
+		change_primary_culture = aragonese_decline
+
+		ai_chance = { 
+			factor = 8
+		}
+	}
+
+	option = { #A third way, Catalan!
+		name = decline_of_aragonese.c
+
+		change_primary_culture = catalan
+
+		#Push Catalan further west
+		8110 = { #Ainsa
+			if = {
+				limit = {
+					culture = aragonese_decline
+				}
+				change_culture = catalan
+			}
+		}
+		8111 = { #Barbastro
+			if = {
+				limit = {
+					culture = aragonese_decline
+				}
+				change_culture = catalan
+			}
+		}
+		8116 = { #Alcaniz
+			if = {
+				limit = {
+					culture = aragonese_decline
+				}
+				change_culture = catalan
+			}
+		}
+
+		ai_chance = { 
+			factor = 2
+		}
+	}
+}
+
+country_event = { #Restoration of Navarro-Aragonese (Majesty of the Aragonese Crown) (Replaces Castillian as the dominant language in Spain)
+	id = cultural_influence_occitano.2
+	title = restoration_of_aragonese.title
+	desc = restoration_of_aragonese.desc
+	picture = CULTURE_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		OR = {
+			tag = ARA
+			tag = NAV
+		}
+		government_rank = 2
+		development = 400 #Should be easily attainable after integrating Sicily via event
+		primary_culture = aragonese_decline
+		owns_core_province = 214 #Zaragoza
+		owns_core_province = 213 #Barcelona
+		owns_core_province = 220 #Valencia
+		owns_or_non_sovereign_subject_of = 210 #Navarra
+		owns_or_non_sovereign_subject_of = 221 #Murcia
+		has_global_flag = ci_decline_of_aragonese_flag
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		months = 30
+	}
+
+	immediate = {
+		clr_global_flag = ci_decline_of_aragonese_flag
+		set_global_flag = ci_restoration_of_aragonese_flag
+		change_primary_culture = aragonese
+		NAV = {
+			if = {
+				limit = {
+					overlord_of = ROOT
+					is_lesser_in_union = yes
+				}
+				change_primary_culture = aragonese
+			}
+		}
+		every_province = {
+			limit = {
+				culture = aragonese_decline
+			}
+			change_culture = aragonese
+		}
+		every_country = {
+			limit = {
+				primary_culture = aragonese_decline
+			}
+			change_primary_culture = aragonese
+		}
+	}
+
+	option = { #Zaragoza
+		name = restoration_of_aragonese.a
+
+		trigger = {
+			owns = 214 #Zaragoza
+		}
+
+		214 = { #Add Crown to Zaragoza (Tax shifted linguistic authority)
+			add_building = university
+			add_permanent_province_modifier = {
+				name = aragonese_crown_province_modifier
+				duration = -1
+			}
+			add_base_tax = 6
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+	}
+
+	option = { #Valencia
+		name = restoration_of_aragonese.b
+
+		trigger = {
+			owns = 220 #Valencia
+		}
+
+		220 = { #Add Crown to Valencia (Tax shifted linguistic authority)
+			add_building = university
+			add_permanent_province_modifier = {
+				name = aragonese_crown_province_modifier
+				duration = -1
+			}
+			add_base_tax = 6
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+	}
+
+	option = { #Barcelona
+		name = restoration_of_aragonese.c
+
+		trigger = {
+			owns = 213 #Barcelona
+		}
+
+		214 = { #Add Crown to Barcelona (Tax shifted linguistic authority)
+			add_building = university
+			add_permanent_province_modifier = {
+				name = aragonese_crown_province_modifier
+				duration = -1
+			}
+			add_base_tax = 6
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+	}
+
+	option = { #Navarra
+		name = restoration_of_aragonese.d
+
+		trigger = {
+			owns = 210 #Navarra
+		}
+
+		210 = { #Add Crown to Navarra (Tax shifted linguistic authority)
+			add_building = university
+			add_permanent_province_modifier = {
+				name = aragonese_crown_province_modifier
+				duration = -1
+			}
+			add_base_tax = 6
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+	}
+
+	option = { #Napoli
+		name = restoration_of_aragonese.e
+
+		trigger = {
+			owns = 121 #Napoli
+		}
+
+		121 = { #Add Crown to Napoli (Tax shifted linguistic authority)
+			add_building = university
+			add_permanent_province_modifier = {
+				name = aragonese_crown_province_modifier
+				duration = -1
+			}
+			add_base_tax = 6
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+	}
+}
