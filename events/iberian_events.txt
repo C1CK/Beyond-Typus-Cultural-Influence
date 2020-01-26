@@ -1,103 +1,8 @@
 namespace = cultural_influence_iberian
 #Spanish, more like Castillian!
 
-province_event = { #Iberian expansion (Home Region)
-	id = cultural_influence_iberian.1
-	title = iberian_expansion.title
-	desc = iberian_expansion.desc
-	picture = RELIGIOUS_CONVERSION_eventPicture
-
-	trigger = {
-		owner = { culture_group = iberian }
-		NOT = { culture = OWNER }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture = OWNER
-			}
-			is_island = yes
-		}
-		owner = {
-			num_of_owned_provinces_with = {
-				value = 100 #At least ~2/3 of Iberia's 153 provinces
-				is_state = yes
-				iberian_homeland = yes
-			}
-		}
-		iberian_homeland = yes
-		printing_press = 100 #Check if province has institution not country
-		has_global_flag = CI_events_enabled
-	}
-
-	mean_time_to_happen = {
-		years = 20
-
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0.9
-			development = 20
-		}
-		modifier = {
-			factor = 0.9
-			development = 30
-		}
-		modifier = {
-			factor = 0.9
-			development = 40
-		}
-		modifier = {
-			factor = 0.9
-			development = 50
-		}
-		modifier = {
-			factor = 0.9
-			development = 60
-		}
-		modifier = {
-			factor = 0.9
-			development = 70
-		}
-		modifier = {
-			factor = 0.9
-			development = 80
-		}
-		modifier = {
-			factor = 0.9
-			development = 90
-		}
-		modifier = {
-			factor = 0.9
-			development = 100
-		}
-	}
-
-	option = {
-		name = iberian_expansion.a
-
-		change_culture = OWNER
-	}
-}
-
 country_event = { #Christian Granada Latinizes
-	id = cultural_influence_iberian.2
+	id = cultural_influence_iberian.1
 	title = christian_moors.title
 	desc = christian_moors.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
@@ -166,5 +71,580 @@ country_event = { #Christian Granada Latinizes
 
 		add_prestige = 10
 		set_country_flag = ci_declined_latinization
+	}
+}
+
+province_event = { #Castillian expansion (Home Region)
+	id = cultural_influence_iberian.2
+	title = iberian_expansion.title
+	desc = iberian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { primary_culture = castillian }
+		NOT = { nationalism = 1 }
+		NOT = { culture = catalan } #Catalan exempted until I can think of a better way to represent their historic resiliance
+		NOT = { culture = castillian }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = castillian
+			}
+			any_friendly_coast_border_province = {
+				culture = castillian
+			}
+			is_island = yes
+		}
+		iberian_homeland = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Italic Assimilation MTTH
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		#Remote land
+		modifier = {
+			factor = 1.5
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { development = 20 }
+		}
+
+		#Terrain penalties (Basque and Aragonese retreat to the Mountain villages)
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 2
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 2.5
+			has_terrain = mountain
+		}
+
+		#Jumping
+		modifier = {
+			factor = 1.5
+			NOT = {
+				any_neighbor_province = {
+					culture = castillian
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			is_island = yes
+		}
+
+		#Strong Influence
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = castillian
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = castillian
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = iberian_expansion.a
+
+		change_culture = castillian
+	}
+}
+
+province_event = { #Leonese expansion (Home Region)
+	id = cultural_influence_iberian.3
+	title = iberian_expansion.title
+	desc = iberian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { primary_culture = leonese }
+		NOT = { nationalism = 1 }
+		NOT = { culture = catalan } #Catalan exempted until I can think of a better way to represent their historic resiliance
+		NOT = { culture = leonese }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = leonese
+			}
+			any_friendly_coast_border_province = {
+				culture = leonese
+			}
+			is_island = yes
+		}
+		iberian_homeland = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Italic Assimilation MTTH
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		#Remote land
+		modifier = {
+			factor = 1.5
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { development = 20 }
+		}
+
+		#Terrain penalties (Basque and Aragonese retreat to the Mountain villages)
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 2
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 2.5
+			has_terrain = mountain
+		}
+
+		#Jumping
+		modifier = {
+			factor = 1.5
+			NOT = {
+				any_neighbor_province = {
+					culture = leonese
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			is_island = yes
+		}
+
+		#Strong Influence
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = leonese
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = leonese
+				}
+				amount = 3
+			}
+		}
+
+		#Unique
+		modifier = {
+			factor = 0.8
+			OWNER = { has_idea = lon_patronize_leonese_language }
+		}
+	}
+
+	option = {
+		name = iberian_expansion.a
+
+		change_culture = leonese
+	}
+}
+
+province_event = { #Galician expansion (Home Region)
+	id = cultural_influence_iberian.4
+	title = iberian_expansion.title
+	desc = iberian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { primary_culture = galician }
+		NOT = { nationalism = 1 }
+		NOT = { culture = catalan } #Catalan exempted until I can think of a better way to represent their historic resiliance
+		NOT = { culture = galician }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = galician
+			}
+			any_friendly_coast_border_province = {
+				culture = galician
+			}
+			is_island = yes
+		}
+		iberian_homeland = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Italic Assimilation MTTH
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		#Remote land
+		modifier = {
+			factor = 1.5
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { development = 20 }
+		}
+
+		#Terrain penalties (Basque and Aragonese retreat to the Mountain villages)
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 2
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 2.5
+			has_terrain = mountain
+		}
+
+		#Jumping
+		modifier = {
+			factor = 1.5
+			NOT = {
+				any_neighbor_province = {
+					culture = galician
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			is_island = yes
+		}
+
+		#Strong Influence
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = galician
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = galician
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = iberian_expansion.a
+
+		change_culture = galician
+	}
+}
+
+province_event = { #Portuguese expansion (Home Region)
+	id = cultural_influence_iberian.5
+	title = iberian_expansion.title
+	desc = iberian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { primary_culture = portugese }
+		NOT = { nationalism = 1 }
+		NOT = { culture = catalan } #Catalan exempted until I can think of a better way to represent their historic resiliance
+		NOT = { culture = portugese }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = portugese
+			}
+			any_friendly_coast_border_province = {
+				culture = portugese
+			}
+			is_island = yes
+		}
+		iberian_homeland = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Italic Assimilation MTTH
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		#Remote land
+		modifier = {
+			factor = 1.5
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { development = 20 }
+		}
+
+		#Terrain penalties (Basque and Aragonese retreat to the Mountain villages)
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 2
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 2.5
+			has_terrain = mountain
+		}
+
+		#Jumping
+		modifier = {
+			factor = 1.5
+			NOT = {
+				any_neighbor_province = {
+					culture = portugese
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			is_island = yes
+		}
+
+		#Strong Influence
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = portugese
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = portugese
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = iberian_expansion.a
+
+		change_culture = portugese
+	}
+}
+
+province_event = { #Andalucian (Iberian) expansion (Home Region)
+	id = cultural_influence_iberian.6
+	title = iberian_expansion.title
+	desc = iberian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { primary_culture = andalucian }
+		NOT = { culture = catalan } #Catalan exempted until I can think of a better way to represent their historic resiliance
+		NOT = { culture = andalucian }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = andalucian
+			}
+			any_friendly_coast_border_province = {
+				culture = andalucian
+			}
+			is_island = yes
+		}
+		iberian_homeland = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Italic Assimilation MTTH
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		#Remote land
+		modifier = {
+			factor = 1.5
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { development = 20 }
+		}
+
+		#Terrain penalties (Basque and Aragonese retreat to the Mountain villages)
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 2
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 2.5
+			has_terrain = mountain
+		}
+
+		#Jumping
+		modifier = {
+			factor = 1.5
+			NOT = {
+				any_neighbor_province = {
+					culture = andalucian
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			is_island = yes
+		}
+
+		#Strong Influence
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = andalucian
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = andalucian
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = iberian_expansion.a
+
+		change_culture = andalucian
 	}
 }

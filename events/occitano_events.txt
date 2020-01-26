@@ -257,3 +257,344 @@ country_event = { #Restoration of Navarro-Aragonese (Majesty of the Aragonese Cr
 		}
 	}
 }
+
+province_event = { #Aragonese expansion (Home Region) (Copy of Iberian spread mechanics) (Not for Aragonese in decline)
+	id = cultural_influence_occitano.3
+	title = iberian_expansion.title
+	desc = iberian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { primary_culture = aragonese }
+		NOT = { nationalism = 1 }
+		#NOT = { culture = catalan } #Catalan exempted until I can think of a better way to represent their historic resiliance (Catalan permitted for Aragonese, since they are closer and less likely to resist as hard)
+		NOT = { culture = aragonese }
+		NOT = { has_global_flag = ci_restoration_of_aragonese_flag }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = aragonese
+			}
+			any_friendly_coast_border_province = {
+				culture = aragonese
+			}
+			is_island = yes
+		}
+		iberian_homeland = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Italic Assimilation MTTH
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		#Remote land
+		modifier = {
+			factor = 1.5
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { development = 20 }
+		}
+
+		#Terrain penalties (Basque and Aragonese retreat to the Mountain villages)
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 2
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 2.5
+			has_terrain = mountain
+		}
+
+		#Jumping
+		modifier = {
+			factor = 1.5
+			NOT = {
+				any_neighbor_province = {
+					culture = aragonese
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			is_island = yes
+		}
+
+		#Strong Influence
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = aragonese
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = aragonese
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = iberian_expansion.a
+
+		change_culture = aragonese
+	}
+}
+
+province_event = { #Catalan expansion (Home Region) (Copy of Iberian spread mechanics) (Not for Aragonese in decline)
+	id = cultural_influence_occitano.4
+	title = iberian_expansion.title
+	desc = iberian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { primary_culture = catalan }
+		NOT = { nationalism = 1 }
+		NOT = { culture = catalan }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = catalan
+			}
+			any_friendly_coast_border_province = {
+				culture = catalan
+			}
+			is_island = yes
+		}
+		iberian_homeland = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Italic Assimilation MTTH
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		#Remote land
+		modifier = {
+			factor = 1.5
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { development = 20 }
+		}
+
+		#Terrain penalties (Basque and Aragonese retreat to the Mountain villages)
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 2
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 2.5
+			has_terrain = mountain
+		}
+
+		#Jumping
+		modifier = {
+			factor = 1.5
+			NOT = {
+				any_neighbor_province = {
+					culture = catalan
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			is_island = yes
+		}
+
+		#Strong Influence
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = catalan
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = catalan
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = iberian_expansion.a
+
+		change_culture = catalan
+	}
+}
+
+province_event = { #Andalucian (Occitan) expansion (Home Region) (Copy of Iberian spread mechanics) (Not for Aragonese in decline)
+	id = cultural_influence_occitano.5
+	title = iberian_expansion.title
+	desc = iberian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { primary_culture = occitan_andalucian }
+		NOT = { nationalism = 1 }
+		NOT = { culture = occitan_andalucian }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = {
+				culture = occitan_andalucian
+			}
+			any_friendly_coast_border_province = {
+				culture = occitan_andalucian
+			}
+			is_island = yes
+		}
+		iberian_homeland = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Italic Assimilation MTTH
+		years = 20
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		#Remote land
+		modifier = {
+			factor = 1.5
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { development = 20 }
+		}
+
+		#Terrain penalties (Basque and Aragonese retreat to the Mountain villages)
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 2
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 2.5
+			has_terrain = mountain
+		}
+
+		#Jumping
+		modifier = {
+			factor = 1.5
+			NOT = {
+				any_neighbor_province = {
+					culture = occitan_andalucian
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			is_island = yes
+		}
+
+		#Strong Influence
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = occitan_andalucian
+				}
+				amount = 2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			calc_true_if = {
+				all_neighbor_province = {
+					culture = occitan_andalucian
+				}
+				amount = 3
+			}
+		}
+	}
+
+	option = {
+		name = iberian_expansion.a
+
+		change_culture = occitan_andalucian
+	}
+}
