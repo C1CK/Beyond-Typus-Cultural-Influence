@@ -386,7 +386,7 @@ country_decisions = {
 ################################			Illyria			 ##############################################			#Note needs work
 ###################################################################################################
 	#More or less HR's work with only a few adjustments from Draiocht
-	illyrian_nation = { #This is really weird, I'm not sure why Slavs can or would do this, but I won't touch this until a better tag exists for South Slavs -Katy
+	illyrian_nation = {
 		major = yes
 		potential = {
 			bt_generic_can_form_potential_check = yes
@@ -395,6 +395,7 @@ country_decisions = {
 			OR = {
 				culture_group = south_slavic
 				culture_group = illyrian
+				primary_culture = dalmatian_culture #CI
 			}
 		}
 		provinces_to_highlight = {
@@ -556,7 +557,7 @@ country_decisions = {
 			NOT = { tag = TUS }
 			OR = { #loosened culture checks -CI
 				primary_culture = lombard
-				culture_group = veneto_dalmatic
+				primary_culture = venetian
 				culture_group = rhaetian #They have nothing else to form :( so I'm letting them do this -Katy
 			}
 			#NOT = { government = republic }
