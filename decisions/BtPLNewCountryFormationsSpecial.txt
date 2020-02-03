@@ -120,13 +120,11 @@ country_decisions = {
 			NOT = { tag = SCO }
 			NOT = { tag = ENG }
 			NOT = { tag = GBR }
-			primary_culture = anglo_irish
-			capital_scope = {
-				OR = {
-					area = leinster_area
-					area = munster_area
-					area = connacht_area
-					area = ulster_area
+			OR = {
+				primary_culture = anglo_irish
+				AND = {
+					culture_group = british
+					capital_scope = { region = ireland_area }
 				}
 			}
 		}
