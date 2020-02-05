@@ -65,7 +65,10 @@ province_event = { #Kurdish settlements and assimilation
 
 		modifier = { #Non-Dharma
 			factor = 3
-			NOT = { has_dlc = "Dharma" }
+			OR = { #ai uses thiS one
+				NOT = { has_dlc = "Dharma" }
+				owner = { ai = yes }
+			}
 		}
 		modifier = {
 			factor = 0.8
