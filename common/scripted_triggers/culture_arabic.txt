@@ -422,3 +422,91 @@ eastern_sudanese_culture_region = {
 		area = butana_area
 	}
 }
+
+habashi_culture_region = {
+	OR = {
+		area = tigray_area
+		area = damot_area
+		area = central_ethiopia_area
+		area = hadiya_area
+		area = shewa_area
+		area = southern_ethiopia_area
+		area = ogaden_area
+		province_id = 2773 #Mora
+		province_id = 1211 #Harar
+		province_id = 2764 #Answa
+		province_id = 2768 #Angot
+	}
+}
+
+yunania_culture_region = {
+	OR = {
+		area = thrace_area
+		area = macedonia_area
+		area = morea_area
+		area = northern_greece_area
+		area = western_aegean_area
+		area = eastern_mediterrenean_islands_area
+		area = aegean_archipelago_area
+		area = aetolia_area
+		area = thessaly_area
+		area = eastern_macedonia_area
+		area = northern_epirus_area
+		area = albania_area
+		area = northern_macedonia_area
+
+	}
+}
+
+anadul_culture_region = {
+	OR = {
+		area = rum_area
+		area = erzurum_area
+		area = hudavendigar_area
+		area = germiyan_area
+		area = aydin_area
+		area = ankara_area
+		area = kastamonu_area
+		area = karaman_area
+		area = cukurova_area
+		area = pontus_area
+		area = karasi_area
+		area = pamphylia_area
+		area = lydia_area
+		area = dulkadir_area
+		area = mardin_area
+		area = north_kurdistan_area
+		province_id = 4303 #Tao
+
+	}
+}
+
+tuwskaniu_culture_region = {
+	OR = {
+		AND = {
+		region = italy_region
+		sicilian_arabic_culture_region = no
+		andalusian_sicilian_conflict_region = no
+		}
+
+	}
+}
+
+faarisia_culture_region = {
+	OR = {
+		area = farsistan_area
+		area = iraq_e_ajam_area
+		area = isfahan_area
+		area = kerman_area
+		AND = {
+			area = tabarestan_area
+			NOT = { province_id = 4339 } #Fuman
+		}
+		AND = {
+			area = luristan_area
+			NOT = { province_id = 2209 } #Ilam
+		}
+		province_id = 2217
+		province_id = 4342
+	}
+}

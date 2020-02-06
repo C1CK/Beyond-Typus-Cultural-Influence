@@ -2954,3 +2954,463 @@ province_event = { #Arabic adoption (Shirvani)
 		change_culture = shirvani_arabic
 	}
 }
+
+province_event = { #Arabic adoption (Greek)
+	id = cultural_influence_arabic.29
+	title = yunania_adoption.title
+	desc = yunania_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = greek_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		yunania_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = yunania_adoption.a
+
+		change_culture = greek_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Ethiopian)
+	id = cultural_influence_arabic.30
+	title = habashi_adoption.title
+	desc = habashi_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = ethiopian_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		habashi_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = habashi_adoption_adoption.a
+
+		change_culture = ethiopian_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Anatolian)
+	id = cultural_influence_arabic.31
+	title = anadul_adoption.title
+	desc = anadul_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = turkish_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		anadul_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = anadul_adoption.a
+
+		change_culture = turkish_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Persian)
+	id = cultural_influence_arabic.32
+	title = faarsia_adoption.title
+	desc = faarsia_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = persian_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		faarisia_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = faarsia_adoption.a
+
+		change_culture = persian_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Tuscan)
+	id = cultural_influence_arabic.33
+	title = tuwskaniu_adoption.title
+	desc = tuwskaniu_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = tuscan_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		tuwskaniu_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = tuwskaniu_adoption.a
+
+		change_culture = tuscan_arabic
+	}
+}
