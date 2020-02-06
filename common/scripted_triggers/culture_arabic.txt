@@ -152,7 +152,7 @@ masri_culture_region = { #Maasra
 		province_id = 2315 #as-Suways
 		province_id = 4321 #Es-Sahra es-Sarqia
 		province_id = 2320 #Ras Gareb
-		area = said_area #Upper Egypt
+		area = vostani_area #Upper Egypt
 		province_id = 5278 #Fila
 		province_id = 1234 #Ibrim
 		province_id = 4322 #Ababda
@@ -167,8 +167,6 @@ masri_levantine_confict_region = {
 
 levantine_culture_region = { #Shaameea
 	OR = {
-		province_id = 5138 #Osmaniye
-		province_id = 327 #Adana
 		AND = {
 			region = mashriq_region #Levant
 			NOT = { area = syrian_desert_area } #Sinai
@@ -328,7 +326,6 @@ sicilian_arabic_culture_region = {
 		area = naples_area
 		area = calabria_area
 		area = apulia_area
-		area = sardinia_area
 		area = abruzzo_area
 	}
 }
@@ -420,5 +417,89 @@ eastern_sudanese_culture_region = {
 		area = white_nile_area
 		area = sennar_area #Blue Nile
 		area = butana_area
+	}
+}
+
+habashi_culture_region = {
+	OR = {
+		area = tigray_area
+		area = damot_area
+		area = central_ethiopia_area
+		area = hadiya_area
+		area = shewa_area
+		area = southern_ethiopia_area
+		area = ogaden_area
+		province_id = 2773 #Mora
+		province_id = 1211 #Harar
+		province_id = 2764 #Answa
+		province_id = 2768 #Angot
+	}
+}
+yunania_culture_region = {
+	OR = {
+		area = thrace_area
+		area = macedonia_area
+		area = morea_area
+		area = northern_greece_area
+		area = western_aegean_area
+		area = eastern_mediterrenean_islands_area
+		area = aegean_archipelago_area
+		area = aetolia_area
+		area = thessaly_area
+		area = eastern_macedonia_area
+		area = northern_epirus_area
+		area = albania_area
+		area = northern_macedonia_area
+		
+	}
+}
+anadul_culture_region = {
+	OR = {
+		area = rum_area
+		area = erzurum_area
+		area = hudavendigar_area
+		area = germiyan_area
+		area = aydin_area
+		area = ankara_area
+		area = kastamonu_area
+		area = karaman_area
+		area = cukurova_area
+		area = pontus_area
+		area = karasi_area
+		area = pamphylia_area
+		area = lydia_area
+		area = dulkadir_area
+		area = mardin_area
+		area = north_kurdistan_area
+		province_id = 4303 #Tao
+		
+	}
+}
+tuwskaniu_culture_region = {
+	OR = {
+		AND = {
+		region = italy_region
+		sicilian_arabic_culture_region = no
+		andalusian_sicilian_conflict_region = no
+		}
+		
+	}
+}
+faarisia_culture_region = {
+	OR = {
+		area = farsistan_area
+		area = iraq_e_ajam_area
+		area = isfahan_area
+		area = kerman_area
+		AND = {
+			area = tabarestan_area
+			NOT = { province_id = 4339 } #Fuman
+		}
+		AND = {
+			area = luristan_area
+			NOT = { province_id = 2209 } #Ilam
+		}
+		province_id = 2217
+		province_id = 4342
 	}
 }
