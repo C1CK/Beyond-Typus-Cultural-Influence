@@ -1,0 +1,3380 @@
+namespace = cultural_influence_arabic
+#(Something in Arabic!)
+#Hardcoded to only permit Islamic Arabs to do this
+
+country_event = { #Mashriqi creation
+	id = cultural_influence_arabic.1
+	title = mashriqi_standardization.title
+	desc = mashriqi_standardization.desc
+	picture = GREAT_BUILDING_eventPicture
+
+	major = yes
+	fire_only_once = yes
+
+	trigger = {
+		government_rank = 3
+		mashriqi_cultures = yes
+		NOT = { has_global_flag = mashriqi_created_flag }
+		asia = { #Owned by ROOT, or not needed
+			OR = {
+				mashriqi_cultures = no
+				owned_by = ROOT
+			}
+			type = all
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = mashriqi_created_flag
+			change_primary_culture = mashriqi
+			every_province = {
+				limit = {
+					mashriqi_cultures = yes
+				}
+				change_culture = mashriqi
+			}
+		}
+	}
+
+	option = { #Cairo
+		name = mashriqi_standardization.a
+
+		trigger = {
+			owns = 361 #Cairo
+		}
+
+		361 = { #Add College to Cairo
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_mashriq
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Mecca
+		name = mashriqi_standardization.b
+
+		trigger = {
+			owns = 385 #Mecca
+		}
+
+		385 = { #Add College to Mecca
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_mashriq
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Baghdad
+		name = mashriqi_standardization.c
+
+		trigger = {
+			owns = 410 #Baghdad
+		}
+
+		410 = { #Add College to Baghdad
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_mashriq
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #What's Aleppo?
+		name = mashriqi_standardization.d
+
+		trigger = {
+			owns = 377 #Aleppo
+		}
+
+		377 = { #Add College to Aleppo
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_mashriq
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Damascus
+		name = mashriqi_standardization.e
+
+		trigger = {
+			owns = 382 #Damascus
+		}
+
+		382 = { #Add College to Damascus
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_mashriq
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+}
+
+country_event = { #Maghrebi creation
+	id = cultural_influence_arabic.2
+	title = maghrebi_standardization.title
+	desc = maghrebi_standardization.desc
+	picture = GREAT_BUILDING_eventPicture
+
+	major = yes
+	fire_only_once = yes
+
+	trigger = {
+		government_rank = 3
+		maghrebi_cultures = yes
+		NOT = { has_global_flag = mashriqq_created_flag }
+		asia = { #Owned by ROOT, or not needed
+			OR = {
+				maghrebi_cultures = no
+				owned_by = ROOT
+			}
+			type = all
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = maghrebi_created_flag
+			change_primary_culture = maghrebi
+			every_province = {
+				limit = {
+					maghrebi_cultures = yes
+				}
+				change_culture = maghrebi
+			}
+		}
+	}
+
+	option = { #Fez
+		name = maghrebi_standardization.a
+
+		trigger = {
+			owns = 343 #Fez
+		}
+
+		343 = { #Add College to Fez
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_maghreb
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Tlemcen
+		name = maghrebi_standardization.b
+
+		trigger = {
+			owns = 336 #Tlemcen
+		}
+
+		336 = { #Add College to Tlemcen
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_maghreb
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Constantine
+		name = maghrebi_standardization.c
+
+		trigger = {
+			owns = 340 #Constantine
+		}
+
+		340 = { #Add College to Constantine
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_maghreb
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Tunis
+		name = maghrebi_standardization.d
+
+		trigger = {
+			owns = 341 #Tunis
+		}
+
+		341 = { #Add College to Tunis
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_maghreb
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+
+	option = { #Tripoli
+		name = maghrebi_standardization.e
+
+		trigger = {
+			owns = 354 #Tripoli
+		}
+
+		354 = { #Add College to Tripoli
+			add_building = university
+			add_permanent_province_modifier = {
+				name = arab_academy_maghreb
+				duration = -1
+			}
+			add_base_tax = 4
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Masri)
+	id = cultural_influence_arabic.3
+	title = masri_adoption.title
+	desc = masri_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = al_misr_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		masri_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = masri_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = al_misr_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Sinai) (Masri)
+	id = cultural_influence_arabic.4
+	title = masri_adoption.title
+	desc = masri_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = al_misr_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		masri_levantine_confict_region = yes
+		OWNER = { capital_scope = { continent = africa } }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = masri_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = al_misr_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Levantine)
+	id = cultural_influence_arabic.5
+	title = levantine_adoption.title
+	desc = levantine_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = al_suryah_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		levantine_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = levantine_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = al_suryah_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Sinai) (Levantine)
+	id = cultural_influence_arabic.6
+	title = levantine_adoption.title
+	desc = levantine_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = al_suryah_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		masri_levantine_confict_region = yes
+		NOT = { OWNER = { capital_scope = { continent = africa } } }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = levantine_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = al_suryah_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Mesopotamian)
+	id = cultural_influence_arabic.7
+	title = mesopotamian_adoption.title
+	desc = mesopotamian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = al_iraqiya_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		mesopotamian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = mesopotamian_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = al_iraqiya_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Najdi)
+	id = cultural_influence_arabic.8
+	title = najdi_adoption.title
+	desc = najdi_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = bedouin_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		najdi_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = najdi_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = bedouin_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Gulf)
+	id = cultural_influence_arabic.9
+	title = gulf_adoption.title
+	desc = gulf_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = gulf_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		gulf_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = gulf_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = gulf_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Omani)
+	id = cultural_influence_arabic.10
+	title = omani_adoption.title
+	desc = omani_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = omani_culture }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		omani_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = omani_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = omani_culture
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Dhofari)
+	id = cultural_influence_arabic.11
+	title = dhofari_adoption.title
+	desc = dhofari_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = dhofari_arabic }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		dhofari_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = dhofari_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = dhofari_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Yemeni)
+	id = cultural_influence_arabic.12
+	title = yemeni_adoption.title
+	desc = yemeni_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = yemeni_culture }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		yemeni_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = yemeni_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = yemeni_culture
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Hejazi)
+	id = cultural_influence_arabic.13
+	title = hejazi_adoption.title
+	desc = hejazi_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = hejazi_culture }
+		NOT = { culture = mashriqi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		hejazi_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = hejazi_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = hejazi_culture
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Eastern Sudanese)
+	id = cultural_influence_arabic.14
+	title = eastern_sudanese_adoption.title
+	desc = eastern_sudanese_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = sudanese_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		eastern_sudanese_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = eastern_sudanese_adoption.a
+
+		change_culture = sudanese_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Sulaym)
+	id = cultural_influence_arabic.15
+	title = sulaym_adoption.title
+	desc = sulaym_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = libyan_arabic }
+		NOT = { culture = maghrebi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		libyan_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = sulaym_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = maghrebi_created_flag
+			}
+			change_culture = maghrebi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = maghrebi_created_flag }
+			}
+			change_culture = libyan_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Eastern Hilalian)
+	id = cultural_influence_arabic.16
+	title = tunisian_adoption.title
+	desc = tunisian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = tunisian }
+		NOT = { culture = maghrebi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		tunisian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = tunisian_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = maghrebi_created_flag
+			}
+			change_culture = maghrebi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = maghrebi_created_flag }
+			}
+			change_culture = tunisian
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Central Hilalian)
+	id = cultural_influence_arabic.17
+	title = algerian_adoption.title
+	desc = algerian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = algerian }
+		NOT = { culture = maghrebi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		algerian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = algerian_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = maghrebi_created_flag
+			}
+			change_culture = maghrebi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = maghrebi_created_flag }
+			}
+			change_culture = algerian
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Maqil)
+	id = cultural_influence_arabic.18
+	title = moroccan_adoption.title
+	desc = moroccan_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = moroccan }
+		NOT = { culture = maghrebi }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		moroccan_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = moroccan_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = maghrebi_created_flag
+			}
+			change_culture = maghrebi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = maghrebi_created_flag }
+			}
+			change_culture = moroccan
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Hassaniya)
+	id = cultural_influence_arabic.19
+	title = hassaniya_adoption.title
+	desc = hassaniya_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = hassaniya }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		hassaniya_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = hassaniya_adoption.a
+
+		change_culture = hassaniya
+	}
+}
+
+province_event = { #Arabic adoption (Saharan)
+	id = cultural_influence_arabic.20
+	title = saharan_adoption.title
+	desc = saharan_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = saharan_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		saharan_arabic_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = saharan_adoption.a
+
+		change_culture = saharan_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Central Sudanese)
+	id = cultural_influence_arabic.21
+	title = central_sudanese_adoption.title
+	desc = central_sudanese_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = chadic_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			development = 10 #To prevent Sahara converting
+			culture_group = turko_semitic
+		}
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		central_sudanese_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = central_sudanese_adoption.a
+
+		change_culture = chadic_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Andalusian)
+	id = cultural_influence_arabic.22
+	title = andalusian_adoption.title
+	desc = andalusian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = andalusi_culture }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		andalusian_culture_region = yes
+		OWNER = {  }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = andalusian_adoption.a
+
+		change_culture = andalusi_culture
+	}
+}
+
+province_event = { #Mozarabic
+	id = cultural_influence_arabic.23
+	title = mozarabic_adoption.title
+	desc = mozarabic_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = mozarabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = christian
+		has_estate = estate_dhimmi
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		latin_languages_trigger = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = mozarabic_adoption.a
+
+		change_culture = mozarabic
+	}
+}
+
+province_event = { #Arabic adoption (Sardinia) (Andalusian)
+	id = cultural_influence_arabic.24
+	title = andalusian_adoption.title
+	desc = andalusian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = andalusi_culture }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		andalusian_sicilian_conflict_region = yes
+		OWNER = { primary_culture = andalusi_culture }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = andalusian_adoption.a
+
+		change_culture = andalusi_culture
+	}
+}
+
+province_event = { #Arabic adoption (Sicilian)
+	id = cultural_influence_arabic.25
+	title = sicilian_adoption.title
+	desc = sicilian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = siculo_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		sicilian_arabic_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = sicilian_adoption.a
+
+		change_culture = siculo_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Sardinia) (Sicilian)
+	id = cultural_influence_arabic.26
+	title = sicilian_adoption.title
+	desc = sicilian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = siculo_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		andalusian_sicilian_conflict_region = yes
+		OWNER = { NOT = { primary_culture = andalusi_culture } }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = sicilian_adoption.a
+
+		change_culture = siculo_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Septimanian)
+	id = cultural_influence_arabic.27
+	title = septimanian_adoption.title
+	desc = septimanian_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = septimanian_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		septimanian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = septimanian_adoption.a
+
+		change_culture = septimanian_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Shirvani)
+	id = cultural_influence_arabic.28
+	title = shirvani_adoption.title
+	desc = shirvani_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = shirvani_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		shirvani_arabic_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = shirvani_adoption.a
+
+		change_culture = shirvani_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Yunania)
+	id = cultural_influence_arabic.29
+	title = yunania_adoption.title
+	desc = yunania_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = greek_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		yunania_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = yunania_adoption.a
+
+		change_culture = greek_arabic
+	}
+}
+province_event = { #Arabic adoption (Habashi)
+	id = cultural_influence_arabic.30
+	title = habashi_adoption.title
+	desc = habashi_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = ethiopian_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		habashi_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = habashi_adoption_adoption.a
+
+		change_culture = ethiopian_arabic
+	}
+}
+province_event = { #Arabic adoption (Anadul)
+	id = cultural_influence_arabic.31
+	title = anadul_adoption.title
+	desc = anadul_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = turkish_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		anadul_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = anadul_adoption.a
+
+		change_culture = turkish_arabic
+	}
+}
+province_event = { #Arabic adoption (Faarsia)
+	id = cultural_influence_arabic.32
+	title = faarsia_adoption.title
+	desc = faarsia_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = persian_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		faarisia_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = faarsia_adoption.a
+
+		change_culture = persian_arabic
+	}
+}
+province_event = { #Arabic adoption ()
+	id = cultural_influence_arabic.33
+	title = tuwskaniu_adoption.title
+	desc = tuwskaniu_adoption.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = turko_semitic }
+		NOT = { culture = tuscan_arabic }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		religion_group = muslim
+		OR = {
+			any_neighbor_province = { culture_group = turko_semitic }
+			is_capital = yes
+		}
+		tuwskaniu_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Since a lot of the land is uncolonized
+			factor = 0.1
+			culture_group = turko_semitic
+		}
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = tuwskaniu_adoption.a
+
+		change_culture = tuscan_arabic
+	}
+}
