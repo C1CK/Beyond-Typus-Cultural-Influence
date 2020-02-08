@@ -23,9 +23,14 @@ province_event = { #Czech settlements and assimilation
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = west_slavic }
+		OR = { 
+			owner = { culture_group = west_slavic }
+			owner = { culture_group = unified_slavic }
+		}	
 		NOT = { culture = czech }
 		NOT = { culture = ceskoslovensky }
+		NOT = { culture = slavic_czech }
+		NOT = { culture = slavic_ceskoslovensky }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -42,7 +47,10 @@ province_event = { #Czech settlements and assimilation
 				}
 				OR = {
 					any_neighbor_province = {
-						culture_group = west_slavic
+						OR = {
+							culture_group = west_slavic
+							culture_group = unified_slavic
+						}
 					}
 					num_of_times_improved = 5
 				}
@@ -59,7 +67,10 @@ province_event = { #Czech settlements and assimilation
 
 		modifier = { #Uncolonized land
 			factor = 0.1
-			culture_group = west_slavic
+			OR = {
+				culture_group = west_slavic
+				culture_group = unified_slavic
+			}	
 		}
 
 		modifier = {
@@ -154,6 +165,33 @@ province_event = { #Czech settlements and assimilation
 			}
 			change_culture = czech
 		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_global_flag = east_west_slavic_united_flag
+						has_global_flag = west_south_slavic_united_flag
+						has_global_flag = slavic_united_flag
+					has_global_flag = czechoslovak_created_flag
+					}
+				}
+				change_culture = slavic_czech
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_global_flag = east_west_slavic_united_flag
+						has_global_flag = west_south_slavic_united_flag
+						has_global_flag = slavic_united_flag
+					NOT = {
+						has_global_flag = czechoslovak_created_flag
+					}
+				}
+				change_culture = slavic_ceskoslovensky
+			}
+		}		
 	}
 }
 
@@ -164,9 +202,14 @@ province_event = { #Slovak settlements and assimilation
 	picture = RELIGIOUS_CONVERSION_eventPicture
 
 	trigger = {
-		owner = { culture_group = west_slavic }
+		OR = {
+			owner = { culture_group = west_slavic }
+			owner = { culture_group = unified_slavic }
+		}	
 		NOT = { culture = slovak }
 		NOT = { culture = ceskoslovensky }
+		NOT = { culture = slavic_slovak }
+		NOT = { culture = slavic_ceskoslovensky }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -183,7 +226,10 @@ province_event = { #Slovak settlements and assimilation
 				}
 				OR = {
 					any_neighbor_province = {
-						culture_group = west_slavic
+						OR = {
+							culture_group = west_slavic
+							culture_group = unified_slavic
+						}	
 					}
 					num_of_times_improved = 5
 				}
@@ -200,7 +246,10 @@ province_event = { #Slovak settlements and assimilation
 
 		modifier = { #Uncolonized land
 			factor = 0.1
-			culture_group = west_slavic
+			OR = {
+				culture_group = west_slavic
+				culture_group = unified_slavic
+			}	
 		}
 
 		modifier = {
@@ -295,6 +344,32 @@ province_event = { #Slovak settlements and assimilation
 			}
 			change_culture = slovak
 		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_global_flag = east_west_slavic_united_flag
+						has_global_flag = west_south_slavic_united_flag
+						has_global_flag = slavic_united_flag
+					has_global_flag = czechoslovak_created_flag
+					}
+				}
+				change_culture = slavic_ceskoslovensky
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_global_flag = east_west_slavic_united_flag
+						has_global_flag = west_south_slavic_united_flag
+						has_global_flag = slavic_united_flag
+					NOT = {
+						has_global_flag = czechoslovak_created_flag
+					}
+				}
+				change_culture = slavic_slovak
+			}		
 	}
 }
 
@@ -305,8 +380,11 @@ province_event = { #Polish settlements and assimilation
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = west_slavic }
+		OR = {
+			owner = { culture_group = west_slavic }
+			owner = { culture_group = unified_slavic }
 		NOT = { culture = polish }
+		NOT = { culture = slavic_polish }		
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -323,7 +401,10 @@ province_event = { #Polish settlements and assimilation
 				}
 				OR = {
 					any_neighbor_province = {
-						culture_group = west_slavic
+						OR = {
+							culture_group = west_slavic
+							culture_group = unified_slavic
+						}	
 					}
 					num_of_times_improved = 5
 				}
@@ -340,7 +421,10 @@ province_event = { #Polish settlements and assimilation
 
 		modifier = { #Uncolonized land
 			factor = 0.1
-			culture_group = west_slavic
+				OR = {
+					culture_group = west_slavic
+					culture_group = unified_slavic
+				}
 		}
 
 		modifier = {
@@ -423,7 +507,26 @@ province_event = { #Polish settlements and assimilation
 	option = {
 		name = polish_settlements.a
 
-		change_culture = polish
+		if = {
+			limit = {
+				AND = {
+					NOT = { has_global_flag = east_west_slavic_united_flag }
+					NOT = { has_global_flag = west_south_slavic_united_flag }
+					NOT = { has_global_flag = slavic_united_flag }
+				}
+				change_culture = polish
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = east_west_slavic_united_flag
+					has_global_flag = west_south_slavic_united_flag
+					has_global_flag = slavic_united_flag
+				}
+				change_culture = slavic_polish
+			}
+		}		
 	}
 }
 
@@ -434,8 +537,12 @@ province_event = { #Silesian settlements and assimilation
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = west_slavic }
+		OR = {
+			owner = { culture_group = west_slavic }
+			owner = { culture_group = unified_slavic }
+		}	
 		NOT = { culture = schlesian }
+		NOT = { culture = slavic_schlesian }		
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -452,14 +559,17 @@ province_event = { #Silesian settlements and assimilation
 				}
 				OR = {
 					any_neighbor_province = {
-						culture_group = west_slavic
+						OR = {
+							culture_group = west_slavic
+							culture_group = unified_slavic
+						}	
 					}
 					num_of_times_improved = 5
 				}
 			}
 		}
 		owner = { has_country_modifier = west_slavic_settlements }
-		silesian_culture_region = yes
+		schlesian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -469,7 +579,10 @@ province_event = { #Silesian settlements and assimilation
 
 		modifier = { #Uncolonized land
 			factor = 0.1
-			culture_group = west_slavic
+				OR = {
+					culture_group = west_slavic
+					culture_group = unified_slavic
+				}
 		}
 
 		modifier = {
@@ -551,8 +664,26 @@ province_event = { #Silesian settlements and assimilation
 
 	option = {
 		name = silesian_settlements.a
-
-		change_culture = schlesian
+		if = {
+			limit = {
+				AND = {
+					NOT = { has_global_flag = east_west_slavic_united_flag }
+					NOT = { has_global_flag = west_south_slavic_united_flag }
+					NOT = { has_global_flag = slavic_united_flag }
+				}
+				change_culture = schlesian
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = east_west_slavic_united_flag
+					has_global_flag = west_south_slavic_united_flag
+					has_global_flag = slavic_united_flag
+				}
+				change_culture = slavic_schlesian
+			}
+		}		
 	}
 }
 
@@ -563,8 +694,12 @@ province_event = { #Pomeransky settlements and assimilation
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = west_slavic }
+		OR = {
+			owner = { culture_group = west_slavic }
+			owner = { culture_group = unified_slavic }
+		}	
 		NOT = { culture = pomeransky }
+		NOT = { culture = slavic_pomeransky }		
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -581,7 +716,10 @@ province_event = { #Pomeransky settlements and assimilation
 				}
 				OR = {
 					any_neighbor_province = {
-						culture_group = west_slavic
+						OR = {
+							culture_group = west_slavic
+							culture_group = unified_slavic
+						}	
 					}
 					num_of_times_improved = 5
 				}
@@ -680,8 +818,26 @@ province_event = { #Pomeransky settlements and assimilation
 
 	option = {
 		name = pomeransky_settlements.a
-
-		change_culture = pomeransky
+		if = {
+			limit = {
+				AND = {
+					NOT = { has_global_flag = east_west_slavic_united_flag }
+					NOT = { has_global_flag = west_south_slavic_united_flag }
+					NOT = { has_global_flag = slavic_united_flag }
+				}
+				change_culture = pomeransky
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = east_west_slavic_united_flag
+					has_global_flag = west_south_slavic_united_flag
+					has_global_flag = slavic_united_flag
+				}
+				change_culture = slavic_pomeransky
+			}
+		}		
 	}
 }
 
@@ -692,8 +848,12 @@ province_event = { #Sorbian settlements and assimilation
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = west_slavic }
+		OR = {
+			owner = { culture_group = west_slavic }
+			owner = { culture_group = unified_slavic }
+		}	
 		NOT = { culture = sorbian }
+		NOT = { culture = slavic_sorbian }		
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -710,7 +870,10 @@ province_event = { #Sorbian settlements and assimilation
 				}
 				OR = {
 					any_neighbor_province = {
-						culture_group = west_slavic
+						OR = {
+							culture_group = west_slavic
+							culture_group = unified_slavic
+						}	
 					}
 					num_of_times_improved = 5
 				}
@@ -808,8 +971,25 @@ province_event = { #Sorbian settlements and assimilation
 	}
 
 	option = {
-		name = sorbian_settlements.a
-
-		change_culture = sorbian
+		if = {
+			limit = {
+				AND = {
+					NOT = { has_global_flag = east_west_slavic_united_flag }
+					NOT = { has_global_flag = west_south_slavic_united_flag }
+					NOT = { has_global_flag = slavic_united_flag }
+				}
+				change_culture = sorbian
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = east_west_slavic_united_flag
+					has_global_flag = west_south_slavic_united_flag
+					has_global_flag = slavic_united_flag
+				}
+				change_culture = slavic_sorbian
+			}
+		}		
 	}
 }
