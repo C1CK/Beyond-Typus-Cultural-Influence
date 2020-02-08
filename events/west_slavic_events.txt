@@ -172,10 +172,10 @@ province_event = { #Czech settlements and assimilation
 						has_global_flag = east_west_slavic_united_flag
 						has_global_flag = west_south_slavic_united_flag
 						has_global_flag = slavic_united_flag
-					has_global_flag = czechoslovak_created_flag
 					}
+					has_global_flag = czechoslovak_created_flag
 				}
-				change_culture = slavic_czech
+				change_culture = slavic_ceskoslovensky
 			}
 		}
 		if = {
@@ -185,13 +185,12 @@ province_event = { #Czech settlements and assimilation
 						has_global_flag = east_west_slavic_united_flag
 						has_global_flag = west_south_slavic_united_flag
 						has_global_flag = slavic_united_flag
-					NOT = {
-						has_global_flag = czechoslovak_created_flag
 					}
+					NOT = { has_global_flag = czechoslovak_created_flag }
 				}
-				change_culture = slavic_ceskoslovensky
+				change_culture = slavic_czech
 			}
-		}		
+		}
 	}
 }
 
@@ -351,8 +350,8 @@ province_event = { #Slovak settlements and assimilation
 						has_global_flag = east_west_slavic_united_flag
 						has_global_flag = west_south_slavic_united_flag
 						has_global_flag = slavic_united_flag
-					has_global_flag = czechoslovak_created_flag
 					}
+					has_global_flag = czechoslovak_created_flag
 				}
 				change_culture = slavic_ceskoslovensky
 			}
@@ -364,9 +363,8 @@ province_event = { #Slovak settlements and assimilation
 						has_global_flag = east_west_slavic_united_flag
 						has_global_flag = west_south_slavic_united_flag
 						has_global_flag = slavic_united_flag
-					NOT = {
-						has_global_flag = czechoslovak_created_flag
 					}
+					NOT = { has_global_flag = czechoslovak_created_flag }
 				}
 				change_culture = slavic_slovak
 			}		
@@ -382,7 +380,18 @@ province_event = { #Polish settlements and assimilation
 	trigger = {
 		OR = {
 			owner = { culture_group = west_slavic }
-			owner = { culture_group = unified_slavic }
+			AND = { #Only West Slavs for this one if already Slavic
+				OR = {
+					owner = { primary_culture = slavic_polish }
+					owner = { primary_culture = slavic_pomeransky }
+					owner = { primary_culture = slavic_czech }
+					owner = { primary_culture = slavic_slovak }
+					owner = { primary_culture = slavic_ceskoslovensky }
+					owner = { primary_culture = slavic_sorbian }
+				}
+				NOT = { culture_group = unified_slavic }
+			}
+		}
 		NOT = { culture = polish }
 		NOT = { culture = slavic_polish }		
 		OR = { #Permit AI to settle accepted cultures since they don't understand
