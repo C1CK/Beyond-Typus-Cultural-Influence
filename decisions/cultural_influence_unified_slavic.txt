@@ -1,0 +1,325 @@
+country_decisions = {
+	slavic_unification_decision_west_east = {
+		major = yes
+		potential = {
+			OR = {
+				culture_group = west_slavic
+				culture_group = east_slavic	
+			}
+		}
+		allow = {
+			AND = {
+				OR = {
+					calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = west_slavic
+								}
+						is_core = ROOT
+							}
+					amount = 38 #Aprox. 3 quarters							
+					}
+				}
+				OR = {
+					calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = east_slavic
+								}
+						is_core = ROOT
+							}
+					amount = 165 #Aprox. 3 quarters							
+					}
+				}				
+			}
+			adm_power = 400
+			dip_power = 200
+		}
+		effect = {
+			merge_east_west_slavic = yes
+			add_prestige = 50
+			add_adm_power = -400
+			add_dip_power = -200
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	slavic_unification_decision_west_south = {
+		major = yes
+		potential = {
+			OR = {
+				culture_group = west_slavic
+				culture_group = south_slavic	
+			}
+		}
+		allow = {
+			AND = {
+				OR = {
+					calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = west_slavic
+								}
+						is_core = ROOT
+							}
+					amount = 38 #Aprox. 3 quarters							
+					}
+				}
+				OR = {
+					calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = south_slavic
+								}
+						is_core = ROOT
+							}
+					amount = 75 #Aprox. 3 quarters							
+					}
+				}					
+			}
+			adm_power = 400
+			dip_power = 200
+		}
+		effect = {
+			merge_west_south_slavic = yes
+			add_prestige = 50
+			add_adm_power = -400
+			add_dip_power = -200
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	slavic_unification_decision_south_east = {
+		major = yes
+		potential = {
+			OR = {
+				culture_group = south_slavic
+				culture_group = east_slavic	
+			}
+		}
+		allow = {
+			AND = {
+				OR = {
+					calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = south_slavic
+								}
+						is_core = ROOT
+							}
+					amount = 75 #Aprox. 3 quarters							
+					}
+				}	
+				OR = {
+					calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = east_slavic
+								}
+						is_core = ROOT
+							}
+					amount = 165 #Aprox. 3 quarters							
+					}
+				}					
+			}
+			adm_power = 400
+			dip_power = 200
+		}
+		effect = {
+			merge_south_east_slavic = yes
+			add_prestige = 50
+			add_adm_power = -400
+			add_dip_power = -200
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	slavic_unification_decision_all = {
+		major = yes
+		potential = {
+			OR = {
+				culture_group = west_slavic
+				culture_group = east_slavic
+				culture_group = south_slavic
+			}
+			total_development = 2000
+		}
+		allow = {
+			AND = {
+				OR = {
+					calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = west_slavic
+								}
+							is_core = ROOT
+							}
+					amount = 25 #Aprox. a half							
+					}
+				}
+				OR = {
+					calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = east_slavic
+								}
+							is_core = ROOT
+							}
+					amount = 110 #Aprox. a half							
+					}
+				}
+				OR = {
+					calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = south_slavic
+								}
+							is_core = ROOT
+							}						
+						amount = 50 #Aprox. a half
+					}
+				}				
+			}
+			adm_power = 400
+			dip_power = 200
+		}
+		effect = {
+			merge_slavic_all = yes
+			add_prestige = 50
+			add_adm_power = -400
+			add_dip_power = -200
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+		slavic_integration_south = {
+		major = yes
+		potential = {
+			OR = {
+				culture_group = unified_slavic
+			}
+			calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = south_slavic
+								}
+							}
+					amount = 1						
+					}
+		}
+		allow = {
+			AND = {
+				OR = {
+					calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = south_slavic
+								}
+							is_core = ROOT
+							}						
+						amount = 50 #Aprox. a half
+					}
+				}				
+			}
+			adm_power = 400
+			dip_power = 200
+		}
+		effect = {
+			integrate_south_slavic = yes
+			add_prestige = 50
+			add_adm_power = -400
+			add_dip_power = -200
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+		slavic_integration_west = {
+		major = yes
+		potential = {
+			OR = {
+				culture_group = unified_slavic
+			}
+			calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = west_slavic
+								}
+							}
+					amount = 1						
+					}
+		}
+		allow = {
+			AND = {
+				OR = {
+					calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = west_slavic
+								}
+							is_core = ROOT
+							}						
+						amount = 25 #Aprox. a half
+					}
+				}				
+			}
+			adm_power = 400
+			dip_power = 200
+		}
+		effect = {
+			integrate_west_slavic = yes
+			add_prestige = 50
+			add_adm_power = -400
+			add_dip_power = -200
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	slavic_integration_east = {
+		major = yes
+		potential = {
+			OR = {
+				culture_group = unified_slavic
+			}
+			calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = east_slavic
+								}
+							}
+					amount = 1						
+					}
+		}
+		allow = {
+			AND = {
+				OR = {
+					calc_true_if = {
+						all_province = {
+							OR = {
+								culture_group = east_slavic
+								}
+							is_core = ROOT
+							}						
+						amount = 50 #Aprox. a half
+					}
+				}				
+			}
+			adm_power = 400
+			dip_power = 200
+		}
+		effect = {
+			integrate_east_slavic = yes
+			add_prestige = 50
+			add_adm_power = -400
+			add_dip_power = -200
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}			
+}	
