@@ -1,7 +1,7 @@
 namespace = cultural_influence_flavour
 #Various events surrounding national awakening, akin to the Greek event
 
-country_event = { #Sons of Barak Khan's revolt (Kazakh revolts, pushes the Uzbeks out and created Kazakh) (Kinda railroady, but then it's really grim for the Uzbeks to be in the wrong place and for the Kazakhs to not even have a chance at conquest)
+country_event = { #Sons of Barak Khan's revolt (Kazakh revolts, pushes the Uzbeks out and creates Kazakh) (Kinda railroady, but then it's really grim for the Uzbeks to be in the wrong place and for the Kazakhs to not even have a chance at conquest)
 	id = cultural_influence_flavour.1
 	title = barak_khans_revolt.title
 	desc = barak_khans_revolt.desc
@@ -169,6 +169,57 @@ country_event = { #Sons of Barak Khan's revolt (Kazakh revolts, pushes the Uzbek
 
 		ai_chance = {
 			factor = 10
+		}
+	}
+}
+
+country_event = { #Mauritanian Jihad (Converts the Zenaga Berbers to Hassaniya Arabs)
+	id = cultural_influence_flavour.2
+	title = mauritanian_jihad.title
+	desc = mauritanian_jihad.desc
+	picture = NOMAD_ESTATE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 2237 #Tekrur
+		is_year = 1600
+		NOT = { #No Zenaga country exists
+			any_country = {
+				primary_culture = zenaga
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 40
+	}
+
+	option = { #Ok...
+		name = mauritanian_jihad.a
+
+		africa = {
+			limit = {
+				culture = zenaga
+				NOT = { province_id = 1132 } #Timbuktu
+			}
+			change_culture = hassaniya
+		}
+		1132 = { #If owned by a Berber, become Tuareg, otherwise become Songhai
+			if = {
+				limit = {
+					culture = zenaga
+					OWNER = { culture_group = berber_group }
+				}
+				change_culture = tuareg
+			}
+			if = {
+				limit = {
+					culture = zenaga
+					NOT = { OWNER = { primary_culture = tuareg } }
+				}
+				change_culture = songhai
+			}
 		}
 	}
 }
