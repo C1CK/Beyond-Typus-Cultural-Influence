@@ -64,3 +64,51 @@ province_event = { #Established colonial centre (Converts best province in the a
 		}
 	}
 }
+
+#Generic event spreading your primary culture through native provinces in Colonial regions. Ideally I want creoles and dynamic evolution of cultures, but until then this will do
+province_event = { #Basic Colonial Settlement Event
+	id = cultural_influence_colonial.2
+	title = colonial_settlement.title
+	desc = colonial_settlement.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		native_american_trigger = yes #Native cultures
+		NOT = { religion_group = pagan } #Will cause issues for Colonialist Pagans, but any European Neo-Pagans would likely not want to convert them anyways
+		AND = { #Not Native
+			OWNER = { NOT = { technology_group = north_american } }
+			OWNER = { NOT = { technology_group = mesoamerican } }
+			OWNER = { NOT = { technology_group = south_american } }
+			OWNER = { NOT = { technology_group = andean } }
+		}
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 30
+
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				is_colonial_nation = yes
+				is_former_colonial_nation = yes
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = OWNER
+			}
+		}
+	}
+
+	option = {
+		name = colonial_settlement.a
+
+		change_culture = OWNER
+	}
+}
