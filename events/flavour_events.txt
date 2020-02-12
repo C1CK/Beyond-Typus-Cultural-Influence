@@ -39,28 +39,31 @@ country_event = { #Sons of Barak Khan's revolt (Kazakh revolts, pushes the Uzbek
 	option = { #Accept demands
 		name = barak_khans_revolt.a
 
+		custom_tooltip = barak_khans_sons_accept_demands
 		SHY = {
 			add_prestige = -25
-			every_owned_province = { #Kazakhs get their land
-				limit = {
-					OR = {
-						region = west_siberia_region
-						region = ural_region
-						region = mongolia_region
-						area = balchasj_area
-						area = kazakhstan_area
-						area = syr_darya_area
-					}
-				}
-				remove_core = SHY
-				cede_province = KZH
-				add_core = KZH
-			}
 			khiva_area = { #Uzbeks head south
 				add_core = SHY
 			}
 			transoxiana_area = { #Uzbeks head south
 				add_core = SHY
+			}
+			hidden_effect = {
+				every_owned_province = { #Kazakhs get their land
+					limit = {
+						OR = {
+							region = west_siberia_region
+							region = ural_region
+							region = mongolia_region
+							area = balchasj_area
+							area = kazakhstan_area
+							area = syr_darya_area
+						}
+					}
+					remove_core = SHY
+					cede_province = KZH
+					add_core = KZH
+				}
 			}
 		}
 		KZH = {
@@ -93,28 +96,31 @@ country_event = { #Sons of Barak Khan's revolt (Kazakh revolts, pushes the Uzbek
 			SHY = { ai = no }
 		}
 
+		custom_tooltip = barak_khans_sons_accept_demands
 		SHY = {
 			add_prestige = -25
-			every_owned_province = { #Kazakhs get their land
-				limit = {
-					OR = {
-						region = west_siberia_region
-						region = ural_region
-						region = mongolia_region
-						area = balchasj_area
-						area = kazakhstan_area
-						area = syr_darya_area
-					}
-				}
-				remove_core = SHY
-				cede_province = KZH
-				add_core = KZH
-			}
 			khiva_area = { #Uzbeks head south
 				add_core = SHY
 			}
 			transoxiana_area = { #Uzbeks head south
 				add_core = SHY
+			}
+			hidden_effect = {
+				every_owned_province = { #Kazakhs get their land
+					limit = {
+						OR = {
+							region = west_siberia_region
+							region = ural_region
+							region = mongolia_region
+							area = balchasj_area
+							area = kazakhstan_area
+							area = syr_darya_area
+						}
+					}
+					remove_core = SHY
+					cede_province = KZH
+					add_core = KZH
+				}
 			}
 		}
 		KZH = {
@@ -141,21 +147,24 @@ country_event = { #Sons of Barak Khan's revolt (Kazakh revolts, pushes the Uzbek
 	option = { #Resist, basically don't do this
 		name = barak_khans_revolt.c
 
+		custom_tooltip = barak_khans_sons_resist
 		SHY = {
 			add_prestige = -25
-			every_owned_province = { #Kazakhs get their land
-				limit = {
-					OR = {
-						region = west_siberia_region
-						region = ural_region
-						region = mongolia_region
-						area = balchasj_area
-						area = kazakhstan_area
-						area = syr_darya_area
+			hidden_effect = {
+				every_owned_province = { #Kazakhs get their land
+					limit = {
+						OR = {
+							region = west_siberia_region
+							region = ural_region
+							region = mongolia_region
+							area = balchasj_area
+							area = kazakhstan_area
+							area = syr_darya_area
+						}
 					}
+					add_core = KZH
+					add_nationalism = 10
 				}
-				add_core = KZH
-				add_nationalism = 10
 			}
 		}
 
