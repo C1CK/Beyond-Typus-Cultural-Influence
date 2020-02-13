@@ -11,24 +11,27 @@ province_event = { #Coptic spread along the Nile
 	trigger = {
 		owner = { culture_group = egyptian_group }
 		NOT = { culture = coptic_culture }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion = coptic
 		OR = {
 			development = 10 #To prevent Sahara converting
-			culture_group = egyptian_group
+			and = {
+				culture_group = egyptian_group
+				is_city = yes
+			}
 		}
-		OR = {
+		OR = { #Influence check
 			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
+		NOT = { nationalism = 1 }
 		coptic_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -48,46 +51,71 @@ province_event = { #Coptic spread along the Nile
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
+		modifier = {
+			factor = 0.5
 			culture_group = egyptian_group
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 

@@ -284,10 +284,6 @@ province_event = { #Arabic adoption (Masri)
 		NOT = { culture = al_misr_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -296,16 +292,18 @@ province_event = { #Arabic adoption (Masri)
 				is_city = yes
 			}
 		}
-		OR = {
+		OR = { #Influence check
 			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		masri_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -325,46 +323,71 @@ province_event = { #Arabic adoption (Masri)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -397,10 +420,6 @@ province_event = { #Arabic adoption (Sinai) (Masri)
 		NOT = { culture = al_misr_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -409,9 +428,11 @@ province_event = { #Arabic adoption (Sinai) (Masri)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		masri_levantine_confict_region = yes
@@ -419,7 +440,7 @@ province_event = { #Arabic adoption (Sinai) (Masri)
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -439,46 +460,71 @@ province_event = { #Arabic adoption (Sinai) (Masri)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -511,10 +557,6 @@ province_event = { #Arabic adoption (Levantine)
 		NOT = { culture = al_suryah_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -523,16 +565,18 @@ province_event = { #Arabic adoption (Levantine)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		levantine_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -552,46 +596,71 @@ province_event = { #Arabic adoption (Levantine)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -624,10 +693,6 @@ province_event = { #Arabic adoption (Sinai) (Levantine)
 		NOT = { culture = al_suryah_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -636,9 +701,11 @@ province_event = { #Arabic adoption (Sinai) (Levantine)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		masri_levantine_confict_region = yes
@@ -646,7 +713,7 @@ province_event = { #Arabic adoption (Sinai) (Levantine)
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -666,46 +733,71 @@ province_event = { #Arabic adoption (Sinai) (Levantine)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -738,10 +830,6 @@ province_event = { #Arabic adoption (Mesopotamian)
 		NOT = { culture = al_iraqiya_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -750,16 +838,18 @@ province_event = { #Arabic adoption (Mesopotamian)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		mesopotamian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -779,46 +869,71 @@ province_event = { #Arabic adoption (Mesopotamian)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -851,10 +966,6 @@ province_event = { #Arabic adoption (Najdi)
 		NOT = { culture = bedouin_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -863,16 +974,18 @@ province_event = { #Arabic adoption (Najdi)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		najdi_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -892,46 +1005,71 @@ province_event = { #Arabic adoption (Najdi)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -964,10 +1102,6 @@ province_event = { #Arabic adoption (Gulf)
 		NOT = { culture = gulf_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -976,16 +1110,18 @@ province_event = { #Arabic adoption (Gulf)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		gulf_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -1005,46 +1141,71 @@ province_event = { #Arabic adoption (Gulf)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -1077,10 +1238,6 @@ province_event = { #Arabic adoption (Omani)
 		NOT = { culture = omani_culture }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -1089,16 +1246,18 @@ province_event = { #Arabic adoption (Omani)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		omani_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -1118,46 +1277,71 @@ province_event = { #Arabic adoption (Omani)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -1190,10 +1374,6 @@ province_event = { #Arabic adoption (Dhofari)
 		NOT = { culture = dhofari_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -1202,16 +1382,18 @@ province_event = { #Arabic adoption (Dhofari)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		dhofari_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -1231,46 +1413,71 @@ province_event = { #Arabic adoption (Dhofari)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -1303,10 +1510,6 @@ province_event = { #Arabic adoption (Yemeni)
 		NOT = { culture = yemeni_culture }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -1315,16 +1518,18 @@ province_event = { #Arabic adoption (Yemeni)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		yemeni_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -1344,46 +1549,71 @@ province_event = { #Arabic adoption (Yemeni)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -1416,10 +1646,6 @@ province_event = { #Arabic adoption (Hejazi)
 		NOT = { culture = hejazi_culture }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -1428,16 +1654,18 @@ province_event = { #Arabic adoption (Hejazi)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		hejazi_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -1457,46 +1685,71 @@ province_event = { #Arabic adoption (Hejazi)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -1528,10 +1781,6 @@ province_event = { #Arabic adoption (Eastern Sudanese)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = sudanese_arabic }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -1540,16 +1789,18 @@ province_event = { #Arabic adoption (Eastern Sudanese)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		eastern_sudanese_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -1569,46 +1820,71 @@ province_event = { #Arabic adoption (Eastern Sudanese)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -1630,10 +1906,6 @@ province_event = { #Arabic adoption (Sulaym)
 		NOT = { culture = libyan_arabic }
 		NOT = { culture = maghrebi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -1642,16 +1914,18 @@ province_event = { #Arabic adoption (Sulaym)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		libyan_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -1671,46 +1945,71 @@ province_event = { #Arabic adoption (Sulaym)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -1743,10 +2042,6 @@ province_event = { #Arabic adoption (Eastern Hilalian)
 		NOT = { culture = tunisian }
 		NOT = { culture = maghrebi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -1755,9 +2050,11 @@ province_event = { #Arabic adoption (Eastern Hilalian)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		tunisian_culture_region = yes
@@ -1856,10 +2153,6 @@ province_event = { #Arabic adoption (Central Hilalian)
 		NOT = { culture = algerian }
 		NOT = { culture = maghrebi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -1868,16 +2161,18 @@ province_event = { #Arabic adoption (Central Hilalian)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		algerian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -1897,46 +2192,71 @@ province_event = { #Arabic adoption (Central Hilalian)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -1969,10 +2289,6 @@ province_event = { #Arabic adoption (Maqil)
 		NOT = { culture = moroccan }
 		NOT = { culture = maghrebi }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -1981,16 +2297,18 @@ province_event = { #Arabic adoption (Maqil)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		moroccan_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -2010,46 +2328,71 @@ province_event = { #Arabic adoption (Maqil)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -2081,10 +2424,6 @@ province_event = { #Arabic adoption (Hassaniya)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = hassaniya }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -2093,16 +2432,18 @@ province_event = { #Arabic adoption (Hassaniya)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		hassaniya_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -2122,46 +2463,71 @@ province_event = { #Arabic adoption (Hassaniya)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -2182,10 +2548,6 @@ province_event = { #Arabic adoption (Saharan)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = saharan_arabic }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -2194,16 +2556,18 @@ province_event = { #Arabic adoption (Saharan)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		saharan_arabic_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -2223,46 +2587,71 @@ province_event = { #Arabic adoption (Saharan)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -2283,10 +2672,6 @@ province_event = { #Arabic adoption (Central Sudanese)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = chadic_arabic }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
 		OR = {
 			development = 10 #To prevent Sahara converting
@@ -2295,16 +2680,18 @@ province_event = { #Arabic adoption (Central Sudanese)
 				is_city = yes
 			}
 		}
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		central_sudanese_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -2324,46 +2711,71 @@ province_event = { #Arabic adoption (Central Sudanese)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -2384,21 +2796,19 @@ province_event = { #Arabic adoption (Andalusian)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = andalusi_culture }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		andalusian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -2418,46 +2828,71 @@ province_event = { #Arabic adoption (Andalusian)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -2478,22 +2913,20 @@ province_event = { #Mozarabic
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = mozarabic }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = christian
 		has_estate = estate_dhimmi
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		latin_languages_trigger = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -2513,46 +2946,71 @@ province_event = { #Mozarabic
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -2573,14 +3031,12 @@ province_event = { #Arabic adoption (Sardinia) (Andalusian)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = andalusi_culture }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		andalusian_sicilian_conflict_region = yes
@@ -2588,7 +3044,7 @@ province_event = { #Arabic adoption (Sardinia) (Andalusian)
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -2608,46 +3064,71 @@ province_event = { #Arabic adoption (Sardinia) (Andalusian)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -2668,21 +3149,19 @@ province_event = { #Arabic adoption (Sicilian)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = siculo_arabic }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		sicilian_arabic_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -2702,46 +3181,71 @@ province_event = { #Arabic adoption (Sicilian)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -2762,14 +3266,12 @@ province_event = { #Arabic adoption (Sardinia) (Sicilian)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = siculo_arabic }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		andalusian_sicilian_conflict_region = yes
@@ -2777,7 +3279,7 @@ province_event = { #Arabic adoption (Sardinia) (Sicilian)
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -2797,46 +3299,71 @@ province_event = { #Arabic adoption (Sardinia) (Sicilian)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -2857,21 +3384,19 @@ province_event = { #Arabic adoption (Septimanian)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = septimanian_arabic }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		septimanian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -2891,46 +3416,71 @@ province_event = { #Arabic adoption (Septimanian)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -2951,21 +3501,19 @@ province_event = { #Arabic adoption (Shirvani)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = shirvani_arabic }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		shirvani_arabic_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -2985,46 +3533,71 @@ province_event = { #Arabic adoption (Shirvani)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -3045,21 +3618,19 @@ province_event = { #Arabic adoption (Greek)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = greek_arabic }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		yunania_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -3079,46 +3650,71 @@ province_event = { #Arabic adoption (Greek)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -3139,21 +3735,19 @@ province_event = { #Arabic adoption (Ethiopian)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = ethiopian_arabic }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		habashi_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -3173,46 +3767,71 @@ province_event = { #Arabic adoption (Ethiopian)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -3233,21 +3852,19 @@ province_event = { #Arabic adoption (Anatolian)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = turkish_arabic }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		anadul_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -3267,46 +3884,71 @@ province_event = { #Arabic adoption (Anatolian)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -3327,21 +3969,19 @@ province_event = { #Arabic adoption (Persian)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = persian_arabic }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		faarisia_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -3361,46 +4001,71 @@ province_event = { #Arabic adoption (Persian)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
@@ -3421,21 +4086,19 @@ province_event = { #Arabic adoption (Tuscan)
 		owner = { culture_group = turko_semitic }
 		NOT = { culture = tuscan_arabic }
 		NOT = { nationalism = 1 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
 		religion_group = muslim
-		OR = {
-			any_neighbor_province = { culture_group = turko_semitic }
-			province_trade_power = 15 #10 from level 2 CoT vanilla, so 15 seems fair, to require a building as well
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = egyptian_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
 			is_capital = yes
 		}
 		tuwskaniu_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
-	mean_time_to_happen = {
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		modifier = {
@@ -3455,46 +4118,71 @@ province_event = { #Arabic adoption (Tuscan)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Since a lot of the land is uncolonized
-			factor = 0.1
-			culture_group = turko_semitic
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
 		}
 
+		#Dev. factors
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 0.8
+			factor = 1.2
 			NOT = { development = 20 }
 		}
 		modifier = {
 			factor = 1.2
 			development = 30
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 40
+			NOT = { has_building = university }
 		}
 		modifier = {
 			factor = 1.4
 			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
 		}
 		modifier = {
 			factor = 0.9
-			adm = 4
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
 		}
 		modifier = {
 			factor = 0.9
-			adm = 5
+			has_colonist = yes
 		}
 		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
+			factor = 1.25
+			is_in_capital_area = yes
 		}
 	}
 
