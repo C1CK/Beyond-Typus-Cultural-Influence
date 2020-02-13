@@ -346,6 +346,19 @@ province_event = { #Aragonese expansion (Home Region) (Copy of Iberian spread me
 			is_island = yes
 		}
 
+		#Weak Influence
+		modifier = {
+			factor = 1.2
+			NOT = {
+				calc_true_if = {
+					all_neighbor_province = {
+						culture = castillian
+					}
+					amount = 2
+				}
+			}
+		}
+
 		#Strong Influence
 		modifier = {
 			factor = 0.8
@@ -459,6 +472,19 @@ province_event = { #Catalan expansion (Home Region) (Copy of Iberian spread mech
 			is_island = yes
 		}
 
+		#Weak Influence
+		modifier = {
+			factor = 1.2
+			NOT = {
+				calc_true_if = {
+					all_neighbor_province = {
+						culture = castillian
+					}
+					amount = 2
+				}
+			}
+		}
+
 		#Strong Influence
 		modifier = {
 			factor = 0.8
@@ -570,6 +596,19 @@ province_event = { #Andalucian (Occitan) expansion (Home Region) (Copy of Iberia
 		modifier = {
 			factor = 1.5
 			is_island = yes
+		}
+
+		#Weak Influence
+		modifier = {
+			factor = 1.2
+			NOT = {
+				calc_true_if = {
+					all_neighbor_province = {
+						culture = castillian
+					}
+					amount = 2
+				}
+			}
 		}
 
 		#Strong Influence
