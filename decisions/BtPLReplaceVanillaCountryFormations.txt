@@ -1998,7 +1998,7 @@ country_decisions = {
 			low_countries_region = {
 				limit = {
 					NOT = { owned_by = ROOT }
-					NOT = { province_id = 87 }
+					#NOT = { province_id = 87 }
 					NOT = { province_id = 1931 }
 				}
 				add_permanent_claim = NED
@@ -2006,8 +2006,8 @@ country_decisions = {
 			picardy_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
-					NOT = { province_id = 89 }
-					NOT = { province_id = 182 }
+					#NOT = { province_id = 89 }
+					#NOT = { province_id = 182 }
 				}
 				add_permanent_claim = NED
 			}
@@ -2354,14 +2354,11 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				province_id = 102		# Nice
-				province_id = 103		# Piedmont
-				province_id = 127		# Sassari
-				province_id = 205		# Savoie
-				province_id = 1875		# Cuneo	
-				province_id = 2986		# Cagliari
-				province_id = 3044		# Saluzzo
-				province_id = 3045		# Aosta
+				area = north_piedmont_area #North Piedmont
+				area = piedmont_area #Central Piedmont
+				area = south_piedmont_area #South Piedmont
+				area = savoy_dauphine_area #Savoy
+				area = sardinia_area #Sardinia
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -2377,27 +2374,34 @@ country_decisions = {
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
+			owns_core_province = 205 #Savoy
 			owns_core_province = 103 #Piedmont
+			owns_core_province = 102 #Nice
 			calc_true_if = {
 				all_owned_province = {
 					is_core = ROOT
 					OR = {
-						province_id = 102		# Nice
-						province_id = 103		# Piedmont
-						province_id = 127		# Sassari
-						province_id = 205		# Savoie
-						province_id = 1875		# Cuneo	
-						province_id = 2986		# Cagliari
-						province_id = 3044		# Saluzzo
-						province_id = 3045		# Aosta
+						area = north_piedmont_area #North Piedmont
+						area = piedmont_area #Central Piedmont
+						area = south_piedmont_area #South Piedmont
+						area = savoy_dauphine_area #Savoy
 					}
 				}
-				amount = 8			#All of SP's 8 provinces for now
+				amount = 18			#Two thirds of Savoy+Piedmont provinces (27)
+			}
+			calc_true_if = {
+				all_owned_province = {
+					is_core = ROOT
+					area = sardinia_area #Sardinia
+				}
+				amount = 4			#Half of Sardinia's 7 provinces
+			}
 			}
 			total_development = 150			#Normal requirement for rank 2 is 500 dev, so this is 70 percent discounted
 			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
 		}
 		effect = {
+			#No claims: Savoy has missions to conquer all of Italy in 1.30.
 			change_tag = SPI
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
@@ -2470,8 +2474,10 @@ country_decisions = {
 					owns_core_province = 127			# Sardinia
 					senior_union_with = SAV
 					SAV = {
-						owns_core_province = 103		# Piedmont
-						NOT = { num_of_cities = 16 } #Original 6+5
+						owns_core_province = 205 #Savoy
+						owns_core_province = 103 #Piedmont
+						owns_core_province = 102 #Nice
+						NOT = { num_of_cities = 28 } #Original 18+10
 					}
 				}
 				AND = {
@@ -2480,7 +2486,7 @@ country_decisions = {
 					senior_union_with = SAR
 					SAR = {
 						owns_core_province = 127		# Sardinia
-						NOT = { num_of_cities = 7 } #Original 2 + 5
+						NOT = { num_of_cities = 12 } #Original 7 + 5
 					}
 				}
 			}
@@ -2493,18 +2499,6 @@ country_decisions = {
 			if = {
 				limit = { tag = SAR }
 				inherit = SAV
-			}
-			if = {
-				limit = {
-					is_part_of_hre = yes
-					is_elector = no
-				}
-				every_owned_province = {
-					limit = {
-						is_part_of_hre = yes
-					}
-					set_in_empire = no
-				}
 			}
 			change_tag = SPI
 			remove_non_electors_emperors_from_empire_effect = yes
@@ -2523,6 +2517,8 @@ country_decisions = {
 			factor = 1
 		}
 		ai_importance = 400
+		do_not_integrate = SAR
+		do_not_integrate = SAV
 	}
 
 ###################################################################################################
@@ -2703,15 +2699,15 @@ country_decisions = {
 					ai = yes
 					capital_scope = { region = iberia_region }
 					OR = {
-						ROOT = { ai = yes } #Quick bandaid to not stop Spain from integrating Aragon if they've blobbed too much or the wedding happens after they integrate their subjects.
+						ROOT = { ai = yes } #AI is not intelligent enough to feed subject PUs. They should not be considered for these limits.
 						NOT = { num_of_cities = 12 }
 						AND = {
 							tag = ARA
-							NOT = { num_of_cities = 47 }			#Aragon, including Mallorca, Sardinia, and Italian holdings is 29. Sicily is 8 more & Naples adds 25 more.
+							NOT = { num_of_cities = 70 }			#Aragon, including Mallorca, Sardinia, and Italian holdings is 35. Sicily is 8 more & Naples adds 25 more.
 						}
 						AND = {
 							tag = CAS
-							NOT = { num_of_cities = 47 }			#Castile is 33, or 34 with both Canaries. Granada adds 4 more and Navarra another 1.
+							NOT = { num_of_cities = 100 }			#Castile is 93 with Granada, or 95 with all Canaries. Navarra adds another 5 (Out of which 4 are in Iberia).
 						}
 					}
 				}
