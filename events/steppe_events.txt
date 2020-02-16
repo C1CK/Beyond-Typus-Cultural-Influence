@@ -202,20 +202,34 @@ province_event = { #Rise of Steppe City
 	trigger = {
 		steppe_culture_region = yes
 		NOT = { has_province_modifier = steppe_city }
+		NOT = { has_province_modifier = province_razed }
 		owner = { is_nomad = yes }
 		has_province_modifier = nomadic_province
-		development = 20
+		development = 12 
 		NOT = { devastation = 1 }
-		province_has_center_of_trade_of_level = 2
+		province_has_center_of_trade_of_level = 1
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
 		years = 20
 
+
 		modifier = {
 			factor = 0.8
+			province_has_center_of_trade_of_level = 2
+		}
+		modifier = {
+			factor = 0.5
 			province_has_center_of_trade_of_level = 3
+		}
+		modifier = {
+			factor = 0.8
+			development = 15
+		}
+		modifier = {
+			factor = 0.8
+			development = 20
 		}
 		modifier = {
 			factor = 0.8
@@ -231,10 +245,33 @@ province_event = { #Rise of Steppe City
 		name = rise_of_steppe_city.a
 
 		remove_province_modifier = nomadic_province
-		add_center_of_trade_level = 1
+		if = {
+			limit = {
+				NOT = { province_has_center_of_trade_of_level = 2 }
+			}
+			add_center_of_trade_level = 2
+		}
+		if = {
+			limit = {
+				province_has_center_of_trade_of_level = 2
+			}
+			add_center_of_trade_level = 1
+		}
 		add_permanent_province_modifier = { 
 			name = steppe_city
 			duration = -1  
+		}
+		if = {
+			limit = {
+				NOT = { development = 15 }
+			}
+			add_base_tax = 2
+		}
+		if = {
+			limit = {
+				NOT = { development = 20 }
+			}
+			add_base_tax = 2
 		}
 		add_base_tax = 2
 		add_base_production = 2
@@ -250,7 +287,9 @@ province_event = { #Decline of Steppe City
 
 	trigger = {
 		has_province_modifier = steppe_city
+		owner = { is_nomad = yes }
 		OR = { #Crappy trade, Crappy dev
+			has_province_modifier = province_razed
 			AND = {
 				province_has_center_of_trade_of_level = 1
 				NOT = { province_has_center_of_trade_of_level = 2 }
@@ -279,6 +318,19 @@ province_event = { #Decline of Steppe City
 		add_base_tax = -1
 		add_base_production = -1
 		add_base_manpower = -1
+		if = {
+			limit = {
+				development = 30
+			}
+			add_base_tax = -2
+		}
+		if = {
+			limit = {
+				development = 25
+			}
+			add_base_tax = -1
+			add_base_production = -1
+		}
 	}
 }
 
