@@ -917,6 +917,7 @@ province_event = { #Dutch Integration (Only to low_franconian provinces)
 
 	trigger = {
 		has_global_flag = dutch_created_flag
+		NOT = { culture = dutch }
 		OR = {
 			dutch_cultures = yes
 			dutch_region = yes
@@ -1111,20 +1112,20 @@ province_event = { #Dutch settlements and assimilation (Works for Low Franconian
 
 		if = {
 			limit = {
-				primary_culture = dutch
+				OWNER = { primary_culture = dutch }
 			}
 			change_culture = dutch
 		}
 		if = {
 			limit = {
-				NOT = { primary_culture = dutch }
+				NOT = { OWNER = { primary_culture = dutch } }
 				NOT = { any_neighbor_province = { culture = plattduutsch } }
 			}
 			change_culture = low_franconian
 		}
 		if = {
 			limit = {
-				NOT = { primary_culture = dutch }
+				NOT = { OWNER = { primary_culture = dutch } }
 				any_neighbor_province = { culture = plattduutsch }
 			}
 			change_culture = plattduutsch
