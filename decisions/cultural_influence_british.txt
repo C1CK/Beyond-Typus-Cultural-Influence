@@ -19,12 +19,18 @@ country_decisions = {
 				full_idea_group = religious_ideas
 				religion = anglican
 			}
+			owns_core_province = 233 #Cornwall
+			owns_core_province = 4373 #Devon
 		}
 
 		effect = {
 			if = {
 				limit = {
-					NOT = { primary_culture = standard_british }
+					NOT = { #Defaults to English for non-northerners
+						NOT = { primary_culture = standard_british }
+						NOT = { primary_culture = northumbrian }
+						NOT = { primary_culture = scottish }
+					}
 				}
 				233 = { change_culture = english }
 				4373 = { change_culture = english }
@@ -35,6 +41,16 @@ country_decisions = {
 				}
 				233 = { change_culture = standard_british }
 				4373 = { change_culture = standard_british }
+			}
+			if = {
+				limit = {
+					OR = {
+						primary_culture = northumbrian
+						primary_culture = scottish
+					}
+				}
+				233 = { change_culture = northumbrian }
+				4373 = { change_culture = northumbrian }
 			}
 			233 = {
 				spawn_rebels = {
