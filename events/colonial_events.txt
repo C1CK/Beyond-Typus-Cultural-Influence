@@ -12,7 +12,7 @@ province_event = { #Established colonial centre (Converts best province in the a
 	trigger = {
 		is_owned_by_trade_company = yes
 		development = 40 #At least 40 dev needed
-		#Altogether these investments cost 1600 ducats, and you are lmiited to one per company
+		#Altogether these investments cost 1600 ducats, and you are limited to one per company
 		has_trade_company_investment_in_area = { #Has the required investments
 			investment = district
 			investor = OWNER
@@ -24,7 +24,8 @@ province_event = { #Established colonial centre (Converts best province in the a
 		has_building = university #Serves as a tech gate here (1622)
 		province_has_center_of_trade_of_level = 2
 		#Highest dev in area check goes here, but it doesn't exist so I'm just going with the University building and then only allowing this to happen once in the area
-		NOT = { any_owned_province = { has_province_modifier = colonial_capital_province_modifier } } #I really want to check for area here, but 'area = ROOT' crashes the game, so until I can find a fix you are limited to one per empire, which is acceptable I guess...
+		NOT = { has_province_modifier = colonial_capital_province_modifier }
+		NOT = { OWNER = {  any_owned_province = { has_province_modifier = colonial_capital_province_modifier } } } #I really want to check for area here, but 'area = ROOT' crashes the game, so until I can find a fix you are limited to one per empire, which is acceptable I guess...
 	}
 
 	mean_time_to_happen = {
