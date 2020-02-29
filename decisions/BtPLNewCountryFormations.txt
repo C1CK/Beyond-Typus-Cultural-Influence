@@ -141,14 +141,7 @@ country_decisions = {
 			}
 		}
 		provinces_to_highlight = {
-			OR = {
-				province_id = 105	# Parma
-				province_id = 106	# Modena
-				province_id = 109	# Mantua
-				province_id = 113	# Ferrara
-				province_id = 114	# Romagna
-				province_id = 3041	# Bologna
-			}
+			culture = romagnan
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { is_core = ROOT }
@@ -163,16 +156,9 @@ country_decisions = {
 			calc_true_if = {
 				all_owned_province = {
 					is_core = ROOT
-					OR = {
-						province_id = 105	# Parma
-						province_id = 106	# Modena
-						province_id = 109	# Mantua
-						province_id = 113	# Ferrara
-						province_id = 114	# Romagna
-						province_id = 3041	# Bologna
-					}
+					culture = romagnan
 				}
-				amount = 6			#At least all of Emilia's 6 provinces (approximate)
+				amount = 15			#At least 2/3rds of Romagnol-cultured 22 provinces
 			}
 		}
 		effect = {
@@ -182,11 +168,20 @@ country_decisions = {
 				name = "centralization_modifier"
 				duration = 3650
 			}
-			add_prestige = 10
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
+			every_province = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					culture = romagnan
+				}
+				add_permanent_claim = EMR
 			}
+			add_prestige = 10
+			#No Emilian ideas yet.
+			# if = {
+				# limit = { has_custom_ideas = no }
+				# country_event = { id = ideagroups.1 } #Swap Ideas
+			# }
 			set_country_flag = formed_emilia_flag_btp
 		}
 		ai_will_do = {
@@ -298,7 +293,7 @@ country_decisions = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
-			custom_tooltip = spanish_unification_effect.tooltip
+			# custom_tooltip = spanish_unification_effect.tooltip
 			set_country_flag = formed_france_flag
 		}
 		ai_will_do = {
@@ -841,7 +836,7 @@ country_decisions = {
 			bt_hre_stem_duchy_check = yes			#prevents lateral progression. Must not be or have been a stem duchy already
 			NOT = { has_country_flag = bt_formed_stem_duchy } 			#prevents lateral progression. All Stem Duchies should give this and check for this.
 			NOT = { has_country_flag = formed_pomerania_flag_btp } 
-			NOT = { num_of_cities = 30 }	#With more than 60 cities, tag should be aiming to form Prussia or Germany
+			NOT = { num_of_cities = 30 }	#With more than 30 cities, tag should be aiming to form Prussia or Germany
 			OR = {
 				#Tags which we want to see the decision by default
 				tag = WLG
@@ -919,7 +914,7 @@ country_decisions = {
 										area = hinter_pommern_area
 									}
 							}
-							amount = 10			#At least 2/3 of Pomerania's 14 provinces
+							amount = 10			#At least 2/3 of Pomerania's 15 provinces
 						}
 					}
 					owns_core_province = 1858			#Stettin
