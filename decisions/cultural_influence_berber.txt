@@ -1,0 +1,48 @@
+country_decisions = {
+	adopt_policy_of_berberisation = { #North Africa, Assimilation style
+		major = yes
+		potential = {
+			NOT = { has_country_modifier = policy_of_berberisation_modifier }
+			culture_group = berber_group
+		}
+
+		allow = {
+			total_development = 600 #MOR + TUN + TLC is some 700 ~dev.
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "policy_of_berberisation_modifier"
+				duration = -1
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	berber_mediterranean_colonies_decision = { #Colonies across the Med. (Balearics, Sicily, Sardinia, Corsica, Andalusia, etc.)
+		major = yes
+		potential = {
+			has_country_modifier = policy_of_berberisation_modifier
+			NOT = { has_country_modifier = berber_mediterranean_colonies_modifier }
+			culture_group = berber_group
+		}
+
+		allow = {
+			total_development = 1000 #MOR + TUN + TLC + GRA + SIC + SAR is some 900 ~dev.
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "berber_mediterranean_colonies_modifier"
+				duration = -1
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

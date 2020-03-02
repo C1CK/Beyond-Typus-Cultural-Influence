@@ -1,0 +1,1404 @@
+namespace = cultural_influence_berber
+#Islam? in my Africa? It's more likely than you think
+#Spread events are assimilation style
+
+province_event = { #Berber Spread (Guanche)
+	id = cultural_influence_berber.1
+	title = guanche_spread.title
+	desc = guanche_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = berber_group }
+		NOT = { culture = guanche }
+		NOT = { nationalism = 1 }
+		#OR = { #These guys can ignore this considering they are the desert bois
+		#	development = 10 #To prevent Sahara converting
+		#	and = {
+		#		culture_group = berber_group
+		#		is_city = yes
+		#	}
+		#}
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = berber_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}
+		owner = { has_country_modifier = policy_of_berberisation_modifier }
+		guanche_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = berber_group
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = yes
+		}
+	}
+
+	option = {
+		name = guanche_spread.a
+
+		change_culture = guanche
+	}
+}
+
+province_event = { #Berber Spread (Atlas Berber)
+	id = cultural_influence_berber.2
+	title = atlas_berber_spread.title
+	desc = atlas_berber_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = berber_group }
+		NOT = { culture = shilha }
+		NOT = { nationalism = 1 }
+		#OR = { #These guys can ignore this considering they are the desert bois
+		#	development = 10 #To prevent Sahara converting
+		#	and = {
+		#		culture_group = berber_group
+		#		is_city = yes
+		#	}
+		#}
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = berber_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}
+		owner = { has_country_modifier = policy_of_berberisation_modifier }
+		OR = { #Conflict with Zenaga
+			atlas_berber_culture_region = yes
+			AND = { #Subsaharans want the Northwest Sahara to be Zenaga
+				atlas_berber_zenaga_conflict_region = yes
+				NOT = { OWNER = { primary_culture = zenaga } }
+				NOT = { OWNER = { primary_culture = tuareg } }
+			}
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = berber_group
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = yes
+		}
+	}
+
+	option = {
+		name = atlas_berber_spread.a
+
+		change_culture = shilha
+	}
+}
+
+province_event = { #Berber Spread (Zenaga)
+	id = cultural_influence_berber.3
+	title = zenaga_spread.title
+	desc = zenaga_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = berber_group }
+		NOT = { culture = zenaga }
+		NOT = { nationalism = 1 }
+		#OR = { #These guys can ignore this considering they are the desert bois
+		#	development = 10 #To prevent Sahara converting
+		#	and = {
+		#		culture_group = berber_group
+		#		is_city = yes
+		#	}
+		#}
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = berber_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}
+		owner = { has_country_modifier = policy_of_berberisation_modifier }
+		OR = { #Conflict with Atlas Berber
+			zenaga_culture_region = yes
+			AND = { #Subsaharans want the Northwest Sahara to be Zenaga
+				atlas_berber_zenaga_conflict_region = yes
+				OWNER = { primary_culture = zenaga }
+				OWNER = { primary_culture = tuareg }
+			}
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = berber_group
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = yes
+		}
+	}
+
+	option = {
+		name = zenaga_spread.a
+
+		change_culture = zenaga
+	}
+}
+
+province_event = { #Berber Spread (Riffian)
+	id = cultural_influence_berber.4
+	title = riffian_spread.title
+	desc = riffian_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = berber_group }
+		NOT = { culture = riffian }
+		NOT = { nationalism = 1 }
+		#OR = { #These guys can ignore this considering they are the desert bois
+		#	development = 10 #To prevent Sahara converting
+		#	and = {
+		#		culture_group = berber_group
+		#		is_city = yes
+		#	}
+		#}
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = berber_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}
+		owner = { has_country_modifier = policy_of_berberisation_modifier }
+		riffian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = berber_group
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = yes
+		}
+	}
+
+	option = {
+		name = riffian_spread.a
+
+		change_culture = riffian
+	}
+}
+
+province_event = { #Berber Spread (Mzab-Wargla)
+	id = cultural_influence_berber.5
+	title = mzab_wargla_spread.title
+	desc = mzab_wargla_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = berber_group }
+		NOT = { culture = mozabite }
+		NOT = { nationalism = 1 }
+		#OR = { #These guys can ignore this considering they are the desert bois
+		#	development = 10 #To prevent Sahara converting
+		#	and = {
+		#		culture_group = berber_group
+		#		is_city = yes
+		#	}
+		#}
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = berber_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}
+		owner = { has_country_modifier = policy_of_berberisation_modifier }
+		mzab_wargla_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = berber_group
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = yes
+		}
+	}
+
+	option = {
+		name = mzab_wargla_spread.a
+
+		change_culture = mozabite
+	}
+}
+
+province_event = { #Berber Spread (Shenwa)
+	id = cultural_influence_berber.6
+	title = shenwa_spread.title
+	desc = shenwa_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = berber_group }
+		NOT = { culture = shenwa }
+		NOT = { nationalism = 1 }
+		#OR = { #These guys can ignore this considering they are the desert bois
+		#	development = 10 #To prevent Sahara converting
+		#	and = {
+		#		culture_group = berber_group
+		#		is_city = yes
+		#	}
+		#}
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = berber_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}
+		owner = { has_country_modifier = policy_of_berberisation_modifier }
+		shenwa_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = berber_group
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = yes
+		}
+	}
+
+	option = {
+		name = shenwa_spread.a
+
+		change_culture = shenwa
+	}
+}
+
+province_event = { #Berber Spread (Shawiya)
+	id = cultural_influence_berber.7
+	title = shawiya_spread.title
+	desc = shawiya_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = berber_group }
+		NOT = { culture = shawiya }
+		NOT = { nationalism = 1 }
+		#OR = { #These guys can ignore this considering they are the desert bois
+		#	development = 10 #To prevent Sahara converting
+		#	and = {
+		#		culture_group = berber_group
+		#		is_city = yes
+		#	}
+		#}
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = berber_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}
+		owner = { has_country_modifier = policy_of_berberisation_modifier }
+		shawiya_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = berber_group
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = yes
+		}
+	}
+
+	option = {
+		name = shawiya_spread.a
+
+		change_culture = shawiya
+	}
+}
+
+province_event = { #Berber Spread (Kabylian)
+	id = cultural_influence_berber.8
+	title = kabylian_spread.title
+	desc = kabylian_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = berber_group }
+		NOT = { culture = kabylian }
+		NOT = { nationalism = 1 }
+		#OR = { #These guys can ignore this considering they are the desert bois
+		#	development = 10 #To prevent Sahara converting
+		#	and = {
+		#		culture_group = berber_group
+		#		is_city = yes
+		#	}
+		#}
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = berber_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}
+		owner = { has_country_modifier = policy_of_berberisation_modifier }
+		kabylian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = berber_group
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = yes
+		}
+	}
+
+	option = {
+		name = kabylian_spread.a
+
+		change_culture = kabylian
+	}
+}
+
+province_event = { #Berber Spread (Zuwara)
+	id = cultural_influence_berber.9
+	title = zuwara_spread.title
+	desc = zuwara_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = berber_group }
+		NOT = { culture = zuwara }
+		NOT = { nationalism = 1 }
+		#OR = { #These guys can ignore this considering they are the desert bois
+		#	development = 10 #To prevent Sahara converting
+		#	and = {
+		#		culture_group = berber_group
+		#		is_city = yes
+		#	}
+		#}
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = berber_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}
+		owner = { has_country_modifier = policy_of_berberisation_modifier }
+		OR = { #Conflict with Nafusi
+			zuwara_culture_region = yes
+			AND = { #Eastern Berbers want Tripoli Nafusi
+				zuwara_nafusi_conflict_region = yes
+				NOT = { OWNER = { primary_culture = libyan_berber_culture } }
+			}
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = berber_group
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = yes
+		}
+	}
+
+	option = {
+		name = zuwara_spread.a
+
+		change_culture = zuwara
+	}
+}
+
+province_event = { #Berber Spread (Nafusi)
+	id = cultural_influence_berber.10
+	title = nafusi_spread.title
+	desc = nafusi_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = berber_group }
+		NOT = { culture = libyan_berber_culture }
+		NOT = { nationalism = 1 }
+		#OR = { #These guys can ignore this considering they are the desert bois
+		#	development = 10 #To prevent Sahara converting
+		#	and = {
+		#		culture_group = berber_group
+		#		is_city = yes
+		#	}
+		#}
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = berber_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}
+		owner = { has_country_modifier = policy_of_berberisation_modifier }
+		OR = { #Conflict with Zuwara
+			nafusi_culture_region = yes
+			AND = { #Eastern Berbers want Tripoli Nafusi
+				zuwara_nafusi_conflict_region = yes
+				OWNER = { primary_culture = libyan_berber_culture }
+			}
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = berber_group
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = yes
+		}
+	}
+
+	option = {
+		name = nafusi_spread.a
+
+		change_culture = libyan_berber_culture
+	}
+}
+
+province_event = { #Berber Spread (Tuareg)
+	id = cultural_influence_berber.11
+	title = tuareg_spread.title
+	desc = tuareg_spread.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = berber_group }
+		NOT = { culture = tuareg }
+		NOT = { nationalism = 1 }
+		#OR = { #These guys can ignore this considering they are the desert bois
+		#	development = 10 #To prevent Sahara converting
+		#	and = {
+		#		culture_group = berber_group
+		#		is_city = yes
+		#	}
+		#}
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = berber_group }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}
+		owner = { has_country_modifier = policy_of_berberisation_modifier }
+		tuareg_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = berber_group
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = yes
+		}
+	}
+
+	option = {
+		name = tuareg_spread.a
+
+		change_culture = tuareg
+	}
+}
