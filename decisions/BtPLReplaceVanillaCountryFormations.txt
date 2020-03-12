@@ -138,10 +138,7 @@ country_decisions = {
 				set_legacy_government = despotic_monarchy #Desert tribes settling down, theocracies become monarchies.
 			}
 			add_prestige = 25
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_algiers_flag
 		}
 		ai_will_do = {
@@ -341,10 +338,7 @@ country_decisions = {
 				set_legacy_government = despotic_monarchy #Desert tribes settling down, theocracies become monarchies.
 			}
 			set_country_flag = formed_andalusia_flag
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 		}
 		ai_will_do = {
 			factor = 1
@@ -419,10 +413,9 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					has_custom_ideas = no
 					NOT = { has_idea_group = arabian_ideas }
 				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_ideas = yes
 			}
 			set_country_flag = formed_arabia_flag
 		}
@@ -515,10 +508,9 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					has_custom_ideas = no
 					NOT = { has_idea_group = ARM_ideas }
 				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_ideas = yes
 			}
 			set_country_flag = formed_armenia_flag
 		}
@@ -613,10 +605,7 @@ country_decisions = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_great_britain_flag
 			#Cutting new 1.25 mission related claims. Free permanent and non permanent claims all over the place just for forming one of the easiest tags to form? I don't think so =p
 		}
@@ -726,10 +715,7 @@ country_decisions = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_great_britain_flag
 			hidden_effect = {
 				if = {
@@ -832,10 +818,7 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_croatia_flag_btp
 		}
 		ai_will_do = {
@@ -954,10 +937,9 @@ country_decisions = {
 			add_prestige = 25
 			if = {
 				limit = {
-					has_custom_ideas = no
 					NOT = { has_idea_group = ENG_ideas }
 				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_ideas = yes
 			}
 			set_country_flag = formed_england_flag
 		}
@@ -1000,7 +982,6 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 183			# Paris
-
 			owns_core_province = 186			# Rheims, coronation site
 			owns_core_province = 203			# Lyon
 			owns_core_province = 4389			# Tours
@@ -1052,10 +1033,9 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					has_custom_ideas = no
 					NOT = { has_idea_group = FRA_ideas }
 				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_ideas = yes
 			}
 			set_country_flag = formed_france_flag
 		}
@@ -1143,9 +1123,8 @@ country_decisions = {
 			if = {
 				limit = {
 					NOT = { has_idea_group = greek_ideas } 
-					is_playing_custom_nation = no
 				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_ideas = yes
 			}
 			set_country_flag = formed_greece_flag
 		}
@@ -1287,10 +1266,7 @@ country_decisions = {
 				}
 				add_permanent_claim = HAN
 			}
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_hannover_flag
 		}
 		ai_will_do = {
@@ -1400,10 +1376,7 @@ country_decisions = {
 				duration = 3650
 			}
 			add_prestige = 10
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_iceland
 		}
 		ai_will_do = {
@@ -1521,10 +1494,9 @@ country_decisions = {
 			add_prestige = 25
 			if = {
 				limit = {
-					has_custom_ideas = no
 					NOT = { has_idea_group = irish_ideas }
 				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_ideas = yes
 			}
 			set_country_flag = formed_ireland_flag
 		}
@@ -1621,10 +1593,7 @@ country_decisions = {
 					add_claim = ITL
 				}
 			}
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_italy_flag
 		}
 		ai_will_do = {
@@ -1738,10 +1707,7 @@ country_decisions = {
 					was_never_end_game_tag_trigger = yes
 				}
 				change_tag = KOJ
-				if = {
-					limit = { has_custom_ideas = no }
-					country_event = { id = ideagroups.1 } #Swap Ideas
-				}
+				swap_ideas = yes
 			}
 			if = {
 				limit = { tag = KNI }
@@ -1894,10 +1860,7 @@ country_decisions = {
 				change_government = monarchy
 				set_legacy_government = despotic_monarchy #Desert tribes settling down, theocracies become monarchies.
 			}
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_morocco_flag
 		}
 		ai_will_do = {
@@ -2018,10 +1981,9 @@ country_decisions = {
 			add_prestige = 25
 			if = {
 				limit = {
-					has_custom_ideas = no
 					NOT = { has_idea_group = NED_ideas }
 				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_ideas = yes
 			}
 			set_country_flag = formed_netherlands_flag
 		}
@@ -2103,10 +2065,7 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_poland_flag
 		}
 		ai_will_do = {
@@ -2219,10 +2178,9 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					has_custom_ideas = no
 					NOT = { has_idea_group = PRU_ideas }
 				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_ideas = yes
 			}
 			set_country_flag = formed_prussia_flag
 		}
@@ -2321,10 +2279,7 @@ country_decisions = {
 				}
 				add_permanent_claim = RMN
 			}
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_romania_flag
 		}
 		ai_will_do = {
@@ -2412,10 +2367,7 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_sardinia_piedmont_flag
 		}
 		ai_will_do = {
@@ -2506,10 +2458,7 @@ country_decisions = {
 				set_government_rank = 2
 			}
 			add_prestige = 25
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_sardinia_piedmont_flag
 		}
 		ai_will_do = {
@@ -2611,10 +2560,7 @@ country_decisions = {
 				}
 				add_permanent_claim = SPA
 			}
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			custom_tooltip = spanish_unification_effect.tooltip
 			set_country_flag = formed_spain_flag
 		}
@@ -2747,10 +2693,7 @@ country_decisions = {
 				}
 				add_permanent_claim = SPA
 			}
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			custom_tooltip = spanish_unification_effect.tooltip
 			set_country_flag = formed_spain_flag
 		}
@@ -2891,10 +2834,9 @@ country_decisions = {
 			set_country_flag = formed_scotland_flag
 			if = {
 				limit = {
-					has_custom_ideas = no
 					NOT = { has_idea_group = SCO_Ideas }
 				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_ideas = yes
 			}
 		}
 		ai_will_do = {
@@ -3011,10 +2953,7 @@ country_decisions = {
 				set_legacy_government = despotic_monarchy #Desert tribes settling down, theocracies become monarchies.
 			}
 			add_prestige = 25
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_tripoli_flag
 		}
 		ai_will_do = {
@@ -3115,10 +3054,7 @@ country_decisions = {
 				set_legacy_government = despotic_monarchy #Desert tribes settling down, theocracies become monarchies.
 			}
 			add_prestige = 25
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_tunisia_flag
 		}
 		ai_will_do = {
@@ -3198,9 +3134,8 @@ country_decisions = {
 			if = {
 				limit = {
 					NOT = { has_idea_group = TUS_ideas }
-					has_custom_ideas = no
 				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_ideas = yes
 			}
 			set_country_flag = formed_tuscany_flag
 			hidden_effect = {
@@ -3300,10 +3235,7 @@ country_decisions = {
 				}
 				add_permanent_claim = WES
 			}
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_westphalia_flag
 		}
 		ai_will_do = {

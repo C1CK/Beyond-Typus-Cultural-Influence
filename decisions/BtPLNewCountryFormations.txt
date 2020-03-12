@@ -103,13 +103,7 @@ country_decisions = {
 				}
 				add_permanent_claim = BEL
 			}
-			if = {
-				limit = {
-					has_custom_ideas = no
-					NOT = { has_idea_group = ARM_ideas }
-				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			set_country_flag = formed_belgian_flag_btp
 		}
 		ai_will_do = {
@@ -178,10 +172,7 @@ country_decisions = {
 			}
 			add_prestige = 10
 			#No Emilian ideas yet.
-			# if = {
-				# limit = { has_custom_ideas = no }
-				# country_event = { id = ideagroups.1 } #Swap Ideas
-			# }
+			# swap_ideas = yes
 			set_country_flag = formed_emilia_flag_btp
 		}
 		ai_will_do = {
@@ -289,10 +280,7 @@ country_decisions = {
 				}
 				add_claim = FRA
 			}
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
 			# custom_tooltip = spanish_unification_effect.tooltip
 			set_country_flag = formed_france_flag
 		}
@@ -365,10 +353,8 @@ country_decisions = {
 				}
 				add_permanent_claim = IBE
 			}
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			#No Iberian ideas yet.
+			# swap_ideas = yes
 			set_country_flag = formed_iberia_flag_btp
 		}
 		ai_will_do = {
@@ -465,10 +451,8 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			#No Illyrian ideas yet.
+			# swap_ideas = yes
 			set_country_flag = formed_illyria_flag_btp
 		}
 		ai_will_do = {
@@ -623,9 +607,21 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
+			#If Lombardy-Venetia is formed by theocracy or tribal nation, it gets generic ideas, so gating it behind that.
 			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
+				limit = {
+					OR = {
+						AND = {
+							government = monarchy 
+							NOT = { has_idea_group = MLO_ideas }
+						}
+						AND = {
+							government = republic
+							NOT = { has_idea_group = VEN_ideas }
+						}
+					}
+				}
+				swap_ideas = yes
 			}
 			set_country_flag = formed_lombardy_venetia_flag_btp
 		}
@@ -738,11 +734,8 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 50
-			#Cutting this because there are currently no unique Moravian ideas
-			#if = {
-			#	limit = { has_custom_ideas = no }
-			#	country_event = { id = ideagroups.1 } #Swap Ideas
-			#}
+			#No Moravian ideas yet
+			# swap_ideas = yes
 			set_country_flag = formed_moravia_flag_btp
 		}
 		ai_will_do = {
@@ -972,8 +965,8 @@ country_decisions = {
 			set_country_flag = formed_pomerania_flag_btp
 			set_country_flag = bt_formed_stem_duchy
 			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
+				limit = { NOT = { has_idea_group = POM_ideas } }
+				swap_ideas = yes
 			}
 		}
 		ai_will_do = {
