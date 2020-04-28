@@ -1,0 +1,309 @@
+#CI project to have normal country tags by making nearly every regional tag reformable. things like Marrakesh eating morocco should now lead to them resestablishing themselves as the rulers of morocco rather than retaining their regional identity
+#I may also detach the culture requirements and instead allow either the relevant cultures or a capital in the right place to allow rump states to reform, or something like a Jewish cultured Yemen. But this would be a radical change that I'm not sure everyone would like, so for now this will work like the regular reformables (Poland, England) but for more countries
+
+#Sorting by culture group where this is possible
+
+country_decisions = {
+	######################
+	#Arabic cultures w->e#
+	######################
+
+	#Andalusia (Already Exists)
+
+	#Morocco (Already Exists)
+
+	#Algiers (Already Exists)
+
+	#Tunisia (Already Exists)
+
+	#Tripolitania (Already Exists)
+
+	#Egypt/Mamluks (Already Exists)
+
+	form_syria_nation = {
+		major = yes
+		potential = {
+			bt_generic_can_form_potential_check = yes
+			NOT = { has_country_flag = formed_syria_flag_ci }
+			NOT = { tag = SYR }
+			NOT = { tag = ARB }
+			primary_culture = al_suryah_arabic
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = aleppo_area
+				area = rakka_area
+				area = tripoli_area
+				area = syria_area
+				area = palestine_area
+				area = trans_jordan_area #Kerak
+				area = syrian_desert_area #Sinai
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			#Generic Guff
+			NOT = { exists = SYR }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			#Req. provinces (Always needs the central Damascus, and then either the northern cities or southern cities)
+			owns_core_province = 382 #Damascus
+			OR = {
+				AND = {
+					owns_core_province = 377 #Halab
+					owns_core_province = 1849 #Hims
+				}
+				AND = {
+					owns_core_province = 379 #Al-Quds
+					owns_core_province = 380 #Kerak
+				}
+			}
+			calc_true_if = {
+				all_owned_province = {
+					is_core = ROOT
+					OR = {
+						area = aleppo_area
+						area = rakka_area
+						area = tripoli_area
+						area = syria_area
+						area = palestine_area
+						area = trans_jordan_area #Kerak
+						area = syrian_desert_area #Sinai
+					}
+				}
+				amount = 16			#At least 2/3 of Syria's 25 provinces (approximate)
+			}
+			#Irrelevant stuff
+			#total_development = 100 #Don't really like these either, so long as the required provinces are set up properly I think they can handle the work of ensuring randos can't form this
+			#prestige = 25 #Morally opposed to prestige reqs. so I'm just going to ignore them
+		}
+		effect = {
+			change_tag = SYR
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			every_province = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					OR = {
+						area = aleppo_area
+						area = rakka_area
+						area = tripoli_area
+						area = syria_area
+						area = palestine_area
+						area = trans_jordan_area #Kerak
+						area = syrian_desert_area #Sinai
+						#Extended Claims
+						area = cukurova_area #Cilicia
+					}
+				}
+				add_permanent_claim = SYR
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			#swap_ideas = yes
+			set_country_flag = formed_syria_flag_ci
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+	#Hejaz (Doesn't exist, but only two nations exist with this culture, Hejaz and Medina, and both seem fine for a regional tag. Might make them both reformable later but at the moment this isn't a priority)
+
+	#Nejd (Already Exists)
+
+	#Yemen (Already Exists)
+
+	#Oman (Only a single Omani nation exists, I don't see how this will ever be done)
+
+	form_iraq_nation = { #This one might be cut, since only Mushasha can be this without culture converting, and I don't think Mushasha should do this tbh...
+		major = yes
+		potential = {
+			bt_generic_can_form_potential_check = yes
+			NOT = { has_country_flag = formed_iraq_flag_ci }
+			NOT = { tag = IRQ }
+			NOT = { tag = ARB }
+			primary_culture = al_iraqiya_arabic
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = rakka_area
+				area = al_jazira_area
+				area = iraq_arabi_area
+				area = basra_area
+				province_id = 4293 #Arbil
+				province_id = 415 #Sehrizor
+				province_id = 4294 #Sulimaniyeh
+				province_id = 4290 #Hoveyzeh
+				province_id = 412 #Suq al-Ahwazw
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			#Generic Guff
+			NOT = { exists = IRQ }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			#Req. provinces (Own one of three Iraqi political centres)
+			OR = {
+				owns_core_province = 411 #Mosul
+				owns_core_province = 410 #Baghdad
+				owns_core_province = 408 #Basrah
+			}
+			calc_true_if = {
+				all_owned_province = {
+					is_core = ROOT
+					OR = {
+						area = rakka_area
+						area = al_jazira_area
+						area = iraq_arabi_area
+						area = basra_area
+						province_id = 4293 #Arbil
+						province_id = 415 #Sehrizor
+						province_id = 4294 #Sulimaniyeh
+						province_id = 4290 #Hoveyzeh
+						province_id = 412 #Suq al-Ahwazw
+					}
+				}
+				amount = 14			#At least 2/3 of Iraq's 21 provinces (approximate)
+			}
+			#Irrelevant stuff
+			#total_development = 100 #Don't really like these either, so long as the required provinces are set up properly I think they can handle the work of ensuring randos can't form this
+			#prestige = 25 #Morally opposed to prestige reqs. so I'm just going to ignore them
+		}
+		effect = {
+			change_tag = IRQ
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			every_province = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					OR = {
+						area = rakka_area
+						area = al_jazira_area
+						area = iraq_arabi_area
+						area = basra_area
+						province_id = 4293 #Arbil
+						province_id = 415 #Sehrizor
+						province_id = 4294 #Sulimaniyeh
+						province_id = 4290 #Hoveyzeh
+						province_id = 412 #Suq al-Ahwazw
+						#Extended Claims
+						area = mardin_area
+					}
+				}
+				add_permanent_claim = IRQ
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			#swap_ideas = yes
+			set_country_flag = formed_iraq_flag_ci
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+	######
+	#Misc#
+	######
+
+	form_burgundian_nation = {
+		major = yes
+		potential = {
+			bt_generic_can_form_potential_check = yes
+			NOT = { has_country_flag = formed_burgundy_flag_ci }
+			NOT = { tag = BUR }
+			NOT = { tag = FRA }
+			OR = {
+				primary_culture = burgundian
+				primary_culture = lorraine_culture #Seems like they'd push for Burgundy rather than forming their own Kingdom of Lorraine
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = bourgogne_area
+				area = franche_comte_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			#Generic Guff
+			NOT = { exists = SYR }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			#Req. provinces (Just need Dijon since nothing else stands out as being vitally important)
+			owns_core_province = 192 #Dijon
+			calc_true_if = {
+				all_owned_province = {
+					is_core = ROOT
+					OR = {
+						area = bourgogne_area
+						area = franche_comte_area
+					}
+				}
+				amount = 11			#At least 2/3 of Burgundy's 17 provinces (approximate)
+			}
+			#Irrelevant stuff
+			#total_development = 100 #Don't really like these either, so long as the required provinces are set up properly I think they can handle the work of ensuring randos can't form this
+			#prestige = 25 #Morally opposed to prestige reqs. so I'm just going to ignore them
+		}
+		effect = {
+			change_tag = BUR
+			remove_non_electors_emperors_from_empire_effect = yes
+			#if = {
+			#	limit = { NOT = { government_rank = 2 } }
+			#	set_government_rank = 2
+			#}
+			every_province = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					OR = {
+						area = bourgogne_area
+						area = franche_comte_area
+						#Extended Claims
+						province_id = 7950 #Langres
+					}
+				}
+				add_permanent_claim = BUR
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			swap_ideas = yes
+			set_country_flag = formed_burgundy_flag_ci
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+}
