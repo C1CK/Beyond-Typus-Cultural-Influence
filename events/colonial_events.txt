@@ -113,3 +113,27 @@ province_event = { #Basic Colonial Settlement Event
 		change_culture = OWNER
 	}
 }
+
+#Attempts to preserve pre-colonial cultures
+province_event = { #Colony Finished
+	id = cultural_influence_colonial.100
+	title = null
+	desc = null
+
+	hidden = yes
+
+	trigger = {
+		is_city = yes
+		has_province_flag = ci_set_pre_colonial_culture_var
+	}
+
+	immediate = { #Vars and flag set in scripted effect
+		change_culture = variable:pre_colonial_culture_var
+		change_religion = variable:pre_colonial_religion_var
+		clr_province_flag = ci_set_pre_colonial_culture_var
+	}
+
+	option = {
+		name = null
+	}
+}

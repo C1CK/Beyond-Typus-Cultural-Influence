@@ -1,0 +1,21 @@
+pre_colonial_culture_preserver_effect = {
+	every_province = {
+		limit = {
+			OR = {
+				is_empty = yes
+				owner = { primitive = yes }
+			}
+			is_in_settler_colonial_region = no
+			NOT = { has_province_flag = ci_set_pre_colonial_culture_var }
+		}
+		export_to_variable = {
+			which = pre_colonial_culture_var
+			value = culture
+		}
+		export_to_variable = {
+			which = pre_colonial_religion_var
+			value = religion
+		}
+		set_province_flag = ci_set_pre_colonial_culture_var
+	}
+}
