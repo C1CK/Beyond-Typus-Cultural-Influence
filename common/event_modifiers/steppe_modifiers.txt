@@ -24,6 +24,12 @@ nomadic_growth_cooldown = { #Cooldown for when land grants refused
 	#pass
 }
 
+nomadic_land_owned_by_non_nomad = { #Effectively not owned, since no power can be projected here
+	min_local_autonomy = 1000 #1000%
+	local_missionary_strength = -1 #-100%
+	local_unrest = 10
+}
+
 settled_steppe = {
 	local_development_cost = -0.35 #Matches Farmland
 	supply_limit = 1 #Puts this at 5, between Farmland and Grassland (Same as steppe for nomads)

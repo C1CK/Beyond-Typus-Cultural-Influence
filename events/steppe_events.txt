@@ -414,28 +414,28 @@ country_event = { #Settlement of capital region (Basically for Uzbek)
 	}
 }
 
-province_event = { #Silently remove steppe_city modifier, I don't like people losing dev for conquering what are essentially normal cities; There are many instances of entire cities being razed when conquered by Russia, but the largest steppe city at the start of the game, Qazan, was not razed and continued to prosper under settled rule.
-	id = cultural_influence_steppe.8
-	title = null
-	desc = null
-	picture = null
-
-	hidden = yes
-
-	trigger = {
-		has_province_modifier = steppe_city
-		owner = { is_nomad = no }
-		has_global_flag = CI_events_enabled
-	}
-
-	immediate = {
-		remove_province_modifier = steppe_city
-	}
-
-	option = {
-		name = null
-	}
-}
+#province_event = { #Silently remove steppe_city modifier, I don't like people losing dev for conquering what are essentially normal cities; There are many instances of entire cities being razed when conquered by Russia, but the largest steppe city at the start of the game, Qazan, was not razed and continued to prosper under settled rule.
+#	id = cultural_influence_steppe.8
+#	title = null
+#	desc = null
+#	picture = null
+#
+#	hidden = yes
+#
+#	trigger = {
+#		has_province_modifier = steppe_city
+#		owner = { is_nomad = no }
+#		has_global_flag = CI_events_enabled
+#	}
+#
+#	immediate = {
+#		remove_province_modifier = steppe_city
+#	}
+#
+#	option = {
+#		name = null
+#	}
+#} #Commented this out, since nomadic cities are now razed once taken by settled peoples
 
 province_event = { #Non-Nomadic land owned by nomad
 	id = cultural_influence_steppe.9
@@ -636,5 +636,159 @@ province_event = { #Nomadic Growth -Hidden event, province level
 
 	option = {
 		name = null
+	}
+}
+
+province_event = { #Nomadic land owned by non-nomad
+	id = cultural_influence_steppe.13
+	title = null
+	desc = null
+
+	hidden = yes
+
+	trigger = {
+		steppe_culture_region = yes
+		owner = { is_nomad = no }
+		NOT = { has_province_modifier = steppe_city }
+		has_province_modifier = nomadic_province
+	}
+
+	mean_time_to_happen = {
+		years = 1
+	}
+
+	immediate = {
+		add_permanent_province_modifier = { 
+			name = nomadic_land_owned_by_non_nomad
+			duration = -1
+		}
+	}
+
+	option = {
+		name = null
+	}
+}
+
+province_event = { #Nomadic land restored to nomad
+	id = cultural_influence_steppe.14
+	title = null
+	desc = null
+
+	hidden = yes
+
+	trigger = {
+		steppe_culture_region = yes
+		owner = { is_nomad = yes }
+		has_province_modifier = nomadic_province
+		has_province_modifier = nomadic_land_owned_by_non_nomad
+	}
+
+	mean_time_to_happen = {
+		years = 1
+	}
+
+	immediate = {
+		remove_province_modifier = nomadic_land_owned_by_non_nomad
+	}
+
+	option = {
+		name = null
+	}
+}
+
+province_event = { #Nomadic City sacked by settled (Can't have shit in Qazan)
+	id = cultural_influence_steppe.15
+	title = nomadic_city_sacked.title
+	desc = nomadic_city_sacked.desc
+	picture = COSSACK_ESTATE_RAIDERS_eventPicture
+
+	trigger = {
+		has_province_modifier = steppe_city
+		owner = { is_nomad = no }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 1
+	}
+
+	option = { #Sack the city and leave the place ruined
+		name = nomadic_city_sacked.a
+
+		remove_province_modifier = steppe_city
+		add_permanent_province_modifier = { 
+			name = nomadic_province
+			duration = -1
+		}
+		add_base_tax = -5
+		add_base_production = -5
+		add_base_manpower = -5
+
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0
+				province_id = 1082 #Qazan (Qazan has a special place in my heart and will not be forgotten)
+			}
+			modifier = {
+				factor = 0.5
+				province_has_center_of_trade_of_level = 1
+			}
+			modifier = {
+				factor = 0.5
+				province_has_center_of_trade_of_level = 2
+			}
+		}
+	}
+
+	option = { #Sack the city and forcibly settle in new peoples
+		name = nomadic_city_sacked.b
+
+		remove_province_modifier = steppe_city
+		add_permanent_province_modifier = { 
+			name = nomadic_province
+			duration = -1
+		}
+		add_base_tax = -4
+		add_base_production = -4
+		add_base_manpower = -4
+
+		owner = { add_dip_power = -200 }
+		change_culture = OWNER
+		if = {
+			limit = {
+				has_terrain = steppe
+			}
+			add_permanent_province_modifier = { 
+				name = settled_steppe
+				duration = -1
+			}
+		}
+
+		ai_chance = {
+			factor = 25
+		}
+	}
+
+	option = { #Leave the city intact, and adopt the peoples as your own (Literally 0% chance of happening historically but w/e)
+		name = nomadic_city_sacked.c
+
+		remove_province_modifier = steppe_city
+
+		owner = { add_dip_power = -400 }
+		owner = { add_accepted_culture = ROOT }
+		if = {
+			limit = {
+				has_terrain = steppe
+			}
+			add_permanent_province_modifier = { 
+				name = settled_steppe
+				duration = -1
+			}
+		}
+
+		ai_chance = {
+			factor = 0
+		}
 	}
 }
