@@ -334,7 +334,7 @@ province_event = { #Decline of Steppe City
 	}
 }
 
-province_event = { #Plow advances into the steppe, must have converted province to your culture, then lose the nomadic province modifier and return to standard settled land
+province_event = { #Plow advances into the steppe, must have converted province to your culture, then lose the nomadic province modifier and return to standard settled land (Hidden event incase the culture has changed somehow)
 	id = cultural_influence_steppe.6
 	title = null
 	desc = null
@@ -347,7 +347,7 @@ province_event = { #Plow advances into the steppe, must have converted province 
 			has_province_modifier = nomadic_province
 			has_province_modifier = steppe_city
 		}
-		NOT = { culture = cossack } #By definition Nomadic
+		#NOT = { culture = cossack } #By definition Nomadic? (Not sure why I said this, Cossacks aren't Nomadic)
 		culture_group = OWNER #Convert first, represents settlements
 		owner = { is_nomad = no }
 		has_global_flag = CI_events_enabled
