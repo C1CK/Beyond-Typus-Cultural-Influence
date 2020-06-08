@@ -792,3 +792,26 @@ province_event = { #Nomadic City sacked by settled (Can't have shit in Qazan)
 		}
 	}
 }
+
+province_event = { #Remove debuff modifier for non-nomadic land for nomads when no longer appropriate
+	id = cultural_influence_steppe.16
+	title = null
+	desc = null
+	picture = null
+
+	hidden = yes
+
+	trigger = {
+		has_province_modifier = non_nomadic_province
+		owner = { is_nomad = no }
+		has_global_flag = CI_events_enabled
+	}
+
+	immediate = {
+		remove_province_modifier = non_nomadic_province
+	}
+
+	option = {
+		name = null
+	}
+}
