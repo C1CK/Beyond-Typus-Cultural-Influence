@@ -18,11 +18,13 @@ french_homeland = {
 		area = franche_comte_area
 		area = north_piedmont_area
 		province_id = 3043 #Pavia
+		province_id = 7060 #Bobbio
 		area = piedmont_area
 		AND = {
 			area = liguria_area
 			NOT = { province_id = 7055 } #A Speza
 		}
+		province_id = 8017 #Cuijk
 		province_id = 96 #Zeeland
 		province_id = 7975 #Dordrecht
 		province_id = 3060 #Betuwe
@@ -107,9 +109,19 @@ nouveau_provencal_culture_region = {
 			area = lombardy_area
 			NOT = { province_id = 3043 } #Pavia
 		}
+		AND = {
+			area = east_lombardy_area
+			NOT = { province_id = 3294 } #Valtellina
+		}
 		area = north_piedmont_area
 		area = emilia_area
-		province_id = 7055
+		AND = {
+			area = upper_emilia_area
+			NOT = { province_id = 7060 } #Bobbio
+		}
+		province_id = 7055 #La Spezia
+		area = venetia_area
+		area = 
 	}
 }
 
@@ -132,6 +144,10 @@ bas_francais_culture_region = {
 		area = frisia_area
 		area = muenster_area
 		area = westphalia_area
+		province_id = 8112 #rotterdam
+		province_id = 7954 #Helder
+		province_id = 8032 #Zetphen
+		province_id = 8120 #Twente
 		province_id = 1874 
 		province_id = 55
 		province_id = 2971
@@ -196,6 +212,7 @@ surlamerais_culture_region = {
 		area = mittelmark_area
 		area = northern_saxony_area
 		area = lower_saxony_area
+		province_id = 7822 #Dramburg
 		province_id = 54
 		province_id = 50
 		province_id = 2993
@@ -214,7 +231,7 @@ alpin_culture_region = {
 		area = trentino_area
 		area = carnia_area
 		area = switzerland_area
-		area = east_lombardy_area
+		province_id = 3294 #Valtellina
 		province_id = 76 #Salzburg
 	}
 }
@@ -256,6 +273,8 @@ illyrien_culture_region = {
 			region = balkan_region
 			hellenique_culture_region = no
 		}
+		area = carniola_area
+		area = friuli_area
 	}
 }
 
