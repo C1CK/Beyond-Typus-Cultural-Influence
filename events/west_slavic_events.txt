@@ -393,17 +393,18 @@ province_event = { #Polish settlements and assimilation
 	trigger = {
 		OR = {
 			owner = { culture_group = west_slavic }
-			AND = { #Only West Slavs for this one if already Slavic
-				OR = {
-					owner = { primary_culture = slavic_polish }
-					owner = { primary_culture = slavic_pomeransky }
-					owner = { primary_culture = slavic_czech }
-					owner = { primary_culture = slavic_slovak }
-					owner = { primary_culture = slavic_ceskoslovensky }
-					owner = { primary_culture = slavic_sorbian }
-					owner = { primary_culture = slavic_schlesian }
-				}
-				culture_group = unified_slavic
+			OR = { #Only West Slavs for this one if already Slavic
+				owner = { primary_culture = slavic_polish }
+				owner = { primary_culture = slavic_pomeransky }
+				owner = { primary_culture = slavic_czech }
+				owner = { primary_culture = slavic_slovak }
+				owner = { primary_culture = slavic_ceskoslovensky }
+				owner = { primary_culture = slavic_sorbian }
+				owner = { primary_culture = slavic_schlesian }
+			}
+			AND = { #Bypass the West Slav checks if province is not already Slavic
+				owner = { culture_group = unified_slavic }
+				NOT = { culture_group = unified_slavic } 
 			}
 		}
 		NOT = { culture = polish }
