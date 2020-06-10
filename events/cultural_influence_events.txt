@@ -68,3 +68,29 @@ country_event = { #West Germanic explanatory
 		name = CI_west_germanic_nation.a
 	}
 }
+
+#THIS EVENT MUST BE UPDATED WITH EVERY PATCH THAT CHANGES THE CULTURE FILE IN ANYWAY!!!
+country_event = { #Clear pre-colonial vars and flags after an update to reset the culture ids
+	id = cultural_influence_mechanics.3
+	title = null
+	desc = null
+
+	hidden = yes
+
+	trigger = {
+		NOT = { has_global_flag = CI_version_0_5_16 }
+	}
+
+	immediate = {
+		set_global_flag = CI_version_0_5_16
+		every_province = { #Clear old pre-colonial culture vars and flags
+			clr_province_flag = ci_set_pre_colonial_culture_var
+			#Clearing vars is not needed, as they will be overwritten once the effect is run again
+		}
+		pre_colonial_culture_preserver_effect = yes #Re-run setup effect
+	}
+
+	option = {
+		name = null
+	}
+}
