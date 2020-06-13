@@ -50,25 +50,18 @@ province_event = { #Irish reclamation
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				OR = {
+					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = gaelic }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						OR = {
-							culture_group = gaelic
-							culture_group = celtic
-						}
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		gaelic_irish_culture_region = yes
@@ -200,25 +193,18 @@ province_event = { #Highlander reclamation
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				OR = {
+					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = gaelic }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						OR = {
-							culture_group = gaelic
-							culture_group = celtic
-						}
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		gaelic_scottish_culture_region = yes
@@ -350,25 +336,18 @@ province_event = { #Manx reclamation
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				OR = {
+					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = gaelic }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						OR = {
-							culture_group = gaelic
-							culture_group = celtic
-						}
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		manx_culture_region = yes
@@ -500,25 +479,18 @@ province_event = { #Cornish Expansion
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				OR = {
+					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = brythonic }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						OR = {
-							culture_group = brythonic
-							culture_group = celtic
-						}
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		briton_cornish_culture_region = yes
@@ -650,25 +622,18 @@ province_event = { #Welsh Expansion
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				OR = {
+					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = brythonic }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						OR = {
-							culture_group = brythonic
-							culture_group = celtic
-						}
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		briton_welsh_culture_region = yes
@@ -797,22 +762,15 @@ province_event = { #Cwmbraic settlements and assimilation (Only Celts)
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = celtic }
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						culture_group = celtic
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		cwmbraic_culture_region = yes
@@ -926,22 +884,15 @@ province_event = { #Corieltauvi settlements and assimilation (Only Celts)
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = celtic }
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						culture_group = celtic
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		corieltauvi_culture_region = yes
@@ -1055,22 +1006,15 @@ province_event = { #Cantiaci settlements and assimilation (Only Celts)
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = celtic }
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						culture_group = celtic
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		cantiaci_culture_region = yes
@@ -1188,25 +1132,18 @@ province_event = { #Breton Expansion
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				OR = {
+					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = brythonic }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						OR = {
-							culture_group = brythonic
-							culture_group = celtic
-						}
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		brezhoneg_culture_region = yes
@@ -1823,22 +1760,15 @@ province_event = { #Belgae settlements and assimilation
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = celtic }
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						culture_group = celtic
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		belgae_culture_region = yes
@@ -1952,22 +1882,15 @@ province_event = { #Pictone settlements and assimilation
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = celtic }
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						culture_group = celtic
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		pictone_culture_region = yes
@@ -2081,22 +2004,15 @@ province_event = { #Arverni settlements and assimilation
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = celtic }
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						culture_group = celtic
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		arverni_culture_region = yes

@@ -14,22 +14,17 @@ province_event = { #Kurdish settlements and assimilation
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				OR = {
+					any_neighbor_province = { culture_group = iranian }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						culture_group = iranian
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		OWNER = { has_country_modifier = kurdish_settlements }
