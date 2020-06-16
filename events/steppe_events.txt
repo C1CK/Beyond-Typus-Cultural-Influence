@@ -639,7 +639,7 @@ province_event = { #Nomadic Growth -Hidden event, province level
 	}
 }
 
-province_event = { #Nomadic land owned by non-nomad
+province_event = { #Lack of settled authority
 	id = cultural_influence_steppe.13
 	title = null
 	desc = null
@@ -666,7 +666,7 @@ province_event = { #Nomadic land owned by non-nomad
 	}
 }
 
-province_event = { #Nomadic land restored to nomad
+province_event = { #Remove lack of settled authority
 	id = cultural_influence_steppe.14
 	title = null
 	desc = null
@@ -675,8 +675,13 @@ province_event = { #Nomadic land restored to nomad
 
 	trigger = {
 		steppe_culture_region = yes
-		owner = { is_nomad = yes }
-		has_province_modifier = nomadic_province
+		OR = { #Either restored to a nomad, or settled
+			AND = {
+				owner = { is_nomad = yes }
+				has_province_modifier = nomadic_province
+			}
+			NOT = { has_province_modifier = nomadic_province } #Settled
+		}
 		has_province_modifier = nomadic_land_owned_by_non_nomad
 	}
 
