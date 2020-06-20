@@ -61,7 +61,7 @@ split_russka = { #Splits Russka in to Belarussian, Ukrainian, and Rusyn
 	#Handle Rulers, Heirs, and Consorts via event to offer a choice
 }
 
-split_russki = { #Splits Russki into Northern, Middle, and Southern
+split_russki = { #Splits Russki into Northern, Middle, Southern and Siberian
 	#Provinces
 	every_province = { #Northern
 		limit = {
@@ -84,12 +84,13 @@ split_russki = { #Splits Russki into Northern, Middle, and Southern
 		}
 		change_culture = ryazanian
 	}
-	every_province = { #Cossack
+	every_province = { #Siberian
 		limit = {
 			culture = russian
-			cossack_culture_region = yes
+			cossack_rule_region_siberia = yes
+			northern_russian_culture_region = no #There is an overlap here, giving prio to Novgorodian
 		}
-		change_culture = cossack
+		change_culture = siberian_russian
 	}
 	#Handle Primary switches via event to offer a choice
 	#Accepted Cultures
@@ -121,13 +122,14 @@ split_russki = { #Splits Russki into Northern, Middle, and Southern
 			}
 			add_accepted_culture = ryazanian
 		}
-		if = { #If owns Cossack land
+		if = { #If owns Siberian land
 			limit = {
 				any_owned_province = {
-					cossack_rule_region = yes
+					cossack_rule_region_siberia = yes
+					northern_russian_culture_region = nov #There is an overlap here, giving prio to Novgorodian
 				}
 			}
-			add_accepted_culture = cossack
+			add_accepted_culture = siberian_russian
 		}
 		remove_accepted_culture = russian
 	}
