@@ -27,3 +27,112 @@ steppe_gain_random_dev = {
 		}
 	}
 }
+
+peasant_colonization_of_steppe_effect = {
+	if = { #Ruthenian pure
+		limit = {
+			russka_culture_region = yes
+			russki_culture_region = no
+			NOT = { has_global_flag = russka_splinter_flag }
+		}
+		change_culture = ruthenian
+	}
+	if = { #Ruthenian, prio over Russian
+		limit = {
+			OWNER = { primary_culture = ruthenian }
+			russka_culture_region = yes
+			russki_culture_region = yes
+			NOT = { has_global_flag = russka_splinter_flag }
+		}
+		change_culture = ruthenian
+	}
+	if = { #Ukrainian pure
+		limit = {
+			ukrainian_culture_region = yes
+			russki_culture_region = no
+			has_global_flag = russka_splinter_flag
+		}
+		change_culture = ukrainian
+	}
+	if = { #Ukrainian, prio over Russian
+		limit = {
+			OR = {
+				OWNER = { primary_culture = ukrainian }
+				OWNEr = { primary_culture = byelorussian }
+				OWNER = { primary_culture = rusyn }
+			}
+			russka_culture_region = yes
+			russki_culture_region = yes
+			NOT = { has_global_flag = russka_splinter_flag }
+		}
+		change_culture = ukrainian
+	}
+	if = { #Russian pure
+		limit = {
+			russki_culture_region = yes
+			russka_culture_region = no
+			NOT = { has_global_flag = russki_splinter_flag }
+		}
+		change_culture = russian
+	}
+	if = { #Russian, prio over Ukrainian
+		limit = {
+			OWNER = { primary_culture = russian }
+			russki_culture_region = yes
+			russka_culture_region = yes
+			NOT = { has_global_flag = russki_splinter_flag }
+		}
+		change_culture = russian
+	}
+	if = { #Syevernorusskiye (No overlap here)
+		limit = {
+			northern_russian_culture_region = yes
+			has_global_flag = russki_splinter_flag
+		}
+		change_culture = novgorodian
+	}
+	if = { #Srednoyerusskiye pure
+		limit = {
+			middle_russian_culture_region = yes
+			russka_culture_region = no
+			has_global_flag = russki_splinter_flag
+		}
+		change_culture = muscovite
+	}
+	if = { #Srednoyerusskiye, prio over Ukrainian
+		limit = {
+			OR = {
+				OWNER = { primary_culture = novgorodian }
+				OWNER = { primary_culture = muscovite }
+				OWNER = { primary_culture = ryazanian }
+				OWNER = { primary_culture = siberian_russian }
+			}
+			middle_russian_culture_region = yes
+			russka_culture_region = yes
+			has_global_flag = russki_splinter_flag
+		}
+		change_culture = muscovite
+	}
+	if = { #Yuzhnorusskiye pure
+		limit = {
+			southern_russian_culture_region = yes
+			russka_culture_region = no
+			has_global_flag = russki_splinter_flag
+		}
+		change_culture = ryazanian
+	}
+	if = { #Yuzhnorusskiye, prio over Ukrainian
+		limit = {
+			OR = {
+				OWNER = { primary_culture = novgorodian }
+				OWNER = { primary_culture = muscovite }
+				OWNER = { primary_culture = ryazanian }
+				OWNER = { primary_culture = siberian_russian }
+			}
+			southern_russian_culture_region = yes
+			russka_culture_region = yes
+			has_global_flag = russki_splinter_flag
+		}
+		change_culture = ryazanian
+	}
+}
