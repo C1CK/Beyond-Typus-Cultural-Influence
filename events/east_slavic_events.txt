@@ -1,0 +1,2395 @@
+namespace = cultural_influence_east_slavic
+#Has a whole load of stuff only loosely related to Culture, but are neccessary for all-encompasing mechanics
+
+country_event = { #Russka Splinter (Based around the ethnogenesis of Ukrainian)
+	id = cultural_influence_east_slavic.1
+	title = russka_splinter.title
+	desc = russka_splinter.desc
+	picture = CITY_VIEW_eventPicture
+
+	major = yes
+
+	trigger = {
+		is_year = 1500 #Delay until 1500
+		any_owned_province = { #Make sure it actually fires for someone relevant
+			culture = ruthenian
+		}
+		OR = { #Either condition must be fulfilled
+			exists = ZAZ #Zaporozhia was integral to the formation of a modern Ukrainian identity
+			LIT = {
+				num_of_owned_provinces_with = {
+					culture = ruthenian
+					ukrainian_culture_region = yes
+					value = 30
+				}
+			}
+			any_country = { #Polish influence on the language
+				limit = {
+					primary_culture = polish
+				}
+				num_of_owned_provinces_with = {
+					culture = ruthenian
+					ukrainian_culture_region = yes
+					value = 30
+				}
+			}
+			calc_true_if = { #Heavy cossackization
+				all_province = {
+					ukrainian_culture_region = yes
+					culture = cossack
+				}
+				amount = 20
+			}
+		}
+		has_global_flag = CI_events_enabled
+		NOT = { has_global_flag = russka_splinter_flag }
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.10 #Near instant
+			exists = ZAZ
+		}
+		modifier = {
+			factor = 0.75
+			calc_true_if = { #Heavy cossackization
+				all_province = {
+					ukrainian_culture_region = yes
+					culture = cossack
+				}
+				amount = 10
+			}
+		}
+		modifier = {
+			factor = 0.75
+			calc_true_if = { #Heavy cossackization
+				all_province = {
+					ukrainian_culture_region = yes
+					culture = cossack
+				}
+				amount = 20
+			}
+		}
+		modifier = {
+			factor = 0.75
+			calc_true_if = { #Heavy cossackization
+				all_province = {
+					ukrainian_culture_region = yes
+					culture = cossack
+				}
+				amount = 30
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			#split_russka = yes #Made much more intricate, and is now more based on the ethnogenesis of the Ukrainian state than a divergence (That isn't even that major a fracture, as compared with Frisian or Chagatai)
+			set_global_flag = russka_splinter_flag
+			set_global_flag = ukrainian_cossack_identity_flag #Used to tell whether to skip Cossackization in the Ukrainian Heartland
+
+			every_province = {
+				limit = {
+					culture = ruthenian
+					ukrainian_culture_region = yes
+					rusyn_culture_region = no #Rusyn takes prio
+				}
+				change_culture = ukrainian
+			}
+			every_province = {
+				limit = {
+					culture = cossack
+					ukrainian_culture_region = yes
+					ukrainian_cossack_exclusion_zone = no #Areas excluded, primarily the lands traditionally dominated by the Russian Cossacks
+				}
+				change_culture = ukrainian
+				remove_province_modifier = cossack_stanitsa_modifier
+			}
+			every_province = {
+				limit = {
+					culture = ruthenian
+					ukrainian_culture_region = no #Ukrainian takes prio
+					belarussian_culture_region = yes
+				}
+				change_culture = byelorussian
+			}
+			every_province = {
+				limit = {
+					culture = ruthenian
+					rusyn_culture_region = yes
+				}
+				change_culture = rusyn
+			}
+
+			every_country = {
+				limit = {
+					primary_culture = ruthenian
+				}
+				country_event = {
+					id = cultural_influence_east_slavic.2 #Pick new Primary
+					days = 0
+				}
+			}
+		}
+	}
+
+	option = {
+		name = russka_spinter.a
+	}
+}
+
+country_event = { #Choose new Primary
+	id = cultural_influence_east_slavic.2
+	title = russka_splinter_new_primary.title
+	desc = russka_splinter_new_primary.desc
+	picture = CITY_VIEW_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #Ukrainian
+		name = russka_splinter_new_primary.a
+
+		remove_accepted_culture = ukrainian
+		change_primary_culture = ukrainian
+		set_ruler_culture = ukrainian
+		set_heir_culture = ukrainian
+		set_consort_culture = ukrainian
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = ukrainian
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { ukrainian_culture_region = yes }
+			}
+		}
+	}
+
+	option = { #Belarussian
+		name = russka_splinter_new_primary.b
+
+		remove_accepted_culture = byelorussian
+		change_primary_culture = byelorussian
+		set_ruler_culture = byelorussian
+		set_heir_culture = byelorussian
+		set_consort_culture = byelorussian
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = byelorussian
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { belarussian_culture_region = yes }
+			}
+		}
+	}
+
+	option = { #Rusyn
+		name = russka_splinter_new_primary.c
+
+		remove_accepted_culture = rusyn
+		change_primary_culture = rusyn
+		set_ruler_culture = rusyn
+		set_heir_culture = rusyn
+		set_consort_culture = rusyn
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = rusyn
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { rusyn_culture_region = yes }
+			}
+		}
+	}
+
+	option = { #Cossack
+		name = russka_splinter_new_primary.d
+
+		remove_accepted_culture = cossack
+		change_primary_culture = cossack
+		set_ruler_culture = cossack
+		set_heir_culture = cossack
+		set_consort_culture = cossack
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = cossack
+			}
+			modifier = {
+				factor = 100
+				#capital_scope = { cossack_rule_region_european_steppe = yes } #Ignore for cossack, as it spreads far more north than it reasonably will ever exist
+			}
+		}
+	}
+}
+
+country_event = { #Russki Splinter
+	id = cultural_influence_east_slavic.3
+	title = russki_splinter.title
+	desc = russki_splinter.desc
+	picture = CITY_VIEW_eventPicture
+
+	major = yes
+
+	trigger = {
+		is_year = 1550 #Delay until 1550
+		always = no
+		any_owned_province = { #Make sure it actually fires for someone relevant
+			culture = russian
+		}
+		RUS = { exists = no } #Russia musn't exist
+		OR = {
+			AND = { #Provinces fell to Foreign rule
+				calc_true_if = {
+					all_province = {
+						culture = russian
+						owner = { NOT = { primary_culture = russian } }
+					}
+					amount = 25
+				}
+			}
+			295 = { #Moscow is under foreign domination (Principally checking for tributary of some nomad)
+				OWNER = {
+					culture_group = east_slavic
+					is_subject = yes
+					OVERLORD = {
+						NOT = { primary_culture = russian }
+					}
+				}
+			}
+			exists = GLH #Golden Horde has formed
+			AND = { #Both factional rivals still exist
+				exists = MOS
+				exists = NOV
+				is_year = 1600
+			}
+		}
+		has_global_flag = CI_events_enabled
+		NOT = { has_global_flag = russki_splinter_flag }
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			exists = UKR #Ruthenia
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			split_russki = yes
+
+			set_global_flag = russki_splinter_flag
+
+			every_country = {
+				limit = {
+					primary_culture = russian
+				}
+				country_event = {
+					id = cultural_influence_east_slavic.4 #Pick new Primary
+					days = 0
+				}
+			}
+		}
+	}
+
+	option = {
+		name = russki_spinter.a
+	}
+}
+
+country_event = { #Choose new Primary
+	id = cultural_influence_east_slavic.4
+	title = russki_splinter_new_primary.title
+	desc = russki_splinter_new_primary.desc
+	picture = CITY_VIEW_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #Northern
+		name = russki_splinter_new_primary.a
+
+		remove_accepted_culture = novgorodian
+		change_primary_culture = novgorodian
+		set_ruler_culture = novgorodian
+		set_heir_culture = novgorodian
+		set_consort_culture = novgorodian
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = novgorodian
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { northern_russian_culture_region = yes }
+			}
+		}
+	}
+
+	option = { #Middle
+		name = russki_splinter_new_primary.b
+
+		remove_accepted_culture = muscovite
+		change_primary_culture = muscovite
+		set_ruler_culture = muscovite
+		set_heir_culture = muscovite
+		set_consort_culture = muscovite
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = muscovite
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { middle_russian_culture_region = yes }
+			}
+		}
+	}
+
+	option = { #Southern
+		name = russki_splinter_new_primary.c
+
+		remove_accepted_culture = ryazanian
+		change_primary_culture = ryazanian
+		set_ruler_culture = ryazanian
+		set_heir_culture = ryazanian
+		set_consort_culture = ryazanian
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = ryazanian
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { southern_russian_culture_region = yes }
+			}
+		}
+	}
+
+	option = { #Cossack
+		name = russki_splinter_new_primary.d
+
+		remove_accepted_culture = cossack
+		change_primary_culture = cossack
+		set_ruler_culture = cossack
+		set_heir_culture = cossack
+		set_consort_culture = cossack
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = cossack
+			}
+			modifier = {
+				factor = 100
+				#capital_scope = { cossack_rule_region_european_steppe = yes } #Ignore for cossack, as it spreads far more north than it reasonably will ever exist
+			}
+		}
+	}
+
+	option = { #Siberian
+		name = russki_splinter_new_primary.e
+
+		remove_accepted_culture = siberian_russian
+		change_primary_culture = siberian_russian
+		set_ruler_culture = siberian_russian
+		set_heir_culture = siberian_russian
+		set_consort_culture = siberian_russian
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = siberian_russian
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { cossack_rule_region_siberia = yes }
+			}
+		}
+	}
+}
+
+country_event = { #Russka Merger
+	id = cultural_influence_east_slavic.5
+	title = russka_merger.title
+	desc = russka_merger.desc
+	picture = GREAT_BUILDING_eventPicture
+
+	trigger = {
+		russka_cultures = yes
+		europe = { #Owned by ROOT, or not needed
+			OR = {
+				russka_cultures = no
+				owned_by = ROOT
+			}
+			type = all
+		}
+		has_global_flag = CI_events_enabled
+		has_global_flag = russka_splinter_flag
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	immediate = {
+		hidden_effect = {
+			merge_russka = yes
+			clr_global_flag = russka_splinter_flag
+		}
+	}
+
+	option = {
+		name = russka_merger.a
+
+		add_prestige = 20
+	}
+}
+
+country_event = { #Russki Merger
+	id = cultural_influence_east_slavic.6
+	title = russki_merger.title
+	desc = russki_merger.desc
+	picture = GREAT_BUILDING_eventPicture
+
+	trigger = {
+		russki_cultures = yes
+		europe = { #Owned by ROOT, or not needed
+			OR = {
+				russki_cultures = no
+				owned_by = ROOT
+			}
+			type = all
+		}
+		has_global_flag = CI_events_enabled
+		has_global_flag = russki_splinter_flag
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	immediate = {
+		hidden_effect = {
+			merge_russki = yes
+			clr_global_flag = russki_splinter_flag
+		}
+	}
+
+	option = {
+		name = russki_merger.a
+
+		add_prestige = 20
+	}
+}
+
+province_event = { #Northern Russian expansion (Settle) (None of these are valid in the Cossack rule regions)
+	id = cultural_influence_east_slavic.7
+	title = novgorodian_expansion.title
+	desc = novgorodian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = east_slavic }
+		NOT = { culture_group = east_slavic } #These have special interplay events
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = east_slavic }
+				OR = {
+					OWNER = { has_country_modifier = east_slavic_settlements }
+					OWNER = { has_country_modifier = cossackization }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+		}
+		northern_russian_culture_region = yes
+		cossack_rule_region_european_steppe = no #Needs to be Cossack instead
+		cossack_rule_region_siberia = no #Needs to be Cossack instead
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = east_slavic
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			OR = { #ai uses thiS one
+				NOT = { has_dlc = "Dharma" }
+				owner = { ai = yes }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = novgorodian_expansion.a
+
+		if = {
+			limit = {
+				NOT = { has_global_flag = russki_splinter_flag }
+			}
+			change_culture = russian
+		}
+		if = {
+			limit = {
+				has_global_flag = russki_splinter_flag
+			}
+			change_culture = novgorodian
+		}
+	}
+}
+
+province_event = { #Middle Russian expansion (Settle)
+	id = cultural_influence_east_slavic.8
+	title = muscovite_expansion.title
+	desc = muscovite_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = east_slavic }
+		NOT = { culture_group = east_slavic } #These have special interplay events
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = east_slavic }
+				OR = {
+					OWNER = { has_country_modifier = east_slavic_settlements }
+					OWNER = { has_country_modifier = cossackization }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+		}
+		middle_russian_culture_region = yes
+		cossack_rule_region_european_steppe = no #Needs to be Cossack instead
+		cossack_rule_region_siberia = no #Needs to be Cossack instead
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = east_slavic
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			OR = { #ai uses thiS one
+				NOT = { has_dlc = "Dharma" }
+				owner = { ai = yes }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = muscovite_expansion.a
+
+		if = {
+			limit = {
+				NOT = { has_global_flag = russki_splinter_flag }
+			}
+			change_culture = russian
+		}
+		if = {
+			limit = {
+				has_global_flag = russki_splinter_flag
+			}
+			change_culture = muscovite
+		}
+	}
+}
+
+province_event = { #Southern Russian expansion (Settle)
+	id = cultural_influence_east_slavic.9
+	title = ryazanian_expansion.title
+	desc = ryazanian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = east_slavic }
+		NOT = { culture_group = east_slavic } #These have special interplay events
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = east_slavic }
+				OR = {
+					OWNER = { has_country_modifier = east_slavic_settlements }
+					OWNER = { has_country_modifier = cossackization }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+		}
+		southern_russian_culture_region = yes
+		cossack_rule_region_european_steppe = no #Needs to be Cossack instead
+		cossack_rule_region_siberia = no #Needs to be Cossack instead
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			culture_group = east_slavic
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			OR = { #ai uses thiS one
+				NOT = { has_dlc = "Dharma" }
+				owner = { ai = yes }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = ryazanian_expansion.a
+
+		if = {
+			limit = {
+				NOT = { has_global_flag = russki_splinter_flag }
+			}
+			change_culture = russian
+		}
+		if = {
+			limit = {
+				has_global_flag = russki_splinter_flag
+			}
+			change_culture = ryazanian
+		}
+	}
+}
+
+province_event = { #Ukrainian expansion (Settle)
+	id = cultural_influence_east_slavic.10
+	title = ukrainian_expansion.title
+	desc = ukrainian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = east_slavic }
+		NOT = { culture_group = east_slavic } #These have special interplay events
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = east_slavic }
+				OR = {
+					OWNER = { has_country_modifier = east_slavic_settlements }
+					OWNER = { has_country_modifier = cossackization }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+		}
+		ukrainian_culture_region = yes
+		cossack_rule_region_european_steppe = no #Needs to be Cossack instead
+		cossack_rule_region_siberia = no #Needs to be Cossack instead
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = ukrainian_expansion.a
+
+		if = {
+			limit = {
+				NOT = { has_global_flag = russka_splinter_flag }
+			}
+			change_culture = ruthenian
+		}
+		if = {
+			limit = {
+				has_global_flag = russka_splinter_flag
+			}
+			change_culture = ukrainian
+		}
+	}
+}
+
+province_event = { #Belarussian expansion (Settle)
+	id = cultural_influence_east_slavic.11
+	title = belarussian_expansion.title
+	desc = belarussian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = east_slavic }
+		NOT = { culture_group = east_slavic } #These have special interplay events
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = east_slavic }
+				OR = {
+					OWNER = { has_country_modifier = east_slavic_settlements }
+					OWNER = { has_country_modifier = cossackization }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+		}
+		belarussian_culture_region = yes
+		cossack_rule_region_european_steppe = no #Needs to be Cossack instead
+		cossack_rule_region_siberia = no #Needs to be Cossack instead
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = belarussian_expansion.a
+
+		if = {
+			limit = {
+				NOT = { has_global_flag = russka_splinter_flag }
+			}
+			change_culture = ruthenian
+		}
+		if = {
+			limit = {
+				has_global_flag = russka_splinter_flag
+			}
+			change_culture = byelorussian
+		}
+	}
+}
+
+province_event = { #Rusyn expansion (Settle)
+	id = cultural_influence_east_slavic.12
+	title = rusyn_expansion.title
+	desc = rusyn_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		owner = { culture_group = east_slavic }
+		NOT = { culture_group = east_slavic } #These have special interplay events
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = east_slavic }
+				OR = {
+					OWNER = { has_country_modifier = east_slavic_settlements }
+					OWNER = { has_country_modifier = cossackization }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+		}
+		rusyn_culture_region = yes
+		cossack_rule_region_european_steppe = no #Needs to be Cossack instead
+		cossack_rule_region_siberia = no #Needs to be Cossack instead
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.2
+			development = 10
+		}
+		modifier = {
+			factor = 1.4
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = rusyn_expansion.a
+
+		if = {
+			limit = {
+				NOT = { has_global_flag = russka_splinter_flag }
+			}
+			change_culture = ruthenian
+		}
+		if = {
+			limit = {
+				has_global_flag = russka_splinter_flag
+			}
+			change_culture = rusyn
+		}
+	}
+}
+
+province_event = { #Northern Russian influences (Custom Assimilated)
+	id = cultural_influence_east_slavic.13
+	title = northern_russian_influences.title
+	desc = northern_russian_influences.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OR = {
+			OWNER = { primary_culture = novgorodian }
+			OWNER = { primary_culture = russian }
+		}
+		NOT = { culture = novgorodian }
+		NOT = { culture = russian }
+		culture_group = east_slavic
+		NOT = { culture = cossack }
+		OR = {
+			any_neighbor_province = { culture = novgorodian }
+			any_neighbor_province = { culture = russian }
+		}
+		northern_russian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Custom Assimilation MTTH
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = northern_russian_influences.a
+
+		if = {
+			limit = {
+				NOT = { has_global_flag = russki_splinter_flag }
+			}
+			change_culture = russian
+		}
+		if = {
+			limit = {
+				has_global_flag = russki_splinter_flag
+			}
+			change_culture = novgorodian
+		}
+	}
+}
+
+province_event = { #Middle Russian influences (Custom Assimilated)
+	id = cultural_influence_east_slavic.14
+	title = middle_russian_influences.title
+	desc = middle_russian_influences.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OR = {
+			OWNER = { primary_culture = muscovite }
+			OWNER = { primary_culture = russian }
+		}
+		NOT = { culture = muscovite }
+		NOT = { culture = russian }
+		culture_group = east_slavic
+		NOT = { culture = cossack }
+		OR = {
+			any_neighbor_province = { culture = muscovite }
+			any_neighbor_province = { culture = russian }
+		}
+		middle_russian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Custom Assimilation MTTH
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = middle_russian_influences.a
+
+		if = {
+			limit = {
+				NOT = { has_global_flag = russki_splinter_flag }
+			}
+			change_culture = russian
+		}
+		if = {
+			limit = {
+				has_global_flag = russki_splinter_flag
+			}
+			change_culture = muscovite
+		}
+	}
+}
+
+province_event = { #Southern Russian influences (Custom Assimilated)
+	id = cultural_influence_east_slavic.15
+	title = southern_russian_influences.title
+	desc = southern_russian_influences.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OR = {
+			OWNER = { primary_culture = ryazanian }
+			OWNER = { primary_culture = russian }
+		}
+		NOT = { culture = ryazanian }
+		NOT = { culture = russian }
+		culture_group = east_slavic
+		NOT = { culture = cossack }
+		OR = {
+			any_neighbor_province = { culture = ryazanian }
+			any_neighbor_province = { culture = russian }
+		}
+		southern_russian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Custom Assimilation MTTH
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = southern_russian_influences.a
+
+		if = {
+			limit = {
+				NOT = { has_global_flag = russki_splinter_flag }
+			}
+			change_culture = russian
+		}
+		if = {
+			limit = {
+				has_global_flag = russki_splinter_flag
+			}
+			change_culture = ryazanian
+		}
+	}
+}
+
+province_event = { #Ukrainian influences (Custom Assimilated)
+	id = cultural_influence_east_slavic.16
+	title = ukrainian_influences.title
+	desc = ukrainian_influences.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OR = {
+			OWNER = { primary_culture = ukrainian }
+			OWNER = { primary_culture = ruthenian }
+		}
+		NOT = { culture = ukrainian }
+		NOT = { culture = ruthenian }
+		OR = {
+			culture_group = east_slavic
+			culture = polish #Eastern dialects are transitional to Polish
+		}
+		NOT = { culture = cossack }
+		OR = {
+			any_neighbor_province = { culture = ukrainian }
+			any_neighbor_province = { culture = ruthenian }
+		}
+		ukrainian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Custom Assimilation MTTH
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = ukrainian_influences.a
+
+		if = {
+			limit = {
+				NOT = { has_global_flag = russka_splinter_flag }
+			}
+			change_culture = ruthenian
+		}
+		if = {
+			limit = {
+				has_global_flag = russka_splinter_flag
+			}
+			change_culture = ukrainian
+		}
+	}
+}
+
+province_event = { #Belarussian influences (Custom Assimilated)
+	id = cultural_influence_east_slavic.17
+	title = belarussian_influences.title
+	desc = belarussian_influences.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		OR = {
+			OWNER = { primary_culture = byelorussian }
+			OWNER = { primary_culture = ruthenian }
+		}
+		NOT = { culture = byelorussian }
+		NOT = { culture = ruthenian }
+		OR = {
+			culture_group = east_slavic
+			culture = polish #Eastern dialects are transitional to Polish
+		}
+		NOT = { culture = cossack }
+		OR = {
+			any_neighbor_province = { culture = byelorussian }
+			any_neighbor_province = { culture = ruthenian }
+		}
+		belarussian_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Custom Assimilation MTTH
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = belarussian_influences.a
+
+		if = {
+			limit = {
+				NOT = { has_global_flag = russka_splinter_flag }
+			}
+			change_culture = ruthenian
+		}
+		if = {
+			limit = {
+				has_global_flag = russka_splinter_flag
+			}
+			change_culture = byelorussian
+		}
+	}
+}
+
+province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outside of Siberia)
+	id = cultural_influence_east_slavic.18
+	title = cossack_expansion_european_steppe.title
+	desc = cossack_expansion_european_steppe.desc
+	picture = COSSACK_ESTATE_eventPicture
+
+	trigger = {
+		OR = {
+			owner = { culture_group = east_slavic }
+			owner = { accepted_culture = ruthenian } #These are to allow a PLC/Lithuania to deal with zaporizhia
+			owner = { accepted_culture = ukrainian }
+			owner = { accepted_culture = cossack }
+		}
+		NOT = { culture_group = east_slavic } #Must not already be Slavic
+		NOT = { culture_group = west_slavic } #Must not already be Slavic
+		NOT = { culture_group = south_slavic } #Must not already be Slavic
+		NOT = { culture_group = unified_slavic } #Must not already be Slavic
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = east_slavic }
+				OR = {
+					OWNER = { has_country_modifier = east_slavic_settlements }
+					OWNER = { has_country_modifier = cossackization }
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+		}
+		owner = { is_nomad = no }
+		NOT = { has_province_modifier = steppe_city } #Must be sacked first
+		cossack_rule_region_european_steppe = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Adapted settlement MTTH
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			OR = { #ai uses thiS one
+				NOT = { has_dlc = "Dharma" }
+				owner = { ai = yes }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		#Dev Factors removed, since they are innapropriate here
+		modifier = { #Adm Factors changed to mil, as they make more sense here
+			factor = 0.9
+			mil = 4
+		}
+		modifier = {
+			factor = 0.9
+			mil = 5
+		}
+		modifier = {
+			factor = 0.9
+			mil = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = mil
+		}
+	}
+
+	option = {
+		name = cossack_expansion_european_steppe.a
+
+		add_base_tax = -2
+		add_base_production = -2
+		add_base_manpower = -2
+
+		if = {
+			limit = {
+				has_global_flag = ukrainian_cossack_identity_flag
+				ukrainian_culture_region = yes
+				ukrainian_cossack_exclusion_zone = no
+			}
+			change_culture = ukrainian
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { has_global_flag = ukrainian_cossack_identity_flag }
+					ukrainian_culture_region = no
+				}
+			}
+			change_culture = cossack
+		}
+		change_religion = orthodox
+		add_province_modifier = {
+			name = cossack_stanitsa_modifier
+			duration = -1
+		}
+		remove_province_modifier = nomadic_province
+		if = {
+			limit = {
+				has_terrain = steppe
+			}
+			add_permanent_province_modifier = { 
+				name = settled_steppe
+				duration = -1
+			}
+		}
+	}
+}
+
+province_event = { #Kazan -> Urals portion
+	id = cultural_influence_east_slavic.19
+	title = kazan_to_urals_river.title
+	desc = {
+		desc = kazan_to_urals_river_first.desc
+		trigger = { NOT = { any_province = { has_province_modifier = path_to_the_urals_modifier } } }
+	}
+	desc = {
+		desc = kazan_to_urals_river.desc
+		trigger = { any_province = { has_province_modifier = path_to_the_urals_modifier } }
+	}
+	picture = SHIP_SAILING_eventPicture
+
+	trigger = {
+		OR = { #Asians don't need this, as they would enter Siberia from the south, and not travel East-West
+			OWNER = { technology_group = western }
+			OWNER = { technology_group = eastern }
+		}
+		path_to_the_urals = yes
+		OR = { #Must start in Qazan and then spread East
+			any_neighbor_province = { has_province_modifier = path_to_the_urals_modifier }
+			province_id = 1082 #Qazan
+		}
+		NOT = { has_province_modifier = path_to_the_urals_modifier }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 1
+	}
+
+	option = {
+		name = kazan_to_urals_river.a
+
+		add_permanent_province_modifier = {
+			name = path_to_the_urals_modifier
+			duration = -1
+		}
+	}
+}
+
+country_event = { #Exploration of the Cherdyn Route
+	id = cultural_influence_east_slavic.20
+	title = exploration_of_the_cherdyn_route.title
+	desc = exploration_of_the_cherdyn_route.desc
+	picture = SHIP_SAILING_eventPicture
+
+	trigger = {
+		OR = { #Asians don't need this, as they would enter Siberia from the south, and not travel East-West
+			technology_group = western
+			technology_group = eastern
+		}
+		305 = { has_province_modifier = path_to_the_urals_modifier }
+		NOT = { has_global_flag = cherdyn_route_discovered }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = exploration_of_the_cherdyn_route.a
+
+		set_global_flag = cherdyn_route_discovered
+		every_province = {
+			limit = {
+				cherdyn_route = yes
+			}
+			add_permanent_province_modifier = {
+				name = cherdyn_route_modifier
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = { #Exploration of the Babinov Road
+	id = cultural_influence_east_slavic.21
+	title = exploration_of_the_babinov_road.title
+	desc = exploration_of_the_babinov_road.desc
+	picture = SHIP_SAILING_eventPicture
+
+	trigger = {
+		OR = { #Asians don't need this, as they would enter Siberia from the south, and not travel East-West
+			technology_group = western
+			technology_group = eastern
+		}
+		owns_core_province = 1078 #Tura (Needs to be owned since the route requires forts)
+		305 = { has_province_modifier = path_to_the_urals_modifier }
+		has_global_flag = cherdyn_route_discovered
+		had_global_flag = {
+			flag = cherdyn_route_discovered
+			days = 7300 #20 Years
+		}
+		NOT = { has_global_flag = babinov_road_discovered }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = exploration_of_the_cherdyn_route.a
+
+		every_province = {
+			limit = {
+				cherdyn_route = yes
+			}
+			remove_province_modifier = cherdyn_route_modifier
+		}
+		set_global_flag = babinov_road_discovered
+		every_province = {
+			limit = {
+				babinov_road = yes
+			}
+			add_permanent_province_modifier = {
+				name = babinov_road_modifier
+				duration = -1
+			}
+		}
+	}
+}
+
+province_event = { #Exploration of the Siberian River Routes
+	id = cultural_influence_east_slavic.22
+	title = siberian_river_route_expansion.title
+	desc = siberian_river_route_expansion.desc
+	picture = SHIP_SAILING_eventPicture
+
+	trigger = {
+		OR = { #Asians don't need this, as they would enter Siberia from the south, and not travel East-West
+			OWNER = { technology_group = western }
+			OWNER = { technology_group = eastern }
+		}
+		siberian_river_route = yes
+		is_city = yes #Must be a finished colony
+		OR = { #Must be connected to the network
+			any_neighbor_province = { has_province_modifier = siberian_river_route_modifier }
+			any_neighbor_province = { has_province_modifier = cherdyn_route_modifier }
+			any_neighbor_province = { has_province_modifier = babinov_road_modifier }
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 2 #Not supposed to be gated by this, and is more based on where the Russian Frontier is
+	}
+
+	option = {
+		name = siberian_river_route_expansion.a
+
+		add_permanent_province_modifier = {
+			name = siberian_river_route_modifier
+			duration = -1
+		}
+	}
+}
+
+province_event = { #Cossack expansion (Custom Settled) (Siberian Cossacks)
+	id = cultural_influence_east_slavic.23
+	title = cossack_expansion_siberia.title
+	desc = cossack_expansion_siberia.desc
+	picture = COSSACK_ESTATE_eventPicture
+
+	trigger = {
+		owner = { culture_group = east_slavic } #Only East Slavs can do the Siberian Cossacks
+		NOT = { culture_group = east_slavic } #Must not already be Slavic
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = { #Adapted intent check, largely uses the hardcoded river routes system, but a player can use a colonist or dev pushing to target provinces
+			AND = {
+				OR = { #Mustn't be too remote, Either a CoT for cities off the river routes, or the river route
+					province_has_center_of_trade_of_level = 1
+					has_province_modifier = siberian_river_route_modifier
+					has_province_modifier = path_to_the_urals_modifier
+					has_province_modifier = babinov_road_modifier #No Cherdyn modifier as that never has a lasting impact on demographics
+				}
+				OR = { #No reason for random cities to spring up along the river if there is no CoT
+					any_neighbor_province = {
+						culture_group = east_slavic
+						is_city = yes
+					}
+					province_has_center_of_trade_of_level = 1
+				}
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+		}
+		owner = { is_nomad = no }
+		NOT = { has_province_modifier = steppe_city } #Must be sacked first
+		cossack_rule_region_siberia = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Adapted settlement MTTH
+		#Template Settled MTTH
+		years = 20 #Increased to 20 base, as these provinces are /much/ larger than in Russia proper
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Shorten time if province has been targeted
+			factor = 0.75
+			AND = {
+				has_colonist = yes
+				is_city = yes
+			}
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		#Dev Factors removed, since they are innapropriate here
+		modifier = { #Adm Factors changed to mil, as they make more sense here
+			factor = 0.9
+			mil = 4
+		}
+		modifier = {
+			factor = 0.9
+			mil = 5
+		}
+		modifier = {
+			factor = 0.9
+			mil = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = mil
+		}
+	}
+
+	option = {
+		name = cossack_expansion_siberia.a
+
+		change_culture = cossack
+		change_religion = orthodox
+		add_permanent_province_modifier = {
+			name = siberian_ostrog_modifier
+			duration = -1
+		}
+		remove_province_modifier = nomadic_province
+		if = {
+			limit = {
+				has_terrain = steppe
+			}
+			add_permanent_province_modifier = { 
+				name = settled_steppe
+				duration = -1
+			}
+		}
+	}
+}
+
+province_event = { #Peasant colonization of Cossack land
+	id = cultural_influence_east_slavic.24
+	title = peasant_colonization_of_cossack_land.title
+	desc = peasant_colonization_of_cossack_land.desc
+	picture = CITY_DEVELOPMENT_eventPicture
+
+	trigger = {
+		owner = { culture_group = east_slavic }
+		culture = cossack
+		has_province_modifier = cossack_stanitsa_modifier
+		NOT = { any_neighbor_province = { has_province_modifier = nomadic_province } } #Mustn't be on the Frontier
+		cossack_rule_region_european_steppe = yes
+		development = 10
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 20
+
+		modifier = {
+			factor = 0.75
+			development = 12
+		}
+		modifier = {
+			factor = 0.75
+			development = 16
+		}
+		modifier = {
+			factor = 0.5
+			has_colonist = yes
+			is_city = yes
+		}
+	}
+
+	option = {
+		name = peasant_colonization_of_cossack_land.a
+
+		remove_province_modifier = cossack_stanitsa_modifier
+		remove_province_modifier = abatis_line_modifier #Just incase
+
+		peasant_colonization_of_steppe_effect = yes
+	}
+}
+
+province_event = { #Construction of Great Abatis Line (Historical line just south of the Oka, In CI this can be extended further west than historical) (Also has an alt-hist Ruthenian line for Ruthenia)
+	id = cultural_influence_east_slavic.25
+	title = construction_of_great_abatis_line_event.title
+	desc = construction_of_great_abatis_line_event.desc
+	picture = FORT_eventPicture
+
+	trigger = {
+		OR = {
+			AND = {
+				owner = { has_country_flag = construction_of_great_abatis_line_russian_flag }
+				great_abatis_line_russian_region = yes
+			}
+			AND = {
+				owner = { has_country_flag = construction_of_great_abatis_line_ruthenian_flag }
+				great_abatis_line_ruthenian_region = yes
+			}
+		}
+		OR = { #Developed enough for the construction
+			development = 16
+			fort_level = 1
+			AND = { #Built weaker, using the influence from the larger fortress adjacent
+				development = 8
+				OR = {
+					any_neighbor_province = { development = 16 }
+					any_neighbor_province = { fort_level = 1 }
+				}
+				OR = {
+					any_neighbor_province = { has_province_modifier = great_abatis_line_russian_modifier }
+					any_neighbor_province = { has_province_modifier = great_abatis_line_ruthenian_modifier }
+				}
+			}
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = construction_of_great_abatis_line_event.a
+
+		remove_province_modifier = cossack_stanitsa_modifier
+		remove_province_modifier = abatis_line_modifier #Just incase
+		if = {
+			limit = {
+				has_country_flag = construction_of_great_abatis_line_russian_flag
+			}
+			add_permanent_province_modifier = {
+				name = great_abatis_line_russian_modifier
+				duration = -1
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = construction_of_great_abatis_line_ruthenian_flag
+			}
+			add_permanent_province_modifier = {
+				name = great_abatis_line_ruthenian_modifier
+				duration = -1
+			}
+		}
+	}
+}
+
+province_event = { #Abatis line advancement
+	id = cultural_influence_east_slavic.26
+	title = advancement_of_abatis_line.title
+	desc = advancement_of_abatis_line.desc
+	picture = FORT_eventPicture
+
+	trigger = {
+		any_neighbor_province = { has_province_modifier = nomadic_province }
+		#owner = { has_country_modifier = cossackization }
+		culture_group = east_slavic
+		cossack_rule_region_european_steppe = yes #Not in Siberia
+		
+		NOT = { has_province_modifier = abatis_line_modifier }
+		NOT = { has_province_modifier = great_abatis_line_russian_modifier }
+		NOT = { has_province_modifier = great_abatis_line_ruthenian_modifier }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 2.5
+	}
+
+	option = {
+		name = advancement_of_abatis_line.a
+
+		add_permanent_province_modifier = {
+			name = abatis_line_modifier
+			duration = -1
+		}
+		every_neighbor_province = { #Remove old modifier
+			limit = {
+				has_province_modifier = abatis_line_modifier
+				NOT = { any_neighbor_province = { has_province_modifier = nomadic_province } }
+			}
+			remove_province_modifier = abatis_line_modifier
+		}
+	}
+}
+
+province_event = { #Siberian City development
+	id = cultural_influence_east_slavic.27
+	title = siberian_city_development.title
+	desc = siberian_city_development.desc
+	picture = FORT_eventPicture
+
+	trigger = {
+		owner = { culture_group = east_slavic }
+		has_province_modifier = siberian_ostrog_modifier
+		OR = {
+			development = 20
+			AND = {
+				development = 12
+				province_has_center_of_trade_of_level = 2
+			}
+		}
+		cossack_rule_region_siberia = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+
+		modifier = {
+			factor = 0.5
+
+			development = 20
+		}
+	}
+
+	option = {
+		name = siberian_city_development.a
+
+		remove_province_modifier = siberian_ostrog_modifier
+		add_permanent_province_modifier = {
+			name = siberian_city_modifier
+			duration = -1
+		}
+
+		if = {
+			limit = {
+				NOT = { has_global_flag = russki_splinter_flag }
+			}
+			change_culture = russian
+		}
+		if = {
+			limit = {
+				has_global_flag = russki_splinter_flag
+			}
+			change_culture = russian
+		}
+	}
+}
+
+province_event = { #Remove any modifiers that don't belong
+	id = cultural_influence_east_slavic.28
+	title = null
+	desc = null
+	picture = null
+
+	hidden = yes
+
+	trigger = {
+		NOT = { culture_group = east_slavic }
+		OR = {
+			has_province_modifier = abatis_line_modifier
+			has_province_modifier = great_abatis_line_russian_modifier
+			has_province_modifier = great_abatis_line_ruthenian_modifier
+			has_province_modifier = siberian_ostrog_modifier
+			has_province_modifier = siberian_city_modifier
+		}
+	}
+
+	immediate = {
+		remove_province_modifier = abatis_line_modifier
+		remove_province_modifier = great_abatis_line_russian_modifier
+		remove_province_modifier = great_abatis_line_ruthenian_modifier
+		remove_province_modifier = siberian_ostrog_modifier
+		remove_province_modifier = siberian_city_modifier
+	}
+
+	option = {
+		name = null
+	}
+}

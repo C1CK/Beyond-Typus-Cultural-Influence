@@ -1,0 +1,100 @@
+country_decisions = {
+	cossackization_of_the_pontic_steppe = {
+		major = yes
+		potential = {
+			NOT = { has_country_modifier = cossackization }
+			culture_group = east_slavic
+		}
+
+		allow = {
+			total_development = 1200
+			any_owned_province = { has_province_modifier = nomadic_province }
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = cossackization
+				duration = -1
+			}
+			remove_country_modifier = east_slavic_settlements #Only allowed one colonist via modifiers
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	east_slavic_settlements_decision = {
+		major = yes
+		potential = {
+			NOT = { has_country_modifier = east_slavic_settlements } #Only allowed one colonist via modifiers
+			culture_group = east_slavic
+		}
+
+		allow = {
+			total_development = 600
+			NOT = { has_country_modifier = cossackization }
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = east_slavic_settlements
+				duration = -1
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	construction_of_great_abatis_line_russia_decision = {
+		major = yes
+		potential = {
+			primary_culture = russian
+			NOT = { 5682 = { has_province_modifier = great_abatis_line_modifier } } #Not already built (Tarusa)
+			NOT = { has_country_flag = construction_of_great_abatis_line_russia_flag }
+
+		}
+
+		allow = {
+			owns_core_province = 306 #Nizhny Novgorod (Check for owning major forts along the line)
+			owns_core_province = 301 #Ryazan
+			owns_core_province = 300 #Tula
+			owns_core_province = 5682 #Tarusa
+			owns_core_province = 5680 #Belyov
+			total_development = 1250 #Should hopefully delay until 1525
+		}
+
+		effect = {
+			set_country_flag = construction_of_great_abatis_line_russian_flag
+			custom_tooltip = enables_construction_of_russian_great_abatis_line.tt
+		}
+	}
+
+	construction_of_great_abatis_line_ruthenia_decision = {
+		major = yes
+		potential = {
+			primary_culture = russian
+			NOT = { 1944 = { has_province_modifier = great_abatis_line_modifier } } #Not already built (Cherkasy)
+			NOT = { has_country_flag = construction_of_great_abatis_line_ruthenia_flag }
+
+		}
+
+		allow = {
+			owns_core_province = 1943 #Bratslav
+			owns_core_province = 7259 #Korsun
+			owns_core_province = 1944 #Cherkasy
+			owns_core_province = 2407 #Pereyaslav
+			owns_core_province = 190 #Poltava
+			owns_core_province = 291 #Harkiv
+			owns_core_province = 3291 #Oskol
+			total_development = 1000 #Will be pretty rough for Ruthenia, but needs to be delayed until Ruthenia has recovered
+		}
+
+		effect = {
+			set_country_flag = construction_of_great_abatis_line_ruthenia_flag
+			custom_tooltip = enables_construction_of_ruthenia_great_abatis_line.tt
+		}
+	}
+}

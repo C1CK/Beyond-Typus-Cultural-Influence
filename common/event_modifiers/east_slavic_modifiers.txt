@@ -5,8 +5,83 @@ east_slavic_settlements = { #Standard settlements modifier
 	years_of_nationalism = 5
 }
 
-cossackization = { #Needed to spread cossacks through the steppe
+cossackization = { #Needed to spread cossacks through the steppe (Only needed for AI now)
 	colonists = 1
 	cavalry_cost = -0.1
 	cav_to_inf_ratio = 0.1
+	years_of_nationalism = 5
+}
+
+cossack_stanitsa_modifier = { #Used for Russia Proper, always used on Cossack provinces
+	min_local_autonomy = 20
+	#local_defensiveness = 0.10 #Now represented by the Abatis Line modifiers
+	local_manpower_modifier = 0.25 #Cossacks!
+	local_development_cost = -0.10 #Needs to be devved to become a standard City
+	local_unrest = 4 #Historically disloyal and rebellious
+}
+
+abatis_line_modifier = { #Used for the current frontier line (Only a single Abatis modifier can be in a province)
+	province_trade_power_value = 2.5 #Checks on travellers
+	local_defensiveness = 0.20
+	trade_goods_size_modifier = -0.2 #Peasants needed to maintain the line, rather than doing other things
+	local_manpower_modifier = 0.15 #Frontiersman traditions
+	local_hostile_movement_speed = -0.1 #Steppe land razed to deny fodder
+}
+
+great_abatis_line_russian_modifier = { #Best Abatis modifier available, will replace any of the others. Only available via Great Abatis line decision
+	province_trade_power_value = 5 #Checks on travellers
+	local_defensiveness = 0.15 #Slightly worse, but you lose the negative modifiers for maintaining the line
+	local_manpower_modifier = 0.15 #Frontiersman traditions
+	local_hostile_movement_speed = -0.2 #Steppe land razed to deny fodder
+}
+
+great_abatis_line_ruthenian_modifier = { #Best Abatis modifier available, will replace any of the others. Only available via Great Abatis line decision
+	province_trade_power_value = 5 #Checks on travellers
+	local_defensiveness = 0.15 #Slightly worse, but you lose the negative modifiers for maintaining the line
+	local_manpower_modifier = 0.15 #Frontiersman traditions
+	local_hostile_movement_speed = -0.2 #Steppe land razed to deny fodder
+}
+
+path_to_the_urals_modifier = {
+	province_trade_power_value = 2.5
+	local_friendly_movement_speed = 0.1
+	local_development_cost = -0.05
+}
+
+cherdyn_route_modifier = {
+	province_trade_power_value = 5
+	local_friendly_movement_speed = 0.2
+	local_hostile_movement_speed = 0.2 #Needs to be here, since this appears all at once after Perm is integrated
+	supply_limit = 1
+	local_development_cost = -0.5 #All provinces are Arctic here, so this counters that somewhat
+}
+
+babinov_road_modifier = {
+	province_trade_power_value = 10
+	local_friendly_movement_speed = 0.4
+	supply_limit = 1
+	local_development_cost = -0.7 #All provinces are Arctic here, so this counters that somewhat
+}
+
+siberian_river_route_modifier = {
+	province_trade_power_value = 2.5
+	local_friendly_movement_speed = 0.3
+	#local_hostile_movement_speed = 0.3 #We'll see how it plays with it being only a buff for Russia
+	supply_limit = 1
+	local_development_cost = -0.25 #May be too high for some temperate provinces, but the Arctic stuff really needs it...
+}
+
+siberian_ostrog_modifier = { #Used for Siberia
+	local_defensiveness = 0.30
+	local_goods_size = 0.3
+	trade_goods_size_modifier = 0.2
+}
+
+siberian_city_modifier = {
+	trade_goods_size_modifier = 0.4
+}
+
+yasak_collection = {
+	trade_goods_size = 0.2
+	trade_goods_size_modifier = 0.2
 }
