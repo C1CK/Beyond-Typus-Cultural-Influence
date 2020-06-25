@@ -23,12 +23,13 @@ france_region = {
 		bourgogne_area
 		pyrenees_area
 		savoy_dauphine_area
+		west_burgundy_area
 		#BTADDITIONS
 		poitou_area			#also added by Paradox in 1.25, same id so no change needed.
 		champagne_area			#also added by Paradox in 1.25, same id so no change needed.
 		lower_brittany_area
 		lower_normandy_area
-		maine_anjou_area
+		orleans_area
 		berry_touraine_area
 		lyonnais_area
 		dauphine_area
@@ -37,10 +38,9 @@ france_region = {
 		upper_gascony
 		limousin_area
 		lorraine_area
-		#BTMovedFromFrance
-		franche_comte_area
 	}
 }
+
 french_region = {
 }
 
@@ -90,13 +90,13 @@ low_countries_region = {
 	areas = {
 		wallonia_area
 		flanders_area
-		#holland_area			#New in 1.25, but not yet used in BT. Will almost certainly use it later.
+		holland_area			#New in 1.25, but not yet used in BT. Will almost certainly use it later.
 		brabant_area
-		netherlands_area
+		#netherlands_area		#Cut in 1.30.
 		frisia_area
 		luxemburg_liege_area			#Cut in 1.25, but kept in BT for the moment until I can redo the area.
+		north_brabant_area
 		#BTADDITIONS
-		guelders_area
 		luxembourg_area
 	}
 }
@@ -114,18 +114,18 @@ italy_region = {
 		calabria_area
 		apulia_area
 		emilia_romagna_area
-		central_italy_area
+		lazio_area
 		#BTADDITIONS
 		emilia_area
 		sardinia_area
 		friuli_area
 		carnia_area
 		trentino_area
-		east_lombardy_area
+		po_valley_area
 		north_piedmont_area
 		south_piedmont_area
 		south_tuscany_area
-		north_marche_area
+		central_italy_area
 		umbria_area
 		abruzzo_area
 		upper_emilia_area			#Cut then readded in 12.0
@@ -163,7 +163,8 @@ north_german_region = {
 		mecklenburg_area
 		braunschweig_area
 		#BTADDITIONS
-		muenster_area
+		north_westphalia_area
+		lusatia_area
 	}
 }
 
@@ -172,7 +173,7 @@ south_german_region = {
 		tirol_area
 		austria_proper_area
 		inner_austria_area
-		#carinthia_area			#Temporarily disabled, as it contains only 1 province for the moment
+		carinthia_area			
 		switzerland_area
 		lower_bavaria_area
 		upper_bavaria_area
@@ -187,7 +188,8 @@ south_german_region = {
 		bohemia_area
 		#BTADDITIONS
 		moravia_area
-		carniola_area
+		#carniola_area #Temporarily disabled, as it contains only 1 province for the moment
+		bohemian_forest_area
 	}
 }
 
@@ -285,11 +287,14 @@ british_isles_region = {
 		#southern_isles_area			#Cut to be replaced with kingdom_of_the_isles_area added in 1.25
 		#essex_area			#Cut to be replaced with home_counties_area in 1.25
 		#western_lowlands_area			#Cut to be replaced with scottish_marches_area in 1.25
-		cornwall_area
+		#cornwall_area
 		yorkshire_area		#also added by Paradox in 1.25, same id so no change needed.
 		#lancashire_area			#cut in 1.25, using west_midlands_area as a replacement
 		northern_england_area			#vanilla cut in 1.25, but kept in BT because the new yorkshire_area replacing it was already in BT, and I need an area. This is as good as any and already in triggers
-	}
+		powys_area
+		deheubarth_area
+		grampians_area
+	}	
 }
 
 anglic_region = {
@@ -341,6 +346,7 @@ poland_region = {
 		kuyavia_area			#Repurposing this into BT's old Kalisz area
 		#BTADDITIONS
 		lower_silesia_area
+		middle_silesia_area
 	}
 }
 
@@ -411,7 +417,7 @@ balkan_region = {
 		slavonia_area
 		upper_thrace_area
 		northern_macedonia_area
-		lower_danube_area
+		silistria_area
 		eastern_macedonia_area
 		northern_epirus_area
 		northern_thrace_area
@@ -451,6 +457,8 @@ carpathia_region = {
 		banat_area
 		oltenia_area
 		upper_muntenia_area
+		upper_hungary_area
+		eastern_alfold_area
 	}
 }
 
