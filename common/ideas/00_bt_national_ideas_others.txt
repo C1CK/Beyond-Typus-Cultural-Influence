@@ -126,50 +126,7 @@ CEL_ideas = {
 ##################################################################################################
 ##################################################################################################
 
-#Dub's Moroccan ideas, credit to Dub.
-#Removed when Paradox introduced their own NI for MOR
-#MOR_ideas = {
-#	start = { 
-#		num_accepted_cultures = 1
-#		hostile_attrition = 0.1 #Desert & Mountain Warfare
-#	}
-#
-#	bonus = {
-#		build_cost = -0.01
-#	}
-#
-#	trigger = {
-#		OR = {
-#			tag = MOR
-#			primary_culture = moroccan
-#		}
-#	}
-#
-#	free = yes # will be added at load
-#
-#	mor_qasbah = { #Fortified castles built on top of hills to show off wealth, hence taxes
-#		defensiveness = 0.01
-#	}
-#	mor_protect_transsaharan_trade = { #Morocco controlled trans-saharan trade, but Portugal found a way around it. To be fair, this is part of the vanilla berber set as well.
-#		caravan_power = 0.01
-#	}
-#	mor_madrassa = { #The Berber dynasties of Morocco built a great Madrassa (Religious school) in Fez.
-#		technology_cost = -0.01
-#	}
-#	mor_sharif_dynasties = { #The Sharif (noble-born) dynasties of Saadis and Alaouites, are seen as Morocco's golden age. Also, I feel this could be a cool way for Morocco to stay competitive.
-#		land_morale = 0.01
-#	}
-#	mor_legacy_of_ibn_battuta = { #Ibn-Battuta was a Moroccan explorer famous for exploring Africa (And some other regions). It also seems very fitting for them in an alt-history sense to have this.
-#		may_explore = yes
-#	}
-#	mor_jewel_of_the_maghreb = {
-#		development_cost = -0.01
-#	}
-#	mor_loyal_friends = {
-#		rebel_support_efficiency = 0.01
-#	}
-#}
-
+#Belgium
 BEL_ideas = {
 	start = {
 		legitimacy = 1
@@ -207,6 +164,52 @@ BEL_ideas = {
 	}
 }
 
+#Scandinavia
+SCA_ideas = {
+	start = {
+		infantry_power = 0.2 #In Swedish ideas
+		global_sailors_modifier = 0.33 #In Danish & Norwegian ideas
+	}
+	bonus = { #Idea set is pretty powerful already. Taking a Swedish dump idea here.
+		stability_cost_modifier = -0.1
+	}
+	trigger = {
+		tag = SCA
+	}
+
+	free = yes
+	
+	sca_king_in_the_north = { #New.
+		land_morale = 0.15
+	}
+	
+	sca_cold_steel = { #In Danish 1.30 ideas and functions like Sweden's +5% discipline.
+		shock_damage = 0.1
+	}
+	
+	sca_ruler_of_the_three_kingdoms = { #In Danish & Swedish ideas.
+		legitimacy = 1
+		yearly_absolutism = 0.5
+	}
+	
+	sca_every_king_a_captain = { #An in-between of Danish & Norwegian ideas.
+		naval_morale = 0.15
+	}
+	
+	sca_dominium_maris_baltici = { #Norwegian ambition.
+		trade_steering = 0.25
+	}
+	
+	sca_winter_is_coming = { #Two Swedish ideas in one. Norway has production efficiency.
+		global_trade_goods_size_modifier = 0.1
+		manpower_recovery_speed = 0.2
+	}
+	
+	sca_call_of_our_forefathers = { #Combining two Norwegian ideas into one, slightly reducing range.
+		colonists = 1
+		range = 0.25
+	}
+}
 
 ##################################################################################################
 ##################################################################################################
@@ -219,6 +222,7 @@ BEL_ideas = {
 PMO_ideas = {
 	start = {
 		production_efficiency = 0.15 #Culture was well known for being masters of basket weaving and jewelry
+		movement_speed = 0.05 #Re-adding previous movement speed buff that supposedly existed in BT 9.0. Apparently was +15%, but I nerfed it a bit.
 	}
 
 	bonus = {
@@ -261,83 +265,166 @@ PMO_ideas = {
 ##################################################################################################
 ##################################################################################################
 
-#CHP_ideas = {
-#		start = {
-#			prestige_decay = -0.01
-#			global_tax_modifier = 0.10
-#		}
-#		
-#		bonus = {
-#			infantry_power = 0.1
-#		}
-#		
-#		trigger = {
-#			tag = CHP
-#		}
-#		free = yes		#will be added at load
-#		
-#		chp_fairs = {
-#			trade_steering = 0.2
-#		}
-#		chp_chretien_de_troyes = {
-#			global_institution_spread = 0.05
-#		}
-#		chp_reims_city_of_crownings = {
-#			prestige = 1
-#		}
-#		chp_rose_of_provins = {
-#			diplomatic_reputation = 1
-#		}
-#		chp_the_paraclete = {
-#			tolerance_own = 2
-#			papal_influence = 1
-#		}
-#		chp_wine = {
-#			diplomatic_upkeep = 1
-#		}
-#		chp_fortify = {
-#			defensiveness = 0.10
-#		}
-#	}
+#Andorra
+AOR_ideas = {
+	start = {
+		defensiveness = 0.2
+		prestige = 1
+	}
+	
+	bonus = {
+		diplomatic_reputation = 1
+	}
+	
+	trigger = {
+		tag = AOR
+	}
+	free = yes		#will be added at load
+	
+	aor_el_gran_carlemany = {
+		war_exhaustion = -0.02
+		land_morale = 0.1
+	}
+	aor_pariage = {
+		diplomatic_upkeep = 1
+	}
+	aor_the_pyrenees = {
+		hostile_attrition = 1.0
+	}
+	aor_catalan_language = {
+		culture_conversion_cost = -0.15
+	}
+	aor_consell_de_la_terra = {
+		global_unrest = -1
+	}
+	aor_economic_privileges = {
+		trade_steering = 0.2
+	}
+	aor_focs_and_casalers = {
+		production_efficiency = 0.1
+	}
+}
 
-#COR_ideas = {
-#		start = {
-#			galley_power = 0.1
-#			diplomatic_upkeep = 1
-#		}
-#		
-#		bonus = {
-#			stability_cost_modifier = -0.1
-#		}
-#		
-#		trigger = {
-#			tag = COR
-#		}
-#		free = yes 		#will be added at load
-#		
-#		cor_counts_of_cinarca = {
-#			army_tradition = 0.5
-#		}
-#		cor_foreign_domination = {
-#			land_morale = 0.1
-#		}
-#		cor_genoese_towers = {
-#			defensiveness = 0.15
-#		}
-#		cor_local_agriculture = {
-#			production_efficiency = 0.1
-#		}
-#		cor_pieves = {
-#			global_autonomy = -0.05
-#		}
-#		cor_corsican_constitution = {
-#			diplomatic_reputation = 1
-#			global_unrest = -1
-#		}
-#		cor_the_paoline_city = {
-#			development_cost = -0.1
-#		}
-#	}
+#Bourbonnais
+BOU_ideas = {
+	start = {
+		legitimacy = 1
+		years_of_nationalism = -5
+	}
+	
+	bonus = {
+		ae_impact = -0.2
+	}
+	
+	trigger = {
+		tag = BOU
+	}
+	free = yes		#will be added at load
+	
+	bou_frontier_area = {
+		num_accepted_cultures = 1
+	}
+	bou_bath_bourbon = {
+		prestige = 0.5
+	}
+	bou_holdings = {
+		core_creation = -0.15
+		improve_relation_modifier = 0.2
+	}
+	bou_loyalty_crown = {
+		diplomatic_reputation = 1
+	}
+	bou_castles = {
+		fort_maintenance_modifier = -0.10
+	}
+	bou_good_geography = {
+		production_efficiency = 0.1
+	}
+	bou_kings_france = {
+		yearly_absolutism = 1
+	}
+}
+
+#Champagne
+CHP_ideas = {
+	start = {
+		prestige_decay = -0.01
+		global_tax_modifier = 0.10
+	}
+		
+	bonus = {
+		infantry_power = 0.1
+	}
+		
+	trigger = {
+		tag = CHP
+	}
+	free = yes		#will be added at load
+		
+	chp_fairs = {
+		trade_steering = 0.2
+	}
+	chp_chretien_de_troyes = {
+		global_institution_spread = 0.05
+	}
+	chp_reims_city_of_crownings = {
+		prestige = 1
+		land_morale = 0.1
+	}
+	chp_rose_of_provins = {
+		diplomatic_reputation = 1
+	}
+	chp_the_paraclete = {
+		tolerance_own = 2
+		papal_influence = 1
+	}
+	chp_wine = {
+		diplomatic_upkeep = 1
+	}
+	chp_fortify = {
+		defensiveness = 0.10
+	}
+}
+
+#Corsica
+COR_ideas = {
+	start = {
+		galley_power = 0.1
+		diplomatic_upkeep = 1
+	}
+		
+	bonus = {
+		stability_cost_modifier = -0.1
+	}
+		
+	trigger = {
+		tag = COR
+	}
+	free = yes 		#will be added at load
+		
+	cor_counts_of_cinarca = {
+		army_tradition = 0.5
+	}
+	cor_foreign_domination = {
+		land_morale = 0.1
+	}
+	cor_genoese_towers = {
+		defensiveness = 0.15
+	}
+	cor_local_agriculture = {
+		production_efficiency = 0.1
+	}
+	cor_pieves = {
+		global_autonomy = -0.05
+	}
+	cor_corsican_constitution = {
+		diplomatic_reputation = 1
+		global_unrest = -1
+	}
+	cor_the_paoline_city = {
+		development_cost = -0.1
+	}
+}
 
 ##################################################################################################
 ##################################################################################################
@@ -378,7 +465,7 @@ RAV_ideas = {
 	}
 	rav_city_of_churches = {
 		build_cost = -0.1
-		#Should also give +10% Clergy Loyalty, has to be defined in the clergy estate file
+		church_loyalty_modifier = 0.1
 	}
 	rav_papal_legates = {
 		free_adm_policy = 1
@@ -418,7 +505,7 @@ ARE_ideas = {
 	}
 	are_saracen_joust = {
 		army_tradition_decay = -0.01
-		#Should also give +10% Nobility Loyalty, has to be defined in the nobility estate file
+		nobles_loyalty_modifier = 0.1
 	}
 	are_resist_de_medici = {
 		enemy_core_creation = 0.5
@@ -459,7 +546,7 @@ ANC_ideas = {
 	
 	anc_staunch_guelphs = {
 		papal_influence = 1
-		#Should also give +10% Clergy Loyalty, has to be defined in the clergy estate file
+		church_loyalty_modifier = 0.1
 	}
 	
 	anc_cosmopolitan_city = {
@@ -521,8 +608,6 @@ MTS_ideas = {
 		development_cost = -0.1
 	}
 }
-
-
 
 ##################################################################################################
 ##################################################################################################
@@ -1300,8 +1385,8 @@ new_sulawesi_ideas = {
 	trigger = {
 		OR = {
 			primary_culture = sulawesi
-                       		#primary_culture = bugis
-                      		 primary_culture = butonese
+			#primary_culture = bugis #This culture doesn't exist.
+			primary_culture = butonese
 		}
 	}
 	free = yes
@@ -1714,4 +1799,230 @@ CCC_ideas = {
 	ccc_kingmaker = {
 		rebel_support_efficiency = 0.5
 	}
+}
+
+
+
+##################################################################################################
+##################################################################################################
+##################################################################################################
+# neothiamin's work
+##################################################################################################
+##################################################################################################
+##################################################################################################
+
+#Cordoba
+CDB_ideas = {
+	start = {
+		tolerance_heathen = 2 #Córdoba is very close to Muslim Andalusia, and by proxy Muslim North Africa. Couple that with the city's history as a multi-religious metropolis, and I think Tolerance of Heathens makes sense.
+		legitimacy = 0.5	  #Córdoba also has a long history of self-rule, from the Caliphate of Córdoba to the Taifa of Córdoba to (evidently) the independent Duchy/Kingdom/Empire of Córdoba.
+	}
+	bonus = {
+		global_missionary_strength = 0.02	#Same strength as Castile gets in their second NI. Surely a late-game Córdoba would be thanking God for their existence :P
+	}
+	trigger = {
+		tag = CDB
+	}
+
+	free = yes
+
+	#Turn the Tide
+	#Despite the city's rich history, it severely declined by Renaissance times. According to the Wikipedia, estimate of the city's population in the 18th-century are as low as 20,000. Reversing this decline would be a big priority for an independent Córdoba. 
+	cdb_reverse_decline = {
+		land_morale = 0.1
+	}
+
+	#La Mezquita (de Córdoba)
+	#The Mosque-Cathedral of Córdoba (Mezquita-Catedral de Córdoba in Spanish) dates back to Visigothic times, and was the location of a Basilica until Abd al-Rahman I ordered the construction of the Great Mosque in 784. It was converted to a cathedral after the city's reconquest in 1236. It's a seriously impressive church.
+	cdb_la_mezquita = {
+		prestige = 1 #could also be replaced with prestige_decay = -0.01
+	}
+
+	#Dredge the Guadalquivir
+	#Apparently in Roman Times the Guadalquivir was navigable to Córdoba. I say dredge it!
+	cdb_dredge_guadalquivir = {
+		development_cost = -0.1
+	}
+
+	#Las Colaciones
+	#Colación or collación is another term for a neighborhood in Spanish. In 1236, Córdoba was divided into 14 colaciones and lots of churches were built.
+	cdb_colaciones = {
+		build_cost = -0.1
+		global_manpower_modifier = 0.2
+	}
+
+	#Establish Foreign Trade
+	#At this point it gets more generic. I guess at this point Córdoba would be independent and would be looking to expand its trade network?
+	cdb_foreign_trade = {
+		trade_range_modifier = 0.2
+		trade_steering = 0.1
+	}	
+
+	#Mines of Córdoba
+	#Córdoba has a gold mine, and there are lots of other mine-related goods nearby like iron and copper. /shrug
+	cdb_mines = {
+		global_trade_goods_size_modifier = 0.1
+	}
+
+	#Bridges and Roads
+	#Córdoba had like one bridge from Roman Times until the 20th century. How on Earth did they get around? Build more bridges! And roads too!
+	cdb_bridges = {
+		global_own_trade_power = 0.2 #Other nations have values from 0.1 to 0.25, so there's precedent for a value this high. To be honest this is kind of a stretch, but I already used -dev cost so
+	}
+}
+
+#Seville
+SVL_ideas = {
+	start = {
+		global_missionary_strength = 0.01
+		missionary_maintenance_cost = -0.25
+	}
+
+	bonus = {
+		naval_forcelimit_modifier = 0.25
+	}
+
+	trigger = {
+		tag = SVL
+	}
+
+	free = yes
+
+	#Alcázar de Sevilla
+	#The Alcázar of Seville is a massive fortified palatial complex, built for King Pedro I de Ivrea in the 1360s. Though Pedro's reputation is mixed, the Alcázar is undoubtedly an impressive feat of architecture.
+	sev_alcazar = {
+		defensiveness = 0.25
+	}
+	
+	#La Giralda
+	#Originally constructed as a minaret for the Great Mosque of Seville, La Giralda is a massive bell tower adjacent to the Seville Cathedral. Its ring shall inspire all Sevillans and instill in them great pride!
+	sev_giralda = {
+		land_morale = 0.1
+	}
+
+	#Torre del Oro
+	#Once an important naval watchtower, the Torre del Oro, or Tower of Gold, was converted into a cathedral in 1271. However, its position on the banks of the Guadalquivir makes it a prime location for a marketplace.
+	sev_torre_del_oro = {
+		trade_steering = 0.25
+	}
+
+	#Colonial Monopolies
+	#Seville's heavy defenses make it the best-suited port to handle all cargo coming from and going to the New World. By establishing a monopoly on colonial goods, we can raise profits from trade substantially.
+	sev_colonial_monopolies = {
+		trade_efficiency = 0.15
+	}
+
+	#Edad De Oro
+	#Our sheer military might and mercantile mastership allows our nation to simple emanate luster and light. Let us ring in a new Golden Age!
+	sev_edad_de_oro = {
+		stability_cost_modifier = -0.1
+		global_unrest = -1
+	}
+
+	#Inquisitive Minds
+	#Despite the Inquisition, Seville has continued to be a nexus for scholarly thought. The libraries and campuses of Seville rival those of Córdoba, Paris, London, and Cairo. Let not one be ashamed of asking questions!
+	sev_inquisitive_minds = {
+		technology_cost = -0.05
+	}
+
+	#Exploratory Academies
+	#The riches of the New World are unlike anything that has ever been seen in the Old World. Stories are told of rivers of gold and springs that spout forth eternal life. Let us establish academies dedicates to the exploration and settlement of these new lands, for the glory of Seville!
+	sev_exploratory_academies = {
+		colonists = 1
+		colonist_placement_chance = 0.03
+	}
+}
+
+#Toledo
+TLD_ideas = {
+	start = {
+		legitimacy = 1
+		stability_cost_modifier = -0.1 #Both these modifiers are based off of the city's status as the "Imperial City"
+	}
+	bonus = {
+		land_forcelimit_modifier = 0.2 #Toledo stronk!
+	}
+	trigger = {
+		tag = TLD
+	}
+	free = yes
+
+	#I kind of BS'd this one
+	tld_visigothic_architecture = {
+		build_cost = -0.1
+	}
+
+	#City of Three Cultures
+	#Toledo has a lot of Christian, Muslim, and Jewish influence. Three cultures!
+	tld_city_three_cultures = {
+		num_accepted_cultures = 1
+		global_institution_spread = 0.15
+	}
+
+	#Legacy of Conquest
+	#Toledo was one of the first big cities taken back during the Reconquista
+	tld_legacy_of_conquest = {
+		land_morale = 0.15
+	}
+
+	#Archdiocese of Toledo
+	tld_archdiocese = {
+		tolerance_own = 1
+	}
+
+	#Submeseta Sur
+	tld_submeseta_sur = {
+		global_manpower_modifier = 0.25
+	}
+
+	#Hub of Culture
+	tld_culture_hub = {
+		global_unrest = -1
+		advisor_cost = -0.2
+	}
+
+	#Toledan Trade Networks
+	tld_trade_networks = {
+		trade_efficiency = 0.15
+	}
+}
+
+#Murcia
+MUR_ideas = {
+	start = {
+		global_unrest = -1
+		sailors_recovery_speed = 0.2
+	}
+	bonus = {
+		defensiveness = 0.25
+	}
+	trigger = {
+		tag = MUR
+	}
+
+	free = yes
+
+	mur_badlands = {
+		land_attrition = -0.25
+	}
+	mur_orchard = {
+		global_trade_goods_size_modifier = 0.1
+	}
+	mur_rey_lobo = {
+		leader_land_shock = 1
+	}
+	mur_duality = {
+		diplomatic_reputation = 1
+	}
+	mur_order_of_the_star = {
+		naval_forcelimit_modifier = 0.25
+	}
+	mur_decentralized_rule = {
+		global_tax_modifier = 0.1
+	}
+	mur_cartagena = {
+		trade_efficiency = 0.1
+		galley_power = 0.1
+	}
+
 }
