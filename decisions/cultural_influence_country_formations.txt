@@ -13,11 +13,13 @@ country_decisions = {
 
 		provinces_to_highlight = {
 			OR = {
+				#England
 				province_id = 236 #London
 				province_id = 239 #Gloucester
-				province_id = 243 #Lincolnshi
+				province_id = 245 #Leeds
 				province_id = 244 #Lancashire
 				province_id = 238 #Essex
+				#France
 				province_id = 183 #Paris
 				province_id = 177 #Maine
 				province_id = 178 #Anjou
@@ -32,18 +34,30 @@ country_decisions = {
 			#adm_tech = 10 #Not needed
 			NOT = { exists = FRA }
 			#England
+			calc_true_if = {
+				all_owned_province = {
+					region = british_isles_region
+				}
+				value = 40
+			}
 			is_core = 236 #London
 			is_core = 239 #Gloucestershire
-			is_core = 243 #Lincolnshire
+			is_core = 245 #Leeds
 			is_core = 244 #Lancashire
 			is_core = 238 #Essex
 			#France
+			calc_true_if = {
+				all_owned_province = {
+					region = france_region
+				}
+				value = 50
+			}
 			is_core = 183 #Paris
 			is_core = 177 #Maine
 			is_core = 178 #Anjou
 			is_core = 174 #Aquitaine
 			is_core = 184 #Orleanais
-			total_development = 800
+			total_development = 1200
 		}
 
 		effect = {
@@ -78,11 +92,13 @@ country_decisions = {
 
 		provinces_to_highlight = {
 			OR = {
+				#England
 				province_id = 236 #London
 				province_id = 239 #Gloucester
-				province_id = 243 #Lincolnshi
+				province_id = 245 #Leeds
 				province_id = 244 #Lancashire
 				province_id = 238 #Essex
+				#France
 				province_id = 183 #Paris
 				province_id = 177 #Maine
 				province_id = 178 #Anjou
@@ -107,7 +123,7 @@ country_decisions = {
 			#England
 			is_core = 236 #London
 			is_core = 239 #Gloucestershire
-			is_core = 243 #Lincolnshire
+			is_core = 245 #Leeds
 			is_core = 244 #Lancashire
 			is_core = 238 #Essex
 			#France (Must be owned directly or via France, since this is a union of FRA & ENG, not ENG and whatever vassals they've made)
@@ -141,7 +157,7 @@ country_decisions = {
 					is_core = FRA
 				}
 			}
-			total_development = 800
+			total_development = 1000
 		}
 
 		effect = {
