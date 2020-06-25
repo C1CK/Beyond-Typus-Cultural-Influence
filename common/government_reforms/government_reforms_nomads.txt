@@ -71,43 +71,6 @@ great_mongol_state_reform = {
 	}
 }
 
-cossacks_reform = { #Slavic Cossacks
-	icon = "horde_riding"
-	legacy_equivalent = cossacks_legacy_reform
-	allow_normal_conversion = yes
-	potential = {
-		OR = {
-			primary_culture = cossack
-			has_reform = cossacks_reform
-			have_had_reform = cossacks_reform
-		}
-	}
-	government_abilities = {
-		cossacks_mechanic
-	}
-	valid_for_new_country = yes
-
-	nation_designer_trigger = {
-		any_owned_province = { has_terrain = steppe }
-	}
-
-	custom_attributes = {
-		enables_plutocratic_idea_group = yes
-		enables_aristocratic_idea_group = no
-	}
-	valid_for_nation_designer = yes
-	nation_designer_cost = 60
-
-	modifiers = {
-		cavalry_power = 0.2
-		cavalry_cost = -0.2
-		cav_to_inf_ratio = 0.2
-		max_states = 1
-		max_absolutism = -40
-	}
-	duration = 4
-}
-
 ###Tribal structure
 
 large_tribes_reform = {
@@ -202,7 +165,7 @@ tribal_bureaucrats_reform = {
 	allow_normal_conversion = yes
 	icon = "tribal_centralize_power"
 	modifiers = {
-		max_states = 8
+		governing_capacity = 800 #From 8 states, Might be too high for the steppe, but for now I'll just use the standard conversion
 	}
 }
 
@@ -258,6 +221,43 @@ tribal_legislature_houses_reform = {
 }
 
 ###Settled state? (Should probably settle at this point, Nomadism is no longer viable, but hey why not stay a lil' longer)
+
+horde_barbaric_despoilers_reform = { #From Vanilla 1.30
+	icon = "rioting_burning_2"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			has_reform = steppe_horde
+			has_reform = great_mongol_state_reform
+		}
+		has_dlc = "The Cossacks"
+	}
+	modifiers = {
+		raze_power_gain = 0.33
+		
+	}
+	ai = {
+		factor = 2
+	}
+}
+
+horde_tribal_unity_reform = { #From Vanilla 1.30
+	icon = "fist_in_air"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			has_reform = steppe_horde
+			has_reform = great_mongol_state_reform
+		}
+		has_dlc = "The Cossacks"
+	}
+	modifiers = {
+		horde_unity = 2
+	}
+	ai = {
+		factor = 2
+	}
+}
 
 guarantee_rights_of_settled_reform = {
 	allow_normal_conversion = yes
