@@ -69,12 +69,11 @@ country_decisions = {
 				value = 1
 				region = ireland_area
 			}	#changed Dublin only to any Irish province being able to allow this decision
-			any_country = {
+			any_known_country = {
 				primary_culture = anglo_irish
 				OR = {
-					government = norman_duchy
-					government = norman_lordship
-					government = anglo_irish_monarchy
+					has_reform = norman_lordship_reform
+					has_reform = anglo_irish_monarchy_reform
 				}
 				num_of_owned_provinces_with = {
 					value = 1
@@ -93,13 +92,12 @@ country_decisions = {
 		}
 		effect = {
 			set_country_flag = demanded_fealty_of_ireland
-			random_country = {
+			random_known_country = {
 				limit = {
 					primary_culture = anglo_irish
 					OR = {
-						government = norman_duchy
-						government = norman_lordship
-						government = anglo_irish_monarchy
+						has_reform = norman_lordship_reform
+						has_reform = anglo_irish_monarchy_reform
 					}
 					num_of_owned_provinces_with = {
 						value = 1
@@ -145,26 +143,30 @@ country_decisions = {
 			NOT = { exists = ANI }
 			NOT = { exists = IRE }
 			is_year = 1600
-			OR = { 
-				government = norman_lordship
-				government = irish_clann
-				government = norman_duchy
-				government = provincial_kingdom
+			OR = {
+				has_reform = norman_lordship_reform
+				has_reform = irish_clann_reform
 			}
 		}
 		allow = {
 			is_year = 1600
 			OR = {
-				government = norman_lordship
-				government = irish_clann			
-				government = norman_duchy
-				government = provincial_kingdom
+				has_reform = norman_lordship_reform
+				has_reform = irish_clann_reform
 			}
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
 		}
 		effect = {
-			change_government = feudal_monarchy
+			if ={
+				limit = { has_reform = norman_lordship_reform }
+				remove_government_reform = norman_lordship_reform
+			}
+			if ={
+				limit = { has_reform = irish_clann_reform }
+				remove_government_reform = irish_clann_reform
+			}
+			add_government_reform = feudalism_reform
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -181,7 +183,7 @@ country_decisions = {
 	embrace_irish_traditions = {
 		major = yes
 		potential = {
-			government = norman_lordship
+			has_reform = norman_lordship_reform
 		}
 		allow = {
 			NOT = { alliance_with = ENG }
@@ -210,8 +212,6 @@ country_decisions = {
 			NOT = { tag = UNK }
 			NOT = { exists = ANI }
 			NOT = { exists = IRE }
-			culture_group = british #CI added as only British nations can form the UK and thus inherit ANI
-			NOT = { has_country_flag = anglicizing_ireland_flag } #To prevent appearing twice, or being done when it doesn't make sense
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -263,11 +263,13 @@ country_decisions = {
 			hidden_effect = {
 				ANI = {
 					set_government_rank = 2
-					change_government = puppet_kingdom_of_ireland
+					change_government = republic
+					add_government_reform = puppet_kingdom_reform
 					add_historical_friend = ROOT
 					change_primary_culture = anglo_irish
 					change_religion = ROOT
 					set_country_flag = formed_kingdom_of_ireland_flag_btp
+					set_country_flag = bt_is_a_puppet_state
 				}
 			}
 			create_subject = {
@@ -285,8 +287,8 @@ country_decisions = {
 			factor = 1
 			modifier = {
 				factor = 0
-				NOT = { total_development = 300 }			#tag will not do if the new country (95 dev with 1444 values + Dublin decision) would have over 50 percent the dev of the remaining country. Note this is based on 1444 values, because there is no way to calculate dynamically.
-			}	#Also note England's base dev in 181, plus 28 in Wales and Cornwall, and 90 in Ireland so this will almost always be a yes even if England loses all French holdings and doesn't build up dev
+				NOT = { total_development = 500 }			#tag will not do if the new country (95 dev with 1444 values + Dublin decision) would have over 50 percent the dev of the remaining country. Note this is based on 1444 values, because there is no way to calculate dynamically.
+			}	#Also note England's base dev in 362, plus 56 in Wales and Cornwall, and 180 in Ireland so this will almost always be a yes even if England loses all French holdings and doesn't build up dev
 			modifier = {
 				factor = 0
 				NOT = {

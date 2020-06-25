@@ -44,7 +44,7 @@ country_decisions = {
 				province_id = 1866 # Namur
 				province_id = 2974 # Loon
 				province_id = 3064 # Westhoek
-				province_id = 3065 # Lille
+				province_id = 4769 # Lille
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -71,7 +71,7 @@ country_decisions = {
 						province_id = 1866 # Namur
 						province_id = 2974 # Loon
 						province_id = 3064 # Westhoek
-						province_id = 3065 # Lille
+						province_id = 4769 # Lille
 					}
 				}
 				amount = 7			#At least 2/3 of Belgium's 11 provinces (approximate)
@@ -146,7 +146,7 @@ country_decisions = {
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			owns_core_province = 3041	# Bologna
+			owns_core_province = 4730	# Bologna
 			calc_true_if = {
 				all_owned_province = {
 					is_core = ROOT
@@ -385,15 +385,15 @@ country_decisions = {
 				province_id = 137				# Ragusa
 				province_id = 138				# Zeta
 				province_id = 139				# Hum
-				province_id = 140				# Lasva
+				province_id = 3002				# Lasva
 				province_id = 141				# Belgrade
 				province_id = 1766			# Kosovo
 				province_id = 1767			# Slavonia
 				province_id = 1826			# Lika
 				province_id = 3001			# Skopje
-				province_id = 3002			# Sarajevo
+				province_id = 4755			# Sarajevo
 				province_id = 3187			# Podrinje
-				province_id = 3191			# Rijeka
+				province_id = 4752			# Rijeka
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -413,15 +413,15 @@ country_decisions = {
 						province_id = 137				# Ragusa
 						province_id = 138				# Zeta
 						province_id = 139				# Hum
-						province_id = 140				# Lasva
+						province_id = 3002				# Lasva
 						province_id = 141				# Belgrade
 						province_id = 1766			# Kosovo
 						province_id = 1767			# Slavonia
 						province_id = 1826			# Lika
 						province_id = 3001			# Skopje
-						province_id = 3002			# Sarajevo
+						province_id = 4755			# Sarajevo
 						province_id = 3187			# Podrinje
-						province_id = 3191			# Rijeka
+						province_id = 4752			# Rijeka
 					}
 				}
 				amount = 9			#At least 2/3 of Illyria's 13 provinces (approximate)
@@ -553,7 +553,7 @@ country_decisions = {
 				province_id = 1769	# Gorizia
 				province_id = 1774	# Treviso
 				province_id = 1862	# Cremona
-				province_id = 3047	# Bergamo
+				province_id = 4739	# Bergamo
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -587,7 +587,7 @@ country_decisions = {
 						province_id = 1769	# Gorizia
 						province_id = 1774	# Treviso
 						province_id = 1862	# Cremona
-						province_id = 3047	# Bergamo
+						province_id = 4739	# Bergamo
 					}
 				}
 				amount = 7			#At least 2/3 of lmv's 11 provinces (approximate)
@@ -654,15 +654,15 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				province_id = 60 #Lusatia
-				province_id = 154 #Nitra
+				province_id = 60 #Budyszin
+				province_id = 8174 #Nitra
 				#province_id = 257 #Warsaw #CI, why this far?
 				province_id = 262 #Krakow
 				province_id = 263 #Ratibor
 				province_id = 264 #Breslau
 				province_id = 265 #Brno
 				province_id = 266 #Prague
-				province_id = 1763 #Lusatia
+				province_id = 1763 #Chotebuz
 				province_id = 1772 #Bratislava
 				#CI
 				province_id = 134 #Wien
@@ -677,13 +677,13 @@ country_decisions = {
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			owns_core_province = 60 #Lusatia
-			owns_core_province = 1763 #Lusatia
+			owns_core_province = 60 #Budyszin
+			owns_core_province = 1763 #Chotebuz
 			owns_core_province = 263 #Ratibor
 			owns_core_province = 264 #Breslau
 			owns_core_province = 265 #Brno
 			owns_core_province = 266 #Prague
-			owns_core_province = 154 #Nitra
+			owns_core_province = 8174 #Nitra
 			owns_core_province = 1772 #Bratislava
 			owns_core_province = 262 #Krakow
 			#owns_core_province = 257 #Warsaw #CI, why this far?
@@ -822,158 +822,7 @@ country_decisions = {
 ###################################################################################################
 ################################			Pomerania			 ##############################################			#Done by JP 2019-4 & adjusted a bit by Draiocht
 ###################################################################################################
-	bt_pomeranian_nation = {
-		major = yes
-		potential = {
-			bt_generic_can_form_potential_check = yes
-			bt_hre_stem_duchy_check = yes			#prevents lateral progression. Must not be or have been a stem duchy already
-			NOT = { has_country_flag = bt_formed_stem_duchy } 			#prevents lateral progression. All Stem Duchies should give this and check for this.
-			NOT = { has_country_flag = formed_pomerania_flag_btp } 
-			NOT = { num_of_cities = 30 }	#With more than 30 cities, tag should be aiming to form Prussia or Germany
-			OR = {
-				#Tags which we want to see the decision by default
-				tag = WLG
-				tag = STT
-				tag = STP
-				tag = KMI
-				tag = RUG
-				AND = {
-					capital_scope = {
-						OR = {
-							area = vorpommern_area
-							area = hinter_pommern_area
-						}
-					}
-					OR = {
-						culture_group = germanic
-						#primary_culture = polabian_culture #Cut from CI
-						#primary_culture = kashubian_culture #Cut from CI
-						primary_culture = pomeransky #Slavic culture for Pomerania
-					}
-					NOT = { government_rank = 2 }
-				}	#Some contingencies for odd situations. So long as the tag is a reasonable culture, it isn't too large, and has a capital in Pomerania, then why not? Note the num of city check should ensure no quirks with giant tags switching who shouldn't
-			}
-		}
-		provinces_to_highlight = {
-			OR = { 
-				area = vorpommern_area
-				area = hinter_pommern_area
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
-		allow = {
-			NOT = { exists = POM } 
-			is_at_war = no 
-			is_free_or_tributary_trigger = yes 
-			is_nomad = no 
-			OR = {
-				custom_trigger_tooltip = {
-					tooltip = bt_sole_pomeranian_duchy_tooltip
-					OR = {
-						AND = {
-							tag = WLG
-							NOT = { exists = STT }
-							NOT = { exists = STP }
-						}
-						AND = {
-							tag = STT
-							NOT = { exists = WLG }
-							NOT = { exists = STP }
-						}
-						AND = {
-							tag = STP
-							NOT = { exists = WLG }
-							NOT = { exists = STT }
-						}
-					}
-				}
-				AND  = {
-					custom_trigger_tooltip = {
-						tooltip = bt_no_other_surviving_pomeranian_minors
-						NOT = { exists = WLG }
-						NOT = { exists = STT }
-						NOT = { exists = STP }
-					}
-					custom_trigger_tooltip = {
-						tooltip = two_thirds_of_pomerania_tooltip
-						calc_true_if = {
-							all_owned_province = {
-								is_core = ROOT
-									OR = {
-										area = vorpommern_area
-										area = hinter_pommern_area
-									}
-							}
-							amount = 10			#At least 2/3 of Pomerania's 15 provinces
-						}
-					}
-					owns_core_province = 1858			#Stettin
-					owns_core_province = 2994			#Griefswald
-					owns_core_province = 2995			#Stolp
-				}
-			}
-		}
-		effect = {
-			change_tag = POM
-			add_country_modifier = {
-				name = "centralization_modifier"
-				duration = 7300
-			}
-			add_prestige = 5
-			vorpommern_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = POM
-			}
-			hinter_pommern_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = POM
-			}
-			custom_tooltip = bt_reunifies_duchy_of_pomerania
-			hidden_effect = {
-				every_province = {
-					limit = {
-						continent = europe
-						is_core = WLG
-					}
-					remove_core = WLG
-					add_core = POM
-				}
-				every_province = {
-					limit = {
-						continent = europe
-						is_core = STT
-					}
-					remove_core = STT
-					add_core = POM
-				}
-				every_province = {
-					limit = {
-						continent = europe
-						is_core = STP
-					}
-					remove_core = STP
-					add_core = POM
-				}
-			}
-			set_country_flag = formed_pomerania_flag_btp
-			set_country_flag = bt_formed_stem_duchy
-			if = {
-				limit = { NOT = { has_idea_group = POM_ideas } }
-				swap_ideas = yes
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		ai_importance = 400
-	}
+#Moved to BtPLReplaceVanillaCountryFormations due to appearing in vanilla in 1.30.
 
 ###################################################################################################
 ################################			Sennar			 ##############################################
