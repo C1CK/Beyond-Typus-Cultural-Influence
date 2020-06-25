@@ -1,15 +1,17 @@
 country_decisions = {
-	institute_english_prayerbooks = { #Convert Cornwall
+	institute_english_prayerbooks = { #Convert Cornwall (Devon no longer Cornish with BT 13.0, but keeping it in here in-case of an earlier startdate)
 		major = no
 		potential = {
 			has_global_flag = british_first_unification_flag #Left here since it complicates the effect otherwise
 			NOT = { has_country_flag = cornish_devolved_parliament_flag }
 			culture_group = british
 			OR = {
-				233 = { culture = cornish }
-				4373 = { culture = cornish }
-				233 = { culture = celtic_cornish }
-				4373 = { culture = celtic_cornish }
+				233 = { culture = cornish } #Cornwall
+				4373 = { culture = cornish } #South Devon
+				8122 = { culture = cornish } #North Devon
+				233 = { culture = celtic_cornish } #Cornwall
+				4373 = { culture = celtic_cornish } #South Devon
+				8122 = { culture = celtic_cornish } #North Devon
 			}
 		}
 
@@ -20,7 +22,8 @@ country_decisions = {
 				religion = anglican
 			}
 			owns_core_province = 233 #Cornwall
-			owns_core_province = 4373 #Devon
+			owns_core_province = 4373 #South Devon
+			owns_core_province = 8122 #North Devon
 		}
 
 		effect = {
@@ -34,6 +37,7 @@ country_decisions = {
 				}
 				233 = { change_culture = english }
 				4373 = { change_culture = english }
+				8122 = { change_culture = english }
 			}
 			if = {
 				limit = {
@@ -41,6 +45,7 @@ country_decisions = {
 				}
 				233 = { change_culture = standard_british }
 				4373 = { change_culture = standard_british }
+				8122 = { change_culture = standard_british }
 			}
 			if = {
 				limit = {
@@ -51,6 +56,7 @@ country_decisions = {
 				}
 				233 = { change_culture = northumbrian }
 				4373 = { change_culture = northumbrian }
+				8122 = { change_culture = northumbrian }
 			}
 			233 = {
 				spawn_rebels = {
@@ -78,20 +84,35 @@ country_decisions = {
 		allow = {
 			#NOT = { accepted_culture = welsh } #Removed -AI is dumb
 			#NOT = { accepted_culture = celtic_welsh } #Removed -Ai is dumb
-			wales_area = {
+			wales_area = { #Gwynedd
 				type = all
-				is_core = ROOT
+				owns_core_province = ROOT
+			}
+			owns_core_province = 4366 #Montgomeryshire
+			owns_core_province = 8142 #Radnor
+			deheubarth_area = {
+				type = all
+				owns_core_province = ROOT
 			}
 			custom_trigger_tooltip = {
 				tooltip = welsh_infrastructure_trigger
 				OR = {
 					is_year = 1700 #Fallback
-					wales_area = { #Wales has infrastructure
-						type = all
-						development = 20
+					AND = { #Wales has infrastructure
+						wales_area = { #Gwynedd
+							type = all
+							development = 10
+						}
+						4366 = { development = 10 } #Montgomeryshire
+						8142 = { development = 10 } #Radnor
+						deheubarth_area = {
+							type = all
+							development = 10
+						}
+
 					}
-					wales_area = { #One well developed province
-						type = any
+					any_owned_province = { #One well developed province
+						anglo_welsh_culture_region = yes
 						development = 35
 					}
 				}
@@ -101,7 +122,11 @@ country_decisions = {
 
 		provinces_to_highlight = {
 			anglo_welsh_culture_region = yes
-			NOT = { is_core = ROOT }
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+				NOT = { development = 10 }
+			}
 		}
 
 		effect = {
@@ -131,11 +156,11 @@ country_decisions = {
 		allow = {
 			highlands_area = {
 				type = all
-				is_core = ROOT
+				owns_core_province = ROOT
 			}
 			kingdom_of_the_isles_area = {
 				type = all
-				is_core = ROOT
+				owns_core_province = ROOT
 			}
 			custom_trigger_tooltip = {
 				tooltip = scottish_major_city_trigger
@@ -155,7 +180,10 @@ country_decisions = {
 				area = highlands_area
 				area = kingdom_of_the_isles_area
 			}
-			NOT = { is_core = ROOT }
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
 		}
 
 		effect = {
@@ -299,25 +327,39 @@ country_decisions = {
 	grant_cornish_identity_legitimacy = { #Optional Cornish parliament
 		major = no
 		potential = {
+			has_parliament = yes
 			has_country_flag = devolution_of_parliament
 			NOT = { has_country_flag = cornish_devolved_parliament_flag }
 		}
 
 		allow = {
-			cornwall_area = {
-				type = all
-				owned_by = ROOT
+			owns_core_province = 233 #Cornwall
+			owns_core_province = 4373 #South Devon
+			owns_core_province = 8122 #North Devon
+			OR = { #Something must be Cornish
+				233 = { culture = cornish } #Cornwall
+				4373 = { culture = cornish } #South Devon
+				8122 = { culture = cornish } #North Devon
+				233 = { culture = celtic_cornish } #Cornwall
+				4373 = { culture = celtic_cornish } #South Devon
+				8122 = { culture = celtic_cornish } #North Devon
 			}
-			233 = { culture = cornish }
+			dip_power = 200
 		}
 
 		effect = {
+			add_dip_power = -200
 			233 = {
 				add_province_triggered_modifier = cornish_devolved_parliament_modifier
 				add_center_of_trade_level = 1 #Woo!
 				add_base_tax = 2
 			}
-			cornwall_area = {
+			every_owned_province = {
+				limit = {
+					province_id = 233 #Cornwall
+					province_id = 4373 #South Devon
+					province_id = 8122 #North Devon
+				}
 				if = {
 					limit = {
 						any_province = { culture = cornish }
@@ -354,26 +396,54 @@ country_decisions = {
 	grant_breton_identity_legitimacy = { #Optional Breton parliament
 		major = no
 		potential = {
+			has_parliament = yes
 			has_country_flag = devolution_of_parliament
 			NOT = { has_country_flag = breton_devolved_parliament_flag }
 		}
 
 		allow = {
-			brittany_area = {
+			brittany_area = { #Upper Brittany
 				type = any
 				OR = {
 					culture = breton
 					culture = celtic_breton
 				}
 			}
-			brittany_area = {
+			brittany_area = { #Upper Brittany
 				type = all
 				owned_by = ROOT
 			}
+			lower_brittany_area = {
+				type = any
+				OR = {
+					culture = breton
+					culture = celtic_breton
+				}
+			}
+			lower_brittany_area = {
+				type = all
+				owned_by = ROOT
+			}
+			dip_power = 400
 		}
 
 		effect = {
-			brittany_area = {
+			add_dip_power = -400
+			brittany_area = { #Upper Brittany
+				if = {
+					limit = {
+						any_province = { culture = breton }
+					}
+					change_culture = breton
+				}
+				if = {
+					limit = {
+						any_province = { culture = celtic_breton }
+					}
+					change_culture = celtic_breton
+				}
+			}
+			lower_brittany_area = {
 				if = {
 					limit = {
 						any_province = { culture = breton }
@@ -404,7 +474,6 @@ country_decisions = {
 				add_base_tax = 2
 			}
 			set_country_flag = breton_devolved_parliament_flag
-			add_accepted_culture = breton
 		}
 
 		ai_will_do = {
@@ -421,19 +490,41 @@ country_decisions = {
 		}
 
 		allow = {
-			normandy_area = {
+			lower_normandy_area = {
 				culture_group = british
+				owns_core_province = ROOT
+				type = all
+			}
+			normandy_area = { #Upper Normandy
+				culture_group = british
+				owns_core_province = ROOT
 				type = all
 			}
 			ile_de_france_area = {
 				culture_group = british
+				owns_core_province = ROOT
 				type = all
 			}
 			picardy_area = {
 				culture_group = british
+				owns_core_province = ROOT
 				type = all
 			}
 			owns_core_province = 183 #Paris
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = lower_normandy_area
+				area = normandy_area #Upper Normandy
+				area = ile_de_france_area
+				area = picardy_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+				NOT = { culture_group = british }
+			}
 		}
 
 		effect = {
@@ -453,8 +544,29 @@ country_decisions = {
 		}
 
 		allow = {
-			174 = { culture_group = british }
+			guyenne_area = {
+				culture_group = british
+				owns_core_province = ROOT
+				type = all
+			}
+			poitou_area = {
+				culture_group = british
+				owns_core_province = ROOT
+				type = all
+			}
 			owns_core_province = 174 #Aquitaine
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = guyenne_area
+				area = poitou_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+				NOT = { culture_group = british }
+			}
 		}
 
 		effect = {
@@ -467,7 +579,7 @@ country_decisions = {
 
 	#I could grant devolution forever but for now I'll leave it here
 
-	restore_the_plantagenets = {
+	restore_the_plantagenets = { #basically a copy of the Angevin empire mission (Also uses the same scripted trigger)
 		major = yes
 		potential = {
 			NOT = { has_country_flag = restored_plantagenets_flag }
@@ -486,78 +598,15 @@ country_decisions = {
 		}
 
 		provinces_to_highlight = {
-			OR = {
-				area = normandy_area
-				province_id = 177
-				province_id = 3075
-				province_id = 4389
-				province_id = 178
-				area = poitou_area
-				province_id = 3109
-				province_id = 199
-				province_id = 3087
-				province_id = 195
-				province_id = 4387
-				province_id = 194
-				province_id = 174
-				province_id = 3081
-				area = pyrenees_area
-			}
+			eng_rb_angevin_provinces = yes
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 
 		allow = { #Angevin Empire trigger
-			normandy_area = {
-				country_or_non_sovereign_subject_holds = ROOT
-				type = ALL
-			}
-			brittany_area = {
-				country_or_non_sovereign_subject_holds = ROOT
-				type = ALL
-			}
-			177 = { #Maine
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			3075 = { #Dunois
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			4389 = { #Touraine
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			178 = { #Anjou
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			poitou_area = {
-				country_or_non_sovereign_subject_holds = ROOT
-				type = ALL
-			}
-			3109 = { #La Marche
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			199 = { #Auvergne
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			3087 = { #Aurillac
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			195 = { #Limousin
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			4387 = { #Angoumois
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			194 = { #Perigord
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			174 = { #Aquitaine
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			3081 = { #Agenais
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			pyrenees_area = {
-				country_or_non_sovereign_subject_holds = ROOT
-				type = ALL
+			has_fulfiled_province_requirement_for_mission_trigger = {
+				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
+				PROVINCES=eng_rb_angevin_provinces
+				OWNER_TYPE=country_or_non_sovereign_subject_holds
 			}
 			dip_power = 200
 		}
