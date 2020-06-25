@@ -49,7 +49,7 @@ country_event = { #Hochdeutsch creation
 					NOT = { owned_by = ROOT }
 					hochdeutsch_cultures = yes
 					NOT = { owner = { primary_culture = bavarian } }
-					NOT = { owner = { primary_culture = alemannish } }
+					NOT = { owner = { primary_culture = swabian } } #Actually Alemannic
 				}
 				change_culture = hochdeutsch
 			}
@@ -63,7 +63,7 @@ country_event = { #Hochdeutsch creation
 			every_country = {
 				limit = {
 					any_owned_province = { hochdeutsch_swiss_exemption = yes }
-					primary_culture = alemannish
+					primary_culture = swabian #Actually Alemannic
 				}
 				country_event = { id = cultural_influence_germanic_rework.3 } #Swiss Splinter?
 			}
@@ -254,7 +254,7 @@ country_event = { #Swiss splinter
 			limit = {
 				hochdeutsch_swiss_exemption = yes
 				owned_by = ROOT
-				culture = alemannish
+				culture = swabian #Actually Alemannic
 			}
 			change_culture = swiss
 		}
@@ -269,7 +269,7 @@ country_event = { #Swiss splinter
 		every_province = {
 			limit = {
 				hochdeutsch_swiss_exemption = yes
-				culture = alemannish
+				culture = swabian #Actually Alemannic
 			}
 			change_culture = hochdeutsch
 		}
@@ -532,7 +532,7 @@ country_event = { #Plattdüütsch creation
 		trigger = {
 			NOT = { has_global_flag = hochdeutsch_created_flag }
 			capital_scope = { plattduutsch_low_franconian_cultures = yes }
-			primary_culture = low_franconian
+			primary_culture = dutch #Actually Low-Franconian
 		}
 
 		capital_scope = { #Add College to Capital
@@ -560,7 +560,7 @@ country_event = { #Plattdüütsch creation
 		trigger = {
 			NOT = { has_global_flag = hochdeutsch_created_flag }
 			owns = 85 #Köln
-			NOT = { primary_culture = low_franconian }
+			NOT = { primary_culture = dutch } #Actually Low-Franconian
 		}
 
 		85 = { #Add College to Köln
@@ -710,8 +710,8 @@ province_event = { #Low Franconian Integration (Not Dutch!)
 
 	trigger = {
 		has_global_flag = plattduutsch_created_flag
-		culture = low_franconian
-		NOT = { owner = { primary_culture = low_franconian } }
+		culture = dutch #Actually Low-Franconian
+		NOT = { owner = { primary_culture = dutch } } #Actually Low-Franconian
 		OWNER = { #Is German
 			OR = {
 				primary_culture = plattduutsch
@@ -776,7 +776,7 @@ country_event = { #Dutch Standardization (On formation of NED, then spreads) (Ma
 	trigger = {
 		tag = NED #Only allowed for the Dutch
 		OR = {
-			primary_culture = low_franconian
+			primary_culture = dutch #Actually Low-Franconian
 			primary_culture = dutch_low_saxon
 		}
 		NOT = { has_global_flag = dutch_created_flag }
@@ -791,19 +791,19 @@ country_event = { #Dutch Standardization (On formation of NED, then spreads) (Ma
 				limit = {
 					dutch_cultures = yes
 				}
-				change_culture = dutch
+				change_culture = dutch_modern
 			}
 			low_countries_region = {
 				limit = {
 					dutch_cultures = yes
 				}
-				change_culture = dutch
+				change_culture = dutch_modern
 			}
 			france_region = {
 				limit = {
 					dutch_cultures = yes
 				}
-				change_culture = dutch
+				change_culture = dutch_modern
 			}
 			every_country = {
 				limit = {
@@ -813,7 +813,7 @@ country_event = { #Dutch Standardization (On formation of NED, then spreads) (Ma
 						capital_scope = { region = france_region }
 					}
 				}
-				change_primary_culture = dutch
+				change_primary_culture = dutch_modern
 			}
 		}
 	}
@@ -917,19 +917,19 @@ province_event = { #Dutch Integration (Only to low_franconian provinces)
 
 	trigger = {
 		has_global_flag = dutch_created_flag
-		NOT = { culture = dutch }
+		NOT = { culture = dutch_modern }
 		OR = {
 			dutch_cultures = yes
 			dutch_region = yes
 		}
 		OWNER = { #Is Dutch
-			primary_culture = dutch
+			primary_culture = dutch_modern
 		}
 		OR = { #Lack of Dutch influence or significant transit
 			development = 40
 			province_trade_power = 10
 			any_neighbor_province = {
-				culture = dutch
+				culture = dutch_modern
 			}
 		}
 		culture_group = germanic #The rest settles
@@ -972,7 +972,7 @@ province_event = { #Dutch Integration (Only to low_franconian provinces)
 	option = {
 		name = dutch_integration.a
 
-		change_culture = dutch
+		change_culture = dutch_modern
 	}
 }
 
@@ -981,18 +981,18 @@ province_event = { #Dutch settlements and assimilation (Works for Low Franconian
 	title = low_franconian_settlements.title
 	desc = {
 		desc = low_franconian_settlements.desc
-		trigger = { NOT = { owner = { primary_culture = dutch } } }
+		trigger = { NOT = { owner = { primary_culture = dutch_modern } } }
 	}
 	desc = {
 		desc = dutch_settlements.desc
-		trigger = { owner = { primary_culture = dutch } }
+		trigger = { owner = { primary_culture = dutch_modern } }
 	}
 	picture = CULTURE_eventPicture
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture = dutch }
-		NOT = { culture = low_franconian }
+		NOT = { culture = dutch_modern }
+		NOT = { culture = dutch } #Actually Low-Franconian
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -1105,20 +1105,20 @@ province_event = { #Dutch settlements and assimilation (Works for Low Franconian
 
 		if = {
 			limit = {
-				OWNER = { primary_culture = dutch }
+				OWNER = { primary_culture = dutch_modern }
 			}
-			change_culture = dutch
+			change_culture = dutch_modern
 		}
 		if = {
 			limit = {
-				NOT = { OWNER = { primary_culture = dutch } }
+				NOT = { OWNER = { primary_culture = dutch_modern } }
 				NOT = { any_neighbor_province = { culture = plattduutsch } }
 			}
-			change_culture = low_franconian
+			change_culture = dutch #Actually Low-Franconian
 		}
 		if = {
 			limit = {
-				NOT = { OWNER = { primary_culture = dutch } }
+				NOT = { OWNER = { primary_culture = dutch_modern } }
 				any_neighbor_province = { culture = plattduutsch }
 			}
 			change_culture = plattduutsch
@@ -1134,7 +1134,7 @@ province_event = { #Northern Low Saxon settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture = northern_low_saxon }
+		NOT = { culture = lower_saxon } #Actually Northern Low Saxon
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -1255,7 +1255,7 @@ province_event = { #Northern Low Saxon settlements and assimilation
 			limit = {
 				NOT = { has_global_flag = plattduutsch_created_flag }
 			}
-			change_culture = northern_low_saxon
+			change_culture = lower_saxon #Actually Northern Low Saxon
 		}
 	}
 }
@@ -1525,7 +1525,7 @@ province_event = { #Westphalian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture = westphalian }
+		NOT = { culture = hannoverian } #Actually Westphalian
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -1646,7 +1646,7 @@ province_event = { #Westphalian settlements and assimilation
 			limit = {
 				NOT = { has_global_flag = plattduutsch_created_flag }
 			}
-			change_culture = westphalian
+			change_culture = hannoverian #Actually Westphalian
 		}
 	}
 }
@@ -1927,8 +1927,8 @@ province_event = { #Saxon settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture = low_franconian }
 		NOT = { culture = saxon }
+		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -2195,7 +2195,7 @@ province_event = { #Rhine Franconian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture = rhine_franconian }
+		NOT = { culture = hessian } #Actually Rhine-Franconian
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -2316,7 +2316,7 @@ province_event = { #Rhine Franconian settlements and assimilation
 			limit = {
 				NOT = { has_global_flag = plattduutsch_created_flag }
 			}
-			change_culture = rhine_franconian
+			change_culture = hessian #Actually Rhine-Franconian
 		}
 	}
 }
@@ -2329,7 +2329,7 @@ province_event = { #East Franconian settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture = east_franconian }
+		NOT = { culture = franconian } #Actually East-Franconian
 		NOT = { culture = hochdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -2450,7 +2450,7 @@ province_event = { #East Franconian settlements and assimilation
 			limit = {
 				NOT = { has_global_flag = hochdeutsch_created_flag }
 			}
-			change_culture = east_franconian
+			change_culture = franconian #Actually East-Franconian
 		}
 	}
 }
@@ -2463,7 +2463,7 @@ province_event = { #Alemannish settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture = alemannish }
+		NOT = { culture = swabian } #Actually Alemannic
 		NOT = { culture = hochdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -2584,7 +2584,7 @@ province_event = { #Alemannish settlements and assimilation
 			limit = {
 				NOT = { has_global_flag = hochdeutsch_created_flag }
 			}
-			change_culture = alemannish
+			change_culture = swabian #Actually Alemannic
 		}
 	}
 }
@@ -2732,7 +2732,7 @@ province_event = { #Schlesisch settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture = schlesisch }
+		NOT = { culture = silesian_german }
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -2843,7 +2843,7 @@ province_event = { #Schlesisch settlements and assimilation
 	option = {
 		name = schlesisch_settlements.a
 
-		change_culture = schlesisch
+		change_culture = silesian_german
 	}
 }
 
@@ -3954,7 +3954,7 @@ province_event = { #Siebenbürger settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture = siebenburger }
+		NOT = { culture = transylvanian_saxon }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -4064,7 +4064,7 @@ province_event = { #Siebenbürger settlements and assimilation
 	option = {
 		name = siebenburger_settlements.a
 
-		change_culture = siebenburger
+		change_culture = transylvanian_saxon
 	}
 }
 
