@@ -1,54 +1,49 @@
-serbo_croat_culture_region = {
+﻿serbo_croat_culture_region = { #Including /slightly/ enlarged Torlakian
 	OR = {
+		province_id = 4738 #Trieste
+		province_id = 7090 #Rovigno
+		province_id = 130 #Pola
+		province_id = 7082 #Mitterburg
 		area = croatia_area
-		area = krajina_area
 		area = slavonia_area
-		area = syrmia_area
+		area = krajina_area
+		area = east_adriatic_coast_area #Dalmatia
 		area = bosnia_area
 		area = herzegovina_area
-		area = east_adriatic_coast_area
-		province_id = 4173 #Subotica
+		province_id = 8189 #Baja
+		province_id = 8188 #Zombor
+		province_id = 4173 #Szabadka
 		province_id = 7740 #Backa
-		area = banat_area
+		area = syrmia_area
 		area = serbia_area
+		area = banat_area
 		area = rascia_area
-		area = montenegro_area
-		province_id = 3000 #Nis
+		province_id = 3000 #Nish
 		province_id = 7711 #Vranje
-	}
-}
-
-serbo_croat_bulgarian_conflict_region = {
-	OR = {
+		area = montenegro_area
+		AND = {
+			area = vidin_area
+			NOT = { province_id = 7707 } #Ivraca
+		}
+		province_id = 7705 #Sehirkoy
+		province_id = 4703 #Kostendil
+		province_id = 7147 #Kratova
 		province_id = 3001 #Skopje
 	}
 }
 
-serbo_croat_slovene_conflict_region = {
+bulgarian_culture_region = { #Including /slightly/ enlarged Torlakian
 	OR = {
-		province_id = 7090 #Rovigno
-		province_id = 130 #Pola
-		province_id = 3049 #Trieste
-		province_id = 7082 #Mitterburg
-		province_id = 3191 #Pflaum
-	}
-}
-
-bulgarian_culture_region = {
-	OR = {
+		province_id = 3185 #Krusevac
 		area = vidin_area
-		AND = {
-			area = bulgaria_area
-			NOT = { province_id = 3000 } #Nis
-			NOT = { province_id = 7711 } #Vranje
-		}
+		province_id = 7702 #Pristina
+		province_id = 7700 #Prizren
+		province_id = 1766 #Novo Brdo
+		area = bulgaria_area #Sofia
 		area = danubian_plain_area #Lower Moesia
 		area = upper_thrace_area
-		area = lower_danube_area #Dobruja
-		AND = {
-			area = northern_macedonia_area
-			NOT = { province_id = 3001 } #Skopje
-		}
+		area = silistria_area #Dobruja
+		area = northern_macedonia_area
 		area = macedonia_area #Western Macedonia
 		area = eastern_macedonia_area
 		area = upper_thrace_area
@@ -60,14 +55,19 @@ bulgarian_culture_region = {
 
 slovene_culture_region = {
 	OR = {
-		area = carniola_area
-		province_id = 7091 #Tolmìn
-		province_id = 1769 #Görz
-		area = inner_austria_area
-		province_id = 3052 #Kalonisberg
 		AND = {
-			area = transdanubia_area
-			NOT = { province_id = 153 } #Pest
+			area = friuli_area
+			NOT = { province_id = 7096 } #Udine
+			NOT = { province_id = 111 } #Friuli
 		}
+		province_id = 4752 #Pflaum
+		area = carinthia_area #Carniola
+		area = inner_austria_area
+		province_id = 4761 #Traungau
+		province_id = 4762 #Kalonisberg
+		province_id = 3051 #Eisenstadt
+		province_id = 8171 #Gussing
+		province_id = 135 #Sopron
+		province_id = 8172 #Vas
 	}
 }
