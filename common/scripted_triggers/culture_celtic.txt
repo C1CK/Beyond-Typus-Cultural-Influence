@@ -3,6 +3,7 @@ gaelic_scottish_culture_region = { #Works for Celtic Scottish & Gaelic
 		area = lowlands_area #Eastern Lowlands
 		area = highlands_area #Highlands
 		area = scottish_marches_area #Western Lowlands
+		area = grampians_area
 		AND = {
 			area = kingdom_of_the_isles_area #Southern Isles
 			NOT = { province_id = 4365 } #Mann
@@ -17,18 +18,20 @@ gaelic_irish_culture_region = { #Works for Celtic Irish & Gaelic
 
 briton_welsh_culture_region = { #Uses Briton due to possible British Welsh later in development
 	OR = {
-		area = wales_area
-		province_id = 240 #Shrewsbury (Extended Welsh upon Celtic resurgence)
-		province_id = 4375 #Chester (^^^)
+		area = wales_area #Gwynedd
+		area = powys_area
+		area = deheubarth_area
+		province_id = 4375 #Cheshire
 	}
 }
 
 briton_cornish_culture_region = { #Uses Briton due to possible British Cornish later in development
 	OR = {
-		area = cornwall_area
-		province_id = 4130 #Somerset (Extended Cornish upon Celtic resurgence)
-		province_id = 239 #Gloucestershire (^^^)
-		province_id = 4374 #Dorset (^^^)
+		AND = {
+			area = wessex_area
+			NOT = { province_id = 234 } #Hampshire
+			NOT = { province_id = 8123 } #Berkshire
+		}
 	}
 }
 
@@ -38,16 +41,17 @@ manx_culture_region = {
 
 cwmbraic_culture_region = {
 	OR = {
-		area = northern_england_area #Northumbria
-		province_id = 244 #Lancaster
+		province_id = 247 #Cumberland
+		province_id = 8135 #Westmoreland
+		province_id = 244 #Lancashire
+		area = northern_england_area
 	}
 }
 
 corieltauvi_culture_region = {
 	OR = {
 		area = yorkshire_area
-		province_id = 4372 #Warwick
-		province_id = 4376 #Leicester
+		area = east_midlands_area #Midlands
 	}
 }
 
@@ -55,9 +59,8 @@ cantiaci_culture_region = {
 	OR = {
 		area = east_anglia_area
 		area = home_counties_area #Essex
-		province_id = 234 #Wessex
-		province_id = 237 #Oxford
-		province_id = 4370 #Cambridge
+		province_id = 8124 #Berkshire
+		province_id = 234 #Hampshire
 	}
 }
 

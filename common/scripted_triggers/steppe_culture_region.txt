@@ -2,19 +2,29 @@ steppe_culture_region = { #Region that naturally tends to nomadic societies and 
 	OR = {
 			#Afro-Eurasia
 		  #Great Steppe & Transitional Regions
-		 #Pannonian Steppe (Exclave) (Extended to include all of Transdanubia so that you can be a normal shape)
+		 #Pannonian Steppe (Choosing to cut this at the Austrian & Czech border, otherwise it starts to spill out in an ugly way)
+		province_id = 8173 #Nagyszombat
+		province_id = 1772 #Pozsony
+		province_id = 8174 #Nyitra
+		province_id = 8175 #Komarom
 		area = transdanubia_area
-		province_id = 1767 #Veroce
-		province_id = 7739 #Vukovar
-		province_id = 7718 #Srem
+		province_id = 8216 #Pettau
+		province_id = 131 #Zagreb
+		area = slavonia_area
+		area = alfold_area #West Alfold
+		province_id = 7739 #Valkovar
+		province_id = 7718 #Szeremseg
 		province_id = 4239 #Belgrade
-		area = alfold_area
-		AND = {
-			area = banat_area
-			NOT = { province_id = 7745 } #Orsova
-			NOT = { province_id = 7746 } #Caransebes
-		}
-		province_id = 157 #Bihor
+		area = eastern_alfold_area
+		province_id = 8206 #Szilagy
+		province_id = 8138 #Nograd
+		province_id = 4125 #Heves
+		province_id = 8194 #Borsod
+		province_id = 8196 #Abauj
+		province_id = 7741 #Obecse
+		province_id = 1954 #Pancsova
+		province_id = 156 #Temes
+		province_id = 7744 #Lugos
 		 #Bessarabia Steppe
 		province_id = 2405 #Tighina
 		province_id = 7277 #Tyagyanyakyacha
@@ -31,11 +41,10 @@ steppe_culture_region = { #Region that naturally tends to nomadic societies and 
 		#province_id = 7753 #Slatina -Removed, looks ugly
 		province_id = 160 #Craiova
 		province_id = 7748 #Calafat
-		 #Danubian Plain
 		province_id = 2746 #Vidin
 		province_id = 7707 #Vratsa
 		area = danubian_plain_area #Lower Moesia
-		area = lower_danube_area #Dobruja
+		area = silistria_area #Dobruja
 		 #East European forest steppe (Shifted slightly to be less gory and play better)
 		province_id = 7273 #Pokuttia
 		AND = {
@@ -247,7 +256,10 @@ steppe_culture_region = { #Region that naturally tends to nomadic societies and 
 nomadic_cultures = { #List of all cultures/groups that are nomadic on the province level at 1444. Does nothing except get the province modifiers setup correctly.
 	OR = {
 		culture_group = oghur
-		culture_group = kipchak
+		AND = {
+			culture_group = kipchak
+			NOT = { culture = cuman }
+		}
 		culture_group = karluk
 		culture_group = turkic_siberian
 		culture = turkmeni

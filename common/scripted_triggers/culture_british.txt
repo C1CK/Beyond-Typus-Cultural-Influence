@@ -49,37 +49,47 @@ british_new_world = {
 
 standard_english_culture_region = {
 	OR = {
+		area = west_midlands_area #Lancashire
+		area = northern_england_area #Northumberland
 		area = yorkshire_area
+		area = east_midlands_area #Midlands
+		province_id = 240 #Shropshire
+		province_id = 8129 #Herefordshire
 		area = east_anglia_area
-		area = west_midlands_area
-		area = east_midlands_area
-		area = northern_england_area
 		area = wessex_area
-		area = home_counties_area
-		area = cornwall_area
+		area = home_counties_area #Essex
 	}
 }
 
-anglo_cornish_culture_region = {
-	area = cornwall_area
-}
+#anglo_cornish_culture_region = { #Unused, out-of-date
+#	area = cornwall_area
+#}
 
 anglo_welsh_culture_region = {
-	area = wales_area
+	OR = {
+		AND = {
+			area = wales_area #Gwynedd
+			NOT = { province_id = 8139 } #Flintshire
+		}
+		province_id = 4366 #Montgomershire
+		province_id = 8142 #Radnor
+		area = deheubarth_area
+	}
 }
 
 anglo_irish_culture_region = {
 	OR = {
-		region = ireland_area #Why is this called ireland_area when it's a region?
+		region = ireland_area
 	}
 }
 
 anglo_scottish_culture_region = {
 	OR  = {
-		area = kingdom_of_the_isles_area
+		area = kingdom_of_the_isles_area #Southern Isles
 		area = highlands_area
-		area = lowlands_area
-		area = scottish_marches_area
+		area = lowlands_area #Eastern Lowlands
+		area = scottish_marches_area #Western Lowlands
+		area = grampians_area
 		province_id = 369 #Orkney
 		province_id = 1978 #Shetland
 	}
@@ -154,11 +164,13 @@ anglo_burgundian_culture_region = {
 		area = franche_comte_area
 		area = limousin_area
 		province_id = 7958 #Montargis
-		province_id = 7978 #Blois
-	    province_id = 184 #Orleans
+		province_id = 4776 #Blois
+		province_id = 184 #Orleans
 		province_id = 7957 #Etampes
 		province_id = 3198 #Saarland
-		province_id = 75 #Alsace
+		province_id = 7944 #Hagenland
+		province_id = 75 #Strassburg
+		province_id = 4765 #Kolmar
 		province_id = 1880 #Sundgau
 	}
 }
@@ -183,12 +195,22 @@ anglo_toulousain_culture_region = {
 
 anglo_lower_rhenish_culture_region = {
 	OR = {
-		area = netherlands_area
-		area = brabant_area
-		area = guelders_area
-		area = luxemburg_liege_area
-		area = north_rhine_area
-		area = lower_rhineland_area
+		area = holland_area
+		area = brabant_area #South Brabant
+		AND = {
+			area = north_brabant_area #Guelders
+			NOT = { province_id = 4381 } #Overijssel
+			NOT = { province_id = 8120 } #Twente
+		}
+		area = luxemburg_liege_area #Liege
+		AND = {
+			area = north_rhine_area
+			NOT = { province_id = 3201 } #Siegen
+			NOT = { province_id = 3200 } #Mark
+		AND = {
+			area = lower_rhineland_area #South Rhine
+			NOT = { province_id = 3198 } #Saarland
+		}
 	}
 }
 
@@ -198,9 +220,10 @@ anglo_frisian_culture_region = {
 		AND = {
 			area = weser_area
 			NOT = { province_id = 54 } #Stade
+			NOT = { province_id = 4771 } #Verden
 		}
-		province_id = 3058 #Drente
 		province_id = 4381 #Overijssel
+		province_id = 8120 #Twente
 		area = muenster_area #Münster
 		province_id = 3202 #Minden
 	}
@@ -236,6 +259,7 @@ anglo_danish_culture_region = {
 		area = schleswig_area
 		area = holstein_area
 		province_id = 54 #Stade
+		province_id = 4771 #Verden
 		province_id = 2996 #Wismar
 		area = denmark_area
 	}
@@ -299,8 +323,8 @@ anglo_baltic_culture_region = {
 
 anglo_pomeranian_culture_region = {
 	OR = {
-		area = lower_saxony_area
-		area = northern_saxony_area
+		area = lower_saxony_area #Hannover
+		area = northern_saxony_area #Altmark
 		area = mittelmark_area
 		AND = {
 			area = mecklenburg_area
@@ -308,11 +332,7 @@ anglo_pomeranian_culture_region = {
 		}
 		area = vorpommern_area #Cispomerania
 		area = hinter_pommern_area #Transpomerania
-		AND = {
-			area = neumark_area
-			NOT = { province_id = 1763 } #Dolni Luzice
-			NOt = { province_id = 60 } #Budysínsko
-		}
+		area = neumark_area
 	}
 }
 
