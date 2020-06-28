@@ -3129,15 +3129,15 @@ province_event = { #Baltendeutsch settlements and assimilation
 	}
 }
 
-province_event = { #Pannoniendeutsch settlements and assimilation
+province_event = { #Donauschwaben settlements and assimilation
 	id = cultural_influence_germanic_rework.28
-	title = pannoniendeutsch_settlements.title
-	desc = pannoniendeutsch_settlements.desc
+	title = donauschwaben_settlements.title
+	desc = donauschwaben_settlements.desc
 	picture = CULTURE_eventPicture
 
 	trigger = {
 		owner = { culture_group = germanic }
-		NOT = { culture = pannoniendeutsch }
+		NOT = { culture = donauschwaben }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -3154,7 +3154,7 @@ province_event = { #Pannoniendeutsch settlements and assimilation
 			}
 		}
 		owner = { has_country_modifier = ostsiedlung }
-		pannoniendeutsch_culture_region = yes
+		donauschwaben_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -3240,9 +3240,9 @@ province_event = { #Pannoniendeutsch settlements and assimilation
 	}
 
 	option = {
-		name = pannoniendeutsch_settlements.a
+		name = donauschwaben_settlements.a
 
-		change_culture = pannoniendeutsch
+		change_culture = donauschwaben
 	}
 }
 
@@ -7377,5 +7377,122 @@ province_event = { #Rotesmeerdeutsch settlements and assimilation -Uncolonized l
 		name = rotesmeerdeutsch_settlements.a
 
 		change_culture = rotesmeerdeutsch
+	}
+}
+
+province_event = { #Karpatendeutsch settlements and assimilation #Added with BT 13.0, so it lies down here
+	id = cultural_influence_germanic_rework.64
+	title = karpatendeutsch_settlements.title
+	desc = karpatendeutsch_settlements.desc
+	picture = CULTURE_eventPicture
+
+	trigger = {
+		owner = { culture_group = germanic }
+		NOT = { culture = carpathian_german }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = germanic }
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+		}
+		owner = { has_country_modifier = ostsiedlung }
+		karpatendeutsch_culture_region = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			OR = { #ai uses thiS one
+				NOT = { has_dlc = "Dharma" }
+				owner = { ai = yes }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {
+		name = karpatendeutsch_settlements.a
+
+		change_culture = carpathian_german
 	}
 }
