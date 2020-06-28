@@ -335,7 +335,8 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = IBE
-			swap_non_generic_missions = yes
+			#No Iberian missions yet.
+			#swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = { NOT = { government_rank = 3 } }
@@ -376,7 +377,7 @@ country_decisions = {
 			OR = {
 				culture_group = south_slavic
 				culture_group = illyrian
-				primary_culture = dalmatian_culture #CI
+				primary_culture = dalmatian #CI
 			}
 		}
 		provinces_to_highlight = {
@@ -694,11 +695,22 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = GMV
-			remove_non_electors_emperors_from_empire_effect = yes
-			if = {
-				limit = { NOT = { government_rank = 3 } }
-				set_government_rank = 3
+			#remove_non_electors_emperors_from_empire_effect = yes
+			emperor = {
+				add_opinion = {
+					who = root
+					modifier = opinion_left_empire
+				}
 			}
+			set_in_empire = no
+			emperor = {
+				country_event = { id = hre_event.5 }
+			}
+			set_government_rank = 3
+			# if = {
+				# limit = { NOT = { government_rank = 3 } }
+				# set_government_rank = 3
+			# }
 			bohemia_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
