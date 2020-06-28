@@ -7,53 +7,41 @@ province_event = { #Czech settlements and assimilation
 	desc = { #Hardcoded Grrr....
 		desc = czech_settlements.desc
 		trigger = {
-			area = erzgebirge_area
+			area = erzgebirge_area #Ore Mountains
+			area = bohemian_forest_area
 			area = bohemia_area
+			area = moravia_area
 		}
 	}
 	desc = {
 		desc = greater_czech_settlements.desc
 		trigger = {
 			OR = {
+				province_id = 133 #Ob der Enns
 				province_id = 1770 #Ostmark
-				province_id = 134 #Vienna
+				province_id = 134 #Wien
 			}
 		}
 	}
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		OR = {
-			owner = { culture_group = west_slavic }
-			owner = { culture_group = unified_slavic }
-		}
+		owner = { culture_group = west_slavic }
 		NOT = { culture = czech }
 		NOT = { culture = ceskoslovensky }
-		NOT = { culture = slavic_czech }
-		NOT = { culture = slavic_ceskoslovensky }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = west_slavic }
+			}
+			num_of_times_improved = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
-			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						OR = {
-							culture_group = west_slavic
-							culture_group = unified_slavic
-						}
-					}
-					num_of_times_improved = 5
-				}
 			}
 		}
 		owner = { has_country_modifier = west_slavic_settlements }
@@ -64,14 +52,6 @@ province_event = { #Czech settlements and assimilation
 	mean_time_to_happen = {
 		#Template Settled MTTH
 		years = 10
-
-		modifier = { #Uncolonized land
-			factor = 0.1
-			OR = {
-				culture_group = west_slavic
-				culture_group = unified_slavic
-			}	
-		}
 
 		modifier = {
 			factor = 0.5
@@ -156,46 +136,14 @@ province_event = { #Czech settlements and assimilation
 		if = {
 			limit = {
 				has_global_flag = czechoslovak_created_flag
-				NOT = { has_global_flag = east_west_slavic_united_flag }
-				NOT = { has_global_flag = west_south_slavic_united_flag }
-				NOT = { has_global_flag = slavic_united_flag }
 			}
 			change_culture = ceskoslovensky
 		}
 		if = {
 			limit = {
 				NOT = { has_global_flag = czechoslovak_created_flag }
-				NOT = { has_global_flag = east_west_slavic_united_flag }
-				NOT = { has_global_flag = west_south_slavic_united_flag }
-				NOT = { has_global_flag = slavic_united_flag }
 			}
 			change_culture = czech
-		}
-		if = {
-			limit = {
-				AND = {
-					OR = {
-						has_global_flag = east_west_slavic_united_flag
-						has_global_flag = west_south_slavic_united_flag
-						has_global_flag = slavic_united_flag
-					}
-					has_global_flag = czechoslovak_created_flag
-				}
-			}
-			change_culture = slavic_ceskoslovensky
-		}
-		if = {
-			limit = {
-				AND = {
-					OR = {
-						has_global_flag = east_west_slavic_united_flag
-						has_global_flag = west_south_slavic_united_flag
-						has_global_flag = slavic_united_flag
-					}
-					NOT = { has_global_flag = czechoslovak_created_flag }
-				}
-			}
-			change_culture = slavic_czech
 		}
 	}
 }
@@ -207,14 +155,9 @@ province_event = { #Slovak settlements and assimilation
 	picture = RELIGIOUS_CONVERSION_eventPicture
 
 	trigger = {
-		OR = {
-			owner = { culture_group = west_slavic }
-			owner = { culture_group = unified_slavic }
-		}	
+		owner = { culture_group = west_slavic }
 		NOT = { culture = slovak }
 		NOT = { culture = ceskoslovensky }
-		NOT = { culture = slavic_slovak }
-		NOT = { culture = slavic_ceskoslovensky }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -222,10 +165,7 @@ province_event = { #Slovak settlements and assimilation
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { culture_group = unified_slavic }
-				}
+				any_neighbor_province = { culture_group = west_slavic }
 			}
 			num_of_times_improved = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -241,14 +181,6 @@ province_event = { #Slovak settlements and assimilation
 	mean_time_to_happen = {
 		#Template Settled MTTH
 		years = 10
-
-		modifier = { #Uncolonized land
-			factor = 0.1
-			OR = {
-				culture_group = west_slavic
-				culture_group = unified_slavic
-			}	
-		}
 
 		modifier = {
 			factor = 0.5
@@ -333,46 +265,14 @@ province_event = { #Slovak settlements and assimilation
 		if = {
 			limit = {
 				has_global_flag = czechoslovak_created_flag
-				NOT = { has_global_flag = east_west_slavic_united_flag }
-				NOT = { has_global_flag = west_south_slavic_united_flag }
-				NOT = { has_global_flag = slavic_united_flag }
 			}
 			change_culture = ceskoslovensky
 		}
 		if = {
 			limit = {
 				NOT = { has_global_flag = czechoslovak_created_flag }
-				NOT = { has_global_flag = east_west_slavic_united_flag }
-				NOT = { has_global_flag = west_south_slavic_united_flag }
-				NOT = { has_global_flag = slavic_united_flag }
 			}
 			change_culture = slovak
-		}
-		if = {
-			limit = {
-				AND = {
-					OR = {
-						has_global_flag = east_west_slavic_united_flag
-						has_global_flag = west_south_slavic_united_flag
-						has_global_flag = slavic_united_flag
-					}
-					has_global_flag = czechoslovak_created_flag
-				}
-			}
-			change_culture = slavic_ceskoslovensky
-		}
-		if = {
-			limit = {
-				AND = {
-					OR = {
-						has_global_flag = east_west_slavic_united_flag
-						has_global_flag = west_south_slavic_united_flag
-						has_global_flag = slavic_united_flag
-					}
-					NOT = { has_global_flag = czechoslovak_created_flag }
-				}
-			}
-			change_culture = slavic_slovak
 		}
 	}
 }
@@ -384,24 +284,8 @@ province_event = { #Polish settlements and assimilation
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		OR = {
-			owner = { culture_group = west_slavic }
-			OR = { #Only West Slavs for this one if already Slavic
-				owner = { primary_culture = slavic_polish }
-				owner = { primary_culture = slavic_pomeransky }
-				owner = { primary_culture = slavic_czech }
-				owner = { primary_culture = slavic_slovak }
-				owner = { primary_culture = slavic_ceskoslovensky }
-				owner = { primary_culture = slavic_sorbian }
-				owner = { primary_culture = slavic_schlesian }
-			}
-			AND = { #Bypass the West Slav checks if province is not already Slavic
-				owner = { culture_group = unified_slavic }
-				NOT = { culture_group = unified_slavic } 
-			}
-		}
-		NOT = { culture = polish }
-		NOT = { culture = slavic_polish }		
+		owner = { culture_group = west_slavic }
+		NOT = { culture = polish }	
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -409,10 +293,7 @@ province_event = { #Polish settlements and assimilation
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { culture_group = unified_slavic }
-				}
+				any_neighbor_province = { culture_group = west_slavic }
 			}
 			num_of_times_improved = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -428,14 +309,6 @@ province_event = { #Polish settlements and assimilation
 	mean_time_to_happen = {
 		#Template Settled MTTH
 		years = 10
-
-		modifier = { #Uncolonized land
-			factor = 0.1
-			OR = {
-				culture_group = west_slavic
-				culture_group = unified_slavic
-			}
-		}
 
 		modifier = {
 			factor = 0.5
@@ -517,26 +390,7 @@ province_event = { #Polish settlements and assimilation
 	option = {
 		name = polish_settlements.a
 
-		if = {
-			limit = {
-				AND = {
-					NOT = { has_global_flag = east_west_slavic_united_flag }
-					NOT = { has_global_flag = west_south_slavic_united_flag }
-					NOT = { has_global_flag = slavic_united_flag }
-				}
-			}
-			change_culture = polish
-		}
-		if = {
-			limit = {
-				OR = {
-					has_global_flag = east_west_slavic_united_flag
-					has_global_flag = west_south_slavic_united_flag
-					has_global_flag = slavic_united_flag
-				}
-			}
-			change_culture = slavic_polish
-		}		
+		change_culture = polish		
 	}
 }
 
@@ -547,12 +401,8 @@ province_event = { #Silesian settlements and assimilation
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		OR = {
-			owner = { culture_group = west_slavic }
-			owner = { culture_group = unified_slavic }
-		}	
-		NOT = { culture = schlesian }
-		NOT = { culture = slavic_schlesian }		
+		owner = { culture_group = west_slavic }
+		NOT = { culture = schlesian }	
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -560,10 +410,7 @@ province_event = { #Silesian settlements and assimilation
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { culture_group = unified_slavic }
-				}
+				any_neighbor_province = { culture_group = west_slavic }
 			}
 			num_of_times_improved = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -579,14 +426,6 @@ province_event = { #Silesian settlements and assimilation
 	mean_time_to_happen = {
 		#Template Settled MTTH
 		years = 10
-
-		modifier = { #Uncolonized land
-			factor = 0.1
-			OR = {
-				culture_group = west_slavic
-				culture_group = unified_slavic
-			}
-		}
 
 		modifier = {
 			factor = 0.5
@@ -667,26 +506,8 @@ province_event = { #Silesian settlements and assimilation
 
 	option = {
 		name = silesian_settlements.a
-		if = {
-			limit = {
-				AND = {
-					NOT = { has_global_flag = east_west_slavic_united_flag }
-					NOT = { has_global_flag = west_south_slavic_united_flag }
-					NOT = { has_global_flag = slavic_united_flag }
-				}
-			}
-			change_culture = schlesian
-		}
-		if = {
-			limit = {
-				OR = {
-					has_global_flag = east_west_slavic_united_flag
-					has_global_flag = west_south_slavic_united_flag
-					has_global_flag = slavic_united_flag
-				}
-			}
-			change_culture = slavic_schlesian
-		}		
+
+		change_culture = schlesian	
 	}
 }
 
@@ -697,12 +518,8 @@ province_event = { #Pomeransky settlements and assimilation
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		OR = {
-			owner = { culture_group = west_slavic }
-			owner = { culture_group = unified_slavic }
-		}	
-		NOT = { culture = pomeransky }
-		NOT = { culture = slavic_pomeransky }		
+		owner = { culture_group = west_slavic }
+		NOT = { culture = pomeransky }		
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -710,10 +527,7 @@ province_event = { #Pomeransky settlements and assimilation
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { culture_group = unified_slavic }
-				}
+				any_neighbor_province = { culture_group = west_slavic }
 			}
 			num_of_times_improved = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -729,14 +543,6 @@ province_event = { #Pomeransky settlements and assimilation
 	mean_time_to_happen = {
 		#Template Settled MTTH
 		years = 10
-
-		modifier = { #Uncolonized land
-			factor = 0.1
-			OR = {
-				culture_group = west_slavic
-				culture_group = unified_slavic
-			}
-		}
 
 		modifier = {
 			factor = 0.5
@@ -817,26 +623,8 @@ province_event = { #Pomeransky settlements and assimilation
 
 	option = {
 		name = pomeransky_settlements.a
-		if = {
-			limit = {
-				AND = {
-					NOT = { has_global_flag = east_west_slavic_united_flag }
-					NOT = { has_global_flag = west_south_slavic_united_flag }
-					NOT = { has_global_flag = slavic_united_flag }
-				}
-			}
-			change_culture = pomeransky
-		}
-		if = {
-			limit = {
-				OR = {
-					has_global_flag = east_west_slavic_united_flag
-					has_global_flag = west_south_slavic_united_flag
-					has_global_flag = slavic_united_flag
-				}
-			}
-			change_culture = slavic_pomeransky
-		}		
+
+		change_culture = pomeransky		
 	}
 }
 
@@ -847,12 +635,8 @@ province_event = { #Sorbian settlements and assimilation
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		OR = {
-			owner = { culture_group = west_slavic }
-			owner = { culture_group = unified_slavic }
-		}	
+		owner = { culture_group = west_slavic }
 		NOT = { culture = sorbian }
-		NOT = { culture = slavic_sorbian }		
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -860,10 +644,7 @@ province_event = { #Sorbian settlements and assimilation
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { culture_group = unified_slavic }
-				}
+				any_neighbor_province = { culture_group = west_slavic }
 			}
 			num_of_times_improved = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -879,14 +660,6 @@ province_event = { #Sorbian settlements and assimilation
 	mean_time_to_happen = {
 		#Template Settled MTTH
 		years = 10
-
-		modifier = { #Uncolonized land
-			factor = 0.1
-			OR = {
-				culture_group = west_slavic
-				culture_group = unified_slavic
-			}
-		}
 
 		modifier = {
 			factor = 0.5
@@ -966,25 +739,8 @@ province_event = { #Sorbian settlements and assimilation
 	}
 
 	option = {
-		if = {
-			limit = {
-				AND = {
-					NOT = { has_global_flag = east_west_slavic_united_flag }
-					NOT = { has_global_flag = west_south_slavic_united_flag }
-					NOT = { has_global_flag = slavic_united_flag }
-				}
-			}
-			change_culture = sorbian
-		}
-		if = {
-			limit = {
-				OR = {
-					has_global_flag = east_west_slavic_united_flag
-					has_global_flag = west_south_slavic_united_flag
-					has_global_flag = slavic_united_flag
-				}
-			}
-			change_culture = slavic_sorbian
-		}		
+		name = sorbian_settlements.a
+
+		change_culture = sorbian		
 	}
 }
