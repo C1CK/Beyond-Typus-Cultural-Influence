@@ -119,7 +119,7 @@ eng_rb_gibraltar = {
 				name = "eng_rb_gibraltar_mod"
 				duration = 5475
 			}
-			give_permaclaims_for_mission = { MISSION=eng_rb_take_baleares }
+			give_permaclaims_for_mission = { mission=eng_rb_take_baleares }
 		}
 	}
 }
@@ -157,15 +157,15 @@ eng_rb_islands_med = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=eng_rb_take_baleares_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=eng_rb_take_baleares_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
 		effect = {
-			give_permaclaims_for_mission = { MISSION=eng_rb_take_mediterranean_islands }
-			give_permaclaims_for_mission = { MISSION=eng_rb_take_delta }
+			give_permaclaims_for_mission = { mission=eng_rb_take_mediterranean_islands }
+			give_permaclaims_for_mission = { mission=eng_rb_take_delta }
 		}
 	}
 	
@@ -180,9 +180,9 @@ eng_rb_islands_med = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=eng_rb_take_mediterranean_islands_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=eng_rb_take_mediterranean_islands_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
@@ -235,14 +235,14 @@ eng_rb_egypt = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=eng_rb_take_delta_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=eng_rb_take_delta_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
 		effect = {
-			give_permaclaims_for_mission = { MISSION=eng_rb_take_bahari }
+			give_permaclaims_for_mission = { mission=eng_rb_take_bahari }
 		}
 	}
 	
@@ -258,9 +258,9 @@ eng_rb_egypt = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=eng_rb_take_bahari_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=eng_rb_take_bahari_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
@@ -407,10 +407,6 @@ eng_rb_burgundy = {
 		OR = {
 			tag = ENG
 			tag = GBR
-			AND = {
-				tag = UEF
-				culture_group = british
-			}
 		}
 		has_dlc = "Rule Britannia"
 		NOT = { map_setup = map_setup_random }
@@ -440,9 +436,9 @@ eng_rb_burgundy = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=eng_rb_conquer_burgundy_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=eng_rb_conquer_burgundy_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
@@ -867,9 +863,9 @@ eng_rb_conquest_europe = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=eng_rb_brittany_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=eng_rb_brittany_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
@@ -882,7 +878,7 @@ eng_rb_conquest_europe = {
 					key = bordeaux_ambition
 				}
 			}
-			give_permaclaims_for_mission = { MISSION=eng_rb_angevin }
+			give_permaclaims_for_mission = { mission=eng_rb_angevin }
 		}
 	
 	}
@@ -899,9 +895,9 @@ eng_rb_conquest_europe = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=eng_rb_angevin_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=eng_rb_angevin_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
@@ -915,7 +911,7 @@ eng_rb_conquest_europe = {
 					duration = -1
 				}
 			}
-			give_permaclaims_for_mission = { MISSION=eng_rb_conquer_burgundy }
+			give_permaclaims_for_mission = { mission=eng_rb_conquer_burgundy }
 			champagne_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -1092,7 +1088,7 @@ gbr_rb_spice_islands_group = {
 				limit = {
 					tag = GBR
 				}
-				give_permaclaims_for_mission = { MISSION=gbr_rb_india_landfall }
+				give_permaclaims_for_mission = { mission=gbr_rb_india_landfall }
 			}
 		}
 	}
@@ -1135,14 +1131,14 @@ gbr_rb_indian_group = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=gbr_rb_india_landfall_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=gbr_rb_india_landfall_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
 		effect = {
-			give_permaclaims_for_mission = { MISSION=gbr_rb_india_coast }
+			give_permaclaims_for_mission = { mission=gbr_rb_india_coast }
 			golconda_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -1187,14 +1183,14 @@ gbr_rb_indian_group = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=gbr_rb_india_coast_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=gbr_rb_india_coast_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
 		effect = {
-			give_permaclaims_for_mission = { MISSION=gbr_rb_india_landgrab }
+			give_permaclaims_for_mission = { mission=gbr_rb_india_landgrab }
 		}
 	
 	}
@@ -1211,9 +1207,9 @@ gbr_rb_indian_group = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=gbr_rb_india_landgrab_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=gbr_rb_india_landgrab_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
@@ -1260,9 +1256,9 @@ gbr_rb_india_princes = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=gbr_rb_india_princedoms_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=gbr_rb_india_princedoms_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
@@ -1354,9 +1350,9 @@ gbr_rb_northern_colonial = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=eng_rb_take_shetland_and_faro_isles_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=eng_rb_take_shetland_and_faro_isles_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		

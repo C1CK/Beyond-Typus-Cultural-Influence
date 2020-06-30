@@ -29,8 +29,8 @@ eng_british_conquest = {
 		}
 		
 		effect = {
-			give_permaclaims_for_mission = { MISSION=conquer_ireland }
-			give_permaclaims_for_mission = { MISSION=conquer_scotland }
+			give_permaclaims_for_mission = { mission=conquer_ireland }
+			give_permaclaims_for_mission = { mission=conquer_scotland }
 			if = {
 				limit = {
 					exists = SCO
@@ -76,9 +76,9 @@ eng_british_conquest_ire = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=conquer_ireland_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=conquer_ireland_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
@@ -125,9 +125,9 @@ eng_british_conquest_scotland = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=conquer_scotland_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=conquer_scotland_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
@@ -142,7 +142,7 @@ eng_british_conquest_scotland = {
 					has_dlc = "Rule Britannia"
 					tag = GBR
 				}
-				give_permaclaims_for_mission = { MISSION=eng_rb_take_shetland_and_faro_isles }
+				give_permaclaims_for_mission = { mission=eng_rb_take_shetland_and_faro_isles }
 				iceland_area = {
 					limit = {
 						NOT = { is_core = ROOT }
@@ -202,7 +202,7 @@ eng_french_conquest = {
 		}
 		
 		effect = {
-			give_permaclaims_for_mission = { MISSION=vassalize_france }
+			give_permaclaims_for_mission = { mission=vassalize_france }
 		}
 	}
 	
@@ -273,7 +273,7 @@ eng_french_conquest = {
 				limit = {
 					has_dlc = "Rule Britannia"
 				}
-				give_permaclaims_for_mission = { MISSION=eng_rb_brittany }
+				give_permaclaims_for_mission = { mission=eng_rb_brittany }
 			}
 		}
 	}
@@ -290,9 +290,9 @@ eng_french_conquest = {
 		
 		trigger = {
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=vassalize_france_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=vassalize_france_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 		}
 		
