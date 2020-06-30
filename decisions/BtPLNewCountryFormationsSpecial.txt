@@ -391,7 +391,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = CNN
-			#change_government = norman_duchy
+			add_government_reform = norman_duchy_reform
 			connacht_area = {
 				limit = { NOT = { owned_by = CNN } }
 				add_permanent_claim = CNN
@@ -440,7 +440,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = MNS
-			#change_government = norman_duchy
+			add_government_reform = norman_duchy_reform
 			munster_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
@@ -492,7 +492,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = LEI
-			#change_government = norman_duchy
+			add_government_reform = norman_duchy_reform
 			leinster_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
@@ -544,7 +544,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = ULS
-			#change_government = norman_duchy
+			add_government_reform = norman_duchy_reform
 			ulster_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
@@ -638,7 +638,7 @@ country_decisions = {
 					NOT = { historical_rival_with = ENG }
 					has_opinion = { who = ENG value = 1 }
 				}
-				add_historical_rival = ENG
+				add_historical_friend = ENG #Eh, Draiocht? It says you are adding a historical rival. Not a friend.
 			}			#Add England as a historical friend if relations are positive (and not already rival or friends)
 			add_country_modifier = {
 				name = "centralization_modifier"
