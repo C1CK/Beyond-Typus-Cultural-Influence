@@ -291,22 +291,26 @@ country_decisions = {
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			capital_scope = { #Must be based in Gaul
-				galianeg_culture_region = yes
-			}
-			owns_core_province = 192 #Bibracte (Fixed capital) (Don't want to add more as it isn't my place to say where Gaul's centers should be since it is a revival)
-			government_rank = 2
 			custom_trigger_tooltip = {
-				tooltip = GAU_region_tooltip
-				calc_true_if = {
-					all_owned_province = {
-						is_core = ROOT
-						galianeg_culture_region = yes
-					}
-					amount = 82 #At least 2/3 of Gaul's 124(!) provinces
+				tooltip = GAU_capital_tooltip.tt
+				capital_scope = { #Must be based in Gaul
+					galianeg_culture_region = yes
 				}
 			}
-			total_development = 750 #Gaul is Empire level
+			owns_core_province = 8028 #Bibracte (Auton)
+			owns_core_province = 199 #Gergovia (Clermont)
+			owns_core_province = 184 #Genabum (Orleans)
+			owns_core_province = 7992 #Portus Ratiatus (Reze)
+			government_rank = 2
+			custom_trigger_tooltip = {
+				tooltip = GAU_region_tooltip.tt
+				num_of_owned_provinces_with = {
+					is_core = ROOT
+					galianeg_culture_region = yes
+					value = 132	#At least 1/2 of Gaul's 265(!) provinces (Only have as this goes to the literal Rhine)
+				}
+			}
+			total_development = 1250
 			prestige = 50 #Discount from 75
 		}
 
@@ -321,15 +325,22 @@ country_decisions = {
 				limit = { NOT = { government_rank = 3 } }
 				set_government_rank = 3
 			}
-			every_province = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					galianeg_culture_region = yes
+			custom_tooltip = GAU_claims.tt
+			hidden_effect = {
+				every_province = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT }
+						galianeg_culture_region = yes
+					}
+					add_permanent_claim = GAU
 				}
-				add_permanent_claim = GAU
 			}
 			add_prestige = 50
 			swap_ideas = yes
+			country_event = {
+				id = cultural_influence_celtic.20
+			}
 			set_country_flag = formed_GAU_flag
 		}
 	}
