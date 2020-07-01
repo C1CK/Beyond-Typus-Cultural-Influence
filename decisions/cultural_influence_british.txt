@@ -589,6 +589,7 @@ country_decisions = {
 			NOT = { has_country_flag = restored_plantagenets_flag }
 			OR = {
 				tag = ENG
+				tag = GBR #Don't think this makes a lot of sense, but I don't want forming something to be a bad idea
 				AND = {
 					tag = UEF
 					culture_group = british
@@ -608,9 +609,9 @@ country_decisions = {
 
 		allow = { #Angevin Empire trigger
 			has_fulfiled_province_requirement_for_mission_trigger = {
-				TOOLTIP=country_holds_or_non_sovereign_subject_holds_highlighted 
-				PROVINCES=eng_rb_angevin_provinces
-				OWNER_TYPE=country_or_non_sovereign_subject_holds
+				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+				provinces=eng_rb_angevin_provinces
+				owner_type=country_or_non_sovereign_subject_holds
 			}
 			dip_power = 200
 		}
