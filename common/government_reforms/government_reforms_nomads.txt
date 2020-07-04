@@ -183,7 +183,6 @@ kurultai_constitution_reform = {
 	allow_normal_conversion = yes
 	icon = "rajput_kingdom"
 	modifiers = {
-		has_parliament = yes
 		max_absolutism = -20
 		horde_unity = 0.5
 		global_unrest = -2
@@ -191,6 +190,10 @@ kurultai_constitution_reform = {
 	conditional = {
 		allow = { has_dlc = "Common Sense" }
 		has_parliament = yes
+	}
+
+	custom_attributes = {
+		blocked_call_diet = yes
 	}
 }
 
