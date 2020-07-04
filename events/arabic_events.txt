@@ -280,7 +280,13 @@ province_event = { #Arabic adoption (Masri)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = al_misr_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = al_misr_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
@@ -417,7 +423,13 @@ province_event = { #Arabic adoption (Sinai) (Masri)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = al_misr_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = al_misr_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
@@ -555,7 +567,13 @@ province_event = { #Arabic adoption (Levantine)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = al_suryah_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = al_suryah_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
@@ -692,7 +710,13 @@ province_event = { #Arabic adoption (Sinai) (Levantine)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = al_suryah_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = al_suryah_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
@@ -830,7 +854,13 @@ province_event = { #Arabic adoption (Mesopotamian)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = al_iraqiya_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = al_iraqiya_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
@@ -967,7 +997,13 @@ province_event = { #Arabic adoption (Najdi)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = bedouin_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = bedouin_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
@@ -1104,7 +1140,13 @@ province_event = { #Arabic adoption (Gulf)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = gulf_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = gulf_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
@@ -1241,7 +1283,13 @@ province_event = { #Arabic adoption (Omani)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = omani_culture }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = omani_culture }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
@@ -1378,7 +1426,13 @@ province_event = { #Arabic adoption (Dhofari)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = dhofari_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = dhofari_arabic }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
@@ -1515,7 +1569,13 @@ province_event = { #Arabic adoption (Yemeni)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = yemeni_culture }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = yemeni_culture }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
@@ -1652,7 +1712,13 @@ province_event = { #Arabic adoption (Hejazi)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = hejazi_culture }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = hejazi_culture }
 		NOT = { culture = mashriqi }
 		NOT = { nationalism = 1 }
@@ -1789,7 +1855,13 @@ province_event = { #Arabic adoption (Eastern Sudanese)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = sudanese_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = sudanese_arabic }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -1914,7 +1986,13 @@ province_event = { #Arabic adoption (Sulaym)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = libyan_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = libyan_arabic }
 		NOT = { culture = maghrebi }
 		NOT = { nationalism = 1 }
@@ -2051,7 +2129,13 @@ province_event = { #Arabic adoption (Eastern Hilalian)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = tunisian }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = tunisian }
 		NOT = { culture = maghrebi }
 		NOT = { nationalism = 1 }
@@ -2163,7 +2247,13 @@ province_event = { #Arabic adoption (Central Hilalian)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = algerian }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = algerian }
 		NOT = { culture = maghrebi }
 		NOT = { nationalism = 1 }
@@ -2300,7 +2390,13 @@ province_event = { #Arabic adoption (Maqil)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = moroccan }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = moroccan }
 		NOT = { culture = maghrebi }
 		NOT = { nationalism = 1 }
@@ -2437,7 +2533,13 @@ province_event = { #Arabic adoption (Hassaniya)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = hassaniya }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = hassaniya }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -2562,7 +2664,13 @@ province_event = { #Arabic adoption (Saharan)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = saharan_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = saharan_arabic }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -2687,7 +2795,13 @@ province_event = { #Arabic adoption (Central Sudanese)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = chadic_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = chadic_arabic }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -2812,7 +2926,13 @@ province_event = { #Arabic adoption (Andalusian)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = andalusi_culture }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = andalusi_culture }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -3049,7 +3169,13 @@ province_event = { #Arabic adoption (Sardinia) (Andalusian)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = andalusi_culture }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = andalusi_culture }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -3168,7 +3294,13 @@ province_event = { #Arabic adoption (Sicilian)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = siculo_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = siculo_arabic }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -3286,7 +3418,13 @@ province_event = { #Arabic adoption (Sardinia) (Sicilian)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = siculo_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = siculo_arabic }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -3405,7 +3543,13 @@ province_event = { #Arabic adoption (Septimanian)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = septimanian_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = septimanian_arabic }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -3523,7 +3667,13 @@ province_event = { #Arabic adoption (Shirvani)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = shirvani_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = shirvani_arabic }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -3641,7 +3791,13 @@ province_event = { #Arabic adoption (Greek)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = greek_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = greek_arabic }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -3759,7 +3915,13 @@ province_event = { #Arabic adoption (Ethiopian)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = ethiopian_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = ethiopian_arabic }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -3877,7 +4039,13 @@ province_event = { #Arabic adoption (Anatolian)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = turkish_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = turkish_arabic }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -3995,7 +4163,13 @@ province_event = { #Arabic adoption (Persian)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = persian_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = persian_arabic }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
@@ -4113,7 +4287,13 @@ province_event = { #Arabic adoption (Tuscan)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = turko_semitic }
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = tuscan_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
 		NOT = { culture = tuscan_arabic }
 		NOT = { nationalism = 1 }
 		religion_group = muslim
