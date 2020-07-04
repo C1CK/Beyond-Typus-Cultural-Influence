@@ -74,15 +74,16 @@ country_event = { #Clear pre-colonial vars and flags after an update to reset th
 	id = cultural_influence_mechanics.3
 	title = null
 	desc = null
+	picture = null
 
 	hidden = yes
 
 	trigger = {
-		NOT = { has_global_flag = CI_version_0_5_16 }
+		NOT = { has_global_flag = CI_version_0_6_4 }
 	}
 
 	immediate = {
-		set_global_flag = CI_version_0_5_16
+		set_global_flag = CI_version_0_6_4
 		every_province = { #Clear old pre-colonial culture vars and flags
 			clr_province_flag = ci_set_pre_colonial_culture_var
 			#Clearing vars is not needed, as they will be overwritten once the effect is run again
