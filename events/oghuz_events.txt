@@ -241,7 +241,7 @@ province_event = { #Greek Traders settle in Western Anatolia
 	}
 }
 
-province_event = { #Greek Traders cease operations (No longer under Ottoman rule)
+province_event = { #Greek Traders cease operations (No longer Greek)
 	id = cultural_influence_oghuz.5
 	title = oghuz_greek_traders_leave.title
 	desc = oghuz_greek_traders_leave.desc
@@ -249,7 +249,7 @@ province_event = { #Greek Traders cease operations (No longer under Ottoman rule
 
 	trigger = {
 		has_province_modifier = phanariote_greeks
-		NOT = { tag = TUR } #Ottomans
+		NOT = { culture = greek }
 	}
 
 	mean_time_to_happen = {
