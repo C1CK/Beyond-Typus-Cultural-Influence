@@ -45,7 +45,10 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 	}
 
 	immediate = {
-		set_global_flag = british_first_unification_flag
+		hidden_effect = {
+			melt_into_modern_english = yes
+			set_global_flag = british_first_unification_flag
+		}
 	}
 
 	option = { #Southern
@@ -62,7 +65,13 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 						culture = northumbrian
 					}
 				}
-				change_culture = english
+				change_culture = english_modern
+			}
+			every_province = {
+				limit = {
+					culture = scottish
+				}
+				change_culture = scottish_modern
 			}
 		}
 		239 = { #Gloucestershire
@@ -115,7 +124,13 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 						culture = northumbrian
 					}
 				}
-				change_culture = northumbrian
+				change_culture = northumbrian_modern
+			}
+			every_province = {
+				limit = {
+					culture = scottish
+				}
+				change_culture = scottish_modern
 			}
 		}
 		246 = { #Northumberland
@@ -149,7 +164,13 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 						culture = northumbrian
 					}
 				}
-				change_culture = english
+				change_culture = english_modern
+			}
+			every_province = {
+				limit = {
+					culture = scottish
+				}
+				change_culture = scottish_modern
 			}
 		}
 		capital_scope = { #Capital
@@ -184,7 +205,13 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 						culture = northumbrian
 					}
 				}
-				change_culture = northumbrian
+				change_culture = northumbrian_modern
+			}
+			every_province = {
+				limit = {
+					culture = scottish
+				}
+				change_culture = scottish_modern
 			}
 		}
 		capital_scope = { #Capital
