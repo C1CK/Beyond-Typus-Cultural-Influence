@@ -592,7 +592,10 @@ country_decisions = {
 				tag = GBR #Don't think this makes a lot of sense, but I don't want forming something to be a bad idea
 				AND = {
 					tag = UEF
-					culture_group = british
+					or = {
+						culture_group = british
+						culture_group = anglo_french_group
+					}
 				}
 			}
 			178 = { #Anjou
