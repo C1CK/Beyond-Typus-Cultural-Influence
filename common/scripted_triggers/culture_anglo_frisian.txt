@@ -1,0 +1,76 @@
+west_frisian_culture_region = {
+	OR = {
+		province_id = 8021 #Hulst
+		area = holland_area
+		province_id = 1744 #Antwerp
+		province_id = 95 #Breda
+		AND = {
+			area = north_brabant_area #Guelders
+			NOT = { province_id = 8017 } #Cujik
+		}
+		area = frisia_area
+		province_id = 2973 #Meppen
+		province_id = 55 #Oldenburg
+	}
+}
+
+north_frisian_culture_region = {
+	OR = {
+		province_id = 1874 #Bremen
+		province_id = 54 #Stade
+		AND = {
+			area = holstein_area
+			NOT = { province_id = 1857 } #Lauenburg
+		}
+		area = schleswig_area
+		area = jutland_area
+	}
+}
+
+frisian_culture_region = {
+	OR = {
+		west_frisian_culture_region = yes
+		north_frisian_culture_region = yes
+	}
+}
+
+anglosaxon_culture_region = {
+	OR = {
+		region = british_isles_region
+		region = ireland_area
+		province_id = 369 #Orkney
+		province_id = 1978 #Shetlands
+	}
+}
+
+frisian_saxon_culture_region = {
+	OR = {
+		AND = {
+			area = north_westphalia_area
+			NOT = { province_id = 2973 } #Meppen
+		}
+		province_id = 3200 #Mark
+		area = westphalia_area #South Westphalia
+		province_id = 2971 #Hoya
+		province_id = 4771 #Verden
+		area = lower_saxony_area #Hannover
+		area = northern_saxony_area #Altmark
+	}
+}
+
+frisian_new_saxon_culture_region = {
+	OR = {
+		province_id = 1857 #Lauenburg
+		area = mecklenburg_area
+		area = mittelmark_area
+		area = vorpommern_area #Cispomerania
+		province_id = 2993 #Uckermark
+		province_id = 50 #Berlin
+		province_id = 8266 #Lebus
+		province_id = 49 #Landsberg
+		province_id = 1858 #Stettin
+		province_id = 7818 #Kammin
+		province_id = 7819 #Pyritz
+		province_id = 4746 #Stargard
+	}
+}
