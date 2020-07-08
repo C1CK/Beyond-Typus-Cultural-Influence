@@ -157,7 +157,10 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 				is_city = yes
 			}
 		}
-		owner = { has_country_modifier = south_slavic_settlements }
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			owner = { has_country_modifier = south_slavic_settlements }
+			owner = { ai = no }
+		}
 		serbo_croat_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -363,7 +366,10 @@ province_event = { #Bulgarian settlements and assimilation (Settle)
 				is_city = yes
 			}
 		}
-		owner = { has_country_modifier = south_slavic_settlements }
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			owner = { has_country_modifier = south_slavic_settlements }
+			owner = { ai = no }
+		}
 		bulgarian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -528,7 +534,10 @@ province_event = { #Slovene settlements and assimilation (Settle)
 				is_city = yes
 			}
 		}
-		owner = { has_country_modifier = south_slavic_settlements }
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			owner = { has_country_modifier = south_slavic_settlements }
+			owner = { ai = no }
+		}
 		slovene_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}

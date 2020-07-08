@@ -556,16 +556,17 @@ province_event = { #Northern Russian expansion (Settle) (None of these are valid
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				any_neighbor_province = { culture_group = east_slavic }
-				OR = {
-					OWNER = { has_country_modifier = east_slavic_settlements }
-					OWNER = { has_country_modifier = cossackization }
-				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
 			}
+		}
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			owner = { has_country_modifier = east_slavic_settlements }
+			owner = { has_country_modifier = cossackization }
+			owner = { ai = no }
 		}
 		northern_russian_culture_region = yes
 		cossack_rule_region_european_steppe = no #Needs to be Cossack instead
@@ -737,16 +738,17 @@ province_event = { #Middle Russian expansion (Settle)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				any_neighbor_province = { culture_group = east_slavic }
-				OR = {
-					OWNER = { has_country_modifier = east_slavic_settlements }
-					OWNER = { has_country_modifier = cossackization }
-				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
 			}
+		}
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			owner = { has_country_modifier = east_slavic_settlements }
+			owner = { has_country_modifier = cossackization }
+			owner = { ai = no }
 		}
 		middle_russian_culture_region = yes
 		cossack_rule_region_european_steppe = no #Needs to be Cossack instead
@@ -918,16 +920,17 @@ province_event = { #Southern Russian expansion (Settle)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				any_neighbor_province = { culture_group = east_slavic }
-				OR = {
-					OWNER = { has_country_modifier = east_slavic_settlements }
-					OWNER = { has_country_modifier = cossackization }
-				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
 			}
+		}
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			owner = { has_country_modifier = east_slavic_settlements }
+			owner = { has_country_modifier = cossackization }
+			owner = { ai = no }
 		}
 		southern_russian_culture_region = yes
 		cossack_rule_region_european_steppe = no #Needs to be Cossack instead
@@ -1099,16 +1102,17 @@ province_event = { #Ukrainian expansion (Settle)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				any_neighbor_province = { culture_group = east_slavic }
-				OR = {
-					OWNER = { has_country_modifier = east_slavic_settlements }
-					OWNER = { has_country_modifier = cossackization }
-				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
 			}
+		}
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			owner = { has_country_modifier = east_slavic_settlements }
+			owner = { has_country_modifier = cossackization }
+			owner = { ai = no }
 		}
 		ukrainian_culture_region = yes
 		cossack_rule_region_european_steppe = no #Needs to be Cossack instead
@@ -1224,16 +1228,17 @@ province_event = { #Belarussian expansion (Settle)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				any_neighbor_province = { culture_group = east_slavic }
-				OR = {
-					OWNER = { has_country_modifier = east_slavic_settlements }
-					OWNER = { has_country_modifier = cossackization }
-				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
 			}
+		}
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			owner = { has_country_modifier = east_slavic_settlements }
+			owner = { has_country_modifier = cossackization }
+			owner = { ai = no }
 		}
 		belarussian_culture_region = yes
 		cossack_rule_region_european_steppe = no #Needs to be Cossack instead
@@ -1349,16 +1354,17 @@ province_event = { #Rusyn expansion (Settle)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				any_neighbor_province = { culture_group = east_slavic }
-				OR = {
-					OWNER = { has_country_modifier = east_slavic_settlements }
-					OWNER = { has_country_modifier = cossackization }
-				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
 			}
+		}
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			owner = { has_country_modifier = east_slavic_settlements }
+			owner = { has_country_modifier = cossackization }
+			owner = { ai = no }
 		}
 		rusyn_culture_region = yes
 		cossack_rule_region_european_steppe = no #Needs to be Cossack instead
@@ -2073,16 +2079,17 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				any_neighbor_province = { culture_group = east_slavic }
-				OR = {
-					OWNER = { has_country_modifier = east_slavic_settlements }
-					OWNER = { has_country_modifier = cossackization }
-				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
 			}
+		}
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			owner = { has_country_modifier = east_slavic_settlements }
+			owner = { has_country_modifier = cossackization }
+			owner = { ai = no }
 		}
 		owner = { is_nomad = no }
 		NOT = { has_province_modifier = steppe_city } #Must be sacked first

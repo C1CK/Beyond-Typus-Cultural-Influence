@@ -27,7 +27,10 @@ province_event = { #Kurdish settlements and assimilation
 				is_city = yes
 			}
 		}
-		OWNER = { has_country_modifier = kurdish_settlements }
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			owner = { has_country_modifier = kurdish_settlements }
+			owner = { ai = no }
+		}
 		kurdish_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
