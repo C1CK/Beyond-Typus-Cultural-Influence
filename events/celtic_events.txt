@@ -72,14 +72,7 @@ province_event = { #Irish reclamation
 		#Template Settled MTTH
 		years = 10
 
-		modifier = { #Uncolonized land
-			factor = 0.1
-			OR = {
-				culture_group = celtic
-				culture_group = gaelic
-			}
-		}
-
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -97,36 +90,65 @@ province_event = { #Irish reclamation
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacial
 		}
 		modifier = {
-			factor = 0.8
-			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
+			factor = 2
+			has_terrain = mountain
 		}
 		modifier = {
-			factor = 0.6
-			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+			factor = 1.5
+			has_terrain = highlands
 		}
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.4
-			NOT = { development = 10 }
+			factor = 1.5
+			has_terrain = hills
 		}
 		modifier = {
 			factor = 1.2
-			NOT = { development = 20 }
+			has_terrain = woods
 		}
-		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
 		modifier = {
 			factor = 1.2
 			development = 40
@@ -136,7 +158,25 @@ province_event = { #Irish reclamation
 			development = 50
 		}
 		modifier = {
-			factor = 1.2
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
 			has_owner_religion = no
 		}
 		modifier = {
@@ -151,10 +191,10 @@ province_event = { #Irish reclamation
 			factor = 0.9
 			adm = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
@@ -215,14 +255,7 @@ province_event = { #Highlander reclamation
 		#Template Settled MTTH
 		years = 10
 
-		modifier = { #Uncolonized land
-			factor = 0.1
-			OR = {
-				culture_group = celtic
-				culture_group = gaelic
-			}
-		}
-
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -240,36 +273,65 @@ province_event = { #Highlander reclamation
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacial
 		}
 		modifier = {
-			factor = 0.8
-			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
+			factor = 2
+			has_terrain = mountain
 		}
 		modifier = {
-			factor = 0.6
-			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+			factor = 1.5
+			has_terrain = highlands
 		}
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.4
-			NOT = { development = 10 }
+			factor = 1.5
+			has_terrain = hills
 		}
 		modifier = {
 			factor = 1.2
-			NOT = { development = 20 }
+			has_terrain = woods
 		}
-		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
 		modifier = {
 			factor = 1.2
 			development = 40
@@ -279,7 +341,25 @@ province_event = { #Highlander reclamation
 			development = 50
 		}
 		modifier = {
-			factor = 1.2
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
 			has_owner_religion = no
 		}
 		modifier = {
@@ -294,10 +374,10 @@ province_event = { #Highlander reclamation
 			factor = 0.9
 			adm = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
@@ -358,14 +438,7 @@ province_event = { #Manx reclamation
 		#Template Settled MTTH
 		years = 10
 
-		modifier = { #Uncolonized land
-			factor = 0.1
-			OR = {
-				culture_group = celtic
-				culture_group = gaelic
-			}
-		}
-
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -383,36 +456,65 @@ province_event = { #Manx reclamation
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacial
 		}
 		modifier = {
-			factor = 0.8
-			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
+			factor = 2
+			has_terrain = mountain
 		}
 		modifier = {
-			factor = 0.6
-			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+			factor = 1.5
+			has_terrain = highlands
 		}
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.4
-			NOT = { development = 10 }
+			factor = 1.5
+			has_terrain = hills
 		}
 		modifier = {
 			factor = 1.2
-			NOT = { development = 20 }
+			has_terrain = woods
 		}
-		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
 		modifier = {
 			factor = 1.2
 			development = 40
@@ -422,7 +524,25 @@ province_event = { #Manx reclamation
 			development = 50
 		}
 		modifier = {
-			factor = 1.2
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
 			has_owner_religion = no
 		}
 		modifier = {
@@ -437,10 +557,10 @@ province_event = { #Manx reclamation
 			factor = 0.9
 			adm = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
@@ -501,14 +621,7 @@ province_event = { #Cornish Expansion
 		#Template Settled MTTH
 		years = 10
 
-		modifier = { #Uncolonized land
-			factor = 0.1
-			OR = {
-				culture_group = celtic
-				culture_group = brythonic
-			}
-		}
-
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -526,36 +639,65 @@ province_event = { #Cornish Expansion
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacial
 		}
 		modifier = {
-			factor = 0.8
-			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
+			factor = 2
+			has_terrain = mountain
 		}
 		modifier = {
-			factor = 0.6
-			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+			factor = 1.5
+			has_terrain = highlands
 		}
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.4
-			NOT = { development = 10 }
+			factor = 1.5
+			has_terrain = hills
 		}
 		modifier = {
 			factor = 1.2
-			NOT = { development = 20 }
+			has_terrain = woods
 		}
-		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
 		modifier = {
 			factor = 1.2
 			development = 40
@@ -565,7 +707,25 @@ province_event = { #Cornish Expansion
 			development = 50
 		}
 		modifier = {
-			factor = 1.2
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
 			has_owner_religion = no
 		}
 		modifier = {
@@ -580,10 +740,10 @@ province_event = { #Cornish Expansion
 			factor = 0.9
 			adm = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
@@ -644,14 +804,7 @@ province_event = { #Welsh Expansion
 		#Template Settled MTTH
 		years = 10
 
-		modifier = { #Uncolonized land
-			factor = 0.1
-			OR = {
-				culture_group = celtic
-				culture_group = brythonic
-			}
-		}
-
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -669,36 +822,65 @@ province_event = { #Welsh Expansion
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacial
 		}
 		modifier = {
-			factor = 0.8
-			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
+			factor = 2
+			has_terrain = mountain
 		}
 		modifier = {
-			factor = 0.6
-			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+			factor = 1.5
+			has_terrain = highlands
 		}
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.4
-			NOT = { development = 10 }
+			factor = 1.5
+			has_terrain = hills
 		}
 		modifier = {
 			factor = 1.2
-			NOT = { development = 20 }
+			has_terrain = woods
 		}
-		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
 		modifier = {
 			factor = 1.2
 			development = 40
@@ -708,7 +890,25 @@ province_event = { #Welsh Expansion
 			development = 50
 		}
 		modifier = {
-			factor = 1.2
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
 			has_owner_religion = no
 		}
 		modifier = {
@@ -723,10 +923,10 @@ province_event = { #Welsh Expansion
 			factor = 0.9
 			adm = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
@@ -781,11 +981,7 @@ province_event = { #Cwmbraic settlements and assimilation (Only Celts)
 		#Template Settled MTTH
 		years = 10
 
-		modifier = { #Uncolonized land
-			factor = 0.1
-			culture_group = celtic
-		}
-
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -803,36 +999,65 @@ province_event = { #Cwmbraic settlements and assimilation (Only Celts)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacial
 		}
 		modifier = {
-			factor = 0.8
-			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
+			factor = 2
+			has_terrain = mountain
 		}
 		modifier = {
-			factor = 0.6
-			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+			factor = 1.5
+			has_terrain = highlands
 		}
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.4
-			NOT = { development = 10 }
+			factor = 1.5
+			has_terrain = hills
 		}
 		modifier = {
 			factor = 1.2
-			NOT = { development = 20 }
+			has_terrain = woods
 		}
-		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
 		modifier = {
 			factor = 1.2
 			development = 40
@@ -842,7 +1067,25 @@ province_event = { #Cwmbraic settlements and assimilation (Only Celts)
 			development = 50
 		}
 		modifier = {
-			factor = 1.2
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
 			has_owner_religion = no
 		}
 		modifier = {
@@ -857,10 +1100,10 @@ province_event = { #Cwmbraic settlements and assimilation (Only Celts)
 			factor = 0.9
 			adm = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
@@ -903,11 +1146,7 @@ province_event = { #Corieltauvi settlements and assimilation (Only Celts)
 		#Template Settled MTTH
 		years = 10
 
-		modifier = { #Uncolonized land
-			factor = 0.1
-			culture_group = celtic
-		}
-
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -925,36 +1164,65 @@ province_event = { #Corieltauvi settlements and assimilation (Only Celts)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacial
 		}
 		modifier = {
-			factor = 0.8
-			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
+			factor = 2
+			has_terrain = mountain
 		}
 		modifier = {
-			factor = 0.6
-			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+			factor = 1.5
+			has_terrain = highlands
 		}
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.4
-			NOT = { development = 10 }
+			factor = 1.5
+			has_terrain = hills
 		}
 		modifier = {
 			factor = 1.2
-			NOT = { development = 20 }
+			has_terrain = woods
 		}
-		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
 		modifier = {
 			factor = 1.2
 			development = 40
@@ -964,7 +1232,25 @@ province_event = { #Corieltauvi settlements and assimilation (Only Celts)
 			development = 50
 		}
 		modifier = {
-			factor = 1.2
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
 			has_owner_religion = no
 		}
 		modifier = {
@@ -979,10 +1265,10 @@ province_event = { #Corieltauvi settlements and assimilation (Only Celts)
 			factor = 0.9
 			adm = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
@@ -1025,11 +1311,7 @@ province_event = { #Cantiaci settlements and assimilation (Only Celts)
 		#Template Settled MTTH
 		years = 10
 
-		modifier = { #Uncolonized land
-			factor = 0.1
-			culture_group = celtic
-		}
-
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1047,36 +1329,65 @@ province_event = { #Cantiaci settlements and assimilation (Only Celts)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacial
 		}
 		modifier = {
-			factor = 0.8
-			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
+			factor = 2
+			has_terrain = mountain
 		}
 		modifier = {
-			factor = 0.6
-			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+			factor = 1.5
+			has_terrain = highlands
 		}
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.4
-			NOT = { development = 10 }
+			factor = 1.5
+			has_terrain = hills
 		}
 		modifier = {
 			factor = 1.2
-			NOT = { development = 20 }
+			has_terrain = woods
 		}
-		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
 		modifier = {
 			factor = 1.2
 			development = 40
@@ -1086,7 +1397,25 @@ province_event = { #Cantiaci settlements and assimilation (Only Celts)
 			development = 50
 		}
 		modifier = {
-			factor = 1.2
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
 			has_owner_religion = no
 		}
 		modifier = {
@@ -1101,10 +1430,10 @@ province_event = { #Cantiaci settlements and assimilation (Only Celts)
 			factor = 0.9
 			adm = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
@@ -1154,14 +1483,7 @@ province_event = { #Breton Expansion
 		#Template Settled MTTH
 		years = 10
 
-		modifier = { #Uncolonized land
-			factor = 0.1
-			OR = {
-				culture_group = celtic
-				culture_group = brythonic
-			}
-		}
-
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1179,36 +1501,65 @@ province_event = { #Breton Expansion
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacial
 		}
 		modifier = {
-			factor = 0.8
-			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
+			factor = 2
+			has_terrain = mountain
 		}
 		modifier = {
-			factor = 0.6
-			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+			factor = 1.5
+			has_terrain = highlands
 		}
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.4
-			NOT = { development = 10 }
+			factor = 1.5
+			has_terrain = hills
 		}
 		modifier = {
 			factor = 1.2
-			NOT = { development = 20 }
+			has_terrain = woods
 		}
-		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
 		modifier = {
 			factor = 1.2
 			development = 40
@@ -1218,7 +1569,25 @@ province_event = { #Breton Expansion
 			development = 50
 		}
 		modifier = {
-			factor = 1.2
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
 			has_owner_religion = no
 		}
 		modifier = {
@@ -1233,10 +1602,10 @@ province_event = { #Breton Expansion
 			factor = 0.9
 			adm = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
@@ -1778,11 +2147,7 @@ province_event = { #Belgae settlements and assimilation
 		#Template Settled MTTH
 		years = 10
 
-		modifier = { #Uncolonized land
-			factor = 0.1
-			culture_group = celtic
-		}
-
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1800,36 +2165,65 @@ province_event = { #Belgae settlements and assimilation
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacial
 		}
 		modifier = {
-			factor = 0.8
-			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
+			factor = 2
+			has_terrain = mountain
 		}
 		modifier = {
-			factor = 0.6
-			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+			factor = 1.5
+			has_terrain = highlands
 		}
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.4
-			NOT = { development = 10 }
+			factor = 1.5
+			has_terrain = hills
 		}
 		modifier = {
 			factor = 1.2
-			NOT = { development = 20 }
+			has_terrain = woods
 		}
-		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
 		modifier = {
 			factor = 1.2
 			development = 40
@@ -1839,7 +2233,25 @@ province_event = { #Belgae settlements and assimilation
 			development = 50
 		}
 		modifier = {
-			factor = 1.2
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
 			has_owner_religion = no
 		}
 		modifier = {
@@ -1854,10 +2266,10 @@ province_event = { #Belgae settlements and assimilation
 			factor = 0.9
 			adm = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
@@ -1900,11 +2312,7 @@ province_event = { #Pictone settlements and assimilation
 		#Template Settled MTTH
 		years = 10
 
-		modifier = { #Uncolonized land
-			factor = 0.1
-			culture_group = celtic
-		}
-
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1922,36 +2330,65 @@ province_event = { #Pictone settlements and assimilation
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacial
 		}
 		modifier = {
-			factor = 0.8
-			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
+			factor = 2
+			has_terrain = mountain
 		}
 		modifier = {
-			factor = 0.6
-			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+			factor = 1.5
+			has_terrain = highlands
 		}
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.4
-			NOT = { development = 10 }
+			factor = 1.5
+			has_terrain = hills
 		}
 		modifier = {
 			factor = 1.2
-			NOT = { development = 20 }
+			has_terrain = woods
 		}
-		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
 		modifier = {
 			factor = 1.2
 			development = 40
@@ -1961,7 +2398,25 @@ province_event = { #Pictone settlements and assimilation
 			development = 50
 		}
 		modifier = {
-			factor = 1.2
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
 			has_owner_religion = no
 		}
 		modifier = {
@@ -1976,10 +2431,10 @@ province_event = { #Pictone settlements and assimilation
 			factor = 0.9
 			adm = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
@@ -2022,11 +2477,7 @@ province_event = { #Arverni settlements and assimilation
 		#Template Settled MTTH
 		years = 10
 
-		modifier = { #Uncolonized land
-			factor = 0.1
-			culture_group = celtic
-		}
-
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2044,36 +2495,65 @@ province_event = { #Arverni settlements and assimilation
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacial
 		}
 		modifier = {
-			factor = 0.8
-			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
+			factor = 2
+			has_terrain = mountain
 		}
 		modifier = {
-			factor = 0.6
-			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+			factor = 1.5
+			has_terrain = highlands
 		}
 		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.4
-			NOT = { development = 10 }
+			factor = 1.5
+			has_terrain = hills
 		}
 		modifier = {
 			factor = 1.2
-			NOT = { development = 20 }
+			has_terrain = woods
 		}
-		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
 		modifier = {
 			factor = 1.2
 			development = 40
@@ -2083,7 +2563,25 @@ province_event = { #Arverni settlements and assimilation
 			development = 50
 		}
 		modifier = {
-			factor = 1.2
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
 			has_owner_religion = no
 		}
 		modifier = {
@@ -2098,10 +2596,10 @@ province_event = { #Arverni settlements and assimilation
 			factor = 0.9
 			adm = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
