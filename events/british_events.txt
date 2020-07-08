@@ -14,6 +14,7 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 		government_rank = 2
 		culture_group = british
 		NOT = { has_global_flag = british_first_unification_flag }
+		has_global_flag = scottish_solidified_flag
 		europe = { #Owned by ROOT, or not needed
 			OR = {
 				AND = {
@@ -46,7 +47,6 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 
 	immediate = {
 		hidden_effect = {
-			melt_into_modern_english = yes
 			set_global_flag = british_first_unification_flag
 		}
 	}
@@ -65,13 +65,7 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 						culture = northumbrian
 					}
 				}
-				change_culture = english_modern
-			}
-			every_province = {
-				limit = {
-					culture = scottish
-				}
-				change_culture = scottish_modern
+				change_culture = english
 			}
 		}
 		239 = { #Gloucestershire
@@ -124,13 +118,7 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 						culture = northumbrian
 					}
 				}
-				change_culture = northumbrian_modern
-			}
-			every_province = {
-				limit = {
-					culture = scottish
-				}
-				change_culture = scottish_modern
+				change_culture = northumbrian
 			}
 		}
 		246 = { #Northumberland
@@ -164,13 +152,7 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 						culture = northumbrian
 					}
 				}
-				change_culture = english_modern
-			}
-			every_province = {
-				limit = {
-					culture = scottish
-				}
-				change_culture = scottish_modern
+				change_culture = english
 			}
 		}
 		capital_scope = { #Capital
@@ -205,13 +187,7 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 						culture = northumbrian
 					}
 				}
-				change_culture = northumbrian_modern
-			}
-			every_province = {
-				limit = {
-					culture = scottish
-				}
-				change_culture = scottish_modern
+				change_culture = northumbrian
 			}
 		}
 		capital_scope = { #Capital
@@ -227,6 +203,104 @@ country_event = { #Northumbrian -> English / English -> Northumbrian
 		ai_chance = {
 			factor = 1
 		}
+	}
+}
+
+country_event = { #Solidifying of Scots
+	id = cultural_influence_british.2
+	title = solidifying_of_scots.title
+	desc = solidifying_of_scots.desc
+	picture = ARTWORK_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		is_year = 1480 #Simply gating this by year for now
+		culture_group = british
+		OR = { #Ensure it fires for the correct winner (If stalemate goes to one of the two at random)
+			owns_core_province = 248 #Lothian
+			owns_core_province = 246 #Northumberland
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = { #Stalemate
+		name = solidifying_of_scots.a
+
+		trigger = {
+			248 = { NOT = { owner = { primary_culture = english } } } #Lothian
+			248 = { NOT = { owner = { primary_culture = northumbrian } } } #Lothian
+			246 = { NOT = { owner = { primary_culture = scottish } } } #Northumberland
+		}
+
+		set_global_flag = scottish_solidified_flag
+		#melt_into_modern_english = yes #Will be added come 1291 start
+
+		SCO = { remove_historical_rival = ENG }
+		ENG = { remove_historical_rival = SCO }
+		#Shift based on owner if neither is dominant
+		british_isles_region = { #Shift Scots outside of Scotland -> Northumbrian
+			limit = {
+				anglo_northumbrian_culture_region = yes
+				culture = scottish
+				OR = {
+					owner = { primary_culture = english }
+					owner = { primary_culture = northumbrian }
+				}
+			}
+			change_culture = northumbrian
+		}
+	}
+
+	option = { #England dominant
+		name = solidifying_of_scots.b
+
+		trigger = {
+			OR = {
+				248 = { owner = { primary_culture = english } } #Lothian
+				248 = { owner = { primary_culture = northumbrian } } #Lothian
+			}
+		}
+
+		set_global_flag = scottish_solidified_flag
+		#melt_into_modern_english = yes #Will be added come 1291 start
+
+		add_prestige = 25
+		#Shift it all if England is dominant
+		british_isles_region = { #Shift Scots outside of Scotland -> Northumbrian
+			limit = {
+				anglo_northumbrian_culture_region = yes
+				culture = scottish
+				#NOT = { owner = { primary_culture = scottish } }
+			}
+			change_culture = northumbrian
+		}
+	}
+
+	option = { #Scotland dominant
+		name = solidifying_of_scots.c
+
+		trigger = {
+			246 = { owner = { primary_culture = scottish } } #Northumberland
+		}
+
+		set_global_flag = scottish_solidified_flag
+		#melt_into_modern_english = yes #Will be added come 1291 start
+
+		add_prestige = 25
+		#Don't shift anything if Scotland is dominant
+		#british_isles_region = { #Shift Scots outside of Scotland -> Northumbrian
+		#	limit = {
+		#		anglo_northumbrian_culture_region = yes
+		#		culture = scottish
+		#		NOT = { owner = { primary_culture = scottish } }
+		#	}
+		#	change_culture = northumbrian
+		#}
 	}
 }
 

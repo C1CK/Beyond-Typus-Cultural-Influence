@@ -47,20 +47,6 @@ british_new_world = {
 
 #Culture Regions
 
-standard_english_culture_region = {
-	OR = {
-		area = west_midlands_area #Lancashire
-		area = northern_england_area #Northumberland
-		area = yorkshire_area
-		area = east_midlands_area #Midlands
-		province_id = 240 #Shropshire
-		province_id = 8129 #Herefordshire
-		area = east_anglia_area
-		area = wessex_area
-		area = home_counties_area #Essex
-	}
-}
-
 #anglo_cornish_culture_region = { #Unused, out-of-date
 #	area = cornwall_area
 #}
@@ -92,6 +78,54 @@ anglo_scottish_culture_region = {
 		area = grampians_area
 		province_id = 369 #Orkney
 		province_id = 1978 #Shetland
+		area = northern_england_area #Northumberland
+		province_id = 247 #Cumberland
+		province_id = 8135 #Westmoreland
+		province_id = 4365 #Mann
+	}
+}
+
+anglo_northumbrian_culture_region = {
+	OR = {
+		province_id = 4376 #Leicester
+		province_id = 243 #Lincoln
+		province_id = 8131 #Nottingham
+		province_id = 1861 #Derby
+		area = yorkshire_area
+		area = west_midlands_area #Lancashire
+		province_id = 8193 #Flintshire
+		area = northern_england_area #Northumberland
+		province_id = 4361 #Roxburgh
+		province_id = 8145 #Tweeddale
+		province_id = 8146 #The Merse
+		province_id = 248 #Lothian
+		AND = {
+			area = scottish_marches_area #Western Lowlands
+			NOT = { province_id = 8147 } #Dunbarton
+		}
+		province_id = 4365 #Mann
+	}
+}
+
+anglo_english_culture_region = {
+	OR = {
+		area = wessex_area
+		area = home_counties_area #Essex
+		area = east_anglia_area
+		province_id = 240 #Shropshire
+		province_id = 8129 #Herefordshire
+		province_id = 8130 #Stafford
+		province_id = 4372 #Worcester
+		province_id = 8128 #Warwick
+		province_id = 8126 #Northampton
+	}
+}
+
+standard_english_culture_region = {
+	OR = {
+		anglo_english_culture_region = yes
+		anglo_northumbrian_culture_region = yes
+		anglo_scottish_culture_region = yes
 	}
 }
 
