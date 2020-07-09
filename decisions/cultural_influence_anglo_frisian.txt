@@ -1,0 +1,24 @@
+country_decisions = {
+	frisian_settlements_decision = {
+		major = yes
+		potential = {
+			NOT = { has_country_modifier = frisian_settlements }
+			culture_group = anglo_frisian
+		}
+
+		allow = {
+			total_development = 300 #Frisian is miniscule in 1444, so making this easy to achieve
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = frisian_settlements
+				duration = -1
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -833,4 +833,67 @@ country_decisions = {
 		}
 		ai_importance = 400
 	}
+
+	#Fake Formables (Name changers) (Anything not /needed/ to be a tag goes here, at least until Vanilla fixed the tag limit issues)
+	form_magna_frisia = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = unified_frisia_flag }
+			NOT = { has_global_flag = unified_frisia_global_flag }
+			OR = {
+				tag = FRI #Friesland
+				tag = EFR #East Friesland
+				tag = GRN #Groningen? If they culture convert I think this is acceptable, considering the influences between Gronings, and Frisian
+			}
+		}
+
+		provinces_to_highlight = {
+			west_frisian_culture_region = yes
+			#OR = { #Highlight all provinces in the region for clarity
+			#	NOT = { owned_by = ROOT }
+			#	NOT = { is_core = ROOT }
+			#	NOT = { culture_group = anglo_frisian }
+			#}
+		}
+
+		allow = {
+			OR = {
+				primary_culture = frisian
+				primary_culture = west_frisian
+				primary_culture = north_frisian
+			}
+			#is_free_or_tributary_trigger = yes #Vassals and subjects permitted, tbh I don't think even actual formables should be blocked for vassals whatsoever considering how many examples exist
+			num_of_owned_provinces_with = {
+				custom_trigger_tooltip = {
+					tooltip = west_frisian_region.tt
+					west_frisian_culture_region = yes
+				}
+				culture_group = anglo_frisian
+				value = 15			#At least 2/3 of West Frisia's 22 provinces (approximate)
+			}
+			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted Note base in Greater Armenia alone is about 168.
+			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
+		}
+
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			override_country_name = MAGNA_FRISIA_NAME
+			set_country_flag = unified_frisia_flag
+			set_global_flag = unified_frisia_global_flag
+			custom_tooltip = FRI_claims.tt
+			hidden_effect = {
+				every_province = {
+					limit = {
+						NOT = { is_core = ROOT }
+						frisian_culture_region = yes
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			add_prestige = 25
+		}
+	}
 }
