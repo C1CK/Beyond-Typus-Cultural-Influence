@@ -6536,7 +6536,7 @@ province_event = { #Kaukasusdeutsch settlements and assimilation
 	}
 }
 
-province_event = { #Weissmeerer settlements and assimilation -Uncolonized land
+province_event = { #Weissmeerer settlements and assimilation
 	id = cultural_influence_germanic_rework.43
 	title = weissmeerer_settlements.title
 	desc = weissmeerer_settlements.desc
@@ -6549,26 +6549,21 @@ province_event = { #Weissmeerer settlements and assimilation -Uncolonized land
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = germanic }
+			}
+			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
 			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						culture_group = germanic
-					}
-					num_of_times_improved_by_owner = 5
-				}
-			}
-			culture_group = germanic
 		}
-		owner = { has_country_modifier = ostsiedlung }
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { ai = no }
+		}
 		weissmeerer_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -9252,7 +9247,7 @@ province_event = { #Vandalisch settlements and assimilation
 	}
 }
 
-province_event = { #Marokkanisch settlements and assimilation -Uncolonized land
+province_event = { #Marokkanisch settlements and assimilation
 	id = cultural_influence_germanic_rework.59
 	title = marokkanisch_settlements.title
 	desc = marokkanisch_settlements.desc
@@ -9756,7 +9751,7 @@ province_event = { #Niler settlements and assimilation
 	}
 }
 
-province_event = { #Saharadeutsch settlements and assimilation -Uncolonized land
+province_event = { #Saharadeutsch settlements and assimilation
 	id = cultural_influence_germanic_rework.62
 	title = saharadeutsch_settlements.title
 	desc = saharadeutsch_settlements.desc
@@ -9769,26 +9764,21 @@ province_event = { #Saharadeutsch settlements and assimilation -Uncolonized land
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
 		}
-		OR = {
-			AND = { #Improving dev via a colonist
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = germanic }
+			}
+			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
 			}
-			AND = {
-				OR = { #AI uses this one
-					NOT = { has_dlc = "Dharma" }
-					owner = { ai = yes }
-				}
-				OR = {
-					any_neighbor_province = {
-						culture_group = germanic
-					}
-					num_of_times_improved_by_owner = 5
-				}
-			}
-			culture_group = germanic
 		}
-		owner = { has_country_modifier = ostsiedlung }
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			owner = { has_country_modifier = ostsiedlung }
+			owner = { ai = no }
+		}
 		saharadeutsch_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -9929,7 +9919,7 @@ province_event = { #Saharadeutsch settlements and assimilation -Uncolonized land
 	}
 }
 
-province_event = { #Rotesmeerdeutsch settlements and assimilation -Uncolonized land
+province_event = { #Rotesmeerdeutsch settlements and assimilation
 	id = cultural_influence_germanic_rework.63
 	title = rotesmeerdeutsch_settlements.title
 	desc = rotesmeerdeutsch_settlements.desc
