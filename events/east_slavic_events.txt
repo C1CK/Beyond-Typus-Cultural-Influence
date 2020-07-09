@@ -2070,7 +2070,6 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 		NOT = { culture_group = east_slavic } #Must not already be Slavic
 		NOT = { culture_group = west_slavic } #Must not already be Slavic
 		NOT = { culture_group = south_slavic } #Must not already be Slavic
-		NOT = { culture_group = unified_slavic } #Must not already be Slavic
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -2089,6 +2088,7 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = east_slavic_settlements }
 			owner = { has_country_modifier = cossackization }
+			owner = { has_country_modifier = cossackization_west_slavs } #West Slavic cossacks
 			owner = { ai = no }
 		}
 		owner = { is_nomad = no }
@@ -2101,6 +2101,7 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 		#Template Settled MTTH
 		years = 10
 
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2118,28 +2119,30 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
-		}
+		#Terrain factors ignored
+
+		#Dev button factors
 		modifier = {
 			factor = 0.8
 			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
 		}
 		modifier = {
-			factor = 0.6
+			factor = 0.8
 			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+		}
+
+		#Dev Factors removed, since they are innapropriate here
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
 		}
 		modifier = {
 			factor = 0.8
 			has_idea_to_settle_faster = yes
 		}
-		#Dev Factors removed, since they are innapropriate here
+		#Religion penalty removed, since they are innapropriate here
 		modifier = { #Adm Factors changed to mil, as they make more sense here
 			factor = 0.9
 			mil = 4
@@ -2152,10 +2155,10 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 			factor = 0.9
 			mil = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = mil
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
@@ -2405,6 +2408,7 @@ province_event = { #Cossack expansion (Custom Settled) (Siberian Cossacks)
 		#Template Settled MTTH
 		years = 20 #Increased to 20 base, as these provinces are /much/ larger than in Russia proper
 
+		#MTTH settings
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2422,28 +2426,28 @@ province_event = { #Cossack expansion (Custom Settled) (Siberian Cossacks)
 			has_global_flag = 40_CI_MTTH_flag
 		}
 
-		modifier = { #Shorten time if province has been targeted
-			factor = 0.75
-			AND = {
-				has_colonist = yes
-				is_city = yes
-			}
-		}
+		#Terrain factors ignored
+
+		#Dev button factors
 		modifier = {
 			factor = 0.8
 			num_of_times_improved_by_owner = 5
-			NOT = { has_dlc = "Dharma" }
 		}
 		modifier = {
-			factor = 0.6
+			factor = 0.8
 			num_of_times_improved_by_owner = 10
-			NOT = { has_dlc = "Dharma" }
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
 		}
 		modifier = {
 			factor = 0.8
 			has_idea_to_settle_faster = yes
 		}
-		#Dev Factors removed, since they are innapropriate here
+		#Religion penalty removed, since they are innapropriate here
 		modifier = { #Adm Factors changed to mil, as they make more sense here
 			factor = 0.9
 			mil = 4
@@ -2456,10 +2460,10 @@ province_event = { #Cossack expansion (Custom Settled) (Siberian Cossacks)
 			factor = 0.9
 			mil = 6
 		}
-		modifier = {
-			factor = 0.75
-			national_focus = mil
-		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = {
