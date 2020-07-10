@@ -172,7 +172,7 @@ country_decisions = {
 			}
 			add_prestige = 10
 			#No Emilian ideas yet.
-			# swap_ideas = yes
+			swap_ideas = yes
 			set_country_flag = formed_emilia_flag_btp
 		}
 		ai_will_do = {
@@ -535,26 +535,31 @@ country_decisions = {
 			NOT = { tag = SPI }
 			NOT = { tag = EMR }
 			NOT = { tag = TUS }
-			OR = { #loosened culture checks -CI
-				primary_culture = lombard
-				primary_culture = venetian
-				culture_group = rhaetian #They have nothing else to form :( so I'm letting them do this -Katy
+			NOT = { tag = TTS }
+			OR = { 
+				tag = MLO #Milan
+				tag = LOM #Lombardy (Non-milanese Lombardy formable)
+				tag = VEN #Venice
 			}
-			#NOT = { government = republic }
 		}
 		provinces_to_highlight = {
 			OR = {
-				province_id = 104	# Milan
-				province_id = 107	# Brescia
-				province_id = 108	# Verona
-				province_id = 109	# Mantua
-				province_id = 110	# Trent
-				province_id = 111	# Friuli
-				province_id = 112	# Venezia
-				province_id = 1769	# Gorizia
-				province_id = 1774	# Treviso
-				province_id = 1862	# Cremona
-				province_id = 4739	# Bergamo
+				area = lombardy_area
+				area = po_valley_area
+				area = venetia_area
+				area = carnia_area
+				AND = {
+					owned_by = VEN
+					region = italy_region
+				}
+				AND = {
+					owned_by = MLO
+					region = italy_region
+				}
+				AND = {
+					owned_by = LOM
+					region = italy_region
+				}
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -562,36 +567,101 @@ country_decisions = {
 			}
 		}
 		allow = {
-			OR = {
-				tag = MLO
-				NOT = { exists = MLO }
+			if = { #MLO
+				limit = {
+					tag = MLO
+				}
+				if = {
+					limit = {
+						exists = VEN
+					}
+					NOT = {
+						any_province = {
+							region = italy_region
+							owned_by = VEN
+						}
+					}
+				}
+				if = {
+					limit = {
+						exists = LOM
+					}
+					NOT = {
+						any_province = {
+							region = italy_region
+							owned_by = LOM
+						}
+					}
+				}
 			}
-			OR = {
-				tag = VEN
-				NOT = { exists = VEN }
+			else_if = { #VEN
+				limit = {
+					tag = VEN
+				}
+				if = {
+					limit = {
+						exists = MLO
+					}
+					NOT = {
+						any_province = {
+							region = italy_region
+							owned_by = MLO
+						}
+					}
+				}
+				if = {
+					limit = {
+						exists = LOM
+					}
+					NOT = {
+						any_province = {
+							region = italy_region
+							owned_by = LOM
+						}
+					}
+				}
+			}
+			else_if = { #LOM
+				limit = {
+					tag = LOM
+				}
+				if = {
+					limit = {
+						exists = MLO
+					}
+					NOT = {
+						any_province = {
+							region = italy_region
+							owned_by = MLO
+						}
+					}
+				}
+				if = {
+					limit = {
+						exists = VEN
+					}
+					NOT = {
+						any_province = {
+							region = italy_region
+							owned_by = VEN
+						}
+					}
+				}
 			}
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			adm_tech = 15			#default 1596			#Note this is temp until Italy reoverhaul
-			calc_true_if = {
-				all_owned_province = {
-					is_core = ROOT
-					OR = {
-						province_id = 104	# Milan
-						province_id = 107	# Brescia
-						province_id = 108	# Verona
-						province_id = 109	# Mantua
-						province_id = 110	# Trent
-						province_id = 111	# Friuli
-						province_id = 112	# Venezia
-						province_id = 1769	# Gorizia
-						province_id = 1774	# Treviso
-						province_id = 1862	# Cremona
-						province_id = 4739	# Bergamo
-					}
+			owns_core_province = 104 #Milan
+			owns_core_province = 112 #Venezia
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				OR = {
+					area = lombardy_area
+					area = po_valley_area
+					area = venetia_area
+					area = carnia_area
 				}
-				amount = 7			#At least 2/3 of lmv's 11 provinces (approximate)
+				value = 17			#At least 2/3 of LMV's 25 provinces
 			}
 			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted.
 			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
@@ -608,22 +678,9 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
-			#If Lombardy-Venetia is formed by theocracy or tribal nation, it gets generic ideas, so gating it behind that.
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							government = monarchy 
-							NOT = { has_idea_group = MLO_ideas }
-						}
-						AND = {
-							government = republic
-							NOT = { has_idea_group = VEN_ideas }
-						}
-					}
-				}
-				swap_ideas = yes
-			}
+			swap_ideas = yes
+			#Lombardy-Venetia no unique missions yet has.
+			#swap_non_generic_missions = yes
 			set_country_flag = formed_lombardy_venetia_flag_btp
 		}
 		ai_will_do = {
