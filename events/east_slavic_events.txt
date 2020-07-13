@@ -2721,3 +2721,29 @@ province_event = { #Remove any modifiers that don't belong
 		name = null
 	}
 }
+
+province_event = { #Fix Abatis line position
+	id = cultural_influence_east_slavic.29
+	title = null
+	desc = null
+	picture = null
+
+	hidden = yes
+
+	trigger = {
+		NOT = {
+			any_neighbor_province = {
+				has_province_modifier = nomadic_province
+			}
+		}
+		has_province_modifier = abatis_line_modifier
+	}
+
+	immediate = {
+		remove_province_modifier = abatis_line_modifier
+	}
+
+	option = {
+		name = null
+	}
+}
