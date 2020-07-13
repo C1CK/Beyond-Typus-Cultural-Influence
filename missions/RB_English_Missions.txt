@@ -703,12 +703,24 @@ eng_rb_buildings_group = {
 		}
 		
 		effect = {
-			#Not sure if this works because the latent trade good thingy could possibly forget to check for if the province already produces coal. Would save on script otherwise.
-			# every_province = {
-				# limit = {
-					# has_latent_trade_goods = coal
-					# owned_by = ROOT
-				# }
+			every_province = {
+				limit = {
+					OR = {
+						has_latent_trade_goods = coal
+						trade_goods = coal
+					}
+					region = british_isles_region
+					owned_by = ROOT
+				}
+				add_base_production = 3
+				add_base_manpower = 3
+				add_province_modifier = {
+					name = "eng_rb_coal_produced_mod"
+					duration = -1
+				}
+			}
+			#NB: Add every possible coal-producing province here.
+			# 1861 = {
 				# add_base_production = 3
 				# add_base_manpower = 3
 				# add_province_modifier = {
@@ -716,47 +728,38 @@ eng_rb_buildings_group = {
 					# duration = -1
 				# }
 			# }
-			#NB: Add every possible coal-producing province here.
-			1861 = {
-				add_base_production = 3
-				add_base_manpower = 3
-				add_province_modifier = {
-					name = "eng_rb_coal_produced_mod"
-					duration = -1
-				}
-			}
-			241 = {
-				add_base_production = 3
-				add_base_manpower = 3
-				add_province_modifier = {
-					name = "eng_rb_coal_produced_mod"
-					duration = -1
-				}
-			}
-			4375 = {
-				add_base_production = 3
-				add_base_manpower = 3
-				add_province_modifier = {
-					name = "eng_rb_coal_produced_mod"
-					duration = -1
-				}
-			}
-			4368 = {
-				add_base_production = 3
-				add_base_manpower = 3
-				add_province_modifier = {
-					name = "eng_rb_coal_produced_mod"
-					duration = -1
-				}
-			}
-			246 = {
-				add_base_production = 3
-				add_base_manpower = 3
-				add_province_modifier = {
-					name = "eng_rb_coal_produced_mod"
-					duration = -1
-				}
-			}
+			# 241 = {
+				# add_base_production = 3
+				# add_base_manpower = 3
+				# add_province_modifier = {
+					# name = "eng_rb_coal_produced_mod"
+					# duration = -1
+				# }
+			# }
+			# 4375 = {
+				# add_base_production = 3
+				# add_base_manpower = 3
+				# add_province_modifier = {
+					# name = "eng_rb_coal_produced_mod"
+					# duration = -1
+				# }
+			# }
+			# 4368 = {
+				# add_base_production = 3
+				# add_base_manpower = 3
+				# add_province_modifier = {
+					# name = "eng_rb_coal_produced_mod"
+					# duration = -1
+				# }
+			# }
+			# 246 = {
+				# add_base_production = 3
+				# add_base_manpower = 3
+				# add_province_modifier = {
+					# name = "eng_rb_coal_produced_mod"
+					# duration = -1
+				# }
+			# }
 		}
 	}
 	
@@ -767,36 +770,28 @@ eng_rb_buildings_group = {
 		
 		provinces_to_highlight = {
 			OR = {
-				#NB: Add every possible coal-producing province here.
-				province_id = 1861
-				province_id = 241
-				province_id = 4375
-				province_id = 4368				
-				province_id = 246
+				has_latent_trade_goods = coal
+				trade_goods = coal
 			}
+			region = british_isles_region
+			owned_by = ROOT
+			NOT = { has_building = furnace }
 		}
 		
 		trigger = {
 			#NB: Add every possible coal-producing province here.
-			1861 = {
-				owned_by = ROOT
-				has_building = furnace
-			}
-			241 = {
-				owned_by = ROOT
-				has_building = furnace
-			}
-			4375 = {
-				owned_by = ROOT
-				has_building = furnace
-			}
-			4368 = {
-				owned_by = ROOT
-				has_building = furnace
-			}
-			246 = {
-				owned_by = ROOT
-				has_building = furnace
+			calc_true_if = {
+				desc = eng_rb_furnaces_tt
+				amount = 5
+				all_province = {
+					OR = {
+						has_latent_trade_goods = coal
+						trade_goods = coal
+					}
+					region = british_isles_region
+					owned_by = ROOT
+					has_building = furnace
+				}
 			}
 		}
 		
