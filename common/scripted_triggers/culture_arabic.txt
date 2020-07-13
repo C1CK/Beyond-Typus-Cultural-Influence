@@ -167,13 +167,13 @@ masri_levantine_confict_region = {
 
 levantine_culture_region = { #Shaameea
 	OR = {
-		province_id = 5138 #Osmaniye
-		province_id = 327 #Adana
+		province_id = 332 #Marash
+		area = cukurova_area #Cilicia
 		AND = {
 			region = mashriq_region #Levant
 			NOT = { area = syrian_desert_area } #Sinai
 			NOT = { province_id = 4270 } #Ma'an
-		}	
+		}
 	}
 }
 
@@ -213,24 +213,25 @@ gulf_culture_region = { #Xhaleejee
 
 shirvani_arabic_culture_region = { #Sheerfaanee
 	OR = {
-		AND = {
-			area = dagestan_area
-			NOT = { province_id = 2208 } #Terek
-		}
-		province_id = 2201 #Alania
-		province_id = 4301 #Gori
-		province_id = 2203 #Kakheti
-		province_id = 423 #Tbilisi
+		province_id = 2447 #Matrega
+		province_id = 287 #Kuban
+		area = imereti_area #Odishi
+		area = dagestan_area
+		area = samtskhe_area #Georgia
+		province_id = 5151 #Bayburt
+		province_id = 331 #Erzurum
+		province_id = 2306 #Mush
 		area = shirvan_area
+		area = armenia_area
 		AND = {
-			area = armenia_area
-			NOT = { province_id = 2204 } #Lomsia
+			area = north_kurdistan_area #Vaspurakan
+			NOT = { province_id = 5331 } #Sert
 		}
 		area = tabriz_area
 		area = azerbaijan_area
+		province_id = 2211 #Erdelan
 		province_id = 4339 #Fuman
 		province_id = 417 #Lahijan
-		province_id = 2211 #Erdelan
 	}
 }
 
@@ -442,51 +443,45 @@ habashi_culture_region = {
 yunania_culture_region = {
 	OR = {
 		area = thrace_area
-		area = macedonia_area
-		area = morea_area
-		area = northern_greece_area
-		area = western_aegean_area
-		area = eastern_mediterrenean_islands_area
-		area = aegean_archipelago_area
+		area = upper_thrace_area
+		area = northern_thrace_area
+		province_id = 7703 #Pristine
+		area = macedonia_area #West Macedonia
+		area = morea_area #Peloponnese
+		area = northern_greece_area #Epirus
+		area = western_aegean_area #Hellas
+		area = eastern_mediterrenean_islands_area #Crete
+		province_id = 3195 #Lemnos
+		province_id = 164 #Nasso
 		area = aetolia_area
 		area = thessaly_area
 		area = eastern_macedonia_area
-		area = northern_epirus_area
+		area = northern_epirus_area #Ionian Islands
 		area = albania_area
 		area = northern_macedonia_area
-
 	}
 }
 
 anadul_culture_region = {
 	OR = {
-		area = rum_area
-		area = erzurum_area
-		area = hudavendigar_area
-		area = germiyan_area
-		area = aydin_area
-		area = ankara_area
-		area = kastamonu_area
-		area = karaman_area
-		area = cukurova_area
-		area = pontus_area
-		area = karasi_area
-		area = pamphylia_area
-		area = lydia_area
-		area = dulkadir_area
-		area = mardin_area
-		area = north_kurdistan_area
-		province_id = 4303 #Tao
-
+		province_id = 4700 #Lesbos
+		province_id = 2348 #Chios
+		province_id = 320 #Rhodes
+		AND = {
+			region = anatolia_region
+			NOT = { area = cukurova_area } #Cilicia
+			NOT = { province_id = 332 } #Marash
+		}
+		province_id = 2305 #Erzincan
 	}
 }
 
 tuwskaniu_culture_region = {
 	OR = {
 		AND = {
-		region = italy_region
-		sicilian_arabic_culture_region = no
-		andalusian_sicilian_conflict_region = no
+			region = italy_region
+			sicilian_arabic_culture_region = no
+			andalusian_sicilian_conflict_region = no
 		}
 
 	}
