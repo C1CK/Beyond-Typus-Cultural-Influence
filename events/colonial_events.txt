@@ -1,7 +1,6 @@
 namespace = cultural_influence_colonial
-#Some experimental colonial events, for now I'm only dealing with trade companies since I don't know how to stop the culture changing in colonized provinces...
 
-province_event = { #Established colonial centre (Converts best province in the area with the Township colonial investment)
+province_event = { #Established colonial centre (Converts a heavily developed province of the Colonizer)
 	id = cultural_influence_colonial.1
 	title = colonial_capital_established.title
 	desc = colonial_capital_established.desc
@@ -17,7 +16,7 @@ province_event = { #Established colonial centre (Converts best province in the a
 			investment = district
 			investor = OWNER
 		}
-		has_trade_company_investment_in_area = { #Has the required investments
+		has_trade_company_investment_in_area = { #Has the required investments (Only one top-tier investment allowed per trade node as of 1.30, But I'm still going to require this, as this is a-historically overrepresenting the colonialists already, and since I've loosened it to one per superregion I like this being an investment that has a high opportunity cost)
 			investment = townships
 			investor = OWNER
 		}
@@ -25,7 +24,150 @@ province_event = { #Established colonial centre (Converts best province in the a
 		province_has_center_of_trade_of_level = 2
 		#Highest dev in area check goes here, but it doesn't exist so I'm just going with the University building and then only allowing this to happen once in the area
 		NOT = { has_province_modifier = colonial_capital_province_modifier }
-		NOT = { OWNER = {  any_owned_province = { has_province_modifier = colonial_capital_province_modifier } } } #I really want to check for area here, but 'area = ROOT' crashes the game, so until I can find a fix you are limited to one per empire, which is acceptable I guess...
+		#Check for Superregion (Cannot find a way to do this dynamically)
+		if = {
+			limit = {
+				superregion = europe_superregion #Western Europe
+			}
+			NOT = {
+				OWNER = {
+					any_owned_province = {
+						has_province_modifier = colonial_capital_province_modifier
+						superregion = europe_superregion #Western Europe
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				superregion = eastern_europe_superregion
+			}
+			NOT = {
+				OWNER = {
+					any_owned_province = {
+						has_province_modifier = colonial_capital_province_modifier
+						superregion = eastern_europe_superregion
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				superregion = africa_superregion
+			}
+			NOT = {
+				OWNER = {
+					any_owned_province = {
+						has_province_modifier = colonial_capital_province_modifier
+						superregion = africa_superregion
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				superregion = near_east_superregion
+			}
+			NOT = {
+				OWNER = {
+					any_owned_province = {
+						has_province_modifier = colonial_capital_province_modifier
+						superregion = near_east_superregion
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				superregion = persia_superregion
+			}
+			NOT = {
+				OWNER = {
+					any_owned_province = {
+						has_province_modifier = colonial_capital_province_modifier
+						superregion = persia_superregion
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				superregion = tartary_superregion
+			}
+			NOT = {
+				OWNER = {
+					any_owned_province = {
+						has_province_modifier = colonial_capital_province_modifier
+						superregion = tartary_superregion
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				superregion = india_superregion
+			}
+			NOT = {
+				OWNER = {
+					any_owned_province = {
+						has_province_modifier = colonial_capital_province_modifier
+						superregion = india_superregion
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				superregion = china_superregion
+			}
+			NOT = {
+				OWNER = {
+					any_owned_province = {
+						has_province_modifier = colonial_capital_province_modifier
+						superregion = china_superregion
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				superregion = far_east_superregion
+			}
+			NOT = {
+				OWNER = {
+					any_owned_province = {
+						has_province_modifier = colonial_capital_province_modifier
+						superregion = far_east_superregion
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				superregion = east_indies_superregion
+			}
+			NOT = {
+				OWNER = {
+					any_owned_province = {
+						has_province_modifier = colonial_capital_province_modifier
+						superregion = east_indies_superregion
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				superregion = oceania_superregion
+			}
+			NOT = {
+				OWNER = {
+					any_owned_province = {
+						has_province_modifier = colonial_capital_province_modifier
+						superregion = oceania_superregion
+					}
+				}
+			}
+		}
 	}
 
 	mean_time_to_happen = {
@@ -111,6 +253,43 @@ province_event = { #Basic Colonial Settlement Event
 		name = colonial_settlement.a
 
 		change_culture = OWNER
+	}
+}
+
+province_event = { #Generic Merchant Republic Colonies
+	id = cultural_influence_colonial.3
+	title = generic_merchant_colonies.title
+	desc = generic_merchant_colonies.desc
+	picture = MERCHANTS_TALKING_eventPicture
+
+	trigger = {
+		always = no #Disabling this for now, I'm going to work on something else, I can't figure out a way to make this work how I want it to...
+
+		owner = { has_government_attribute = is_merchant_republic }
+		has_port = yes #Coastal
+		OR = { #Has trade building (AI won't have issues with this, they build plenty of buildings)
+			has_building = marketplace
+			has_building = trade_depot
+			has_building = stock_exchange
+		}
+		NOT = { nationalism = 1 }
+	}
+
+	mean_time_to_happen = {
+		years = 40
+
+
+	}
+
+	option = { #Approve
+		name = generic_merchant_colonies.a
+
+		change_culture = OWNER
+		change_religion = OWNER
+	}
+
+	option = { #Cease
+		name = generic_merchant_colonies.b
 	}
 }
 
