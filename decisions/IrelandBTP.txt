@@ -40,9 +40,9 @@ country_decisions = {
 				limit = { 373 = { has_owner_culture = no } }
 				373 = {
 					add_culture_construction = {
-					culture = ROOT
-					speed = 0.5
-					cost = 0.0
+						culture = ROOT
+						speed = 0.5
+						cost = 0.0
 					}
 				}
 			}
@@ -212,6 +212,7 @@ country_decisions = {
 			NOT = { tag = UNK }
 			NOT = { exists = ANI }
 			NOT = { exists = IRE }
+			NOT = {  has_country_flag = BtP_released_viceroy_of_ireland_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -219,7 +220,7 @@ country_decisions = {
 			capital_scope = { region = british_isles_region }			#This will include England, Scotland, and Great Britain, but also dynamically any alt history powers in the British Isles. For non British polities history is out the window enough that this option shouldn't really be available, as it isn't for any other area.
 			NOT = { culture_group = gaelic }			#Gaels will try to form TnG
 			num_of_owned_provinces_with = {
-				value = 9
+				value = 16
 				region = ireland_area
 			}	#over half of Ireland to see
 		}
@@ -238,13 +239,14 @@ country_decisions = {
 			custom_trigger_tooltip = {
 				tooltip = three_quarters_of_ireland_tooltip
 				num_of_owned_provinces_with = {
-					value = 13
+					value = 23
 					region = ireland_area
 					is_core = ROOT
-				}	#3/4 of Ireland's 17 provinces
+				}	#3/4 of Ireland's 30 provinces
 			}
 		}
 		effect = {
+			set_country_flag = BtP_released_viceroy_of_ireland_flag
 			ireland_area = {
 				limit = { NOT = { owned_by = ROOT } }
 				add_permanent_claim = ANI
