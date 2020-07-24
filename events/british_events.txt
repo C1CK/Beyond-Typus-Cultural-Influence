@@ -318,8 +318,12 @@ province_event = { #Anglo-Welsh (Assimilation)
 		NOT = { culture_group = british }
 		anglo_welsh_culture_region = yes
 		OR = {
-			development = 30
+			development = 10
 			any_neighbor_province = { culture_group = british }
+			AND = {
+				is_island = yes
+				any_friendly_coast_border_province = { culture_group = british }
+			}
 		}
 	}
 
@@ -333,13 +337,13 @@ province_event = { #Anglo-Welsh (Assimilation)
 
 		if = {
 			limit = {
-				NOT = { primary_culture = standard_british }
+				NOT = { OWNER = { primary_culture = standard_british } }
 			}
 			change_culture = anglo_welsh
 		}
 		if = {
 			limit = {
-				primary_culture = standard_british
+				OWNER = { primary_culture = standard_british }
 			}
 			change_culture = standard_british
 		}
@@ -357,8 +361,12 @@ province_event = { #Anglo-Irish (Assimilation)
 		NOT = { culture_group = british }
 		anglo_irish_culture_region = yes
 		OR = {
-			development = 30
+			development = 10
 			any_neighbor_province = { culture_group = british }
+			AND = {
+				is_island = yes
+				any_friendly_coast_border_province = { culture_group = british }
+			}
 		}
 	}
 
@@ -375,13 +383,13 @@ province_event = { #Anglo-Irish (Assimilation)
 
 		if = {
 			limit = {
-				NOT = { primary_culture = standard_british }
+				NOT = { OWNER = { primary_culture = standard_british } }
 			}
 			change_culture = anglo_irish
 		}
 		if = {
 			limit = {
-				primary_culture = standard_british
+				OWNER = { primary_culture = standard_british }
 			}
 			change_culture = standard_british
 		}
@@ -412,6 +420,10 @@ province_event = { #Scottish (Assimilation)
 		OR = {
 			development = 10
 			any_neighbor_province = { culture_group = british }
+			AND = {
+				is_island = yes
+				any_friendly_coast_border_province = { culture_group = british }
+			}
 		}
 	}
 
@@ -437,15 +449,14 @@ province_event = { #Scottish (Assimilation)
 		}
 		if = {
 			limit = {
-				NOT = { primary_culture = standard_british }
+				NOT = { OWNER = { primary_culture = standard_british } }
 				NOT = { province_id = 4365 } #Mann
 			}
 			change_culture = scottish
 		}
 		if = {
 			limit = {
-				primary_culture = standard_british
-				NOT = { province_id = 4365 } #Mann
+				OWNER = { primary_culture = standard_british }
 			}
 			change_culture = standard_british
 		}
