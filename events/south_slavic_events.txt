@@ -139,9 +139,7 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 
 	trigger = {
 		owner = { culture_group = south_slavic }
-		NOT = { culture = serbian }
-		NOT = { culture = croatian }
-		NOT = { culture = bosnian }
+		NOT = { culture_group = south_slavic }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -162,6 +160,20 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 			owner = { ai = no }
 		}
 		serbo_croat_culture_region = yes
+		if = { #If in Bulgarian region, ensure you are not Bulgarian
+			limit = {
+				bulgarian_culture_region = yes
+			}
+			NOT = { OWNER = { primary_culture = bulgarian } }
+			#Slovenes closer to Serbo-Croat than Bulgarian
+		}
+		if = { #If in Slovenian region, ensure you are not Slovenian
+			limit = {
+				slovene_culture_region = yes
+			}
+			NOT = { OWNER = { primary_culture = slovene } }
+			#Bulgarians closer to Serbo-Croat than Slovene
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -350,7 +362,7 @@ province_event = { #Bulgarian settlements and assimilation (Settle)
 
 	trigger = {
 		owner = { culture_group = south_slavic }
-		NOT = { culture = bulgarian }
+		NOT = { culture_group = south_slavic }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -371,6 +383,15 @@ province_event = { #Bulgarian settlements and assimilation (Settle)
 			owner = { ai = no }
 		}
 		bulgarian_culture_region = yes
+		if = { #If in Serbo-Croat region, ensure you are not Serbo-Croat (or Slovene)
+			limit = {
+				serbo_croat_culture_region = yes
+			}
+			NOT = { OWNER = { primary_culture = croatian } }
+			NOT = { OWNER = { primary_culture = bosnian } }
+			NOT = { OWNER = { primary_culture = serbian } }
+			NOT = { OWNER = { primary_culture = slovene } } #Slovenes closer to Serbo-Croat than Bulgarian
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -518,7 +539,7 @@ province_event = { #Slovene settlements and assimilation (Settle)
 
 	trigger = {
 		owner = { culture_group = south_slavic }
-		NOT = { culture = slovene }
+		NOT = { culture_group = south_slavic }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			owner = { ai = yes }
@@ -539,6 +560,13 @@ province_event = { #Slovene settlements and assimilation (Settle)
 			owner = { ai = no }
 		}
 		slovene_culture_region = yes
+		if = { #If in Serbo-Croat region, ensure you are not Slovene
+			limit = {
+				serbo_croat_culture_region = yes
+			}
+			NOT = { OWNER = { primary_culture = slovene } }
+			#Bulgarians closer to Serbo-Croat than Slovene
+		}
 		has_global_flag = CI_events_enabled
 	}
 
