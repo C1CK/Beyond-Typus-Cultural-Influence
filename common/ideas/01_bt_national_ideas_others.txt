@@ -211,6 +211,289 @@ SCA_ideas = {
 	}
 }
 
+#Lombardy-Veneto
+LMV_ideas = {
+	start = {
+		infantry_power = 0.10 #MLO_ideas
+		galley_power = 0.25 #VEN_ideas bonus
+	}
+	bonus = {
+		legitimacy = 1
+		republican_tradition = 0.5
+	}
+	trigger = {
+		tag = LMV
+	}
+
+	free = yes
+	
+	lmv_alpine_wall = { #Alpine Wall, 'nuff said.
+		defensiveness = 0.2
+	}
+	
+	lmv_age_of_condottieri = { #Localisation from MLO_ideas.
+		mercenary_discipline = 0.05
+	}
+	
+	lmv_italian_trade_dominance = { #Technically a dump idea that merges Milanese trade princes with Venetian Stato da Mar. It just felt right to have trade in this considering both sets have trade-oriented ideas.
+		merchants = 1
+		global_trade_power = 0.05
+	}
+	
+	lmv_invite_printers_philosophers = { #The City of Venice invited printers from throughout Germany/Low Countries, & Milan has philosophers, and Leonardo da Vinci and stuff.
+		technology_cost = -0.1
+	}
+	
+	lmv_great_power_sandwich = { #Sandwiched between France and the Habsburgs.
+		improve_relation_modifier = 0.2
+	}
+	
+	lmv_po_valley_textiles = { #Prosperity of the Po River Valley textiles post-Spanish.
+		development_cost = -0.05
+		global_trade_goods_size_modifier = 0.10
+	}
+	
+	lmv_italian_unification = { #LMV shall be the unifiers of Italy!
+		governing_capacity_modifier = 0.1
+		num_accepted_cultures = 1
+	}
+}
+
+#Emilia-Romagna
+EMR_ideas = {
+	start = {
+		defensiveness = 0.2 #Swampy Ravenna
+		possible_condottieri = 0.5		
+	}
+	bonus = {
+		build_cost = -0.1
+	}
+	trigger = {
+		tag = EMR
+	}
+
+	free = yes
+	
+	emr_university_of_bologna = { #Oldest university in Europe, in 1088AD.
+		idea_cost = -0.1
+	}
+	
+	emr_condottieres = { #Malatesta condottieri plus others.
+		mercenary_manpower = 0.50
+		leader_land_shock = 1
+	}
+	
+	emr_united_signories = { #EMR was politically split between a bunch of different signorias. Represents it now being united.
+		years_of_nationalism = -10
+	}
+	
+	emr_renaissance_palaces = { #Este family was responsible for a bunch of renaissance projects, including renaissance palaces.
+		prestige = 1
+	}
+	
+	emr_via_aemilia = { #Hearkening back to the roman road, namesake of Emilia, and Saluzzo has 15% movement speed, so it's not the most powerful (Arguably Saluzzo's is broken).
+		movement_speed = 0.1
+	}
+	
+	emr_repel_papal_authority = { #Pope wants this land.
+		spy_offence = 0.33
+		unjustified_demands = -0.25
+	}
+	
+	emr_land_reclamation = { #Historically a lot of land reclamation was done in the Romagna region, esp. around Ravenna.
+		development_cost = -0.10
+	}
+}
+
+#Umbria
+UMB_ideas = {
+	start = {
+		mercenary_cost = -0.20 #Italian condottieri
+		papal_influence = 1
+		church_power_modifier = 0.1
+		monthly_fervor_increase = 1
+	}
+	bonus = {
+		ae_impact = -0.1
+	}
+	trigger = {
+		tag = UMB
+	}
+
+	free = yes
+	
+	umb_royal_grounds = { #Umbria used to be known as Ducato from the Duchy of Spoleto.
+		legitimacy = 1
+		republican_tradition = 0.5
+		prestige = 1
+	}
+	
+	umb_via_flaminia = { #The Via Flaminia connects Rome with the Pentapoli (Five cities) in Marche.
+		global_prov_trade_power_modifier = 0.1
+	}
+	
+	umb_papal_independence = { #By forming Umbria you have managed to defeat the pope thus granting you independence from them. Pope took it over as prep to return papacy from Avignon. Some parts of Umbria have been under the pope since Charlemagne though, more specifically the areas controlled by the Duchy of Spoleto.
+		land_morale = 0.15
+	}
+	
+	umb_bridge_the_tiber = { #The Tiber river that crosses Umbria had several bridges, a good chunk Ancient Roman. As a funny sidenote, executed criminals were tossed in the river in Roman times.
+		build_cost = -0.1
+		build_time = -0.2
+	}
+	
+	umb_tradition_of_battle = { #Umbria was a war-torn region and a hotspot during guelph-ghibelline disputes.
+		fire_damage = 0.1
+	}
+	
+	umb_strike_the_earth = { #Umbria sits atop some great iron deposits.
+		production_efficiency = 0.1
+	}
+	
+	umb_roma_delenda_est = { #Destroy Rome. Needn't say more.
+		siege_ability = 0.2
+	}
+}
+
+#Lombardy
+LOM_ideas = {
+	start = {
+		infantry_power = 0.1
+		global_institution_spread = 0.1
+	}
+	bonus = {
+		discipline = 0.05
+	}
+	trigger = {
+		tag = LOM
+	}
+
+	free = yes
+	
+	lom_leges_langobardorum = { #Kingdom of Lombardy owned almost all of Italy before it was defeated by Charlemagne. It had a legal code known as Edictum Rothari, or Leges Langobardorum, which limited the power of feudal rulers, strengthening the authority of the king.
+		core_creation = -0.15
+		yearly_absolutism = 0.5
+	}
+	
+	lom_land_of_comunes = { #Lombardy (& Northern Italy in general) had a multitude of city-states thriving in commerce. Milan was the one that came out on top in the end, which has been defeated in order to form this nation.
+		global_trade_power = 0.1
+	}
+	
+	lom_lombard_league = { #Citystates of Lombardy often formed leagues, one of which (Led by Milan) defeated the Holy Roman Emperor at Parma.
+		diplomatic_upkeep = 1
+	}
+	
+	lom_curb_the_families = { #Lombardy struggled a lot with different noble families infighting (Visconti & Sforza in Milan, Gonzaga in Mantua). An idea circling around curbing them feels fitting to avoid such crises.
+		nobles_loyalty_modifier = 0.05
+		burghers_loyalty_modifier = 0.05
+	}
+	
+	lom_freethinkers = { #A bit like LMV. Lots of historical figures hailed from Lombardy, from Roman philosophes to Italian physicists. Plus musicians, politicians and popes.
+		advisor_pool = 1
+		innovativeness_gain = 0.5
+	}
+	
+	lmv_po_valley_textiles = { #Used by LMV
+	
+	}
+	
+	lom_not_barbarians = { #The Kingdom of Lombardy was commonly associated with barbarism at the time, so it would be nice with an idea where they attempt to flip this perception.
+		improve_relation_modifier = 0.2
+	}
+}
+
+#Piedmont
+PIE_ideas = {
+	start = {
+		defensiveness = 0.20
+		leader_cost = -0.1
+	}
+	bonus = {
+		province_warscore_cost = -0.1 #Just something to help them unify Italy eventually, as the Savoyards were the unifiers of Italy.
+	}
+	trigger = {
+		tag = PIE
+	}
+
+	free = yes
+	
+	pie_land_of_marches = { #Piedmont as part of the Kingdom of Italy in the Holy Roman Empire was home to several marches.
+		fire_damage_received = -0.1
+	}
+	
+	sav_mercenary_tradition = { #Featured in SAV_ideas
+		
+	}
+	
+	pie_expand_turin = { #Historically the Dukes of Savoy made Turin their capital and built several buildings such as the Piazza Reale, as well as the Palazzo Reale. The city itself is known for featuring architecture from several periods and is today a World Heritage city.
+		build_cost = -0.10
+		development_cost = -0.10
+	}
+	
+	pie_protect_against_pirates = { #The city of Nice under the Savoyard managed to repel several barbary pirate raids as well as a Franco-Ottoman allied invasion. As well, predating this, Saracens and Muslim Moors invaded the area (Also referenced in their 1st idea).
+		sunk_ship_morale_hit_recieved = -0.1
+		allowed_marine_fraction = 0.05
+	}
+	
+	pie_franco_italian_relations = { #Piedmont needs to do something about France on the other side of the Alps.
+		diplomatic_reputation = 1
+	}
+	
+	spi_piedmontese_manufacturing = { #From SPI_ideas
+		
+	}
+	
+	pie_princes_of_piedmont = { #A title used by heirs of Italy after the capital was moved to Rome.
+		legitimacy = 1
+	}
+}
+
+#Jaén
+JAE_ideas = {
+	start = {
+		defensiveness = 0.25 #Jaén had a big fort and the city of Jaén was sieged several times, ultimately resulting in vassalage without the city falling.
+		land_morale = 0.10 #Following the above.
+	}
+	bonus = {
+		infantry_power = 0.1 #No particular reason aside from neo suggesting it after seeing an infantryman on a hill on the Jiennese wikipage.
+	}
+	trigger = {
+		tag = JAE
+	}
+
+	free = yes
+	
+	jae_importance_of_foreigners = { #The Jewish before their expulsion during the Inquisitions and expulsions were of incredible importance to the Reino of Jaén. I also love the idea of a tolerant Iberian nation personally.
+		tolerance_heathen = 3
+	}
+	
+	jae_resist_conquista = { #Prior to the reconquista, this kingdom was conquered by several major powers but shortly after would declare independence, resulting in a whopping 3 different taifas of Jaén. It also matches with the defensive focus that this idea set has.
+		fire_damage_received = -0.1
+	}
+	
+	jae_great_houses_of_worship = { #Upon its conquest, the Assumption of the Virgin Cathedral was built in the center of Jáen, replacing the previous aljama Mosque in the area. To mesh with the heathen tolerance, it only gives heretic missionary strength.
+		global_heretic_missionary_strength = 0.03
+		church_loyalty_modifier = 0.05
+	}
+	
+	jae_quash_the_aristocracy = { #It seems that the province of Jaén had severe internal conflicts due to squabbling nobles. It would therefore only make sense that they would try to empower the Monarch instead of the nobles.
+		yearly_absolutism = 0.5
+		nobles_loyalty_modifier = 0.05
+	}
+	
+	jae_farmers_craftsmanships = { #Jaén itself mostly remained agriculturally oriented in its production, so much so that in the modern day they are one of the leading producers of olive oil. The other cities, Baeza & Ubeda, developed important textile craftsmanship activity.
+		global_trade_goods_size_modifier = 0.15
+	}
+	
+	jae_sociedad_economica = { #Referencing Real Sociedad Economica bla bla bla as a late idea to add some economical power to this idea set. It is the smallest of the Reinos, after all.
+		inflation_reduction = 0.1
+		interest = -1
+	}
+	
+	jae_disputacion = { #Making this a slight dump idea, but basically a disputacion is a provincial deputy, which was one that was established in the early 1800s in Jaen.
+		stability_cost_modifier = -0.1
+	}
+}
+
 ##################################################################################################
 ##################################################################################################
 ##################################################################################################
@@ -222,7 +505,7 @@ SCA_ideas = {
 PMO_ideas = {
 	start = {
 		production_efficiency = 0.15 #Culture was well known for being masters of basket weaving and jewelry
-		movement_speed = 0.05 #Re-adding previous movement speed buff that supposedly existed in BT 9.0. Apparently was +15%, but I nerfed it a bit.
+		movement_speed = 0.10 #Re-adding previous movement speed buff that supposedly existed in BT 9.0. Apparently was +15%, but I nerfed it a bit.
 	}
 
 	bonus = {
@@ -387,7 +670,7 @@ CHP_ideas = {
 }
 
 #Corsica
-COR_ideas = {
+deprecated_COR_ideas = {
 	start = {
 		galley_power = 0.1
 		diplomatic_upkeep = 1
@@ -398,7 +681,7 @@ COR_ideas = {
 	}
 		
 	trigger = {
-		tag = COR
+		always = no
 	}
 	free = yes 		#will be added at load
 		
@@ -508,7 +791,7 @@ ARE_ideas = {
 		nobles_loyalty_modifier = 0.1
 	}
 	are_resist_de_medici = {
-		enemy_core_creation = 0.5
+		global_spy_defence = 0.33
 	}
 	are_etruscan_artifacts = {
 		idea_cost = -0.05
