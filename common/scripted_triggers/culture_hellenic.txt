@@ -19,7 +19,7 @@ agaio_culture_region = { #Should work for Greek settlement in West Anatolia and 
 		area = thrace_area #Thrace	
 		area = northern_thrace_area #Northern Thrace	
 		area = bulgaria_area #Bulgaria	
-		area = lower_danube_area #Dobruja	
+		area = upper_thrace_area #Upper Thrace	
 		area = danubian_plain_area #Lower Moesia	
 		area = vidin_area #Vidin	
 		area = silistria_area #Silistria
@@ -54,7 +54,7 @@ illyrion_culture_region = { #Should work for Greek settlement in Old Illyria
 		province_id = 1768	
 		province_id = 7098	
 		area = inner_austria_area	
-		area = carniola_area	
+		area = carinthia_area	
 	}	
 }	
 graiko_culture_region = { #Should work for Greek settlement in Southern Italy	
@@ -213,7 +213,6 @@ rhomaio_culture_region = {
 		area = upper_thrace_area #Upper Thrace	
 		area = northern_thrace_area #Northern Thrace	
 		area = bulgaria_area #Bulgaria	
-		area = lower_danube_area #Dobruja	
 		area = danubian_plain_area #Lower Moesia	
 		area = vidin_area #Vidin
 		area = silistria_area #Silistria
@@ -382,7 +381,7 @@ galatian_culture_region = {
 		area = lyonnais_area	
 		area = berry_touraine_area	
 		area = lower_brittany_area	
-		area = maine_anjou_area	
+		area = orleans_area	
 		area = limousin_area	
 		AND = {	
 			area = west_languedoc_area	
@@ -406,7 +405,7 @@ velgoi_culture_region = {
 		area = lower_rhineland_area	
 		area = wallonia_area	
 		area = luxembourg_area	
-		area = franche_comte_area	
+		area = west_burgundy	
 		province_id = 96			
 		province_id = 3060	
 		province_id = 2975	
@@ -472,7 +471,7 @@ voreiodytiki_germanikos_culture_region = {
 		province_id = 47	
 		province_id = 7814	
 		area = frisia_area	
-		area = muenster_area	
+		area = north_westphalia_area	
 		area = westphalia_area	
 		area = weser_area	
 		area = hesse_area	
@@ -480,7 +479,10 @@ voreiodytiki_germanikos_culture_region = {
 		area = holstein_area	
 		area = thuringia_area	
 		area = south_saxony_area	
-		area = mittelmark_area	
+		AND = {
+			area = mittelmark_area	
+			NOT = { province_id = 1759 }
+		}	
 		area = mecklenburg_area		
 		area = northern_saxony_area	
 	}	
@@ -491,17 +493,24 @@ notioanatolikosgermanikos_culture_region = {
 			area = austria_proper_area	
 			NOT = {province_id = 133}	
 		}		
-		area = moravia_area	
-		area = silesia_area	
-		area = malopolska_area		
-		area = central_poland_area	
-		area = sandomierz_area	
+		area = moravia_area
+		area = bohemia_area
+		area = erzgebirge_area
+		area = bohemian_forest_area
+		area = malopolska_area			
 		area = red_ruthenia_area	
 		area = volhynia_area	
+		area = middle_silesia_area
+		area = silesia_area
+		province_id = 259
+		province_id = 260
+		province_id = 2959
+		province_id = 8223	
 	}	
 }		
 voreioanatolikosgermanikos_culture_region = {	
 	OR = {	
+		province_id = 1759
 		province_id = 7816	
 		province_id = 7817	
 		province_id = 269	
@@ -510,15 +519,21 @@ voreioanatolikosgermanikos_culture_region = {
 		province_id = 7263	
 		area = neumark_area	
 		area = hinter_pommern_area	
-		area = wielkopolska_area	
-		area = mazovia_area	
 		area = west_prussia_area	
 		area = east_prussia_area	
 		area = nadruvia_area	
 		area = masuria_area	
 		area = yotvingia_area	
-		area = kuyavia_area	
-		area = lower_silesia_area	
+		AND = {
+			region = poland_region
+			NOT = { area = middle_silesia_area }
+			NOT = { area = silesia_area }
+			NOT = { area = malopolska_area }
+			NOT = { province_id = 259 }
+			NOT = { province_id = 260 }
+			NOT = { province_id = 2959 }
+			NOT = { province_id = 8223 }
+		}	
 	}	
 }		
 kefalés_culture_region = {	
