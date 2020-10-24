@@ -27,6 +27,7 @@ province_event = { #Czech settlements and assimilation
 
 	trigger = {
 		owner = { culture_group = west_slavic }
+		czech_culture_region = yes		
 		NOT = { culture = czech }
 		NOT = { culture = ceskoslovensky }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -48,7 +49,6 @@ province_event = { #Czech settlements and assimilation
 			owner = { has_country_modifier = west_slavic_settlements }
 			owner = { ai = no }
 		}
-		czech_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
