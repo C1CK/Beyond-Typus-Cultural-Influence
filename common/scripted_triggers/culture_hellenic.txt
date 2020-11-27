@@ -53,6 +53,7 @@ illyrion_culture_region = { #Should work for Greek settlement in Old Illyria
 		province_id = 76	
 		province_id = 1768	
 		province_id = 7098	
+		province_id = 4759
 		area = inner_austria_area	
 		area = carinthia_area	
 	}	
@@ -87,7 +88,6 @@ italiote_culture_region = {	#Greek Settlement in Northen Italy
 			NOT = {province_id = 7020}	
 		}		
 		province_id = 73	
-		province_id = 3053	
 		area = switzerland_area	
 		area = romandie_area	
 	}	
@@ -297,122 +297,114 @@ indiki_koilada_culture_region = {
 		area = sirhind_area	
 	}	
 }	
-massalian_culture_region = {	
-	OR = {	
-		area = catalonia_area	
-		area = valencia_area	
-		area = baleares_area	
-		AND = {	
-			area = languedoc_area	
-			NOT = {province_id = 4391}	
-			NOT = {province_id = 7906}	
-			NOT = {province_id = 7899}	
-			}	
-		area = provence_area	
-		area = south_piedmont_area	
-		area = liguria_area	
-		area = corsica_sardinia_area	
-		area = sardinia_area	
-		province_id = 7900	
-		province_id = 2753	
-		province_id = 197	
-	}	
-}	
 septimanikion_culture_region = {	
 	OR = {	
-		area = galicia_area	
+		
 		area = asturias_area	
 		area = basque_area	
 		area = aragon_area	
 		area = castille_area	
 		area = leon_area	
-		area = minho_duoro_area	
 		area = new_castile_area	
 		area = segovia_area	
-		AND = {	
-			area = beieras_area	
-			NOT = {province_id = 1851}	
-			NOT = {province_id = 8097}	
-			NOT = {province_id = 8096}	
-
-		}	
-		province_id = 8050	
-	    province_id = 3100	
-		province_id = 216	
 	}	
 }	
 karpessosion_culture_region = {	
 	OR = {	
-		AND = {	
-			area = extremadura_area	
-			NOT = {province_id = 8050}	
-			NOT = {province_id = 3100}	
-			NOT = {province_id = 216}	
-		}	
 		area = murcia_area	
 		area = lower_andalucia_area	
 		area = upper_andalucia_area	
 		area = toledo_area	
-		area = alentejo_area	
-		area = macaronesia_area	
-		area = algarve_area	
 		area = estremadura_area	
 		area = northern_andalusia_area	
-		province_id = 1851	
-		province_id = 8097	
-		province_id = 8096	
 	}	
 }	
+olissiponion_culture_region = {
+	OR = {
+		area = galicia_area	
+		area = minho_duoro_area
+		area = beieras_area
+		area = extremadura_area
+		area = alentejo_area	
+		area = algarve_area	
+		area = macaronesia_area			
+	}
+}
+massalian_culture_region = {	
+	OR = {	
+		area = catalonia_area	
+		area = valencia_area	
+		area = baleares_area	
+		area = provence_area	
+		area = south_piedmont_area	
+		area = liguria_area	
+		area = corsica_sardinia_area	
+		area = sardinia_area	
+		AND = {
+			area = west_languedoc_area
+			NOT = { province_id = 4694 }
+			NOT = { province_id = 196 }
+			NOT = { province_id = 7904 }
+		}	
+		province_id = 200
+		province_id = 7898
+		province_id = 3085
+		province_id = 7905
+	}	
+}		
 galatian_culture_region = {	
 	OR = {	
-		province_id = 4391	
-		province_id = 7906	
-	    province_id = 7899	
-		area = pyrenees_area	
-		area = massif_central_area	
-		area = savoy_dauphine_area	
-		area = bourgogne_area	
-		area = loire_area	
-		area = brittany_area	
-		area = poitou_area	
-		area = upper_guyenne_area	
-		area = upper_gascony	
-		area = dauphine_area	
-		area = lyonnais_area	
-		area = berry_touraine_area	
-		area = lower_brittany_area	
-		area = orleans_area	
-		area = limousin_area	
-		AND = {	
-			area = west_languedoc_area	
-			NOT = {province_id = 7900}	
-			NOT = {province_id = 2753}	
-			NOT = {province_id = 197}	
-			}	
+		AND = {
+			region = france_region
+			NOT = { area = provence_area }
+			NOT = { area = normandy_area }
+			NOT = { area = lower_normandy_area }
+			NOT = { area = picardy_area }
+			NOT = { area = ile_de_france_area }
+			NOT = { area = champagne_area }
+			NOT = { area = lorraine_area }
+			NOT = { province_id = 200 }
+			NOT = { province_id = 7898 }
+			NOT = { province_id = 3085 }
+			NOT = { province_id = 7905 }
+			NOT = { province_id = 7900 }
+			NOT = { province_id = 7901 }
+			NOT = { province_id = 2753 }
+			NOT = { province_id = 4695 }
+			NOT = { province_id = 197 }
+		}
+		province_id = 1880	
 	}	
 }	
 velgoi_culture_region = {	
 	OR = {	
-		area = normandy_area	
-		area = lower_normandy_area	
-		area = ile_de_france_area	
-		area = picardy_area	
-		area = champagne_area	
-		area = flanders_area	
-		area = brabant_area	
-		area = luxemburg_liege_area	
-		area = lorraine_area	
-		area = lower_rhineland_area	
-		area = wallonia_area	
-		area = luxembourg_area	
-		area = west_burgundy	
-		province_id = 96			
-		province_id = 3060	
-		province_id = 2975	
-		province_id = 85	
-		province_id = 78	
-		province_id = 1761	
-		province_id = 8017	
+		area = normandy_area
+		area = lower_normandy_area
+		area = picardy_area
+		area = ile_de_france_area
+		area = champagne_area
+		area = lorraine_area
+		AND = {
+			region = low_countries_region
+			NOT = { area = frisia_area }
+			NOT = { province_id = 4383 }
+			NOT = { province_id = 97 }
+			NOT = { province_id = 7954 }
+			NOT = { province_id = 98 }			
+			NOT = { province_id = 99 }		
+			NOT = { province_id = 8032 }
+			NOT = { province_id = 8120 }
+			NOT = { province_id = 4381 }		
+		}
+		area = lower_rhineland_area
+		province_id = 2975
+		province_id = 85
+		province_id = 78
+		province_id = 1761
+		province_id = 4767
+		province_id = 7944
+		province_id = 75
+		province_id = 4765
 	}	
 }		
 dacion_culture_region = {	
