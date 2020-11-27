@@ -4,9 +4,11 @@
 hellenic_armenian_assimilation = { #Assimilates Armenian into Hellenic
 	every_province = {
 		limit = {
-			OR = {
-				culture = armenian
-			}
+			AND = {
+				OR = {
+					culture = armenian
+				}
+			development = 25	
 		}
 		change_culture = nkreko_armenio
 	}
@@ -56,9 +58,12 @@ hellenic_armenian_assimilation = { #Assimilates Armenian into Hellenic
 hellenic_turkish_assimilation = { #Assimilates the Turks into Hellenic
 	every_province = {
 		limit = {
-			OR = {
-				culture = turkish
-			}
+			AND = {
+				OR = {
+					culture = turkish
+				}
+				development = 25
+			}	
 		}
 		change_culture = tourkiki
 	}
