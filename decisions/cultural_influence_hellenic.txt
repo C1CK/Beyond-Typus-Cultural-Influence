@@ -33,8 +33,8 @@ country_decisions = {
 			rhomaio_unification_region = yes	
 		}		
 		allow = {
-			151 = {
-				has_province_modifier = byz_city_of_cities
+		151 = {
+			has_province_modifier = byz_city_of_cities
 		}
 		148 = {
 			has_province_modifier = byz_co_capital
@@ -42,19 +42,17 @@ country_decisions = {
 		any_owned_province = {
 			has_province_modifier = byz_anatolian_restoration
 		}
-		all_province = {
-			custom_tooltip = rhomaio_unification_provinces_tooltip
-			OR = {
+		calc_true_if = { 
+			desc = rhomaio_unification_provinces_tooltip
+			all_owned_province = {
 				AND = {
 					rhomaio_unification_region = yes
 					culture_group = byzantine
 				}
-				NOT = {
-				rhomaio_unification_region = yes
-				}
 			}
-		}	
-	}
+			amount = 100
+			}				
+		}
 		effect = {
 			country_event = { id = cultural_influence_greek.15 }
 			set_global_flag = rhomaio_unified_flag
