@@ -35,20 +35,26 @@ country_decisions = {
 		allow = {
 			151 = {
 				has_province_modifier = byz_city_of_cities
-			}
-			148 = {
-				has_province_modifier = byz_co_capital
-			}
-			any_owned_province = {
-				has_province_modifier = byz_anatolian_restoration
-			}
-			AND = {
-				rhomaio_unification_region = {	
-   					culture_group = byzantine	
-    					type = all	
-				}
-			}	
 		}
+		148 = {
+			has_province_modifier = byz_co_capital
+		}
+		any_owned_province = {
+			has_province_modifier = byz_anatolian_restoration
+		}
+		all_province = {
+			custom_tooltip = rhomaio_unification_provinces_tooltip
+			OR = {
+				AND = {
+					rhomaio_unification_region = yes
+					culture_group = byzantine
+				}
+				NOT = {
+				rhomaio_unification_region = yes
+				}
+			}
+		}	
+	}
 		effect = {
 			country_event = { id = cultural_influence_greek.15 }
 			set_global_flag = rhomaio_unified_flag
@@ -87,7 +93,7 @@ country_decisions = {
 		effect = {
 			set_global_flag = hellenic_armenian_assimilation_flag
 			custom_tooltip = enables_hellenisation_of_armenian
-			hellenic_armenian_assimilation = yes
+			hellenic_armenian_assimilation = yes #Reworked to only effect the Armenian provinces with 25 or more dev. Advisors and whatnot will still change, however.
 			add_adm_power = -200
 			add_dip_power = -100
 		}
