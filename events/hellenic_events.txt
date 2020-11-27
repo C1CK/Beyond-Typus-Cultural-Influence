@@ -730,6 +730,12 @@ province_event = { #Irish reclamation event except for Assimilation of Armenians
 				culture_group = byzantine
 			}	
 		}
+		modifier = { #Armenians assimilate faster
+			factor = 0.5
+			OR = {
+				culture = armenian
+			}
+		}	
 		modifier = {
 			AND = {
 				has_colonist = yes	
@@ -8276,7 +8282,287 @@ province_event = { #Irish reclamation event except it's greek conquest of Coasta
 
 		change_culture = souachiliaktikos	
 	}	
-}	
+}
+
+province_event = { #Irish reclamation event except it's greek conquest of Western Iberia	
+	id = cultural_influence_greek.61	
+	title = greek_conquest_11.title	
+	desc = greek_conquest_11.desc	
+	picture = CULTURE_eventPicture	
+
+	trigger = {	
+		#Template Settled Triggers	
+		owner = { culture_group = greek }
+		OR = {
+			owner = { has_country_modifier = hellenic_settlements }	
+			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+		}
+		NOT = { culture = hesperic }	
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = byzantine }
+			}
+			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+		}
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumebly the player) has it.
+			owner = { has_country_modifier = hellenic_settlements }
+			owner = { ai = no }
+			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+		}	
+		olissiponion_culture_region = yes	
+	}	
+
+	mean_time_to_happen = {	
+		#Template Settled MTTH	
+		years = 50	
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			OR = {
+				culture_group = byzantine
+			}	
+		}
+		modifier = {
+			AND = {
+				has_colonist = yes	
+				is_city = yes	
+			}
+			factor = 0.7
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			OR = { #ai uses thiS one
+				NOT = { has_dlc = "Dharma" }
+				owner = { ai = yes }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {	
+		name = greek_reclamation.a	
+
+		change_culture = olissiponion	
+	}	
+}
+
+province_event = { #Irish reclamation event except for Assimilation of Turks	
+	id = cultural_influence_greek.62	
+	title = greek_reclamation_1.title	
+	desc = greek_reclamation_1.desc	
+	picture = CULTURE_eventPicture	
+
+	trigger = {	
+		#Template Settled Triggers	
+		owner = { culture_group = greek }
+		OR = {
+			owner = { has_country_modifier = hellenic_settlements }	
+			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+		}	
+		culture = turkish
+		has_global_flag = hellenic_turkish_assimilation_flag
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			has_owner_accepted_culture = no
+			owner = { ai = yes }
+		}
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = byzantine }
+			}
+			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+		}
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumebly the player) has it.
+			owner = { has_country_modifier = hellenic_settlements }
+			owner = { ai = no }
+			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+		}		
+		#This will assimilate Turks anywhere, if they are in other culture regions they will still convert to whatever that region has, however if they are in the core region (Greece+Anatolia) they get merged in the Rhomaîoi unification decision.
+	}	
+
+	mean_time_to_happen = {	
+		#Template Settled MTTH	
+		years = 50	
+
+		modifier = { #Uncolonized land
+			factor = 0.1
+			OR = {
+				culture_group = byzantine
+			}	
+		}
+		modifier = {
+			AND = {
+				has_colonist = yes	
+				is_city = yes	
+			}
+			factor = 0.7
+		}
+
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = { #Non-Dharma
+			factor = 3
+			OR = { #ai uses thiS one
+				NOT = { has_dlc = "Dharma" }
+				owner = { ai = yes }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved = 5
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.6
+			num_of_times_improved = 10
+			NOT = { has_dlc = "Dharma" }
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		#Ideal dev is around 30
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.2
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.75
+			national_focus = adm
+		}
+	}
+
+	option = {	
+		name = greek_reclamation.a	
+
+		change_culture = tourkiki	
+	}	
+}		
+	
 #Colonial Cultures	
 
 namespace = cultural_influence_greek_colonial	
