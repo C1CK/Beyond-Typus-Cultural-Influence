@@ -307,6 +307,9 @@ septimanikion_culture_region = {
 		area = leon_area	
 		area = new_castile_area	
 		area = segovia_area	
+		province_id = 216
+		province_id = 4788
+		province_id = 8050
 	}	
 }	
 karpessosion_culture_region = {	
@@ -317,6 +320,12 @@ karpessosion_culture_region = {
 		area = toledo_area	
 		area = estremadura_area	
 		area = northern_andalusia_area	
+		AND = {
+			area = extremadura_area	
+			NOT = { province_id = 216 }
+			NOT = { province_id = 4788 }
+			NOT = { province_id = 8050 }
+		}	
 	}	
 }	
 olissiponion_culture_region = {
@@ -324,7 +333,6 @@ olissiponion_culture_region = {
 		area = galicia_area	
 		area = minho_duoro_area
 		area = beieras_area
-		area = extremadura_area
 		area = alentejo_area	
 		area = algarve_area	
 		area = macaronesia_area			
