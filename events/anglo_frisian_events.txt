@@ -46,7 +46,8 @@ province_event = { #West Frisian settlements (Settle)
 	picture = CULTURE_eventPicture
 
 	trigger = {
-		owner = { culture_group = anglo_frisian }
+		west_frisian_culture_region = yes	
+		owner = { culture_group = anglo_frisian }	
 		NOT = { culture = west_frisian }
 		NOT = { culture = frisian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -68,7 +69,6 @@ province_event = { #West Frisian settlements (Settle)
 			owner = { has_country_modifier = frisian_settlements }
 			owner = { ai = no }
 		}
-		west_frisian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -227,6 +227,7 @@ province_event = { #North Frisian settlements (Settle)
 
 	trigger = {
 		owner = { culture_group = anglo_frisian }
+		north_frisian_culture_region = yes			
 		NOT = { culture = north_frisian }
 		NOT = { culture = frisian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -248,7 +249,6 @@ province_event = { #North Frisian settlements (Settle)
 			owner = { has_country_modifier = frisian_settlements }
 			owner = { ai = no }
 		}
-		north_frisian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -407,6 +407,7 @@ province_event = { #Anglo-Saxon settlements (Settle)
 
 	trigger = {
 		owner = { culture_group = anglo_frisian }
+		anglosaxon_culture_region = yes			
 		NOT = { culture = anglosaxon }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -427,7 +428,6 @@ province_event = { #Anglo-Saxon settlements (Settle)
 			owner = { has_country_modifier = frisian_settlements }
 			owner = { ai = no }
 		}
-		anglosaxon_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -575,6 +575,7 @@ province_event = { #Frisian Saxon settlements (Settle)
 
 	trigger = {
 		owner = { culture_group = anglo_frisian }
+		frisian_saxon_culture_region = yes			
 		NOT = { culture = frisian_saxon }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -595,7 +596,6 @@ province_event = { #Frisian Saxon settlements (Settle)
 			owner = { has_country_modifier = frisian_settlements }
 			owner = { ai = no }
 		}
-		frisian_saxon_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -743,6 +743,7 @@ province_event = { #Frisian New-Saxon settlements (Settle)
 
 	trigger = {
 		owner = { culture_group = anglo_frisian }
+		frisian_new_saxon_culture_region = yes			
 		NOT = { culture = frisian_new_saxon }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -763,7 +764,6 @@ province_event = { #Frisian New-Saxon settlements (Settle)
 			owner = { has_country_modifier = frisian_settlements }
 			owner = { ai = no }
 		}
-		frisian_new_saxon_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 

@@ -10,6 +10,7 @@ province_event = { #Berber Spread (Guanche)
 
 	trigger = {
 		owner = { culture_group = berber_group }
+		guanche_culture_region = yes		
 		NOT = { culture = guanche }
 		NOT = { nationalism = 1 }
 		#OR = { #These guys can ignore this considering they are the desert bois
@@ -28,7 +29,6 @@ province_event = { #Berber Spread (Guanche)
 			is_capital = yes
 		}
 		owner = { has_country_modifier = policy_of_berberisation_modifier }
-		guanche_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -135,6 +135,14 @@ province_event = { #Berber Spread (Atlas Berber)
 
 	trigger = {
 		owner = { culture_group = berber_group }
+		OR = { #Conflict with Zenaga
+			atlas_berber_culture_region = yes
+			AND = { #Subsaharans want the Northwest Sahara to be Zenaga
+				atlas_berber_zenaga_conflict_region = yes
+				NOT = { OWNER = { primary_culture = zenaga } }
+				NOT = { OWNER = { primary_culture = tuareg } }
+			}
+		}		
 		NOT = { culture = shilha }
 		NOT = { nationalism = 1 }
 		#OR = { #These guys can ignore this considering they are the desert bois
@@ -153,14 +161,6 @@ province_event = { #Berber Spread (Atlas Berber)
 			is_capital = yes
 		}
 		owner = { has_country_modifier = policy_of_berberisation_modifier }
-		OR = { #Conflict with Zenaga
-			atlas_berber_culture_region = yes
-			AND = { #Subsaharans want the Northwest Sahara to be Zenaga
-				atlas_berber_zenaga_conflict_region = yes
-				NOT = { OWNER = { primary_culture = zenaga } }
-				NOT = { OWNER = { primary_culture = tuareg } }
-			}
-		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -267,6 +267,14 @@ province_event = { #Berber Spread (Zenaga)
 
 	trigger = {
 		owner = { culture_group = berber_group }
+		OR = { #Conflict with Atlas Berber
+			zenaga_culture_region = yes
+			AND = { #Subsaharans want the Northwest Sahara to be Zenaga
+				atlas_berber_zenaga_conflict_region = yes
+				OWNER = { primary_culture = zenaga }
+				OWNER = { primary_culture = tuareg }
+			}
+		}		
 		NOT = { culture = zenaga }
 		NOT = { nationalism = 1 }
 		#OR = { #These guys can ignore this considering they are the desert bois
@@ -285,14 +293,6 @@ province_event = { #Berber Spread (Zenaga)
 			is_capital = yes
 		}
 		owner = { has_country_modifier = policy_of_berberisation_modifier }
-		OR = { #Conflict with Atlas Berber
-			zenaga_culture_region = yes
-			AND = { #Subsaharans want the Northwest Sahara to be Zenaga
-				atlas_berber_zenaga_conflict_region = yes
-				OWNER = { primary_culture = zenaga }
-				OWNER = { primary_culture = tuareg }
-			}
-		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -399,6 +399,7 @@ province_event = { #Berber Spread (Riffian)
 
 	trigger = {
 		owner = { culture_group = berber_group }
+		riffian_culture_region = yes		
 		NOT = { culture = riffian }
 		NOT = { nationalism = 1 }
 		#OR = { #These guys can ignore this considering they are the desert bois
@@ -417,7 +418,6 @@ province_event = { #Berber Spread (Riffian)
 			is_capital = yes
 		}
 		owner = { has_country_modifier = policy_of_berberisation_modifier }
-		riffian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -524,6 +524,7 @@ province_event = { #Berber Spread (Mzab-Wargla)
 
 	trigger = {
 		owner = { culture_group = berber_group }
+		mzab_wargla_culture_region = yes		
 		NOT = { culture = mozabite }
 		NOT = { nationalism = 1 }
 		#OR = { #These guys can ignore this considering they are the desert bois
@@ -542,7 +543,6 @@ province_event = { #Berber Spread (Mzab-Wargla)
 			is_capital = yes
 		}
 		owner = { has_country_modifier = policy_of_berberisation_modifier }
-		mzab_wargla_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -649,6 +649,7 @@ province_event = { #Berber Spread (Shenwa)
 
 	trigger = {
 		owner = { culture_group = berber_group }
+		shenwa_culture_region = yes		
 		NOT = { culture = shenwa }
 		NOT = { nationalism = 1 }
 		#OR = { #These guys can ignore this considering they are the desert bois
@@ -667,7 +668,6 @@ province_event = { #Berber Spread (Shenwa)
 			is_capital = yes
 		}
 		owner = { has_country_modifier = policy_of_berberisation_modifier }
-		shenwa_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -774,6 +774,7 @@ province_event = { #Berber Spread (Shawiya)
 
 	trigger = {
 		owner = { culture_group = berber_group }
+		shawiya_culture_region = yes		
 		NOT = { culture = shawiya }
 		NOT = { nationalism = 1 }
 		#OR = { #These guys can ignore this considering they are the desert bois
@@ -792,7 +793,6 @@ province_event = { #Berber Spread (Shawiya)
 			is_capital = yes
 		}
 		owner = { has_country_modifier = policy_of_berberisation_modifier }
-		shawiya_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -899,6 +899,7 @@ province_event = { #Berber Spread (Kabylian)
 
 	trigger = {
 		owner = { culture_group = berber_group }
+		kabylian_culture_region = yes		
 		NOT = { culture = kabylian }
 		NOT = { nationalism = 1 }
 		#OR = { #These guys can ignore this considering they are the desert bois
@@ -917,7 +918,6 @@ province_event = { #Berber Spread (Kabylian)
 			is_capital = yes
 		}
 		owner = { has_country_modifier = policy_of_berberisation_modifier }
-		kabylian_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -1024,6 +1024,13 @@ province_event = { #Berber Spread (Zuwara)
 
 	trigger = {
 		owner = { culture_group = berber_group }
+		OR = { #Conflict with Nafusi
+			zuwara_culture_region = yes
+			AND = { #Eastern Berbers want Tripoli Nafusi
+				zuwara_nafusi_conflict_region = yes
+				NOT = { OWNER = { primary_culture = libyan_berber_culture } }
+			}
+		}		
 		NOT = { culture = zuwara }
 		NOT = { nationalism = 1 }
 		#OR = { #These guys can ignore this considering they are the desert bois
@@ -1042,13 +1049,6 @@ province_event = { #Berber Spread (Zuwara)
 			is_capital = yes
 		}
 		owner = { has_country_modifier = policy_of_berberisation_modifier }
-		OR = { #Conflict with Nafusi
-			zuwara_culture_region = yes
-			AND = { #Eastern Berbers want Tripoli Nafusi
-				zuwara_nafusi_conflict_region = yes
-				NOT = { OWNER = { primary_culture = libyan_berber_culture } }
-			}
-		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -1155,6 +1155,13 @@ province_event = { #Berber Spread (Nafusi)
 
 	trigger = {
 		owner = { culture_group = berber_group }
+		OR = { #Conflict with Zuwara
+			nafusi_culture_region = yes
+			AND = { #Eastern Berbers want Tripoli Nafusi
+				zuwara_nafusi_conflict_region = yes
+				OWNER = { primary_culture = libyan_berber_culture }
+			}
+		}		
 		NOT = { culture = libyan_berber_culture }
 		NOT = { nationalism = 1 }
 		#OR = { #These guys can ignore this considering they are the desert bois
@@ -1173,13 +1180,6 @@ province_event = { #Berber Spread (Nafusi)
 			is_capital = yes
 		}
 		owner = { has_country_modifier = policy_of_berberisation_modifier }
-		OR = { #Conflict with Zuwara
-			nafusi_culture_region = yes
-			AND = { #Eastern Berbers want Tripoli Nafusi
-				zuwara_nafusi_conflict_region = yes
-				OWNER = { primary_culture = libyan_berber_culture }
-			}
-		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -1286,6 +1286,7 @@ province_event = { #Berber Spread (Tuareg)
 
 	trigger = {
 		owner = { culture_group = berber_group }
+		tuareg_culture_region = yes		
 		NOT = { culture = tuareg }
 		NOT = { nationalism = 1 }
 		#OR = { #These guys can ignore this considering they are the desert bois
@@ -1304,7 +1305,6 @@ province_event = { #Berber Spread (Tuareg)
 			is_capital = yes
 		}
 		owner = { has_country_modifier = policy_of_berberisation_modifier }
-		tuareg_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
 

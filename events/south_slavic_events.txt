@@ -139,6 +139,21 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 
 	trigger = {
 		owner = { culture_group = south_slavic }
+		serbo_croat_culture_region = yes
+		if = { #If in Bulgarian region, ensure you are not Bulgarian
+			limit = {
+				bulgarian_culture_region = yes
+			}
+			NOT = { OWNER = { primary_culture = bulgarian } }
+			#Slovenes closer to Serbo-Croat than Bulgarian
+		}
+		if = { #If in Slovenian region, ensure you are not Slovenian
+			limit = {
+				slovene_culture_region = yes
+			}
+			NOT = { OWNER = { primary_culture = slovene } }
+			#Bulgarians closer to Serbo-Croat than Slovene
+		}		
 		NOT = { culture_group = south_slavic }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -158,21 +173,6 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = south_slavic_settlements }
 			owner = { ai = no }
-		}
-		serbo_croat_culture_region = yes
-		if = { #If in Bulgarian region, ensure you are not Bulgarian
-			limit = {
-				bulgarian_culture_region = yes
-			}
-			NOT = { OWNER = { primary_culture = bulgarian } }
-			#Slovenes closer to Serbo-Croat than Bulgarian
-		}
-		if = { #If in Slovenian region, ensure you are not Slovenian
-			limit = {
-				slovene_culture_region = yes
-			}
-			NOT = { OWNER = { primary_culture = slovene } }
-			#Bulgarians closer to Serbo-Croat than Slovene
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -362,6 +362,16 @@ province_event = { #Bulgarian settlements and assimilation (Settle)
 
 	trigger = {
 		owner = { culture_group = south_slavic }
+		bulgarian_culture_region = yes
+		if = { #If in Serbo-Croat region, ensure you are not Serbo-Croat (or Slovene)
+			limit = {
+				serbo_croat_culture_region = yes
+			}
+			NOT = { OWNER = { primary_culture = croatian } }
+			NOT = { OWNER = { primary_culture = bosnian } }
+			NOT = { OWNER = { primary_culture = serbian } }
+			NOT = { OWNER = { primary_culture = slovene } } #Slovenes closer to Serbo-Croat than Bulgarian
+		}		
 		NOT = { culture_group = south_slavic }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -381,16 +391,6 @@ province_event = { #Bulgarian settlements and assimilation (Settle)
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = south_slavic_settlements }
 			owner = { ai = no }
-		}
-		bulgarian_culture_region = yes
-		if = { #If in Serbo-Croat region, ensure you are not Serbo-Croat (or Slovene)
-			limit = {
-				serbo_croat_culture_region = yes
-			}
-			NOT = { OWNER = { primary_culture = croatian } }
-			NOT = { OWNER = { primary_culture = bosnian } }
-			NOT = { OWNER = { primary_culture = serbian } }
-			NOT = { OWNER = { primary_culture = slovene } } #Slovenes closer to Serbo-Croat than Bulgarian
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -539,6 +539,14 @@ province_event = { #Slovene settlements and assimilation (Settle)
 
 	trigger = {
 		owner = { culture_group = south_slavic }
+		slovene_culture_region = yes
+		if = { #If in Serbo-Croat region, ensure you are not Slovene
+			limit = {
+				serbo_croat_culture_region = yes
+			}
+			NOT = { OWNER = { primary_culture = slovene } }
+			#Bulgarians closer to Serbo-Croat than Slovene
+		}		
 		NOT = { culture_group = south_slavic }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
@@ -558,14 +566,6 @@ province_event = { #Slovene settlements and assimilation (Settle)
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = south_slavic_settlements }
 			owner = { ai = no }
-		}
-		slovene_culture_region = yes
-		if = { #If in Serbo-Croat region, ensure you are not Slovene
-			limit = {
-				serbo_croat_culture_region = yes
-			}
-			NOT = { OWNER = { primary_culture = slovene } }
-			#Bulgarians closer to Serbo-Croat than Slovene
 		}
 		has_global_flag = CI_events_enabled
 	}
