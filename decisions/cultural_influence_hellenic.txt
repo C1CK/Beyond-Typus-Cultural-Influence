@@ -1,23 +1,34 @@
 country_decisions = {
 
+	hellenic_guide_decision = {
+		major = yes
+		potential = {
+			has_global_flag = CI_events_enabled
+			culture_group = byzantine
+			AI = no
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			country_event = { id = cultural_influence_guide.1 }
+		}	
+	}
 	hellenic_settlements_decision = {
 		major = yes
 		potential = {
 			NOT = { has_country_modifier = hellenic_settlements }
 			culture_group = byzantine
 		}
-
 		allow = {
 			total_development = 1000
 		}
-
 		effect = {
 			add_country_modifier = {
 				name = hellenic_settlements
 				duration = -1
 			}
 		}
-
 		ai_will_do = {
 			factor = 1
 		}
