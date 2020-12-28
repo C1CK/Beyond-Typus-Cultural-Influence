@@ -263,10 +263,21 @@ province_event = { #Generic Merchant Republic Colonies
 	picture = MERCHANTS_TALKING_eventPicture
 
 	trigger = {
-		always = no #Disabling this for now, I'm going to work on something else, I can't figure out a way to make this work how I want it to...
-
 		owner = { has_government_attribute = is_merchant_republic }
 		has_port = yes #Coastal
+		OR = { #Real checks here
+			province_has_center_of_trade_of_level = 2
+			#is_island = yes #May cause some unforseen issues
+			has_province_modifier = trade_post_modifier #Merchant Republic trade post
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+		}
+		OR = {
+			NOT = { development = 20 } #Not already an established city
+			num_of_times_improved_by_owner = 20
+		}
 		OR = { #Has trade building (AI won't have issues with this, they build plenty of buildings)
 			has_building = marketplace
 			has_building = trade_depot
@@ -276,13 +287,143 @@ province_event = { #Generic Merchant Republic Colonies
 	}
 
 	mean_time_to_happen = {
-		years = 40
+		#Template Settled MTTH
+		years = 10
 
+		#MTTH settings
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
 
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacier
+		}
+		modifier = {
+			factor = 2
+			has_terrain = mountain
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = woods
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
 	}
 
 	option = { #Approve
 		name = generic_merchant_colonies.a
+
+		if = {
+			limit = {
+				has_global_flag = BT_COTs_enabled
+			}
+			add_center_of_trade_level = 1
+		}
 
 		change_culture = OWNER
 		change_religion = OWNER
@@ -455,10 +596,94 @@ province_event = { #Changing settlements in Settler-Colonies (Converts culture t
 		#}
 	}
 
+	immediate = {
+		hidden = {
+			export_to_variable = {
+				which = pre_merchant_culture_var
+				value = culture
+			}
+			export_to_variable = {
+				which = pre_merchant_religion_var
+				value = religion
+			}
+		}
+	}
+
 	option = {
 		name = new_settlers_in_colonies.a
 
 		change_culture = OWNER
+		change_religion = OWNER
+		add_permanent_province_modifier = {
+			name = foreign_merchant_colony_modifier
+			duration = -1
+		}
+	}
+}
+
+province_event = { #Status of foreign traders
+	id = cultural_influence_colonial.5
+	title = status_of_foreign_traders_ci.title
+	desc = status_of_foreign_traders_ci.desc
+	picture = MERCHANTS_ARGUING_eventPicture
+
+	trigger = {
+		has_province_modifier = foreign_merchant_colony_modifier
+		NOT = { culture_group = OWNER }
+	}
+
+	option = {
+		name = status_of_foreign_traders_ci.a
+
+		change_culture = variable:pre_merchant_culture_var
+		change_religion = variable:pre_merchant_religion_var
+
+		remove_province_modifier = foreign_merchant_colony_modifier
+	}
+
+	option = { #Permit them to stay
+		name = status_of_foreign_traders_ci.b
+
+		remove_province_modifier = foreign_merchant_colony_modifier
+	}
+}
+
+province_event = { #Generic Colonies in the Steppe (Less restrictive, to allow settling some small coastal areas)
+	id = cultural_influence_colonial.6
+	title = generic_merchant_colonies_steppe.title
+	desc = generic_merchant_colonies_steppe.desc
+	picture = MERCHANTS_TALKING_eventPicture
+
+	trigger = {
+		has_province_modifier = nomadic_province
+		OWNER = { is_nomad = no }
+		has_port = yes #Coastal, if you border by land then you can probably convert via other means
+		province_has_center_of_trade_of_level = 1 #Only CoTs for now
+		OR = { #Has trade building (AI won't have issues with this, they build plenty of buildings)
+			has_building = marketplace
+			has_building = trade_depot
+			has_building = stock_exchange
+		}
+		NOT = { OWNER = { has_country_modifier = east_slavic_settlements } } #Cannot be allowed to do cossackization
+		NOT = { OWNER = { has_country_modifier = cossackization } }
+		NOT = { OWNER = { has_country_modifier = cossackization_west_slavs } }
+	}
+
+	mean_time_to_happen = {
+		years = 20
+	}
+
+	option = { #Excellent
+		name = generic_merchant_colonies_steppe.a
+
+		add_base_tax = 2
+		add_base_production = 2
+		change_culture = OWNER
+		change_religion = OWNER
+	}
+
+	option = { #No...
+		name = generic_merchant_colonies_steppe.b
 	}
 }
 
