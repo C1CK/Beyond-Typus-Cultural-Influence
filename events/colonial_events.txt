@@ -439,6 +439,8 @@ province_event = { #Generic Merchant Republic Colonies
 			add_center_of_trade_level = 1
 		}
 
+		add_treasury = -200 #Flat 200 per province
+
 		add_permanent_province_modifier = {
 			name = foreign_merchant_colony_modifier
 			duration = -1
@@ -637,6 +639,9 @@ province_event = { #Status of foreign traders
 	option = {
 		name = status_of_foreign_traders_ci.a
 
+		add_base_tax = -1
+		add_base_production = -1
+
 		change_culture = variable:pre_merchant_culture_var
 		change_religion = variable:pre_merchant_religion_var
 
@@ -645,6 +650,8 @@ province_event = { #Status of foreign traders
 
 	option = { #Permit them to stay
 		name = status_of_foreign_traders_ci.b
+
+		add_dip_power = -20
 
 		remove_province_modifier = foreign_merchant_colony_modifier
 	}
