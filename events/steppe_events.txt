@@ -815,3 +815,22 @@ province_event = { #Remove debuff modifier for non-nomadic land for nomads when 
 		name = null
 	}
 }
+
+country_event = { #Non-nomadic capital as a nomad, changes them to a monarchy
+	id = cultural_influence_steppe.17
+	title = non_nomadic_capital.title
+	desc = non_nomadic_capital.desc
+	picture = BURGHER_ESTATE_eventPicture
+
+	trigger = {
+		is_nomad = yes
+		capital_scope = { has_province_modifier = nomadic_province }
+		capital_scope = { has_province_modifier = steppe_city }
+	}
+
+	option = {
+		name = non_nomadic_capital.a
+
+		change_government = monarchy
+	}
+}
