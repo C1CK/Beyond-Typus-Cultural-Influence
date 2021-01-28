@@ -21,4 +21,65 @@ country_decisions = {
 			factor = 1
 		}
 	}
+
+	restore_maghas_decision = { #Where the fuck was this?? (Gonna call this in Circassia province)
+		major = yes
+		potential = {
+			NOT = { 463 = { has_province_flag = maghas_restored_flag } }
+			primary_culture = alan
+			is_nomad = no
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2201 #Alania
+				province_id = 2197 #Kabardia
+				province_id = 3263 #Karachay
+				province_id = 463 #Circassia
+			}
+		}
+
+		allow = {
+			prestige = 10
+			adm_power = 100
+			treasury = 200
+			owns_core_province = 2201 #Alania
+			owns_core_province = 2197 #Kabardia
+			owns_core_province = 3263 #Karachay
+			owns_core_province = 463 #Circassia
+		}
+
+		effect = {
+			add_treasury = -200
+			add_adm_power = -100
+			change_government = monarchy #Restores the Alanian Kingdom, they are basically some random tribes in the mountain valleys in 1444
+			add_government_reform = feudalism_reform
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			463 = {
+				change_province_name = "Iryston" #Iryston is literally land of the Ir (Alania is a calque), this is now their new home, old Iryston is now called the Darian pass, Ma'as feels more appropriate to be called Alania in this timeline with a resurgent Alania
+				rename_capital = "Ma'as"
+				change_culture = alan
+				change_religion = ROOT
+				add_base_tax = 4
+				add_base_prodution = 3
+				add_base_manpower = 2
+				move_capital_effect = yes
+				add_center_of_trade_level = 1
+			}
+			2201 = {
+				change_province_name = "Arvykom"
+			}
+			2416 = { add_permanent_claim = ROOT } #Majar
+			3263 = { add_permanent_claim = ROOT } #Beishto
+			2208 = { add_permanent_claim = ROOT } #Terek
+			2195 = { add_permanent_claim = ROOT } #Adyghe
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }
