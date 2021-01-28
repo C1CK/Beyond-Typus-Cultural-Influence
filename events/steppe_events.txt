@@ -18,6 +18,16 @@ country_event = { #Add Steppe modifiers
 		every_province = {
 			limit = {
 				has_terrain = steppe
+				nomadic_cultures = no #All of these cultures are always nomadic in 1444, but once things are setup, the system should be fully dynamic
+			}
+			add_permanent_province_modifier = { 
+				name = settled_steppe
+				duration = -1
+			}
+		}
+		every_province = {
+			limit = {
+				has_terrain = steppe
 			}
 			add_province_triggered_modifier = steppe_owned_by_nomad
 		}
