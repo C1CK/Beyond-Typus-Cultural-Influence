@@ -685,7 +685,7 @@ roman_west_indian_region = {
 		area = northern_sindh_area
 		area = marwar_area
 		area = patan_area
-		area = saurashta_area
+		area = saurashtra_area
 		area = jangladesh_area
 		area = mewar_area
 		area = jaipur_area
@@ -749,12 +749,8 @@ roman_south_indian_region = {
 	OR = {
 		AND = {
 			region = coromandel_region
-			NOT = {
-				OR = {
-					province_id = 8581 #Nicobar Islands
-					province_id = 574 #The Andamans
-				}
-			}
+			NOT = { province_id = 8581 } #Nicobar Islands
+			NOT = { province_id = 574 } #The Andamans
 		}
 		area = raichur_doab_area
 		area = rayasaleema_area
@@ -764,28 +760,22 @@ roman_south_indian_region = {
 		area = orissa_area
 		AND = {
 			area = jharkhand_area
-			NOT = {
-				OR = {
-					province_id = 4470 #Soumelpur
-					province_id = 2096 #Damin
-				}
-			}
+			NOT = { province_id = 4470 } #Soumelpur
+			NOT = { province_id = 2096 } #Damin
 		}
 	}
 }
 
 roman_east_indian_region = {
-	region = bengal_region
-	NOT = {
-		OR = {
-			area = garjat_area
-			area = upper_mahanadi_area
-			area = orissa_area
-			AND = {
-				area = jharkhand_area
-				NOT = { province_id = 2096 } #Damin
-			}
+	OR = {
+		AND = {
+			region = bengal_region
+			NOT = { area = garjat_area }
+			NOT = { area = upper_mahanadi_area }
+			NOT = { area = orissa_area }
+			NOT = { area = jharkhand_area }
 		}
+		province_id = 2096 #Damin
 	}
 }
 
@@ -836,7 +826,7 @@ roman_malay_region = {
 
 roman_indonesian_region = {
 	OR = {
-		region = sumatra_region
+		region = sumatran_region
 		region = indonesia_region
 		region = celebes_region
 		region = moluccas_region
@@ -921,7 +911,7 @@ roman_west_sahara_region = {
 		area = dendi_area
 		area = niger_bend_area
 		area = baghena_area
-		area = area = upper_volta_area
+		area = upper_volta_area
 		area = atacora_oueme_area
 		area = lower_volta_area
 		area = kong_area
@@ -1035,7 +1025,7 @@ roman_namibian_region = {
 		area = ovambo_area
 		area = damaraland_area
 		area = namaqualand_area
-		area = ovakango_area
+		area = okavango_area
 		province_id = 5385 #Cuoa
 		province_id = 2880 #Griquatown
 		province_id = 2864 #Kakamas
@@ -1193,7 +1183,7 @@ roman_colombian_region = {
 				OR = {
 					area = kuntisuyu_area
 					area = antisuyu_area
-					area = peruan_coast_area
+					area = peruan_coast
 				}
 			}
 		}
@@ -1216,6 +1206,6 @@ roman_argentinian_region = {
 		region = upper_peru_region
 		area = kuntisuyu_area
 		area = antisuyu_area
-		area = peruan_coast_area
+		area = peruan_coast
 	}
 }
