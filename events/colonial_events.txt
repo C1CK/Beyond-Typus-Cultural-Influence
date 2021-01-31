@@ -264,7 +264,8 @@ province_event = { #Generic Merchant Republic Colonies
 
 	trigger = {
 		owner = { has_government_attribute = is_merchant_republic }
-		NOt = { has_province_modifier = foreign_merchant_colony_modifier }
+		NOT = { culture = OWNER }
+		NOT = { has_province_modifier = foreign_merchant_colony_modifier }
 		has_port = yes #Coastal
 		OR = { #Real checks here
 			province_has_center_of_trade_of_level = 2
@@ -288,7 +289,7 @@ province_event = { #Generic Merchant Republic Colonies
 	}
 
 	immediate = {
-		hidden = {
+		hidden_effect = {
 			export_to_variable = {
 				which = pre_merchant_culture_var
 				value = culture
