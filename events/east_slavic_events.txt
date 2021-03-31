@@ -2167,23 +2167,26 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 		add_base_production = -2
 		add_base_manpower = -2
 
-		if = {
-			limit = {
-				has_global_flag = ukrainian_cossack_identity_flag
-				ukrainian_culture_region = yes
-				ukrainian_cossack_exclusion_zone = no
-			}
-			change_culture = ukrainian
-		}
-		if = {
-			limit = {
-				OR = {
-					NOT = { has_global_flag = ukrainian_cossack_identity_flag }
-					ukrainian_culture_region = no
-				}
-			}
-			change_culture = cossack
-		}
+        if = {
+            limit = {
+                has_global_flag = ukrainian_cossack_identity_flag
+                ukrainian_culture_region = yes
+                ukrainian_cossack_exclusion_zone = no
+            }
+            change_culture = ukrainian
+        }
+        if = {
+            limit = {
+                OR = {
+                    NOT = { has_global_flag = ukrainian_cossack_identity_flag }
+                    OR = {
+                        ukrainian_culture_region = no
+                        ukrainian_cossack_exclusion_zone = yes
+                    }
+                }
+            }
+            change_culture = cossack
+        }
 		change_religion = orthodox
 		add_province_modifier = {
 			name = cossack_stanitsa_modifier
