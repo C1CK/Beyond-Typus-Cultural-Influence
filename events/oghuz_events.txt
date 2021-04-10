@@ -57,7 +57,8 @@ province_event = { #Kurdish settlements in Kurdistan
 	title = oghuz_kurdistan_settlements.title
 	desc = oghuz_kurdistan_settlements.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		owner = { has_country_flag = ottomans_granted_kurdish_autonomy_flag } #Granted autonomy
 		NOT = { culture = kurdish }
@@ -141,7 +142,8 @@ province_event = { #Greek Traders settle in Western Anatolia
 	title = oghuz_greek_traders.title
 	desc = oghuz_greek_traders.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		owner = { has_idea = millets } #Millets system ensured a Unified Greek adminstation under Ottoman control
 		owner = { owns_core_province = 151 } #Phanariote Greeks based in Constantinople
@@ -246,7 +248,8 @@ province_event = { #Greek Traders cease operations (No longer Greek)
 	title = oghuz_greek_traders_leave.title
 	desc = oghuz_greek_traders_leave.desc
 	picture = HARBOUR_eventPicture
-
+	goto = root
+	
 	trigger = {
 		has_province_modifier = phanariote_greeks
 		NOT = { culture = greek }
@@ -270,7 +273,8 @@ province_event = { #Turkish settlement in Thrace
 	title = turkish_settlement_of_thrace.title
 	desc = turkish_settlement_of_thrace.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		NOT = { has_province_modifier = phanariote_greeks }
 		owner = { culture_group = turkish_g }
@@ -444,7 +448,8 @@ province_event = { #Turkish assimilation in Turkey
 	title = turkish_assimilation.title
 	desc = turkish_assimilation.desc
 	picture = ARTWORK_eventPicture
-
+	goto = root
+	
 	trigger = {
 		religion_group = muslim #Must be Islamic to do this
 		NOT = { culture = turkish }

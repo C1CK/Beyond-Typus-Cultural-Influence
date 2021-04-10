@@ -543,7 +543,8 @@ province_event = { #Northern Russian expansion (Settle) (None of these are valid
 	title = novgorodian_expansion.title
 	desc = novgorodian_expansion.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		owner = { culture_group = east_slavic }
 		northern_russian_culture_region = yes
@@ -725,7 +726,8 @@ province_event = { #Middle Russian expansion (Settle)
 	title = muscovite_expansion.title
 	desc = muscovite_expansion.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		owner = { culture_group = east_slavic }
 		middle_russian_culture_region = yes
@@ -907,7 +909,8 @@ province_event = { #Southern Russian expansion (Settle)
 	title = ryazanian_expansion.title
 	desc = ryazanian_expansion.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		owner = { culture_group = east_slavic }
 		southern_russian_culture_region = yes
@@ -1089,7 +1092,8 @@ province_event = { #Ukrainian expansion (Settle)
 	title = ukrainian_expansion.title
 	desc = ukrainian_expansion.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		owner = { culture_group = east_slavic }
 		ukrainian_culture_region = yes
@@ -1215,7 +1219,8 @@ province_event = { #Belarussian expansion (Settle)
 	title = belarussian_expansion.title
 	desc = belarussian_expansion.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		owner = { culture_group = east_slavic }
 		belarussian_culture_region = yes
@@ -1341,7 +1346,8 @@ province_event = { #Rusyn expansion (Settle)
 	title = rusyn_expansion.title
 	desc = rusyn_expansion.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		owner = { culture_group = east_slavic }
 		rusyn_culture_region = yes
@@ -1467,7 +1473,8 @@ province_event = { #Northern Russian influences (Custom Assimilated)
 	title = northern_russian_influences.title
 	desc = northern_russian_influences.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		OR = {
 			OWNER = { primary_culture = novgorodian }
@@ -1584,7 +1591,8 @@ province_event = { #Middle Russian influences (Custom Assimilated)
 	title = middle_russian_influences.title
 	desc = middle_russian_influences.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		OR = {
 			OWNER = { primary_culture = muscovite }
@@ -1701,7 +1709,8 @@ province_event = { #Southern Russian influences (Custom Assimilated)
 	title = southern_russian_influences.title
 	desc = southern_russian_influences.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		OR = {
 			OWNER = { primary_culture = ryazanian }
@@ -1818,7 +1827,8 @@ province_event = { #Ukrainian influences (Custom Assimilated)
 	title = ukrainian_influences.title
 	desc = ukrainian_influences.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		OR = {
 			OWNER = { primary_culture = ukrainian }
@@ -1938,7 +1948,8 @@ province_event = { #Belarussian influences (Custom Assimilated)
 	title = belarussian_influences.title
 	desc = belarussian_influences.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
-
+	goto = root
+	
 	trigger = {
 		OR = {
 			OWNER = { primary_culture = byelorussian }
@@ -2058,7 +2069,8 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 	title = cossack_expansion_european_steppe.title
 	desc = cossack_expansion_european_steppe.desc
 	picture = COSSACK_ESTATE_eventPicture
-
+	goto = root
+	
 	trigger = {
 		OR = {
 			owner = { culture_group = east_slavic }
@@ -2217,7 +2229,8 @@ province_event = { #Kazan -> Urals portion
 		trigger = { any_province = { has_province_modifier = path_to_the_urals_modifier } }
 	}
 	picture = SHIP_SAILING_eventPicture
-
+	goto = root
+	
 	trigger = {
 		OR = { #Asians don't need this, as they would enter Siberia from the south, and not travel East-West
 			OWNER = { technology_group = western }
@@ -2251,7 +2264,8 @@ country_event = { #Exploration of the Cherdyn Route
 	title = exploration_of_the_cherdyn_route.title
 	desc = exploration_of_the_cherdyn_route.desc
 	picture = SHIP_SAILING_eventPicture
-
+	goto = root
+	
 	trigger = {
 		OR = { #Asians don't need this, as they would enter Siberia from the south, and not travel East-West
 			technology_group = western
@@ -2335,7 +2349,8 @@ province_event = { #Exploration of the Siberian River Routes
 	title = siberian_river_route_expansion.title
 	desc = siberian_river_route_expansion.desc
 	picture = SHIP_SAILING_eventPicture
-
+	goto = root
+	
 	trigger = {
 		OR = { #Asians don't need this, as they would enter Siberia from the south, and not travel East-West
 			OWNER = { technology_group = western }
@@ -2371,7 +2386,8 @@ province_event = { #Cossack expansion (Custom Settled) (Siberian Cossacks)
 	title = cossack_expansion_siberia.title
 	desc = cossack_expansion_siberia.desc
 	picture = COSSACK_ESTATE_eventPicture
-
+	goto = root
+	
 	trigger = {
 		owner = { culture_group = east_slavic } #Only East Slavs can do the Siberian Cossacks
 		NOT = { culture_group = east_slavic } #Must not already be Slavic
@@ -2496,7 +2512,8 @@ province_event = { #Peasant colonization of Cossack land
 	title = peasant_colonization_of_cossack_land.title
 	desc = peasant_colonization_of_cossack_land.desc
 	picture = CITY_DEVELOPMENT_eventPicture
-
+	goto = root
+	
 	trigger = {
 		owner = { culture_group = east_slavic }
 		culture = cossack
@@ -2540,7 +2557,8 @@ province_event = { #Construction of Great Abatis Line (Historical line just sout
 	title = construction_of_great_abatis_line_event.title
 	desc = construction_of_great_abatis_line_event.desc
 	picture = FORT_eventPicture
-
+	goto = root
+	
 	trigger = {
 		NOT = { has_province_modifier = great_abatis_line_russian_modifier }
 		NOT = { has_province_modifier = great_abatis_line_ruthenian_modifier }
@@ -2607,7 +2625,8 @@ province_event = { #Abatis line advancement
 	title = advancement_of_abatis_line.title
 	desc = advancement_of_abatis_line.desc
 	picture = FORT_eventPicture
-
+	goto = root
+	
 	trigger = {
 		any_neighbor_province = { has_province_modifier = nomadic_province }
 		#owner = { has_country_modifier = cossackization }
@@ -2646,7 +2665,8 @@ province_event = { #Siberian City development
 	title = siberian_city_development.title
 	desc = siberian_city_development.desc
 	picture = FORT_eventPicture
-
+	goto = root
+	
 	trigger = {
 		owner = { culture_group = east_slavic }
 		has_province_modifier = siberian_ostrog_modifier
