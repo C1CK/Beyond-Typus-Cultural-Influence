@@ -95,7 +95,15 @@ country_decisions = {
 		}
 		allow = {
 			accepted_culture = armenian
-			has_country_modifier = byz_armenian_auxillaries
+			OR = {
+				has_country_modifier = byz_armenian_auxillaries
+				AND = {
+					NOT = { tag = byz } #The same requirement as the mission that grants the above modifier, for the non byz player
+					development_in_provinces = { #In 1444, 212 dev is Armenian culture. 300 is therefore reasonable considering you can culture-convert OR dev to reach this number.
+						value = 300
+						culture = armenian
+					}
+				}
 			adm_power = 200
 			dip_power = 100
 		}
