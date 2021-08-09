@@ -403,7 +403,6 @@ karpessosion_culture_region = {
 		area = lower_andalucia_area	
 		area = upper_andalucia_area	
 		area = toledo_area	
-		area = estremadura_area	
 		area = northern_andalusia_area	
 		AND = {
 			area = extremadura_area	
@@ -420,7 +419,8 @@ olissiponion_culture_region = {
 		area = beieras_area
 		area = alentejo_area	
 		area = algarve_area	
-		area = macaronesia_area			
+		area = macaronesia_area	
+		area = estremadura_area
 	}
 }
 massalian_culture_region = {	
@@ -508,6 +508,12 @@ dacion_culture_region = {
 			NOT = { area = transdanubia_area }	
 			NOT = { area = slovakia_area }	
 			NOT = { area = carpathian_ruthenia_area }	
+			OR = { 
+				NOT = { area = eastern_alfold_area }
+				province_id = 8203
+				province_id = 157
+				province_id = 3152
+			}	
 		}	
 	}	
 }				
@@ -518,6 +524,12 @@ pannonion_culture_region = {
 		area = transdanubia_area	
 		area = slovakia_area	
 		area = carpathian_ruthenia_area	
+		OR = { 
+			area = eastern_alfold_area
+			NOT = { province_id = 8203 }
+			NOT = { province_id = 157 }
+			NOT = { province_id = 3152 }
+		}			
 	}		
 }	
 notiodytiki_germanikos_culture_region = {	
