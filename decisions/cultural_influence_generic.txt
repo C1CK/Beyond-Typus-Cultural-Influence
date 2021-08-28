@@ -59,4 +59,90 @@ country_decisions = {
 			factor = 0
 		}
 	}
+	
+	disable_ci_steppe_no_authority = {
+		major = yes
+		potential = {
+			AI = no
+			has_global_flag = ci_steppe_no_authority_enabled
+		}	
+
+		allow = {
+			always = yes
+		}	
+		
+		effect = {
+			set_global_flag = ci_steppe_no_authority_disabled
+			clr_global_flag = ci_steppe_no_authority_enabled
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	reenable_ci_steppe_no_authority = {
+		major = yes
+		potential = {
+			AI = no
+			has_global_flag = ci_steppe_no_authority_disabled
+		}	
+
+		allow = {
+			always = yes
+		}	
+		
+		effect = {
+			clr_global_flag = ci_steppe_no_authority_disabled
+			set_global_flag = ci_steppe_no_authority_enabled
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+
+	enable_passive_settlement = {
+		major = yes
+		potential = {
+			AI = no
+			has_global_flag = ci_passive_settlement_disabled
+		}	
+
+		allow = {
+			always = yes
+		}	
+		
+		effect = {
+			clr_global_flag = ci_passive_settlement_disabled
+			set_global_flag = ci_passive_settlement_enabled
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	
+	disable_passive_settlement = {
+		major = yes
+		potential = {
+			AI = no
+			has_global_flag = ci_passive_settlement_enabled
+		}	
+
+		allow = {
+			always = yes
+		}	
+		
+		effect = {
+			clr_global_flag = ci_passive_settlement_enabled
+			set_global_flag = ci_passive_settlement_disabled
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
 }

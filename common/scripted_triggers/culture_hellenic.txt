@@ -127,7 +127,6 @@ illyrion_culture_region = { #Should work for Greek settlement in Old Illyria
 		area = syrmia_area	
 		area = slavonia_area	
 		area = croatia_area	
-		area = friuli_area	
 		area = serbia_area #Serbia	
 		area = krajina_area	
 		province_id = 138	
@@ -135,11 +134,6 @@ illyrion_culture_region = { #Should work for Greek settlement in Old Illyria
 		province_id = 7709	
 		province_id = 7710	
 		province_id = 7712	
-		province_id = 76	
-		province_id = 1768	
-		province_id = 7098	
-		province_id = 4759
-		area = inner_austria_area	
 		area = carinthia_area	
 	}	
 }	
@@ -158,23 +152,19 @@ italiote_culture_region = {	#Greek Settlement in Northen Italy
 	OR = {	
 		AND = {	
 			region = italy_region	
-			NOT = { area = friuli_area}	
-			NOT = { area = sardinia_area}	
-			NOT = { area = corsica_sardinia_area}	
-			NOT = { area = liguria_area}	
-			NOT = { area = south_piedmont_area}	
+			NOT = { area = sardinia_area }	
+			NOT = { area = corsica_sardinia_area }	
+			NOT = { area = liguria_area }	
+			NOT = { area = south_piedmont_area }	
 			NOT = { area = sicily_area }	
 			NOT = { area = naples_area }	
 			NOT = { area = calabria_area }	
 			NOT = { area = apulia_area }	
 			NOT = { area = abruzzo_area }	
-			NOT = {province_id = 7098}	
-			NOT = {province_id = 7018}	
-			NOT = {province_id = 7020}	
-		}		
-		province_id = 73	
-		area = switzerland_area	
-		area = romandie_area	
+			NOT = { province_id = 7098}	
+			NOT = { province_id = 7018}	
+			NOT = { province_id = 7020}	
+		}			
 	}	
 }		
 pontic_greek_culture_region = { #Eastern Black Sea Coastline Culture	
@@ -295,6 +285,7 @@ rhomaio_culture_region = {
 		area = northern_epirus_area #Ionian Islands	
 		area = albania_area #Albania	
 		area = northern_macedonia_area #Northern Macedonia	
+		area = thrace_area #Thrace
 		area = upper_thrace_area #Upper Thrace	
 		area = northern_thrace_area #Northern Thrace	
 		area = bulgaria_area #Bulgaria	
@@ -508,6 +499,7 @@ dacion_culture_region = {
 			NOT = { area = transdanubia_area }	
 			NOT = { area = slovakia_area }	
 			NOT = { area = carpathian_ruthenia_area }	
+			NOT = { area = upper_hungary_area }
 			OR = { 
 				NOT = { area = eastern_alfold_area }
 				province_id = 8203
@@ -524,33 +516,36 @@ pannonion_culture_region = {
 		area = transdanubia_area	
 		area = slovakia_area	
 		area = carpathian_ruthenia_area	
-		OR = { 
+		area = upper_hungary_area
+		AND = {
 			area = eastern_alfold_area
 			NOT = { province_id = 8203 }
 			NOT = { province_id = 157 }
-			NOT = { province_id = 3152 }
-		}			
+			NOT = { province_id = 3152 }	
+		}	
 	}		
 }	
-notiodytiki_germanikos_culture_region = {	
+notiodytiki_germanikos_culture_region = {	#Almanikos
 	OR = {	
-		province_id = 72	
-		province_id = 74	
-		province_id = 77	
-		province_id = 3207	
-		province_id = 3208	
-		province_id = 65	
-		province_id = 2955	
-		province_id = 133	
-		area = upper_swabia_area	
-		area = lower_swabia_area	
-		area = franconia_area	
-		area = lower_bavaria_area	
-		area = bohemia_area	
-		area = erzgebirge_area	
+		AND = {
+			region = south_german_region
+			NOT = { area = carinthia_area }
+			NOT = { area = bohemia_area }
+			NOT = { area = erzgebirge_area }
+			NOT = { area = bohemian_forest_area }
+			NOT = { area = moravia_area }
+			NOT = { province_id = 1880 }
+			NOT = { province_id = 4765 }
+			NOT = { province_id = 75 }
+			NOT = { province_id = 7944 }
+			NOT = { province_id = 4767 }
+			NOT = { province_id = 1761 }
+			NOT = { province_id = 78 }
+		}
+		
 	}	
 }		
-voreiodytiki_germanikos_culture_region = {	
+voreiodytiki_germanikos_culture_region = {	#Saxonikos
 	OR = {	
 		province_id = 97	
 		province_id = 98	
@@ -567,6 +562,9 @@ voreiodytiki_germanikos_culture_region = {
 		province_id = 7842	
 		province_id = 47	
 		province_id = 7814	
+		province_id = 7954
+		province_id = 8120
+		province_id = 8032
 		area = frisia_area	
 		area = north_westphalia_area	
 		area = westphalia_area	
@@ -584,12 +582,8 @@ voreiodytiki_germanikos_culture_region = {
 		area = northern_saxony_area	
 	}	
 }		
-notioanatolikosgermanikos_culture_region = {	
-	OR = {	
-		AND = {	
-			area = austria_proper_area	
-			NOT = {province_id = 133}	
-		}		
+notioanatolikosgermanikos_culture_region = {	#Ostrogothikos
+	OR = {		
 		area = moravia_area
 		area = bohemia_area
 		area = erzgebirge_area
@@ -597,15 +591,20 @@ notioanatolikosgermanikos_culture_region = {
 		area = malopolska_area			
 		area = red_ruthenia_area	
 		area = volhynia_area	
-		area = middle_silesia_area
-		area = silesia_area
+		area = lusatia_area
+		AND = {
+			region = poland_region
+			NOT = { area = wielkopolska_area }
+			NOT = { area = kuyavia_area }
+			NOT = { area = mazovia_area }
+		}	
 		province_id = 259
 		province_id = 260
 		province_id = 2959
 		province_id = 8223	
 	}	
 }		
-voreioanatolikosgermanikos_culture_region = {	
+voreioanatolikosgermanikos_culture_region = {	#Thuringikos
 	OR = {	
 		province_id = 1759
 		province_id = 7816	
@@ -621,26 +620,19 @@ voreioanatolikosgermanikos_culture_region = {
 		area = nadruvia_area	
 		area = masuria_area	
 		area = yotvingia_area	
-		AND = {
-			region = poland_region
-			NOT = { area = middle_silesia_area }
-			NOT = { area = silesia_area }
-			NOT = { area = malopolska_area }
-			NOT = { province_id = 259 }
-			NOT = { province_id = 260 }
-			NOT = { province_id = 2959 }
-			NOT = { province_id = 8223 }
-		}	
+		area = wielkopolska_area
+		area = kuyavia_area
+		area = mazovia_area
 	}	
 }		
 kefales_culture_region = {	
 	OR = {	
 		AND = {	
 			region = baltic_region	
-			NOT = {area = west_prussia_area}	
-			NOT = {area = east_prussia_area}	
-			NOT = {area = nadruvia_area}	
-			NOT = {area = masuria_area}	
+			NOT = { area = west_prussia_area }	
+			NOT = { area = east_prussia_area }	
+			NOT = { area = nadruvia_area }	
+			NOT = { area = masuria_area }	
 		}	
 		area = trakai_area	
 		area = pskov_area	
@@ -651,15 +643,15 @@ savramata_culture_region = {
 	OR = {	
 		AND = {	
 			region = ruthenia_region	
-			NOT = {area = trakai_area}	
-			NOT = {area = polotsk_area}	
-			NOT = {area = volhynia_area}		
-			NOT = {area = red_ruthenia_area}	
-			NOT = {area = yotvingia_area}	
-			NOT = {province_id = 269}	
-			NOT = {province_id = 277}	
-			NOT = {province_id = 7262}	
-			NOT = {province_id = 7263}	
+			NOT = { area = trakai_area }	
+			NOT = { area = polotsk_area }	
+			NOT = { area = volhynia_area }		
+			NOT = { area = red_ruthenia_area }	
+			NOT = { area = yotvingia_area }	
+			NOT = { province_id = 269 }	
+			NOT = { province_id = 277 }	
+			NOT = { province_id = 7262 }	
+			NOT = { province_id = 7263 }	
 		}	
 	}		
 }	
@@ -667,9 +659,9 @@ krios_savramata_culture_region = {
 	OR = {	
 		AND = {	
 			region = russia_region	
-			NOT = {area = karelia_area}	
-			NOT = {area = laponia_area}	
-			NOT = {area = pskov_area}	
+			NOT = { area = karelia_area }	
+			NOT = { area = laponia_area }	
+			NOT = { area = pskov_area }	
 		}	
 	}		
 }	
@@ -677,7 +669,7 @@ vounos_savramata_culture_region = {
 	OR = {	
 		AND = {	
 			region = ural_region	
-			NOT = {area = saratov_area}	
+			NOT = { area = saratov_area }	
 		}	
 	}		
 }	
@@ -857,12 +849,12 @@ polinesika_culture_region = {
 	OR = {	
 		AND = {	
 			region = oceanea_region	
-			NOT = {area = vogelkop_area}	
-			NOT = {area = papua_area}	
-			NOT = {area = melanesia_area}	
+			NOT = { area = vogelkop_area }	
+			NOT = { area = papua_area }	
+			NOT = { area = melanesia_area }	
 		}	
-		province_id = 1702	
-		province_id = 1695	
+		province_id = 2002
+		province_id = 5020
 	}	
 }	
 erimos_aethiopas_culture_region = {	

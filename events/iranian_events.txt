@@ -28,6 +28,10 @@ province_event = { #Kurdish settlements and assimilation
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = iranian }
+			}			
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = kurdish_settlements }

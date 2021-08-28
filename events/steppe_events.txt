@@ -666,6 +666,7 @@ province_event = { #Lack of settled authority
 		NOT = { has_province_modifier = steppe_city }
 		NOT = { has_province_modifier = yasak_collection }
 		has_province_modifier = nomadic_province
+		NOT = { has_global_flag = ci_steppe_no_authority_disabled }#Disabled Steppe lack of authority modifiers
 	}
 
 	immediate = {
@@ -696,6 +697,7 @@ province_event = { #Remove lack of settled authority
 				has_province_modifier = nomadic_province
 			}
 			NOT = { has_province_modifier = nomadic_province } #Settled
+			has_global_flag = ci_steppe_no_authority_disabled #Disabled Steppe lack of authority modifiers
 		}
 		has_province_modifier = nomadic_land_owned_by_non_nomad
 	}

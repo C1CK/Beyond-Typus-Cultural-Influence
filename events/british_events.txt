@@ -738,6 +738,10 @@ province_event = { #Arctic settlements & Assimilation
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}				
 		}
 		#No decision for settlements here
 		has_global_flag = CI_events_enabled
@@ -904,6 +908,13 @@ province_event = { #Norman settlements & Assimilation -Continental Settlements P
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british } #Due to the whole Island thing
+				}
+			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
@@ -1070,6 +1081,10 @@ province_event = { #Aquitanian settlements & Assimilation -Continental Settlemen
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}			
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
@@ -1236,6 +1251,10 @@ province_event = { #Burgundian settlements & Assimilation -Continental Settlemen
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
@@ -1402,6 +1421,10 @@ province_event = { #Toulousain settlements & Assimilation -Continental Settlemen
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
@@ -1568,6 +1591,10 @@ province_event = { #Lower Rhenish settlements & Assimilation -Continental Settle
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
@@ -1734,6 +1761,10 @@ province_event = { #Frisian settlements & Assimilation -Continental Settlements 
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
@@ -1900,6 +1931,10 @@ province_event = { #Upper Rhenish settlements & Assimilation -Continental Settle
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
@@ -2066,6 +2101,10 @@ province_event = { #Danish settlements & Assimilation -Continental Settlements P
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
@@ -2232,6 +2271,10 @@ province_event = { #Norwegian settlements & Assimilation -Continental Settlement
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
@@ -2398,6 +2441,10 @@ province_event = { #Swedish settlements & Assimilation -Continental Settlements 
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
@@ -2564,6 +2611,10 @@ province_event = { #Finnish settlements & Assimilation -Continental Settlements 
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
@@ -2730,6 +2781,10 @@ province_event = { #Laplander settlements & Assimilation -Continental Settlement
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
@@ -2896,6 +2951,10 @@ province_event = { #Baltic settlements & Assimilation -Continental Settlements P
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
@@ -3062,6 +3121,10 @@ province_event = { #Pomeranian settlements & Assimilation -Continental Settlemen
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = british }
+			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
