@@ -49,7 +49,13 @@ province_event = { #Irish reclamation (Settle)
 		NOT = { culture = celtic_irish }
 		NOT = { culture = goidhealach }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				OR = {
+					NOT = { culture_group = celtic }
+					NOT = { culture_group = gaelic }
+				}	
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -85,6 +91,10 @@ province_event = { #Irish reclamation (Settle)
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -244,7 +254,13 @@ province_event = { #Highlander reclamation (Settle)
 		NOT = { culture = celtic_highlander }
 		NOT = { culture = goidhealach }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				OR = {
+					NOT = { culture_group = celtic }
+					NOT = { culture_group = gaelic }
+				}	
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -280,6 +296,10 @@ province_event = { #Highlander reclamation (Settle)
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -439,7 +459,13 @@ province_event = { #Manx reclamation (Settle)
 		NOT = { culture = celtic_manx }
 		NOT = { culture = goidhealach }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				OR = {
+					NOT = { culture_group = celtic }
+					NOT = { culture_group = gaelic }
+				}	
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -475,6 +501,10 @@ province_event = { #Manx reclamation (Settle)
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -634,7 +664,13 @@ province_event = { #Cornish Expansion (Settle)
 		NOT = { culture = celtic_cornish }
 		NOT = { culture = brythonaidd }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				OR = {
+					NOT = { culture_group = celtic }
+					NOT = { culture_group = brythonic }
+				}	
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -670,6 +706,10 @@ province_event = { #Cornish Expansion (Settle)
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -829,7 +869,13 @@ province_event = { #Welsh Expansion (Settle)
 		NOT = { culture = celtic_welsh }
 		NOT = { culture = brythonaidd }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				OR = {
+					NOT = { culture_group = celtic }
+					NOT = { culture_group = brythonic }
+				}	
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -865,6 +911,10 @@ province_event = { #Welsh Expansion (Settle)
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1021,7 +1071,10 @@ province_event = { #Cwmbraic settlements and assimilation (Only Celts) (Settle)
 		NOT = { culture = brythonaidd }
 		NOT = { culture = goidhealach }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = celtic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1051,6 +1104,10 @@ province_event = { #Cwmbraic settlements and assimilation (Only Celts) (Settle)
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1195,7 +1252,10 @@ province_event = { #Corieltauvi settlements and assimilation (Only Celts) (Settl
 		NOT = { culture = corieltauvi }
 		NOT = { culture = brythonaidd }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = celtic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1225,6 +1285,10 @@ province_event = { #Corieltauvi settlements and assimilation (Only Celts) (Settl
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1369,7 +1433,10 @@ province_event = { #Cantiaci settlements and assimilation (Only Celts) (Settle)
 		NOT = { culture = cantiaci }
 		NOT = { culture = brythonaidd }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = celtic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1399,6 +1466,10 @@ province_event = { #Cantiaci settlements and assimilation (Only Celts) (Settle)
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1547,7 +1618,13 @@ province_event = { #Breton Expansion (Settle)
 		NOT = { culture = celtic_breton }
 		NOT = { culture = galianeg }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				OR = {
+					NOT = { culture_group = celtic }
+					NOT = { culture_group = brythonic }
+				}	
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1583,6 +1660,10 @@ province_event = { #Breton Expansion (Settle)
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2228,7 +2309,10 @@ province_event = { #Belgae settlements and assimilation (Settle)
 		NOT = { culture = belgae }
 		NOT = { culture = galianeg }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = celtic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2258,6 +2342,10 @@ province_event = { #Belgae settlements and assimilation (Settle)
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2402,7 +2490,10 @@ province_event = { #Pictone settlements and assimilation (Settle)
 		NOT = { culture = pictone }
 		NOT = { culture = galianeg }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = celtic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2432,6 +2523,10 @@ province_event = { #Pictone settlements and assimilation (Settle)
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2576,7 +2671,10 @@ province_event = { #Arverni settlements and assimilation (Settle)
 		NOT = { culture = arverni }
 		NOT = { culture = galianeg }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = celtic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2606,6 +2704,10 @@ province_event = { #Arverni settlements and assimilation (Settle)
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag

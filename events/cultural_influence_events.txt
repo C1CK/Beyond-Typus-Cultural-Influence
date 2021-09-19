@@ -10,13 +10,14 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		clr_global_flag = 00_CI_MTTH_flag
 		clr_global_flag = 05_CI_MTTH_flag
 		clr_global_flag = 10_CI_MTTH_flag
 		clr_global_flag = 15_CI_MTTH_flag
 		clr_global_flag = 20_CI_MTTH_flag
 		clr_global_flag = 40_CI_MTTH_flag
 	}
-
+	
 	option = { #0.5x
 		name = CI_adjust_times.a
 
@@ -46,6 +47,12 @@ country_event = {
 
 		set_global_flag = 40_CI_MTTH_flag
 	}
+
+	option = { #0.0x Debug Only
+		name = CI_adjust_times.f
+
+		set_global_flag = 00_CI_MTTH_flag
+	}	
 }
 
 country_event = { #West Germanic explanatory

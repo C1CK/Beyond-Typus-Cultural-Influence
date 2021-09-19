@@ -11,7 +11,10 @@ province_event = { #French expansion (Home Region)
 		owner = { culture_group = french }
 		NOT = { culture = OWNER }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		any_neighbor_province = {
@@ -107,7 +110,10 @@ province_event = { #Castillane expansion
 		castillane_culture_region = yes		
 		NOT = { culture = castillane }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -204,7 +210,10 @@ province_event = { #Galicien expansion
 		galicien_culture_region = yes		
 		NOT = { culture = galicien }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -301,7 +310,10 @@ province_event = { #Valencien expansion
 		valencien_culture_region = yes		
 		NOT = { culture = valencien }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -398,7 +410,10 @@ province_event = { #Apennine Central expansion
 		apennine_central_culture_region = yes		
 		NOT = { culture = apennine_central }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -495,7 +510,10 @@ province_event = { #Sud Apennine expansion
 		sud_apennine_culture_region = yes		
 		NOT = { culture = sud_apennine }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -592,7 +610,10 @@ province_event = { #Nouveau Provençal expansion
 		nouveau_provencal_culture_region = yes		
 		NOT = { culture = nouveau_provencal }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -689,7 +710,10 @@ province_event = { #Corse expansion
 		corse_culture_region = yes		
 		NOT = { culture = corse }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -786,7 +810,10 @@ province_event = { #Sarde expansion
 		sarde_culture_region = yes		
 		NOT = { culture = sarde }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -885,7 +912,10 @@ province_event = { #Franglais settlements and assimilation
 		franglais_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -917,6 +947,10 @@ province_event = { #Franglais settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1060,7 +1094,10 @@ province_event = { #Bas Francais settlements and assimilation
 		bas_francais_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1092,6 +1129,10 @@ province_event = { #Bas Francais settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1235,7 +1276,10 @@ province_event = { #Gaelique settlements and assimilation
 		gaelique_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1267,6 +1311,10 @@ province_event = { #Gaelique settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1410,7 +1458,10 @@ province_event = { #Celtique settlements and assimilation
 		celtique_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1442,6 +1493,10 @@ province_event = { #Celtique settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1585,7 +1640,10 @@ province_event = { #Joutais settlements and assimilation
 		joutais_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1617,6 +1675,10 @@ province_event = { #Joutais settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1760,7 +1822,10 @@ province_event = { #Surlamerais settlements and assimilation
 		surlamerais_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1792,6 +1857,10 @@ province_event = { #Surlamerais settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1935,7 +2004,10 @@ province_event = { #Alpin settlements and assimilation
 		alpin_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1967,6 +2039,10 @@ province_event = { #Alpin settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2110,7 +2186,10 @@ province_event = { #Franque settlements and assimilation
 		franque_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2142,6 +2221,10 @@ province_event = { #Franque settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2285,7 +2368,10 @@ province_event = { #Tcheque settlements and assimilation
 		tcheque_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2317,6 +2403,10 @@ province_event = { #Tcheque settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2460,7 +2550,10 @@ province_event = { #Illyrien settlements and assimilation
 		illyrien_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2492,6 +2585,10 @@ province_event = { #Illyrien settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2635,7 +2732,10 @@ province_event = { #Varsovien settlements and assimilation
 		varsovien_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2667,6 +2767,10 @@ province_event = { #Varsovien settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2810,7 +2914,10 @@ province_event = { #Danubienne settlements and assimilation
 		danubienne_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2842,6 +2949,10 @@ province_event = { #Danubienne settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2985,7 +3096,10 @@ province_event = { #Marocain settlements and assimilation
 		marocain_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3017,6 +3131,10 @@ province_event = { #Marocain settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3160,7 +3278,10 @@ province_event = { #Algerien settlements and assimilation
 		algerien_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3192,6 +3313,10 @@ province_event = { #Algerien settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3335,7 +3460,10 @@ province_event = { #Tunisien settlements and assimilation
 		tunisien_culture_region = yes		
 		NOT = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3367,6 +3495,10 @@ province_event = { #Tunisien settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3520,7 +3652,10 @@ province_event = { #Romain Spread
 			TAG = KOJ
 		}
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -3573,7 +3708,10 @@ province_event = { #Outre Mer Spread
 			TAG = KOJ
 		}
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -3626,7 +3764,10 @@ province_event = { #Galate Spread
 			TAG = KOJ
 		}
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -3679,7 +3820,10 @@ province_event = { #Nil Francais Spread
 			TAG = KOJ
 		}
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -3726,7 +3870,10 @@ province_event = { #Quebecois spread
 	trigger = {
 		is_city = yes
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		quebecois_culture_region = yes
@@ -3766,7 +3913,10 @@ province_event = { #Californienne spread
 	trigger = {
 		is_city = yes
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		californienne_culture_region = yes
@@ -3810,7 +3960,10 @@ province_event = { #Indian Ocean Islands primary spread
 		development = 20
 		OWNER = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -3846,7 +3999,10 @@ province_event = { #Karipounais spread
 	trigger = {
 		is_city = yes
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		karipounais_culture_region = yes
@@ -3884,7 +4040,10 @@ province_event = { #Quechois spread
 	trigger = {
 		is_city = yes
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		quechois_culture_region = yes
@@ -3922,7 +4081,10 @@ province_event = { #Circumcaraïbes spread
 	trigger = {
 		is_city = yes
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		circumcaraibes_culture_region = yes
@@ -3960,7 +4122,10 @@ province_event = { #Louisianais spread
 	trigger = {
 		is_city = yes
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		louisianais_culture_region = yes
@@ -4000,7 +4165,10 @@ province_event = { #Mozambicaine spread
 	trigger = {
 		is_city = yes
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -4046,7 +4214,10 @@ province_event = { #Subsaharienne spread
 	trigger = {
 		is_city = yes
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -4092,7 +4263,10 @@ province_event = { #Sud Africain spread
 	trigger = {
 		is_city = yes
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -4138,7 +4312,10 @@ province_event = { #Sud Africain (Colonial Region)
 	trigger = {
 		is_city = yes
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		sud_africain_culture_region = yes
@@ -4170,7 +4347,10 @@ province_event = { #Indochinois spread
 	trigger = {
 		is_city = yes
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -4216,7 +4396,10 @@ province_event = { #Old World primary spread
 	trigger = {
 		is_city = yes
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
 			owner = { ai = yes }
 		}
 		development = 10

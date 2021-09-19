@@ -1034,7 +1034,10 @@ province_event = { #Dutch settlements and assimilation (Works for Low Franconian
 		NOT = { culture = dutch } #Actually Low-Franconian
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1064,6 +1067,10 @@ province_event = { #Dutch settlements and assimilation (Works for Low Franconian
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1227,7 +1234,10 @@ province_event = { #Northern Low Saxon settlements and assimilation
 		NOT = { culture = lower_saxon } #Actually Northern Low Saxon
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1257,6 +1267,10 @@ province_event = { #Northern Low Saxon settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1412,7 +1426,10 @@ province_event = { #Pommeranian settlements and assimilation
 		NOT = { culture = pommeranian }
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1442,6 +1459,10 @@ province_event = { #Pommeranian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1597,7 +1618,10 @@ province_event = { #Prussian settlements and assimilation
 		NOT = { culture = prussian }
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1627,6 +1651,10 @@ province_event = { #Prussian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1771,7 +1799,10 @@ province_event = { #Westphalian settlements and assimilation
 		NOT = { culture = hannoverian } #Actually Westphalian
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1801,6 +1832,10 @@ province_event = { #Westphalian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1956,7 +1991,10 @@ province_event = { #Eastphalian settlements and assimilation
 		NOT = { culture = eastphalian }
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1986,6 +2024,10 @@ province_event = { #Eastphalian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2141,7 +2183,10 @@ province_event = { #Markish settlements and assimilation
 		NOT = { culture = markish }
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2171,6 +2216,10 @@ province_event = { #Markish settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2326,7 +2375,10 @@ province_event = { #Saxon settlements and assimilation
 		NOT = { culture = saxon }
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2356,6 +2408,10 @@ province_event = { #Saxon settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2511,7 +2567,10 @@ province_event = { #Central Franconian settlements and assimilation
 		NOT = { culture = central_franconian }
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2541,6 +2600,10 @@ province_event = { #Central Franconian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2696,7 +2759,10 @@ province_event = { #Rhine Franconian settlements and assimilation
 		NOT = { culture = hessian } #Actually Rhine-Franconian
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2726,6 +2792,10 @@ province_event = { #Rhine Franconian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2881,7 +2951,10 @@ province_event = { #East Franconian settlements and assimilation
 		NOT = { culture = franconian } #Actually East-Franconian
 		NOT = { culture = hochdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2911,6 +2984,10 @@ province_event = { #East Franconian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3066,7 +3143,10 @@ province_event = { #Alemannish settlements and assimilation
 		NOT = { culture = swabian } #Actually Alemannic
 		NOT = { culture = hochdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3096,6 +3176,10 @@ province_event = { #Alemannish settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3252,7 +3336,10 @@ province_event = { #Bavarian settlements and assimilation
 		NOT = { culture = austrian }
 		NOT = { culture = hochdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3282,6 +3369,10 @@ province_event = { #Bavarian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3437,7 +3528,10 @@ province_event = { #Schlesisch settlements and assimilation
 		NOT = { culture = silesian_german }
 		NOT = { culture = plattduutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3467,6 +3561,10 @@ province_event = { #Schlesisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3611,7 +3709,10 @@ province_event = { #Sudeten settlements and assimilation
 		NOT = { culture = sudeten }
 		NOT = { culture = hochdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3641,6 +3742,10 @@ province_event = { #Sudeten settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3784,7 +3889,10 @@ province_event = { #Posisch settlements and assimilation
 		posisch_culture_region = yes		
 		NOT = { culture = posisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3814,6 +3922,10 @@ province_event = { #Posisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3957,7 +4069,10 @@ province_event = { #Baltendeutsch settlements and assimilation
 		baltendeutsch_culture_region = yes		
 		NOT = { culture = baltendeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3987,6 +4102,10 @@ province_event = { #Baltendeutsch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4130,7 +4249,10 @@ province_event = { #Donauschwaben settlements and assimilation
 		donauschwaben_culture_region = yes		
 		NOT = { culture = donauschwaben }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -4160,6 +4282,10 @@ province_event = { #Donauschwaben settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4303,7 +4429,10 @@ province_event = { #Dinaridendeutsch settlements and assimilation
 		dinaridendeutsch_culture_region = yes		
 		NOT = { culture = dinaridendeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -4333,6 +4462,10 @@ province_event = { #Dinaridendeutsch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4476,7 +4609,10 @@ province_event = { #Epiroten settlements and assimilation
 		epiroten_culture_region = yes		
 		NOT = { culture = epiroten }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -4506,6 +4642,10 @@ province_event = { #Epiroten settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4649,7 +4789,10 @@ province_event = { #Nowgoroder settlements and assimilation
 		nowgoroder_culture_region = yes		
 		NOT = { culture = nowgoroder }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -4679,6 +4822,10 @@ province_event = { #Nowgoroder settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4822,7 +4969,10 @@ province_event = { #Weissdeutsch settlements and assimilation
 		weissdeutsch_culture_region = yes		
 		NOT = { culture = weissdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -4852,6 +5002,10 @@ province_event = { #Weissdeutsch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4995,7 +5149,10 @@ province_event = { #Ruthenisch settlements and assimilation
 		ruthenisch_culture_region = yes		
 		NOT = { culture = ruthenisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -5025,6 +5182,10 @@ province_event = { #Ruthenisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5168,7 +5329,10 @@ province_event = { #Siebenbürger settlements and assimilation
 		siebenburger_culture_region = yes		
 		NOT = { culture = transylvanian_saxons }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -5198,6 +5362,10 @@ province_event = { #Siebenbürger settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5341,7 +5509,10 @@ province_event = { #Deutschthracian settlements and assimilation
 		deutschthracian_culture_region = yes		
 		NOT = { culture = deutschthracian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -5371,6 +5542,10 @@ province_event = { #Deutschthracian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5514,7 +5689,10 @@ province_event = { #Schwarzmeererdeutsch settlements and assimilation
 		schwarzmeererdeutsch_culture_region = yes		
 		NOT = { culture = schwarzmeererdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -5544,6 +5722,10 @@ province_event = { #Schwarzmeererdeutsch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5687,7 +5869,10 @@ province_event = { #Krimdeutsch settlements and assimilation
 		krimdeutsch_culture_region = yes		
 		NOT = { culture = krimdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -5717,6 +5902,10 @@ province_event = { #Krimdeutsch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5860,7 +6049,10 @@ province_event = { #Bosporusdeutsch settlements and assimilation
 		bosporusdeutsch_culture_region = yes		
 		NOT = { culture = bosporusdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -5890,6 +6082,10 @@ province_event = { #Bosporusdeutsch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6033,7 +6229,10 @@ province_event = { #Moskauer-Rjasaner settlements and assimilation
 		moskauer_rjasaner_culture_region = yes		
 		NOT = { culture = moskauer_rjasaner }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -6063,6 +6262,10 @@ province_event = { #Moskauer-Rjasaner settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6206,7 +6409,10 @@ province_event = { #Wolgadeutsch settlements and assimilation
 		wolgadeutsch_culture_region = yes		
 		NOT = { culture = wolgadeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -6236,6 +6442,10 @@ province_event = { #Wolgadeutsch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6379,7 +6589,10 @@ province_event = { #Kubandeutsch settlements and assimilation
 		kubandeutsch_culture_region = yes		
 		NOT = { culture = kubandeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -6409,6 +6622,10 @@ province_event = { #Kubandeutsch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6552,7 +6769,10 @@ province_event = { #Kaukasusdeutsch settlements and assimilation
 		kaukasusdeutsch_culture_region = yes		
 		NOT = { culture = kaukasusdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -6582,6 +6802,10 @@ province_event = { #Kaukasusdeutsch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6725,7 +6949,10 @@ province_event = { #Weissmeerer settlements and assimilation
 		weissmeerer_culture_region = yes		
 		NOT = { culture = weissmeererdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -6755,6 +6982,10 @@ province_event = { #Weissmeerer settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6898,7 +7129,10 @@ province_event = { #Perm-Kasaner settlements and assimilation
 		perm_kasaner_culture_region = yes		
 		NOT = { culture = perm_kasaner }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -6928,6 +7162,10 @@ province_event = { #Perm-Kasaner settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7071,7 +7309,10 @@ province_event = { #Juten settlements and assimilation
 		juten_culture_region = yes		
 		NOT = { culture = juten }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -7101,6 +7342,10 @@ province_event = { #Juten settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7244,7 +7489,10 @@ province_event = { #Schwedisch settlements and assimilation
 		schwedisch_culture_region = yes		
 		NOT = { culture = schwedisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -7274,6 +7522,10 @@ province_event = { #Schwedisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7417,7 +7669,10 @@ province_event = { #Norwegisch settlements and assimilation
 		norwegisch_culture_region = yes		
 		NOT = { culture = norwegisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -7447,6 +7702,10 @@ province_event = { #Norwegisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7601,7 +7860,10 @@ province_event = { #Norwegisch settlements and assimilation
 		NOT = { culture = norwegisch }
 		NOT = { culture = anglisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -7632,6 +7894,10 @@ province_event = { #Norwegisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7786,7 +8052,10 @@ province_event = { #Finnisch settlements and assimilation
 		finnisch_culture_region = yes		
 		NOT = { culture = finnisch }	
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -7816,6 +8085,10 @@ province_event = { #Finnisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7959,7 +8232,10 @@ province_event = { #Ænglisch settlements and assimilation
 		anglisch_culture_region = yes		
 		NOT = { culture = anglisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -7989,6 +8265,10 @@ province_event = { #Ænglisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8132,7 +8412,10 @@ province_event = { #Lottrínger settlements and assimilation
 		lottringer_culture_region = yes		
 		NOT = { culture = lottringer }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -8162,6 +8445,10 @@ province_event = { #Lottrínger settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8305,7 +8592,10 @@ province_event = { #Old Frankisch settlements and assimilation
 		frankisch_culture_region = yes		
 		NOT = { culture = frankisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -8335,6 +8625,10 @@ province_event = { #Old Frankisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8478,7 +8772,10 @@ province_event = { #Langobardisch settlements and assimilation
 		langobardisch_culture_region = yes		
 		NOT = { culture = langobardisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -8508,6 +8805,10 @@ province_event = { #Langobardisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8651,7 +8952,10 @@ province_event = { #Riviera-Savoyerdeutsch settlements and assimilation
 		rivieradeutsch_culture_region = yes		
 		NOT = { culture = rivieradeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -8681,6 +8985,10 @@ province_event = { #Riviera-Savoyerdeutsch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8824,7 +9132,10 @@ province_event = { #Suebisch settlements and assimilation
 		suebisch_culture_region = yes		
 		NOT = { culture = suebisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -8854,6 +9165,10 @@ province_event = { #Suebisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8997,7 +9312,10 @@ province_event = { #Westgotisch settlements and assimilation
 		westgotisch_culture_region = yes		
 		NOT = { culture = westgotisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -9027,6 +9345,10 @@ province_event = { #Westgotisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9170,7 +9492,10 @@ province_event = { #Italienisch settlements and assimilation
 		italienisch_culture_region = yes		
 		NOT = { culture = italienisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -9200,6 +9525,10 @@ province_event = { #Italienisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9343,7 +9672,10 @@ province_event = { #Vandalisch settlements and assimilation
 		vandalisch_culture_region = yes		
 		NOT = { culture = vandalisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -9373,6 +9705,10 @@ province_event = { #Vandalisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9516,7 +9852,10 @@ province_event = { #Marokkanisch settlements and assimilation
 		marokkanisch_culture_region = yes		
 		NOT = { culture = marokkanisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -9546,6 +9885,10 @@ province_event = { #Marokkanisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9689,7 +10032,10 @@ province_event = { #Syrisch settlements and assimilation
 		syrisch_culture_region = yes		
 		NOT = { culture = syrisch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -9719,6 +10065,10 @@ province_event = { #Syrisch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9862,7 +10212,10 @@ province_event = { #Niler settlements and assimilation
 		niler_culture_region = yes		
 		NOT = { culture = niler }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -9892,6 +10245,10 @@ province_event = { #Niler settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -10035,7 +10392,10 @@ province_event = { #Saharadeutsch settlements and assimilation
 		saharadeutsch_culture_region = yes		
 		NOT = { culture = saharadeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -10065,6 +10425,10 @@ province_event = { #Saharadeutsch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -10208,7 +10572,10 @@ province_event = { #Rotesmeerdeutsch settlements and assimilation
 		rotesmeerdeutsch_culture_region = yes		
 		NOT = { culture = rotesmeerdeutsch }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -10238,6 +10605,10 @@ province_event = { #Rotesmeerdeutsch settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -10381,7 +10752,10 @@ province_event = { #Karpatendeutsch settlements and assimilation #Added with BT 
 		karpatendeutsch_culture_region = yes		
 		NOT = { culture = carpathian_german }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = germanic }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -10411,6 +10785,10 @@ province_event = { #Karpatendeutsch settlements and assimilation #Added with BT 
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag

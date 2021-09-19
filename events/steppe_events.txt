@@ -88,7 +88,10 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 		NOT = { culture = OWNER }
 		owner = { is_nomad = yes }
 		OR = {
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = OWNER }
+			}	
 			owner = { ai = yes }
 		}
 		any_neighbor_province = {

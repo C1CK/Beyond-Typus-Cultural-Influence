@@ -89,7 +89,10 @@ province_event = { #Castillian expansion (Home Region)
 		NOT = { culture = catalan } #Catalan exempted until I can think of a better way to represent their historic resiliance
 		NOT = { culture = castillian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = iberian }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -109,6 +112,11 @@ province_event = { #Castillian expansion (Home Region)
 	mean_time_to_happen = { #Generic Italic Assimilation MTTH
 		years = 20
 
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -218,7 +226,10 @@ province_event = { #Leonese expansion (Home Region)
 		NOT = { culture = catalan } #Catalan exempted until I can think of a better way to represent their historic resiliance
 		NOT = { culture = leonese }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = iberian }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -238,6 +249,11 @@ province_event = { #Leonese expansion (Home Region)
 	mean_time_to_happen = { #Generic Italic Assimilation MTTH
 		years = 20
 
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -353,7 +369,10 @@ province_event = { #Galician expansion (Home Region)
 		NOT = { culture = catalan } #Catalan exempted until I can think of a better way to represent their historic resiliance
 		NOT = { culture = galician }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = iberian }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -373,6 +392,11 @@ province_event = { #Galician expansion (Home Region)
 	mean_time_to_happen = { #Generic Italic Assimilation MTTH
 		years = 20
 
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -482,7 +506,10 @@ province_event = { #Portuguese expansion (Home Region)
 		NOT = { culture = catalan } #Catalan exempted until I can think of a better way to represent their historic resiliance
 		NOT = { culture = portugese }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = iberian }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -502,6 +529,11 @@ province_event = { #Portuguese expansion (Home Region)
 	mean_time_to_happen = { #Generic Italic Assimilation MTTH
 		years = 20
 
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -610,7 +642,10 @@ province_event = { #Andalucian (Iberian) expansion (Home Region)
 		NOT = { culture = catalan } #Catalan exempted until I can think of a better way to represent their historic resiliance
 		NOT = { culture = andalucian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = iberian }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -630,6 +665,11 @@ province_event = { #Andalucian (Iberian) expansion (Home Region)
 	mean_time_to_happen = { #Generic Italic Assimilation MTTH
 		years = 20
 
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag

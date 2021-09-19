@@ -2,7 +2,7 @@ namespace = latinise_spread
 
 province_event = { #Roman Italian
 	id = latinise_spread.1
-	title = latinise_spread_italian.1.t
+	title = latinise_spread.1.t
 	desc = latinise_spread.1.d
 	picture = CULTURE_eventPicture
 	goto = root
@@ -12,7 +12,10 @@ province_event = { #Roman Italian
 		roman_italian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -39,7 +42,12 @@ province_event = { #Roman Italian
 			any_neighbor_province = {
 				culture = roman_italian_culture
 			}
-		}			
+		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -187,7 +195,10 @@ province_event = { #Roman Aquitanian
 		roman_aquitanian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -215,6 +226,11 @@ province_event = { #Roman Aquitanian
 				culture = roman_aquitanian_culture
 			}
 		}			
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -362,7 +378,10 @@ province_event = { #Roman Occitanian
 		roman_occitanian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -390,6 +409,11 @@ province_event = { #Roman Occitanian
 				culture = roman_occitanian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -537,7 +561,10 @@ province_event = { #Roman French
 		roman_french_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -565,6 +592,12 @@ province_event = { #Roman French
 				culture = roman_french_culture
 			}
 		}
+		
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -712,7 +745,10 @@ province_event = { #Roman Iberian
 		roman_iberian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -740,6 +776,11 @@ province_event = { #Roman Iberian
 				culture = roman_iberian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -887,7 +928,10 @@ province_event = { #Roman Lusitanian
 		roman_lusitanian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -915,6 +959,11 @@ province_event = { #Roman Lusitanian
 				culture = roman_lusitanian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1062,7 +1111,10 @@ province_event = { #Roman Andalusian
 		roman_andalusian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -1090,6 +1142,11 @@ province_event = { #Roman Andalusian
 				culture = roman_andalusian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1237,7 +1294,10 @@ province_event = { #Roman Irish
 		roman_irish_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -1265,6 +1325,11 @@ province_event = { #Roman Irish
 				culture = roman_irish_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1412,7 +1477,10 @@ province_event = { #Roman Scot
 		roman_scot_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -1433,7 +1501,34 @@ province_event = { #Roman Scot
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
-		years = 25	
+		years = 25
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = roman_scot_culture
+			}
+		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
 		modifier = { #Non-Dharma
 			factor = 3
 			OR = { #ai uses thiS one
@@ -1565,7 +1660,10 @@ province_event = { #Roman Anglo
 		roman_anglo_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -1593,6 +1691,11 @@ province_event = { #Roman Anglo
 				culture = roman_anglo_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1740,7 +1843,10 @@ province_event = { #Roman Maghreb
 		roman_maghreb_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -1768,6 +1874,11 @@ province_event = { #Roman Maghreb
 				culture = roman_maghreb_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1915,7 +2026,10 @@ province_event = { #Roman Libyan
 		roman_libyan_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -1943,6 +2057,11 @@ province_event = { #Roman Libyan
 				culture = roman_libyan_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2090,7 +2209,10 @@ province_event = { #Roman Egyptian
 		roman_egyptian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -2118,6 +2240,11 @@ province_event = { #Roman Egyptian
 				culture = roman_egyptian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2265,7 +2392,10 @@ province_event = { #Roman Levant
 		roman_levant_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -2293,6 +2423,11 @@ province_event = { #Roman Levant
 				culture = roman_levant_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2440,7 +2575,10 @@ province_event = { #Roman Arabian
 		roman_arabian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -2468,6 +2606,11 @@ province_event = { #Roman Arabian
 				culture = roman_arabian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2615,7 +2758,10 @@ province_event = { #Roman Greek
 		roman_greek_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -2643,6 +2789,11 @@ province_event = { #Roman Greek
 				culture = roman_greek_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2790,7 +2941,10 @@ province_event = { #Roman Anatolian
 		roman_anatolian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -2818,6 +2972,11 @@ province_event = { #Roman Anatolian
 				culture = roman_anatolian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2965,7 +3124,10 @@ province_event = { #Roman Bulgarian
 		roman_bulgarian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -2993,6 +3155,11 @@ province_event = { #Roman Bulgarian
 				culture = roman_bulgarian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3140,7 +3307,10 @@ province_event = { #Roman Romanian
 		roman_romanian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -3168,6 +3338,11 @@ province_event = { #Roman Romanian
 				culture = roman_romanian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3315,7 +3490,10 @@ province_event = { #Roman Hungarian
 		roman_hungarian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -3343,6 +3521,11 @@ province_event = { #Roman Hungarian
 				culture = roman_hungarian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3490,7 +3673,10 @@ province_event = { #Roman Illyrian
 		roman_illyrian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -3518,6 +3704,11 @@ province_event = { #Roman Illyrian
 				culture = roman_illyrian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3665,7 +3856,10 @@ province_event = { #Roman Alpine
 		roman_alpine_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -3693,6 +3887,11 @@ province_event = { #Roman Alpine
 				culture = roman_alpine_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3840,7 +4039,10 @@ province_event = { #Roman West Slavic
 		roman_west_slavic_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -3868,6 +4070,11 @@ province_event = { #Roman West Slavic
 				culture = roman_west_slavic_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4015,7 +4222,10 @@ province_event = { #Roman Dutch
 		roman_dutch_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -4043,6 +4253,11 @@ province_event = { #Roman Dutch
 				culture = roman_dutch_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4190,7 +4405,10 @@ province_event = { #Roman Saxon
 		roman_saxon_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -4218,6 +4436,11 @@ province_event = { #Roman Saxon
 				culture = roman_saxon_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4365,7 +4588,10 @@ province_event = { #Roman South German
 		roman_south_german_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -4393,6 +4619,11 @@ province_event = { #Roman South German
 				culture = roman_south_german_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4540,7 +4771,10 @@ province_event = { #Roman East German
 		roman_east_german_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -4568,6 +4802,11 @@ province_event = { #Roman East German
 				culture = roman_east_german_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4715,7 +4954,10 @@ province_event = { #Roman Polish
 		roman_polish_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -4743,6 +4985,11 @@ province_event = { #Roman Polish
 				culture = roman_polish_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4890,7 +5137,10 @@ province_event = { #Roman Armenian
 		roman_armenian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -4918,6 +5168,11 @@ province_event = { #Roman Armenian
 				culture = roman_armenian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5065,7 +5320,10 @@ province_event = { #Roman Mesopotamian
 		roman_mesopotamian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -5093,6 +5351,11 @@ province_event = { #Roman Mesopotamian
 				culture = roman_mesopotamian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5240,7 +5503,10 @@ province_event = { #Roman Caucasus
 		roman_caucasus_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -5268,6 +5534,11 @@ province_event = { #Roman Caucasus
 				culture = roman_caucasus_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5415,7 +5686,10 @@ province_event = { #Roman Scandinavian
 		roman_scandinavian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -5443,6 +5717,11 @@ province_event = { #Roman Scandinavian
 				culture = roman_scandinavian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5590,7 +5869,10 @@ province_event = { #Roman Baltic
 		roman_baltic_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -5618,6 +5900,11 @@ province_event = { #Roman Baltic
 				culture = roman_baltic_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5765,7 +6052,10 @@ province_event = { #Roman Finnic
 		roman_finnic_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -5793,6 +6083,11 @@ province_event = { #Roman Finnic
 				culture = roman_finnic_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5940,7 +6235,10 @@ province_event = { #Roman Russian
 		roman_russian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -5968,6 +6266,11 @@ province_event = { #Roman Russian
 				culture = roman_russian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6115,7 +6418,10 @@ province_event = { #Roman Persian
 		roman_persian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -6143,6 +6449,11 @@ province_event = { #Roman Persian
 				culture = roman_persian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6290,7 +6601,10 @@ province_event = { #Roman Khorasani
 		roman_khorasani_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -6318,6 +6632,11 @@ province_event = { #Roman Khorasani
 				culture = roman_khorasani_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6465,7 +6784,10 @@ province_event = { #Roman Crimean
 		roman_crimean_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -6493,6 +6815,11 @@ province_event = { #Roman Crimean
 				culture = roman_crimean_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6640,7 +6967,10 @@ province_event = { #Roman Sarmatian
 		roman_sarmatian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -6668,6 +6998,11 @@ province_event = { #Roman Sarmatian
 				culture = roman_sarmatian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6815,7 +7150,10 @@ province_event = { #Roman Massagetana
 		roman_massagetana_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -6843,6 +7181,11 @@ province_event = { #Roman Massagetana
 				culture = roman_massagetana_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6990,7 +7333,10 @@ province_event = { #Roman Bactrian
 		roman_bactrian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -7018,6 +7364,11 @@ province_event = { #Roman Bactrian
 				culture = roman_bactrian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7165,7 +7516,10 @@ province_event = { #Roman West Indian
 		roman_west_indian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -7193,6 +7547,11 @@ province_event = { #Roman West Indian
 				culture = roman_west_indian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7340,7 +7699,10 @@ province_event = { #Roman North Indian
 		roman_north_indian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -7368,6 +7730,11 @@ province_event = { #Roman North Indian
 				culture = roman_north_indian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7515,7 +7882,10 @@ province_event = { #Roman Central Indian
 		roman_central_indian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -7543,6 +7913,11 @@ province_event = { #Roman Central Indian
 				culture = roman_central_indian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7690,7 +8065,10 @@ province_event = { #Roman South Indian
 		roman_south_indian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -7718,6 +8096,11 @@ province_event = { #Roman South Indian
 				culture = roman_south_indian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7865,7 +8248,10 @@ province_event = { #Roman East Indian
 		roman_east_indian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -7893,6 +8279,11 @@ province_event = { #Roman East Indian
 				culture = roman_east_indian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8040,7 +8431,10 @@ province_event = { #Roman Tibetan
 		roman_tibetan_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -8068,6 +8462,11 @@ province_event = { #Roman Tibetan
 				culture = roman_tibetan_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8215,7 +8614,10 @@ province_event = { #Roman Burmese
 		roman_burmese_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -8243,6 +8645,11 @@ province_event = { #Roman Burmese
 				culture = roman_burmese_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8390,7 +8797,10 @@ province_event = { #Roman Indochinese
 		roman_indochinese_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -8418,6 +8828,11 @@ province_event = { #Roman Indochinese
 				culture = roman_indochinese_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8565,7 +8980,10 @@ province_event = { #Roman Malay
 		roman_malay_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -8593,6 +9011,11 @@ province_event = { #Roman Malay
 				culture = roman_malay_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8740,7 +9163,10 @@ province_event = { #Roman Indonesian
 		roman_indonesian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -8768,6 +9194,11 @@ province_event = { #Roman Indonesian
 				culture = roman_indonesian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8915,7 +9346,10 @@ province_event = { #Roman Australian
 		roman_australian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -8943,6 +9377,11 @@ province_event = { #Roman Australian
 				culture = roman_australian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9090,7 +9529,10 @@ province_event = { #Roman Melanesian
 		roman_melanesian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -9118,6 +9560,11 @@ province_event = { #Roman Melanesian
 				culture = roman_melanesian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9265,7 +9712,10 @@ province_event = { #Roman Polynesian
 		roman_polynesian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -9293,6 +9743,11 @@ province_event = { #Roman Polynesian
 				culture = roman_polynesian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9440,7 +9895,10 @@ province_event = { #Roman Ethiopian
 		roman_ethiopian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -9468,6 +9926,11 @@ province_event = { #Roman Ethiopian
 				culture = roman_ethiopian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9615,7 +10078,10 @@ province_event = { #Roman East African
 		roman_east_african_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -9643,6 +10109,11 @@ province_event = { #Roman East African
 				culture = roman_east_african_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9790,7 +10261,10 @@ province_event = { #Roman East Sahara
 		roman_east_sahara_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -9818,6 +10292,11 @@ province_event = { #Roman East Sahara
 				culture = roman_east_sahara_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9965,7 +10444,10 @@ province_event = { #Roman West Sahara
 		roman_west_sahara_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -9993,6 +10475,11 @@ province_event = { #Roman West Sahara
 				culture = roman_west_sahara_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -10140,7 +10627,10 @@ province_event = { #Roman West African Coast
 		roman_west_african_coast_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -10168,6 +10658,11 @@ province_event = { #Roman West African Coast
 				culture = roman_west_african_coast_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -10315,7 +10810,10 @@ province_event = { #Roman Congolese
 		roman_congolese_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -10343,6 +10841,11 @@ province_event = { #Roman Congolese
 				culture = roman_congolese_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -10490,7 +10993,10 @@ province_event = { #Roman Central African
 		roman_central_african_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -10518,6 +11024,11 @@ province_event = { #Roman Central African
 				culture = roman_central_african_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -10665,7 +11176,10 @@ province_event = { #Roman Zambezi
 		roman_zambezi_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -10693,6 +11207,11 @@ province_event = { #Roman Zambezi
 				culture = roman_zambezi_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -10840,7 +11359,10 @@ province_event = { #Roman Madagascar
 		roman_madagascar_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -10868,6 +11390,11 @@ province_event = { #Roman Madagascar
 				culture = roman_madagascar_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -11015,7 +11542,10 @@ province_event = { #Roman South African
 		roman_south_african_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -11043,6 +11573,11 @@ province_event = { #Roman South African
 				culture = roman_south_african_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -11190,7 +11725,10 @@ province_event = { #Roman Namibian
 		roman_namibian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -11218,6 +11756,11 @@ province_event = { #Roman Namibian
 				culture = roman_namibian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -11365,7 +11908,10 @@ province_event = { #Roman North China
 		roman_north_china_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -11393,6 +11939,11 @@ province_event = { #Roman North China
 				culture = roman_north_china_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -11540,7 +12091,10 @@ province_event = { #Roman South China
 		roman_south_china_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -11568,6 +12122,11 @@ province_event = { #Roman South China
 				culture = roman_south_china_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -11715,7 +12274,10 @@ province_event = { #Roman West China
 		roman_west_china_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -11743,6 +12305,11 @@ province_event = { #Roman West China
 				culture = roman_west_china_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -11890,7 +12457,10 @@ province_event = { #Roman Mongolian
 		roman_mongolian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -11918,6 +12488,11 @@ province_event = { #Roman Mongolian
 				culture = roman_mongolian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -12065,7 +12640,10 @@ province_event = { #Roman Siberian
 		roman_siberian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -12093,6 +12671,11 @@ province_event = { #Roman Siberian
 				culture = roman_siberian_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -12240,7 +12823,10 @@ province_event = { #Roman Korean
 		roman_korean_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -12268,6 +12854,11 @@ province_event = { #Roman Korean
 				culture = roman_korean_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -12415,7 +13006,10 @@ province_event = { #Roman Japanese
 		roman_japanese_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -12443,6 +13037,11 @@ province_event = { #Roman Japanese
 				culture = roman_japanese_culture
 			}
 		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -12590,7 +13189,10 @@ province_event = { #Roman Canadian
 		roman_canadian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -12621,6 +13223,11 @@ province_event = { #Roman Canadian
 		modifier = {
 			factor = 0
 			old_latin_old_worlder = yes
+		}		
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
 		}		
 		modifier = {
 			factor = 0.5
@@ -12769,7 +13376,10 @@ province_event = { #Roman East North American
 		roman_east_north_american_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -12801,6 +13411,11 @@ province_event = { #Roman East North American
 			factor = 0
 			old_latin_old_worlder = yes
 		}			
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -12948,7 +13563,10 @@ province_event = { #Roman Central North American
 		roman_central_north_american_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -12980,6 +13598,11 @@ province_event = { #Roman Central North American
 			factor = 0
 			old_latin_old_worlder = yes
 		}			
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -13127,7 +13750,10 @@ province_event = { #Roman West North American
 		roman_west_north_american_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -13159,6 +13785,11 @@ province_event = { #Roman West North American
 			factor = 0
 			old_latin_old_worlder = yes
 		}			
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -13306,7 +13937,10 @@ province_event = { #Roman Caribbean
 		roman_caribbean_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -13338,6 +13972,11 @@ province_event = { #Roman Caribbean
 			factor = 0
 			old_latin_old_worlder = yes
 		}			
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -13485,7 +14124,10 @@ province_event = { #Roman Mexican
 		roman_mexican_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -13517,6 +14159,11 @@ province_event = { #Roman Mexican
 			factor = 0
 			old_latin_old_worlder = yes
 		}			
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -13664,7 +14311,10 @@ province_event = { #Roman Colombian
 		roman_colombian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -13696,6 +14346,11 @@ province_event = { #Roman Colombian
 			factor = 0
 			old_latin_old_worlder = yes
 		}			
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -13843,7 +14498,10 @@ province_event = { #Roman Brazilian
 		roman_brazilian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -13875,6 +14533,11 @@ province_event = { #Roman Brazilian
 			factor = 0
 			old_latin_old_worlder = yes
 		}			
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -14022,7 +14685,10 @@ province_event = { #Roman Argentinian
 		roman_argentinian_region = yes
 		NOT = { nationalism = 25 }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = old_latin }
+			}	
 			owner = { ai = yes }
 		}
 		OR = {
@@ -14054,6 +14720,11 @@ province_event = { #Roman Argentinian
 			factor = 0
 			old_latin_old_worlder = yes
 		}			
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag

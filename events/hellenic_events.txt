@@ -15,7 +15,10 @@ province_event = { #Aegean Greek settlements and assimilation
 		NOT = { culture = tourkiki }
 		NOT = { has_global_flag = rhomaio_formed }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -46,6 +49,10 @@ province_event = { #Aegean Greek settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -189,7 +196,10 @@ province_event = { #illyrion settlements and assimilation
 		illyrion_culture_region = yes
 		NOT = { culture = illyrion }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -220,6 +230,10 @@ province_event = { #illyrion settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -363,7 +377,10 @@ province_event = { #Griko settlements and assimilation
 		graiko_culture_region = yes
 		NOT = { culture = griko }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -394,6 +411,10 @@ province_event = { #Griko settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -539,7 +560,10 @@ province_event = { #Pontic settlements and assimilation
 		NOT = { culture = pontic_greek }
 		NOT = { culture = tourkiki }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -570,6 +594,10 @@ province_event = { #Pontic settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -715,7 +743,10 @@ province_event = { #Cappadocian settlements and assimilation
 		NOT = { culture = cappadocian }
 		NOT = { culture = tourkiki }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -746,6 +777,10 @@ province_event = { #Cappadocian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -911,6 +946,11 @@ province_event = { #Armenian Assimilation
 	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1015,7 +1055,10 @@ province_event = { #Alexandrian settlements and assimilation
 		alexandrian_culture_region = yes
 		NOT = { culture = alexandrian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1046,6 +1089,10 @@ province_event = { #Alexandrian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1189,7 +1236,10 @@ province_event = { #Arabian settlements and assimilation
 		aravikos_culture_region = yes
 		NOT = { culture = aravikos }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1220,6 +1270,10 @@ province_event = { #Arabian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1363,7 +1417,10 @@ province_event = { #Hibernian settlements and assimilation
 		hibernian_culture_region = yes
 		NOT = { culture = hibernian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1394,6 +1451,10 @@ province_event = { #Hibernian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1538,7 +1599,10 @@ province_event = { #Albian settlements and assimilation
 		owner = { has_country_modifier = hellenic_settlements }
 		NOT = { culture = albian }	
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1569,6 +1633,10 @@ province_event = { #Albian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1712,7 +1780,10 @@ province_event = { #Varangian settlements and assimilation
 		varangian_culture_region = yes
 		NOT = { culture = varangian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1743,6 +1814,10 @@ province_event = { #Varangian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -1886,7 +1961,10 @@ province_event = { #Avissinos settlements and assimilation
 		avissinos_culture_region = yes
 		NOT = { culture = avissinos }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -1917,6 +1995,10 @@ province_event = { #Avissinos settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2060,7 +2142,10 @@ province_event = { #Antiochiou settlements and assimilation
 		antiocheia_culture_region = yes
 		NOT = { culture = anatolian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2091,6 +2176,10 @@ province_event = { #Antiochiou settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2234,7 +2323,10 @@ province_event = { #Persic settlements and assimilation
 		persic_culture_region = yes
 		NOT = { culture = persic }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2265,6 +2357,10 @@ province_event = { #Persic settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2541,7 +2637,10 @@ province_event = { #Rhomaio settlements and assimilation
 		NOT = { culture = rhomaio }
 		has_global_flag = rhomaio_formed
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2572,6 +2671,10 @@ province_event = { #Rhomaio settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2715,7 +2818,10 @@ province_event = { #Libyan settlements and assimilation
 		kirenike_culture_region = yes
 		NOT = { culture = kirenike }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2746,6 +2852,10 @@ province_event = { #Libyan settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -2889,7 +2999,10 @@ province_event = { #Carthaginian settlements and assimilation
 		karchidoniac_culture_region = yes
 		NOT = { culture = karchidoniac }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -2920,6 +3033,10 @@ province_event = { #Carthaginian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3063,7 +3180,10 @@ province_event = { #Moroccan settlements and assimilation
 		mavritanias_culture_region = yes
 		NOT = { culture = mavritanias }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3094,6 +3214,10 @@ province_event = { #Moroccan settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3237,7 +3361,10 @@ province_event = { #Skythian settlements and assimilation
 		skythis_culture_region = yes
 		NOT = { culture = scythian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3268,6 +3395,10 @@ province_event = { #Skythian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3411,7 +3542,10 @@ province_event = { #Bactrian settlements and assimilation
 		vaktrianos_culture_region = yes
 		NOT = { culture = vaktrianos }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3442,6 +3576,10 @@ province_event = { #Bactrian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3585,7 +3723,10 @@ province_event = { #Western Indian settlements and assimilation
 		indiki_koilada_culture_region = yes
 		NOT = { culture = indiki_koilada }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3616,6 +3757,10 @@ province_event = { #Western Indian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3759,7 +3904,10 @@ province_event = { #Massalian settlements and assimilation
 		massalian_culture_region = yes
 		NOT = { culture = massalian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3790,6 +3938,10 @@ province_event = { #Massalian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -3933,7 +4085,10 @@ province_event = { #Northern Italian settlements and assimilation
 		italiote_culture_region = yes
 		NOT = { culture = italiote }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -3964,6 +4119,10 @@ province_event = { #Northern Italian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4107,7 +4266,10 @@ province_event = { #Septimanian settlements and assimilation
 		septimanikion_culture_region = yes
 		NOT = { culture = septimanikion }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -4138,6 +4300,10 @@ province_event = { #Septimanian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4281,7 +4447,10 @@ province_event = { #Hesperic settlements and assimilation
 		karpessosion_culture_region = yes
 		NOT = { culture = hesperic }	
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -4312,6 +4481,10 @@ province_event = { #Hesperic settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4455,7 +4628,10 @@ province_event = { #Galatian settlements and assimilation
 		galatian_culture_region = yes
 		NOT = { culture = galatian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -4486,6 +4662,10 @@ province_event = { #Galatian settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4629,7 +4809,10 @@ province_event = { #Velgoi settlements and assimilation
 		velgoi_culture_region = yes
 		NOT = { culture = velgoi }	
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -4660,6 +4843,10 @@ province_event = { #Velgoi settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4803,7 +4990,10 @@ province_event = { #Pannonion settlements and assimilation
 		pannonion_culture_region = yes
 		NOT = { culture = pannonion }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -4834,6 +5024,10 @@ province_event = { #Pannonion settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -4977,7 +5171,10 @@ province_event = { #Dacion settlements and assimilation
 		dacion_culture_region = yes
 		NOT = { culture = dacion }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -5007,6 +5204,10 @@ province_event = { #Dacion settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5150,7 +5351,10 @@ province_event = { #Southwestern Germania settlements and assimilation
 		notiodytiki_germanikos_culture_region = yes
 		NOT = { culture = notiodytiki_germanikos }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -5181,6 +5385,10 @@ province_event = { #Southwestern Germania settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5324,7 +5532,10 @@ province_event = { #Northwestern Germania settlements and assimilation
 		voreiodytiki_germanikos_culture_region = yes
 		NOT = { culture = voreiodytiki_germanikos }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -5355,6 +5566,10 @@ province_event = { #Northwestern Germania settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5498,7 +5713,10 @@ province_event = { #Southeastern Germania settlements and assimilation
 		notioanatolikosgermanikos_culture_region = yes
 		NOT = { culture = notioanatolikos_germanikos }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -5529,6 +5747,10 @@ province_event = { #Southeastern Germania settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5672,7 +5894,10 @@ province_event = { #Northeastern Germania settlements and assimilation
 		voreioanatolikosgermanikos_culture_region = yes
 		NOT = { culture = voreioanatolikos_germanikos }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -5703,6 +5928,10 @@ province_event = { #Northeastern Germania settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -5846,7 +6075,10 @@ province_event = { #Kefales settlements and assimilation
 		kefales_culture_region = yes
 		NOT = { culture = kefales }	
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -5877,6 +6109,10 @@ province_event = { #Kefales settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6020,7 +6256,10 @@ province_event = { #Savramata settlements and assimilation
 		savramata_culture_region = yes
 		NOT = { culture = savramata }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -6051,6 +6290,10 @@ province_event = { #Savramata settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6194,7 +6437,10 @@ province_event = { #Krios Savramata settlements and assimilation
 		krios_savramata_culture_region = yes
 		NOT = { culture = krios_savramata }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -6225,6 +6471,10 @@ province_event = { #Krios Savramata settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6368,147 +6618,10 @@ province_event = { #Vuonos Savramata settlements and assimilation
 		vounos_savramata_culture_region = yes
 		NOT = { culture = vounos_savramata }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				any_neighbor_province = { culture_group = byzantine }
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = byzantine }
-			}					
-		}
-		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
-			owner = { has_country_modifier = hellenic_settlements }
-			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
-		}
-		has_global_flag = CI_events_enabled
-	}
-
-	mean_time_to_happen = {
-		#Template Settled MTTH
-		years = 50
-
-		modifier = { #Uncolonized land
-			factor = 0.1
-			OR = {
-				culture_group = byzantine
-			}	
-		}
-		modifier = {
 			AND = {
-				has_colonist = yes	
-				is_city = yes	
-			}
-			factor = 0.7
-		}
-
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
-		}
-		modifier = {
-			factor = 0.8
-			num_of_times_improved = 5
-			NOT = { has_dlc = "Dharma" }
-		}
-		modifier = {
-			factor = 0.6
-			num_of_times_improved = 10
-			NOT = { has_dlc = "Dharma" }
-		}
-		modifier = {
-			factor = 0.8
-			has_idea_to_settle_faster = yes
-		}
-		modifier = {
-			factor = 1.4
-			NOT = { development = 10 }
-		}
-		modifier = {
-			factor = 1.2
-			NOT = { development = 20 }
-		}
-		#Ideal dev is around 30
-		modifier = {
-			factor = 1.2
-			development = 40
-		}
-		modifier = {
-			factor = 1.4
-			development = 50
-		}
-		modifier = {
-			factor = 1.2
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.9
-			adm = 4
-		}
-		modifier = {
-			factor = 0.9
-			adm = 5
-		}
-		modifier = {
-			factor = 0.9
-			adm = 6
-		}
-		modifier = {
-			factor = 0.75
-			national_focus = adm
-		}
-	}
-
-	option = {
-		name = greek_conquest.i
-
-		change_culture = vounos_savramata
-	}
-}
-
-province_event = { #Makria Savramata settlements and assimilation
-	id = cultural_influence_greek.39
-	title = greek_conquest_17.title
-	desc = greek_conquest_17.desc
-	picture = CULTURE_eventPicture
-	goto = root
-	
-	trigger = {
-		owner = { culture_group = byzantine }
-		makria_savramata_culture_region = yes
-		NOT = { culture = makria_savramata }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -6539,6 +6652,191 @@ province_event = { #Makria Savramata settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacier
+		}
+		modifier = {
+			factor = 2
+			has_terrain = mountain
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = woods
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
+	}
+
+	option = {
+		name = greek_conquest.i
+
+		change_culture = vounos_savramata
+	}
+}
+
+province_event = { #Makria Savramata settlements and assimilation
+	id = cultural_influence_greek.39
+	title = greek_conquest_17.title
+	desc = greek_conquest_17.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = byzantine }
+		makria_savramata_culture_region = yes
+		NOT = { culture = makria_savramata }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
+			owner = { ai = yes }
+		}
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = byzantine }
+			}
+			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = byzantine }
+			}					
+		}
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
+			owner = { has_country_modifier = hellenic_settlements }
+			owner = { ai = no }
+			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6682,7 +6980,10 @@ province_event = { #South African settlements and assimilation
 		notia_aethiopas_culture_region = yes
 		NOT = { culture = notia_aethiopas }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -6695,6 +6996,10 @@ province_event = { #South African settlements and assimilation
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = byzantine }
+			}				
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
@@ -6709,6 +7014,10 @@ province_event = { #South African settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -6852,7 +7161,10 @@ province_event = { #Tavrika settlements and assimilation
 		tavrika_culture_region = yes
 		NOT = { culture = tavrika }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -6865,6 +7177,10 @@ province_event = { #Tavrika settlements and assimilation
 				has_colonist = yes
 				is_city = yes
 			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = byzantine }
+			}								
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
@@ -6879,6 +7195,10 @@ province_event = { #Tavrika settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7022,7 +7342,10 @@ province_event = { #Sogdanika settlements and assimilation
 		sogdanika_culture_region = yes
 		NOT = { culture = sogdanika }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -7053,6 +7376,10 @@ province_event = { #Sogdanika settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7196,7 +7523,10 @@ province_event = { #Helika settlements and assimilation
 		helika_culture_region = yes
 		NOT = { culture = helika }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -7227,6 +7557,10 @@ province_event = { #Helika settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7370,7 +7704,10 @@ province_event = { #Kavlika settlements and assimilation
 		kavlika_culture_region = yes
 		NOT = { culture = kavlika }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -7401,6 +7738,10 @@ province_event = { #Kavlika settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7544,7 +7885,10 @@ province_event = { #Thivetiani settlements and assimilation
 		thivetiani_culture_region = yes
 		NOT = { culture = thivetiani }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -7575,6 +7919,10 @@ province_event = { #Thivetiani settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7718,7 +8066,10 @@ province_event = { #Seresike settlements and assimilation
 		seresike_culture_region = yes
 		NOT = { culture = seresike }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -7749,6 +8100,10 @@ province_event = { #Seresike settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -7892,7 +8247,10 @@ province_event = { #Sineaka settlements and assimilation
 		sinaeka_culture_region = yes
 		NOT = { culture = sinaeka }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -7923,6 +8281,10 @@ province_event = { #Sineaka settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8066,7 +8428,10 @@ province_event = { #Anatoliarianka settlements and assimilation
 		anatoliarianka_culture_region = yes
 		NOT = { culture = anatoliarianka }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -8097,6 +8462,10 @@ province_event = { #Anatoliarianka settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8240,7 +8609,10 @@ province_event = { #Indiki settlements and assimilation
 		indiki_culture_region = yes
 		NOT = { culture = indiki }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -8271,6 +8643,10 @@ province_event = { #Indiki settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8414,7 +8790,10 @@ province_event = { #Koniaka settlements and assimilation
 		koniaka_culture_region = yes
 		NOT = { culture = koniaka }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -8445,6 +8824,10 @@ province_event = { #Koniaka settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8588,7 +8971,10 @@ province_event = { #Taprovanika settlements and assimilation
 		taprovanika_culture_region = yes
 		NOT = { culture = taprovanika }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -8619,6 +9005,10 @@ province_event = { #Taprovanika settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8762,7 +9152,10 @@ province_event = { #Palivothrika settlements and assimilation
 		palivothrika_culture_region = yes
 		NOT = { culture = palivothrika }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -8793,6 +9186,10 @@ province_event = { #Palivothrika settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -8936,7 +9333,10 @@ province_event = { #Megali Sineaka settlements and assimilation
 		megali_sinaeka_culture_region = yes
 		NOT = { culture = megali_sinaeka }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -8967,6 +9367,10 @@ province_event = { #Megali Sineaka settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9110,7 +9514,10 @@ province_event = { #Anatoliarianka settlements and assimilation
 		anatolianesika_culture_region = yes
 		NOT = { culture = anatolianesika }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -9141,6 +9548,10 @@ province_event = { #Anatoliarianka settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9284,7 +9695,10 @@ province_event = { #Polinesika settlements and assimilation
 		polinesika_culture_region = yes
 		NOT = { culture = polinesika }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -9315,6 +9729,10 @@ province_event = { #Polinesika settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9458,7 +9876,10 @@ province_event = { #Erimos Aethiopas settlements and assimilation
 		erimos_aethiopas_culture_region = yes
 		NOT = { culture = erimos_aethiopas }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -9489,6 +9910,10 @@ province_event = { #Erimos Aethiopas settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9632,7 +10057,10 @@ province_event = { #Nkini settlements and assimilation
 		nkini_culture_region = yes
 		NOT = { culture = nkini }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -9663,6 +10091,10 @@ province_event = { #Nkini settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9806,7 +10238,10 @@ province_event = { #Akti Aethiopas settlements and assimilation
 		akti_aethiopas_culture_region = yes	
 		NOT = { culture = akti_aethiopas }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -9837,6 +10272,10 @@ province_event = { #Akti Aethiopas settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9980,7 +10419,10 @@ province_event = { #Esoteikos Aethiopas settlements and assimilation
 		esoterikos_aethiopas_culture_region = yes
 		NOT = { culture = esoterikos_aethiopas }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -10011,6 +10453,10 @@ province_event = { #Esoteikos Aethiopas settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -10154,7 +10600,10 @@ province_event = { #Souachiliaktikos settlements and assimilation
 		souachiliaktikos_culture_region = yes
 		NOT = { culture = souachiliaktikos }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -10185,6 +10634,10 @@ province_event = { #Souachiliaktikos settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -10328,7 +10781,10 @@ province_event = { #Olissoponion settlements and assimilation
 		olissiponion_culture_region = yes
 		NOT = { culture = olissiponion }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = byzantine }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -10359,6 +10815,10 @@ province_event = { #Olissoponion settlements and assimilation
 		years = 10
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag

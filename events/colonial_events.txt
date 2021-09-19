@@ -307,6 +307,10 @@ province_event = { #Generic Merchant Republic Colonies
 
 		#MTTH settings
 		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
 		}
@@ -467,7 +471,10 @@ province_event = { #Changing settlements in Settler-Colonies (Converts culture t
 		native_american_trigger = no
 		NOT = { culture_group = OWNER }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
-			has_owner_accepted_culture = no
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = OWNER }
+			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -494,6 +501,10 @@ province_event = { #Changing settlements in Settler-Colonies (Converts culture t
 		years = 5 #Halved MTTH since colonies
 
 		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
