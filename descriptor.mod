@@ -1,12 +1,12 @@
-version="0.7"
+version="0.7.4.4"
 tags={
 	"Events"
 	"Gameplay"
-}
-dependencies={
+	@@ -7,7 +7,6 @@ dependencies={
 	"Beyond Typus"
 	"-BT Addon: Byzantine Resurgence"
 }
-name="[BETA] BT Addon : Cultural Influence | Github Mirror"
-supported_version="1.30.*"
-remote_file_id="2296930803"
+picture="Thumbnail.png"
+name="[BETA] Beyond Typus Addon : Cultural Influence | Version 0.7.4.4 Hellenic"
+supported_version="1.30.*.*"
+remote_file_id="1374507960"
