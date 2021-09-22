@@ -151,7 +151,6 @@ anglo_norman_english_culture_region = {
 	OR = {
 		province_id = 7935 #Chinion
 		province_id = 4389 #Tours
-		province_id = 7936 #Lochtes
 		area = brittany_area
 		area = lower_brittany_area
 		area = lower_normandy_area
@@ -167,7 +166,7 @@ anglo_norman_english_culture_region = {
 		AND = {
 			area = loire_area
 			NOT = { province_id = 7958 } #Montargis
-			NOT = { province_id = 7978 } #Blois
+			NOT = { province_id = 4776 } #Blois
 			NOT = { province_id = 184 } #Orleans
 			NOT = { province_id = 7957 } #Etampes
 		}
@@ -194,11 +193,15 @@ anglo_burgundian_culture_region = {
 		area = bourgogne_area #Burgundy
 		area = champagne_area
 		area = lorraine_area
-		area = luxembourg_area
+		AND = {
+			area = luxembourg_area
+			NOT = { province_id = 8027 } #St. Vith
+		}	
 		area = west_burgundy_area #Franche-Comte
 		area = limousin_area
 		province_id = 7958 #Montargis
 		province_id = 4776 #Blois
+		province_id = 7936 #Lochtes
 		province_id = 184 #Orleans
 		province_id = 7957 #Etampes
 		province_id = 3198 #Saarland
@@ -206,6 +209,7 @@ anglo_burgundian_culture_region = {
 		province_id = 75 #Strassburg
 		province_id = 4765 #Kolmar
 		province_id = 1880 #Sundgau
+		province_id = 185 #Gatinais
 	}
 }
 
@@ -246,6 +250,7 @@ anglo_lower_rhenish_culture_region = {
 			area = lower_rhineland_area #South Rhine
 			NOT = { province_id = 3198 } #Saarland
 		}
+		province_id = 8027 #St. Vith
 	}
 }
 
@@ -283,8 +288,9 @@ anglo_upper_rhenish_culture_region = {
 		}
 		province_id = 74 #Baden
 		province_id = 72 #Breisgau
-		province_id = 3205 #Constance
+		province_id = 4712 #Constance
 		province_id = 69 #Oberschwaben
+		province_id = 4714 #Durlach
 	}
 }
 
