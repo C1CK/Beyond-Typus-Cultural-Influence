@@ -42,17 +42,17 @@ province_event = { #Irish reclamation (Settle)
 	trigger = {
 		OR = {
 			owner = { culture_group = gaelic }
-			owner = { culture_group = celtic }
+			owner = { culture_group = unified_celtic_group }
 		}
 		gaelic_irish_culture_region = yes		
 		NOT = { culture = irish }
-		NOT = { culture = celtic_irish }
+		NOT = { culture = celtic_irish_culture }
 		NOT = { culture = goidhealach }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
 				OR = {
-					NOT = { culture_group = celtic }
+					NOT = { culture_group = unified_celtic_group }
 					NOT = { culture_group = gaelic }
 				}	
 			}	
@@ -62,7 +62,7 @@ province_event = { #Irish reclamation (Settle)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				OR = {
-					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = gaelic }
 				}
 			}
@@ -74,7 +74,7 @@ province_event = { #Irish reclamation (Settle)
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
-					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = gaelic }
 				}	
 			}				
@@ -226,7 +226,7 @@ province_event = { #Irish reclamation (Settle)
 			limit = {
 				has_global_flag = gaels_and_britons_reunited_into_one_group
 			}
-			change_culture = celtic_irish
+			change_culture = celtic_irish_culture
 		}
 		if = {
 			limit = {
@@ -247,17 +247,17 @@ province_event = { #Highlander reclamation (Settle)
 	trigger = {
 		OR = {
 			owner = { culture_group = gaelic }
-			owner = { culture_group = celtic }
+			owner = { culture_group = unified_celtic_group }
 		}
 		gaelic_scottish_culture_region = yes		
 		NOT = { culture = highland_scottish }
-		NOT = { culture = celtic_highlander }
+		NOT = { culture = celtic_highland_scottish_culture }
 		NOT = { culture = goidhealach }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
 				OR = {
-					NOT = { culture_group = celtic }
+					NOT = { culture_group = unified_celtic_group }
 					NOT = { culture_group = gaelic }
 				}	
 			}	
@@ -267,7 +267,7 @@ province_event = { #Highlander reclamation (Settle)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				OR = {
-					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = gaelic }
 				}
 			}
@@ -279,7 +279,7 @@ province_event = { #Highlander reclamation (Settle)
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
-					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = gaelic }
 				}	
 			}				
@@ -431,7 +431,7 @@ province_event = { #Highlander reclamation (Settle)
 			limit = {
 				has_global_flag = gaels_and_britons_reunited_into_one_group
 			}
-			change_culture = celtic_highlander
+			change_culture = celtic_highland_scottish_culture
 		}
 		if = {
 			limit = {
@@ -452,7 +452,7 @@ province_event = { #Manx reclamation (Settle)
 	trigger = {
 		OR = {
 			owner = { culture_group = gaelic }
-			owner = { culture_group = celtic }
+			owner = { culture_group = unified_celtic_group }
 		}
 		manx_culture_region = yes		
 		NOT = { culture = manx }
@@ -462,7 +462,7 @@ province_event = { #Manx reclamation (Settle)
 			AND = {
 				has_owner_accepted_culture = no
 				OR = {
-					NOT = { culture_group = celtic }
+					NOT = { culture_group = unified_celtic_group }
 					NOT = { culture_group = gaelic }
 				}	
 			}	
@@ -472,7 +472,7 @@ province_event = { #Manx reclamation (Settle)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				OR = {
-					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = gaelic }
 				}
 			}
@@ -484,7 +484,7 @@ province_event = { #Manx reclamation (Settle)
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
-					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = gaelic }
 				}	
 			}				
@@ -657,17 +657,17 @@ province_event = { #Cornish Expansion (Settle)
 	trigger = {
 		OR = {
 			owner = { culture_group = brythonic }
-			owner = { culture_group = celtic }
+			owner = { culture_group = unified_celtic_group }
 		}
 		briton_cornish_culture_region = yes		
 		NOT = { culture = cornish }
-		NOT = { culture = celtic_cornish }
+		NOT = { culture = celtic_cornish_culture }
 		NOT = { culture = brythonaidd }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
 				OR = {
-					NOT = { culture_group = celtic }
+					NOT = { culture_group = unified_celtic_group }
 					NOT = { culture_group = brythonic }
 				}	
 			}	
@@ -677,7 +677,7 @@ province_event = { #Cornish Expansion (Settle)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				OR = {
-					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = brythonic }
 				}
 			}
@@ -689,7 +689,7 @@ province_event = { #Cornish Expansion (Settle)
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
-					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = brythonic }
 				}	
 			}				
@@ -841,7 +841,7 @@ province_event = { #Cornish Expansion (Settle)
 			limit = {
 				has_global_flag = gaels_and_britons_reunited_into_one_group
 			}
-			change_culture = celtic_cornish
+			change_culture = celtic_cornish_culture
 		}
 		if = {
 			limit = {
@@ -862,17 +862,17 @@ province_event = { #Welsh Expansion (Settle)
 	trigger = {
 		OR = {
 			owner = { culture_group = brythonic }
-			owner = { culture_group = celtic }
+			owner = { culture_group = unified_celtic_group }
 		}
 		briton_welsh_culture_region = yes		
 		NOT = { culture = welsh }
-		NOT = { culture = celtic_welsh }
+		NOT = { culture = celtic_welsh_culture }
 		NOT = { culture = brythonaidd }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
 				OR = {
-					NOT = { culture_group = celtic }
+					NOT = { culture_group = unified_celtic_group }
 					NOT = { culture_group = brythonic }
 				}	
 			}	
@@ -882,7 +882,7 @@ province_event = { #Welsh Expansion (Settle)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				OR = {
-					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = brythonic }
 				}
 			}
@@ -894,7 +894,7 @@ province_event = { #Welsh Expansion (Settle)
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
-					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = brythonic }
 				}	
 			}				
@@ -1046,7 +1046,7 @@ province_event = { #Welsh Expansion (Settle)
 			limit = {
 				has_global_flag = gaels_and_britons_reunited_into_one_group
 			}
-			change_culture = celtic_welsh
+			change_culture = celtic_welsh_culture
 		}
 		if = {
 			limit = {
@@ -1065,7 +1065,7 @@ province_event = { #Cwmbraic settlements and assimilation (Only Celts) (Settle)
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = celtic }
+		owner = { culture_group = unified_celtic_group }
 		cwmbraic_culture_region = yes		
 		NOT = { culture = cwmbraic }
 		NOT = { culture = brythonaidd }
@@ -1073,14 +1073,14 @@ province_event = { #Cwmbraic settlements and assimilation (Only Celts) (Settle)
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = celtic }
+				NOT = { culture_group = unified_celtic_group }
 			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = celtic }
+				any_neighbor_province = { culture_group = unified_celtic_group }
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -1089,7 +1089,7 @@ province_event = { #Cwmbraic settlements and assimilation (Only Celts) (Settle)
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = celtic }
+				any_neighbor_province = { culture_group = unified_celtic_group }
 			}				
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -1247,21 +1247,21 @@ province_event = { #Corieltauvi settlements and assimilation (Only Celts) (Settl
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = celtic }
+		owner = { culture_group = unified_celtic_group }
 		corieltauvi_culture_region = yes		
 		NOT = { culture = corieltauvi }
 		NOT = { culture = brythonaidd }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = celtic }
+				NOT = { culture_group = unified_celtic_group }
 			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = celtic }
+				any_neighbor_province = { culture_group = unified_celtic_group }
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -1270,7 +1270,7 @@ province_event = { #Corieltauvi settlements and assimilation (Only Celts) (Settl
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = celtic }
+				any_neighbor_province = { culture_group = unified_celtic_group }
 			}				
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -1428,21 +1428,21 @@ province_event = { #Cantiaci settlements and assimilation (Only Celts) (Settle)
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = celtic }
+		owner = { culture_group = unified_celtic_group }
 		cantiaci_culture_region = yes		
 		NOT = { culture = cantiaci }
 		NOT = { culture = brythonaidd }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = celtic }
+				NOT = { culture_group = unified_celtic_group }
 			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = celtic }
+				any_neighbor_province = { culture_group = unified_celtic_group }
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -1451,7 +1451,7 @@ province_event = { #Cantiaci settlements and assimilation (Only Celts) (Settle)
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = celtic }
+				any_neighbor_province = { culture_group = unified_celtic_group }
 			}				
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -1611,17 +1611,17 @@ province_event = { #Breton Expansion (Settle)
 	trigger = {
 		OR = {
 			owner = { culture_group = brythonic }
-			owner = { culture_group = celtic }
+			owner = { culture_group = unified_celtic_group }
 		}
 		brezhoneg_culture_region = yes		
 		NOT = { culture = breton }
-		NOT = { culture = celtic_breton }
+		NOT = { culture = celtic_breton_culture }
 		NOT = { culture = galianeg }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
 				OR = {
-					NOT = { culture_group = celtic }
+					NOT = { culture_group = unified_celtic_group }
 					NOT = { culture_group = brythonic }
 				}	
 			}	
@@ -1631,7 +1631,7 @@ province_event = { #Breton Expansion (Settle)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				OR = {
-					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = brythonic }
 				}
 			}
@@ -1643,7 +1643,7 @@ province_event = { #Breton Expansion (Settle)
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
-					any_neighbor_province = { culture_group = celtic }
+					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = brythonic }
 				}
 			}				
@@ -1795,7 +1795,7 @@ province_event = { #Breton Expansion (Settle)
 			limit = {
 				has_global_flag = gaels_and_britons_reunited_into_one_group
 			}
-			change_culture = celtic_breton
+			change_culture = celtic_breton_culture
 		}
 		if = {
 			limit = {
@@ -1815,15 +1815,15 @@ country_event = { #Isles Reclaimed (Enables Goidelic Brythonic in-fighting)
 	fire_only_once = yes
 
 	trigger = {
-		culture_group = celtic
+		culture_group = unified_celtic_group
 		british_isles_region = {
 			type = all
-			culture_group = celtic
+			culture_group = unified_celtic_group
 			country_or_vassal_holds = ROOT
 		}
 		ireland_area = {
 			type = all
-			culture_group = celtic
+			culture_group = unified_celtic_group
 			country_or_vassal_holds = ROOT
 		}
 	}
@@ -1836,8 +1836,8 @@ country_event = { #Isles Reclaimed (Enables Goidelic Brythonic in-fighting)
 		if = {
 			limit = {
 				OR = {
-					primary_culture = celtic_cornish
-					primary_culture = celtic_welsh
+					primary_culture = celtic_cornish_culture
+					primary_culture = celtic_welsh_culture
 					primary_culture = cantiaci
 					primary_culture = corieltauvi
 					primary_culture = cwmbraic
@@ -1848,8 +1848,8 @@ country_event = { #Isles Reclaimed (Enables Goidelic Brythonic in-fighting)
 		if = {
 			limit = {
 				OR = {
-					primary_culture = celtic_irish
-					primary_culture = celtic_highlander
+					primary_culture = celtic_irish_culture
+					primary_culture = celtic_highland_scottish_culture
 					primary_culture = celtic_manx
 				}
 			}
@@ -1895,8 +1895,8 @@ country_event = { #Brythonaidd Spawned
 			every_country = {
 				limit = {
 					OR = {
-						primary_culture = celtic_cornish
-						primary_culture = celtic_welsh
+						primary_culture = celtic_cornish_culture
+						primary_culture = celtic_welsh_culture
 						primary_culture = cantiaci
 						primary_culture = corieltauvi
 						primary_culture = cwmbraic
@@ -2137,9 +2137,9 @@ country_event = { #Goidhealach Spawned
 			every_country = {
 				limit = {
 					OR = {
-						primary_culture = celtic_irish
+						primary_culture = celtic_irish_culture
 						primary_culture = celtic_manx
-						primary_culture = celtic_highlander
+						primary_culture = celtic_highland_scottish_culture
 					}
 				}
 				set_ruler_culture = goidhealach
@@ -2304,21 +2304,21 @@ province_event = { #Belgae settlements and assimilation (Settle)
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = celtic }
+		owner = { culture_group = unified_celtic_group }
 		belgae_culture_region = yes		
 		NOT = { culture = belgae }
 		NOT = { culture = galianeg }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = celtic }
+				NOT = { culture_group = unified_celtic_group }
 			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = celtic }
+				any_neighbor_province = { culture_group = unified_celtic_group }
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -2327,7 +2327,7 @@ province_event = { #Belgae settlements and assimilation (Settle)
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = celtic }
+				any_neighbor_province = { culture_group = unified_celtic_group }
 			}				
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -2485,21 +2485,21 @@ province_event = { #Pictone settlements and assimilation (Settle)
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = celtic }
+		owner = { culture_group = unified_celtic_group }
 		pictone_culture_region = yes		
 		NOT = { culture = pictone }
 		NOT = { culture = galianeg }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = celtic }
+				NOT = { culture_group = unified_celtic_group }
 			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = celtic }
+				any_neighbor_province = { culture_group = unified_celtic_group }
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -2508,7 +2508,7 @@ province_event = { #Pictone settlements and assimilation (Settle)
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = celtic }
+				any_neighbor_province = { culture_group = unified_celtic_group }
 			}				
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -2666,21 +2666,21 @@ province_event = { #Arverni settlements and assimilation (Settle)
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = celtic }
+		owner = { culture_group = unified_celtic_group }
 		arverni_culture_region = yes		
 		NOT = { culture = arverni }
 		NOT = { culture = galianeg }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = celtic }
+				NOT = { culture_group = unified_celtic_group }
 			}	
 			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = celtic }
+				any_neighbor_province = { culture_group = unified_celtic_group }
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -2689,7 +2689,7 @@ province_event = { #Arverni settlements and assimilation (Settle)
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = celtic }
+				any_neighbor_province = { culture_group = unified_celtic_group }
 			}				
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -2850,7 +2850,7 @@ country_event = { #Galianeg Formed
 
 	trigger = {
 		OR = {
-			primary_culture = celtic_breton
+			primary_culture = celtic_breton_culture
 			primary_culture = belgae
 			primary_culture = pictone
 			primary_culture = arverni
@@ -2858,7 +2858,7 @@ country_event = { #Galianeg Formed
 		NOT = {
 			any_province = {
 				galianeg_culture_region = yes
-				NOT = { culture_group = celtic }
+				NOT = { culture_group = unified_celtic_group }
 				NOT = { owned_by = ROOT }
 			}
 		}
