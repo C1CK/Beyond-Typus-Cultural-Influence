@@ -53,6 +53,42 @@ tribal_kingdom = {
 	}
 }
 
+polynesian_tribe = {
+	icon = "tribal_council"
+	allow_normal_conversion = no
+	potential = {
+		culture_group = pacific
+		has_reform = polynesian_tribe
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = -10
+	native_mechanic = no
+	allow_migration = yes
+	fixed_rank = 1
+	lock_level_when_selected = yes
+	modifiers = {
+		global_manpower_modifier = 0.2
+	}
+}
+
+polynesian_kingdom = {
+	icon = "tribal_council"
+	allow_normal_conversion = no
+	potential = {
+		culture_group = pacific
+		has_reform = polynesian_kingdom
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	modifiers = {
+		naval_forcelimit_modifier = 0.2
+		range = 0.2
+		vassal_income = 0.2
+		reduced_liberty_desire = 20
+		governing_capacity_modifier = -0.5
+	}
+}
+
 siberian_tribe = {
 	icon = "shaman"
 	allow_normal_conversion = no
@@ -69,6 +105,19 @@ siberian_tribe = {
 	modifiers = {
 		stability_cost_modifier = -0.33
 		global_institution_spread = -0.2
+	}
+}
+
+stateless_society = {
+	icon = "fist_in_air"
+	allow_normal_conversion = no
+	valid_for_nation_designer = yes
+	lock_level_when_selected = yes
+	nation_designer_cost = 0
+	modifiers = {
+		governing_capacity_modifier = -0.99
+		defensiveness = 0.75
+		land_morale = 0.15
 	}
 }
 
