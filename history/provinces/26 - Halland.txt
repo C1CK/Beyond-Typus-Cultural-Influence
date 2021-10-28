@@ -1,3 +1,7 @@
+# Brian's variables
+set_variable = { which = pm_europe value = 26 }
+set_variable = { which = pm_prov_id value = 26 }
+set_variable = { which = pm_inhabitable value = 26 }
 #Halland, contains Halmstad, Varberg.
 #Region - Scandinavia
 #Area - Skaneland
@@ -13,7 +17,6 @@ base_production = 3
 trade_goods = grain
 base_manpower = 2 
 capital = "Halmstad"
-estate = estate_nobles
 is_city = yes
 
 discovered_by = western
@@ -28,7 +31,20 @@ discovered_by = eastern
 
 #1291 - 1444
 
-#2nd Shattering unused
+#2nd Shattering
+1444.11.13 = { #BeyondTypus batch edit shortcut the second shattering begins
+	remove_core = DAN
+	add_core = SCN
+	owner = SCN
+	controller = SCN
+} #Fantasy/alt-history tags for gameplay & multiplayer balance in SE. Please also remember to cut any cores from original larger tags then readd below.
+1444.11.15 = { #BeyondTypus batch edit shortcut the second shattering ends
+	add_core = DAN
+	remove_core = SCN
+	owner = DAN
+	controller = DAN
+} #End of shattered history. Please revert owner to historical and cut any fantasy cores. Also don't forget to readd any cut historical cores
+
 #2nd Performance Start Unused
 
 #1444 on

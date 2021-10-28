@@ -1,23 +1,31 @@
-#BT Scandinavia and Baltics reoverhaul
+# Brian's variables
+set_variable = { which = pm_europe value = 7833 }
+set_variable = { which = pm_prov_id value = 7833 }
+set_variable = { which = pm_inhabitable value = 7833 }
 
-owner = SMB
-controller = SMB
-add_core = SMB
-culture = curonian
+owner = SMA # changed from SMB
+controller = SMA # changed from SMB
+add_core = SMA # changed from SMB
+culture = curonian # Curonians. Could do a new one province culture... but really, why bother? smdh guys :(
 religion = catholic
 capital = "Fischhausen"
+is_city = yes
+hre = no
 base_tax = 3
 base_production = 3
 base_manpower = 2
 trade_goods = gems
-is_city = yes
-hre = no
+extra_cost = 10
 
 discovered_by = muslim
 discovered_by = ottoman
 discovered_by = eastern
 discovered_by = western
 
+add_permanent_province_modifier = {
+	name = bt_amber_coast
+	duration = -1
+}
 
 #Province history completed by - Draiocht
 #1291.5.21 = { #BeyondTypus batch edit shortcut the first shattering begins
@@ -65,5 +73,3 @@ discovered_by = western
 #	controller = XXX
 #	remove_core = XXX
 #} #Return to proper mod added owners and cuts vanilla core, typically.
-
-#1444 on
