@@ -9,8 +9,12 @@ west_frisian_culture_region = {
 			NOT = { province_id = 8017 } #Cujik
 		}
 		area = frisia_area
+		area = oversticht_area
 		province_id = 2973 #Meppen
 		province_id = 55 #Oldenburg
+		province_id = 8404
+		province_id = 4770
+		province_id = 8017
 	}
 }
 
@@ -24,6 +28,9 @@ north_frisian_culture_region = {
 		}
 		area = schleswig_area
 		area = jutland_area
+		province_id = 8296
+		province_id = 8297
+		province_id = 8298		
 	}
 }
 
@@ -37,7 +44,7 @@ frisian_culture_region = {
 anglosaxon_culture_region = {
 	OR = {
 		region = british_isles_region
-		region = ireland_area
+		region = ireland_region
 		province_id = 369 #Orkney
 		province_id = 1978 #Shetlands
 	}
@@ -54,7 +61,18 @@ frisian_saxon_culture_region = {
 		province_id = 2971 #Hoya
 		province_id = 4771 #Verden
 		area = lower_saxony_area #Hannover
-		area = northern_saxony_area #Altmark
+		AND = {
+			area = northern_saxony_area #Altmark
+			NOT = { province_id = 4786 }
+		}	
+		area = braunschweig_area
+		AND = {
+			area = weser_area
+			NOT = { province_id = 55 }
+			NOT = { province_id = 2973 }
+			NOT = { province_id = 8404 }
+		}	
+		area = north_rhine_area
 	}
 }
 
@@ -72,5 +90,6 @@ frisian_new_saxon_culture_region = {
 		province_id = 7818 #Kammin
 		province_id = 7819 #Pyritz
 		province_id = 4746 #Stargard
+		province_id = 4786
 	}
 }

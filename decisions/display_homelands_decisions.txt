@@ -1,5 +1,35 @@
 country_decisions = { #Areas not otherwise mentioned via another Decision are shown here.
-	serbo_croat_homelands = {
+	show_ci_homelands = { #Technical
+		major = yes
+		potential = {
+			AI = no
+			NOT = { has_global_flag = ci_homelands_shown }
+		}
+
+		allow = {
+			always = yes
+		}
+
+		effect = {
+			set_global_flag = ci_homelands_shown
+		}
+	}
+	hide_ci_homelands = {
+		major = yes
+		potential = {
+			AI = no
+			has_global_flag = ci_homelands_shown
+		}
+
+		allow = {
+			always = yes
+		}
+
+		effect = {
+			clr_global_flag = ci_homelands_shown
+		}
+	}
+	serbo_croat_homelands = { #South Slavic Start, Balto-Slavic Start
 		major = no
 		potential = {
 			culture_group = south_slavic
@@ -51,7 +81,7 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 		}
 	}
 
-	slovene_homelands = {
+	slovene_homelands = { #South Slavic End
 		major = no
 		potential = {
 			culture_group = south_slavic
@@ -77,7 +107,7 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 		}
 	}
 
-	ruthenian_homelands = {
+	ruthenian_homelands = { #East Slavic Start
 		major = no
 		potential = {
 			culture_group = east_slavic
@@ -275,16 +305,16 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 			factor = 0
 		}
 	}
-
-	french_homelands = {
+	
+	siberian_russian_homelands = { #East Slavic End
 		major = no
 		potential = {
-			culture_group = french
+			culture_group = east_slavic
+			has_global_flag = ci_homelands_shown
 		}
 
 		provinces_to_highlight = {
-			french_homeland = yes
-			has_global_flag = ci_homelands_shown
+			siberian_russian_culture_region = yes
 		}
 
 		allow = {
@@ -298,9 +328,9 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 		ai_will_do = {
 			factor = 0
 		}
-	}
+	}	
 
-	polish_homelands = {
+	polish_homelands = { #West Slavic Start
 		major = no
 		potential = {
 			culture_group = west_slavic
@@ -371,8 +401,56 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 			factor = 0
 		}
 	}
+	
+	czech_homelands = {
+		major = no
+		potential = {
+			culture_group = west_slavic
+			has_global_flag = ci_homelands_shown
+		}
 
-	silesian_homelands = {
+		provinces_to_highlight = {
+			czech_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	slovakian_homelands = {
+		major = no
+		potential = {
+			culture_group = west_slavic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			slovakian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	silesian_homelands = { #West Slavic End, Balto-Slavic End
 		major = no
 		potential = {
 			culture_group = west_slavic
@@ -395,8 +473,2767 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 			factor = 0
 		}
 	}
+	roman_italian_homelands = { #Latin Start, Romance Start
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
 
-	nomadic_homelands = {
+		provinces_to_highlight = {
+			roman_italian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	roman_irish_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_irish_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	roman_anglo_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_anglo_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_scot_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_scot_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	roman_aquitanian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_aquitanian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	roman_occitanian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_occitanian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}			
+	roman_french_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_french_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	roman_iberian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_iberian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	roman_lusitanian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_lusitanian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	roman_andalusian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_andalusian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_maghreb_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_maghreb_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_libyan_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_libyan_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_egyptian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_egyptian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_levant_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_levant_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_arabian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_arabian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_greek_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_greek_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_anatolian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_anatolian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_bulgarian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_bulgarian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_romanian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_romanian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_hungarian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_hungarian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_illyrian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_illyrian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_alpine_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_alpine_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_west_slavic_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_west_slavic_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_dutch_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_dutch_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_saxon_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_saxon_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_south_german_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_south_german_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_east_german_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_east_german_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_polish_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_polish_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_armenian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_armenian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_mesopotamian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_mesopotamian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_caucasus_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_caucasus_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_scandinavian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_scandinavian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_baltic_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_baltic_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_finnic_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_finnic_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_russian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_russian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_persian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_persian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_khorasani_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_khorasani_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_sarmatian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_sarmatian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_massagetana_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_massagetana_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_bactrian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_bactrian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_west_indian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_west_indian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_north_indian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_north_indian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_central_indian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_central_indian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_south_indian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_south_indian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_east_indian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_east_indian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_tibetan_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_tibetan_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_burmese_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_burmese_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_indochinese_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_indochinese_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_malay_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_malay_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_indonesian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_indonesian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_australian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_australian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_melanesian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_melanesian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_polynesian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_polynesian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_ethiopian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_ethiopian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_east_african_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_east_african_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_east_sahara_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_east_sahara_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_west_sahara_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_west_sahara_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_west_african_coast_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_west_african_coast_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_congolese_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_congolese_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_central_african_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_central_african_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_zambezi_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_zambezi_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_madagascar_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_madagascar_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_south_african_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_south_african_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_namibian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_namibian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_north_china_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_north_china_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_south_china_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_south_china_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_west_china_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_west_china_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_mongolian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_mongolian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_siberian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_siberian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_korean_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_korean_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_japanese_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_japanese_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_canadian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_canadian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_east_north_american_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_east_north_american_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	roman_central_north_american_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_central_north_american_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_west_north_american_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_west_north_american_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_caribbean_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_caribbean_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_mexican_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_mexican_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_colombian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_colombian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_brazilian_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_brazilian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	roman_argentinian_homelands = { #Latin End
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = old_latin
+		}
+
+		provinces_to_highlight = {
+			roman_argentinian_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	french_homelands = { #French Start
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			french_homeland = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	castillane_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			castillane_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	galicien_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			galicien_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	valencien_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			valencien_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	apennine_central_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			apennine_central_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	sud_apennine_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			sud_apennine_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	nouveau_provencal_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			nouveau_provencal_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	corse_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			corse_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	sarde_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			sarde_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	bas_francais_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			bas_francais_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	franglais_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			franglais_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	gaelique_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			gaelique_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	celtique_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			celtique_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	joutais_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			joutais_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	surlamerais_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			surlamerais_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	alpin_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			alpin_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	franque_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			franque_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	tcheque_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			tcheque_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	illyrien_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			illyrien_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	varsovien_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			varsovien_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	danubienne_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			danubienne_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	hellenique_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			hellenique_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	marocain_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			marocain_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	algerien_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			algerien_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	tunisien_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			tunisien_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	romain_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			romain_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	outre_mer_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			outre_mer_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	galate_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			galate_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	nil_francais_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			nil_francais_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	metropolitaine_colonial_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			metropolitaine_colonial_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	indochinois_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			indochinois_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	quebecois_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			quebecois_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	louisianais_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			louisianais_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	karipounais_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			karipounais_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}			
+	quechois_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			quechois_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	mozambicaine_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			mozambicaine_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	subsaharienne_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			subsaharienne_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	sud_africain_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			sud_africain_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	circumcaraibes_homelands = {
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			circumcaraibes_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	californienne_homelands = { #French End
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			culture_group = french
+		}
+
+		provinces_to_highlight = {
+			californienne_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	nomadic_homelands = { #Steppe
 		major = no
 		potential = {
 			is_nomad = yes
@@ -419,11 +3256,12 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 			factor = 0
 		}
 	}
-	aigaio_homelands = {
+	aigaio_homelands = { #Hellenic Start
 		major = no
 		potential = {
 			culture_group = byzantine
 			NOT = { any_province = { culture = rhomaio } }
+			any_province = { culture = greek }
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -443,6 +3281,295 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 			factor = 0
 		}
 	}
+	anatolikos_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			NOT = { any_province = { culture = rhomaio } }
+			any_province = { culture = anatolikos }
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anatolikos_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	moesian_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			NOT = { any_province = { culture = rhomaio } }
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			moesian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	cypriot_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			NOT = { any_province = { culture = rhomaio } }
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			cypriot_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	thracian_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			AND = {
+				NOT = { any_province = { culture = greek } }
+				NOT = { any_province = { culture = rhomaio } }				
+			}	
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			thracian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	macedonian_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			AND = {
+				NOT = { any_province = { culture = greek } }
+				NOT = { any_province = { culture = rhomaio } }				
+			}	
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			macedonian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	mikrasiatic_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			AND = {
+				NOT = { any_province = { culture = greek } }
+				NOT = { any_province = { culture = rhomaio } }				
+			}	
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			mikrasiatic_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	dodecanesian_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			AND = {
+				NOT = { any_province = { culture = greek } }
+				NOT = { any_province = { culture = rhomaio } }				
+			}	
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			dodecanesian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	hellas_culture_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			AND = {
+				NOT = { any_province = { culture = greek } }
+				NOT = { any_province = { culture = rhomaio } }				
+			}	
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			hellas_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}			
+	epirotan_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			AND = {
+				NOT = { any_province = { culture = greek } }
+				NOT = { any_province = { culture = rhomaio } }				
+			}	
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			epirotan_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	phyrgian_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			AND = {
+				NOT = { any_province = { culture = anatolikos } }
+				NOT = { any_province = { culture = rhomaio } }				
+			}	
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			phrygian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	pamphylian_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			AND = {
+				NOT = { any_province = { culture = anatolikos } }
+				NOT = { any_province = { culture = rhomaio } }				
+			}	
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			pamphylian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}				
 	illyrion_homelands = {
 		major = no
 		potential = {
@@ -517,7 +3644,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 		potential = {
 			culture_group = byzantine
 			has_global_flag = ci_homelands_shown
-			NOT = { any_province = { culture = rhomaio } }
+			OR = {
+				NOT = { any_province = { culture = anatolikos } }
+				NOT = { any_province = { culture = rhomaio } }
+			}	
 		}
 
 		provinces_to_highlight = {
@@ -541,7 +3671,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 		potential = {
 			culture_group = byzantine
 			has_global_flag = ci_homelands_shown
-			NOT = { any_province = { culture = rhomaio } }
+			OR = {
+				NOT = { any_province = { culture = anatolikos } }
+				NOT = { any_province = { culture = rhomaio } }
+			}	
 		}
 
 		provinces_to_highlight = {
@@ -1780,7 +4913,7 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 			factor = 0
 		}
 	}
-	souachiliaktikos_homelands = {
+	souachiliaktikos_homelands = { #Hellenic End
 		major = no
 		potential = {
 			culture_group = byzantine
@@ -1802,35 +4935,3618 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 		ai_will_do = {
 			factor = 0
 		}
-	}		
-	show_ci_homelands = {
-		major = yes
+	}			
+	west_frisian_homelands = { #Germanic Start, Anglo-Frisian Start
+		major = no
 		potential = {
-			AI = no
-			NOT = { has_global_flag = ci_homelands_shown }
+			culture_group = anglo_frisian
+			has_global_flag = ci_homelands_shown
+			has_global_flag = frisian_split
+		}
+
+		provinces_to_highlight = {
+			west_frisian_culture_region = yes
 		}
 
 		allow = {
-			always = yes
+			always = no
 		}
 
 		effect = {
-			set_global_flag = ci_homelands_shown
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
 		}
 	}
-	hide_ci_homelands = {
-		major = yes
+	north_frisian_homelands = {
+		major = no
 		potential = {
-			AI = no
+			culture_group = anglo_frisian
+			has_global_flag = ci_homelands_shown
+			has_global_flag = frisian_split
+		}
+
+		provinces_to_highlight = {
+			north_frisian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	frisian_homelands = {
+		major = no
+		potential = {
+			culture_group = anglo_frisian
 			has_global_flag = ci_homelands_shown
 		}
 
+		provinces_to_highlight = {
+			frisian_culture_region = yes
+		}
+
 		allow = {
-			always = yes
+			always = no
 		}
 
 		effect = {
-			clr_global_flag = ci_homelands_shown
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglosaxon_homelands = {
+		major = no
+		potential = {
+			culture_group = anglo_frisian
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglosaxon_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	frisian_saxon_homelands = {
+		major = no
+		potential = {
+			culture_group = anglo_frisian
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			frisian_saxon_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
 		}
 	}	
+	risian_new_saxon_homelands = { #Anglo-Frisian End
+		major = no
+		potential = {
+			culture_group = anglo_frisian
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			frisian_new_saxon_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	anglo_welsh_homelands = { #British Start
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_welsh_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	anglo_irish_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_irish_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	anglo_scottish_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_scottish_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	anglo_northumbrian_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_northumbrian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	anglo_english_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_english_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	anglo_standard_english_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			standard_english_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	standard_british_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			standard_british_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	anglo_arctic_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_arctic_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	anglo_norman_english_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_norman_english_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	anglo_aquitanian_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_aquitanian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	anglo_burgundian_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_burgundian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_toulousain_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_toulousain_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	anglo_lower_rhenish_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_lower_rhenish_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	anglo_frisian_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_frisian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	anglo_upper_rhenish_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_upper_rhenish_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_danish_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_danish_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_norwegian_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_norwegian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_swedish_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_swedish_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_finnish_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_finnish_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_laplander_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_laplander_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_baltic_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_baltic_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_pomeranian_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_pomeranian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_australian_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_australian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_kiwi_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_kiwi_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_caribbean_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_caribbean_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_american_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_american_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_canadian_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_canadian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_newfoundlander_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_newfoundlander_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_brazilian_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_brazilian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_peruvean_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_peruvean_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_colombian_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_colombian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_argentine_homelands = {
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_argentine_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglo_south_african_homelands = { #British End
+		major = no
+		potential = {
+			culture_group = british
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglo_south_african_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	hochdeutsch_homelands = { #South Germanic Start (South? West? idk)
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+			has_global_flag = hochdeutsch_created_flag
+		}
+
+		provinces_to_highlight = {
+			hochdeutsch_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	plattduutsch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+			has_global_flag = plattduutsch_created_flag
+		}
+
+		provinces_to_highlight = {
+			plattduutsch_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	dutch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+			has_global_flag = dutch_created_flag
+		}
+
+		provinces_to_highlight = {
+			dutch_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	northern_low_saxon_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			northern_low_saxon_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}			
+	pommeranian_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			pommeranian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	preussisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			preussisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	westphalian_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			westphalian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	eastphalian_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			eastphalian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	markish_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			markish_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	saxon_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			saxon_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	low_franconian_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			low_franconian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	central_franconian_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			central_franconian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	rhine_franconian_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			rhine_franconian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	east_franconian_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			east_franconian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	alemannisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			alemannisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	bavarian_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			bavarian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	schlesisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			schlesisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	sudeten_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			sudeten_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	posisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			posisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	baltendeutsch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			baltendeutsch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	karpatendeutsch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			karpatendeutsch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	donauschwaben_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			donauschwaben_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	dinaridendeutsch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			dinaridendeutsch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	epiroten_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			epiroten_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	nowgoroder_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			nowgoroder_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	weissdeutsch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			weissdeutsch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	ruthenisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			ruthenisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	siebenburger_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			siebenburger_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	deutschthracian_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			deutschthracian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	schwarzmeererdeutsch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			schwarzmeererdeutsch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	krimdeutsch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			krimdeutsch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	bosporusdeutsch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			bosporusdeutsch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	moskauer_rjasaner_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			moskauer_rjasaner_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	wolgadeutsch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			wolgadeutsch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	kubandeutsch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			kubandeutsch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	kaukasusdeutsch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			kaukasusdeutsch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	weissmeerer_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			weissmeerer_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	perm_kasaner_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			perm_kasaner_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	juten_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			juten_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	schwedisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			schwedisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	norwegisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			norwegisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	finnisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			finnisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	anglisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anglisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	lottringer_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			lottringer_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	frankisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			frankisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	langobardisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			langobardisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	rivieradeutsch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			rivieradeutsch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	suebisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			suebisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	westgotisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			westgotisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	italienisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			italienisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	vandalisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			vandalisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	marokkanisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			marokkanisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	syrisch_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			syrisch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	niler_homelands = {
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			niler_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	saharadeutsch_homelands = { #Germanic End, South Germanic End (South? West? idk)
+		major = no
+		potential = {
+			culture_group = germanic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			saharadeutsch_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	gaelic_scottish_homelands = { #Celtic Start, Gaelic Start, well the 2 celtic groups are pretty close anyway but meh
+		major = no
+		potential = {
+			OR = {
+				culture_group = gaelic
+				culture_group = unified_celtic_group
+			}	
+			NOT = { has_country_flag = goidhealach_nation_flag }
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			gaelic_scottish_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	gaelic_irish_homelands = {
+		major = no
+		potential = {
+			OR = {
+				culture_group = gaelic
+				culture_group = unified_celtic_group
+			}	
+			NOT = { has_country_flag = goidhealach_nation_flag }			
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			gaelic_irish_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	manx_homelands = { #Gaelic End
+		major = no
+		potential = {
+			OR = {
+				culture_group = gaelic
+				culture_group = unified_celtic_group
+			}	
+			NOT = { has_country_flag = goidhealach_nation_flag }			
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			manx_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	briton_welsh_homelands = { #Brythonic Start
+		major = no
+		potential = {
+			OR = {
+				culture_group = brythonic
+				culture_group = unified_celtic_group
+			}	
+			has_global_flag = ci_homelands_shown
+			NOT = { has_country_flag = brythonaidd_nation_flag }			
+		}
+
+		provinces_to_highlight = {
+			briton_welsh_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	briton_cornish_homelands = {
+		major = no
+		potential = {
+			OR = {
+				culture_group = brythonic
+				culture_group = unified_celtic_group
+			}	
+			has_global_flag = ci_homelands_shown
+			NOT = { has_country_flag = brythonaidd_nation_flag }				
+		}
+
+		provinces_to_highlight = {
+			briton_cornish_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	brezhoneg_homelands = { #Brythonic End
+		major = no
+		potential = {
+			OR = {
+				culture_group = brythonic
+				culture_group = unified_celtic_group
+			}	
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			brezhoneg_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	cwmbraic_homelands = { #Unified Celtic Start (technically it starts with the Gaelic but these are the cultures only in Unified Celtic)
+		major = no
+		potential = {
+			OR = {
+				culture_group = unified_celtic_group
+			}	
+			has_global_flag = ci_homelands_shown
+			NOT = { has_country_flag = brythonaidd_nation_flag }				
+		}
+
+		provinces_to_highlight = {
+			cwmbraic_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	corieltauvi_homelands = {
+		major = no
+		potential = {
+			OR = {
+				culture_group = unified_celtic_group
+			}	
+			has_global_flag = ci_homelands_shown
+			NOT = { has_country_flag = brythonaidd_nation_flag }				
+		}
+
+		provinces_to_highlight = {
+			corieltauvi_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	cantiaci_homelands = {
+		major = no
+		potential = {
+			OR = {
+				culture_group = unified_celtic_group
+			}	
+			has_global_flag = ci_homelands_shown
+			NOT = { has_country_flag = brythonaidd_nation_flag }				
+		}
+
+		provinces_to_highlight = {
+			cantiaci_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	brythonaidd_homelands = {
+		major = no
+		potential = {
+			OR = {
+				culture_group = unified_celtic_group
+			}	
+			has_global_flag = ci_homelands_shown
+			has_country_flag = brythonaidd_nation_flag			
+		}
+
+		provinces_to_highlight = {
+			brythonaidd_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	goidhealach_homelands = {
+		major = no
+		potential = {
+			OR = {
+				culture_group = unified_celtic_group
+			}	
+			has_global_flag = ci_homelands_shown
+			has_country_flag = goidhealach_nation_flag				
+		}
+
+		provinces_to_highlight = {
+			goidhealach_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	belgae_homelands = {
+		major = no
+		potential = {
+			OR = {
+				culture_group = unified_celtic_group
+			}	
+			has_global_flag = ci_homelands_shown
+			NOT = { any_owned_province = { culture = galianeg } }
+		}
+
+		provinces_to_highlight = {
+			belgae_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	pictone_homelands = {
+		major = no
+		potential = {
+			OR = {
+				culture_group = unified_celtic_group
+			}	
+			has_global_flag = ci_homelands_shown
+			NOT = { has_country_flag = galianeg_nation_flag }
+		}
+
+		provinces_to_highlight = {
+			pictone_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	arverni_homelands = {
+		major = no
+		potential = {
+			OR = {
+				culture_group = unified_celtic_group
+			}	
+			has_global_flag = ci_homelands_shown
+			NOT = { has_country_flag = galianeg_nation_flag }			
+		}
+
+		provinces_to_highlight = {
+			arverni_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	galianeg_homelands = { #Celtic End, Unified Celtic End (yes a little confusing but whatever)
+		major = no
+		potential = {
+			OR = {
+				culture_group = unified_celtic_group
+			}	
+			has_global_flag = ci_homelands_shown
+			has_country_flag = galianeg_nation_flag		
+		}
+
+		provinces_to_highlight = {
+			galianeg_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	mashriqi_homelands = { #Semitic Start, Arabic Start
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			has_global_flag = mashriqi_created_flag
+		}
+
+		provinces_to_highlight = {
+			mashriqi_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	maghrebi_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			has_global_flag = maghrebi_created_flag
+		}
+
+		provinces_to_highlight = {
+			maghrebi_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	libyan_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = maghrebi_created_flag }
+		}
+
+		provinces_to_highlight = {
+			libyan_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	moroccan_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = maghrebi_created_flag }			
+		}
+
+		provinces_to_highlight = {
+			moroccan_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	tunisian_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = maghrebi_created_flag }			
+		}
+
+		provinces_to_highlight = {
+			tunisian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}			
+	algerian_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = maghrebi_created_flag }			
+		}
+
+		provinces_to_highlight = {
+			algerian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	masri_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = mashriqi_created_flag }			
+		}
+
+		provinces_to_highlight = {
+			masri_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	masri_levantine_confict_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = mashriqi_created_flag }				
+		}
+
+		provinces_to_highlight = {
+			masri_levantine_confict_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	levantine_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = mashriqi_created_flag }				
+		}
+
+		provinces_to_highlight = {
+			levantine_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	mesopotamian_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = mashriqi_created_flag }				
+		}
+
+		provinces_to_highlight = {
+			mesopotamian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	gulf_culture_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = mashriqi_created_flag }				
+		}
+
+		provinces_to_highlight = {
+			gulf_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	shirvani_arabic_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			shirvani_arabic_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	yemeni_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = mashriqi_created_flag }					
+		}
+
+		provinces_to_highlight = {
+			yemeni_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	omani_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = mashriqi_created_flag }					
+		}
+
+		provinces_to_highlight = {
+			omani_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	dhofari_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = mashriqi_created_flag }				
+		}
+
+		provinces_to_highlight = {
+			dhofari_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	najdi_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = mashriqi_created_flag }				
+		}
+
+		provinces_to_highlight = {
+			najdi_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	hejazi_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+			NOT = { has_global_flag = mashriqi_created_flag }				
+		}
+
+		provinces_to_highlight = {
+			hejazi_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	andalusian_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			andalusian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	andalusian_sicilian_conflict_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			andalusian_sicilian_conflict_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	sicilian_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			sicilian_arabic_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	septimanian_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			septimanian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	hassaniya_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			hassaniya_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	saharan_arabic_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			saharan_arabic_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	central_sudanese_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			central_sudanese_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	eastern_sudanese_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			eastern_sudanese_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	habashi_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			habashi_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}			
+	yunania_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			yunania_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	anadul_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			anadul_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	tuwskaniu_homelands = {
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			tuwskaniu_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	faarisia_homelands = { #Arabic End
+		major = no
+		potential = {
+			culture_group = turko_semitic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			faarisia_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	siryon_homelands = { #Aramaic Start
+		major = no
+		potential = {
+			culture_group = aramaic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			siryon_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	syriac_homelands = { #Semitic End, Aramaic End
+		major = no
+		potential = {
+			culture_group = aramaic
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			syriac_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}			
+	guanche_homelands = { #Berber Start, Tamazight Start
+		major = no
+		potential = {
+			culture_group = berber_group
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			guanche_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	atlas_berber_homelands = {
+		major = no
+		potential = {
+			culture_group = berber_group
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			atlas_berber_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	atlas_berber_zenaga_conflict_homelands = {
+		major = no
+		potential = {
+			culture_group = berber_group
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			atlas_berber_zenaga_conflict_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	zenaga_homelands = {
+		major = no
+		potential = {
+			culture_group = berber_group
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			zenaga_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	riffian_homelands = {
+		major = no
+		potential = {
+			culture_group = berber_group
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			riffian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	mzab_wargla_homelands = {
+		major = no
+		potential = {
+			culture_group = berber_group
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			mzab_wargla_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	shenwa_homelands = {
+		major = no
+		potential = {
+			culture_group = berber_group
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			shenwa_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	shawiya_homelands = {
+		major = no
+		potential = {
+			culture_group = berber_group
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			shawiya_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	kabylian_homelands = {
+		major = no
+		potential = {
+			culture_group = berber_group
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			kabylian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	zuwara_homelands = {
+		major = no
+		potential = {
+			culture_group = berber_group
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			zuwara_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	zuwara_nafusi_conflict_homelands = {
+		major = no
+		potential = {
+			culture_group = berber_group
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			zuwara_nafusi_conflict_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	nafusi_homelands = {
+		major = no
+		potential = {
+			culture_group = berber_group
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			nafusi_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	tuareg_homelands = { #Berber End, Tamazight End
+		major = no
+		potential = {
+			culture_group = berber_group
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			tuareg_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
 }

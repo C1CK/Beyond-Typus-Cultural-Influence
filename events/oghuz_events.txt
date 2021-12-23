@@ -153,11 +153,11 @@ province_event = { #Greek Traders settle in Western Anatolia
 		owner = { has_idea = millets } #Millets system ensured a Unified Greek adminstation under Ottoman control
 		owner = { owns_core_province = 151 } #Phanariote Greeks based in Constantinople
 		owner = { primary_culture = turkish }
-		owner = { accepted_culture = greek }
+		owner = { accepted_culture = hellas_culture } #Changed from Greek as that will have split at this point, using the language that appears in Southern Greece as the basis here
 		OR = { #Either in pre-defined region (West Anatolian Coast), or Greek center of trade
 			phanariote_greek_settlement_region = yes
 			AND = {
-				culture = greek
+				culture = hellas_culture
 				province_trade_power = 5
 			}
 		}
@@ -212,7 +212,7 @@ province_event = { #Greek Traders settle in Western Anatolia
 		modifier = {
 			factor = 0.8
 			any_neighbor_province = {
-				culture = greek
+				culture = hellas_culture
 			}
 		}
 	}
@@ -223,7 +223,7 @@ province_event = { #Greek Traders settle in Western Anatolia
 		add_base_tax = 2
 		add_base_production = 3
 
-		change_culture = greek
+		change_culture = hellas_culture
 		change_religion = orthodox
 
 		add_province_modifier = {
@@ -262,7 +262,7 @@ province_event = { #Greek Traders cease operations (No longer Greek)
 	
 	trigger = {
 		has_province_modifier = phanariote_greeks
-		NOT = { culture = greek }
+		NOT = { culture = hellas_culture }
 	}
 
 	mean_time_to_happen = {

@@ -19,7 +19,7 @@ country_decisions = {
 						culture_group = gaelic
 						culture_group = unified_celtic_group
 					}
-					any_owned_province = { region = ireland_area }
+					any_owned_province = { region = ireland_region }
 				}
 			}
 			OR = {
@@ -84,7 +84,7 @@ country_decisions = {
 						culture_group = gaelic
 						culture_group = unified_celtic_group
 					}
-					any_owned_province = { region = ireland_area }
+					any_owned_province = { region = ireland_region }
 				}
 			}
 			OR = {
@@ -149,7 +149,7 @@ country_decisions = {
 						culture_group = gaelic
 						culture_group = unified_celtic_group
 					}
-					any_owned_province = { region = ireland_area }
+					any_owned_province = { region = ireland_region }
 				}
 			}
 			OR = {
@@ -214,7 +214,7 @@ country_decisions = {
 						culture_group = gaelic
 						culture_group = unified_celtic_group
 					}
-					any_owned_province = { region = ireland_area }
+					any_owned_province = { region = ireland_region }
 				}
 			}
 			OR = {
@@ -269,7 +269,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			was_never_end_game_tag_trigger = yes
-			NOT = { has_country_flag = formed_CEL_btp }
+			NOT = { has_country_flag = formed_tir_na_gceilteach_btp }
 			NOT = { exists = CEL }
 			NOT = { exists = UNK } 
 			OR = {
@@ -284,7 +284,7 @@ country_decisions = {
 					is_core = ROOT
 					OR = {
 						region = british_isles_region
-						region = ireland_area
+						region = ireland_region
 					}
 					value = 78			#78 of Britain and Ireland's 116 provinces
 				}
@@ -294,7 +294,7 @@ country_decisions = {
 		provinces_to_highlight = {
 			OR = {
 				region = british_isles_region
-				region = ireland_area
+				region = ireland_region
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -319,7 +319,7 @@ country_decisions = {
 				country_or_vassal_holds = ROOT
 				is_core = owner
 			}
-			ireland_area = {
+			ireland_region = {
 				type = all
 				country_or_vassal_holds = ROOT
 				is_core = owner
@@ -340,7 +340,7 @@ country_decisions = {
 					NOT = { owned_by = ROOT }
 					OR = {
 						region = british_isles_region
-						region = ireland_area
+						region = ireland_region
 					}
 				}
 				add_permanent_claim = CEL
@@ -581,7 +581,7 @@ country_decisions = {
 				primary_culture = anglo_irish
 				AND = {
 					culture_group = british
-					capital_scope = { region = ireland_area }
+					capital_scope = { region = ireland_region }
 				}
 			}
 		}
@@ -608,7 +608,7 @@ country_decisions = {
 			owns_core_province = 373			# The Pale and Dublin
 			num_of_owned_provinces_with = {
 				is_core = ROOT
-				region = ireland_area
+				region = ireland_region
 				value = 20			#requires roughly two thirds of Ireland to form, so ANI can be formed without the west or IRE can be formed without the Pale and the NE plantations
 			}
 			total_development = 150			#Special discount. Normal requirement for rank 2 is 500 dev, so this is 70 percent discounted
@@ -620,7 +620,7 @@ country_decisions = {
 			change_government = monarchy
 			add_government_reform = anglo_irish_monarchy_reform
 			remove_non_electors_emperors_from_empire_effect = yes
-			ireland_area = {
+			ireland_region = {
 				limit = {
 					NOT = { owned_by = ROOT }
 					NOT = { is_core = ROOT }
@@ -652,6 +652,7 @@ country_decisions = {
 				}
 				swap_ideas = yes
 			}
+			swap_non_generic_missions = yes
 			set_country_flag = formed_ireland_flag
 		}
 		ai_will_do = {
@@ -686,13 +687,13 @@ country_decisions = {
 			}
 			OR = {
 				capital_scope = { region = british_isles_region }
-				capital_scope = { region = ireland_area }
+				capital_scope = { region = ireland_region }
 			}
 		}
 
 		provinces_to_highlight = {
 			OR = {
-				region = ireland_area
+				region = ireland_region
 				area = lowlands_area
 				area = scottish_marches_area
 				area = highlands_area
@@ -743,7 +744,7 @@ country_decisions = {
 		effect = {
 			change_tag = TNA
 			remove_non_electors_emperors_from_empire_effect = yes
-			ireland_area = {
+			ireland_region = {
 				limit = {
 					NOT = { owned_by = ROOT }
 					NOT = { is_core = ROOT }
@@ -925,7 +926,7 @@ country_decisions = {
 		provinces_to_highlight = {
 			OR = {
 				region = british_isles_region
-				region = ireland_area
+				region = ireland_region
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -948,7 +949,7 @@ country_decisions = {
 				value = 76			#At least 90 percent of Britain's 84 provinces
 			}
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				region = ireland_area
+				region = ireland_region
 				is_core = owner
 				value = 27			#At least 90 percent of Ireland's 30 provinces
 			}
@@ -962,7 +963,8 @@ country_decisions = {
 					capital_scope = {
 						OR = {
 							region = british_isles_region
-							region = ireland_area
+							region = ireland_region
+							province_id = 3110 #Channel Islands
 						}
 					}
 					OR = {
@@ -998,7 +1000,7 @@ country_decisions = {
 				}
 				add_permanent_claim = UNK
 			}
-			ireland_area = {
+			ireland_region = {
 				limit = {
 					NOT = { owned_by = ROOT }
 					NOT = { is_core = ROOT }

@@ -13,7 +13,10 @@ province_event = { #Syriac spread in Mesopotamia
 		syriac_culture_region = yes		
 		NOT = { culture = syriac_culture }
 		NOT = { nationalism = 1 }
-		religion_group = christian #Maronite, Syriac, Orthodox, and Armenian
+		AND = {
+			religion_group = OWNER #Preferably Maronite, Syriac, Orthodox, and Armenian Christians, changing to owner and excluding muslims due to PW
+			NOT = { religion_group = muslim }
+		}	
 		OR = {
 			development = 10 #To prevent Sahara converting
 			and = {
@@ -23,6 +26,7 @@ province_event = { #Syriac spread in Mesopotamia
 		}
 		OR = { #Influence check
 			any_neighbor_province = { culture_group = aramaic }
+			any_friendly_coast_border_province = { culture_group = aramaic }	
 			has_building = university
 			province_trade_power = 15
 			development = 30
@@ -144,7 +148,10 @@ province_event = { #Siryon spread in the Levant
 		siryon_culture_region = yes		
 		NOT = { culture = siryon }
 		NOT = { nationalism = 1 }
-		religion_group = christian #Maronite, Syriac, Orthodox, and Armenian
+		AND = {
+			religion_group = OWNER #Preferably Maronite, Syriac, Orthodox, and Armenian Christians, changing to owner and excluding muslims due to PW
+			NOT = { religion_group = muslim }
+		}	
 		OR = {
 			development = 10 #To prevent Sahara converting
 			and = {
@@ -154,6 +161,7 @@ province_event = { #Siryon spread in the Levant
 		}
 		OR = { #Influence check
 			any_neighbor_province = { culture_group = aramaic }
+			any_friendly_coast_border_province = { culture_group = aramaic }			
 			has_building = university
 			province_trade_power = 15
 			development = 30

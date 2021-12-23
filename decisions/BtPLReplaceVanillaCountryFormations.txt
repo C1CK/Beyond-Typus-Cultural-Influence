@@ -37,8 +37,8 @@ country_decisions = {
 						capital_scope = { area = ouled_nail_area }
 						capital_scope = { area = kabylia_area }
 						capital_scope = { area = north_saharan_area }
-						capital_scope = { area = west_aures_area }
-						capital_scope = { area = constantine_area }
+						#capital_scope = { area = west_aures_area }
+						#capital_scope = { area = constantine_area }
 						capital_scope = { area = barbary_coast_area }
 					}
 				}
@@ -49,8 +49,8 @@ country_decisions = {
 					area = ouled_nail_area
 					area = kabylia_area
 					area = north_saharan_area
-					area = west_aures_area
-					area = constantine_area
+					#area = west_aures_area
+					#area = constantine_area
 					area = barbary_coast_area
 				}
 			}
@@ -61,8 +61,8 @@ country_decisions = {
 				area = ouled_nail_area
 				area = kabylia_area
 				area = north_saharan_area
-				area = west_aures_area
-				area = constantine_area
+				#area = west_aures_area
+				#area = constantine_area
 				area = barbary_coast_area
 			}
 			OR = {
@@ -83,8 +83,8 @@ country_decisions = {
 					area = ouled_nail_area
 					area = kabylia_area
 					area = north_saharan_area
-					area = west_aures_area
-					area = constantine_area
+					#area = west_aures_area
+					#area = constantine_area
 					area = barbary_coast_area
 				}
 				value = 19			#At least 2/3 of Algeria's 28 provinces
@@ -131,20 +131,20 @@ country_decisions = {
 				}
 				add_permanent_claim = ALG
 			}
-			west_aures_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT }
-				}
-				add_permanent_claim = ALG
-			}
-			constantine_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT }
-				}
-				add_permanent_claim = ALG
-			}
+			#west_aures_area = { # Brian; doesn't exist in BT
+			#	limit = {
+			#		NOT = { is_permanent_claim = ROOT }
+			#		NOT = { is_core = ROOT }
+			#	}
+			#	add_permanent_claim = ALG
+			#}
+			#constantine_area = { # Brian; doesn't exist in BT
+			#	limit = {
+			#		NOT = { is_permanent_claim = ROOT }
+			#		NOT = { is_core = ROOT }
+			#	}
+			#	add_permanent_claim = ALG
+			#}
 			barbary_coast_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
@@ -677,13 +677,13 @@ country_decisions = {
 				}
 				add_permanent_claim = root
 			}
-			east_bavaria_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT }
-				}
-				add_permanent_claim = root
-			}
+			#east_bavaria_area = { # Brian; doesn't exist in BT
+			#	limit = {
+			#		NOT = { is_permanent_claim = ROOT }
+			#		NOT = { is_core = ROOT }
+			#	}
+			#	add_permanent_claim = root
+			#}
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -874,7 +874,10 @@ country_decisions = {
 			every_subject_country = {
 				limit = {
 					ai = yes
-					capital_scope = { region = british_isles_region }
+					capital_scope = { 
+						region = british_isles_region 
+						NOT = { province_id = 4365 } #Excluding Mann
+					}
 					OR = {
 						NOT = { num_of_cities = 12 }
 						AND = {
@@ -1363,7 +1366,7 @@ country_decisions = {
 				is_core = root
 			}
 			OR = { #just to make it not so easy (owning 6 provinces is really not so hard; Franconia is 70 development at start, so this is that +5)
-				total_development = 75
+				total_development = 150 #BT Dev Doubling
 				is_elector = yes
 			}
 		}
@@ -1377,13 +1380,13 @@ country_decisions = {
 				}
 				add_permanent_claim = root
 			}
-			upper_franconia_area = {
-				limit = {
-					NOT = { owned_by = root }
-					NOT = { is_permanent_claim = root }
-				}
-				add_permanent_claim = root
-			}
+			#upper_franconia_area = { # Brian; doesn't exist in BT
+			#	limit = {
+			#		NOT = { owned_by = root }
+			#		NOT = { is_permanent_claim = root }
+			#	}
+			#	add_permanent_claim = root
+			#}
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -1393,7 +1396,7 @@ country_decisions = {
 
 			if = {
 				limit = {
-					total_development = 100
+					total_development = 200
 					OR = {
 						is_elector = yes
 						is_part_of_hre = no
@@ -1650,7 +1653,7 @@ country_decisions = {
 				region = north_german_region
 				is_core = root
 			}
-			total_development = 100
+			total_development = 200 #BT Dev Doubling
 		}
 		effect = {
 			1758 = {
@@ -1667,13 +1670,13 @@ country_decisions = {
 				duration = 3650
 			}
 			add_prestige = 10
-			braunschweig_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT }
-				}
-				add_permanent_claim = HAN
-			}
+			#braunschweig_area = { # Brian; doesn't exist in BT
+			#	limit = {
+			#		NOT = { is_permanent_claim = ROOT }
+			#		NOT = { is_core = ROOT }
+			#	}
+			#	add_permanent_claim = HAN
+			#}
 			weser_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
@@ -1825,7 +1828,7 @@ country_decisions = {
 				primary_culture = celtic_irish #Since Celtic unites earlier -CI
 				AND = {
 					culture_group = gaelic
-					any_owned_province = { region = ireland_area }
+					any_owned_province = { region = ireland_region }
 				}
 			}
 			OR = {
@@ -1835,7 +1838,7 @@ country_decisions = {
 				tag = CNN
 				num_of_owned_provinces_with = {
 					is_core = ROOT
-					region = ireland_area
+					region = ireland_region
 					value = 16			#over half of Ireland to see if not one of the four primary provincial kingdoms Mun 9 Lei 7 Con 6 Uls 8
 				}
 			}
@@ -1843,7 +1846,7 @@ country_decisions = {
 			#NOT = { has_reform = norman_lordship_reform }			#Clans and Lordships need to create provincial kingdom
 		}
 		provinces_to_highlight = {
-			region = ireland_area
+			region = ireland_region
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { is_core = ROOT }
@@ -1858,7 +1861,7 @@ country_decisions = {
 			owns_core_province = 4120			# Kildare, stand in for Tara
 			num_of_owned_provinces_with = {
 				is_core = ROOT
-				region = ireland_area
+				region = ireland_region
 				value = 20			#requires roughly two thirds of Ireland to form, so ANI can be formed without the west or IRE can be formed without the Pale and the NE plantations
 			}
 			total_development = 150			#Normal requirement for rank 2 is 500 dev, so this is 70 percent discounted
@@ -1878,7 +1881,7 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			hidden_effect = { country_event = { id = BeyondTypusCelticFlavour.1 days = 1 } }			#Fires new BT Tanistry succession
 			custom_tooltip = tooltip_bt_starts_tanistry_succession
-			ireland_area = {
+			ireland_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
@@ -1910,6 +1913,7 @@ country_decisions = {
 				}
 				swap_ideas = yes
 			}
+			swap_non_generic_missions = yes
 			set_country_flag = formed_ireland_flag
 		}
 		ai_will_do = {
@@ -1992,7 +1996,7 @@ country_decisions = {
 							bt_trigger_sicily_areas = yes
 							area = corsica_sardinia_area
 							area = sardinia_area
-							area = cagliari_area
+							#area = cagliari_area
 						}
 						NOT = { is_claim = ROOT }
 						NOT = { is_core = ROOT }
@@ -2203,7 +2207,7 @@ country_decisions = {
 							area = marrekesh_area
 							area = sus_area
 							area = tafilalt_area
-							area = tagmudant_area
+							#area = tagmudant_area
 						}
 					}
 				}
@@ -2241,7 +2245,7 @@ country_decisions = {
 					area = marrekesh_area
 					area = sus_area
 					area = tafilalt_area
-					area = tagmudant_area
+					#area = tagmudant_area
 				}
 				value = 19			#At least 2/3 of Morocco's 28 provinces
 			}
@@ -2302,13 +2306,13 @@ country_decisions = {
 				}
 				add_permanent_claim = MOR
 			}
-			tagmudant_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT }
-				}
-				add_permanent_claim = MOR
-			}
+			#tagmudant_area = { # Brian; doesn't exist in BT
+			#	limit = {
+			#		NOT = { is_permanent_claim = ROOT }
+			#		NOT = { is_core = ROOT }
+			#	}
+			#	add_permanent_claim = MOR
+			#}
 			add_prestige = 25
 			if = {
 				limit = { government = tribal }
@@ -2354,7 +2358,7 @@ country_decisions = {
 					ROOT = {
 						NOT = {
 							num_of_owned_provinces_with = {
-								value = 10
+								value = 15
 								region = low_countries_region
 								is_core = root
 							}
@@ -2935,7 +2939,7 @@ country_decisions = {
 				}
 				add_permanent_claim = RMN
 			}
-			western_moldovia = { #Moldavia
+			western_moldovia_area = {  ; #Moldavia
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
@@ -2982,6 +2986,7 @@ country_decisions = {
 			OR = {
 				tag = SAV
 				tag = SAR
+				tag = PIE				
 				primary_culture = sardinian
 				primary_culture = piedmontese
 			}
@@ -3003,6 +3008,7 @@ country_decisions = {
 			NOT = { exists = SPI }
 			OR = {
 				NOT = { exists = SAV }
+				NOT = { exists = PIE }
 				NOT = { exists = SAR }
 			}
 			is_at_war = no
@@ -3409,18 +3415,20 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
-			iberia_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT }
-					NOT = { area = macaronesia_area }
-					NOT = { area = alentejo_area }
-					NOT = { area = beieras_area }
-					NOT = { area = minho_duoro_area }
-					NOT = { area = estremadura_area }
-					NOT = { area = algarve_area }
+			hidden_effect = {
+				iberia_region = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT }
+						NOT = { area = macaronesia_area }
+						NOT = { area = alentejo_area }
+						NOT = { area = beieras_area }
+						NOT = { area = minho_duoro_area }
+						NOT = { area = estremadura_area }
+						NOT = { area = algarve_area }
+					}
+					add_permanent_claim = SPA
 				}
-				add_permanent_claim = SPA
 			}
 			swap_ideas = yes
 			custom_tooltip = spanish_unification_effect.tooltip
@@ -3536,18 +3544,20 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
-			iberia_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT }
-					NOT = { area = macaronesia_area }
-					NOT = { area = alentejo_area }
-					NOT = { area = beieras_area }
-					NOT = { area = minho_duoro_area }
-					NOT = { area = estremadura_area }
-					NOT = { area = algarve_area }
+			hidden_effect = {
+				iberia_region = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT }
+						NOT = { area = macaronesia_area }
+						NOT = { area = alentejo_area }
+						NOT = { area = beieras_area }
+						NOT = { area = minho_duoro_area }
+						NOT = { area = estremadura_area }
+						NOT = { area = algarve_area }
+					}
+					add_permanent_claim = SPA
 				}
-				add_permanent_claim = SPA
 			}
 			swap_ideas = yes
 			custom_tooltip = spanish_unification_effect.tooltip
@@ -3633,6 +3643,7 @@ country_decisions = {
 					area = kingdom_of_the_isles_area
 					area = grampians_area
 				}
+				value = 19			#2/3 of Scotland's 28 provinces
 			}
 			total_development = 150			#Normal requirement for rank 2 is 500 dev, so this is 70 percent discounted
 			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
@@ -3808,30 +3819,44 @@ country_decisions = {
 				}
 				add_permanent_claim = root
 			}
+			alsace_area = {
+				limit = {
+					NOT = { owned_by = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+			east_bavaria_area = {
+				limit = {
+					NOT = { owned_by = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}			
 			#These were also historical territories of the Duchy
-			switzerland_area = {
-				limit = {
-					NOT = { owned_by = root }
-					NOT = { is_permanent_claim = root }
-				}
-				add_permanent_claim = root
-			}
-			romandie_area = {
-				limit = {
-					NOT = { owned_by = root }
-					NOT = { is_permanent_claim = root }
-				}
-				add_permanent_claim = root
-			}
-			4710 = {
-				if = {
-					limit = {
-						NOT = { owned_by = root }
-						NOT = { is_permanent_claim = root }
-					}
-					add_permanent_claim = root
-				}
-			}
+#			switzerland_area = {
+#				limit = {
+#					NOT = { owned_by = root }
+#					NOT = { is_permanent_claim = root }
+#				}
+#				add_permanent_claim = root
+#			}
+#			romandie_area = {
+#				limit = {
+#					NOT = { owned_by = root }
+#					NOT = { is_permanent_claim = root }
+#				}
+#				add_permanent_claim = root
+#			}
+#			4710 = {
+#				if = {
+#					limit = {
+#						NOT = { owned_by = root }
+#						NOT = { is_permanent_claim = root }
+#					}
+#					add_permanent_claim = root
+#				}
+#			}
 
 			add_country_modifier = {
 				name = "centralization_modifier"
@@ -4008,8 +4033,8 @@ country_decisions = {
 					OR = {
 						area = tunisia_area
 						area = djerba_area
-						area = djerid_area
-						area = east_aures_area
+						#area = djerid_area
+						#area = east_aures_area
 					}
 				}
 			}
@@ -4018,8 +4043,8 @@ country_decisions = {
 			OR = {
 				area = tunisia_area
 				area = djerba_area
-				area = djerid_area
-				area = east_aures_area
+				#area = djerid_area
+				#area = east_aures_area
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -4037,8 +4062,8 @@ country_decisions = {
 				OR = {
 					area = tunisia_area
 					area = djerba_area
-					area = djerid_area
-					area = east_aures_area
+					#area = djerid_area
+					#area = east_aures_area
 				}
 				value = 10			#At least 2/3 of Tunisia's 15 provinces
 			}
@@ -4070,20 +4095,20 @@ country_decisions = {
 				}
 				add_permanent_claim = OTN
 			}
-			djerid_area = {
-				limit = { 
-					NOT = { is_permanent_claim = ROOT } 
-					NOT = { is_core = ROOT } 
-				}
-				add_permanent_claim = OTN
-			}
-			east_aures_area = {
-				limit = { 
-					NOT = { is_permanent_claim = ROOT } 
-					NOT = { is_core = ROOT } 
-				}
-				add_permanent_claim = OTN
-			}
+			#djerid_area = { # Brian; doesn't exist in BT
+			#	limit = { 
+			#		NOT = { is_permanent_claim = ROOT } 
+			#		NOT = { is_core = ROOT } 
+			#	}
+			#	add_permanent_claim = OTN
+			#}
+			#east_aures_area = { # Brian; doesn't exist in BT
+			#	limit = { 
+			#		NOT = { is_permanent_claim = ROOT } 
+			#		NOT = { is_core = ROOT } 
+			#	}
+			#	add_permanent_claim = OTN
+			#}
 			if = {
 				limit = { government = tribal }
 				change_government_to_monarchy = yes #Desert tribes settling down.
@@ -4107,6 +4132,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			bt_generic_can_form_potential_check = yes
+			bt_italy_stem_duchy_check = yes
 			NOT = { has_country_flag = formed_tuscany_flag }
 			NOT = { tag = ITL }
 			NOT = { tag = ITA }

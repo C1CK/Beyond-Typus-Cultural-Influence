@@ -18,6 +18,12 @@ province_event = { #Frisian Splinter
 	mean_time_to_happen = {
 		years = 1
 	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = frisian_split
+		}	
+	}
 
 	option = {
 		name = frisian_split.a
@@ -453,7 +459,10 @@ province_event = { #Anglo-Saxon settlements (Settle)
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = anglo_frisian }
+				OR = {
+					any_neighbor_province = { culture_group = anglo_frisian }
+					any_friendly_coast_border_province = { culture_group = anglo_frisian } #Due to the whole island thing
+				}	
 			}				
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist

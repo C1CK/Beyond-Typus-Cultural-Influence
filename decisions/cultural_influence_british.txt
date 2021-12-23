@@ -230,7 +230,7 @@ country_decisions = {
 					is_subject = no
 				}
 			}
-			ireland_area = {
+			ireland_region = {
 				OR = {
 					is_core = ANI
 					is_core = ROOT
@@ -278,7 +278,7 @@ country_decisions = {
 			has_parliament = yes
 			OR = {
 				capital_scope = { region = british_isles_region }
-				capital_scope = { region = ireland_area }
+				capital_scope = { region = ireland_region }
 			}
 		}
 
@@ -583,67 +583,67 @@ country_decisions = {
 
 	#I could grant devolution forever but for now I'll leave it here
 
-	restore_the_plantagenets = { #basically a copy of the Angevin empire mission (Also uses the same scripted trigger)
-		major = yes
-		potential = {
-			NOT = { has_country_flag = restored_plantagenets_flag }
-			OR = {
-				tag = ENG
-				tag = GBR #Don't think this makes a lot of sense, but I don't want forming something to be a bad idea
-				AND = {
-					tag = UEF
-					or = {
-						culture_group = british
-						culture_group = anglo_french_group
-					}
-				}
-			}
-			178 = { #Anjou
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			NOT = { dynasty = "Plantagenet" }
-			religion_group = christian
-		}
-
-		provinces_to_highlight = {
-			eng_rb_angevin_provinces = yes
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-
-		allow = { #Angevin Empire trigger
-			has_fulfiled_province_requirement_for_mission_trigger = {
-				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
-				provinces=eng_rb_angevin_provinces
-				owner_type=country_or_non_sovereign_subject_holds
-			}
-			dip_power = 200
-		}
-
-		effect = {
-			set_country_flag = restored_plantagenets_flag
-			add_dip_power = -200
-			add_legitimacy = 20
-			add_prestige = 25
-			if = {
-				limit = {
-					has_heir = yes
-				}
-				remove_heir = yes
-			}
-			define_heir = {
-				dynasty = "Plantagenet"
-				age = 12
-				claim = 90
-				male = yes
-				adm = 2
-				max_random_adm = 4
-				dip = 2
-				max_random_dip = 4
-				mil = 3
-				max_random_mil = 5
-			}
-		}
-	}
+#	restore_the_plantagenets = { #basically a copy of the Angevin empire mission (Also uses the same scripted trigger)
+#		major = yes					#Commenting this out for now until it can be reworked, was causing issues
+#		potential = {
+#			NOT = { has_country_flag = restored_plantagenets_flag }
+#			OR = {
+#				tag = ENG
+#				tag = GBR #Don't think this makes a lot of sense, but I don't want forming something to be a bad idea
+#				AND = {
+#					tag = UEF
+#					OR = {
+#						culture_group = british
+#						culture_group = anglo_french_group
+#					}
+#				}
+#			}
+#			178 = { #Anjou
+#				country_or_non_sovereign_subject_holds = ROOT
+#			}
+#			NOT = { dynasty = "Plantagenet" }
+#			religion_group = christian
+#		}
+#
+#		provinces_to_highlight = {
+#			eng_rb_angevin_provinces = yes
+#			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+#		}
+#
+#		allow = { #Angevin Empire trigger
+#			has_fulfiled_province_requirement_for_mission_trigger = {
+#				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted 
+#				provinces=eng_rb_angevin_provinces
+#				owner_type=country_or_non_sovereign_subject_holds
+#			}
+#			dip_power = 200
+#		}
+#
+#		effect = {
+#			set_country_flag = restored_plantagenets_flag
+#			add_dip_power = -200
+#			add_legitimacy = 20
+#			add_prestige = 25
+#			if = {
+#				limit = {
+#					has_heir = yes
+#				}
+#				remove_heir = yes
+#			}
+#			define_heir = {
+#				dynasty = "Plantagenet"
+#				age = 12
+#				claim = 90
+#				male = yes
+#				adm = 2
+#				max_random_adm = 4
+#				dip = 2
+#				max_random_dip = 4
+#				mil = 3
+#				max_random_mil = 5
+#			}
+#		}
+#	}
 
 	british_continental_settlements_plan = {
 		major = yes
@@ -651,29 +651,23 @@ country_decisions = {
 			NOT = { has_country_modifier = british_continental_settlement_plans_modifier }
 			culture_group = british
 			any_owned_province = {
-				OR = {
-					region = france_region
-					region = low_countries_region
-				}
-			}
+				anglo_continental_settlement_plans_region = yes
+			}		
 		}
-
 		allow = {
 			calc_true_if = {
 				all_province = {
-					OR = {
-						region = france_region
-						region = low_countries_region
-					}
-					is_core = ROOT
+				OR = {					
+					anglo_continental_settlement_plans_region = yes
 				}
+				is_core = ROOT
 				amount = 60 #Roughly Plantagenet holdings
+				}
 			}
 			NOT = { colony = 1 } #No Colonies allowed
 			adm_power = 400
 			dip_power = 200
 		}
-
 		effect = {
 			add_adm_power = -400
 			add_dip_power = -200
@@ -681,6 +675,9 @@ country_decisions = {
 				name = "british_continental_settlement_plans_modifier"
 				duration = -1
 			}
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 
@@ -696,7 +693,7 @@ country_decisions = {
 		}
 
 		allow = {
-			ireland_area = {
+			ireland_region = {
 				culture_group = british
 				owned_by = ANI
 				type = all

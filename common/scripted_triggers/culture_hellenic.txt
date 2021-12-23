@@ -11,11 +11,21 @@ hellenic_old_worlder = {
 		culture = alexandrian
 		culture = karchidoniac
 		culture = persic
-		culture = anatolian
+		culture = anatolikos
 		culture = galatian
 		culture = hesperic
 		culture = illyrion
 		culture = tourkiki
+		culture = phrygian
+		culture = pamphylian
+		culture = anatolikos
+		culture = mikrasiatic
+		culture = moesian
+		culture = thracian
+		culture = macedonian
+		culture = epirotan
+		culture = dodecanesian
+		culture = hellas_culture
 		culture = aravikos
 		culture = hibernian
 		culture = varangian
@@ -80,196 +90,40 @@ hellenic_new_worlder = {
 		culture = notiaka
 		culture = polinesika	
 	}
-}	
+}
 
-
-agaio_culture_region = { #Should work for Greek settlement in West Anatolia and the Balkans	
-	OR = {	
-		area = hudavendigar_area #Bithynia	
-		area = karasi_area #Mysia	
-		area = aydin_area #Asia	
-		area = lydia_area #Lydia	
-		area = germiyan_area #Phrygia	
-		area = northern_greece_area #Epirus	
-		area = morea_area #Morea	
-		area = western_aegean_area #Hellas			
-		area = thessaly_area #Thessaly	
-		area = macedonia_area #West Macedonia	
-		area = eastern_macedonia_area #East Macedonia	
-		area = aegean_archipelago_area #Aegean Islands	
-		area = eastern_mediterrenean_islands_area #Crete	
-		area = northern_epirus_area #Ionian Islands	
-		area = albania_area #Albania	
-		area = northern_macedonia_area #Northern Macedonia	
-		area = thrace_area #Thrace	
-		area = northern_thrace_area #Northern Thrace	
-		area = bulgaria_area #Bulgaria	
-		area = upper_thrace_area #Upper Thrace	
-		area = danubian_plain_area #Lower Moesia	
-		area = vidin_area #Vidin	
-		area = silistria_area #Silistria
-		province_id = 3182	
-		province_id = 5094	
-		province_id = 7702	
-		province_id = 7701	
-		province_id = 1766	
-		province_id = 7700	
-		province_id = 5162 #Likya	
-		province_id = 2298 #Antalya	
-	}	
-}	
-
-illyrion_culture_region = { #Should work for Greek settlement in Old Illyria	
-	OR = {	
-		area = east_adriatic_coast_area	
-		area = herzegovina_area	
-		area = bosnia_area	
-		area = syrmia_area	
-		area = slavonia_area	
-		area = croatia_area	
-		area = serbia_area #Serbia	
-		area = krajina_area	
-		province_id = 138	
-		province_id = 7708	
-		province_id = 7709	
-		province_id = 7710	
-		province_id = 7712	
-		area = carinthia_area	
-	}	
-}	
-graiko_culture_region = { #Should work for Greek settlement in Southern Italy	
-	OR = {	
-		area = sicily_area	
-		area = naples_area	
-		area = calabria_area	
-		area = apulia_area	
-		area = abruzzo_area		
-		province_id = 7018	
-		province_id = 7020	
-	}	
-}	
-italiote_culture_region = {	#Greek Settlement in Northen Italy	
-	OR = {	
-		AND = {	
-			region = italy_region	
-			NOT = { area = sardinia_area }	
-			NOT = { area = corsica_sardinia_area }	
-			NOT = { area = liguria_area }	
-			NOT = { area = south_piedmont_area }	
-			NOT = { area = sicily_area }	
-			NOT = { area = naples_area }	
-			NOT = { area = calabria_area }	
-			NOT = { area = apulia_area }	
-			NOT = { area = abruzzo_area }	
-			NOT = { province_id = 7018}	
-			NOT = { province_id = 7020}	
-		}			
-	}	
-}		
-pontic_greek_culture_region = { #Eastern Black Sea Coastline Culture	
-	OR = {	
-		province_id = 2447	
-		area = crimea_area	
-		area = imereti_area	
-		area = pontus_area	
-		area = rum_area	
-		area = kastamonu_area	
-	}	
-}	
-cappadocian_culture_region = {	
-	OR = {	
-		province_id = 5147	
-		province_id = 2302	
-		area = karaman_area	
-		area = dulkadir_area	
-		area = cukurova_area	
-		area = ankara_area	
-	}	
-}	
-nkreko_armenio_culture_region = {	
-	OR = {	
-		area = mardin_area	
-		area = erzurum_area	
-		area = north_kurdistan_area	
-		area = samtskhe_area	
-		area = armenia_area	
-		area = shirvan_area	
-		province_id = 416
-		province_id = 4304
-	}	
-}	
-alexandrian_culture_region = {	
-	region = egypt_region	
-}	
-aravikos_culture_region = {	
-	region = arabia_region	
-}	
-hibernian_culture_region = {	
-	region = ireland_area	
-}	
-albian_culture_region = {	
-	OR = {	
-		region = british_isles_region	
-		province_id = 369	
-	}	
-}	
-varangian_culture_region = {	
-	OR = {	
-		AND = {	
-			region = scandinavia_region	
-			NOT = {province_id = 369}	
-		}	
-		area = karelia_area	
-		area = laponia_area	
-	}	
-}	
-avissinos_culture_region = {	
-	region = horn_of_africa_region	
-}	
-antiocheia_culture_region = {	
-	OR = {	
-		AND = {	
-			NOT = {area = cyprus_area}	
-			region = mashriq_region	
-		}		
-		area = rakka_area	
-		area = al_jazira_area	
-	}	
-}	
-persic_culture_region = {	
-	OR = {	
-		AND = {
-			region = persia_region	
-			NOT = { province_id = 416 }
-			NOT = { province_id = 4304 }
-		}
-		area = iraq_arabi_area	
-		area = basra_area	
-		area = birjand_area
-		area = mashhad_area
-	}	
-}	
-rhomaio_unification_region = {
-	OR = {	
-		region = anatolia_region
-		area = morea_area
-		area = aegean_archipelago_area
-		area = eastern_mediterrenean_islands_area
-		area = western_aegean_area
-		area = aetolia_area
-		area = thessaly_area
-		area = northern_epirus_area
-		area = northern_greece_area
-		area = macedonia_area
-		area = albania_area
-		area = eastern_macedonia_area
-		area = thrace_area
-		area = northern_macedonia_area
-		area = upper_thrace_area
-		area = northern_thrace_area
-		province_id = 7703
-		}
+hellenic_aegean_culture = {
+	OR  = {
+		culture = thracian
+		culture = macedonian
+		culture = epirotan
+		culture = dodecanesian
+		culture = mikrasiatic #Despite being on Anatolia this one goes with Aegean
+		culture = hellas_culture
+		culture = greek
 	}
+}
+
+hellenic_anatolian_culture = {
+	OR = {
+		culture = pamphylian
+		culture = phrygian
+		culture = pontic_greek
+		culture = cappadocian
+		culture = tourkiki	
+		culture = anatolikos
+	}
+}
+
+hellenic_rhomaio_culture = {
+	OR = {
+		culture = greek
+		culture = anatolikos
+		culture = moesian
+		culture = cypriot
+	}
+}
+
 rhomaio_culture_region = {	
 	OR = {	
 		region = anatolia_region	
@@ -301,6 +155,351 @@ rhomaio_culture_region = {
 		area = crimea_area	
 		area = imereti_area	
 		area = cyprus_area	
+	}	
+}	
+cypriot_culture_region = { #Rhomaioi Split cultures
+	OR = {
+		area = cyprus_area
+	}
+}
+moesian_culture_region = { #Rhomaioi Split cultures
+	OR = {
+		AND = {
+			area = rascia_area
+			NOT = { province_id = 7709 }
+			NOT = { province_id = 7710 }			
+			NOT = { province_id = 7712 }			
+		}
+		area = bulgaria_area
+		area = vidin_area
+		area = danubian_plain_area
+		area = silistria_area
+		AND = { 
+			area = albania_area 
+			NOT = { province_id = 143 }
+			NOT = { province_id = 3181 }
+			NOT = { province_id = 7143 }			
+		}
+		AND = {
+			area = northern_macedonia_area
+			NOT = { province_id = 3183 }
+		}
+		AND = { 
+			area = upper_thrace_area 
+			NOT = { province_id = 3168 }
+			NOT = { province_id = 7161 }
+		}
+		province_id = 7156
+		province_id = 3182
+		province_id = 5094		
+	}
+}	
+
+agaio_culture_region = { #Rhomaioi Split cultures
+	OR = {	
+		area = thrace_area							#Thracian
+		area = upper_thrace_area #Mysia
+		AND  ={
+			area = northern_thrace_area #Asia
+			NOT = { province_id = 7156 }
+		}	
+		area = macedonia_area						#Macedonian
+		province_id = 3183
+		area = eastern_macedonia_area
+		area = aegean_archipelago_area				#Dodecanesian
+		area = eastern_mediterrenean_islands_area
+		area = western_aegean_area					#Hellenic
+		area = morea_area
+		area = thessaly_area
+		area = aetolia_area							#Epirotan
+		area = northern_epirus_area
+		area = northern_greece_area
+		province_id = 143
+		province_id = 3181
+		province_id = 7143
+		area = aydin_area							#Mikrasiatic
+		AND = {
+			area = caria_area
+			NOT = { province_id = 6010 }
+		}
+		province_id = 2297
+		province_id = 6008
+		AND = {
+			area = karasi_area #Mysia
+			NOT = { province_id = 6003 }
+		}
+		province_id = 316
+		province_id = 317
+		province_id = 5157
+		province_id = 5168		
+	}	
+}
+
+thracian_culture_region = { #Aegean Split Cultures
+	OR = {
+		area = thrace_area
+		area = upper_thrace_area #Mysia
+		AND  = {
+			area = northern_thrace_area #Asia
+			NOT = { province_id = 7156 }
+		}
+	}	
+}
+macedonian_culture_region = { #Aegean Split Cultures
+	OR = {
+		area = macedonia_area
+		area = eastern_macedonia_area		
+		province_id = 3183
+	}
+}
+dodecanesian_culture_region = { #Aegean Split Cultures
+	OR = {
+		area = aegean_archipelago_area
+		area = eastern_mediterrenean_islands_area
+	}
+}
+hellas_culture_region = { #Aegean Split Cultures
+	OR = {
+		area = western_aegean_area
+		area = morea_area
+		area = thessaly_area
+	}
+}
+epirotan_culture_region = { #Aegean Split Cultures
+	OR = {
+		area = aetolia_area
+		area = northern_epirus_area
+		area = northern_greece_area
+		province_id = 143
+		province_id = 3181
+		province_id = 7143
+	}
+}
+mikrasiatic_culture_region = { #Aegean Split Cultures
+	OR = {
+		area = aydin_area
+		AND = {
+			area = caria_area
+			NOT = { province_id = 6010 }
+		}
+		province_id = 2297
+		province_id = 6008
+		AND = {
+			area = karasi_area #Mysia
+			NOT = { province_id = 6003 }
+		}
+		province_id = 316
+		province_id = 317
+		province_id = 5157
+		province_id = 5168
+	}
+}	
+
+anatolikos_culture_region = { #Rhomaioi Split cultures
+	OR = {
+		province_id = 2447							#Pontic
+		area = crimea_area	
+		area = imereti_area	
+		AND = {
+			region = anatolia_region				#Cappadocian, Phrygian, Pamphylian
+			NOT = {									#Excludes Mikrasiatic, that goes to Aegean instead
+				area = aydin_area
+				AND = {
+					area = caria_area
+					NOT = { province_id = 6010 }
+				}
+				province_id = 2297
+				province_id = 6008
+				AND = {
+					area = karasi_area #Mysia
+					NOT = { province_id = 6003 }
+				}
+				province_id = 316
+				province_id = 317
+				province_id = 5157
+				province_id = 5168			
+			}
+		}
+	}
+}	
+
+pontic_greek_culture_region = { #Anatolian Split Cultures
+	OR = {	
+		province_id = 2447	
+		area = crimea_area	
+		area = imereti_area	
+		area = pontus_area		
+		AND = {
+			area = rum_area
+			NOT = { province_id = 329 }
+		}	
+		AND = {
+			area = kastamonu_area	
+			NOT = { province_id = 4313 }
+		}
+		province_id = 6016
+		province_id = 6032
+	}	
+}	
+cappadocian_culture_region = { #Anatolian Split Cultures
+	OR = {	
+		province_id = 329
+		province_id = 5165
+		province_id = 5167
+		province_id = 5137
+		area = dulkadir_area #Cappadocia
+		area = karaman_area	#Lycaonia
+		AND = {
+			area = cukurova_area
+			NOT = { province_id = 2302 }
+			NOT = { province_id = 6021 }			
+			NOT = { province_id = 6022 }			
+			NOT = { province_id = 6023 }			
+			NOT = { province_id = 5161 }			
+		}
+	}	
+}
+phrygian_culture_region = { #Anatolian Split Cultures
+	OR = {
+		province_id = 6010
+		province_id = 5172
+		province_id = 6041
+		province_id = 6003
+		province_id = 6002
+		province_id = 6001
+		province_id = 4312
+		area = germiyan_area #Phrygia
+		AND = {
+			area = ankara_area 
+			NOT = { province_id = 5165 }
+			NOT = { province_id = 5167 }
+			NOT = { province_id = 5137 }			
+		}
+		province_id = 4313
+	}
+}
+pamphylian_culture_region = { #Anatolian Split Cultures
+	OR = {
+		province_id = 2302
+		province_id = 6021
+		province_id = 6022
+		province_id = 6023
+		province_id = 5161
+		area = pamphylia_area
+	}
+}
+
+illyrion_culture_region = { #Should work for Greek settlement in Old Illyria	
+	OR = {	
+		area = east_adriatic_coast_area	
+		area = herzegovina_area	
+		area = bosnia_area	
+		area = syrmia_area	
+		area = slavonia_area	
+		area = croatia_area	
+		area = serbia_area #Serbia	
+		area = krajina_area	
+		area = carniola_area		
+		province_id = 138	
+		province_id = 7708	
+		province_id = 7709	
+		province_id = 7710	
+		province_id = 7712	
+		province_id = 3050
+		province_id = 4751
+		province_id = 8216
+	}	
+}	
+graiko_culture_region = { #Should work for Greek settlement in Southern Italy	
+	OR = {	
+		area = sicily_area	
+		area = naples_area	
+		area = calabria_area	
+		area = apulia_area	
+		area = abruzzo_area		
+		province_id = 7018	
+		province_id = 7020	
+	}	
+}	
+italiote_culture_region = {	#Greek Settlement in Northen Italy	
+	OR = {	
+		AND = {	
+			region = italy_region	
+			NOT = { area = sardinia_area }	
+			NOT = { area = corsica_sardinia_area }	
+			NOT = { area = liguria_area }	
+			NOT = { area = south_piedmont_area }	
+			NOT = { area = sicily_area }	
+			NOT = { area = naples_area }	
+			NOT = { area = calabria_area }	
+			NOT = { area = apulia_area }	
+			NOT = { area = abruzzo_area }	
+			NOT = { province_id = 7018}	
+			NOT = { province_id = 7020}	
+		}			
+	}	
+}		
+nkreko_armenio_culture_region = {	
+	OR = {	
+		area = mardin_area	
+		area = erzurum_area	
+		area = north_kurdistan_area	
+		area = samtskhe_area	
+		area = armenia_area	
+		area = shirvan_area	
+		province_id = 416
+		province_id = 4304
+	}	
+}	
+alexandrian_culture_region = {	
+	region = egypt_region	
+}	
+aravikos_culture_region = {	
+	region = arabia_region	
+}	
+hibernian_culture_region = {	
+	region = ireland_region
+}	
+albian_culture_region = {	
+	OR = {	
+		region = british_isles_region	
+		province_id = 369	
+	}	
+}	
+varangian_culture_region = {	
+	OR = {	
+		AND = {	
+			region = scandinavia_region	
+			NOT = { province_id = 369 }	
+		}	
+		area = karelia_area	
+		area = laponia_area	
+	}	
+}	
+avissinos_culture_region = {	
+	region = horn_of_africa_region	
+}	
+antiocheia_culture_region = {	
+	OR = {	
+		AND = {	
+			NOT = { area = cyprus_area }	
+			region = mashriq_region	
+		}		
+		area = rakka_area	
+		area = al_jazira_area	
+	}	
+}	
+persic_culture_region = {	
+	OR = {	
+		AND = {
+			region = persia_region	
+			NOT = { province_id = 416 }
+			NOT = { province_id = 4304 }
+		}
+		area = iraq_arabi_area	
+		area = basra_area	
+		area = birjand_area
+		area = mashhad_area
 	}	
 }	
 kirenike_culture_region = {	
@@ -337,8 +536,8 @@ skythis_culture_region = {
 	OR = {	
 		AND = {	
 			region = crimea_region	
-			NOT = { area = crimea_area}	
-			NOT = {province_id = 2447}	
+			NOT = { area = crimea_area }	
+			NOT = { province_id = 2447}	
 		}	
 		area = lower_yik_area	
 		area = nogai_area	
@@ -363,8 +562,8 @@ indiki_koilada_culture_region = {
 		AND = {	
 			region = west_india_region	
 			NOT = { area = malwa_area }	
-			NOT = { area = tapti_area}	
-			NOT = { area = khandesh_area}	
+			NOT = { area = tapti_area }	
+			NOT = { area = khandesh_area }	
 		}		
 		area = multan_area	
 		area = sind_sagar_area	
@@ -376,7 +575,7 @@ septimanikion_culture_region = {
 	OR = {	
 		
 		area = asturias_area	
-		area = basque_area	
+		area = basque_country	
 		area = aragon_area	
 		area = castille_area	
 		area = leon_area	
@@ -446,6 +645,7 @@ galatian_culture_region = {
 			NOT = { area = ile_de_france_area }
 			NOT = { area = champagne_area }
 			NOT = { area = lorraine_area }
+			NOT = { area = barrois_area }
 			NOT = { province_id = 200 }
 			NOT = { province_id = 7898 }
 			NOT = { province_id = 3085 }
@@ -456,7 +656,6 @@ galatian_culture_region = {
 			NOT = { province_id = 4695 }
 			NOT = { province_id = 197 }
 		}
-		province_id = 1880	
 	}	
 }	
 velgoi_culture_region = {	
@@ -467,45 +666,53 @@ velgoi_culture_region = {
 		area = ile_de_france_area
 		area = champagne_area
 		area = lorraine_area
+		area = brabant_area
+		area = luxembourg_area
+		area = wallonia_area
+		area = flanders_area
+		area = luxemburg_liege_area
 		AND = {
-			region = low_countries_region
-			NOT = { area = frisia_area }
-			NOT = { province_id = 4383 }
-			NOT = { province_id = 97 }
-			NOT = { province_id = 7954 }
-			NOT = { province_id = 98 }			
-			NOT = { province_id = 99 }		
-			NOT = { province_id = 8032 }
-			NOT = { province_id = 8120 }
-			NOT = { province_id = 4381 }		
-		}
-		area = lower_rhineland_area
-		province_id = 2975
-		province_id = 85
+			area = lower_rhineland_area
+			NOT = { province_id = 8414 }
+		}	
+		AND = {
+			area = north_rhine_area 
+			NOT = { province_id = 84 }
+			NOT = { province_id = 8409 }
+			NOT = { province_id = 8413 }
+		}			
+		area = palatinate_area
+		area = alsace_area
+		area = barrois_area
+		province_id = 3060
+		province_id = 3063
+		province_id = 8017
+		province_id = 96
+		province_id = 8112
+		province_id = 7975
 		province_id = 78
-		province_id = 1761
-		province_id = 4767
-		province_id = 7944
-		province_id = 75
-		province_id = 4765
 	}	
 }		
 dacion_culture_region = {	
-	OR = {	
+	OR = {
 		AND = {	
 			region = carpathia_region	
 			NOT = { area = alfold_area }	
 			NOT = { area = transdanubia_area }	
 			NOT = { area = slovakia_area }	
 			NOT = { area = carpathian_ruthenia_area }	
-			NOT = { area = upper_hungary_area }
-			OR = { 
-				NOT = { area = eastern_alfold_area }
-				province_id = 8203
-				province_id = 157
-				province_id = 3152
-			}	
-		}	
+			NOT = { area = upper_hungary_area }		
+			NOT = { province_id = 155 }
+			NOT = { province_id = 1953 }			
+			NOT = { province_id = 8200 }			
+			NOT = { province_id = 8218 }				
+		}
+		province_id = 8203
+		province_id = 157
+		province_id = 3152
+		province_id = 8493
+		province_id = 8206
+		province_id = 8204 			
 	}	
 }				
 
@@ -514,13 +721,18 @@ pannonion_culture_region = {
 		area = alfold_area	
 		area = transdanubia_area	
 		area = slovakia_area	
-		area = carpathian_ruthenia_area	
+		AND = {
+			area = carpathian_ruthenia_area	
+			NOT = { province_id = 8204 }			
+		}			
 		area = upper_hungary_area
 		AND = {
 			area = eastern_alfold_area
 			NOT = { province_id = 8203 }
 			NOT = { province_id = 157 }
 			NOT = { province_id = 3152 }	
+			NOT = { province_id = 8493 }
+			NOT = { province_id = 8206 }
 		}	
 	}		
 }	
@@ -528,58 +740,54 @@ notiodytiki_germanikos_culture_region = {	#Almanikos
 	OR = {	
 		AND = {
 			region = south_german_region
-			NOT = { area = carinthia_area }
+			NOT = { area = carniola_area }
 			NOT = { area = bohemia_area }
 			NOT = { area = erzgebirge_area }
 			NOT = { area = bohemian_forest_area }
 			NOT = { area = moravia_area }
-			NOT = { province_id = 1880 }
-			NOT = { province_id = 4765 }
-			NOT = { province_id = 75 }
-			NOT = { province_id = 7944 }
-			NOT = { province_id = 4767 }
-			NOT = { province_id = 1761 }
-			NOT = { province_id = 78 }
+			NOT = { area = palatinate_area }
+			NOT = { area = alsace_area }			
+			NOT = { province_id = 3050 }
+			NOT = { province_id = 4751 }
+			NOT = { province_id = 8216 }
 		}
 		
 	}	
 }		
 voreiodytiki_germanikos_culture_region = {	#Saxonikos
 	OR = {	
-		province_id = 97	
-		province_id = 98	
-		province_id = 4383	
-		province_id = 84	
-		province_id = 3199	
-		province_id = 3200	
-		province_id = 3201	
-		province_id = 99	
-		province_id = 4381	
-		province_id = 3058	
-		province_id = 7815	
-		province_id = 2994	
-		province_id = 7842	
-		province_id = 47	
-		province_id = 7814	
-		province_id = 7954
-		province_id = 8120
-		province_id = 8032
-		province_id = 4745
-		area = frisia_area	
-		area = north_westphalia_area	
-		area = westphalia_area	
-		area = weser_area	
-		area = hesse_area	
-		area = lower_saxony_area	
-		area = holstein_area	
-		area = thuringia_area	
-		area = south_saxony_area	
 		AND = {
-			area = mittelmark_area	
-			NOT = { province_id = 1759 }
-		}	
-		area = mecklenburg_area		
-		area = northern_saxony_area	
+			region = north_german_region
+			NOT = {
+				AND = {
+					area = north_rhine_area 
+					NOT = { province_id = 84 }
+					NOT = { province_id = 8409 }
+					NOT = { province_id = 8413 }
+				}	
+			}
+			NOT = {
+				AND = {
+					area = lower_rhineland_area 
+					NOT = { province_id = 8414 }
+				}	
+			}
+			NOT = { area = lusatia_area }
+			NOT = { area = neumark_area }
+			NOT = { area = hinter_pommern_area }
+			NOT = { province_id = 8269 }			
+			NOT = { province_id = 78 }
+		}
+		area = frisia_area
+		area = oversticht_area
+		AND = {
+			area = holland_area 
+			NOT = { province_id = 96 }
+			NOT = { province_id = 7975 }			
+			NOT = { province_id = 8112 }			
+		}
+		province_id = 99
+		province_id = 8032							
 	}	
 }		
 notioanatolikosgermanikos_culture_region = {	#Ostrogothikos
@@ -606,9 +814,6 @@ notioanatolikosgermanikos_culture_region = {	#Ostrogothikos
 }		
 voreioanatolikosgermanikos_culture_region = {	#Thuringikos
 	OR = {	
-		province_id = 1759
-		province_id = 7816	
-		province_id = 7817	
 		province_id = 269	
 		province_id = 277	
 		province_id = 7262	
@@ -679,7 +884,7 @@ makria_savramata_culture_region = {
 		region = west_siberia_region	
 		AND = {	
 			region = east_siberia_region	
-			NOT = {province_id = 2103}	
+			NOT = { province_id = 2103 }	
 		}	
 		area = tannu_uriankhai_area	
 	}	
@@ -693,10 +898,10 @@ tavrika_culture_region = {
 	OR = {	
 		AND = {	
 			region = central_asia_region	
-			NOT = {area = transoxiana_area}	
-			NOT = {area = termez_area}	
-			NOT = {area = lower_yik_area}	
-			NOT = {area = nogai_area}	
+			NOT = { area = transoxiana_area }	
+			NOT = { area = termez_area }	
+			NOT = { area = lower_yik_area }	
+			NOT = { area = nogai_area }	
 		}	
 		area = north_zungaria	
 		area = zungaria_area	
@@ -708,15 +913,15 @@ sogdanika_culture_region = {
 	OR = {	
 		AND = {	
 			region = mongolia_region	
-			NOT = {area = north_zungaria}	
-			NOT = {area = zungaria_area}	
-			NOT = {area = turpan_kumul_area}	
-			NOT = {area = tannu_uriankhai_area}	
+			NOT = { area = north_zungaria}	
+			NOT = { area = zungaria_area }	
+			NOT = { area = turpan_kumul_area }	
+			NOT = { area = tannu_uriankhai_area }	
 		}	
 		AND = {	
 			region = manchuria_region	
-			NOT = {area = liaoning_area}	
-			NOT = {province_id = 2102}				
+			NOT = { area = liaoning_area }	
+			NOT = { province_id = 2102 }				
 		}	
 		area = west_gansu_area	
 	}	
@@ -740,7 +945,7 @@ seresike_culture_region = {
 	OR = {	
 		AND = {	
 			region = north_china_region	
-			NOT = {area = west_gansu_area}	
+			NOT = { area = west_gansu_area }	
 		}	
 		area = liaoning_area	
 		area = south_jiangsu_area	
@@ -751,7 +956,7 @@ sinaeka_culture_region = {
 	OR = {	
 		AND = {	
 			region = south_china_region	
-			NOT = {area = south_jiangsu_area}	
+			NOT = { area = south_jiangsu_area }	
 		}	
 		region = xinan_region	
 		area = taiwan_area			
@@ -761,9 +966,9 @@ anatoliarianka_culture_region = {
 	OR = {	
 		AND = {	
 			region = bengal_region	
-			NOT = {area = orissa_area}	
-			NOT = {area = garjat_area}	
-			NOT = {area = upper_mahanadi_area}	
+			NOT = { area = orissa_area }	
+			NOT = { area = garjat_area }	
+			NOT = { area = upper_mahanadi_area }	
 		}	
 		area = upper_doab_area	
 		area = himalayan_hills_area	
@@ -796,8 +1001,8 @@ koniaka_culture_region = {
 	OR = {	
 		AND = {	
 			region = deccan_region	
-			NOT = {area = berar_area}	
-			NOT = {area = gondwana_area}	
+			NOT = { area = berar_area }	
+			NOT = { area = gondwana_area }	
 		}	
 		area = kongu_area	
 	}	
@@ -806,7 +1011,7 @@ taprovanika_culture_region = {
 	OR = {	
 		AND = {	
 			region = coromandel_region	
-			NOT = {area = kongu_area}	
+			NOT = { area = kongu_area }	
 		}	
 	}	
 }	
@@ -822,9 +1027,9 @@ megali_sinaeka_culture_region = {
 	OR = {	
 		AND = {	
 			region = indo_china_region	
-			NOT = {area = central_thai_area}	
-			NOT = {area = sukothai_area}	
-			NOT = {area = northern_thai_area}	
+			NOT = { area = central_thai_area }	
+			NOT = { area = sukothai_area }	
+			NOT = { area = northern_thai_area }	
 		}	
 	}	
 }	
@@ -841,7 +1046,7 @@ anatolianesika_culture_region = {
 		area = melanesia_area	
 		AND = {	
 			region = philippines_region	
-			NOT = {area = taiwan_area}	
+			NOT = { area = taiwan_area }	
 		}	
 	}	
 }	
@@ -861,8 +1066,8 @@ erimos_aethiopas_culture_region = {
 	OR = {	
 		AND = {	
 			region = sahel_region	
-			NOT = {area = fezzan_area}	
-			NOT = {area = northwest_sahara_area}	
+			NOT = { area = fezzan_area }	
+			NOT = { area = northwest_sahara_area }	
 		}	
 	}	
 }	
@@ -878,9 +1083,9 @@ akti_aethiopas_culture_region = {
 	OR = {	
 		AND = {	
 			region = guinea_region	
-			NOT = {area = cap_verde_area}	
-			NOT = {area = jolof_area}	
-			NOT = {area = futa_jallon_area}	
+			NOT = { area = cap_verde_area }	
+			NOT = { area = jolof_area }	
+			NOT = { area = futa_jallon_area }	
 		}	
 		area = coastal_kongo	
 		area = angola_namibia_area	
@@ -908,14 +1113,14 @@ souachiliaktikos_culture_region = {
 	OR = {	
 		AND = {	
 			region = east_africa_region	
-			NOT = {area = zimbabwe_area}	
-			NOT = {area = butua_area}	
-			NOT = {area = shire_area}	
-			NOT = {area = upper_zambezi_area}	
-			NOT = {area = lower_zambezi_area}	
-			NOT = {area = ruvuma_area}	
-			NOT = {area = uticulo_makuana_area}	
-			NOT = {area = jubba_area}	
+			NOT = { area = zimbabwe_area }	
+			NOT = { area = butua_area }	
+			NOT = { area = shire_area }	
+			NOT = { area = upper_zambezi_area }	
+			NOT = { area = lower_zambezi_area }	
+			NOT = { area = ruvuma_area }	
+			NOT = { area = uticulo_makuana_area }	
+			NOT = { area = jubba_area }	
 		}	
 	}	
 }

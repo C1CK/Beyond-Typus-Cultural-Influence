@@ -377,7 +377,7 @@ country_decisions = {
 			OR = {
 				culture_group = south_slavic
 				culture_group = illyrian
-				primary_culture = dalmatian #CI
+				primary_culture = istriot_culture #CI
 			}
 		}
 		provinces_to_highlight = {
@@ -780,13 +780,25 @@ country_decisions = {
 				}
 				add_permanent_claim = GMV
 			}
-			moravia_area = {
+			bohemian_forest_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
 				add_permanent_claim = GMV
 			}
 			slovakia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = GMV
+			}
+			upper_hungary_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = GMV
+			}
+			austria_proper_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
@@ -892,6 +904,90 @@ country_decisions = {
 ################################			Pomerania			 ##############################################			#Done by JP 2019-4 & adjusted a bit by Draiocht
 ###################################################################################################
 #Moved to BtPLReplaceVanillaCountryFormations due to appearing in vanilla in 1.30.
+###################################################################################################
+################################			Rhineland			 ##############################################			#Done by Velius 2021-11, note needs work
+###################################################################################################
+	rhenish_nation = {
+		major = yes
+		potential = {
+			bt_generic_can_form_potential_check = yes
+			NOT = { has_country_flag = formed_rhineland_flag_btp }
+			NOT = { tag = RHI }
+			primary_culture = hessian
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = lower_rhineland_area
+				area = north_rhine_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = RHI }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			owns_core_province = 84				#Berg
+			owns_core_province = 85				#Köln
+			owns_core_province = 1760			#Koblenz
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				OR = {
+					area = lower_rhineland_area
+					area = north_rhine_area
+				}
+				value = 11			#At least 2/3 of Rhineland's 17 provinces (approximate)
+			}
+			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted
+			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
+		}
+		effect = {
+			change_tag = RHI
+			lower_rhineland_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = RHI
+			}
+			north_rhine_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = RHI
+			}			
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = formed_rhineland_flag_btp			
+			if = {
+				limit = {
+					OR = {
+						is_elector = yes
+						is_part_of_hre = no
+					}
+				}
+				set_government_rank = 2
+			}
+			swap_non_generic_missions = no 			#(JP) Because Rhineland has no ideas, they should keep the prior ones
+			if = {
+				limit = {
+					is_playing_custom_nation = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
 
 ###################################################################################################
 ################################			Sennar			 ##############################################

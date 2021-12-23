@@ -11,6 +11,9 @@ czech_culture_region = {
 		province_id = 133 #Ob der Enns
 		province_id = 1770 #Ostmark
 		province_id = 134 #Wien
+		province_id = 8470
+		province_id = 8472
+		province_id = 8473
 	}
 }
 
@@ -23,6 +26,8 @@ slovakian_culture_region = {
 		province_id = 1953 #Szabolcs
 		area = carpathian_ruthenia_area
 		province_id = 3152 #Szatmar
+		province_id = 8183
+		province_id = 4125
 	}
 }
 
@@ -68,7 +73,15 @@ sorbian_culture_region = {
 		province_id = 8266 #Lebus
 		province_id = 2969 #Sternberg
 		area = south_saxony_area #Saxony
-		area = mittelmark_area #Altmark
+		AND = {
+			area = mittelmark_area #Altmark
+			NOT = { province_id = 2993 }
+		}	
+		area = middle_saxony_area
+		area = northern_saxony_area
+		province_id = 3214
+		province_id = 4743		
+		province_id = 8295
 	}
 }
 
@@ -89,5 +102,6 @@ pomeransky_culture_region = {
 		province_id = 45 #Lübeck
 		province_id = 7778 #Trittau
 		province_id = 1775 #Kiel
+		province_id = 7810
 	}
 }

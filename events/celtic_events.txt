@@ -64,6 +64,8 @@ province_event = { #Irish reclamation (Settle)
 				OR = {
 					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = gaelic }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = gaelic }					
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -76,6 +78,8 @@ province_event = { #Irish reclamation (Settle)
 				OR = {
 					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = gaelic }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = gaelic }	
 				}	
 			}				
 		}
@@ -253,6 +257,7 @@ province_event = { #Highlander reclamation (Settle)
 		NOT = { culture = highland_scottish }
 		NOT = { culture = celtic_highland_scottish_culture }
 		NOT = { culture = goidhealach }
+		NOT = { culture = brythonaidd }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
@@ -269,6 +274,8 @@ province_event = { #Highlander reclamation (Settle)
 				OR = {
 					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = gaelic }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = gaelic }	
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -281,6 +288,8 @@ province_event = { #Highlander reclamation (Settle)
 				OR = {
 					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = gaelic }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = gaelic }	
 				}	
 			}				
 		}
@@ -458,6 +467,7 @@ province_event = { #Manx reclamation (Settle)
 		NOT = { culture = manx }
 		NOT = { culture = celtic_manx }
 		NOT = { culture = goidhealach }
+		NOT = { culture = brythonaidd }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
@@ -474,6 +484,8 @@ province_event = { #Manx reclamation (Settle)
 				OR = {
 					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = gaelic }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = gaelic }	
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -486,6 +498,8 @@ province_event = { #Manx reclamation (Settle)
 				OR = {
 					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = gaelic }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = gaelic }	
 				}	
 			}				
 		}
@@ -679,6 +693,8 @@ province_event = { #Cornish Expansion (Settle)
 				OR = {
 					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = brythonic }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = brythonic }	
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -691,6 +707,8 @@ province_event = { #Cornish Expansion (Settle)
 				OR = {
 					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = brythonic }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = brythonic }
 				}	
 			}				
 		}
@@ -868,6 +886,7 @@ province_event = { #Welsh Expansion (Settle)
 		NOT = { culture = welsh }
 		NOT = { culture = celtic_welsh_culture }
 		NOT = { culture = brythonaidd }
+		NOT = { culture = goidhealach }		
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
@@ -884,6 +903,8 @@ province_event = { #Welsh Expansion (Settle)
 				OR = {
 					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = brythonic }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = brythonic }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -896,6 +917,8 @@ province_event = { #Welsh Expansion (Settle)
 				OR = {
 					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = brythonic }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = brythonic }
 				}	
 			}				
 		}
@@ -1080,7 +1103,10 @@ province_event = { #Cwmbraic settlements and assimilation (Only Celts) (Settle)
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = unified_celtic_group }
+				OR = {
+					any_neighbor_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -1089,7 +1115,10 @@ province_event = { #Cwmbraic settlements and assimilation (Only Celts) (Settle)
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = unified_celtic_group }
+				OR = {
+					any_neighbor_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
+				}			
 			}				
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -1261,7 +1290,10 @@ province_event = { #Corieltauvi settlements and assimilation (Only Celts) (Settl
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = unified_celtic_group }
+				OR = {
+					any_neighbor_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -1270,7 +1302,10 @@ province_event = { #Corieltauvi settlements and assimilation (Only Celts) (Settl
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = unified_celtic_group }
+				OR = {
+					any_neighbor_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
+				}	
 			}				
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -1442,7 +1477,10 @@ province_event = { #Cantiaci settlements and assimilation (Only Celts) (Settle)
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = unified_celtic_group }
+				OR = {
+					any_neighbor_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -1451,7 +1489,10 @@ province_event = { #Cantiaci settlements and assimilation (Only Celts) (Settle)
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = unified_celtic_group }
+				OR = {
+					any_neighbor_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
+				}	
 			}				
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -1633,6 +1674,8 @@ province_event = { #Breton Expansion (Settle)
 				OR = {
 					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = brythonic }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = brythonic }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -1645,6 +1688,8 @@ province_event = { #Breton Expansion (Settle)
 				OR = {
 					any_neighbor_province = { culture_group = unified_celtic_group }
 					any_neighbor_province = { culture_group = brythonic }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = brythonic }
 				}
 			}				
 		}
@@ -1821,7 +1866,7 @@ country_event = { #Isles Reclaimed (Enables Goidelic Brythonic in-fighting)
 			culture_group = unified_celtic_group
 			country_or_vassal_holds = ROOT
 		}
-		ireland_area = {
+		ireland_region = {
 			type = all
 			culture_group = unified_celtic_group
 			country_or_vassal_holds = ROOT
@@ -2061,6 +2106,27 @@ province_event = { #Brythonaidd Assimilation
 
 	mean_time_to_happen = {
 		years = 25
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.8
 			any_neighbor_province = {
@@ -2255,6 +2321,27 @@ province_event = { #Goidhealach Assimilation
 
 	mean_time_to_happen = {
 		years = 25
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}		
 		modifier = {
 			factor = 0.8
 			any_neighbor_province = {
@@ -2499,7 +2586,10 @@ province_event = { #Pictone settlements and assimilation (Settle)
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = unified_celtic_group }
+				OR = {
+					any_neighbor_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -2508,7 +2598,10 @@ province_event = { #Pictone settlements and assimilation (Settle)
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = unified_celtic_group }
+				OR = {
+					any_neighbor_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
+				}	
 			}				
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -2680,7 +2773,10 @@ province_event = { #Arverni settlements and assimilation (Settle)
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = unified_celtic_group }
+				OR = {
+					any_neighbor_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -2689,7 +2785,10 @@ province_event = { #Arverni settlements and assimilation (Settle)
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = unified_celtic_group }
+				OR = {
+					any_neighbor_province = { culture_group = unified_celtic_group }
+					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
+				}	
 			}				
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -2881,6 +2980,7 @@ country_event = { #Galianeg Formed
 				}
 				set_consort_culture = galianeg
 			}
+			set_country_flag = galianeg_nation_flag
 		}
 	}
 

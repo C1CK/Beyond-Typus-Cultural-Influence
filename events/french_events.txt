@@ -17,8 +17,9 @@ province_event = { #French expansion (Home Region)
 			}	
 			owner = { ai = yes }
 		}
-		any_neighbor_province = {
-			culture = OWNER
+		OR = {
+			any_neighbor_province = { culture = OWNER }
+			any_friendly_coast_border_province = { culture = OWNER } #This is to fix the channel islands not flipping basically
 		}
 		owner = {
 			num_of_owned_provinces_with = {
@@ -34,7 +35,11 @@ province_event = { #French expansion (Home Region)
 
 	mean_time_to_happen = {
 		years = 20
-
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -136,7 +141,11 @@ province_event = { #Castillane expansion
 
 	mean_time_to_happen = {
 		years = 30
-
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -236,7 +245,11 @@ province_event = { #Galicien expansion
 
 	mean_time_to_happen = {
 		years = 30
-
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -329,6 +342,18 @@ province_event = { #Valencien expansion
 			any_neighbor_province = {
 				culture = valencien
 			}
+			any_friendly_coast_border_province = {
+				culture = OWNER
+			}
+			any_friendly_coast_border_province = {
+				culture = galicien
+			}
+			any_friendly_coast_border_province = {
+				culture = castillane
+			}
+			any_friendly_coast_border_province = {
+				culture = valencien
+			}			
 		}
 		printing_press = 100 #Check if province has institution not country
 		has_global_flag = CI_events_enabled
@@ -336,7 +361,11 @@ province_event = { #Valencien expansion
 
 	mean_time_to_happen = {
 		years = 30
-
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -436,7 +465,11 @@ province_event = { #Apennine Central expansion
 
 	mean_time_to_happen = {
 		years = 30
-
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -526,6 +559,9 @@ province_event = { #Sud Apennine expansion
 			any_neighbor_province = {
 				culture = sud_apennine
 			}
+			any_friendly_coast_border_province = { #For Malta, aswell as Sicily to a lesser extent I guess
+				culture = sud_apennine
+			}
 			any_neighbor_province = {
 				culture = nouveau_provencal
 			}
@@ -536,7 +572,11 @@ province_event = { #Sud Apennine expansion
 
 	mean_time_to_happen = {
 		years = 30
-
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -636,7 +676,11 @@ province_event = { #Nouveau Provençal expansion
 
 	mean_time_to_happen = {
 		years = 30
-
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -736,7 +780,11 @@ province_event = { #Corse expansion
 
 	mean_time_to_happen = {
 		years = 30
-
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -836,7 +884,11 @@ province_event = { #Sarde expansion
 
 	mean_time_to_happen = {
 		years = 30
-
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -923,6 +975,7 @@ province_event = { #Franglais settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -932,7 +985,10 @@ province_event = { #Franglais settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}					
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -1105,6 +1161,7 @@ province_event = { #Bas Francais settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -1114,7 +1171,10 @@ province_event = { #Bas Francais settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -1287,6 +1347,7 @@ province_event = { #Gaelique settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -1296,7 +1357,10 @@ province_event = { #Gaelique settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -1469,6 +1533,7 @@ province_event = { #Celtique settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -1478,7 +1543,10 @@ province_event = { #Celtique settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -1651,6 +1719,7 @@ province_event = { #Joutais settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -1660,7 +1729,10 @@ province_event = { #Joutais settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -1833,6 +1905,7 @@ province_event = { #Surlamerais settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -1842,7 +1915,10 @@ province_event = { #Surlamerais settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -2015,6 +2091,7 @@ province_event = { #Alpin settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -2024,7 +2101,10 @@ province_event = { #Alpin settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -2197,6 +2277,7 @@ province_event = { #Franque settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -2206,7 +2287,10 @@ province_event = { #Franque settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -2379,6 +2463,7 @@ province_event = { #Tcheque settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -2388,7 +2473,10 @@ province_event = { #Tcheque settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -2561,6 +2649,7 @@ province_event = { #Illyrien settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -2570,7 +2659,10 @@ province_event = { #Illyrien settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -2743,6 +2835,7 @@ province_event = { #Varsovien settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -2752,7 +2845,10 @@ province_event = { #Varsovien settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -2925,6 +3021,7 @@ province_event = { #Danubienne settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -2934,7 +3031,10 @@ province_event = { #Danubienne settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -3107,6 +3207,7 @@ province_event = { #Marocain settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -3116,7 +3217,10 @@ province_event = { #Marocain settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -3289,6 +3393,7 @@ province_event = { #Algerien settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -3298,7 +3403,10 @@ province_event = { #Algerien settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -3471,6 +3579,7 @@ province_event = { #Tunisien settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -3480,7 +3589,10 @@ province_event = { #Tunisien settlements and assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = french }
+				OR = {
+					any_neighbor_province = { culture_group = french }
+					any_friendly_coast_border_province = { culture_group = french }
+				}
 			}								
 		}
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -3667,6 +3779,27 @@ province_event = { #Romain Spread
 
 	mean_time_to_happen = {
 		years = 10
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}		
 	}
 
 	option = {
@@ -3723,6 +3856,27 @@ province_event = { #Outre Mer Spread
 
 	mean_time_to_happen = {
 		years = 10
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}		
 	}
 
 	option = {
@@ -3779,6 +3933,27 @@ province_event = { #Galate Spread
 
 	mean_time_to_happen = {
 		years = 10
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}		
 	}
 
 	option = {
@@ -3835,6 +4010,27 @@ province_event = { #Nil Francais Spread
 
 	mean_time_to_happen = {
 		years = 10
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}		
 	}
 
 	option = {
@@ -3884,7 +4080,27 @@ province_event = { #Quebecois spread
 
 	mean_time_to_happen = {
 		years = 15
-
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
 		modifier = {
 			factor = 0
 			culture_group = french
@@ -3927,7 +4143,27 @@ province_event = { #Californienne spread
 
 	mean_time_to_happen = {
 		years = 15
-
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
 		modifier = {
 			factor = 0
 			culture_group = french
@@ -3981,6 +4217,27 @@ province_event = { #Indian Ocean Islands primary spread
 
 	mean_time_to_happen = {
 		years = 5
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}			
 	}
 
 	option = {
@@ -4022,6 +4279,27 @@ province_event = { #Karipounais spread
 
 	mean_time_to_happen = {
 		years = 5
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}			
 	}
 
 	option = {
@@ -4063,6 +4341,27 @@ province_event = { #Quechois spread
 
 	mean_time_to_happen = {
 		years = 5
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}			
 	}
 
 	option = {
@@ -4104,6 +4403,27 @@ province_event = { #Circumcaraïbes spread
 
 	mean_time_to_happen = {
 		years = 5
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}			
 	}
 
 	option = {
@@ -4145,6 +4465,27 @@ province_event = { #Louisianais spread
 
 	mean_time_to_happen = {
 		years = 5
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}			
 	}
 
 	option = {
@@ -4190,7 +4531,27 @@ province_event = { #Mozambicaine spread
 
 	mean_time_to_happen = {
 		years =  30
-
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
 		modifier = {
 			factor = 0.33
 			any_neighbor_province = { culture_group = french }
@@ -4239,7 +4600,27 @@ province_event = { #Subsaharienne spread
 
 	mean_time_to_happen = {
 		years =  30
-
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
 		modifier = {
 			factor = 0.33
 			any_neighbor_province = { culture_group = french }
@@ -4288,7 +4669,27 @@ province_event = { #Sud Africain spread
 
 	mean_time_to_happen = {
 		years =  30
-
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
 		modifier = {
 			factor = 0.33
 			any_neighbor_province = { culture_group = french }
@@ -4324,7 +4725,34 @@ province_event = { #Sud Africain (Colonial Region)
 		OWNER = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
-
+	mean_time_to_happen = {
+		years =  30
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
 	immediate = {
 		change_culture = sud_africain
 	}
@@ -4372,7 +4800,27 @@ province_event = { #Indochinois spread
 
 	mean_time_to_happen = {
 		years =  30
-
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
 		modifier = {
 			factor = 0.33
 			any_neighbor_province = { culture_group = french }
@@ -4411,6 +4859,27 @@ province_event = { #Old World primary spread
 
 	mean_time_to_happen = {
 		years = 5
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}			
 	}
 
 	option = {
@@ -4442,7 +4911,27 @@ province_event = { #Kreyol La Lwizyan spread
 
 	mean_time_to_happen = {
 		years = 15
-
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
 		modifier = {
 			factor = 0
 			culture_group = french
@@ -4529,7 +5018,27 @@ province_event = { #Kreyol Ayisyen spread
 
 	mean_time_to_happen = {
 		years = 15
-
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
 		modifier = {
 			factor = 0
 			culture_group = french
@@ -4616,7 +5125,27 @@ province_event = { #Kreol Morisien spread
 	
 	mean_time_to_happen = {
 		years = 15
-
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
 		modifier = {
 			factor = 0
 			culture_group = french
@@ -4657,7 +5186,27 @@ province_event = { #Kreol Renieone spread
 
 	mean_time_to_happen = {
 		years = 15
-
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
 		modifier = {
 			factor = 0
 			culture_group = french
@@ -4698,7 +5247,27 @@ province_event = { #Kreol Seselwa spread
 
 	mean_time_to_happen = {
 		years = 15
-
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
 		modifier = {
 			factor = 0
 			culture_group = french
@@ -4739,7 +5308,27 @@ province_event = { #Kweyol Kawipouna spread
 
 	mean_time_to_happen = {
 		years = 15
-
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
 		modifier = {
 			factor = 0
 			culture_group = french
@@ -4826,7 +5415,27 @@ province_event = { #Kweyol Kechwa spread
 
 	mean_time_to_happen = {
 		years = 15
-
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
 		modifier = {
 			factor = 0
 			culture_group = french

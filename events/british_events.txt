@@ -1070,7 +1070,7 @@ province_event = { #Irish -> British
 		OWNER = { primary_culture = standard_british }
 		culture = anglo_irish
 		has_owner_religion = yes #Catholic/Protestant divide
-		ireland_area = { #Ireland already Anglicized
+		ireland_region = { #Ireland already Anglicized
 			OR = {
 				culture = anglo_irish
 				culture = standard_british
@@ -1241,7 +1241,10 @@ province_event = { #Arctic settlements & Assimilation
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -1250,7 +1253,10 @@ province_event = { #Arctic settlements & Assimilation
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}				
 		}
 		#No decision for settlements here
@@ -1418,7 +1424,10 @@ province_event = { #Norman settlements & Assimilation -Continental Settlements P
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -1428,8 +1437,10 @@ province_event = { #Norman settlements & Assimilation -Continental Settlements P
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
-					any_neighbor_province = { culture_group = british }
-					any_friendly_coast_border_province = { culture_group = british } #Due to the whole Island thing
+					OR = {
+						any_neighbor_province = { culture_group = british }
+						any_friendly_coast_border_province = { culture_group = british }
+					}	
 				}
 			}				
 		}
@@ -1598,7 +1609,10 @@ province_event = { #Aquitanian settlements & Assimilation -Continental Settlemen
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -1607,7 +1621,10 @@ province_event = { #Aquitanian settlements & Assimilation -Continental Settlemen
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}			
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
@@ -1775,7 +1792,10 @@ province_event = { #Burgundian settlements & Assimilation -Continental Settlemen
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -1784,7 +1804,10 @@ province_event = { #Burgundian settlements & Assimilation -Continental Settlemen
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
@@ -1952,7 +1975,10 @@ province_event = { #Toulousain settlements & Assimilation -Continental Settlemen
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -1961,7 +1987,10 @@ province_event = { #Toulousain settlements & Assimilation -Continental Settlemen
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
@@ -2129,7 +2158,10 @@ province_event = { #Lower Rhenish settlements & Assimilation -Continental Settle
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -2138,7 +2170,10 @@ province_event = { #Lower Rhenish settlements & Assimilation -Continental Settle
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
@@ -2306,7 +2341,10 @@ province_event = { #Frisian settlements & Assimilation -Continental Settlements 
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -2315,7 +2353,10 @@ province_event = { #Frisian settlements & Assimilation -Continental Settlements 
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
@@ -2483,7 +2524,10 @@ province_event = { #Upper Rhenish settlements & Assimilation -Continental Settle
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -2492,7 +2536,10 @@ province_event = { #Upper Rhenish settlements & Assimilation -Continental Settle
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
@@ -2660,7 +2707,10 @@ province_event = { #Danish settlements & Assimilation -Continental Settlements P
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -2669,7 +2719,10 @@ province_event = { #Danish settlements & Assimilation -Continental Settlements P
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
@@ -2837,7 +2890,10 @@ province_event = { #Norwegian settlements & Assimilation -Continental Settlement
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -2846,7 +2902,10 @@ province_event = { #Norwegian settlements & Assimilation -Continental Settlement
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
@@ -3014,7 +3073,10 @@ province_event = { #Swedish settlements & Assimilation -Continental Settlements 
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -3023,7 +3085,10 @@ province_event = { #Swedish settlements & Assimilation -Continental Settlements 
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
@@ -3191,7 +3256,10 @@ province_event = { #Finnish settlements & Assimilation -Continental Settlements 
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -3200,7 +3268,10 @@ province_event = { #Finnish settlements & Assimilation -Continental Settlements 
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
@@ -3368,7 +3439,10 @@ province_event = { #Laplander settlements & Assimilation -Continental Settlement
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -3377,7 +3451,10 @@ province_event = { #Laplander settlements & Assimilation -Continental Settlement
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
@@ -3545,7 +3622,10 @@ province_event = { #Baltic settlements & Assimilation -Continental Settlements P
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -3554,7 +3634,10 @@ province_event = { #Baltic settlements & Assimilation -Continental Settlements P
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
@@ -3722,7 +3805,10 @@ province_event = { #Pomeranian settlements & Assimilation -Continental Settlemen
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
@@ -3731,7 +3817,10 @@ province_event = { #Pomeranian settlements & Assimilation -Continental Settlemen
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = british }
+				OR = {
+					any_neighbor_province = { culture_group = british }
+					any_friendly_coast_border_province = { culture_group = british }					
+				}	
 			}				
 		}
 		owner = { has_country_modifier = british_continental_settlement_plans_modifier }

@@ -9,7 +9,10 @@ french_homeland = {
 		area = luxemburg_liege_area #Now Called Liege
 		area = luxembourg_area
 		area = lorraine_area
-		area = lower_rhineland_area
+		AND = {
+			area = lower_rhineland_area #South Rhineland
+			NOT = { province_id = 8414 }
+		}	
 		area = maritime_alps_area
 		area = wallonia_area
 		area = romandie_area
@@ -24,21 +27,23 @@ french_homeland = {
 			area = liguria_area
 			NOT = { province_id = 7055 } #A Speza
 		}
+		AND = {
+			area = north_rhine_area #Lower Rhine
+			NOT = { province_id = 8409 }
+			NOT = { province_id = 8413 }
+			NOT = { province_id = 84 }			
+		}	
+		area = palatinate_area	
+		area = alsace_area		
 		province_id = 8017 #Cuijk
 		province_id = 96 #Zeeland
 		province_id = 7975 #Dordrecht
 		province_id = 3060 #Betuwe
 		province_id = 3063 #Overmaas
-		province_id = 2975 #Cleves
 		province_id = 3179 #Jülich
-		province_id = 85 #Köln
 		province_id = 78 #Mainz
-		province_id = 1761 #Pfalz
-		province_id = 7944 #Hagenau
-		province_id = 75 #Alsace
-		province_id = 7943 #Colmar
-		province_id = 1880 #Sundgau
 		province_id = 197 #Rousillon
+		province_id = 3055
 	}
 }
 
@@ -50,10 +55,11 @@ castillane_culture_region = {
 		area = toledo_area
 		area = new_castile_area
 		area = castille_area
-		area = basque_area
+		area = basque_country
 		area = leon_area
 		area = extremadura_area
 		area = segovia_area
+		area = basque_country
 	}
 }
 
@@ -77,8 +83,10 @@ valencien_culture_region = {
 		area = lower_andalucia_area
 		area = northern_andalusia_area
 		area = baleares_area
-		area = catalonia_area
-		
+		AND = {
+			area = catalonia_area
+			NOT = { province_id = 197 }
+		}	
 	}
 }
 
@@ -88,8 +96,8 @@ apennine_central_culture_region = {
 		area = emilia_romagna_area
 		area = central_italy_area #Marche
 		area = umbria_area
-		area = central_italy_area
 		area = south_tuscany_area
+		area = lazio_area
 	}
 }
 
@@ -113,7 +121,6 @@ nouveau_provencal_culture_region = {
 			area = po_valley_area #East Lombardy
 			NOT = { province_id = 3294 } #Valtellina
 		}
-		area = north_piedmont_area
 		area = emilia_area
 		AND = {
 			area = upper_emilia_area
@@ -143,16 +150,14 @@ bas_francais_culture_region = {
 		area = frisia_area
 		area = north_westphalia_area
 		area = westphalia_area
+		area = weser_area
+		area = oversticht_area
 		province_id = 8112 #rotterdam
 		province_id = 7954 #Helder
 		province_id = 8032 #Zetphen
 		province_id = 8120 #Twente
 		province_id = 1874 
-		province_id = 55
-		province_id = 2971
 		province_id = 99
-		province_id = 4381
-		province_id = 3058
 		province_id = 4383
 		province_id = 97
 		province_id = 98
@@ -160,6 +165,9 @@ bas_francais_culture_region = {
 		province_id = 84
 		province_id = 3200
 		province_id = 3201
+		province_id = 8409
+		province_id = 8413		
+		province_id = 8414		
 	}
 }
 
@@ -178,7 +186,7 @@ franglais_culture_region = {
 
 gaelique_culture_region = {
 	OR = {
-		region = ireland_area
+		region = ireland_region
 	}
 }
 
@@ -213,14 +221,21 @@ surlamerais_culture_region = {
 		area = mittelmark_area
 		area = northern_saxony_area
 		area = lower_saxony_area
+		area = braunschweig_area
+		AND = {
+			area = bremen_verden_area 
+			NOT = { province_id = 1874 }
+		}		
+		province_id = 8272
 		province_id = 7822 #Dramburg
-		province_id = 54
 		province_id = 50
 		province_id = 2993
 		province_id = 49
 		province_id = 2969
 		province_id = 7821
 		province_id = 7820
+		province_id = 8266
+		province_id = 4747
 	}
 }
 
@@ -232,26 +247,31 @@ alpin_culture_region = {
 		area = trentino_area
 		area = carnia_area
 		area = switzerland_area
+		area = swiss_alps_area
+		area = salzburg_area	
+		area = carinthia_area
+		area = upper_austria_area
 		province_id = 3294 #Valtellina
-		province_id = 76 #Salzburg
 	}
 }
 
 franque_culture_region = {
 	OR = {
+		area = upper_rhineland_area
 		area = upper_swabia_area
 		area = lower_swabia_area
+		AND = { 
+			area = nassau_area 
+			NOT = { province_id = 78 }
+		}
 		area = hesse_area
 		area = franconia_area
+		area = upper_franconia_area
 		area = thuringia_area
+		area = upper_palatinate_area
 		area = lower_bavaria_area
-		province_id = 72
-		province_id = 74
-		province_id = 77
-		province_id = 3207
-		province_id = 3208
-		province_id = 65
-		province_id = 2955
+		area = upper_bavaria_area
+		area = east_bavaria_area
 	}
 }
 
@@ -263,8 +283,13 @@ tcheque_culture_region = {
 		area = moravia_area
 		area = lower_silesia_area
 		area = silesia_area
-		province_id = 1763
-		province_id = 60
+		area = bohemian_forest_area
+		area = middle_silesia_area
+		area = lusatia_area
+		AND = {
+			area = middle_saxony_area
+			NOT = { province_id = 8272 }
+		}	
 	}
 }
 
@@ -274,8 +299,9 @@ illyrien_culture_region = {
 			region = balkan_region
 			hellenique_culture_region = no
 		}
-		area = carinthia_area #Carniola
 		area = friuli_area
+		area = carniola_area
+		area = istria_area
 	}
 }
 
@@ -372,11 +398,16 @@ romain_culture_region = {
 		area = northern_macedonia_area
 		area = danubian_plain_area
 		area = albania_area
+		area = caria_area
 		province_id = 7703 #Samokov
 		province_id = 1765 #Sofya
 		province_id = 7704 #Velbazhd
 		province_id = 5162 #Likya
-		province_id = 2298 #Antalya
+		AND = {
+			area = pamphylia_area
+			NOT = { province_id = 5147 }
+			NOT = { province_id = 6020 }
+		}	
 	}
 }
 
@@ -384,13 +415,11 @@ outre_mer_culture_region = {
 	OR = {
 		region = mesopotamia_region
 		region = arabia_region
-		AND = {
-			region = mashriq_region
-			NOT = { province_id = 405 } #Tadmor
-		}
+		region = mashriq_region
 		area = cukurova_area
 		area = dulkadir_area
 		area = karaman_area
+		province_id = 6020
 		province_id = 5147 #Alaiye
 		province_id = 2302 #Gazipasa
 	}

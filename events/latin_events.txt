@@ -14,14 +14,11 @@ province_event = { #Roman Italian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_italian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -29,7 +26,10 @@ province_event = { #Roman Italian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}			
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -197,14 +197,11 @@ province_event = { #Roman Aquitanian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_aquitanian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -212,7 +209,10 @@ province_event = { #Roman Aquitanian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}			
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -380,14 +380,11 @@ province_event = { #Roman Occitanian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_occitanian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -395,7 +392,10 @@ province_event = { #Roman Occitanian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -563,14 +563,11 @@ province_event = { #Roman French
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_french_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -578,7 +575,10 @@ province_event = { #Roman French
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -747,14 +747,11 @@ province_event = { #Roman Iberian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_iberian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -762,7 +759,10 @@ province_event = { #Roman Iberian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -930,14 +930,11 @@ province_event = { #Roman Lusitanian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_lusitanian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -945,7 +942,10 @@ province_event = { #Roman Lusitanian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -1113,14 +1113,11 @@ province_event = { #Roman Andalusian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_andalusian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -1128,7 +1125,10 @@ province_event = { #Roman Andalusian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -1296,14 +1296,11 @@ province_event = { #Roman Irish
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_irish_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -1311,7 +1308,10 @@ province_event = { #Roman Irish
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -1479,14 +1479,11 @@ province_event = { #Roman Scot
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_scot_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -1494,7 +1491,10 @@ province_event = { #Roman Scot
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -1662,14 +1662,11 @@ province_event = { #Roman Anglo
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_anglo_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -1677,7 +1674,10 @@ province_event = { #Roman Anglo
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -1845,14 +1845,11 @@ province_event = { #Roman Maghreb
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_maghreb_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -1860,7 +1857,10 @@ province_event = { #Roman Maghreb
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -2028,14 +2028,11 @@ province_event = { #Roman Libyan
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_libyan_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -2043,7 +2040,10 @@ province_event = { #Roman Libyan
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -2211,14 +2211,11 @@ province_event = { #Roman Egyptian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_egyptian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -2226,7 +2223,10 @@ province_event = { #Roman Egyptian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -2394,14 +2394,11 @@ province_event = { #Roman Levant
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_levant_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -2409,7 +2406,10 @@ province_event = { #Roman Levant
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -2577,14 +2577,11 @@ province_event = { #Roman Arabian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_arabian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -2592,7 +2589,10 @@ province_event = { #Roman Arabian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -2760,14 +2760,11 @@ province_event = { #Roman Greek
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_greek_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -2775,7 +2772,10 @@ province_event = { #Roman Greek
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -2943,14 +2943,11 @@ province_event = { #Roman Anatolian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_anatolian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -2958,7 +2955,10 @@ province_event = { #Roman Anatolian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -3126,14 +3126,11 @@ province_event = { #Roman Bulgarian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_bulgarian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -3141,7 +3138,10 @@ province_event = { #Roman Bulgarian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -3309,14 +3309,11 @@ province_event = { #Roman Romanian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_romanian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -3324,7 +3321,10 @@ province_event = { #Roman Romanian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -3492,14 +3492,11 @@ province_event = { #Roman Hungarian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_hungarian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -3507,7 +3504,10 @@ province_event = { #Roman Hungarian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -3675,14 +3675,11 @@ province_event = { #Roman Illyrian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_illyrian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -3690,7 +3687,10 @@ province_event = { #Roman Illyrian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -3858,14 +3858,11 @@ province_event = { #Roman Alpine
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_alpine_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -3873,7 +3870,10 @@ province_event = { #Roman Alpine
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -4041,14 +4041,11 @@ province_event = { #Roman West Slavic
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_west_slavic_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -4056,7 +4053,10 @@ province_event = { #Roman West Slavic
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -4224,14 +4224,11 @@ province_event = { #Roman Dutch
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_dutch_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -4239,7 +4236,10 @@ province_event = { #Roman Dutch
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -4407,14 +4407,11 @@ province_event = { #Roman Saxon
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_saxon_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -4422,7 +4419,10 @@ province_event = { #Roman Saxon
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -4590,14 +4590,11 @@ province_event = { #Roman South German
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_south_german_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -4605,7 +4602,10 @@ province_event = { #Roman South German
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -4773,14 +4773,11 @@ province_event = { #Roman East German
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_east_german_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -4788,7 +4785,10 @@ province_event = { #Roman East German
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -4956,14 +4956,11 @@ province_event = { #Roman Polish
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_polish_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -4971,7 +4968,10 @@ province_event = { #Roman Polish
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -5139,14 +5139,11 @@ province_event = { #Roman Armenian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_armenian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -5154,7 +5151,10 @@ province_event = { #Roman Armenian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -5322,14 +5322,11 @@ province_event = { #Roman Mesopotamian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_mesopotamian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -5337,7 +5334,10 @@ province_event = { #Roman Mesopotamian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -5505,14 +5505,11 @@ province_event = { #Roman Caucasus
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_caucasus_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -5520,7 +5517,10 @@ province_event = { #Roman Caucasus
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -5688,14 +5688,11 @@ province_event = { #Roman Scandinavian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_scandinavian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -5703,7 +5700,10 @@ province_event = { #Roman Scandinavian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -5871,14 +5871,11 @@ province_event = { #Roman Baltic
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_baltic_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -5886,7 +5883,10 @@ province_event = { #Roman Baltic
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -6054,14 +6054,11 @@ province_event = { #Roman Finnic
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_finnic_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -6069,7 +6066,10 @@ province_event = { #Roman Finnic
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -6237,14 +6237,11 @@ province_event = { #Roman Russian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_russian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -6252,7 +6249,10 @@ province_event = { #Roman Russian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -6420,14 +6420,11 @@ province_event = { #Roman Persian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_persian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -6435,7 +6432,10 @@ province_event = { #Roman Persian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -6603,14 +6603,11 @@ province_event = { #Roman Khorasani
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_khorasani_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -6618,7 +6615,10 @@ province_event = { #Roman Khorasani
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -6786,14 +6786,11 @@ province_event = { #Roman Crimean
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_crimean_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -6801,7 +6798,10 @@ province_event = { #Roman Crimean
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -6969,14 +6969,11 @@ province_event = { #Roman Sarmatian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_sarmatian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -6984,7 +6981,10 @@ province_event = { #Roman Sarmatian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -7152,14 +7152,11 @@ province_event = { #Roman Massagetana
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_massagetana_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -7167,7 +7164,10 @@ province_event = { #Roman Massagetana
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -7335,14 +7335,11 @@ province_event = { #Roman Bactrian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_bactrian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -7350,7 +7347,10 @@ province_event = { #Roman Bactrian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -7518,14 +7518,11 @@ province_event = { #Roman West Indian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_west_indian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -7533,7 +7530,10 @@ province_event = { #Roman West Indian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -7701,14 +7701,11 @@ province_event = { #Roman North Indian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_north_indian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -7716,7 +7713,10 @@ province_event = { #Roman North Indian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -7884,14 +7884,11 @@ province_event = { #Roman Central Indian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_central_indian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -7899,7 +7896,10 @@ province_event = { #Roman Central Indian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -8067,14 +8067,11 @@ province_event = { #Roman South Indian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_south_indian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -8082,7 +8079,10 @@ province_event = { #Roman South Indian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -8250,14 +8250,11 @@ province_event = { #Roman East Indian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_east_indian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -8265,7 +8262,10 @@ province_event = { #Roman East Indian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -8433,14 +8433,11 @@ province_event = { #Roman Tibetan
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_tibetan_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -8448,7 +8445,10 @@ province_event = { #Roman Tibetan
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -8616,14 +8616,11 @@ province_event = { #Roman Burmese
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_burmese_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -8631,7 +8628,10 @@ province_event = { #Roman Burmese
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -8799,14 +8799,11 @@ province_event = { #Roman Indochinese
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_indochinese_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -8814,7 +8811,10 @@ province_event = { #Roman Indochinese
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -8982,14 +8982,11 @@ province_event = { #Roman Malay
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_malay_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -8997,7 +8994,10 @@ province_event = { #Roman Malay
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -9165,14 +9165,11 @@ province_event = { #Roman Indonesian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_indonesian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -9180,7 +9177,10 @@ province_event = { #Roman Indonesian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -9348,14 +9348,11 @@ province_event = { #Roman Australian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_australian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -9363,7 +9360,10 @@ province_event = { #Roman Australian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -9531,14 +9531,11 @@ province_event = { #Roman Melanesian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_melanesian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -9546,7 +9543,10 @@ province_event = { #Roman Melanesian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -9714,14 +9714,11 @@ province_event = { #Roman Polynesian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_polynesian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -9729,7 +9726,10 @@ province_event = { #Roman Polynesian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -9897,14 +9897,11 @@ province_event = { #Roman Ethiopian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_ethiopian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -9912,7 +9909,10 @@ province_event = { #Roman Ethiopian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -10080,14 +10080,11 @@ province_event = { #Roman East African
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_east_african_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -10095,7 +10092,10 @@ province_event = { #Roman East African
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -10263,14 +10263,11 @@ province_event = { #Roman East Sahara
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_east_sahara_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -10278,7 +10275,10 @@ province_event = { #Roman East Sahara
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -10446,14 +10446,11 @@ province_event = { #Roman West Sahara
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_west_sahara_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -10461,7 +10458,10 @@ province_event = { #Roman West Sahara
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -10629,14 +10629,11 @@ province_event = { #Roman West African Coast
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_west_african_coast_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -10644,7 +10641,10 @@ province_event = { #Roman West African Coast
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -10812,14 +10812,11 @@ province_event = { #Roman Congolese
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_congolese_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -10827,7 +10824,10 @@ province_event = { #Roman Congolese
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -10995,14 +10995,11 @@ province_event = { #Roman Central African
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_central_african_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -11010,7 +11007,10 @@ province_event = { #Roman Central African
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -11178,14 +11178,11 @@ province_event = { #Roman Zambezi
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_zambezi_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -11193,7 +11190,10 @@ province_event = { #Roman Zambezi
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -11361,14 +11361,11 @@ province_event = { #Roman Madagascar
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_madagascar_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -11376,7 +11373,10 @@ province_event = { #Roman Madagascar
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -11544,14 +11544,11 @@ province_event = { #Roman South African
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_south_african_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -11559,7 +11556,10 @@ province_event = { #Roman South African
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -11727,14 +11727,11 @@ province_event = { #Roman Namibian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_namibian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -11742,7 +11739,10 @@ province_event = { #Roman Namibian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -11910,14 +11910,11 @@ province_event = { #Roman North China
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_north_china_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -11925,7 +11922,10 @@ province_event = { #Roman North China
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -12093,14 +12093,11 @@ province_event = { #Roman South China
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_south_china_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -12108,7 +12105,10 @@ province_event = { #Roman South China
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -12276,14 +12276,11 @@ province_event = { #Roman West China
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_west_china_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -12291,7 +12288,10 @@ province_event = { #Roman West China
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -12459,14 +12459,11 @@ province_event = { #Roman Mongolian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_mongolian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -12474,7 +12471,10 @@ province_event = { #Roman Mongolian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -12642,14 +12642,11 @@ province_event = { #Roman Siberian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_siberian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -12657,7 +12654,10 @@ province_event = { #Roman Siberian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -12825,14 +12825,11 @@ province_event = { #Roman Korean
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_korean_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -12840,7 +12837,10 @@ province_event = { #Roman Korean
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -13008,14 +13008,11 @@ province_event = { #Roman Japanese
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_japanese_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -13023,7 +13020,10 @@ province_event = { #Roman Japanese
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -13191,14 +13191,11 @@ province_event = { #Roman Canadian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_canadian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -13206,7 +13203,10 @@ province_event = { #Roman Canadian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -13378,14 +13378,11 @@ province_event = { #Roman East North American
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_east_north_american_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -13393,7 +13390,10 @@ province_event = { #Roman East North American
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -13565,14 +13565,11 @@ province_event = { #Roman Central North American
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_central_north_american_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -13580,7 +13577,10 @@ province_event = { #Roman Central North American
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -13752,14 +13752,11 @@ province_event = { #Roman West North American
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_west_north_american_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -13767,7 +13764,10 @@ province_event = { #Roman West North American
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -13939,14 +13939,11 @@ province_event = { #Roman Caribbean
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_caribbean_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -13954,7 +13951,10 @@ province_event = { #Roman Caribbean
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -14126,14 +14126,11 @@ province_event = { #Roman Mexican
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_mexican_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -14141,7 +14138,10 @@ province_event = { #Roman Mexican
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -14313,14 +14313,11 @@ province_event = { #Roman Colombian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_colombian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -14328,7 +14325,10 @@ province_event = { #Roman Colombian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -14500,14 +14500,11 @@ province_event = { #Roman Brazilian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_brazilian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -14515,7 +14512,10 @@ province_event = { #Roman Brazilian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country
@@ -14687,14 +14687,11 @@ province_event = { #Roman Argentinian
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = old_latin }
+				NOT = { culture = roman_argentinian_culture }
 			}	
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { #Either have a neighbouring latinised province, or have active settlement, may cause issues for an ai settling Korea or what have you but when is that going to happen?
-				culture_group = old_latin
-			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Dharma intent check
 				has_colonist = yes
@@ -14702,7 +14699,10 @@ province_event = { #Roman Argentinian
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = old_latin }
+				OR = {
+					any_neighbor_province = { culture_group = old_latin }
+					any_friendly_coast_border_province = { culture_group = old_latin }
+				}
 			}				
 		}
 		printing_press = 100 #Check if province has institution not country

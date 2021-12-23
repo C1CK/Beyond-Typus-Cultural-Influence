@@ -34,6 +34,7 @@ hochdeutsch_swiss_exemption = { #Areas allowed to be not owned for Hochdeutsch, 
 	OR = {
 		area = romandie_area
 		area = switzerland_area
+		area = swiss_alps_area
 		province_id = 3053 #Vorarlberg
 		province_id = 3054 #Lugano
 		province_id = 7074 #Como
@@ -46,7 +47,8 @@ hochdeutsch_austrian_exemption = { #Areas allowed to be not owned for Hochdeutsc
 	OR = {
 		area = austria_proper_area
 		area = inner_austria_area
-		province_id = 76 #Salzburg (Iffy, but the borders look ugly without this)
+		area = upper_austria_area
+		area = salzburg_area
 		province_id = 73 #Inntal
 		area = trentino_area
 		province_id = 1768 #Lienz
@@ -54,6 +56,8 @@ hochdeutsch_austrian_exemption = { #Areas allowed to be not owned for Hochdeutsc
 		area = carnia_area
 		area = friuli_area
 		area = carinthia_area #Carniola
+		area = carniola_area
+		area = istria_area
 		province_id = 3191 #Pflaum
 	}
 }
@@ -177,8 +181,15 @@ northern_low_saxon_culture_region = {
 		province_id = 53 #Lüneburg
 		area = holstein_area
 		area = schleswig_area
+		area = bremen_verden_area
 		province_id = 7810 #Marschvogetei
-		province_id = 1931 #East Frisia
+		province_id = 1931 #East Frisia	
+		province_id = 8401
+		province_id = 8299
+		province_id = 55
+		province_id = 2971
+		province_id = 8404
+		province_id = 8405
 	}
 }
 
@@ -217,10 +228,18 @@ westphalian_culture_region = {
 	OR = {
 		AND = {
 			area = frisia_area
-			NOT = { province_id = 1931 } #East Frisia
+			NOT = { province_id = 1931 } #East Frisia		
+			NOT = { province_id = 8401 }
+			NOT = { province_id = 8299 }			
 		}
-		province_id = 8120 #Twente
-		province_id = 4381 #Overijssel
+		AND = {
+			area = weser_area
+			NOT = { province_id = 55 }
+			NOT = { province_id = 2971 }			
+			NOT = { province_id = 8404 }			
+			NOT = { province_id = 8405 }				
+		}
+		area = oversticht_area
 		province_id = 99 #Arnheum
 		province_id = 8032 #Zutphen
 		area = north_westphalia_area
@@ -232,19 +251,16 @@ westphalian_culture_region = {
 eastphalian_culture_region = {
 	OR = {
 		province_id = 4772 #Celle
-		province_id = 1758 #Hanover
-		province_id = 57 #Braunschweig
-		province_id = 4773 #Göttingen
-		AND = {
-			area = northern_saxony_area
-			NOT = { province_id = 2964 } #Altmark
-		}
+		area = braunschweig_area
+		province_id = 52		
 	}
 }
 
 markish_culture_region = { #Sizable Expansion
 	OR = {
 		province_id = 2964 #Altmark
+		province_id = 4786		
+		province_id = 8271		
 		area = mittelmark_area
 		AND = {
 			area = neumark_area
@@ -259,15 +275,14 @@ markish_culture_region = { #Sizable Expansion
 }
 
 saxon_culture_region = {
-	OR = { #They can't even get a whole area to themselves, poor lads...
-		AND = {
-			area = south_saxony_area
-			NOT = { province_id = 2965 } #Vogtland
-		}
+	OR = { #They can't even get a whole area to themselves, poor lads... Rejoice!! For the German overhual in BT14 has shuffled some ids around and now they have an area to themselves!
+		area = middle_saxony_area
+		area = south_saxony_area
 		AND = {
 			area = thuringia_area
 			NOT = { province_id = 4716 } #Coburg
 		}
+		province_id = 58
 	}
 }
 
@@ -290,18 +305,24 @@ low_franconian_culture_region = { #Non-overlap Dutch
 			NOT = { province_id = 8025 } #Malmedy
 		}
 		province_id = 2975 #Kleef
-		province_id = 3199 #Essen
+		province_id = 3063		
 	}
 }
 
 central_franconian_culture_region = {
 	OR = {
-		province_id = 85 #Cologne
-		province_id = 84 #Berg
+		AND = {
+			area = north_rhine_area
+			NOT = { province_id = 2975 }			
+			NOT = { province_id = 8409 }
+			NOT = { province_id = 8410 }		
+		}
 		province_id = 3201 #Siegen
 		AND = {
-			area = lower_rhineland_area
+			area = lower_rhineland_area #Actually Upper Rhineland
 			NOT = { province_id = 3198 } #Saarland
+			NOT = { province_id = 8415 }
+			NOT = { province_id = 8416 }
 		}
 		province_id = 8025 #Malmedy
 		area = luxembourg_area
@@ -313,21 +334,27 @@ rhine_franconian_culture_region = {
 	OR = {
 		area = hesse_area
 		area = palatinate_area
+		area = nassau_area
 		province_id = 3198 #Saarland
 		province_id = 7949 #Sarreguemines
 		province_id = 188 #Metz
+		province_id = 8424
+		province_id = 8415	
+		province_id = 8416		
 		province_id = 7945 #Sarrebourg
 	}
 }
 
 east_franconian_culture_region = {
-	OR = { #Teapot lookin' ass
-		province_id = 2965 #Vogtland
+	OR = { #Teapot lookin' ass 		...Uh don't think it looks look that anymore 
 		province_id = 4716 #Coburg
 		area = franconia_area #East Franconia
-		province_id = 188 #Metz
+		area = upper_franconia_area
 		province_id = 4715 #Rothenburg
 		province_id = 4711 #Donauworth
+		province_id = 8435 
+		province_id = 8436 
+		province_id = 8437
 	}
 }
 
@@ -338,7 +365,7 @@ alemannisch_culture_region = { #Sizable expansion
 		province_id = 3204 #Hohenzollern
 		province_id = 70 #Stuttgart
 		province_id = 1872 #Ulm
-		province_id = 3206 #Heilbronn
+		province_id = 8438
 		area = upper_swabia_area
 		area = romandie_area
 		area = switzerland_area
@@ -347,7 +374,13 @@ alemannisch_culture_region = { #Sizable expansion
 		province_id = 7074 #Como
 		province_id = 3047 #Bergamo
 		province_id = 3294 #Valtellina
-		province_id = 7083 #Val Camonica
+		province_id = 7083	
+		area = swiss_alps_area
+		area = alsace_area
+		AND = { 
+			area = east_bavaria_area
+			NOT = { province_id = 4711 }
+		}
 	}
 }
 
@@ -367,7 +400,11 @@ bavarian_culture_region = { #Sizable expansion
 		area = trentino_area
 		area = carnia_area
 		area = friuli_area
-		area = carinthia_area #Carniola
+		area = carinthia_area
+		area = carniola_area #Carniola
+		area = salzburg_area
+		area = upper_austria_area
+		area = istria_area
 		province_id = 4752 #Pflaum
 	}
 }
@@ -392,6 +429,7 @@ schlesisch_culture_region = { #Sizable expansion
 		province_id = 3220 #Czestochowa
 		province_id = 8224 #Jedrzejow
 		province_id = 262 #Krakow
+		province_id = 8252		
 	}
 }
 
@@ -402,6 +440,7 @@ sudeten_culture_region = {
 		AND = {
 			area = bohemia_area
 			NOT = { province_id = 2970 } #Hradecko
+			NOT = { province_id = 8252 }
 		}
 		AND = {
 			area = moravia_area
@@ -441,6 +480,7 @@ baltendeutsch_culture_region = {
 		area = samogitia_area
 		area = lithuania_area #Aukstaitija
 		area = trakai_area
+		area = semigallia_area
 		province_id = 3225 #Sudovia
 		province_id = 7211 #Wizajny
 		province_id = 1937 #Gardinas
@@ -484,6 +524,7 @@ donauschwaben_culture_region = {
 		AND = {
 			area = eastern_alfold_area
 			NOT = { province_id = 3152 } #Szatmar
+			NOT = { province_id = 8206 }
 		}
 		area = banat_area
 		province_id = 7715 #Kladovo
@@ -545,7 +586,7 @@ epiroten_culture_region = {
 
 nowgoroder_culture_region = {
 	OR = {
-		area = north_karelia_area #Ingria
+		area = north_karelia #Ingria
 		area = vladimir_area #Obonezhsk
 		area = novgorod_area
 		area = beloozero_area #Bezhetsk
@@ -601,6 +642,7 @@ siebenburger_culture_region = {
 	OR = {
 		province_id = 3152 #Szatmar
 		province_id = 8204 #Sighet
+		province_id = 8206
 		area = transylvania_area #Northern Transylvania
 		area = southern_transylvania_area
 		area = oltenia_area
@@ -612,7 +654,7 @@ siebenburger_culture_region = {
 		province_id = 4706 #Tolcu
 		province_id = 3156 #Suceava
 		province_id = 7275 #Hotina
-		area = western_moldovia #Moldovia
+		area = western_moldovia_area #Moldovia
 		area = moldavia_area #Bessarabia
 	}
 }
@@ -802,7 +844,10 @@ norwegisch_culture_region = {
 		province_id = 7787 #Raumsdalr
 		province_id = 20 #Troendalog
 		province_id = 7788 #Sparbyggjafylki
-		area = northern_norway
+		AND = {
+			area = northern_norway
+			NOT = { province_id = 315 }
+		}	
 		area = iceland_area
 	}
 }
@@ -818,13 +863,14 @@ finnisch_culture_region = {
 		area = bothnia_area
 		area = finland_area
 		area = west_karelia_area
+		province_id = 315
 	}
 }
 
 anglisch_culture_region = {
 	OR = {
 		region = british_isles_region
-		region = ireland_area
+		region = ireland_region
 	}
 }
 
@@ -838,6 +884,9 @@ lottringer_culture_region = {
 		province_id = 7968 #Guise
 		province_id = 3070 #Laon
 		province_id = 4766
+		province_id = 8421	
+		province_id = 8422
+		province_id = 8423	
 		AND = {
 			area = champagne_area
 			NOT = { province_id = 7956 } #Meaux
@@ -951,7 +1000,7 @@ westgotisch_culture_region = {
 		province_id = 1745 #Santander
 		province_id = 8034 #Campoo
 		province_id = 8033 #Laredo
-		area = basque_area
+		area = basque_country
 		area = castille_area
 		area = aragon_area
 		area = catalonia_area
@@ -1032,7 +1081,10 @@ marokkanisch_culture_region = {
 
 syrisch_culture_region = {
 	OR = {
-		region = mashriq_region #Levant
+		AND = {
+			region = mashriq_region #Levant
+			NOT = { area = cyprus_area }
+		}
 	}
 }
 
@@ -1086,6 +1138,7 @@ saharadeutsch_culture_region = {
 		province_id = 2274 #Air
 		area = east_azbin_area
 		area = southeast_sahara_area
+		area = fezzan_area
 		province_id = 5286 #North Kordofan
 	}
 }

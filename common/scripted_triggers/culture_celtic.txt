@@ -13,7 +13,7 @@ gaelic_scottish_culture_region = { #Works for Celtic Scottish & Gaelic
 }
 
 gaelic_irish_culture_region = { #Works for Celtic Irish & Gaelic
-	region = ireland_area
+	region = ireland_region
 }
 
 briton_welsh_culture_region = { #Uses Briton due to possible British Welsh later in development
@@ -30,7 +30,7 @@ briton_cornish_culture_region = { #Uses Briton due to possible British Cornish l
 		AND = {
 			area = wessex_area
 			NOT = { province_id = 234 } #Hampshire
-			NOT = { province_id = 8123 } #Berkshire
+			NOT = { province_id = 8124 } #Berkshire
 		}
 	}
 }
@@ -73,7 +73,7 @@ brythonaidd_culture_region = { #Brythonic
 
 goidhealach_culture_region = { #Goidelic
 	OR = {
-		region = ireland_area
+		region = ireland_region
 		province_id = 4365 #Mann
 		gaelic_scottish_culture_region = yes
 		cwmbraic_culture_region = yes
@@ -100,8 +100,8 @@ brezhoneg_culture_region = { #Breton
 
 brythonaidd_culture_group = {
 	OR = {
-		culture = celtic_cornish
-		culture = celtic_welsh
+		culture = celtic_cornish_culture
+		culture = celtic_welsh_culture
 		culture = cantiaci
 		culture = corieltauvi
 		culture = cwmbraic
@@ -110,8 +110,8 @@ brythonaidd_culture_group = {
 
 goidhealach_culture_group = {
 	OR = {
-		culture = celtic_irish
-		culture = celtic_highlander
+		culture = celtic_irish_culture
+		culture = celtic_highland_scottish_culture
 		culture = celtic_manx
 	}
 }
@@ -119,35 +119,45 @@ goidhealach_culture_group = {
 belgae_culture_region = {
 	OR = {
 		area = picardy_area
-		province_id = 3070 #Laon
-		province_id = 7961 #Soissons
-		province_id = 182 #Valois
-		province_id = 183 #Paris
-		province_id = 185 #Gatinais
+		AND = {
+			area = ile_de_france_area
+			NOT = { province_id = 7960 }			
+			NOT = { province_id = 7962 }			
+			NOT = { province_id = 7963 }
+		}	
 		AND = {
 			area = champagne_area
-			NOT = { province_id = 7950 } #Langres
-		}
-		area = flanders_area
-		area = wallonia_area #Hainaut
-		area = luxembourg_area
+			NOT = { province_id = 7950 }
+		}			
 		area = lorraine_area
-		province_id = 7944 #Hagenau
-		province_id = 75 #Alsace
-		province_id = 4765 #Colmar
-		province_id = 96 #Zeeland
-		province_id = 8112 #Rotterdam
-		province_id = 7975 #Dordrecht
-		area = brabant_area #South Brabant
+		area = brabant_area
+		area = luxembourg_area
+		area = wallonia_area
+		area = flanders_area
 		area = luxemburg_liege_area
-		province_id = 3060 #Nijmegen
-		province_id = 8017 #Cuijk
-		province_id = 2975 #Cleves
-		province_id = 85 #Köln
-		area = lower_rhineland_area #South Rhine
-		province_id = 78 #Mainz
-		province_id = 4767 #Zweibrucken
-		province_id = 1761 #Pfalz
+		AND = {
+			area = lower_rhineland_area
+			NOT = { province_id = 8414 }
+		}	
+		AND = {
+			area = north_rhine_area 
+			NOT = { province_id = 84 }
+			NOT = { province_id = 8409 }
+			NOT = { province_id = 8413 }
+		}			
+		area = palatinate_area
+		AND = {
+			area = alsace_area
+			NOT = { province_id = 1880 }
+		}	
+		area = barrois_area
+		province_id = 3060
+		province_id = 3063
+		province_id = 8017
+		province_id = 96
+		province_id = 8112
+		province_id = 7975
+		province_id = 78
 	}
 }
 
@@ -196,6 +206,9 @@ arverni_culture_region = {
 			area = liguria_area
 			NOT = { province_id = 7055 } #La Spezia
 		}
+		province_id = 165
+		province_id = 3055
+		province_id = 8485		
 	}
 }
 

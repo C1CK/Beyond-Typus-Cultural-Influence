@@ -135,3 +135,266 @@ split_russki = { #Splits Russki into Northern, Middle, Southern and Siberian
 	}
 	#Handle Rulers, Heirs, and Consorts via event to offer a choice
 }
+
+split_rhomaio = { #Splits Rhomaioi into Aegean, Anatolian, Moesian and Cypriot
+	#Provinces
+	every_province = { #Aegean
+		limit = {
+			culture = rhomaio
+			agaio_culture_region = yes
+		}
+		change_culture = greek
+	}
+	every_province = { #Anatolian
+		limit = {
+			culture = rhomaio
+			anatolikos_culture_region = yes
+		}
+		change_culture = anatolikos
+	}
+	every_province = { #Moesian
+		limit = {
+			culture = rhomaio
+			moesian_culture_region = yes
+		}
+		change_culture = moesian
+	}
+	every_province = { #Cypriot
+		limit = {
+			culture = rhomaio
+			cypriot_culture_region = yes
+		}
+		change_culture = cypriot
+	}
+	#Handle Primary switches via event to offer a choice
+	#Accepted Cultures
+	every_country = {
+		limit = {
+			accepted_culture = rhomaio
+		}
+		if = { #If owns Aegean land
+			limit = {
+				any_owned_province = {
+					agaio_culture_region = yes
+				}
+			}
+			add_accepted_culture = greek
+		}
+		if = { #If owns Anatolian land
+			limit = {
+				any_owned_province = {
+					anatolikos_culture_region = yes
+				}
+			}
+			add_accepted_culture = anatolikos
+		}
+		if = { #If owns Moesian land
+			limit = {
+				any_owned_province = {
+					moesian_culture_region = yes
+				}
+			}
+			add_accepted_culture = moesian
+		}
+		if = { #If owns Cypriot land
+			limit = {
+				any_owned_province = {
+					cypriot_culture_region = yes
+				}
+			}
+			add_accepted_culture = cypriot
+		}
+		remove_accepted_culture = rhomaio
+	}
+	#Handle Rulers, Heirs, and Consorts via event to offer a choice
+}
+
+split_aegean = {  #Splits Aegean into Thracian, Macedonian, Mikriasiatic, Dodecanesian, Hellenic and Epirotan
+	#Provinces
+	every_province = { #Thracian
+		limit = {
+			culture = greek
+			thracian_culture_region = yes
+		}
+		change_culture = hellenic_thracian
+	}
+	every_province = { #Macedonian
+		limit = {
+			culture = greek
+			macedonian_culture_region = yes
+		}
+		change_culture = macedonian
+	}
+	every_province = { #Mikrasiatic
+		limit = {
+			culture = greek
+			mikrasiatic_culture_region = yes
+		}
+		change_culture = mikrasiatic
+	}	
+	every_province = { #Dodecanesian
+		limit = {
+			culture = greek
+			dodecanesian_culture_region = yes
+		}
+		change_culture = dodecanesian
+	}
+	every_province = { #Hellenic
+		limit = {
+			culture = greek
+			hellas_culture_region = yes
+		}
+		change_culture = hellas_culture
+	}
+	every_province = { #Epirotan
+		limit = {
+			culture = greek
+			epirotan_culture_region = yes
+		}
+		change_culture = epirotan
+	}	
+	every_province = { #Fallback if outside of other regions, Hellenic
+		limit = {
+			culture = greek
+			OR = {
+				thracian_culture_region = no
+				macedonian_culture_region = no
+				mikrasiatic_culture_region = no
+				dodecanesian_culture_region = no
+				hellas_culture_region = no
+				epirotan_culture_region = no
+			}	
+		}
+		change_culture = hellas_culture
+	}
+	#Handle Primary switches via event to offer a choice
+	#Accepted Cultures
+	every_country = {
+		limit = {
+			accepted_culture = greek
+		}
+		if = { #If owns Thracian land
+			limit = {
+				any_owned_province = {
+					thracian_culture_region = yes
+				}
+			}
+			add_accepted_culture = hellenic_thracian
+		}
+		if = { #If owns Macedonian land
+			limit = {
+				any_owned_province = {
+					macedonian_culture_region = yes
+				}
+			}
+			add_accepted_culture = macedonian
+		}		
+		if = { #If owns Mikrasiatic land
+			limit = {
+				any_owned_province = {
+					mikrasiatic_culture_region = yes
+				}
+			}
+			add_accepted_culture = mikrasiatic
+		}
+		if = { #If owns Dodecanesian land
+			limit = {
+				any_owned_province = {
+					dodecanesian_culture_region = yes
+				}
+			}
+			add_accepted_culture = dodecanesian
+		}
+		if = { #If owns Hellenic (no the small one) land
+			limit = {
+				any_owned_province = {
+					hellas_culture_region = yes
+				}
+			}
+			add_accepted_culture = hellas_culture
+		}
+		if = { #If owns Epirotan land
+			limit = {
+				any_owned_province = {
+					epirotan_culture_region = yes
+				}
+			}
+			add_accepted_culture = epirotan
+		}
+		remove_accepted_culture = greek
+	}
+	#Handle Rulers, Heirs, and Consorts via event to offer a choice
+}
+
+split_anatolikos = {  #Splits Anatolian into Pontic, Cappadocian, Phrygian and Pamphylian
+	#Provinces
+	every_province = { #Pontic
+		limit = {
+			culture = anatolikos
+			pontic_greek_culture_region = yes
+		}
+		change_culture = pontic_greek
+	}
+	every_province = { #Cappadocian
+		limit = {
+			culture = anatolikos
+			cappadocian_culture_region = yes
+		}
+		change_culture = cappadocian
+	}
+	every_province = { #Phrygian
+		limit = {
+			culture = anatolikos
+			phrygian_culture_region = yes
+		}
+		change_culture = phrygian
+	}
+	every_province = { #Pamphylian
+		limit = {
+			culture = anatolikos
+			pamphylian_culture_region = yes
+		}
+		change_culture = pamphylian
+	}
+	#Handle Primary switches via event to offer a choice
+	#Accepted Cultures
+	every_country = {
+		limit = {
+			accepted_culture = anatolikos
+		}
+		if = { #If owns Pontic land
+			limit = {
+				any_owned_province = {
+					pontic_greek_culture_region = yes
+				}
+			}
+			add_accepted_culture = pontic_greek
+		}
+		if = { #If owns Cappadocian land
+			limit = {
+				any_owned_province = {
+					cappadocian_culture_region = yes
+				}
+			}
+			add_accepted_culture = cappadocian
+		}
+		if = { #If owns Phrygian land
+			limit = {
+				any_owned_province = {
+					phrygian_culture_region = yes
+				}
+			}
+			add_accepted_culture = phrygian
+		}
+		if = { #If owns Pamphylian land
+			limit = {
+				any_owned_province = {
+					pamphylian_culture_region = yes
+				}
+			}
+			add_accepted_culture = pamphylian
+		}
+		remove_accepted_culture = anatolikos
+	}
+	#Handle Rulers, Heirs, and Consorts via event to offer a choice
+}

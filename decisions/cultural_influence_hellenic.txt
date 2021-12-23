@@ -34,34 +34,101 @@ country_decisions = {
 		}
 	}
 	
+	aegean_unification_decision = {
+		major = yes
+		potential = {
+			has_country_modifier = hellenic_settlements
+			has_global_flag = aegean_split
+		}
+		provinces_to_highlight = {
+			agaio_culture_region = yes	
+		}		
+		allow = {
+		is_year = 1550 #If split in 1475 require 75 years before reunification
+		calc_true_if = { 
+			desc = aegean_unification_provinces_tooltip
+			all_owned_province = {
+				AND = {
+					agaio_culture_region = yes
+					culture_group = byzantine
+				}
+			}
+			amount = 75 #Out of 113 total
+			}				
+		}
+		effect = {
+			country_event = { id = cultural_influence_greek.67 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	
+	anatolian_unification_decision = {
+		major = yes
+		potential = {
+			has_country_modifier = hellenic_settlements
+			has_global_flag = { byz_resurgence_loaded } #Check for BR
+			NOT = { has_global_flag = anatolian_merge }
+		}
+		provinces_to_highlight = {
+			anatolikos_culture_region = yes	
+		}		
+		allow = {
+		is_year = 1600
+		any_owned_province = {
+			has_province_modifier = byz_anatolian_restoration
+		}
+		calc_true_if = { 
+			desc = anatolikos_unification_provinces_tooltip
+			all_owned_province = {
+				AND = {
+					anatolikos_culture_region = yes
+					culture_group = byzantine
+				}
+			}
+			amount = 80 #out of 129 total
+			}				
+		}
+		effect = {
+			country_event = { id = cultural_influence_greek.68 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	
 	rhomaio_unification_decision = {
 		major = yes
 		potential = {
 			has_country_modifier = hellenic_settlements
 			NOT = { has_global_flag = rhomaio_unified_flag }
+			has_global_flag = anatolian_merge
+			NOT = { has_global_flag = aegean_split }
 		}
 		provinces_to_highlight = {
-			rhomaio_unification_region = yes	
+			rhomaio_culture_region = yes	
 		}		
 		allow = {
+		is_year = 1650
 		151 = {
 			has_province_modifier = byz_city_of_cities
 		}
 		148 = {
 			has_province_modifier = byz_co_capital
 		}
-		any_owned_province = {
-			has_province_modifier = byz_anatolian_restoration
-		}
 		calc_true_if = { 
 			desc = rhomaio_unification_provinces_tooltip
 			all_owned_province = {
 				AND = {
-					rhomaio_unification_region = yes
-					culture_group = byzantine
+					rhomaio_culture_region = yes
+					OR = {
+						culture = anatolikos #Must unify Anatolians and reunify Aegeans first (if the latter splits)
+						culture = greek
+					}	
 				}
 			}
-			amount = 125
+			amount = 185 #Out of 242 Total
 			}				
 		}
 		effect = {
@@ -105,10 +172,12 @@ country_decisions = {
 			adm_power = 200
 			dip_power = 100
 		}
+		hidden_effect = {
+			hellenic_armenian_assimilation = yes #Reworked to only effect the Armenian provinces with 25 or more dev. Advisors and whatnot will still change, however.
+		}
 		effect = {
 			set_global_flag = hellenic_armenian_assimilation_flag
 			custom_tooltip = enables_hellenisation_of_armenian
-			hellenic_armenian_assimilation = yes #Reworked to only effect the Armenian provinces with 25 or more dev. Advisors and whatnot will still change, however.
 			add_adm_power = -200
 			add_dip_power = -100
 		}
@@ -136,6 +205,7 @@ country_decisions = {
 			}
 			NOT = { has_global_flag = hellenic_turkish_assimilation_flag }
 			has_country_modifier = hellenic_settlements	
+			has_global_flag = { byz_resurgence_loaded } #Check for BR
 		}
 		allow = {
 			AND = {
@@ -157,10 +227,12 @@ country_decisions = {
 			adm_power = 200
 			dip_power = 100
 		}
+		hidden_effect = {
+			hellenic_turkish_assimilation = yes		
+		}
 		effect = {
 			set_global_flag = hellenic_turkish_assimilation_flag
 			custom_tooltip = turkish_assimilation_hellenic
-			hellenic_turkish_assimilation = yes
 			add_adm_power = -200
 			add_dip_power = -100
 		}
