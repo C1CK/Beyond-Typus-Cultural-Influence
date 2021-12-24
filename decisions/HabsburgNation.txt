@@ -1,0 +1,238 @@
+country_decisions = {
+
+	habsburg_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			was_never_german_regional_tag_trigger = yes
+			NOT = { has_country_flag = formed_austria_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				primary_culture = austrian
+				primary_culture = bavarian
+			}
+			NOT = { tag = HAB }
+			OR = {
+				NOT = { exists = HAB }
+				ai = no
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 134
+				AND = {
+					OR = {
+						culture = austrian
+						culture = bavarian
+					}	
+					continent = europe
+					root = {
+						NOT = {
+							num_of_owned_provinces_with = {
+								value = 16
+								is_core = root
+								OR = {
+									culture = austrian
+									culture = bavarian
+								}	
+								continent = europe
+							}
+						}
+						owns_core_province = 134
+					}
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = HAB }
+			has_regency = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no			
+			is_at_war = no
+			owns = 134
+			num_of_owned_provinces_with = {
+				value = 16
+				is_core = root
+				OR = {
+					culture = austrian
+					culture = bavarian
+				}	
+				continent = europe
+			}
+		}
+		effect = {
+			restore_country_name = yes
+			change_tag = HAB
+			add_prestige = 10
+			if = {
+				limit = { is_emperor = YES }
+				set_government_rank = 3
+			}
+			austria_proper_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HAB
+			}
+			inner_austria_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HAB
+			}
+#			tirol_area = {
+#				limit = {
+#					NOT = { owned_by = ROOT }
+#				}
+#				add_permanent_claim = HAB
+#			}
+#			salzburg_area = {
+#				limit = {
+#					NOT = { owned_by = ROOT }
+#				}
+#				add_permanent_claim = HAB
+#			}
+			austria_proper_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HAB
+			}
+			upper_austria_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HAB
+			}
+			carinthia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HAB
+			}
+			carniola_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HAB
+			}
+			76 = {		#Salzburg
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = HAB
+				}
+			}
+			8465 = {	#Pongau
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = HAB
+				}
+			}
+			8463 = {	#Pinzgau
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = HAB
+				}
+			}
+			8462 = {	#Krimml
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = HAB
+				}
+			}
+			4758 = {	#Meran
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = HAB
+				}
+			}
+			3048 = {	#Botzen
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = HAB
+				}
+			}
+			7093 = {	#Brixen
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = HAB
+				}
+			}
+			1768 = {	#Lienz
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = HAB
+				}
+			}
+			8482 = {	#Kufstein
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = HAB
+				}
+			}
+			73 = {		#Innsbruck
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = HAB
+				}
+			}
+			8483 = {	#Landeck
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = HAB
+				}
+			}
+			4710 = { 	#Vorarlberg
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = HAB
+				}
+			}
+			swap_non_generic_missions = yes
+			set_country_flag = formed_austria_flag
+
+			if = {
+				limit = {
+					has_custom_ideas = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+}
