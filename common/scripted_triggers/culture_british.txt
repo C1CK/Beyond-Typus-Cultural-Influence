@@ -42,13 +42,21 @@ british_new_world = {
 		culture = anglo_argentine
 		culture = anglo_colombian
 		culture = anglo_south_african
+		culture = anglo_yankee
+		culture = anglo_dixie
+		culture = anglo_midwestern		
+		culture = anglo_texan
+		culture = anglo_mexican
+		culture = anglo_californian
+		culture = anglo_cascadian
+		culture = anglo_great_plains
+		culture = anglo_alaskan
 	}
 }
 
 anglo_continental_settlement_plans_region = {
 	OR = {
-		region = france_region
-		region = low_countries_region
+		province_group = anglo_continental_settlement_plans_region_provinces
 	}
 }
 
@@ -60,477 +68,254 @@ anglo_continental_settlement_plans_region = {
 
 anglo_welsh_culture_region = {
 	OR = {
-		AND = {
-			area = wales_area #Gwynedd
-			NOT = { province_id = 8139 } #Flintshire
-		}
-		province_id = 4366 #Montgomershire
-		province_id = 8142 #Radnor
-		area = deheubarth_area
+		province_group = anglo_welsh_culture_region_provinces
 	}
 }
 
 anglo_irish_culture_region = {
 	OR = {
-		region = ireland_region
+		province_group = anglo_irish_culture_region_provinces
 	}
 }
 
 anglo_scottish_culture_region = {
 	OR  = {
-		area = kingdom_of_the_isles_area #Southern Isles
-		area = highlands_area
-		area = lowlands_area #Eastern Lowlands
-		area = scottish_marches_area #Western Lowlands
-		area = grampians_area
-		province_id = 369 #Orkney
-		province_id = 1978 #Shetland
-		area = northern_england_area #Northumberland
-		province_id = 247 #Cumberland
-		province_id = 8135 #Westmoreland
-		province_id = 4365 #Mann
+		province_group = anglo_scottish_culture_region_provinces
 	}
 }
 
 anglo_northumbrian_culture_region = {
 	OR = {
-		province_id = 4376 #Leicester
-		province_id = 243 #Lincoln
-		province_id = 8131 #Nottingham
-		province_id = 1861 #Derby
-		area = yorkshire_area
-		area = west_midlands_area #Lancashire
-		province_id = 8193 #Flintshire
-		area = northern_england_area #Northumberland
-		province_id = 4361 #Roxburgh
-		province_id = 8145 #Tweeddale
-		province_id = 8146 #The Merse
-		province_id = 248 #Lothian
-		AND = {
-			area = scottish_marches_area #Western Lowlands
-			NOT = { province_id = 8147 } #Dunbarton
-		}
-		province_id = 4365 #Mann
+		province_group = anglo_northumbrian_culture_region_provinces
 	}
 }
 
 anglo_english_culture_region = {
 	OR = {
-		area = wessex_area
-		area = home_counties_area #Essex
-		area = east_anglia_area
-		province_id = 240 #Shropshire
-		province_id = 8129 #Herefordshire
-		province_id = 8130 #Stafford
-		province_id = 4372 #Worcester
-		province_id = 8128 #Warwick
-		province_id = 8126 #Northampton
+		province_group = anglo_english_culture_region_provinces
 	}
 }
 
 standard_english_culture_region = {
 	OR = {
-		anglo_english_culture_region = yes
-		anglo_northumbrian_culture_region = yes
-		anglo_scottish_culture_region = yes
+		province_group = standard_english_culture_region_provinces
 	}
 }
 
 standard_british_culture_region = {
 	OR = {
-		region = british_isles_region
-		region = ireland_region #Why is this called ireland_area when it's a region? Don't worry it got changed in BT 14
-		province_id = 369 #Orkney
-		province_id = 1978 #Shetland
+		province_group = standard_british_culture_region_provinces
 	}
 }
 
 anglo_arctic_culture_region = {
 	OR = {
-		province_id = 1979 #Faroes
-		province_id = 5591 #Jan Mayen
-		area = iceland_area
-		area = greenland_area
+		province_group = anglo_arctic_culture_region_provinces
 	}
 }
 
 anglo_norman_english_culture_region = {
 	OR = {
-		province_id = 7935 #Chinion
-		province_id = 4389 #Tours
-		area = brittany_area
-		area = lower_brittany_area
-		area = lower_normandy_area
-		area = normandy_area
-		area = picardy_area
-		area = orleans_area #Maine-Anjou
-		area = flanders_area
-		area = wallonia_area
-		AND = {
-			area = ile_de_france_area
-			NOT = { province_id = 185 } #Gatinais
-		}
-		AND = {
-			area = loire_area
-			NOT = { province_id = 7958 } #Montargis
-			NOT = { province_id = 4776 } #Blois
-			NOT = { province_id = 184 } #Orleans
-			NOT = { province_id = 7957 } #Etampes
-		}
+		province_group = anglo_norman_english_culture_region_provinces
 	}
 }
 
 anglo_aquitanian_culture_region = {
 	OR = {
-		area = poitou_area
-		area = guyenne_area
-		area = pyrenees_area
-		area = upper_gascony
+		province_group = anglo_aquitanian_culture_region_provinces
 	}
 }
 
 anglo_burgundian_culture_region = {
 	OR = {
-		province_id = 179 #Berry
-		province_id = 7959 #Sancerres
-		province_id = 7937 #Cheateauroux
-		province_id = 190 #Moulins
-		province_id = 7916 #Riom
-		province_id = 7917 #Montlucon
-		area = bourgogne_area #Burgundy
-		area = champagne_area
-		area = lorraine_area
-		province_id = 7948
-		province_id = 8420
-		area = west_burgundy_area #Franche-Comte
-		area = limousin_area
-		area = barrois_area
-		province_id = 4767
-		province_id = 8433
-		province_id = 94	
-		province_id = 3066	
-		province_id = 7958 #Montargis
-		province_id = 4776 #Blois
-		province_id = 7936 #Lochtes
-		province_id = 184 #Orleans
-		province_id = 7957 #Etampes
-		province_id = 3198 #Saarland
-		province_id = 7944 #Hagenland
-		province_id = 75 #Strassburg
-		province_id = 4765 #Kolmar
-		province_id = 1880 #Sundgau
-		province_id = 185 #Gatinais
-		province_id = 8023
-		province_id = 80
+		province_group = anglo_burgundian_culture_region_provinces
 	}
 }
 
 anglo_toulousain_culture_region = {
 	OR = {
-		area = languedoc_area
-		area = west_languedoc_area
-		area = lyonnais_area
-		area = savoy_dauphine_area #Savoy
-		area = provence_area
-		area = dauphine_area
-		area = upper_guyenne_area
-		AND = {
-			area = massif_central_area
-			NOT = { province_id = 190 } #Moulins
-			NOT = { province_id = 7916 } #Riom
-			NOT = { province_id = 7917 } #Montlucon
-		}
+		province_group = anglo_toulousain_culture_region_provinces
 	}
 }
 
 anglo_lower_rhenish_culture_region = {
 	OR = {
-		area = holland_area
-		area = brabant_area #South Brabant
-		AND = {
-			area = north_brabant_area #Guelders
-			NOT = { province_id = 4381 } #Overijssel
-			NOT = { province_id = 8120 } #Twente
-		}
-		AND = {
-			area = luxemburg_liege_area #Liege
-			NOT = { province_id = 8023 }
-		}
-		AND = {
-			area = north_rhine_area
-			NOT = { province_id = 3201 } #Siegen
-			NOT = { province_id = 3200 } #Mark
-		}
-		AND = {
-			area = lower_rhineland_area #South Rhine
-			NOT = { province_id = 3198 } #Saarland
-			NOT = { province_id = 80 }
-			NOT = { province_id = 8415 }
-			NOT = { province_id = 8416 }		
-		}
-		province_id = 8027 #St. Vith
-		AND = {
-			area = luxembourg_area
-			NOT = { province_id = 94 }			
-			NOT = { province_id = 3066 }			
-			NOT = { province_id = 7948 }
-			NOT = { province_id = 8420 }
-		}	
-		province_id = 3199
-		province_id = 3200
-		province_id = 3292			
+		province_group = anglo_lower_rhenish_culture_region_provinces
 	}
 }
 
 anglo_frisian_culture_region = {
 	OR = {
-		area = frisia_area
-		AND = {
-			area = bremen_verden_area
-			NOT = { province_id = 54 }
-			NOT = { province_id = 8297 }
-		}
-		area = oversticht_area
-		AND = {
-			area = north_westphalia_area
-			NOT = { province_id = 3199 }
-			NOT = { province_id = 3200 }
-			NOT = { province_id = 3292 }
-		}	
-		area = weser_area
-		province_id = 3202 #Minden
-		province_id = 4775
-		province_id = 8292
-		province_id = 8293
+		province_group = anglo_frisian_culture_region_provinces
 	}
 }
 
 anglo_upper_rhenish_culture_region = {
 	OR = {
-		AND = {
-			area = westphalia_area
-			NOT = { province_id = 3202 } #Minden
-			NOT = { province_id = 4775 }	
-		}
-		province_id = 3201 #Siegen
-		area = hesse_area
-		province_id = 1761
-		province_id = 8415
-		province_id = 8416		
-		province_id = 8431	
-		province_id = 8432			
-		area = franconia_area
-		area = east_bavaria_area
-		area = upper_rhineland_area
-		AND = {
-			area = lower_swabia_area
-			NOT = { province_id = 71 } #Ansbach
-		}
-		area = upper_swabia_area
-		area = nassau_area
+		province_group = anglo_upper_rhenish_culture_region_provinces
 	}
 }
 
 anglo_danish_culture_region = {
 	OR = {
-		area = jutland_area
-		area = schleswig_area
-		area = holstein_area
-		province_id = 54
-		province_id = 8297
-		province_id = 2996 #Wismar
-		area = denmark_area
+		province_group = anglo_danish_culture_region_provinces
 	}
 }
 
 anglo_norwegian_culture_region = {
 	OR = {
-		area = western_norway
-		area = southern_norway_area
-		area = eastern_norway
-		province_id = 7787 #Raumsdalr
-		province_id = 20 #Troendalog
-		province_id = 7788 #Sparbyggjafylki
-		AND = {
-			area = northern_norway
-			NOT = { province_id = 315 }
-			NOT = { province_id = 3119 }
-		}	
+		province_group = anglo_norwegian_culture_region_provinces
 	}
 }
 
 anglo_swedish_culture_region = {
 	OR = {
-		area = skaneland_area
-		area = vastra_gotaland_area #Westrogothia
-		area = gotaland_area #Ostrogothia
-		area = svealand_area
-		province_id = 7796 #Herjárdalr
-		province_id = 10 #Jamtaland		
-		province_id = 3124
-		province_id = 7797
-		province_id = 7798
+		province_group = anglo_swedish_culture_region_provinces
 	}
 }
 
 anglo_finnish_culture_region = {
 	OR = {
-		area = finland_area
-		province_id = 19 #Österbotten
-		province_id = 7801 #Kokkola
-		province_id = 4113 #Peräpohjola
-		province_id = 4152 #Kainuu		
-		area = north_karelia_area #Ingria
-		area = west_karelia_area
-		area = karelia_area
+		province_group = anglo_finnish_culture_region_provinces
 	}
 }
 
 anglo_laplander_culture_region = {
 	OR = {
-		AND = {
-			area = norrland_area
-			NOT = { province_id = 3124 }
-			NOT = { province_id = 7797 }
-			NOT = { province_id = 7798 }
-		}	
-		province_id = 4151 #Enare
-		province_id = 7802 #Rovaniemi
-		province_id = 7864 #Kuolajarvi
-		province_id = 5649 #Kandalaksha
-		province_id = 1777 #Kola
-		province_id = 5650 #Varzuga		
-		province_id = 315 
-		province_id = 3119 		
+		province_group = anglo_laplander_culture_region_provinces
 	}
 }
 
 anglo_baltic_culture_region = {
 	OR = {
-		region = baltic_region
-		province_id = 3225 #Sudovia
-		province_id = 7211 #Wizajny
+		province_group = anglo_baltic_culture_region_provinces
 	}
 }
 
 anglo_pomeranian_culture_region = {
 	OR = {
-		AND = {
-			area = lower_saxony_area #Hannover
-			NOT = { province_id = 8292 }
-			NOT = { province_id = 8293 }
-		}	
-		area = northern_saxony_area #Altmark
-		area = mittelmark_area
-		AND = {
-			area = mecklenburg_area
-			NOT = { province_id = 2996 } #Wismar
-		}
-		area = vorpommern_area #Cispomerania
-		area = hinter_pommern_area #Transpomerania
-		area = neumark_area
-		area = braunschweig_area
+		province_group = anglo_pomeranian_culture_region_provinces
 	}
 }
 
 ###Colonial###
 
 anglo_australian_culture_region = {
-	region = australia_region
+	OR = {
+		province_group = anglo_australian_culture_region_provinces
+	}
 }
 
 anglo_kiwi_culture_region = {
-	region = new_zealand_region
+	OR = {
+		province_group = anglo_kiwi_culture_region_provinces
+	}
 }
 
 anglo_caribbean_culture_region = {
-	region = carribeans_region
+	OR = {
+		province_group = anglo_caribbean_culture_region_provinces
+	}
 }
 
-anglo_american_culture_region = { #This will later be broken up, but for now whatever it doesn't matter
+anglo_american_culture_region = { #This has now been broken up
 	OR = {
-		region = mexico_region
-		region = cascadia_region
-		region = california_region
-		region = great_plains_region
-		region = mississippi_region
-		region = southeast_america_region
-		region = northeast_america_region
-		region = great_lakes_region
-		region = rio_grande_region
+		province_group = anglo_american_culture_region_provinces
+	}
+}
+
+anglo_texan_culture_region = {
+	OR = {
+		province_group = anglo_texan_culture_region_provinces
+	}
+}
+
+anglo_californian_culture_region = {
+	OR = {
+		province_group = anglo_californian_culture_region_provinces
+	}
+}
+
+anglo_cascadian_culture_region = {
+	OR = {
+		province_group = anglo_cascadian_culture_region_provinces
+	}
+}
+
+anglo_midwestern_culture_region = {
+	OR = {
+		province_group = anglo_midwestern_culture_region_provinces
+	}
+}
+
+anglo_mexican_culture_region = {
+	OR = {
+		province_group = anglo_mexican_culture_region_provinces
+	}
+}
+
+anglo_great_plains_culture_region = {
+	OR = {
+		province_group = anglo_great_plains_culture_region_provinces
+	}
+}
+
+anglo_alaskan_culture_region = {
+	OR = {
+		province_group = anglo_alaskan_culture_region_provinces
+	}
+}
+
+anglo_yankee_culture_region = { #Spawns from independant Anglo-American Colony
+	OR = {
+		province_group = anglo_yankee_culture_region_provinces
+	}
+}
+
+anglo_dixie_culture_region = { #Spawns from independant Anglo-American Colony
+	OR = {
+		province_group = anglo_dixie_culture_region_provinces
 	}
 }
 
 anglo_canadian_culture_region = {
 	OR = {
-		AND = { 
-			region = canada_region
-			NOT = { area = labrador_area }
-			NOT = { area = newfoundland_area }
-			NOT = { area = avalon_area }
-		}
-		AND = {
-			region = hudson_bay_region
-			NOT = { area = greenland_area }
-			NOT = { area = east_greenland_area }
-		}
-		region = alaska_region
-		region = northwest_territories_region
+		province_group = anglo_canadian_culture_region_provinces
 	}
 }
 
 anglo_newfoundlander_culture_region = {
 	OR = {
-		area = labrador_area
-		area = newfoundland_area
-		area = avalon_area
+		province_group = anglo_newfoundlander_culture_region_provinces
 	}
 }
 
 anglo_brazilian_culture_region = {
 	OR = {
-		region = brazil_region
-		area = moxos_area
-		area = beni_area
-		area = paraguay_area
-		area = misiones_area
-		area = chaco_area
+		province_group = anglo_brazilian_culture_region_provinces
 	}
 }
 
 anglo_peruvean_culture_region = {
 	OR = {
-		AND = {
-			region = upper_peru_region
-			NOT = { area = paraguay_area }
-			NOT = { area = beni_area }
-			NOT = { area = moxos_area }
-			NOT = { area = chaco_area }
-		}
-		region = peru_region
+		province_group = anglo_peruvean_culture_region_provinces
 	}
 }
 
 anglo_colombian_culture_region = {
 	OR = {
-		region = colombia_region
-		region = central_america_region
+		province_group = anglo_colombian_culture_region_provinces
 	}
 }
 
 anglo_argentine_culture_region = {
-	AND = {
-		region = la_plata_region
-		NOT = { area = misiones_area }
+	OR = {
+		province_group = anglo_argentine_culture_region_provinces
 	}
 }
 
 anglo_south_african_culture_region = {
 	OR = {
-		area = eastern_cape_area
-		area = northern_cape_area
-		area = lower_karoo_area
-		area = south_african_plateau_area
-		area = cape_of_good_hope_area
+		province_group = anglo_south_african_culture_region_provinces
 	}
 }

@@ -68,7 +68,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			has_country_modifier = hellenic_settlements
-			has_global_flag = { byz_resurgence_loaded } #Check for BR
+			has_global_flag = byz_resurgence_loaded #Check for BR
 			NOT = { has_global_flag = anatolian_merge }
 		}
 		provinces_to_highlight = {
@@ -143,22 +143,16 @@ country_decisions = {
 	hellenic_armenian_assimilation_decision = {
 		major = yes
 		potential = {
+			NOT = { has_global_flag = hellenic_armenian_assimilation_flag }
+			has_country_modifier = hellenic_settlements		
 			AND = {
 				culture_group = byzantine
 				OR = {
-					calc_true_if = {
-						all_province = {
-							OR = {
-								culture = armenian
-								}
-							is_core = ROOT
-						}
-					amount = 1 #Have to own at least one to see the decision						
+					any_core_province = { 
+						culture = armenian 
 					}
-				}	
+				}
 			}
-			NOT = { has_global_flag = hellenic_armenian_assimilation_flag }
-			has_country_modifier = hellenic_settlements
 		}
 		allow = {
 			accepted_culture = armenian
@@ -172,10 +166,10 @@ country_decisions = {
 			adm_power = 200
 			dip_power = 100
 		}
-		hidden_effect = {
-			hellenic_armenian_assimilation = yes #Reworked to only effect the Armenian provinces with 25 or more dev. Advisors and whatnot will still change, however.
-		}
 		effect = {
+			hidden_effect = {
+				hellenic_armenian_assimilation = yes #Reworked to only effect the Armenian provinces with 25 or more dev. Advisors and whatnot will still change, however.
+			}		
 			set_global_flag = hellenic_armenian_assimilation_flag
 			custom_tooltip = enables_hellenisation_of_armenian
 			add_adm_power = -200
@@ -189,23 +183,17 @@ country_decisions = {
 	hellenic_turkish_assimilation_decision = {
 		major = yes
 		potential = {
+			NOT = { has_global_flag = hellenic_turkish_assimilation_flag }
+			has_country_modifier = hellenic_settlements	
+			has_global_flag = byz_resurgence_loaded #Check for BR		
 			AND = {
 				culture_group = byzantine
 				OR = {
-					calc_true_if = {
-						all_province = {
-							AND = {
-								culture = turkish
-							}
-							is_core = ROOT
-						}
-					amount = 1 #Have to own at least one to see the decision						
+					any_core_province = { 
+						culture = turkish 
 					}
 				}
 			}
-			NOT = { has_global_flag = hellenic_turkish_assimilation_flag }
-			has_country_modifier = hellenic_settlements	
-			has_global_flag = { byz_resurgence_loaded } #Check for BR
 		}
 		allow = {
 			AND = {
@@ -227,10 +215,10 @@ country_decisions = {
 			adm_power = 200
 			dip_power = 100
 		}
-		hidden_effect = {
-			hellenic_turkish_assimilation = yes		
-		}
 		effect = {
+			hidden_effect = {
+				hellenic_turkish_assimilation = yes		
+			}			
 			set_global_flag = hellenic_turkish_assimilation_flag
 			custom_tooltip = turkish_assimilation_hellenic
 			add_adm_power = -200

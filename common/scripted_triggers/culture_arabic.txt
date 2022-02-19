@@ -93,427 +93,169 @@ arab_cultural_region = {
 
 libyan_culture_region = { #Sulaym
 	OR = {
-		area = fezzan_area
-		area = nafusa_mountains_area
-		area = cyrenaica_area
-		province_id = 5272 #Matruh
-		province_id = 5273 #Siwah
-		area = tripolitania_area
-		province_id = 353 #Medinine
-		province_id = 2450 #Jebil
+		province_group = libyan_culture_region_provinces
 	}
 }
 
 moroccan_culture_region = { #M'qil
 	OR = {
-		area = northern_morocco_area #Rif
-		area = southern_morocco_area #Tagmudant
-		area = western_morocco_area #Fez
-		area = marrekesh_area
-		province_id = 1110 #Agadir n Yighir
-		province_id = 5212 #Sus
-		province_id = 2466 #Asif en Dra
-		area = tafilalt_area
-		province_id = 5222 #Talbalbala
-		province_id = 5221 #Béchar
+		province_group = moroccan_culture_region_provinces
 	}
 }
 
 tunisian_culture_region = { #Sharqeea Halaalee
 	OR = {
-		province_id = 1882 #Annaba
-		province_id = 5315 #Al-Kaf
-		area = tunisia_area
-		province_id = 5312 #Gabes
-		province_id = 2954 #Djerba
+		province_group = tunisian_culture_region_provinces
 	}
 }
 
 algerian_culture_region = { #Wasat Halaalee
 	OR = {
-		area = hautes_plaines_area
-		area = barbary_coast_area
-		area = north_saharan_area
-		AND = {
-			area = kabylia_area
-			NOT = { province_id = 1882 } #Annaba
-		}
-		AND = {
-			area = ouled_nail_area #Aures
-			NOT = { province_id = 5315 } #Al-Kaf
-		}
-		province_id = 5316 #Tuzer
-		province_id = 352 #Gafsa
+		province_group = algerian_culture_region_provinces
 	}
 }
 
 masri_culture_region = { #Maasra
 	OR = {
-		province_id = 2325 #El-Alamein
-		province_id = 2318 #El-Wahat el-bahnasa
-		province_id = 4323 #Dakhla
-		province_id = 1233 #El-Kharga
-		area = delta_area #Nile Delta
-		area = bahari_area #Lower Egypt
-		province_id = 2315 #as-Suways
-		province_id = 4321 #Es-Sahra es-Sarqia
-		province_id = 2320 #Ras Gareb
-		area = said_area #Upper Egypt
-		province_id = 5278 #Fila
-		province_id = 1234 #Ibrim
-		province_id = 4322 #Ababda
+		province_group = masri_culture_region_provinces
 	}
 }
 
 masri_levantine_confict_region = {
 	OR = {
-		area = syrian_desert_area #Sinai
+		province_group = masri_levantine_confict_region_provinces
 	}
 }
 
 levantine_culture_region = { #Shaameea
 	OR = {
-		province_id = 332 #Marash
-		area = cukurova_area #Cilicia
-		AND = {
-			region = mashriq_region #Levant
-			NOT = { area = syrian_desert_area } #Sinai
-			NOT = { province_id = 4270 } #Ma'an
+		province_group = levantine_culture_region_provinces
 		}
 	}
 }
 
 mesopotamian_culture_region = { #`Raaqeea
 	OR = {
-		province_id = 412 #Suq al-Ahwaz
-		province_id = 4290 #Hoveyzeh
-		province_id = 4289 #Tustar
-		province_id = 2209 #Ilam
-		AND = {
-			area = basra_area
-			NOT = { province_id = 2340 } #Grane
-		}
-		area = iraq_arabi_area
-		AND = {
-			area = shahrizor_area
-			NOT = { province_id = 2211 } #Erdelan
-		}
-		area = al_jazira_area
-		area = rakka_area
-		area = mardin_area
-		province_id = 5331 #Sert
-		province_id = 2303 #Malatya
-		province_id = 4310 #Kharput
-		province_id = 6030
+		province_group = mesopotamian_culture_region_provinces
 	}
 }
 
 gulf_culture_region = { #Xhaleejee
 	OR = {
-		province_id = 2340 #Grane
-		area = bahrain_area
-		AND = {
-			area = pirate_coast_area
-			NOT = { province_id = 4286 } #Al-Fugaira
-		}
-		area = mogostan_area
-		area = persian_gulf_coast
-		area = persian_gulf_islands_area
+		province_group = gulf_culture_region_provinces
 	}
 }
 
 shirvani_arabic_culture_region = { #Sheerfaanee
 	OR = {
-		province_id = 2447 #Matrega
-		province_id = 287 #Kuban
-		area = imereti_area #Odishi
-		area = dagestan_area
-		area = samtskhe_area #Georgia
-		province_id = 5151 #Bayburt
-		province_id = 331 #Erzurum
-		province_id = 2306 #Mush
-		area = shirvan_area
-		area = armenia_area
-		AND = {
-			area = north_kurdistan_area #Vaspurakan
-			NOT = { province_id = 5331 } #Sert
-		}
-		area = tabriz_area
-		area = azerbaijan_area
-		area = circassia_area
-		province_id = 2211 #Erdelan
-		province_id = 4339 #Fuman
-		province_id = 417 #Lahijan
+		province_group = shirvani_arabic_culture_region_provinces
 	}
 }
 
 yemeni_culture_region = { #(Eemneea) Includes Somalia
 	OR = {
-		province_id = 2346 #Jazan
-		province_id = 386 #Asir
-		province_id = 391 #Najran
-		area = upper_yemen_area
-		area = yemen_area #Lower Yemen
-		province_id = 5241 #Shuqra
-		province_id = 2343 #Hadramawt
-		province_id = 389 #Al-Mukalla
-		province_id = 1099 #Socotra
-		#Somali-Yemeni
-		province_id = 5298 #Zula
-		province_id = 2765 #Assab
-		province_id = 1215 #Tajura
-		province_id = 1212 #Zeyila
-		province_id = 2793 #Harigesa
-		area = somaliland_area
-		area = majarteen_area
-		area = ajuuran_area
-		area = mogadishu_area
-		province_id = 2777 #Bardera
+		province_group = yemeni_culture_region_provinces
 	}
 }
 
 omani_culture_region = { #`Maaneea
 	OR = {
-		province_id = 4286 #Al-Fugaira
-		area = mascat_area #Batinah
-		area = oman_area
-		province_id = 5244 #Jiddat
-		province_id = 2342 #Al-Wusta
+		province_group = omani_culture_region_provinces
 	}
 }
 
 dhofari_culture_region = {
 	OR = {
-		province_id = 4284 #Thamud
-		province_id = 402 #Mahra
-		province_id = 5243 #Thumrait
-		province_id = 401 #Dhofar
-		province_id = 4283 #Mirbat
+		province_group = dhofari_culture_region_provinces
 	}
 }
 
 najdi_culture_region = { #Najdeea
 	OR = {
-		area = yamamah_area #Al Yamana
-		area = nafud_area #Najd
-		province_id = 4270 #Ma'an
-		area = mahra_area #Al Ahsa
-		province_id = 2339 #Yabrin
-		province_id = 5235 #Al-Baha
-		province_id = 4282 #Qa'lat Bisah
+		province_group = najdi_culture_region_provinces
 	}
 }
 
 hejazi_culture_region = { #Hajaazee
 	OR = {
-		area = tabuk_area
-		area = medina_area
-		area = mecca_area
-		AND = {
-			area = tihama_al_yemen_area
-			NOT = { province_id = 2346 } #Jazan
-		}
-		#Bedawi
-		province_id = 2321 #El Oser
-		province_id = 5271 #El-Haras
-		area = red_sea_coast_area
-		province_id = 5288 #Karura
-		province_id = 1230 #Massawa
+		province_group = hejazi_culture_region_provinces
 	}
 }
 
 andalusian_culture_region = {
 	OR = {
-		region = iberia_region
+		province_group = andalusian_culture_region_provinces
 	}
 }
 
 andalusian_sicilian_conflict_region = {
 	OR = {
-		area = sardinia_area
-		area = corsica_sardinia_area
+		province_group = andalusian_sicilian_conflict_region_provinces
 	}
 }
 
 sicilian_arabic_culture_region = {
 	OR = {
-		area = sicily_area
-		area = naples_area
-		area = calabria_area
-		area = apulia_area
-		area = abruzzo_area
+		province_group = sicilian_arabic_culture_region_provinces
 	}
 }
 
 septimanian_culture_region = {
 	OR = {
-		area = guyenne_area
-		area = pyrenees_area #Gascony
-		area = languedoc_area
-		area = provence_area
-		area = west_languedoc_area
-		area = upper_guyenne_area
-		area = upper_gascony
-		area = dauphine_area
-		area = lyonnais_area #Northern States of Southern France
-		area = massif_central_area
-		area = poitou_area
-		area = limousin_area
-		area = savoy_dauphine_area
+		province_group = septimanian_culture_region_provinces
 	}
 }
 
 hassaniya_culture_region = {
 	OR = {
-		area = cap_verde_area
-		province_id = 347 #Tan-Tan
-		province_id = 5228 #Sidi Ifni
-		province_id = 5223 #Tindouf
-		province_id = 1127 #Tuat
-		province_id = 1128 #Taudeni
-		province_id = 1129 #Azawad
-		province_id = 1130 #Tadmekka
-		province_id = 1133 #Gao
-		province_id = 2262 #Karabara
-		province_id = 1132 #Timbuktu
-		province_id = 2260 #Mema
-		province_id = 2247 #Hodh
-		province_id = 2246 #Baghena
-		province_id = 2243 #Termes
-		province_id = 2244 #Tagant
-		province_id = 1115 #Brakna
-		province_id = 1112 #Trarza
+		province_group = hassaniya_culture_region_provinces
 	}
 }
 
 saharan_arabic_culture_region = {
 	OR = {
-		province_id = 2271 #Azawagh
-		province_id = 2272 #Azbin
-		province_id = 2274 #Aïr
-		area = east_azbin_area
+		province_group = saharan_arabic_culture_region_provinces
 	}
 }
 
 central_sudanese_culture_region = {
 	OR = {
-		province_id = 2269 #Zarmaganda
-		province_id = 2270 #Dallol
-		province_id = 2273 #Ader
-		province_id = 2276 #Itesan
-		province_id = 1156 #Damagaram
-		area = katsina_area
-		area = zazzau_area
-		area = hausa_area #Kano
-		province_id = 1161 #Bauchi
-		province_id = 1249 #Yola
-		province_id = 2285 #Marghi
-		area = bornu_area
-		area = kanem_area
-		province_id = 2932 #Waddai
-		province_id = 774 #Genina
-		province_id = 1219 #Daju
+		province_group = central_sudanese_culture_region_provinces
 	}
 }
 
 eastern_sudanese_culture_region = {
 	OR = {
-		province_id = 5301 #Selima
-		province_id = 2322 #Faras
-		province_id = 5277 #Batn-el-Hajar
-		province_id = 2323 #Al-Shanka
-		province_id = 1229 #Amarar
-		province_id = 5280 #Hadendoa
-		area = southeast_sahara_area
-		area = upper_nubia_area
-		province_id = 2801 #Ain Farah
-		province_id = 2802 #Daein
-		area = kurdufan_area
-		area = white_nile_area
-		area = sennar_area #Blue Nile
-		area = butana_area
+		province_group = eastern_sudanese_culture_region_provinces
 	}
 }
 
 habashi_culture_region = {
 	OR = {
-		area = tigray_area
-		area = damot_area
-		area = central_ethiopia_area
-		area = hadiya_area
-		area = shewa_area
-		area = southern_ethiopia_area
-		area = ogaden_area
-		province_id = 2773 #Mora
-		province_id = 1211 #Harar
-		province_id = 2764 #Answa
-		province_id = 2768 #Angot
+		province_group = habashi_culture_region_provinces
 	}
 }
 
 yunania_culture_region = {
 	OR = {
-		area = thrace_area
-		area = upper_thrace_area
-		area = northern_thrace_area
-		province_id = 7703 #Pristine
-		area = macedonia_area #West Macedonia
-		area = morea_area #Peloponnese
-		area = northern_greece_area #Epirus
-		area = western_aegean_area #Hellas
-		area = eastern_mediterrenean_islands_area #Crete
-		province_id = 3195 #Lemnos
-		province_id = 164 #Nasso
-		area = aetolia_area
-		area = thessaly_area
-		area = eastern_macedonia_area
-		area = northern_epirus_area #Ionian Islands
-		area = albania_area
-		area = northern_macedonia_area
+		province_group = yunania_culture_region_provinces
 	}
 }
 
 anadul_culture_region = {
 	OR = {
-		province_id = 4700 #Lesbos
-		province_id = 2348 #Chios
-		province_id = 320 #Rhodes
-		AND = {
-			region = anatolia_region
-			NOT = { area = cukurova_area } #Cilicia
-			NOT = { province_id = 332 } #Marash
-		}
-		province_id = 2305 #Erzincan
-		province_id = 5158
+		province_group = anadul_culture_region_provinces
 	}
 }
 
 tuwskaniu_culture_region = {
 	OR = {
-		AND = {
-			region = italy_region
-			sicilian_arabic_culture_region = no
-			andalusian_sicilian_conflict_region = no
-		}
-
+		province_group = tuwskaniu_culture_region_provinces
 	}
 }
 
 faarisia_culture_region = {
 	OR = {
-		area = farsistan_area
-		area = iraq_e_ajam_area
-		area = isfahan_area
-		area = kerman_area
-		AND = {
-			area = tabarestan_area
-			NOT = { province_id = 4339 } #Fuman
-		}
-		AND = {
-			area = luristan_area
-			NOT = { province_id = 2209 } #Ilam
-		}
-		province_id = 2217
-		province_id = 4342
+		province_group = faarisia_culture_region_provinces
 	}
 }

@@ -292,8 +292,8 @@ stonehenge = {
 			}
 			AND = {
 				OR = {
-					culture_group = british
-					culture_group = brythonic
+					culture_group = british					#CI Changed -I think this better represents it, we aren't even sure if the celts built it or if it was some culture before them but for the game this works, expanding English to the British group as well, even though they definatly did not build it
+					culture_group = brythonic				
 					culture_group = gaelic
 					culture_group = unified_celtic_group
 				}	
@@ -324,7 +324,7 @@ stonehenge = {
 			}
 			AND = {
 				OR = {
-					culture_group = british
+					culture_group = british					#CI Changed -I think this better represents it, we aren't even sure if the celts built it or if it was some culture before them but for the game this works, expanding English to the British group as well, even though they definatly did not build it
 					culture_group = brythonic
 					culture_group = gaelic
 					culture_group = unified_celtic_group
@@ -346,7 +346,7 @@ stonehenge = {
 			}
 			AND = {
 				OR = {
-					culture_group = british
+					culture_group = british					#CI Changed -I think this better represents it, we aren't even sure if the celts built it or if it was some culture before them but for the game this works, expanding English to the British group as well, even though they definatly did not build it
 					culture_group = brythonic
 					culture_group = gaelic
 					culture_group = unified_celtic_group
@@ -524,7 +524,7 @@ tower_of_london = {
 				}
 			}
 			AND = {
-				culture_group = british #As english changes throughout the game and I don't see why Scotland shouldn't be able to use this either.
+				culture_group = british #CI Changed -As English changes throughout the game and I don't see why Scotland shouldn't be able to use this either.
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
@@ -554,7 +554,7 @@ tower_of_london = {
 				}
 			}
 			AND = {
-				culture_group = british
+				culture_group = british	#CI Changed -As English changes throughout the game and I don't see why Scotland shouldn't be able to use this either.
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
@@ -574,7 +574,7 @@ tower_of_london = {
 				}
 			}
 			AND = {
-				culture_group = british
+				culture_group = british	#CI Changed -As English changes throughout the game and I don't see why Scotland shouldn't be able to use this either.
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
@@ -963,7 +963,7 @@ parthenon = {
 				has_owner_religion = yes
 			}
 			AND = {
-				culture_group = byzantine
+				culture_group = byzantine	#CI Changed -Greek can split and merge and really the group isn't all that differentiated either
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
@@ -999,7 +999,7 @@ parthenon = {
 				has_owner_religion = yes
 			}
 			AND = {
-				culture_group = byzantine
+				culture_group = byzantine		#CI Changed -Greek can split and merge and really the group isn't all that differentiated either
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
@@ -1016,7 +1016,7 @@ parthenon = {
 				has_owner_religion = yes
 			}
 			AND = {
-				culture_group = byzantine
+				culture_group = byzantine		#CI Changed -Greek can split and merge and really the group isn't all that differentiated either
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
@@ -9303,7 +9303,12 @@ el_escorial = {
 
 	#can we build it?
 	build_trigger = {
-		culture_group = iberian
+		OR = {
+			culture_group = iberian
+			culture = catalan #CI Changed -Allowing Catalans to access all Iberian monuments as they are in the Occitanic group, but at the same time its a very fuzzy line between the two
+			culture = aragonese #Same with Aragonese
+			culture = occitan_andalucian #And these guys
+		}
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
@@ -9322,7 +9327,12 @@ el_escorial = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		culture_group = iberian
+		OR = {
+			culture_group = iberian
+			culture = catalan #CI Changed -Allowing Catalans to access all Iberian monuments as they are in the Occitanic group, but at the same time its a very fuzzy line between the two
+			culture = aragonese #Same with Aragonese
+			culture = occitan_andalucian #And these guys
+		}
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
@@ -9331,7 +9341,12 @@ el_escorial = {
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		culture_group = iberian
+		OR = {
+			culture_group = iberian
+			culture = catalan #CI Changed -Allowing Catalans to access all Iberian monuments as they are in the Occitanic group, but at the same time its a very fuzzy line between the two
+			culture = aragonese #Same with Aragonese
+			culture = occitan_andalucian #And these guys
+		}
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
@@ -11689,7 +11704,7 @@ dutch_polders = {
 	build_trigger = {
 		OR = {
 			culture = dutch
-			culture = dutch_modern
+			culture = dutch_modern		#CI Changed, Dutch evolves from Low Franconian (or dutch in the code)
 			culture = dutch_low_saxon
 		}	
 		OR = {
@@ -11707,7 +11722,7 @@ dutch_polders = {
 	can_use_modifiers_trigger = {
 		OR = {
 			culture = dutch
-			culture = dutch_modern
+			culture = dutch_modern		#CI Changed, Dutch evolves from Low Franconian (or dutch in the code)
 			culture = dutch_low_saxon
 		}
 		OR = {
@@ -11719,7 +11734,7 @@ dutch_polders = {
 	can_upgrade_trigger = {
 		OR = {
 			culture = dutch
-			culture = dutch_modern
+			culture = dutch_modern		#CI Changed, Dutch evolves from Low Franconian (or dutch in the code)
 			culture = dutch_low_saxon
 		}
 		OR = {

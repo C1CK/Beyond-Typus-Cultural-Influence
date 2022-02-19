@@ -343,13 +343,13 @@ province_event = {
 	option = { # An Excellent Minister!
 		name = "EXCELLENTMINISTER"
 		if = {
-			limit = { NOT = { heir_adm = 6 } }
+			limit = { NOT = { heir_owner = { adm = 6 } } }
 			change_heir_adm = 1	#Cooke is believed to have been a tutor and companion to Edward VI
 		}
 		if = {
 			limit = { 
 				OR = {
-				heir_adm = 6
+				heir_owner = { adm = 6 }
 				has_heir = no
 				}
 			}
