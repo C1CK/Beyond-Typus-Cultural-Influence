@@ -40,24 +40,24 @@ tribal_rebels = {
 				NOT = { has_reform = steppe_horde }
 			}
 		}
-		#modifier = { #?? non-cores should have separatists
-		#	factor = 0.2
-		#	is_core = owner
-		#}
+		modifier = {
+			factor = 0.2
+			is_core = owner
+		}
 		modifier = {
 			factor = 0.2
 			is_overseas = yes # Prefer other types overseas
 		}
-		#modifier = {
-		#	factor = 2
-		#	owner = {
-		#		primary_culture = ROOT
-		#	}
-		#}
-		#modifier = {
-		#	factor = 0.8
-		#	religion = owner
-		#}
+		modifier = {
+			factor = 0.5
+			owner = {
+				primary_culture = ROOT
+			}
+		}
+		modifier = {
+			factor = 0.8
+			religion = owner
+		}
 
 
 		#I think this might be trying to simulate the collapse of a large Empire, but frankly it does the opposite as these fecks fire instead of a separatist that could gain independance
@@ -178,6 +178,13 @@ tribal_rebels = {
  	}
 	siege_won_effect = {
 		add_local_autonomy = 10	
+		owner = {
+			change_estate_land_share = {
+				estate = estate_nomadic_tribes
+				share = 10.0
+				province = ROOT
+			}
+		}
 	}	
 	
 	# Country scope
@@ -195,6 +202,13 @@ tribal_rebels = {
 	
 	# Country scope
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		every_owned_province = {
 			limit = {
 				has_rebel_faction = REB
@@ -208,5 +222,9 @@ tribal_rebels = {
 			influence = 15
 		}
 		add_prestige = -20
+		change_estate_land_share = {
+			estate = estate_nomadic_tribes
+			share = 10.0
+		}
 	}
 }
