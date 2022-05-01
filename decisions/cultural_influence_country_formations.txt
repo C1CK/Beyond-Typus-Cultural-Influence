@@ -673,18 +673,18 @@ country_decisions = {
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			owns_core_province = 411 #Mosul
-			owns_core_province = 2211 #Erdelan
-			owns_core_province = 4296 #Bidlis
+			OR = { #Own one Kurdish Centre
+				owns_core_province = 411 #Mosul
+				owns_core_province = 2211 #Erdelan
+				owns_core_province = 4296 #Bidlis
+			}
 			calc_true_if = {
 				all_owned_province = {
 					is_core = ROOT
 					kurdish_culture_region = yes
 				}
-				amount = 18			#At least 2/3 of Greater Armenia's 24 provinces (approximate)
+				amount = 20 #Quite low, I want this to be an easy formable
 			}
-			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted Note base in Greater Armenia alone is about 168.
-			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
 		}
 
 		effect = {
