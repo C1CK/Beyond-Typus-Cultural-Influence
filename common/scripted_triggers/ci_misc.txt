@@ -100,3 +100,30 @@ is_in_settler_colonial_region = {
 		colonial_region = colonial_florida #BTAPE
 	}
 }
+ci_ai_accepted_cultures_clear = {
+	OR = { #Permit AI to settle accepted cultures since they don't understand
+		AND = {
+			has_owner_accepted_culture = no
+			NOT = { culture_group = ROOT }
+		}	
+		owner = { ai = yes }
+	}
+}
+ci_settlement_check = {
+	OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+		AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+			owner = { ai = yes }
+			any_neighbor_province = { culture_group = ROOT }
+		}
+		num_of_times_improved_by_owner = 5 #Non-Dharma intent check
+		AND = { #Dharma intent check
+			has_colonist = yes
+			is_city = yes
+		}
+		AND = { #Passive Settlement Setting
+			has_global_flag = ci_passive_settlement_enabled
+			any_neighbor_province = { culture_group = ROOT }
+		}
+		has_state_edict = edict_settlement
+	}
+}

@@ -9,9 +9,9 @@ province_event = { #Syriac spread in Mesopotamia
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = aramaic }
+		owner = { culture_group = syriac_group }
 		syriac_culture_region = yes		
-		NOT = { culture = syriac_culture }
+		NOT = { culture = assyrian_culture }
 		NOT = { nationalism = 1 }
 		AND = {
 			religion_group = OWNER #Preferably Maronite, Syriac, Orthodox, and Armenian Christians, changing to owner and excluding muslims due to PW
@@ -20,13 +20,13 @@ province_event = { #Syriac spread in Mesopotamia
 		OR = {
 			development = 10 #To prevent Sahara converting
 			and = {
-				culture_group = aramaic
+				culture_group = syriac_group
 				is_city = yes
 			}
 		}
 		OR = { #Influence check
-			any_neighbor_province = { culture_group = aramaic }
-			any_friendly_coast_border_province = { culture_group = aramaic }	
+			any_neighbor_province = { culture_group = syriac_group }
+			any_friendly_coast_border_province = { culture_group = syriac_group }	
 			has_building = university
 			province_trade_power = 15
 			development = 30
@@ -63,7 +63,7 @@ province_event = { #Syriac spread in Mesopotamia
 
 		modifier = {
 			factor = 0.5
-			culture_group = aramaic
+			culture_group = syriac_group
 		}
 
 		#Dev. factors
@@ -132,7 +132,7 @@ province_event = { #Syriac spread in Mesopotamia
 	option = {
 		name =  syriac_adoption.a
 
-		change_culture = syriac_culture
+		change_culture = assyrian_culture
 	}
 }
 
@@ -144,7 +144,7 @@ province_event = { #Siryon spread in the Levant
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = aramaic }
+		owner = { culture_group = syriac_group }
 		siryon_culture_region = yes		
 		NOT = { culture = siryon }
 		NOT = { nationalism = 1 }
@@ -155,13 +155,13 @@ province_event = { #Siryon spread in the Levant
 		OR = {
 			development = 10 #To prevent Sahara converting
 			and = {
-				culture_group = aramaic
+				culture_group = syriac_group
 				is_city = yes
 			}
 		}
 		OR = { #Influence check
-			any_neighbor_province = { culture_group = aramaic }
-			any_friendly_coast_border_province = { culture_group = aramaic }			
+			any_neighbor_province = { culture_group = syriac_group }
+			any_friendly_coast_border_province = { culture_group = syriac_group }			
 			has_building = university
 			province_trade_power = 15
 			development = 30
@@ -198,7 +198,7 @@ province_event = { #Siryon spread in the Levant
 
 		modifier = {
 			factor = 0.5
-			culture_group = aramaic
+			culture_group = syriac_group
 		}
 
 		#Dev. factors
