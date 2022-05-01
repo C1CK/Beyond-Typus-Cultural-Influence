@@ -203,50 +203,6 @@ cossack_ideas = {
 	}
 }
 
-
-#BT Moved here due to it now being culture-wide.
-SCO_Ideas = {
-	start = {
-		leader_land_shock = 1
-		land_forcelimit_modifier = 0.33
-	}
-	
-	bonus = {
-		land_maintenance_modifier = -0.05
-	}
-	
-	trigger = {
-		primary_culture = scottish
-		NOT = {
-			tag = CEL
-			tag = TNA
-		}
-	}
-	free = yes
-	
-	break_the_black_douglas = {
-		global_unrest = -1
-	}
-	modernised_royal_scots_navy = {
-		global_ship_cost = -0.1
-	}
-	reign_in_the_clans = {
-		global_manpower_modifier = 0.2
-	}
-	comets = {
-		stability_cost_modifier = -0.10
-	}
-	royal_revenue = {
-		global_tax_modifier = 0.1
-	}
-	basilikon_doron = {
-		legitimacy = 1
-	}
-	act_of_revocation = {
-		ae_impact = -0.15
-	}
-}
-
 berber_ideas = {
 	start = {
 		naval_attrition = -0.25
@@ -259,10 +215,10 @@ berber_ideas = {
 	
 	trigger = {
 		OR = {
-			tag = OTN
-			tag = TUN
-			tag = TLC
-			tag = ALG
+			tag = OTN # BT
+			tag = TUN # BT
+			tag = TLC # BT
+			tag = ALG # BT
 			culture_group = berber_group			#BTPL added because of culture change
 		}
 	}
@@ -931,6 +887,7 @@ arabian_ideas = {
 	
 	trigger = {
 		culture_group = turko_semitic
+		NOT = { primary_culture = turkish }
 	}
 	free = yes
 	
@@ -961,8 +918,8 @@ arabian_ideas = {
 
 latin_ideas = { #Take another look?
 	start = {
-		production_efficiency = 0.1					#Vanilla   trade_efficiency = 0.1
 		papal_influence = 2
+		production_efficiency = 0.1					#Vanilla   trade_efficiency = 0.1
 	}
 	
 	bonus = {
@@ -1185,7 +1142,6 @@ sumatran_ideas = {
 	
 	trigger = {
 		primary_culture = sumatran
-		religion_group = muslim
 	}
 	free = yes
 
@@ -1437,14 +1393,17 @@ TIB_ideas = {
 		OR = {
 			tag = TIB
 			AND = {
-				primary_culture = tibetan
+				OR = {
+					primary_culture = tibetan
+					primary_culture = tibetan_new
+				}
 				religion = vajrayana 
 			}
-		}		
+		}
 	}
 	free = yes       #will be added at load.
 	
-	vajrayana_buddhism  = {                    
+	vajrayana_buddhism = {                    
 		stability_cost_modifier = -0.10
 	}
 	bon_influence = {                
@@ -1711,56 +1670,6 @@ ruthenian_ideas = {
 	birth_of_russian_orthodoxy = {
 		tolerance_own = 1
 	}
-}
-
-pacific_northwest_ideas = {
-	start = {
-		land_morale = 0.1
-		land_attrition = -0.10
-	}
-	
-	bonus = {
-		prestige = 1
-	}
-	
-	trigger = {
-		OR = {
-			TAG = SAL
-			TAG = HDA
-			TAG = CNK
-		}
-	}
-	
-	free = yes		#will be added at load.
-	
-	great_whale_hunts = {
-		discipline = 0.05
-	}
-	
-	dugout_canoes = { 
-		trade_range_modifier = 0.2
-	}
-	
-	totem_poles = {
-		diplomatic_reputation = 1
-	}
-	
-	potlatch_feast = {
-		global_own_trade_power = 0.1
-	}
-	
-	legacy_of_raven = {
-		leader_land_manuever = 1
-	}
-
-	salmon_migrations= {
-		global_trade_goods_size_modifier = 0.10
-	}
-	
-	noble_castes = { 
-		stability_cost_modifier = -0.1
-	}
-	
 }
 
 guajiro_ideas = {
@@ -2059,12 +1968,7 @@ sulawesi_ideas = {
 	}
 	
 	trigger = {
-		OR = {
-			tag = MKS
-			tag = BTN
-			tag = LUW
-			primary_culture = sulawesi			
-		}
+		primary_culture = sulawesi
 	}
 	free = yes
 	
@@ -2587,7 +2491,7 @@ highland_scottish_ideas = {
 	trigger = {
 		OR = {
 			primary_culture = highland_scottish
-			primary_culture = gallgaidheil
+			primary_culture = gallgaidheil # BT
 		}
 	}
 	
