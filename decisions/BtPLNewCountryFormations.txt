@@ -378,6 +378,7 @@ country_decisions = {
 				culture_group = south_slavic
 				culture_group = illyrian
 				primary_culture = istriot_culture #CI
+				primary_culture = dalmatian #CI
 			}
 		}
 		provinces_to_highlight = {
@@ -752,16 +753,20 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = GMV
-			#remove_non_electors_emperors_from_empire_effect = yes
-			emperor = {
-				add_opinion = {
-					who = root
-					modifier = opinion_left_empire
+			if = {
+				limit = {
+					is_part_of_hre = yes
 				}
-			}
-			set_in_empire = no
-			emperor = {
-				country_event = { id = hre_event.5 }
+				emperor = {
+					add_opinion = {
+						who = root
+						modifier = opinion_left_empire
+					}
+				}
+				set_in_empire = no
+				emperor = {
+					country_event = { id = hre_event.5 }
+				}
 			}
 			set_government_rank = 3
 			# if = {

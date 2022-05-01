@@ -692,6 +692,13 @@ country_decisions = {
 			set_capital = 65
 			65 = { add_base_tax = 2 }
 			set_country_flag = formed_bavaria_flag
+			if = {
+				limit = { 
+					has_custom_ideas = no
+					NOT = { has_idea_group = BAV_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
 
 			if = {
 				limit = {
@@ -964,7 +971,10 @@ country_decisions = {
 			NOT = { has_country_flag = formed_croatia_flag_btp }
 			NOT = { tag = CRO }
 			NOT = { tag = ILY }
-			primary_culture = croatian
+			OR = {
+				primary_culture = croatian
+				primary_culture = dalmatian
+			}
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -1591,6 +1601,15 @@ country_decisions = {
 				}
 				set_country_flag = changed_from_colonial_nation
 			}
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = { is_former_colonial_nation = yes }
+					}
+					ROOT = { save_event_target_as = old_tag_target }
+					set_country_flag = was_not_former_colonial_nation
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -2025,17 +2044,6 @@ country_decisions = {
 	kingdom_of_jerusalem = {
 		major = yes
 		potential = {
-			bt_generic_can_form_potential_check = yes
-			NOT = { has_country_flag = formed_jerusalem }
-			NOT = { exists = KOJ }
-			normal_or_historical_nations = yes
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			religion = catholic
-			NOT = { government = republic }
-			NOT = { has_reform = celestial_empire }
 			OR = {
 				owns = 379
 				AND = {
@@ -2051,6 +2059,16 @@ country_decisions = {
 					tag = PRO
 				}
 			}
+			NOT = { has_country_flag = formed_jerusalem }
+			NOT = { exists = KOJ }
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			religion = catholic
+			NOT = { government = republic }
+			NOT = { has_reform = celestial_empire }
 			OR = {
 				current_age = age_of_discovery
 				current_age = age_of_reformation
@@ -2112,6 +2130,7 @@ country_decisions = {
 							NOT = { has_mission = EMP_crusader_antioch }
 							NOT = { capital_scope = { region = arabia_region } }
 							NOT = { capital_scope = { region = egypt_region } }
+							NOT = { capital_scope = { region = mashriq_region } }
 						}
 						was_never_end_game_tag_trigger = no
 					}
@@ -2128,6 +2147,7 @@ country_decisions = {
 						has_mission = EMP_crusader_antioch
 						capital_scope = { region = arabia_region }
 						capital_scope = { region = egypt_region }
+						capital_scope = { region = mashriq_region }
 					}
 					was_never_end_game_tag_trigger = yes
 				}
@@ -2221,7 +2241,7 @@ country_decisions = {
 				area = marrekesh_area
 				area = sus_area
 				area = tafilalt_area
-				area = tagmudant_area
+				#area = tagmudant_area
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -2489,9 +2509,9 @@ country_decisions = {
 			NOT = { tag = PLC }
 			NOT = { tag = POL }
 			NOT = { tag = GMV  }
-			NOT = { tag = TUS }
-			NOT = { tag = EMR }
-			NOT = { tag = LMV }
+			NOT = { tag = TUS } #Tuscany...?
+			NOT = { tag = EMR } #Emilia-Romagna?!
+			NOT = { tag = LMV } #FUCKING LOMBARDY-VENETIA?! Draiocht, stop smoking, please.
 			OR = {
 				primary_culture = polish
 				#primary_culture = pomeransky #Goes for Pommerania instead
@@ -2986,9 +3006,9 @@ country_decisions = {
 			OR = {
 				tag = SAV
 				tag = SAR
-				tag = PIE				
-				primary_culture = sardinian
+				tag = PIE
 				primary_culture = piedmontese
+				primary_culture = sardinian
 			}
 		}
 		provinces_to_highlight = {
@@ -3374,11 +3394,11 @@ country_decisions = {
 			NOT = { exists = ADU }			#Special, no doubling up on Iberia superpowers
 			is_nomad = no
 			is_free_or_tributary_trigger = yes
-			owns_or_vassal_of = 208	# Leon
-			owns_or_vassal_of = 214	# Zaragoza
-			owns_or_vassal_of = 215	# Valladolid
-			owns_or_vassal_of = 219	# Toledo
-			owns_or_vassal_of = 1746	# Burgos
+			owns_core_province = 208	# Leon
+			owns_core_province = 214	# Zaragoza
+			owns_core_province = 215	# Valladolid
+			owns_core_province = 219	# Toledo
+			owns_core_province = 1746	# Burgos
 			num_of_owned_provinces_with = {
 				is_core = ROOT
 				region = iberia_region
@@ -3716,7 +3736,7 @@ country_decisions = {
 			set_country_flag = formed_scotland_flag
 			if = {
 				limit = {
-					NOT = { has_idea_group = SCO_Ideas }
+					NOT = { has_idea_group = SCO_ideas } # Brian fixed
 				}
 				swap_ideas = yes
 			}
@@ -3832,7 +3852,7 @@ country_decisions = {
 					NOT = { is_permanent_claim = root }
 				}
 				add_permanent_claim = root
-			}			
+			}
 			#These were also historical territories of the Duchy
 #			switzerland_area = {
 #				limit = {
@@ -3889,6 +3909,7 @@ country_decisions = {
 		}
 		ai_importance = 400
 	}
+
 	
 ###################################################################################################
 ################################			Tripolitania			 ##############################################

@@ -212,7 +212,6 @@ country_decisions = {
 			NOT = { tag = UNK }
 			NOT = { exists = ANI }
 			NOT = { exists = IRE }
-			NOT = {  has_country_flag = BtP_released_viceroy_of_ireland_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -246,8 +245,7 @@ country_decisions = {
 			}
 		}
 		effect = {
-			set_country_flag = BtP_released_viceroy_of_ireland_flag
-			ireland_region = {
+			ireland_region = { # Brian; changed from _area
 				limit = { NOT = { owned_by = ROOT } }
 				add_permanent_claim = ANI
 			}
