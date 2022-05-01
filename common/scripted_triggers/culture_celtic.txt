@@ -1,100 +1,66 @@
 gaelic_scottish_culture_region = { #Works for Celtic Scottish & Gaelic
 	OR = {
-		area = lowlands_area #Eastern Lowlands
-		area = highlands_area #Highlands
-		area = scottish_marches_area #Western Lowlands
-		area = grampians_area
-		AND = {
-			area = kingdom_of_the_isles_area #Southern Isles
-			NOT = { province_id = 4365 } #Mann
-		}
-		area = subarctic_islands_area
+		province_group = gaelic_scottish_culture_region_provinces
 	}
 }
 
 gaelic_irish_culture_region = { #Works for Celtic Irish & Gaelic
-	region = ireland_region
+	OR = {
+		province_group = gaelic_irish_culture_region_provinces
+	}
 }
 
 briton_welsh_culture_region = { #Uses Briton due to possible British Welsh later in development
 	OR = {
-		area = wales_area #Gwynedd
-		area = powys_area
-		area = deheubarth_area
-		province_id = 4375 #Cheshire
+		province_group = briton_welsh_culture_region_provinces
 	}
 }
 
 briton_cornish_culture_region = { #Uses Briton due to possible British Cornish later in development
 	OR = {
-		AND = {
-			area = wessex_area
-			NOT = { province_id = 234 } #Hampshire
-			NOT = { province_id = 8124 } #Berkshire
-		}
+		province_group = briton_cornish_culture_region_provinces
 	}
 }
 
 manx_culture_region = {
-	province_id = 4365 #Mann
+	OR = {
+		province_group = manx_culture_region_provinces
+	}	
 }
 
 cwmbraic_culture_region = {
 	OR = {
-		province_id = 247 #Cumberland
-		province_id = 8135 #Westmoreland
-		province_id = 244 #Lancashire
-		area = northern_england_area
+		province_group = cwmbraic_culture_region_provinces
 	}
 }
 
 corieltauvi_culture_region = {
 	OR = {
-		area = yorkshire_area
-		area = east_midlands_area #Midlands
+		province_group = corieltauvi_culture_region_provinces
 	}
 }
 
 cantiaci_culture_region = {
 	OR = {
-		area = east_anglia_area
-		area = home_counties_area #Essex
-		province_id = 8124 #Berkshire
-		province_id = 234 #Hampshire
+		province_group = cantiaci_culture_region_provinces
 	}
 }
 
 brythonaidd_culture_region = { #Brythonic
 	OR = {
-		region = british_isles_region
-		area = subarctic_islands_area
+		province_group = brythonaidd_culture_region_provinces
 	}
 }
 
 goidhealach_culture_region = { #Goidelic
 	OR = {
-		region = ireland_region
-		province_id = 4365 #Mann
-		gaelic_scottish_culture_region = yes
-		cwmbraic_culture_region = yes
-		briton_welsh_culture_region = yes
+		province_group = goidhealach_culture_region_provinces
 	}
 }
 
 brezhoneg_culture_region = { #Breton
 	OR = {
-		area = lower_brittany_area
-		area = brittany_area #Upper Brittany
-		area = orleans_area #Anjou-Maine
-		area = lower_normandy_area
-		area = normandy_area #Upper Normandy
-		province_id = 7979 #Vendome
-		province_id = 3075 #Dunois
-		province_id = 7981 #Dreux
-		province_id = 4388 #Chartres
-		province_id = 7963 #Beauvais
-		province_id = 7962 #Mantois
-		province_id = 7960 #Hurepoix
+		province_group = brezhoneg_culture_region_provinces
 	}
 }
 
@@ -118,97 +84,19 @@ goidhealach_culture_group = {
 
 belgae_culture_region = {
 	OR = {
-		area = picardy_area
-		AND = {
-			area = ile_de_france_area
-			NOT = { province_id = 7960 }			
-			NOT = { province_id = 7962 }			
-			NOT = { province_id = 7963 }
-		}	
-		AND = {
-			area = champagne_area
-			NOT = { province_id = 7950 }
-		}			
-		area = lorraine_area
-		area = brabant_area
-		area = luxembourg_area
-		area = wallonia_area
-		area = flanders_area
-		area = luxemburg_liege_area
-		AND = {
-			area = lower_rhineland_area
-			NOT = { province_id = 8414 }
-		}	
-		AND = {
-			area = north_rhine_area 
-			NOT = { province_id = 84 }
-			NOT = { province_id = 8409 }
-			NOT = { province_id = 8413 }
-		}			
-		area = palatinate_area
-		AND = {
-			area = alsace_area
-			NOT = { province_id = 1880 }
-		}	
-		area = barrois_area
-		province_id = 3060
-		province_id = 3063
-		province_id = 8017
-		province_id = 96
-		province_id = 8112
-		province_id = 7975
-		province_id = 78
+		province_group = belgae_culture_region_provinces
 	}
 }
 
 pictone_culture_region = {
 	OR = {
-		area = poitou_area
-		area = berry_touraine_area
-		province_id = 4776 #Blois
-		province_id = 184 #Orleans
-		province_id = 7957 #Etampes
-		province_id = 7958 #Montargis
-		area = limousin_area
-		area = guyenne_area
-		area = pyrenees_area #Lower Gascony
-		area = upper_gascony
-		province_id = 4112 #Quercy
-		province_id = 7907 #Montauban
-		AND = {
-			area = west_languedoc_area
-			NOT = { province_id = 7900 } #Beziers
-		}
+		province_group = pictone_culture_region_provinces
 	}
 }
 
 arverni_culture_region = {
 	OR = {
-		area = bourgogne_area
-		province_id = 7950 #Langres
-		area = west_burgundy_area #Franche-Comte
-		province_id = 1880 #Sundgau
-		area = massif_central_area
-		area = lyonnais_area
-		area = savoy_dauphine_area
-		area = romandie_area
-		area = north_piedmont_area
-		province_id = 198 #Rodez
-		province_id = 7905 #Millau
-		province_id = 7900 #Beziers
-		area = languedoc_area
-		area = dauphine_area
-		area = provence_area
-		area = piedmont_area
-		province_id = 3043 #Pavea
-		area = south_piedmont_area
-		AND = {
-			area = liguria_area
-			NOT = { province_id = 7055 } #La Spezia
-		}
-		province_id = 165
-		province_id = 3055
-		province_id = 8485		
+		province_group = arverni_culture_region_provinces
 	}
 }
 

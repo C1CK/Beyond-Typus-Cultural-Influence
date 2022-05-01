@@ -41,600 +41,168 @@ russka_cultures = {
 
 cossack_rule_region_european_steppe = { #Provinces that require Cossack Stanitsas before the land can be properly converted
 	OR = {
-		#Danube Cossacks \/
-		province_id = 7277 #Tyagyanyakyacha
-		province_id = 7278 #Cetatea Alba
-		province_id = 1756 #Basarabia
-		province_id = 7759 #Isaccea
-		province_id = 3163 #Tolcu
-		#Danube Cossacks /\
-		#Southern Ruthenia
-		area = podolia_volhynia_area #Podolia
-		area = west_dniepr_area #Kyyiv
-		area = east_dniepr_area
-		area = chernigov_area
-		region = crimea_region #Pontic Steppe
-		province_id = 2416 #Majar
-		province_id = 3263 #Beishto
-		province_id = 2208 #Terek
-		area = tambov_area
-		area = saratov_area
-		area = samara_area
-		province_id = 4264 #Kurmysh
-		province_id = 2422 #Veda-Suvar
-		province_id = 1082 #Kazan
-		province_id = 2421 #Yar Çalli
-		province_id = 4265 #Ar-Chally
-		#Southern Russia
-		area = oka_area #Upper Oka
-		area = galich_area #Upper Don
-		area = moscow_area
-		area = ryazan_area
-		AND = {
-			area = bashkiria_area
-			NOT = { province_id = 1966 } #Chelyaba
-		}
-		area = lower_yik_area
-		AND = {
-			area = nogai_area
-			NOT = { province_id = 471 } #Alimuly
-		}
+		province_group = cossack_rule_region_european_steppe_provinces
 	}
 }
 
 cossack_rule_region_siberia = { #Provinces that require Cossack Stanitsas before the land can be properly converted (These can be converted in isolated Cities)
 	OR = {
-		#Land West of the Urals that is so remote is may as well be East of the Urals \/\/\/
-		province_id = 4266 #Ijau
-		AND = {
-			area = perm_area
-			NOT = { province_id = 1755 } #Ustyug
-			NOT = { province_id = 4129 } #Ust-Vym
-		}
-		area = pechora_area
-		#Land West of the Urals that is so remote is may as well be East of the Urals /\/\/\
-		province_id = 1966 #Chelyaba
-		area = ural_area
-		province_id = 2353 #Tortkara
-		province_id = 2359 #Baganaly
-		province_id = 476 #Kypshaq
-		province_id = 4685 #Qaraghandy
-		province_id = 478 #Argyn
-		province_id = 2355 #Narym
-		province_id = 2118 #Urzhar
-		region = west_siberia_region
-		region = east_siberia_region
-		province_id = 4684 #Dzhemenika
-		province_id = 1065 #Kuznetsk
-		province_id = 4220 #Khiagt
-		province_id = 2102 #Urkan
-		area = east_heilongjiang_area
-		area = ilan_hala_area #North Ilan Hala
-		province_id = 2105 #Kuru
-		province_id = 729 #Bohori
-		province_id = 4217 #Pijin
-		area = furdan_area
-		area = sakhalin_area
+		province_group = cossack_rule_region_siberia_provinces
 	}
 }
 
 great_abatis_line_russian_region = { #Historical line just south of the Oka (East->West)
 	OR = {
-		province_id = 306 #Nizhny Novgorod
-		province_id = 1754 #Murom
-		province_id = 1778 #Kasimov
-		province_id = 301 #Ryazan
-		province_id = 5679 #Zaraysk
-		province_id = 300 #Tula
-		province_id = 4252 #Kolomna
-		province_id = 3277 #Serpukhov
-		province_id = 5682 #Tarusa
-		province_id = 296 #Kaluga
-		province_id = 5663 #Kozelsk
-		province_id = 5690 #Belyov
-		province_id = 5664 #Karachev
-		province_id = 297 #Bryansk
-		#This is now pseudohistorical, following a hypothetical extension of the line West
-		province_id = 4244 #Trubceskas
-		province_id = 1945 #Severija
-		province_id = 7248 #Sosnytsia
-		province_id = 289 #Chernigov
-		province_id = 280 #Kyyiv
-		province_id = 7239 #Bila Tserka
-		province_id = 3241 #Kalnik
-		province_id = 1943 #Bratslav
+		province_group = great_abatis_line_russian_region_provinces
 	}
 }
 
 great_abatis_line_ruthenian_region = { #Alternate line for Ruthenians, since the Russian line is an awkward spot to protect Ukraine (West -> East)
 	OR = {
-		province_id = 7209 #Rybnytsia
-		province_id = 1943 #Bratslav
-		province_id = 7209 #Uman
-		province_id = 7259 #Korsun
-		province_id = 1944 #Cherkasy
-		province_id = 2407 #Pereyaslav
-		province_id = 3242 #Buhogard
-		province_id = 7256 #Kremenchuk
-		province_id = 290 #Poltava
-		province_id = 7252 #Hadyach
-		province_id = 291 #Kharkov
-		province_id = 3267 #Belgorodas
-		province_id = 3291 #Oskol
-		province_id = 299 #Voronezh
-		province_id = 2408 #Achmat
-		province_id = 5668 #Dankov
-		province_id = 4255 #Pronsk
-		province_id = 301 #Ryazan
-		province_id = 1778 #Kasimov
-		province_id = 1754 #Murom
-		province_id = 306 #Nizhny Novgorod
+		province_group = great_abatis_line_ruthenian_region_provinces
 	}
 }
 
 cherdyn_route = {
 	OR = {
-		province_id = 1077 #Solikamsk
-		province_id = 1963 #Cherdyn
-		province_id = 1080 #Pelmyn
-		province_id = 2427 #Ostyaki
+		province_group = cherdyn_route_provinces
 	}
 }
 
 babinov_road = {
 	OR = {
-		province_id = 1077 #Solikamsk
-		province_id = 1078 #Tura
-		province_id = 2427 #Ostyaki
+		province_group = babinov_road_provinces
 	}
 }
 
 path_to_the_urals = {
 	OR = {
-		#Leaving Volga, along the Kama
-		province_id = 1082 #Qazan
-		province_id = 2421 #Yar Çalli
-		#province_id = 4265 #Ar-Chally #The Kama only flows through here for a little bit, and the majority of the province is not relevant
-		province_id = 4266 #Ijau
-		province_id = 305 #Perm
+		province_group = path_to_the_urals_provinces
 	}
 }
 
 siberian_river_route = { #Roughly follows the Siberian River Routes, provinces that are dubious are commented with explanations
 	OR = {
-		#Cherdyn or Babinov path brings the route to Ostyaki
-		#Down the Irtysh
-		province_id = 1076 #Kurgan #Furthest south fortress
-		province_id = 1075 #Tyumen
-		province_id = 1074 #Tobolsk
-		province_id = 4691 #As
-		#Up the Ob
-		province_id = 1069 #Surgut
-		province_id = 2429 #Variegansk
-		province_id = 1068 #Ket
-		province_id = 1064 #Tomsk
-		#Ket -> Portage to the Yenesei (Not actually a province here since they are so big the rivers actually touch province wise)
-		#Yenesei
-		province_id = 2430 #Troitsky (I think this province is actually Turukhan)
-		province_id = 1067 #Turukhan (Allows a portage between here and Ket that didn't actually exist, but Turukhansk was an important settlement so it needs to be included here)
-		province_id = 2432 #Chulym
-		province_id = 2443 #Krasnoyarsk (Southern limit on the Yenesei historically)
-		#Taz -> Portage to Turukhan
-		province_id = 2445 #Mangazea
-		#Northern route to Yakutsk & the Lena
-		province_id = 2431 #Uchamin
-		province_id = 2436 #Chuna
-		province_id = 2437 #Seganka
-		province_id = 1045 #Yakut
-		#Up the Angara -> Portage to the Lena
-		province_id = 1062 #Angara
-		#Down the Lena
-		province_id = 2442 #Kirensk
-		province_id = 1054 #Mukhtuya
-		province_id = 2435 #Olyokminsk
-		province_id = 1051 #Aldan
-		province_id = 1046 #Maya
-		province_id = 2438 #Zhigansk
-		#Over the Mountains to the Pacific
-		province_id = 1043 #Okhotsk
-		#Penetrating the Amur
-		province_id = 1060 #Irkutsk
-		province_id = 1057 #Ude
-		province_id = 4220 #Khiagt
-		province_id = 1058 #Onan Gol
-		province_id = 2446 #Chita
-		province_id = 2102 #Urkan
-		province_id = 4662 #Halacha
-		#Does not go further into the Amur Region, that works differently
-		#Kolyma->Pacific
-		province_id = 1036 #Kolyma
-		province_id = 1037 #Omolon
-		province_id = 2440 #Kagyrgyn
+		province_group = siberian_river_route_provinces
 	}
 }
 
 belarussian_culture_region = {
 	OR = {
-		AND = {
-			area = yotvingia_area
-			NOT = { province_id = 1938 } #Wizna
-		}
-		area = trakai_area
-		province_id = 7216 #Braslaw
-		province_id = 4535 #Vilkmerge
-		area = polotsk_area
-		area = podlasie_area
-		area = novogrudok_area
-		area = minsk_area
-		area = vitebsk_area
-		province_id = 5661 #Velizas, Belarussian RoI
-		province_id = 4148 #Velikiye Luki, Belarussian RoI
-		province_id = 7880 #Zhizhets, Belarussian RoI
-		AND = {
-			area = smolensk_area
-			NOT = { province_id = 3271 } #Belas
-			NOt = { province_id = 4245 } #Viazma
-		}
-		area = pripyat_area
-		province_id = 7237 #Brahin
-		area = white_ruthenia_area #Gomel
-		area = bryansk_area
-	}
+		province_group = _provinces
+	}belarussian_culture_region
 }
 
 ukrainian_culture_region = { #Overlaps into Belarussian (This is very large and beyond any historical extent of Ukrainian, but the language would decline for basically its entire existance so the historic range is likely larger than the current range.)
 	OR = {
-		rusyn_culture_region = yes #Rusyn is considered a dialect of Ukrainian by many linguists, so I'm allowing assimilation of Rusyn, but Rusyn takes prio over Ukrainian on splinter
-		province_id = 7274 #Bukovina
-		province_id = 7275 #Khotyn
-		area = moldavia_area #Bessarabia
-		area = red_ruthenia_area #Galicia
-		area = volhynia_area #West Volhynia
-		area = eastern_volhynia_area
-		area = podolia_volhynia_area #Podolia
-		area = podlasie_area #Don't like how this touches the Polish land, but not much can be done until Poland gets more provinces
-		area = pripyat_area
-		province_id = 7236 #Rechytsa
-		province_id = 4115 #Gomelis
-		province_id = 7240 #Chachersk
-		area = bryansk_area
-		area = west_dniepr_area #Kyyiv
-		area = east_dniepr_area
-		area = chernigov_area
-		province_id = 2195 #Adyghe
-		area = circassia_area
-		area = dagestan_area
-		region = crimea_region #Pontic Steppe (Goes way too far East but the exclusion zone trigger means that this only comes into play for a super strong Ukraine or Ruthenia)
+		province_group = ukrainian_culture_region_provinces
 	}
 }
 
 ukrainian_cossack_exclusion_zone = { #Any land here will be excluded from conversion to Ukrainian when the Ukrainian ethnogenesis occurs
 	OR = {
-		AND = {
-			area = middle_don_area
-			NOT = { province_id = 2366 } #Podgornaya
-			NOT = { province_id = 2409 } #Kamensk
-		}
-		AND = {
-			area = lower_don_area
-			NOT = { province_id = 288 } #Zimla
-		}
-		area = astrakhan_area
-		area = dagestan_area
-		area = circassia_area
-		province_id = 2195 #Adyghe
+		province_group = ukrainian_cossack_exclusion_zone_provinces
 	}
 }
 
 rusyn_culture_region = {
 	OR = {
-		area = carpathian_ruthenia_area
+		province_group = rusyn_culture_region_provinces
 	}
 }
 
 northern_russian_culture_region = {
 	OR = {
-		area = laponia_area #Kola
-		area = karelia_area
-		province_id = 7808 #Serdobal
-		province_id = 32 #Korela
-		province_id = 30 #Viborg
-		AND = {
-			area = north_karelia_area #Ingria
-			NOT = { province_id = 5644 } #Yama
-		}
-		province_id = 7871 #Budkovo
-		province_id = 310 #Novgorod
-		area = vladimir_area #Obonezhsk
-		AND = {
-			area = beloozero_area #Bezhetsk
-			NOT = { province_id = 1959 } #Torzhok
-		}
-		area = arkhangelsk_area #Onega
-		area = yaroslavl_area
-		area = pomor_area #Dvina
-		area = vologda_area #Sukhona
-		province_id = 3278 #Gorodets
-		area = pechora_area #Extends slightly past the Urals, but they are minor at this point and is more linked through the Arctic ocean than the land
-		area = perm_area
-		area = vyatka_area
-		province_id = 1083 #Vetluga
-		province_id = 3280 #Mari
-		area = kama_area
-		province_id = 475 #Bashkortostan
+		province_group = northern_russian_culture_region_provinces
 	}
 }
 
 middle_russian_culture_region = {
 	OR = {
-		province_id = 1842 #Narva
-		province_id = 5644 #Yama
-		province_id = 7847 #Marienhausen
-		province_id = 7846 #Rositten
-		area = pskov_area
-		AND = {
-			area = novgorod_area
-			NOT = {	province_id = 7871 } #Budkovo
-			NOT = { province_id = 310 } #Novgorod
-		}
-		province_id = 4148 #Velikiye Luki
-		province_id = 4243 #Toropiecas
-		area = tver_area
-		province_id = 3271 #Belas
-		province_id = 4245 #Viazma
-		province_id = 1959 #Torzhok
-		AND = {
-			area = moscow_area
-			NOT = { province_id = 5682 } #Tarusa
-		}
-		AND = {
-			area = suzdal_area #Zalesye
-			NOT = { province_id = 3278 } #Gorodets
-		}
-		province_id = 1754 #Murom
-		province_id = 1778 #Kasimov
-		province_id = 306 #Nizhny Novgorod
-		province_id = 3279 #Sarov
-		province_id = 5672 #Morshank
-		province_id = 304 #Penza
-		province_id = 2423 #Alatyr
-		province_id = 4264 #Kurmysh
-		province_id = 2422 #Veda-Suvar
-		province_id = 1082 #Kazan
-		area = samara_area
-		area = lower_yik_area
-		AND = {
-			area = nogai_area
-			NOT = { province_id = 471 } #Alimuly
-		}
-		province_id = 2320 #Agyidel
-		province_id = 1965 #Buzuluk
+		province_group = middle_russian_culture_region_provinces
 	}
 }
 
 southern_russian_culture_region = {
 	OR = {
-		area = polotsk_area
-		province_id = 5661 #Velizas
-		province_id = 7880 #Zhizhets
-		AND = {
-			area = vitebsk_area
-			NOT = { province_id = 4242 } #Barysavas
-		}
-		AND = {
-			area = smolensk_area
-			NOT = { province_id = 3271 } #Belas
-			NOt = { province_id = 4245 } #Viazma
-		}
-		AND = {
-			area = white_ruthenia_area #Gomel
-			NOT = { province_id = 7234 } #Svietlahorsk
-			NOT = { province_id = 7236 } #Rechytsa
-		}
-		area = bryansk_area
-		area = oka_area #Upper Oka
-		province_id = 5682 #Tarusa
-		area = galich_area #Upper Don
-		province_id = 301 #Ryazan
-		province_id = 5669 #Ryazhsk
-		province_id = 7248 #Sosnytsia
-		area = chernigov_area
-		area = middle_don_area
-		province_id = 302 #Tambov
-		province_id = 2415 #Etkara
-		area = sloboda_ukraine_area #Slobozhanshchyna
-		area = lower_don_area
-
-		province_id = 7204 #Donetsk
-		province_id = 3302 #Bakhmut
-		province_id = 7204 #Luhansk
-		area = pryazovia_area
-		area = crimea_area
-		area = azov_area
-		area = astrakhan_area
-		province_id = 2195 #Adyghe
-		area = circassia_area
-		area = dagestan_area
+		province_group = southern_russian_culture_region_provinces
 	}
 }
 
 siberian_russian_culture_region = { #Not used for Siberian Russian, instead Cossack Siberian region is used
 	OR = {
-		area = ural_area
-		province_id = 2444 #Bashgird
-		province_id = 2420 #Agyidel
-		province_id = 1966 #Chelyaba
-		AND = {
-			region = west_siberia_region
-			province_id = 2369 #Kustanay
-			province_id = 2357 #Kokchetav
-			province_id = 479 #Atbasarsk
-			province_id = 2354 #Akmolinsk
-			province_id = 2434 #Barnau
-		}
-		province_id = 1065 #Kuznetsk
-		region = east_siberia_region
-		province_id = 4220 #Khiagt
-		area = east_heilongjiang_area
-		area = ilan_hala_area #North Ilan Hala
-		AND = {
-			area = central_jilin_area #South Ilan Hala
-			NOT = { province_id = 731 } #Ilan Hala
-		}
-		province_id = 2186 #Imam
-		province_id = 1850 #Yaran
-		province_id = 2106 #Furdan
+		province_group = siberian_russian_culture_region_provinces
 	}
 }
 
 DNC_cossack_region = {
 	OR = {
-		area = middle_don_area
-		area = lower_don_area
-		area = astrakhan_area
+		province_group = DNC_cossack_region_provinces
 	}
 }
 
 IKC_cossack_region = {
 	OR = {
-		area = tannu_uriankhai_area
-		area = north_zungaria
-		area = zungaria_area
-		area = altai_sayan_area
-		area = irkutsk_area
-		area = turpan_kumul_area
-		area = west_gansu_area
-		province_id = 2189
-		province_id = 719
+		province_group = IKC_cossack_region_provinces
 	}
 }
 
 KBC_cossack_region = {
 	OR = {
-		area = azov_area
-		province_id = 2195 #Adyghe
-		province_id = 463 #Circassia
-		province_id = 2416 #Majar
-		province_id = 3262 #Karachay
+		province_group = KBC_cossack_region_provinces
 	}
 }
 
 ORC_cossack_region = {
 	OR = {
-		area = tambov_area
-		area = kama_area
-		area = saratov_area
-		area = samara_area
-		province_id = 1965 #Buzuluk
-		province_id = 475 #Bashkortostan
-		province_id = 2444 #Bashgird
-		province_id = 2441 #Iglino
-		province_id = 2420
+		province_group = ORC_cossack_region_provinces
 	}
 }
 
 SBC_cossack_region = {
 	OR = {
-		area = syr_darya_area
-		area = balchasj_area
-		area = yrtesh_area
-		province_id = 480
-		province_id = 476
-		province_id = 2359
-		province_id = 2358
-		province_id = 2368
-		province_id = 459
-		province_id = 461
-		province_id = 2126
-		province_id = 2369
-		province_id = 1075
-		province_id = 1076
+		province_group = SBC_cossack_region_provinces
 	}
 }
 
 SMC_cossack_region = {
 	OR = {
-		area = transcaspia_area
-		area = khiva_area
-		area = kyzylkum_area
-		area = transoxiana_area
-		area = termez_area
-		area = ferghana_area
-		area = arys_area
-		area = merv_area
-		area = tarim_basin_area
-		area = shanshan_area
-		province_id = 739
-		province_id = 2127
-		province_id = 4210
-		province_id = 2125
-		province_id = 4209
-		province_id = 2124
+		province_group = SMC_cossack_region_provinces
 	}
 }
 
 TBC_cossack_region = {
 	OR = {
-		area = buryatia_area
-		area = outer_mongolia_area
-		area = inner_mongolia_area
-		area = central_mongolia_area
-		area = ordos_area
-		province_id = 2190
+		province_group = TBC_cossack_region_provinces
 	}
 }
 
 TKC_cossack_region = {
 	OR = {
-		area = dagestan_area
-		province_id = 3263 #Beishto
-		province_id = 2197 #Kabardia
-		province_id = 2201 #Alania
-		province_id = 421 #Shirvan
+		province_group = TKC_cossack_region_provinces
 	}
 }
 
 ULC_cossack_region = {
 	OR = {
-		area = lower_yik_area
-		area = nogai_area
-		province_id = 1966
-		province_id = 2353
-		province_id = 2351
+		province_group = ULC_cossack_region_provinces
 	}
 }
 
 USC_cossack_region = {
 	OR = {
-		AND = {
-			region = manchuria_region
-			NOT = { area = central_heilongjiang_area } #Moved to AMC
-			NOT = { area = east_heilongjiang_area } #Moved to AMC
-			NOT = { area = heilongjiang_area } #Moved to AMC
-			NOT = { area = central_jilin_area } #Moved to AMC
-			NOT = { area = ilan_hala_area }
-		}
-		area = eastern_mongolia
+		province_group = USC_cossack_region_provinces
 	}
 }
 
 AMC_cossack_region = {
 	OR = {
-		area = central_heilongjiang_area
-		area = east_heilongjiang_area
-		area = heilongjiang_area
-		area = central_jilin_area
-		area = ilan_hala_area
+		province_group = AMC_cossack_region_provinces
 	}
 }
 
 ZAZ_cossack_region = {
 	OR = {
-		area = sloboda_ukraine_area
-		area = lower_dnieper_area
-		area = zaporizhia_area
-		area = pryazovia_area
-		area = crimea_area
-		area = yedisan_area
+		province_group = ZAZ_cossack_region_provinces
 	}
 }

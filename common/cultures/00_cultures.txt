@@ -273,12 +273,34 @@ french	= {
 	indochinois = {
 		primary = DAI
 	}
-	quebecois = {
-		primary = QUE
-	}
-	louisianais = {
+	louisianans = { #Replacing CI's louisianais with this vanilla culture
 		primary = LOU
 	}
+	quebecois = {
+		primary = QUE
+		dynasty_names = {
+			#Some extra naming specifically for Colonial French thanks to Perry
+			"de Chaplain" "de Mons" Goumard "de Poutrincourt" "de Biencourt" "de la Tour"
+			"de Pons" "de Razilly" "de Launay-Razilly" "de Menou d'Aulnay" "de Charnizay"
+			"Le Borgne" "de Belle-Isle" "de Grandfontaine" "de Chambly" "de Pouville" "de Tracy"
+			"de Québec" "de Montréal"
+			"de Chauvain" "de Tonnetuit" Gravé "Pont-Gravé" "de Pouville" "de Tracy" "de Rigaud"
+			"de Vaudreuil" "de Cavagnial" Joybert "de Soulanges" "de Marson" Bécart "de Granville"
+			"Le Moyne" "de Longueuil" "de Taffanel" "de La Jonquière" Rouillé "de Saguenay"
+			"de Rigaud" "de Callière" Perrot
+			#Some archetypal names added By Draiocht
+			Tremblay Martin Cartier "la Fontaine" Chrétien Trudeau Mercier Marchand Bouchard Lévesque
+			Lapointe
+		}
+		#Then some more Quebecker names by Draiocht
+		male_names = {
+			Yannick Jaques "Jean-Baptiste" Olivier René Alexis
+		}
+		female_names = {
+			Annick
+		}
+	}	#Note this culture, new in 1.33, superceeds and replaces BT's old 'canadien' culture, replacing referrences to it elsewhere, and adding BT's specific naming. Future note, CAN should really be primary tag, not QUE, but will address that when I have time to check what other referrences are involved.
+	
 	karipounais = {
 		primary = BRZ
 	}
@@ -2426,7 +2448,7 @@ germanic = {
 		primary = XXX #Needs new tag
 	}
 	transylvanian_saxons = {
-		#primary = #no tag so no seperatists
+		primary = SBG
 	}
 	carpathian_german = {
 		primary = XXX #Needs new tag
@@ -3088,6 +3110,36 @@ iberian	= {
 			Isabel
 		}
 	}
+	platinean = {
+		primary = LAP
+		dynasty_names = {
+			"de Trastámara" "de Guzmán" "Álvarez de Toledo" "de la Cerda" "de Castilla" "de Valencia"
+			Téllez-Girón "Manrique de Lara" "de Ávalos" Enríquez "Osuna" "Argavieso" Ruspoli "Lasso de la Vega" "de Hoyos" Zayas "de Alcalá"
+			#CK2
+			"de Menezes" "de Mendoza" "de Niebla" "de Silva" "de Alba" "de Borja"  
+			"de Medinaceli" "de Castro" "de Haro" "Santcliment" "de Altamira" Osorio
+			Zúñiga "de Villahermosa" Vilafermosa Garmendia "de Rocamora" "de Goyeneche"
+		}
+		male_names = {
+			Enrique Fernando Juan Felipe Alfonso Carlos Sancho Ramiro Pedro Alonso Álvaro Baltasar 
+			Bernardo Bertrán Hernando
+			Cristobal Diego Domingo Esteban Fadrique Francisco García Gómez Gonzalo Gutierre Hermenegildo 
+			Ignacio Laín Lope Miguel Nuño Odón Ramón Rodrigo Tomás Valeriano
+			Alfonso Alphonse Alonso Alphonse Álvar Oliver Álvaro Oliver Bermudo Vermudo Diego Diaco 
+			Henry Fadrique Frederick Felipe Philip Fernando Ferdinand Fruela Froila García Garcia Gil 
+			Egidius Gómez Gomez Gonzalo Gonzalo Guillén William Guillermo William Gutierre Walter Juan 
+			Lope Lupo Luis Louis Manrique Amalric Martín Martin Munio Munio Nuño Nuno Ordoño Ordono 
+			Obeko Pedro Peter Pelayo Pelagius Ramiro Ramiro Rodrigo Roderick Salvador Sancho Sancho 
+			Suero Tello Vela Vela Suero Oveco John Enrique
+		}
+		female_names = {
+			Aldonza Aldonza Anderquina Beatriz Beatrice Berenguela Berengaria Blanca Blanche Constanza 
+			Constance Elvira Elvira Estefanía Stephania Fronilda Fronilde Gontroda Gotruda Inés Agnes 
+			Elisabeth Jimena Ximena Juana Joan Leonor Eleanor Mafalda Matilda María Maria Marina Marine 
+			Mayor Mayor Mencía Mencia Milia Emily Sancha Sancha Teresa Teresa Toda Toda Urraca Urraca
+			Isabel
+		}
+	}	
 	#Cultural Influence Cultures
 	aragonese_decline = {
 		primary = ARA
@@ -7104,7 +7156,7 @@ byzantine = {
 		primary = BUL
 	}
 	hellenic_thracian = {
-		primary = BYZ
+		primary = GRE
 	}
 	macedonian = {
 		primary = GRE
@@ -7255,6 +7307,9 @@ byzantine = {
 	}
 	souachiliaktikos = {
 		primary = XXX
+	}	
+	hellenic_mesopotamian = {
+		primary = PSI
 	}	
 	#Colonial Cultures
 	voreaka = {
@@ -7731,9 +7786,12 @@ berber_group = {
 	}
 }
 
-aramaic = {
+syriac_group = { #Aramiac, replacing CI with base BT
 	graphical_culture = muslimgfx
-	syriac_culture = { #Assyrian
+	syriac_culture = { #BT has this as Aramaean
+		#primary = 
+	}
+	assyrian_culture = {
 		primary = ASY
 
 		male_names = { #SmartGuy725
@@ -7769,17 +7827,57 @@ aramaic = {
 			Tami Tamsyn Tamzin Thaddea Thomasa Zeita
 		}
 	}
+	mandaean_culture = {
+		#primary = 
+	}
 	dynasty_names = {
-		Abbarid Adonibaalid Ahiromid Baalhannid Baalid Barcid Bostarid Chelbesid Eshbaalid Eugorid Hannid Hiramid Magoid Mattanid Metallid 
-		Milkiramid Philosirid
+		"Mirdasid" "Maanid" "al-Shihab"  Yakubid Hassanid
+		Katkhuda Abaza Qasimiyya Qitas al-Qazdughli
+		Bukhtishu Qatwa Nimreh Gazarta Salamas Zakho
+		Arbilaya Nisan Somikka Simele Sulaqa Samiyah
+		Thomasina Tamasine Sameah 
 	}
 	male_names = {
-		Abbar Abdmelqart Adonibaal Agbal Ahirom Azimilik Baal Baalhanno Bodashtart Bodmelqart Bomilcar Bostar Boulomenus Carthalo Chelbes 
-		Eshbaal Eugoras Germelqart Hamilcar Hannibal Hanno Hasdrubal Himilco Hiram Mago Maharbal Mattan Metallo Milkherem Milkiram 
-		Paltibaal Philosir
+		al-Nasr al-Mu'azzam al-Salih al-'Adil al-Kamil al-Ashraf al-Afdal Tadj Mujir ud-Din Djamal ud-Din 
+		ud-Din Shams Saif 'Abbas 'Abd al-Rahman Anwar Atuf Bakr Fahd Hakim Harun Hikmat Hisham Husayn 
+		Jamaal Karim Malîk Mirza Muhammad Rashîd Rusul Shimun Tarîq Usama Yasir Yusuf Zaid Zîyad Isma'il 	
+		Jafar Shihab
+		Aaron Abanoub Abderahman Abderrahman Abdul-Aziz Abdul-Haq Abdul-Madjid Abdul-Salaam Abdullah 
+		Abianos Abijah Abisalom Ablarion Abraam Abraham Abu-Bakr Adnan Agathon 
+		Agathonikos Agathos Ahmad Akbar Alam Ali Amr Androus Andrew 	
+		Anthinos Anthimos Arsenios Ashraf Asim Athanasios Athanasius Badr Bashir Biktor 
+		Victor Binyamin Benjamin Bishoi Bishara Boutros Peter Danyal Daniel Dawlat Da’oud David Ezra 
+		Farhan Firuz Gabri’el Gabriel Georgios George Ghiyasaddin Habil Abel Hakam Hammud Hanri Henry 
+		Haroun Hussayn Ibrahim Ilyas Elijah Is'mail Ismail Izzaddin 
+		Jalaaladdin Jawdat Jerjer Gregory Kemaladdin Khalil Krystafer Christopher Latif Lot Lothair Malik 
+		Matta Matthew Mehtar Mikail Michael Mikhael Milad Menas Muammar 
+		Mukhtar Murad Murshid Moses Muzaffaraddin Nabil Nasir Nassib Nuraddin Pamin Qadir 
+		Ra'uf Rafiq Ridwan Sabah Salim Sha'ban Sharif Suhail Tadros Theodore Tajaddin Tayyib Touma Thomas 	
+		Walid Yahya Yared Yassir Youkhanna Youssef Joseph Zaia Isaiah Zakariyah Zachary
+		Abdul-Azeem Abdul-Hamid Abdul-Lateef Abdul-Razzaq Abdul-Wahad Adhid Adil Akab 
+		Ala'i Amir Aziz Bashar Da'ud Faisal
+		Fayiz Ghazi Hamdan Hashmaddin Imamaddin Isa 
+		Ismat Jahan Jamil Kamran Khalid Khudayar Majid Mas'ud
+		Muaddam Muhsin Musa Muzaffar Nasraddin 
+		Nuri Radhi Rasul Sa'ud Salahaddin Seyfullah Sharaf
+		Sirhan Taimur Tawfiq Umaya Wahid Ya'qub Jacob Yasar John Zahir
+		Aba Abba Abahu Abaya Abaye Abayi Abdima Abdisho Abgar Abimalek Abris Abrisius Acacius Achan Achina Addai Adlai Aggai Ahai Ahadabui Ahha "Akha d'abuh'" Akh-es-Samain Aqib-Alaha Asa Asher Avahu Avda Avdima Avdimi Avina Avira Azai
+		Babaeus Babai Babowai Babwahi Bar Bar-Abba Barbashimin Bar-Nabha Bar-Talmai Bar-Timai Bar-Tolmai Bustan Caiaphas Cephas Cephus Chadlai Chama Chanin Chaninai Chinena
+		Chozai Chuma Chunya Clopas Dadisho Denha Dimi Dinkha Dunanu Elisha Eliya Emmanuel Enosh Ezekiel Farbokht Foma Giwargis Grwgari Hanina Hnanisho Hozai Idan Idra Ila Isaac Isho Ishoyahb Israel Kaiapha Karna Katsiu Kelaya Laszio Lazar
+		Lazare Lazaro Lazaros Lazarus Lazarz Lazer Lebbaeus Maadai Maccabee Magna Makkikha Maluch Ma'na Marabokht Maremmeh Mari Mikha'il Moqli Muna Nahir Nahor Nahur Narsai Nazuk Nechunya
+		Nehor Nehorai Niv Nun Nur Oran Pappa Paul Pethion Petros Petuel Qaligh Qayyoma Raca Rachim Rahim Raka Raz Raziel Rubil Saad Sabbae Sabrisho Sabr-Ishu Salu Samal Sami Samiy Sagi Sargis Sawma
+		Shafer Shahdost Shahlufa Shai Shalmai Shama Shamir Shammai Shemaiah Shemon Sheraga Shila Shovai Shraga Sliba-zkha Surin Tabbai Taddai Talmai Tam
+		Tamas Tamhas Targhal Tauma Tavi Tavish Tevis Thamhais Timai Tiv Toba Todos Tolmai Tomarsa Tamuza Tulmay Ukba Yahballaha Yanai Yaqob Yeshua Yohannan Yosip Yousef Yunanis Zerika
 	}
 	female_names = {
-		Abdosir Arishat Astarte Batnoam Dido Shayna Sophonisba Tamar
+		Ihsan Marwa Aisha Aziza Duha Farida Golbahar Gulnar Gulnaz Gulpari Hafsa Hasti Huma Ibtisam Jalila Kamala 
+		Karima Khandan Khaterah Khatira Kinah Lala Madiha Mahdokht Nazy Neelab Negar Niki Nikoo Noushin Rabiya
+		Mahsa Mahwash Marwa Mastana Mehri Mina Minoo Munawwar Muzhdah Nahal Najela Nasiba Nastaran Nazaneen 
+		Rajiya Sadiya Salma Sitara Thana Zahra Zahra Zuhayra
+		Adva Alya Anena Chanina Chasina Chayuta Chiyuta Dikla Diklah Diklit Duvsha Hanina Hasna Hayuta Hina Ketina Kitra
+		Magdala Mahalia Mahalie Marfa Mariam Marta Marte Martha Marthe Marti Martita Mehalia Meiriona Meirona Morta
+		Nahara Nura Reuma Saba Sabah Samantha Sameea Samiya Samiyah Samiyya Sava Shapira Sima Tabatha Tabetha
+		Tabitha Tadea Talia Taliah Talya Talitha Tam Tamasin Tami Tamsin Tamsyn Tamzin Thaddea Thomasa Zeita Zeta
 	}
 	#Cultural Influence Cultures
 	siryon = {
@@ -7952,8 +8050,20 @@ turkish_g = {
 			Sibel Sirin Sirma Songul Tekçe Tura Umay Usunbike Yasar Yeldem Yildiz
 		}
 	}
-	tribal_turkmen = { #for transitions, and for Turks in Mashriq
-		#primary = xxx
+	turkoman = { #(JP) Names copied from azerbaijani. Turkoman represents Qara and Aq, plus the Turks who settled in Dulkadir and Iraq #Replacing tribal_turkman in CI
+		primary = QAR
+		dynasty_names = {
+			"Qara Qoyunlu" "Aq Qoyunlu" "Safavid" "Shirvanshah" Javanshir Chupanid Ziyadoghlu Chalabi
+			Talysh "Haji Chalabi"
+		}
+		male_names = {
+			Ibrahim Muhammad Ibrahim Farrukhsiyar Khalil Bahram Farrukhsiyar Ghazi Farrukhsiyar Mahmud Ghazi Eldar
+		}
+		female_names = {
+			Malahat Amsha Asiya Faghira Habiba Hanifa Jahaira Kamala Layla Maryam Nafisa Nyawela Parand
+			Aaliyah Aamina Aamira Aaqila Aarifa Aazzi Adelah Adela Adiba Adilah Adilia Adiva Adjan Aeesha
+			Adila Ikram
+		}
 	}
 	balkan_turkish = { #balkan turkish
 		#primary = xxx
@@ -10182,7 +10292,7 @@ kongo_group = {
 		Kitamba Cibind Nawej Munying Kateng Cakasekene Cikombe Kalong Mutand Mbala Mukaz Mpemba
 	}
 	female_names = {
-		Jetta Vandana Zody 
+		Jetta Vandana Zody Nzinga Kengela Mukambu Kangala Ana Barbara Veronica
 	}
 }
 
@@ -11863,6 +11973,22 @@ ainu_g = {
 			Monashir Etunrachich Toitoi
 		}
 	}
+	nivkh = { #CI -These guys could probably go in thier own group but for now will put them with the Ainu
+		primary = NVK
+		dynasty_names = {
+			Garpancha Songolik Tymancha Tykulcha Gudeikon Adiul Khadiul Dyaluncha Aksik Kepele Gugdaul Burgumi Vavlya Vadyo 
+			Vankho Eldan Ka-cheda Kilim Agna Sebeda Saltyk Alvali Akhtamak
+		}
+		male_names = {
+			Atvuk Azmun Azrun Chalun Changin Chuner Ezdanok Itkun Kaskazik Kekhan Kelin Kenran Khaylin Kokin Lants Lergan Longun
+			Luzgin Memzgun Mufchik Napuin Nyengun Nyunkin Ochan Palgun Parkizin Pilgun Pulychkh Pungat Rsholin Smedun Tavtugin
+			Tolvin Tynvin Ukrin Urkayn Uryam Vadun Vyskan Ykylak Yudin Zarun
+		}
+		female_names = {
+			Anguk Anyuk Yazik Azuk Chamuk Chavlik Efkuk Esavura Ezguk Iglik Khivchuk Liskit Lushkura Lykhtkk Niftyuk Okhnik Panko
+			Pineyk Ponashk Pygsk Pygzyk Pylymk Tatuk Tymguk Ulita Umkhun Velk Yurik Zuyuk
+		}
+	}
 }
 
 aboriginal_australian = { # Brian; new in 1.31; BT australian_group
@@ -12107,6 +12233,51 @@ aboriginal_australian = { # Brian; new in 1.31; BT australian_group
 		Barak Bennelong Billibellary Calyute Derrimut Dundalli Jackey Jandamarra Lanne Mannalargenna Mokare Mullagh Musquito Pemulwuy
 		Tullamareena Wonga Yagan Wylle Napaljarri Tjakamarra Tjapaltjarri Gurruwiwi Nungurrayi Mununggurr Namok Milyika Ginibi Wagan
 	}
+	#Beyond Typus Culture
+	yolngu = {
+	}
+	tiwi = {
+	}
+	larrakia = {
+	}
+	marrithiyel = {
+	}
+	ngumpin = {
+	}
+	nguriun = {
+	}
+	tangkic = {
+	}
+	arandic = {
+	}
+	worrorran = {
+	}
+	pillbara = {
+	}
+	kartu = {
+	}
+	mirning = {
+	}
+	wati = {
+	}
+	karnic = {
+	}
+	nangga = {
+	}
+	ngarrindjeri = {
+	}
+	paakantyi = {
+	}
+	gunai = {
+	}
+	bandajalangic = {
+	}
+	maran = {
+	}
+	dyirbalic = {
+	}
+	mayabic = {
+	}
 }
 
 miao_g = {
@@ -12185,6 +12356,93 @@ east_asian = { #Chinese Group
 		}
 		female_names = {
 			Fen Jian Wen Hejing Hejia Hexiao Zhuangjing 
+		}
+	}
+	vietnamese_new = {	#New Vanilla assimilated Chinese Cultures, will look into this more later but for now it's fine
+		#primary = DAI
+		dynasty_names = {
+			"Lê" "Tran" "Mac" "Nguyen" "Trinh" "Vu" "Nguyen Phuc" "Nguyen Quang"
+		}
+		male_names = {
+			"An" "Quy Ly" "Han Thuong" "Ngoi" "Quy Khoang" "Loi" "Nguyen Long" "Bang Co" "Nghi Dan" "Tu Thanh" "Tranh" 
+			"Thuan" "Tuan" "Oanh" "Y" "Xuan" "Dang Dung" "Dang Doanh" "Trang Tong" "Phuc Hai" "Phuc Nguyen" "Mau Hop" 
+			"Kinh Chi" "Kinh Cung" "Kinh Khoan" "Kinh Vu" "Duy Duong" "Duy Phuong" "Duy Tuong" "Duy Than" "Duy Dieu" 
+			"Duy Khiem" "Hue" "Quang Toan" "Duy Hop"
+		}
+		female_names = {
+			"Kim Anh" "Thuy Tram" "Bich Ngoc" "Phuong Nga" "Thanh Thao"
+		}
+	}
+	
+	korean_new = {
+		#primary = KOR
+		dynasty_names = { 
+			Yi Wang Kim Pak Shin Song Chae Gang Jeong Jang Yun Han Hong Yu Ki Choi Ga Gye Go Na Noh Woo Do Du Ban Ma Min Mun
+			Seo Son Sim An Yang O Jeon Cho Jin Ha Hong Heo Kwak Lim Won Kwon Hwang Bae Seok Bang Dae Gyeong Nam Sung Baek
+
+
+		}
+		male_names = {
+			Hongwi Yu Gwang Hyeol Yung Yeok Ho Hwan Yeon Hon Jong Sun Yun Geum San Gong Byeon Myeongbok Ha-eung Un Gu Seon Hyeon
+			Cho Yeong Bu Haeng Hwon Kang Ji Rip Jae-u Seong-ryong Yakyong Jongmu Se-young Hong-rip Deokgi Munsu Hee-woon Busik
+			Jiwon Gwangjo Sukju Hongdo Yong-bok Jong-un Chung-hee Yeong-sil Yun-ui Myung-shin Chae-ho Chwa-jin Honghi Byong-hi
+			Hwang Jae-sang Yu-sin Wonjong Jong-seo Jangchun Museon Sung-gyeom Seungman Sun-sin Chang-ho Dae-seung Jae-suk
+			Dae-yong Eok-gi Si-min Gam-chan Chung-heon U Tong-jeon In-seon Gwanghyeon Gyun Yul Wi Im Geon Jun Mok Il Tak
+ 
+		}
+		female_names = {
+			Ae-jung Areum Bit-na Bo-young Bora Chae-won Chae-young Cho-hee Chun-hwa Chun-ja Da-hee Da-hyun Do-hee Eun-ah 
+			Eun-bi Eun-byul Eun-chae Eun-ha Eun-hee Eun-hye Eun-ji Eun-jin Eun-ju Eun-jung Eun-kyung Eun-mi Eun-sook Eun-suh 
+			Eun-young Ga-in Ga-young Gyuri Ha-eun Hana Hye-bin Hye-in Hye-ja Hye-jin Hye-jung Hye-kyung Hye-mi Hye-rim 
+			Hye-su Hye-won Hyo-joo Hyo-rin Hyun-a Hyun-kyung Hyun-mi Hyun-sook In-hye In-sook In-sun Ja-kyung Jae-eun 
+			Jang-geum Jang-mi Jeong-ja Ji-ae Ji-eun Ji-hye Ji-yeon Ji-young Jina Jin-yi Jung-ah Jung-sook Jung-soon Kyung-ah Kyung-hee 
+			Kyung-hwa Kyung-ja Kyung-ok Kyung-sook Mi-hee Mi-ja Mi-jung Mi-kyung Mi-ran Mi-sook Mi-yeon Mi-young Min-hee 
+			Min-ji Min-jung Min-seo Mina Myung-hwa Myung-ok Myung-sook Myung-soon Na-young Nana Nari Noo-ri Sang-mi  
+			Se-bin Seo-hyeon Seo-yeon Seo-yun Seol-hee Seon-ok Seong-ja Seung-ah Shin-hye Si-yeon So-hee So-hyun So-won So-yi 
+			So-young Soo-ah Soo-hee Sook-ja Soon-hee Soon-ja Sora Su-mi Sun-hee Sun-hwa Sun-mi Sun-ok Sung-mi Sung-sook 
+			Ye-eun Ye-ji Ye-jin Ye-rin Ye-seo Ye-won Yeo-jin Yeon-hee Yi-kyung Yoo-kyung Yoo-na Yoon-hee Yoon-sook Young-ae 
+			Young-hee Young-ja Young-mi Young-sook Yu-ri Yumi
+		}
+	}
+	tibetan_new = {
+		#primary = UTS
+		dynasty_names = {
+			Se Rmu Ldong Stong Dbra Dru Nyang Sbas Gnon Chespong Thonmi Mgar Bri Mong Zhang Mchims Bal Lang Cogro Bro Dbas 
+			Shudpu Gnyags Mgus Mjang Snang Sgro Rma Snyiba Khu Khun Mkar Rlangs Rinspungs Zhingshag Phjongsrgjas Nganlam Sba Lig 
+			Khjungpo Dbas Mnyammed
+		}
+		male_names = {
+			"Gendun Drup" "Trakpa Chunge" "Sangye Gyantesen Pal Zangpo" "Dön-yö Dorje" "Ngawang Namgyal" "Töndup Tseten" "Phüntso Namgye" "Karma Tseten" "Lhawang Dorje" "Karma Ten-Kyong" "Gusri" "Dayan" "Tenzin Dalai" 
+			"Lhabzang" "Tsewang Arabtan" "Phola Sonam Topbgye" "Gyurme Namgyal" "Lozang Gyastro" "Tsangyang Gyatso" 
+			"Kelzang Gyatso" "Jamphel Gyatso" "Lungtok Gyatso" "Tsultrim Gyatso" "Gendun Gyastro" "Sonam Gyastro" "Desi Sangay Gyatso"
+			"Ngwaang Yeshi Gyatso" "Chang-chub" "Sakya Gyantsen" "Trakpa Richen" "Trakpa Chang-chub" 
+			"Trakpa Chungne" "Sangye Gyamtso" "Lobsang Yeshe" "Palden Yeshi" "Ngapoi Takna" "Jigme Wangyal" "Tashi Chophel" "Bapu Gendun" "Rabtan" "Sengge" "Galdan" "Gushi" Dorjee Dote Kalden
+		}
+		female_names = {
+			"Kamala" "Indira" Dawa Dechen Diki Choden Dohna Dolkar Karma Sonam Sangmu
+		}
+	}
+	altaic_new	= {
+		country = { has_banners = 1}
+		province = { local_has_banners = 1}
+		primary = YUA
+		male_names = {
+			Agbarjin Adai Altan Arigaba Arugtai Ayurparibhadra Bodi Bek Bahamu Bars Buyan Biligtü Dayan 
+			Delbeg Ejei Elbeg Engke Güyük Gün Gulichi Irinchibal Jorightu Kublai Köke Ligdan Markörgis Möngke 
+			Manduulun Öljei Örüg Oyiradai Ögödei Qayshan Qoshila Sayn Suddhipala Tayisung Temujin Temür Toghun 
+			Tolui Toq Uskhal Yesün Ariq Batu Eljigidei Joichi Darayisung Tümen
+		}
+		female_names = {
+			Temülen Börte Mandukhai Samar Zaufishan Mulan Aigiarn Borte Chabi Conchaka Doquez-khatum Goland Ho'elun 
+			Khultulun Kokachin Mandughai Oghul Qamish Orqina Sorghaghtani Beki Toregene 
+		}
+		dynasty_names = {
+			# CKII
+			"Onggirat" "Naiman" "Kereyid" "Sartaq" "Mengu-Timur" "Uriankhai" "Bujakhin" "Besud" "Noyan" 
+			"Jochid" "Chagatayid" "Borjigin" "Chupanid" "Injuid" "Toluid" "Ganbold" "Bolormaa" "Batbayar" 
+			"Bat-Erdene" "Otgonbayar" "Enkhtuyaa" "Gantulga" "Nergüi" "Lkhagvasüren" "Enkhjargal" 
+			"Ganzorig" "Narantsetseg" "Pürevsüren" "Ganbaatar" "Mönkhtsetseg" "Mönkhbat" "Mönkh-Erdene" 
+			"Jalair" "Sartuul" "Olkhunut" "Khatagin" "Iljigin" "Tsookhor" "Qarakhanid"
 		}
 	}
 	# Mandarin speakers, in game localization "Guanhua":
@@ -13382,6 +13640,25 @@ papuan = {
 		}
 		female_names = {
 			Aglem-Ter Amp-Biam Amp-Kwimbe Amp-Nemong Amp-Wenta Ife Jara Kentiga Koina Kompamp-Kengakama Kompamp-Mancy 
+			Kompamp-Meta Kumbi Kundika-Marpa Kwimbe Mogumand Nambuka Nengka-Ampdau Palantina Rossa Sirizo Yerema
+		}
+	}
+	torres_strait_islander = {
+		#Names TBD just copying from Papuan for now
+		male_names = {
+			Agolave Akelika-Yaga Amborn Andagalimp-Wak Barunoma Buassi Endemongo Ewunga-Goiba Gaima-Yokumul Gasowe
+			Gavey-Akamo Gerigl-Gande Gesupo Gopie-Ataiamelaho Isakoa-Hepu Isakoa-Hepu Jokuri-Hari Kaglnogl Kainaro-Kravia
+			Kaura Kepagane-Peone Kerenga Kerika-Rebia Khaswaho-Baitoheiro Kiakoa Kimba-Kopol Kirupano-Eza'e
+			Kize Kize-Obaneso Klimbil Koin Kombagle Komp-Nikints Kondon-Agaundo Konia-Taglba KopiaKerika-Kubal Koritoia-Ope
+			Korpore Korua-Kolta Korul-Korul Kuan Kubal-Nori Kubarl Kumai-Kana Kumi-Kispe Kut Kwipi-Nembil Loo Lowai
+			Maasi-Pinjinga Maba Maepkang-Miti Miok Mirani-Gena Moropia Mukuka-Wingti Naia-Imulan Namborn Nambuka-Ninji
+			Nambuka-Titip Napornga-Mare Narmu-Varnu Nonggorr Obi Okame Onguglo-Komugl Opa Opramb-Rumint Ot Owa Pal Pena
+			Penapul Peng Petro-Pisine Pinketa Pok Pora Powa Pupun Rompinjimp-Nanganbia Seriate Sinamoi Sole-Sole Subul
+			Teatakan Towa-Ulta Tupia-Osiro Ulaline Ulka-Wena Vojavona Wager Wai Wak Wamp-Wan Wera-Mori Wia-Tugl Xomerang
+			Yakamup Yanopa-Kai Yasa
+		}
+		female_names = {
+			Aglem-Ter Amp-Biam Amp-Kwimbe Amp-Nemong Amp-Wenta Ife Jara Kentiga Koina Kompamp-Kengakama Kompamp-Mancy
 			Kompamp-Meta Kumbi Kundika-Marpa Kwimbe Mogumand Nambuka Nengka-Ampdau Palantina Rossa Sirizo Yerema
 		}
 	}
