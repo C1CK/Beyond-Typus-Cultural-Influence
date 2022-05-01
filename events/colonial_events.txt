@@ -217,12 +217,13 @@ province_event = { #Basic Colonial Settlement Event
 	
 	trigger = {
 		native_american_trigger = yes #Native cultures
-		NOT = { religion_group = pagan } #Will cause issues for Colonialist Pagans, but any European Neo-Pagans would likely not want to convert them anyways
-		AND = { #Not Native
-			OWNER = { NOT = { technology_group = north_american } }
-			OWNER = { NOT = { technology_group = mesoamerican } }
-			OWNER = { NOT = { technology_group = south_american } }
-			OWNER = { NOT = { technology_group = andean } }
+		has_owner_culture = no
+		OR = {
+			AND = {
+				has_owner_religion = yes #Allows Reformed Natives
+				OWNER = { has_institution = feudalism }
+			}
+			NOT = { religion_group = pagan } #Will cause issues for Colonialist Pagans, but any European Neo-Pagans would likely not want to convert them anyways
 		}
 	}
 
