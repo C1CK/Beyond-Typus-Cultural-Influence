@@ -918,7 +918,10 @@ country_decisions = {
 			bt_generic_can_form_potential_check = yes
 			NOT = { has_country_flag = formed_rhineland_flag_btp }
 			NOT = { tag = RHI }
-			primary_culture = hessian
+			OR = {
+				primary_culture = hessian
+				primary_culture = central_franconian
+			}
 		}
 		provinces_to_highlight = {
 			OR = {
