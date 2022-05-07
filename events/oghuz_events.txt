@@ -289,24 +289,7 @@ province_event = { #Turkish settlement in Thrace
 		NOT = { has_province_modifier = phanariote_greeks }
 		owner = { culture_group = turkish_g }
 		NOT = { culture = turkish }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = turkish_g }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				any_neighbor_province = { culture_group = turkish_g }
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_flag = turkish_thrace_settlement }
 			owner = { ai = no }

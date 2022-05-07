@@ -10,29 +10,7 @@ province_event = { #Roman Italian
 	trigger = {
 		owner = { culture_group = old_latin }
 		roman_italian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_italian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}			
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -193,29 +171,7 @@ province_event = { #Roman Aquitanian
 	trigger = {
 		owner = { culture_group = old_latin }
 		roman_aquitanian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_aquitanian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}			
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -376,29 +332,7 @@ province_event = { #Roman Occitanian
 	trigger = {
 		owner = { culture_group = old_latin }
 		roman_occitanian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_occitanian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -559,29 +493,7 @@ province_event = { #Roman French
 	trigger = {
 		owner = { culture_group = old_latin }
 		roman_french_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_french_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -743,29 +655,7 @@ province_event = { #Roman Iberian
 	trigger = {
 		owner = { culture_group = old_latin }
 		roman_iberian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_iberian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -926,29 +816,7 @@ province_event = { #Roman Lusitanian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_lusitanian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_lusitanian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -1109,29 +977,7 @@ province_event = { #Roman Andalusian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_andalusian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_andalusian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -1292,29 +1138,7 @@ province_event = { #Roman Irish
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_irish_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_irish_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -1475,29 +1299,7 @@ province_event = { #Roman Scot
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_scot_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_scot_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -1658,29 +1460,7 @@ province_event = { #Roman Anglo
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_anglo_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_anglo_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -1841,29 +1621,7 @@ province_event = { #Roman Maghreb
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_maghreb_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_maghreb_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -2024,29 +1782,7 @@ province_event = { #Roman Libyan
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_libyan_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_libyan_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -2207,29 +1943,7 @@ province_event = { #Roman Egyptian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_egyptian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_egyptian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -2390,29 +2104,7 @@ province_event = { #Roman Levant
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_levant_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_levant_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -2573,29 +2265,7 @@ province_event = { #Roman Arabian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_arabian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_arabian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -2756,29 +2426,7 @@ province_event = { #Roman Greek
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_greek_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_greek_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -2939,29 +2587,7 @@ province_event = { #Roman Anatolian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_anatolian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_anatolian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -3122,29 +2748,7 @@ province_event = { #Roman Bulgarian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_bulgarian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_bulgarian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -3305,29 +2909,7 @@ province_event = { #Roman Romanian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_romanian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_romanian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -3488,29 +3070,7 @@ province_event = { #Roman Hungarian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_hungarian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_hungarian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -3671,29 +3231,7 @@ province_event = { #Roman Illyrian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_illyrian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_illyrian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -3854,29 +3392,7 @@ province_event = { #Roman Alpine
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_alpine_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_alpine_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -4037,29 +3553,7 @@ province_event = { #Roman West Slavic
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_west_slavic_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_west_slavic_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -4220,29 +3714,7 @@ province_event = { #Roman Dutch
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_dutch_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_dutch_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -4403,29 +3875,7 @@ province_event = { #Roman Saxon
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_saxon_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_saxon_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -4586,29 +4036,7 @@ province_event = { #Roman South German
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_south_german_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_south_german_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -4769,29 +4197,7 @@ province_event = { #Roman East German
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_east_german_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_east_german_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -4952,29 +4358,7 @@ province_event = { #Roman Polish
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_polish_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_polish_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -5135,29 +4519,7 @@ province_event = { #Roman Armenian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_armenian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_armenian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -5318,29 +4680,7 @@ province_event = { #Roman Mesopotamian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_mesopotamian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_mesopotamian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -5501,29 +4841,7 @@ province_event = { #Roman Caucasus
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_caucasus_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_caucasus_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -5555,13 +4873,7 @@ province_event = { #Roman Caucasus
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = { #Non-Dharma
-			factor = 3
-			OR = { #ai uses thiS one
-				NOT = { has_dlc = "Dharma" }
-				owner = { ai = yes }
-			}
-		}		
+
 		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
 		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
 		modifier = {
@@ -5570,31 +4882,28 @@ province_event = { #Roman Caucasus
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -5645,6 +4954,16 @@ province_event = { #Roman Caucasus
 		}
 		modifier = {
 			factor = 0.8
+			has_idea_to_settle_opment = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
 			has_idea_to_settle_faster = yes
 		}
 		modifier = {
@@ -5684,29 +5003,7 @@ province_event = { #Roman Scandinavian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_scandinavian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_scandinavian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -5867,29 +5164,7 @@ province_event = { #Roman Baltic
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_baltic_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_baltic_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -6050,29 +5325,7 @@ province_event = { #Roman Finnic
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_finnic_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_finnic_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -6233,29 +5486,7 @@ province_event = { #Roman Russian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_russian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_russian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -6416,29 +5647,7 @@ province_event = { #Roman Persian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_persian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_persian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -6599,29 +5808,7 @@ province_event = { #Roman Khorasani
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_khorasani_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_khorasani_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -6782,29 +5969,7 @@ province_event = { #Roman Crimean
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_crimean_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_crimean_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -6965,29 +6130,7 @@ province_event = { #Roman Sarmatian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_sarmatian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_sarmatian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -7148,29 +6291,7 @@ province_event = { #Roman Massagetana
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_massagetana_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_massagetana_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -7331,29 +6452,7 @@ province_event = { #Roman Bactrian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_bactrian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_bactrian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -7514,29 +6613,7 @@ province_event = { #Roman West Indian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_west_indian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_west_indian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -7697,29 +6774,7 @@ province_event = { #Roman North Indian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_north_indian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_north_indian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -7880,29 +6935,7 @@ province_event = { #Roman Central Indian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_central_indian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_central_indian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -8063,29 +7096,7 @@ province_event = { #Roman South Indian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_south_indian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_south_indian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -8246,29 +7257,7 @@ province_event = { #Roman East Indian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_east_indian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_east_indian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -8429,29 +7418,7 @@ province_event = { #Roman Tibetan
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_tibetan_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_tibetan_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -8612,29 +7579,7 @@ province_event = { #Roman Burmese
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_burmese_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_burmese_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -8795,29 +7740,7 @@ province_event = { #Roman Indochinese
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_indochinese_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_indochinese_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -8978,29 +7901,7 @@ province_event = { #Roman Malay
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_malay_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_malay_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -9161,29 +8062,7 @@ province_event = { #Roman Indonesian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_indonesian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_indonesian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -9344,29 +8223,7 @@ province_event = { #Roman Australian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_australian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_australian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -9527,29 +8384,7 @@ province_event = { #Roman Melanesian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_melanesian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_melanesian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -9710,29 +8545,7 @@ province_event = { #Roman Polynesian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_polynesian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_polynesian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -9893,29 +8706,7 @@ province_event = { #Roman Ethiopian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_ethiopian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_ethiopian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -10076,29 +8867,7 @@ province_event = { #Roman East African
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_east_african_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_east_african_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -10259,29 +9028,7 @@ province_event = { #Roman East Sahara
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_east_sahara_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_east_sahara_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -10442,29 +9189,7 @@ province_event = { #Roman West Sahara
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_west_sahara_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_west_sahara_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -10625,29 +9350,7 @@ province_event = { #Roman West African Coast
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_west_african_coast_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_west_african_coast_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -10808,29 +9511,7 @@ province_event = { #Roman Congolese
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_congolese_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_congolese_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -10991,29 +9672,7 @@ province_event = { #Roman Central African
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_central_african_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_central_african_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -11174,29 +9833,7 @@ province_event = { #Roman Zambezi
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_zambezi_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_zambezi_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -11357,29 +9994,7 @@ province_event = { #Roman Madagascar
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_madagascar_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_madagascar_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -11540,29 +10155,7 @@ province_event = { #Roman South African
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_south_african_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_south_african_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -11723,29 +10316,7 @@ province_event = { #Roman Namibian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_namibian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_namibian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -11906,29 +10477,7 @@ province_event = { #Roman North China
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_north_china_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_north_china_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -12089,29 +10638,7 @@ province_event = { #Roman South China
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_south_china_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_south_china_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -12272,29 +10799,7 @@ province_event = { #Roman West China
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_west_china_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_west_china_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -12455,29 +10960,7 @@ province_event = { #Roman Mongolian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_mongolian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_mongolian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -12638,29 +11121,7 @@ province_event = { #Roman Siberian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_siberian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_siberian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -12821,29 +11282,7 @@ province_event = { #Roman Korean
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_korean_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_korean_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -13004,29 +11443,7 @@ province_event = { #Roman Japanese
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_japanese_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_japanese_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -13187,29 +11604,7 @@ province_event = { #Roman Canadian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_canadian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_canadian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -13374,29 +11769,7 @@ province_event = { #Roman East North American
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_east_north_american_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_east_north_american_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -13561,29 +11934,7 @@ province_event = { #Roman Central North American
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_central_north_american_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_central_north_american_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -13748,29 +12099,7 @@ province_event = { #Roman West North American
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_west_north_american_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_west_north_american_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -13935,29 +12264,7 @@ province_event = { #Roman Caribbean
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_caribbean_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_caribbean_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -14122,29 +12429,7 @@ province_event = { #Roman Mexican
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_mexican_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_mexican_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -14309,29 +12594,7 @@ province_event = { #Roman Colombian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_colombian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_colombian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -14496,29 +12759,7 @@ province_event = { #Roman Brazilian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_brazilian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_brazilian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {
@@ -14683,29 +12924,7 @@ province_event = { #Roman Argentinian
 	trigger = {
 		owner = { culture_group = old_latin	}
 		roman_argentinian_region = yes
-		NOT = { nationalism = 25 }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture = roman_argentinian_culture }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = old_latin }
-					any_friendly_coast_border_province = { culture_group = old_latin }
-				}
-			}				
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_settlement_check = yes
 		has_global_flag = CI_events_enabled		
 	}
 	mean_time_to_happen = {

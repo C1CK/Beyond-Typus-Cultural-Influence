@@ -12,27 +12,8 @@ province_event = { #Syriac spread in Mesopotamia
 		owner = { culture_group = syriac_group }
 		syriac_culture_region = yes		
 		NOT = { culture = assyrian_culture }
-		NOT = { nationalism = 1 }
-		AND = {
-			religion_group = OWNER #Preferably Maronite, Syriac, Orthodox, and Armenian Christians, changing to owner and excluding muslims due to PW
-			NOT = { religion_group = muslim }
-		}	
-		OR = {
-			development = 10 #To prevent Sahara converting
-			and = {
-				culture_group = syriac_group
-				is_city = yes
-			}
-		}
-		OR = { #Influence check
-			any_neighbor_province = { culture_group = syriac_group }
-			any_friendly_coast_border_province = { culture_group = syriac_group }	
-			has_building = university
-			province_trade_power = 15
-			development = 30
-			is_island = yes
-			is_capital = yes
-		}
+		ci_assimilation_check = yes
+		NOT = { religion_group = muslim }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -147,27 +128,8 @@ province_event = { #Siryon spread in the Levant
 		owner = { culture_group = syriac_group }
 		siryon_culture_region = yes		
 		NOT = { culture = siryon }
-		NOT = { nationalism = 1 }
-		AND = {
-			religion_group = OWNER #Preferably Maronite, Syriac, Orthodox, and Armenian Christians, changing to owner and excluding muslims due to PW
-			NOT = { religion_group = muslim }
-		}	
-		OR = {
-			development = 10 #To prevent Sahara converting
-			and = {
-				culture_group = syriac_group
-				is_city = yes
-			}
-		}
-		OR = { #Influence check
-			any_neighbor_province = { culture_group = syriac_group }
-			any_friendly_coast_border_province = { culture_group = syriac_group }			
-			has_building = university
-			province_trade_power = 15
-			development = 30
-			is_island = yes
-			is_capital = yes
-		}
+		ci_assimilation_check = yes
+		NOT = { religion_group = muslim }
 		has_global_flag = CI_events_enabled
 	}
 

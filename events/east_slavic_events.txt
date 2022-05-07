@@ -568,21 +568,7 @@ province_event = { #Northern Russian expansion (Settle) (None of these are valid
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				any_neighbor_province = { culture_group = east_slavic }
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = east_slavic }
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = east_slavic_settlements }
 			owner = { has_country_modifier = cossackization }
@@ -762,21 +748,7 @@ province_event = { #Middle Russian expansion (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				any_neighbor_province = { culture_group = east_slavic }
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = east_slavic }
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = east_slavic_settlements }
 			owner = { has_country_modifier = cossackization }
@@ -956,21 +928,7 @@ province_event = { #Southern Russian expansion (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				any_neighbor_province = { culture_group = east_slavic }
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = east_slavic }
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = east_slavic_settlements }
 			owner = { has_country_modifier = cossackization }
@@ -1150,21 +1108,7 @@ province_event = { #Ukrainian expansion (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				any_neighbor_province = { culture_group = east_slavic }
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = east_slavic }
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = east_slavic_settlements }
 			owner = { has_country_modifier = cossackization }
@@ -1289,21 +1233,7 @@ province_event = { #Belarussian expansion (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				any_neighbor_province = { culture_group = east_slavic }
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = east_slavic }
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = east_slavic_settlements }
 			owner = { has_country_modifier = cossackization }
@@ -1428,21 +1358,7 @@ province_event = { #Rusyn expansion (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				any_neighbor_province = { culture_group = east_slavic }
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = east_slavic }
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = east_slavic_settlements }
 			owner = { has_country_modifier = cossackization }
@@ -2192,21 +2108,7 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				any_neighbor_province = { culture_group = east_slavic }
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = east_slavic }
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = east_slavic_settlements }
 			owner = { has_country_modifier = cossackization }
@@ -2513,32 +2415,7 @@ province_event = { #Cossack expansion (Custom Settled) (Siberian Cossacks)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Adapted intent check, largely uses the hardcoded river routes system, but a player can use a colonist or dev pushing to target provinces
-			AND = {
-				OR = { #Mustn't be too remote, Either a CoT for cities off the river routes, or the river route
-					province_has_center_of_trade_of_level = 1
-					has_province_modifier = siberian_river_route_modifier
-					has_province_modifier = path_to_the_urals_modifier
-					has_province_modifier = babinov_road_modifier #No Cherdyn modifier as that never has a lasting impact on demographics
-				}
-				OR = { #No reason for random cities to spring up along the river if there is no CoT
-					any_neighbor_province = {
-						culture_group = east_slavic
-						is_city = yes
-					}
-					province_has_center_of_trade_of_level = 1
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = east_slavic } #This may be a little too OP considering the above points, but this is the more arcadey mode anyway
-			}					
-		}
+		ci_settlement_check_cossack = yes
 		owner = { is_nomad = no }
 		NOT = { has_province_modifier = steppe_city } #Must be sacked first
 		cossack_rule_region_siberia = yes

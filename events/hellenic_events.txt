@@ -14,34 +14,7 @@ province_event = { #Aegean Greek settlements and assimilation
 		hellenic_aegean_culture = no
 		NOT = { culture = tourkiki }
 		NOT = { has_global_flag = rhomaio_formed }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}								
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -84,31 +57,28 @@ province_event = { #Aegean Greek settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -201,34 +171,7 @@ province_event = { #Illyrion settlements and assimilation
 		owner = { culture_group = byzantine }
 		illyrion_culture_region = yes
 		NOT = { culture = illyrion }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -271,31 +214,28 @@ province_event = { #Illyrion settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -388,34 +328,7 @@ province_event = { #Griko settlements and assimilation
 		owner = { culture_group = byzantine }
 		graiko_culture_region = yes
 		NOT = { culture = griko }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}	
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -458,31 +371,28 @@ province_event = { #Griko settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -576,34 +486,7 @@ province_event = { #Pontic settlements and assimilation
 		pontic_greek_culture_region = yes
 		NOT = { has_global_flag = rhomaio_formed }
 		hellenic_anatolian_culture = no
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -646,31 +529,28 @@ province_event = { #Pontic settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -764,31 +644,7 @@ province_event = { #Cappadocian settlements and assimilation
 		cappadocian_culture_region = yes
 		NOT = { has_global_flag = rhomaio_formed }
 		hellenic_anatolian_culture = no
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = byzantine }
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -831,31 +687,28 @@ province_event = { #Cappadocian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -1078,34 +931,7 @@ province_event = { #Alexandrian settlements and assimilation
 		owner = { culture_group = byzantine }
 		alexandrian_culture_region = yes
 		NOT = { culture = alexandrian }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -1148,31 +974,28 @@ province_event = { #Alexandrian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -1265,34 +1088,7 @@ province_event = { #Arabian settlements and assimilation
 		owner = { culture_group = byzantine }
 		aravikos_culture_region = yes
 		NOT = { culture = aravikos }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -1335,31 +1131,28 @@ province_event = { #Arabian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -1452,34 +1245,7 @@ province_event = { #Hibernian settlements and assimilation
 		owner = { culture_group = byzantine }
 		hibernian_culture_region = yes
 		NOT = { culture = hibernian }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -1522,31 +1288,28 @@ province_event = { #Hibernian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -1640,34 +1403,7 @@ province_event = { #Albian settlements and assimilation
 		albian_culture_region = yes
 		owner = { has_country_modifier = hellenic_settlements }
 		NOT = { culture = albian }	
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -1710,31 +1446,28 @@ province_event = { #Albian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -1827,34 +1560,7 @@ province_event = { #Varangian settlements and assimilation
 		owner = { culture_group = byzantine }
 		varangian_culture_region = yes
 		NOT = { culture = varangian }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -1897,31 +1603,28 @@ province_event = { #Varangian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -2014,34 +1717,7 @@ province_event = { #Avissinos settlements and assimilation
 		owner = { culture_group = byzantine }
 		avissinos_culture_region = yes
 		NOT = { culture = avissinos }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -2084,31 +1760,28 @@ province_event = { #Avissinos settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -2201,34 +1874,7 @@ province_event = { #Antiochiou settlements and assimilation
 		owner = { culture_group = byzantine }
 		antiocheia_culture_region = yes
 		NOT = { culture = anatolian }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -2271,31 +1917,28 @@ province_event = { #Antiochiou settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -2388,34 +2031,7 @@ province_event = { #Persic settlements and assimilation
 		owner = { culture_group = byzantine }
 		persic_culture_region = yes
 		NOT = { culture = persic }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -2458,31 +2074,28 @@ province_event = { #Persic settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -2708,34 +2321,7 @@ province_event = { #Rhomaio settlements and assimilation
 		rhomaio_culture_region = yes
 		NOT = { culture = rhomaio }
 		has_global_flag = rhomaio_formed
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -2778,31 +2364,28 @@ province_event = { #Rhomaio settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -2895,34 +2478,7 @@ province_event = { #Libyan settlements and assimilation
 		owner = { culture_group = byzantine }
 		kirenike_culture_region = yes
 		NOT = { culture = kirenike }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -2965,31 +2521,28 @@ province_event = { #Libyan settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -3082,34 +2635,7 @@ province_event = { #Carthaginian settlements and assimilation
 		owner = { culture_group = byzantine }
 		karchidoniac_culture_region = yes
 		NOT = { culture = karchidoniac }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -3152,31 +2678,28 @@ province_event = { #Carthaginian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -3269,34 +2792,7 @@ province_event = { #Moroccan settlements and assimilation
 		owner = { culture_group = byzantine }
 		mavritanias_culture_region = yes
 		NOT = { culture = mavritanias }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -3339,31 +2835,28 @@ province_event = { #Moroccan settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -3456,34 +2949,7 @@ province_event = { #Skythian settlements and assimilation
 		owner = { culture_group = byzantine }
 		skythis_culture_region = yes
 		NOT = { culture = scythian }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -3526,31 +2992,28 @@ province_event = { #Skythian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -3643,34 +3106,7 @@ province_event = { #Bactrian settlements and assimilation
 		owner = { culture_group = byzantine }
 		vaktrianos_culture_region = yes
 		NOT = { culture = vaktrianos }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -3713,31 +3149,28 @@ province_event = { #Bactrian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -3830,34 +3263,7 @@ province_event = { #Western Indian settlements and assimilation
 		owner = { culture_group = byzantine }
 		indiki_koilada_culture_region = yes
 		NOT = { culture = indiki_koilada }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -3900,31 +3306,28 @@ province_event = { #Western Indian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -4017,34 +3420,7 @@ province_event = { #Massalian settlements and assimilation
 		owner = { culture_group = byzantine }
 		massalian_culture_region = yes
 		NOT = { culture = massalian }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -4087,31 +3463,28 @@ province_event = { #Massalian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -4204,34 +3577,7 @@ province_event = { #Northern Italian settlements and assimilation
 		owner = { culture_group = byzantine }
 		italiote_culture_region = yes
 		NOT = { culture = italiote }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -4274,31 +3620,28 @@ province_event = { #Northern Italian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -4391,34 +3734,7 @@ province_event = { #Septimanian settlements and assimilation
 		owner = { culture_group = byzantine }
 		septimanikion_culture_region = yes
 		NOT = { culture = septimanikion }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -4461,31 +3777,28 @@ province_event = { #Septimanian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -4578,34 +3891,7 @@ province_event = { #Hesperic settlements and assimilation
 		owner = { culture_group = byzantine }
 		karpessosion_culture_region = yes
 		NOT = { culture = hesperic }	
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -4648,31 +3934,28 @@ province_event = { #Hesperic settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -4765,34 +4048,7 @@ province_event = { #Galatian settlements and assimilation
 		owner = { culture_group = byzantine }
 		galatian_culture_region = yes
 		NOT = { culture = galatian }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -4835,31 +4091,28 @@ province_event = { #Galatian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -4952,34 +4205,7 @@ province_event = { #Velgoi settlements and assimilation
 		owner = { culture_group = byzantine }
 		velgoi_culture_region = yes
 		NOT = { culture = velgoi }	
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -5022,31 +4248,28 @@ province_event = { #Velgoi settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -5139,34 +4362,7 @@ province_event = { #Pannonion settlements and assimilation
 		owner = { culture_group = byzantine }
 		pannonion_culture_region = yes
 		NOT = { culture = pannonion }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -5209,31 +4405,28 @@ province_event = { #Pannonion settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -5326,34 +4519,7 @@ province_event = { #Dacion settlements and assimilation
 		owner = { culture_group = byzantine }
 		dacion_culture_region = yes
 		NOT = { culture = dacion }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -5395,31 +4561,28 @@ province_event = { #Dacion settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -5512,34 +4675,7 @@ province_event = { #Southwestern Germania settlements and assimilation
 		owner = { culture_group = byzantine }
 		notiodytiki_germanikos_culture_region = yes
 		NOT = { culture = notiodytiki_germanikos }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -5582,31 +4718,28 @@ province_event = { #Southwestern Germania settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -5699,34 +4832,7 @@ province_event = { #Northwestern Germania settlements and assimilation
 		owner = { culture_group = byzantine }
 		voreiodytiki_germanikos_culture_region = yes
 		NOT = { culture = voreiodytiki_germanikos }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -5769,31 +4875,28 @@ province_event = { #Northwestern Germania settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -5886,34 +4989,7 @@ province_event = { #Southeastern Germania settlements and assimilation
 		owner = { culture_group = byzantine }
 		notioanatolikosgermanikos_culture_region = yes
 		NOT = { culture = notioanatolikos_germanikos }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -5956,31 +5032,28 @@ province_event = { #Southeastern Germania settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -6073,34 +5146,7 @@ province_event = { #Northeastern Germania settlements and assimilation
 		owner = { culture_group = byzantine }
 		voreioanatolikosgermanikos_culture_region = yes
 		NOT = { culture = voreioanatolikos_germanikos }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -6143,31 +5189,28 @@ province_event = { #Northeastern Germania settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -6260,34 +5303,7 @@ province_event = { #Kefales settlements and assimilation
 		owner = { culture_group = byzantine }
 		kefales_culture_region = yes
 		NOT = { culture = kefales }	
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -6330,31 +5346,28 @@ province_event = { #Kefales settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -6447,34 +5460,7 @@ province_event = { #Savramata settlements and assimilation
 		owner = { culture_group = byzantine }
 		savramata_culture_region = yes
 		NOT = { culture = savramata }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -6517,31 +5503,28 @@ province_event = { #Savramata settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -6634,34 +5617,7 @@ province_event = { #Krios Savramata settlements and assimilation
 		owner = { culture_group = byzantine }
 		krios_savramata_culture_region = yes
 		NOT = { culture = krios_savramata }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -6704,31 +5660,28 @@ province_event = { #Krios Savramata settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -6821,34 +5774,7 @@ province_event = { #Vuonos Savramata settlements and assimilation
 		owner = { culture_group = byzantine }
 		vounos_savramata_culture_region = yes
 		NOT = { culture = vounos_savramata }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -6891,31 +5817,28 @@ province_event = { #Vuonos Savramata settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -7008,34 +5931,7 @@ province_event = { #Makria Savramata settlements and assimilation
 		owner = { culture_group = byzantine }
 		makria_savramata_culture_region = yes
 		NOT = { culture = makria_savramata }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -7078,31 +5974,28 @@ province_event = { #Makria Savramata settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -7195,34 +6088,7 @@ province_event = { #South African settlements and assimilation
 		owner = { culture_group = byzantine }
 		notia_aethiopas_culture_region = yes
 		NOT = { culture = notia_aethiopas }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -7265,31 +6131,28 @@ province_event = { #South African settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -7382,34 +6245,7 @@ province_event = { #Tavrika settlements and assimilation
 		owner = { culture_group = byzantine }
 		tavrika_culture_region = yes
 		NOT = { culture = tavrika }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}								
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -7452,31 +6288,28 @@ province_event = { #Tavrika settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -7569,34 +6402,7 @@ province_event = { #Sogdanika settlements and assimilation
 		owner = { culture_group = byzantine }
 		sogdanika_culture_region = yes
 		NOT = { culture = sogdanika }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -7639,31 +6445,28 @@ province_event = { #Sogdanika settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -7756,34 +6559,7 @@ province_event = { #Helika settlements and assimilation
 		owner = { culture_group = byzantine }
 		helika_culture_region = yes
 		NOT = { culture = helika }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -7826,31 +6602,28 @@ province_event = { #Helika settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -7943,34 +6716,7 @@ province_event = { #Kavlika settlements and assimilation
 		owner = { culture_group = byzantine }
 		kavlika_culture_region = yes
 		NOT = { culture = kavlika }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -8013,31 +6759,28 @@ province_event = { #Kavlika settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -8130,34 +6873,7 @@ province_event = { #Thivetiani settlements and assimilation
 		owner = { culture_group = byzantine }
 		thivetiani_culture_region = yes
 		NOT = { culture = thivetiani }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -8200,31 +6916,28 @@ province_event = { #Thivetiani settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -8317,34 +7030,7 @@ province_event = { #Seresike settlements and assimilation
 		owner = { culture_group = byzantine }
 		seresike_culture_region = yes
 		NOT = { culture = seresike }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -8387,31 +7073,28 @@ province_event = { #Seresike settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -8504,34 +7187,7 @@ province_event = { #Sineaka settlements and assimilation
 		owner = { culture_group = byzantine }
 		sinaeka_culture_region = yes
 		NOT = { culture = sinaeka }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -8574,31 +7230,28 @@ province_event = { #Sineaka settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -8691,34 +7344,7 @@ province_event = { #Anatoliarianka settlements and assimilation
 		owner = { culture_group = byzantine }
 		anatoliarianka_culture_region = yes
 		NOT = { culture = anatoliarianka }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -8761,31 +7387,28 @@ province_event = { #Anatoliarianka settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -8878,34 +7501,7 @@ province_event = { #Indiki settlements and assimilation
 		owner = { culture_group = byzantine }
 		indiki_culture_region = yes
 		NOT = { culture = indiki }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -8948,31 +7544,28 @@ province_event = { #Indiki settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -9065,34 +7658,7 @@ province_event = { #Koniaka settlements and assimilation
 		owner = { culture_group = byzantine }
 		koniaka_culture_region = yes
 		NOT = { culture = koniaka }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -9135,31 +7701,28 @@ province_event = { #Koniaka settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -9252,34 +7815,7 @@ province_event = { #Taprovanika settlements and assimilation
 		owner = { culture_group = byzantine }
 		taprovanika_culture_region = yes
 		NOT = { culture = taprovanika }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}					
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -9322,31 +7858,28 @@ province_event = { #Taprovanika settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -9439,34 +7972,7 @@ province_event = { #Palivothrika settlements and assimilation
 		owner = { culture_group = byzantine }
 		palivothrika_culture_region = yes
 		NOT = { culture = palivothrika }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}			
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -9509,31 +8015,28 @@ province_event = { #Palivothrika settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -9626,34 +8129,7 @@ province_event = { #Megali Sineaka settlements and assimilation
 		owner = { culture_group = byzantine }
 		megali_sinaeka_culture_region = yes
 		NOT = { culture = megali_sinaeka }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}			
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -9696,31 +8172,28 @@ province_event = { #Megali Sineaka settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -9813,34 +8286,7 @@ province_event = { #Anatoliarianka settlements and assimilation
 		owner = { culture_group = byzantine }
 		anatolianesika_culture_region = yes
 		NOT = { culture = anatolianesika }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}			
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -9883,31 +8329,28 @@ province_event = { #Anatoliarianka settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -10000,34 +8443,7 @@ province_event = { #Polinesika settlements and assimilation
 		owner = { culture_group = byzantine }
 		polinesika_culture_region = yes
 		NOT = { culture = polinesika }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}			
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -10070,31 +8486,28 @@ province_event = { #Polinesika settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -10187,34 +8600,7 @@ province_event = { #Erimos Aethiopas settlements and assimilation
 		owner = { culture_group = byzantine }
 		erimos_aethiopas_culture_region = yes
 		NOT = { culture = erimos_aethiopas }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}			
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -10257,31 +8643,28 @@ province_event = { #Erimos Aethiopas settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -10374,34 +8757,7 @@ province_event = { #Nkini settlements and assimilation
 		owner = { culture_group = byzantine }
 		nkini_culture_region = yes
 		NOT = { culture = nkini }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}			
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -10444,31 +8800,28 @@ province_event = { #Nkini settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -10561,34 +8914,7 @@ province_event = { #Akti Aethiopas settlements and assimilation
 		owner = { culture_group = byzantine }
 		akti_aethiopas_culture_region = yes	
 		NOT = { culture = akti_aethiopas }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}			
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -10631,31 +8957,28 @@ province_event = { #Akti Aethiopas settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -10748,34 +9071,7 @@ province_event = { #Esoteikos Aethiopas settlements and assimilation
 		owner = { culture_group = byzantine }
 		esoterikos_aethiopas_culture_region = yes
 		NOT = { culture = esoterikos_aethiopas }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}			
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -10818,31 +9114,28 @@ province_event = { #Esoteikos Aethiopas settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -10935,34 +9228,7 @@ province_event = { #Souachiliaktikos settlements and assimilation
 		owner = { culture_group = byzantine }
 		souachiliaktikos_culture_region = yes
 		NOT = { culture = souachiliaktikos }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}			
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -11005,31 +9271,28 @@ province_event = { #Souachiliaktikos settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -11122,34 +9385,7 @@ province_event = { #Olissoponion settlements and assimilation
 		owner = { culture_group = byzantine }
 		olissiponion_culture_region = yes
 		NOT = { culture = olissiponion }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}			
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -11166,7 +9402,7 @@ province_event = { #Olissoponion settlements and assimilation
 		modifier = {
 			factor = 0.0
 			has_global_flag = 00_CI_MTTH_flag
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -11192,31 +9428,28 @@ province_event = { #Olissoponion settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -11262,6 +9495,12 @@ province_event = { #Olissoponion settlements and assimilation
 
 		#Misc factors
 		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_= { #Passive settlement (I.E without a colonist)
 			factor = 3
 			has_colonist = no
 		}
@@ -11439,34 +9678,7 @@ province_event = { #Moesian Greek settlements and assimilation
 		moesian_culture_region = yes
 		NOT = { culture = moesian }
 		NOT = { has_global_flag = rhomaio_formed }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}								
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -11509,31 +9721,28 @@ province_event = { #Moesian Greek settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -11628,34 +9837,7 @@ province_event = { #Phrygian Greek settlements and assimilation
 		hellenic_anatolian_culture = no
 		NOT = { has_global_flag = anatolian_merge }
 		NOT = { has_global_flag = rhomaio_formed }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}								
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -11698,31 +9880,28 @@ province_event = { #Phrygian Greek settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -11817,34 +9996,7 @@ province_event = { #Pamphylian Greek settlements and assimilation
 		hellenic_anatolian_culture = no
 		NOT = { has_global_flag = anatolian_merge }
 		NOT = { has_global_flag = rhomaio_formed }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}								
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -11887,31 +10039,28 @@ province_event = { #Pamphylian Greek settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -12006,34 +10155,7 @@ province_event = { #Cypriot settlements and assimilation, well now it's not rare
 		cypriot_culture_region = yes
 		NOT = { culture = cypriot }
 		NOT = { has_global_flag = rhomaio_formed }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}								
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -12076,31 +10198,28 @@ province_event = { #Cypriot settlements and assimilation, well now it's not rare
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -12760,34 +10879,7 @@ province_event = { #Thracian settlements and assimilation
 		thracian_culture_region = yes
 		NOT = { culture = hellenic_thracian }
 		has_global_flag = aegean_split
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}								
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -12830,31 +10922,28 @@ province_event = { #Thracian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -12948,34 +11037,7 @@ province_event = { #Macedonian settlements and assimilation
 		macedonian_culture_region = yes
 		NOT = { culture = macedonian }
 		has_global_flag = aegean_split
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}								
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -13018,31 +11080,28 @@ province_event = { #Macedonian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -13136,34 +11195,7 @@ province_event = { #Epirotan settlements and assimilation
 		epirotan_culture_region = yes
 		NOT = { culture = epirotan }
 		has_global_flag = aegean_split
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}								
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -13206,31 +11238,28 @@ province_event = { #Epirotan settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -13324,34 +11353,7 @@ province_event = { #Dodecanesian settlements and assimilation
 		dodecanesian_culture_region = yes
 		NOT = { culture = dodecanesian }
 		has_global_flag = aegean_split
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}								
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -13394,31 +11396,28 @@ province_event = { #Dodecanesian settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -13512,34 +11511,7 @@ province_event = { #Mikrasiatic settlements and assimilation
 		mikrasiatic_culture_region = yes
 		NOT = { culture = mikrasiatic }
 		has_global_flag = aegean_split
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}								
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -13582,31 +11554,28 @@ province_event = { #Mikrasiatic settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -13700,34 +11669,7 @@ province_event = { #Hellas Culture settlements and assimilation
 		hellas_culture_region = yes
 		NOT = { culture = hellas_culture }
 		has_global_flag = aegean_split
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = byzantine }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			}								
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
@@ -13770,31 +11712,28 @@ province_event = { #Hellas Culture settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8

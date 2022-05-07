@@ -1033,34 +1033,7 @@ province_event = { #Dutch settlements and assimilation (Works for Low Franconian
 		NOT = { culture = dutch_modern }
 		NOT = { culture = dutch } #Actually Low-Franconian
 		NOT = { culture = plattduutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -1239,34 +1212,7 @@ province_event = { #Northern Low Saxon settlements and assimilation
 		northern_low_saxon_culture_region = yes		
 		NOT = { culture = lower_saxon } #Actually Northern Low Saxon
 		NOT = { culture = plattduutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -1437,34 +1383,7 @@ province_event = { #Pommeranian settlements and assimilation
 		pommeranian_culture_region = yes		
 		NOT = { culture = pommeranian }
 		NOT = { culture = plattduutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -1635,34 +1554,7 @@ province_event = { #Prussian settlements and assimilation
 		preussisch_culture_region = yes		
 		NOT = { culture = prussian }
 		NOT = { culture = plattduutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -1822,34 +1714,7 @@ province_event = { #Westphalian settlements and assimilation
 		westphalian_culture_region = yes		
 		NOT = { culture = hannoverian } #Actually Westphalian
 		NOT = { culture = plattduutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -2020,34 +1885,7 @@ province_event = { #Eastphalian settlements and assimilation
 		eastphalian_culture_region = yes		
 		NOT = { culture = eastphalian }
 		NOT = { culture = plattduutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -2218,34 +2056,7 @@ province_event = { #Markish settlements and assimilation
 		markish_culture_region = yes		
 		NOT = { culture = markish }
 		NOT = { culture = plattduutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -2416,34 +2227,7 @@ province_event = { #Saxon settlements and assimilation
 		saxon_culture_region = yes		
 		NOT = { culture = saxon }
 		NOT = { culture = plattduutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -2614,34 +2398,7 @@ province_event = { #Central Franconian settlements and assimilation
 		central_franconian_culture_region = yes		
 		NOT = { culture = central_franconian }
 		NOT = { culture = plattduutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -2812,34 +2569,7 @@ province_event = { #Rhine Franconian settlements and assimilation
 		rhine_franconian_culture_region = yes		
 		NOT = { culture = hessian } #Actually Rhine-Franconian
 		NOT = { culture = plattduutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -3010,34 +2740,7 @@ province_event = { #East Franconian settlements and assimilation
 		east_franconian_culture_region = yes		
 		NOT = { culture = franconian } #Actually East-Franconian
 		NOT = { culture = hochdeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -3208,34 +2911,7 @@ province_event = { #Alemannish settlements and assimilation
 		alemannisch_culture_region = yes		
 		NOT = { culture = swabian } #Actually Alemannic
 		NOT = { culture = hochdeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -3407,34 +3083,7 @@ province_event = { #Bavarian settlements and assimilation
 		NOT = { culture = bavarian }
 		NOT = { culture = austrian }
 		NOT = { culture = hochdeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -3605,34 +3254,7 @@ province_event = { #Schlesisch settlements and assimilation
 		schlesisch_culture_region = yes		
 		NOT = { culture = silesian_german }
 		NOT = { culture = plattduutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -3792,34 +3414,7 @@ province_event = { #Sudeten settlements and assimilation
 		sudeten_culture_region = yes		
 		NOT = { culture = sudeten }
 		NOT = { culture = hochdeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -3978,34 +3573,7 @@ province_event = { #Posisch settlements and assimilation
 		owner = { culture_group = germanic }
 		posisch_culture_region = yes		
 		NOT = { culture = posisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -4164,34 +3732,7 @@ province_event = { #Baltendeutsch settlements and assimilation
 		owner = { culture_group = germanic }
 		baltendeutsch_culture_region = yes		
 		NOT = { culture = baltendeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -4350,34 +3891,7 @@ province_event = { #Donauschwaben settlements and assimilation
 		owner = { culture_group = germanic }
 		donauschwaben_culture_region = yes		
 		NOT = { culture = donauschwaben }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -4536,34 +4050,7 @@ province_event = { #Dinaridendeutsch settlements and assimilation
 		owner = { culture_group = germanic }
 		dinaridendeutsch_culture_region = yes		
 		NOT = { culture = dinaridendeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -4722,34 +4209,7 @@ province_event = { #Epiroten settlements and assimilation
 		owner = { culture_group = germanic }
 		epiroten_culture_region = yes		
 		NOT = { culture = epiroten }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -4908,34 +4368,7 @@ province_event = { #Nowgoroder settlements and assimilation
 		owner = { culture_group = germanic }
 		nowgoroder_culture_region = yes		
 		NOT = { culture = nowgoroder }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -5094,34 +4527,7 @@ province_event = { #Weissdeutsch settlements and assimilation
 		owner = { culture_group = germanic }
 		weissdeutsch_culture_region = yes		
 		NOT = { culture = weissdeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -5280,34 +4686,7 @@ province_event = { #Ruthenisch settlements and assimilation
 		owner = { culture_group = germanic }
 		ruthenisch_culture_region = yes		
 		NOT = { culture = ruthenisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -5466,34 +4845,7 @@ province_event = { #Siebenbürger settlements and assimilation
 		owner = { culture_group = germanic }
 		siebenburger_culture_region = yes		
 		NOT = { culture = transylvanian_saxons }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -5652,34 +5004,7 @@ province_event = { #Deutschthracian settlements and assimilation
 		owner = { culture_group = germanic }
 		deutschthracian_culture_region = yes		
 		NOT = { culture = deutschthracian }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -5838,34 +5163,7 @@ province_event = { #Schwarzmeererdeutsch settlements and assimilation
 		owner = { culture_group = germanic }
 		schwarzmeererdeutsch_culture_region = yes		
 		NOT = { culture = schwarzmeererdeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -6024,34 +5322,7 @@ province_event = { #Krimdeutsch settlements and assimilation
 		owner = { culture_group = germanic }
 		krimdeutsch_culture_region = yes		
 		NOT = { culture = krimdeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -6210,34 +5481,7 @@ province_event = { #Bosporusdeutsch settlements and assimilation
 		owner = { culture_group = germanic }
 		bosporusdeutsch_culture_region = yes		
 		NOT = { culture = bosporusdeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -6396,34 +5640,7 @@ province_event = { #Moskauer-Rjasaner settlements and assimilation
 		owner = { culture_group = germanic }
 		moskauer_rjasaner_culture_region = yes		
 		NOT = { culture = moskauer_rjasaner }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -6582,34 +5799,7 @@ province_event = { #Wolgadeutsch settlements and assimilation
 		owner = { culture_group = germanic }
 		wolgadeutsch_culture_region = yes		
 		NOT = { culture = wolgadeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -6768,34 +5958,7 @@ province_event = { #Kubandeutsch settlements and assimilation
 		owner = { culture_group = germanic }
 		kubandeutsch_culture_region = yes		
 		NOT = { culture = kubandeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -6954,34 +6117,7 @@ province_event = { #Kaukasusdeutsch settlements and assimilation
 		owner = { culture_group = germanic }
 		kaukasusdeutsch_culture_region = yes		
 		NOT = { culture = kaukasusdeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -7140,34 +6276,7 @@ province_event = { #Weissmeerer settlements and assimilation
 		owner = { culture_group = germanic }
 		weissmeerer_culture_region = yes		
 		NOT = { culture = weissmeererdeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -7326,34 +6435,7 @@ province_event = { #Perm-Kasaner settlements and assimilation
 		owner = { culture_group = germanic }
 		perm_kasaner_culture_region = yes		
 		NOT = { culture = perm_kasaner }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -7512,34 +6594,7 @@ province_event = { #Juten settlements and assimilation
 		owner = { culture_group = germanic }
 		juten_culture_region = yes		
 		NOT = { culture = juten }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -7698,34 +6753,7 @@ province_event = { #Schwedisch settlements and assimilation
 		owner = { culture_group = germanic }
 		schwedisch_culture_region = yes		
 		NOT = { culture = schwedisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -7884,33 +6912,7 @@ province_event = { #Norwegisch settlements and assimilation
 		owner = { culture_group = germanic }
 		norwegisch_culture_region = yes		
 		NOT = { culture = norwegisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -8081,33 +7083,7 @@ province_event = { #Norwegisch settlements and assimilation
 		owner = { culture_group = germanic }
 		NOT = { culture = norwegisch }
 		NOT = { culture = anglisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -8279,33 +7255,7 @@ province_event = { #Finnisch settlements and assimilation
 		owner = { culture_group = germanic }
 		finnisch_culture_region = yes		
 		NOT = { culture = finnisch }	
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -8465,33 +7415,7 @@ province_event = { #Ænglisch settlements and assimilation
 		owner = { culture_group = germanic }
 		anglisch_culture_region = yes		
 		NOT = { culture = anglisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -8651,33 +7575,7 @@ province_event = { #Lottrínger settlements and assimilation
 		owner = { culture_group = germanic }
 		lottringer_culture_region = yes		
 		NOT = { culture = lottringer }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -8837,33 +7735,7 @@ province_event = { #Old Frankisch settlements and assimilation
 		owner = { culture_group = germanic }
 		frankisch_culture_region = yes		
 		NOT = { culture = frankisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -9023,33 +7895,7 @@ province_event = { #Langobardisch settlements and assimilation
 		owner = { culture_group = germanic }
 		langobardisch_culture_region = yes		
 		NOT = { culture = langobardisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -9209,33 +8055,7 @@ province_event = { #Riviera-Savoyerdeutsch settlements and assimilation
 		owner = { culture_group = germanic }
 		rivieradeutsch_culture_region = yes		
 		NOT = { culture = rivieradeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -9395,33 +8215,7 @@ province_event = { #Suebisch settlements and assimilation
 		owner = { culture_group = germanic }
 		suebisch_culture_region = yes		
 		NOT = { culture = suebisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -9581,33 +8375,7 @@ province_event = { #Westgotisch settlements and assimilation
 		owner = { culture_group = germanic }
 		westgotisch_culture_region = yes		
 		NOT = { culture = westgotisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -9767,33 +8535,7 @@ province_event = { #Italienisch settlements and assimilation
 		owner = { culture_group = germanic }
 		italienisch_culture_region = yes		
 		NOT = { culture = italienisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -9953,33 +8695,7 @@ province_event = { #Vandalisch settlements and assimilation
 		owner = { culture_group = germanic }
 		vandalisch_culture_region = yes		
 		NOT = { culture = vandalisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -10139,33 +8855,7 @@ province_event = { #Marokkanisch settlements and assimilation
 		owner = { culture_group = germanic }
 		marokkanisch_culture_region = yes		
 		NOT = { culture = marokkanisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -10325,33 +9015,7 @@ province_event = { #Syrisch settlements and assimilation
 		owner = { culture_group = germanic }
 		syrisch_culture_region = yes		
 		NOT = { culture = syrisch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -10511,33 +9175,7 @@ province_event = { #Niler settlements and assimilation
 		owner = { culture_group = germanic }
 		niler_culture_region = yes		
 		NOT = { culture = niler }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -10580,31 +9218,28 @@ province_event = { #Niler settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -10697,33 +9332,7 @@ province_event = { #Saharadeutsch settlements and assimilation
 		owner = { culture_group = germanic }
 		saharadeutsch_culture_region = yes		
 		NOT = { culture = saharadeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -10766,31 +9375,28 @@ province_event = { #Saharadeutsch settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -10840,6 +9446,8 @@ province_event = { #Saharadeutsch settlements and assimilation
 			has_colonist = no
 		}
 		modifier = {
+			factor = 0.8
+			has_idea_to_settle_ifier = {
 			factor = 0.8
 			has_idea_to_settle_faster = yes
 		}
@@ -10883,33 +9491,7 @@ province_event = { #Rotesmeerdeutsch settlements and assimilation
 		owner = { culture_group = germanic }
 		rotesmeerdeutsch_culture_region = yes		
 		NOT = { culture = rotesmeerdeutsch }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -10952,31 +9534,28 @@ province_event = { #Rotesmeerdeutsch settlements and assimilation
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -11026,6 +9605,8 @@ province_event = { #Rotesmeerdeutsch settlements and assimilation
 			has_colonist = no
 		}
 		modifier = {
+			factor = 0.8
+			has_idea_to_settle_ifier = {
 			factor = 0.8
 			has_idea_to_settle_faster = yes
 		}
@@ -11069,33 +9650,7 @@ province_event = { #Karpatendeutsch settlements and assimilation #Added with BT 
 		owner = { culture_group = germanic }
 		karpatendeutsch_culture_region = yes		
 		NOT = { culture = carpathian_german }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = germanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = germanic }
-					any_friendly_coast_border_province = { culture_group = germanic }
-				}
-			}							
+		ci_settlement_check = yes}							
 		}
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -11138,31 +9693,28 @@ province_event = { #Karpatendeutsch settlements and assimilation #Added with BT 
 		}
 		modifier = {
 			factor = 2
-			has_terrain = mountain
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
 		}
 		modifier = {
 			factor = 1.5
-			has_terrain = highlands
-		}
-		modifier = {
-			factor = 1.5
-			has_terrain = hills
-		}
-		modifier = {
-			factor = 1.2
-			has_terrain = woods
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
 		}
 		modifier = {
 			factor = 1.2
-			has_terrain = drylands
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
 		}
 		modifier = {
 			factor = 1.4
 			has_terrain = forest
-		}
-		modifier = {
-			factor = 2
-			has_terrain = desert
 		}
 		modifier = {
 			factor = 1.8
@@ -11212,6 +9764,8 @@ province_event = { #Karpatendeutsch settlements and assimilation #Added with BT 
 			has_colonist = no
 		}
 		modifier = {
+			factor = 0.8
+			has_idea_to_settle_ifier = {
 			factor = 0.8
 			has_idea_to_settle_faster = yes
 		}

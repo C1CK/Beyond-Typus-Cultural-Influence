@@ -58,31 +58,7 @@ province_event = { #Irish reclamation (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_neighbor_province = { culture_group = gaelic }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = gaelic }					
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_neighbor_province = { culture_group = gaelic }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = gaelic }	
-				}	
-			}				
-		}
+		ci_settlement_check = yes
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
 			#owner = { ai = no }
@@ -268,31 +244,7 @@ province_event = { #Highlander reclamation (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_neighbor_province = { culture_group = gaelic }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = gaelic }	
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_neighbor_province = { culture_group = gaelic }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = gaelic }	
-				}	
-			}				
-		}
+		ci_settlement_check = yes
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
 			#owner = { ai = no }
@@ -478,31 +430,7 @@ province_event = { #Manx reclamation (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_neighbor_province = { culture_group = gaelic }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = gaelic }	
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_neighbor_province = { culture_group = gaelic }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = gaelic }	
-				}	
-			}				
-		}
+		ci_settlement_check = yes
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
 			#owner = { ai = no }
@@ -687,31 +615,7 @@ province_event = { #Cornish Expansion (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_neighbor_province = { culture_group = brythonic }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = brythonic }	
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_neighbor_province = { culture_group = brythonic }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = brythonic }
-				}	
-			}				
-		}
+		ci_settlement_check = yes
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
 			#owner = { ai = no }
@@ -897,31 +801,7 @@ province_event = { #Welsh Expansion (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_neighbor_province = { culture_group = brythonic }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = brythonic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_neighbor_province = { culture_group = brythonic }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = brythonic }
-				}	
-			}				
-		}
+		ci_settlement_check = yes
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
 			#owner = { ai = no }
@@ -1100,27 +980,7 @@ province_event = { #Cwmbraic settlements and assimilation (Only Celts) (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
-				}	
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
-				}			
-			}				
-		}
+		ci_settlement_check = yes
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
 			#owner = { ai = no }
@@ -1287,27 +1147,7 @@ province_event = { #Corieltauvi settlements and assimilation (Only Celts) (Settl
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
-				}	
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
-				}	
-			}				
-		}
+		ci_settlement_check = yes
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
 			#owner = { ai = no }
@@ -1474,27 +1314,7 @@ province_event = { #Cantiaci settlements and assimilation (Only Celts) (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
-				}	
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
-				}	
-			}				
-		}
+		ci_settlement_check = yes
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
 			#owner = { ai = no }
@@ -1668,31 +1488,7 @@ province_event = { #Breton Expansion (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_neighbor_province = { culture_group = brythonic }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = brythonic }
-				}
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_neighbor_province = { culture_group = brythonic }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = brythonic }
-				}
-			}				
-		}
+		ci_settlement_check = yes
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
 			#owner = { ai = no }
@@ -2402,21 +2198,7 @@ province_event = { #Belgae settlements and assimilation (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				any_neighbor_province = { culture_group = unified_celtic_group }
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = unified_celtic_group }
-			}				
-		}
+		ci_settlement_check = yes
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
 			#owner = { ai = no }
@@ -2583,27 +2365,7 @@ province_event = { #Pictone settlements and assimilation (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
-				}	
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
-				}	
-			}				
-		}
+		ci_settlement_check = yes
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
 			#owner = { ai = no }
@@ -2770,27 +2532,7 @@ province_event = { #Arverni settlements and assimilation (Settle)
 			}	
 			owner = { ai = yes }
 		}
-		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				owner = { ai = yes }
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
-				}	
-			}
-			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
-			AND = { #Passive Settlement Setting
-				has_global_flag = ci_passive_settlement_enabled
-				OR = {
-					any_neighbor_province = { culture_group = unified_celtic_group }
-					any_friendly_coast_border_province = { culture_group = unified_celtic_group }	
-				}	
-			}				
-		}
+		ci_settlement_check = yes
 		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
 			#owner = { ai = no }
@@ -3064,7 +2806,7 @@ country_event = { #Galianeg Formed
 	}
 }
 
-country_event = { #Gaulish Capital (Along the lines of the Ayyubid capital choice event) (This event is probably kinda-op, but an AI iks never going to achieve this anyways)
+country_event = { #Gaulish Capital (Along the lines of the Ayyubid capital choice event) (This event is probably kinda-op, but an AI is never going to achieve this anyways)
 	id = cultural_influence_celtic.20
 	title = gaulish_capital_proposal.title
 	desc = gaulish_capital_proposal.desc

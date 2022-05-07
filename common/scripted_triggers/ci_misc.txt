@@ -100,30 +100,197 @@ is_in_settler_colonial_region = {
 		colonial_region = colonial_florida #BTAPE
 	}
 }
-ci_ai_accepted_cultures_clear = {
-	OR = { #Permit AI to settle accepted cultures since they don't understand
-		AND = {
-			has_owner_accepted_culture = no
-			NOT = { culture_group = ROOT }
-		}	
-		owner = { ai = yes }
+ci_settlement_check = {
+	AND = {
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = ROOT }
+			}	
+			owner = { ai = yes }
+		}
+		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
+			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
+				owner = { ai = yes }
+				any_neighbor_province = { culture_group = ROOT }
+				any_friendly_coast_border_province = { culture_group = ROOT }
+			}
+			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = ROOT }
+				any_friendly_coast_border_province = { culture_group = ROOT }
+			}
+			has_state_edict = edict_settlement
+		}
+	}	
+}
+ci_settlement_check_cossack = {
+		OR = { #Adapted intent check, largely uses the hardcoded river routes system, but a player can use a colonist or dev pushing to target provinces
+			AND = {
+				OR = { #Mustn't be too remote, Either a CoT for cities off the river routes, or the river route
+					province_has_center_of_trade_of_level = 1
+					has_province_modifier = siberian_river_route_modifier
+					has_province_modifier = path_to_the_urals_modifier
+					has_province_modifier = babinov_road_modifier #No Cherdyn modifier as that never has a lasting impact on demographics
+				}
+				OR = { #No reason for random cities to spring up along the river if there is no CoT
+					any_neighbor_province = {
+						culture_group = east_slavic
+						is_city = yes
+					}
+					province_has_center_of_trade_of_level = 1
+				}
+			}
+			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
+			AND = { #Dharma intent check
+				has_colonist = yes
+				is_city = yes
+			}
+			AND = { #Passive Settlement Setting
+				has_global_flag = ci_passive_settlement_enabled
+				any_neighbor_province = { culture_group = east_slavic } #This may be a little too OP considering the above points, but this is the more arcadey mode anyway
+			}					
+		}
+}
+ci_settlement_check_france = {
+	AND = {
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
+			owner = { ai = yes }
+		}
+		OR = {
+			any_neighbor_province = { culture = OWNER }
+			any_friendly_coast_border_province = { culture = OWNER } #This is to fix the channel islands not flipping basically
+		}
+		owner = {
+			num_of_owned_provinces_with = {
+				value = 45 #At least ~2/3 of France's 71 provinces
+				is_state = yes
+				french_homeland = yes
+			}
+		}
+		french_homeland = yes
+		printing_press = 100 #Check if province has institution not country
+	}	
+}
+ci_french_crusader_settlement_check = {
+	AND = {
+		OR = {
+			OWNER = { full_idea_group = religious_ideas }
+			OWNER = { is_papal_controller = yes }
+			current_age = age_of_discovery
+			current_age = age_of_reformation
+			TAG = KOJ
+		}
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
+			owner = { ai = yes }
+		}
+		OR = {
+			NOT = { religion = catholic }
+			NOT = { culture_group = french }
+		}
 	}
 }
-ci_settlement_check = {
-	OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
-		AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-			owner = { ai = yes }
-			any_neighbor_province = { culture_group = ROOT }
+ci_assimilation_check = {
+	AND = {
+		NOT = { nationalism = 1 }
+		religion_group = OWNER
+		OR = {
+			development = 10 #To prevent Sahara converting
+			AND = {
+				culture_group = OWNER
+				is_city = yes
+			}
 		}
-		num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-		AND = { #Dharma intent check
-			has_colonist = yes
-			is_city = yes
-		}
-		AND = { #Passive Settlement Setting
-			has_global_flag = ci_passive_settlement_enabled
-			any_neighbor_province = { culture_group = ROOT }
-		}
-		has_state_edict = edict_settlement
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = OWNER }
+			any_friendly_coast_border_province = { culture_group = OWNER }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}	
 	}
+}
+ci_assimilation_check_berber = {
+	AND = {
+		NOT = { nationalism = 1 }
+		religion_group = OWNER
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = OWNER }
+			any_friendly_coast_border_province = { culture_group = OWNER }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}	
+	}
+}
+ci_assimilation_check_british = {
+	AND = {
+		OR = {
+			development = 10
+			any_neighbor_province = { culture_group = british }
+			AND = {
+				is_island = yes
+				any_friendly_coast_border_province = { culture_group = british }
+			}
+		}
+	}
+}	
+ci_french_latin_cultures = {
+	OR = {
+		any_neighbor_province = { culture = castillane }
+		any_friendly_coast_border_province = { culture = castillane }
+		any_neighbor_province = { culture = galicien }
+		any_friendly_coast_border_province = { culture = galicien }
+		any_neighbor_province = { culture = valencien }
+		any_friendly_coast_border_province = { culture = valencien }
+		any_neighbor_province = { culture = apennine_central }
+		any_friendly_coast_border_province = { culture = apennine_central }
+		any_neighbor_province = { culture = sud_apennine }
+		any_friendly_coast_border_province = { culture = sud_apennine }
+		any_neighbor_province = { culture = nouveau_provencal }
+		any_friendly_coast_border_province = { culture = nouveau_provencal }
+		any_neighbor_province = { culture = corse }
+		any_friendly_coast_border_province = { culture = corse }
+		any_neighbor_province = { culture = sarde }
+		any_friendly_coast_border_province = { culture = sarde }
+	}
+}
+ci_assimilation_check_french_latin_cultures = {
+	AND = {
+		NOT = { nationalism = 1 }
+		religion_group = OWNER
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
+			owner = { ai = yes }
+		}
+		printing_press = 100 #Check if province has institution not country
+		OR = { #Influence check
+			any_neighbor_province = { culture = OWNER }
+			any_friendly_coast_border_province = { culture = OWNER }
+			ci_french_latin_cultures = yes
+			has_building = university
+			province_trade_power = 15
+			development = 30
+		}
+	}	
 }

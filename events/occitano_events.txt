@@ -272,22 +272,7 @@ province_event = { #Aragonese expansion (Home Region) (Copy of Iberian spread me
 		#NOT = { culture = catalan } #Catalan exempted until I can think of a better way to represent their historic resiliance (Catalan permitted for Aragonese, since they are closer and less likely to resist as hard)
 		NOT = { culture = aragonese }
 		has_global_flag = ci_restoration_of_aragonese_flag
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = occitanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture = aragonese
-			}
-			any_friendly_coast_border_province = {
-				culture = aragonese
-			}
-			is_island = yes
-		}
+		ci_settlement_check = yes
 		iberian_homeland = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -407,22 +392,7 @@ province_event = { #Catalan expansion (Home Region) (Copy of Iberian spread mech
 		owner = { primary_culture = catalan }
 		NOT = { nationalism = 1 }
 		NOT = { culture = catalan }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = occitanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture = catalan
-			}
-			any_friendly_coast_border_province = {
-				culture = catalan
-			}
-			is_island = yes
-		}
+		ci_settlement_check = yes
 		iberian_homeland = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -542,22 +512,7 @@ province_event = { #Andalucian (Occitan) expansion (Home Region) (Copy of Iberia
 		owner = { primary_culture = occitan_andalucian }
 		NOT = { nationalism = 1 }
 		NOT = { culture = occitan_andalucian }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = occitanic }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture = occitan_andalucian
-			}
-			any_friendly_coast_border_province = {
-				culture = occitan_andalucian
-			}
-			is_island = yes
-		}
+		ci_settlement_check = yes
 		iberian_homeland = yes
 		has_global_flag = CI_events_enabled
 	}
