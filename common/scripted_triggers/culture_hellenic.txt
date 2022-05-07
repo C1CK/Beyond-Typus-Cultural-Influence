@@ -94,7 +94,7 @@ hellenic_new_worlder = {
 
 hellenic_aegean_culture = {
 	OR  = {
-		culture = thracian
+		culture = hellenic_thracian
 		culture = macedonian
 		culture = epirotan
 		culture = dodecanesian
@@ -152,6 +152,7 @@ rhomaio_culture_region = {
 		province_id = 1766	
 		province_id = 7700	
 		province_id = 2447	
+		province_id = 2303
 		area = crimea_area	
 		area = imereti_area	
 		area = cyprus_area	
@@ -187,7 +188,7 @@ moesian_culture_region = { #Rhomaioi Split cultures
 		AND = { 
 			area = upper_thrace_area #Mysia
 			NOT = { province_id = 3168 }
-			NOT = { province_id = 7161 }
+			NOT = { province_id = 7151 }
 		}
 		province_id = 7156
 		province_id = 3182
@@ -198,8 +199,8 @@ moesian_culture_region = { #Rhomaioi Split cultures
 agaio_culture_region = { #Rhomaioi Split cultures
 	OR = {	
 		area = thrace_area							#Thracian
-		province_id = 7161
 		province_id = 3168
+		province_id = 7151
 		AND  ={
 			area = northern_thrace_area #Asia
 			NOT = { province_id = 7156 }
@@ -239,7 +240,7 @@ agaio_culture_region = { #Rhomaioi Split cultures
 thracian_culture_region = { #Aegean Split Cultures
 	OR = {
 		area = thrace_area
-		province_id = 7161
+		province_id = 7151
 		province_id = 3168
 		AND  = {
 			area = northern_thrace_area #Asia
@@ -300,6 +301,7 @@ mikrasiatic_culture_region = { #Aegean Split Cultures
 anatolikos_culture_region = { #Rhomaioi Split cultures
 	OR = {
 		province_id = 2447							#Pontic
+		province_id = 2303
 		area = crimea_area	
 		area = imereti_area	
 		AND = {
@@ -349,6 +351,7 @@ cappadocian_culture_region = { #Anatolian Split Cultures
 		province_id = 5165
 		province_id = 5167
 		province_id = 5137
+		province_id = 2303
 		area = dulkadir_area #Cappadocia
 		area = karaman_area	#Lycaonia
 		AND = {
@@ -443,7 +446,8 @@ italiote_culture_region = {	#Greek Settlement in Northen Italy
 }		
 nkreko_armenio_culture_region = {	
 	OR = {	
-		area = mardin_area	
+		area = sophene_area
+		area = ararat_area
 		area = erzurum_area	
 		area = north_kurdistan_area	
 		area = samtskhe_area	
@@ -451,6 +455,8 @@ nkreko_armenio_culture_region = {
 		area = shirvan_area	
 		province_id = 416
 		province_id = 4304
+		province_id = 5331
+		province_id = 6114
 	}	
 }	
 alexandrian_culture_region = {	
@@ -479,7 +485,9 @@ varangian_culture_region = {
 	}	
 }	
 avissinos_culture_region = {	
-	region = horn_of_africa_region	
+	OR = {
+		region = horn_of_africa_region	
+	}	
 }	
 antiocheia_culture_region = {	
 	OR = {	
@@ -487,10 +495,22 @@ antiocheia_culture_region = {
 			NOT = { area = cyprus_area }	
 			region = mashriq_region	
 		}		
-		area = rakka_area	
-		area = al_jazira_area	
 	}	
 }	
+hellenic_mesopotamian_culture_region = {
+	OR = {
+		AND = {
+			region = mesopotamia_region
+			NOT = { area = sophene_area }
+			NOT = { area = north_kurdistan_area }
+			NOT = { area = erzurum_area }
+			NOT = { area = ararat_area }
+			NOT = { province_id = 2303 }
+			NOT = { province_id = 5331 }
+			NOT = { province_id = 6114 }
+		}
+	}
+}
 persic_culture_region = {	
 	OR = {	
 		AND = {

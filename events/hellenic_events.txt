@@ -11,14 +11,17 @@ province_event = { #Aegean Greek settlements and assimilation
 	trigger = {
 		owner = { culture_group = byzantine }
 		agaio_culture_region = yes
-		hellenic_aegean_culture = no
 		NOT = { culture = tourkiki }
 		NOT = { has_global_flag = rhomaio_formed }
+		NOT = { has_global_flag = aegean_split }
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -175,7 +178,10 @@ province_event = { #Illyrion settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -332,7 +338,10 @@ province_event = { #Griko settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -485,12 +494,15 @@ province_event = { #Pontic settlements and assimilation
 		owner = { culture_group = byzantine }
 		pontic_greek_culture_region = yes
 		NOT = { has_global_flag = rhomaio_formed }
-		hellenic_anatolian_culture = no
+		NOT = { culture = pontic_greek }
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -643,12 +655,15 @@ province_event = { #Cappadocian settlements and assimilation
 		owner = { culture_group = byzantine }
 		cappadocian_culture_region = yes
 		NOT = { has_global_flag = rhomaio_formed }
-		hellenic_anatolian_culture = no
+		NOT = { culture = cappadocian }
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -802,21 +817,7 @@ province_event = { #Armenian Assimilation
 		owner = { culture_group = byzantine }
 		nkreko_armenio_culture_region = yes
 		NOT = { culture = nkreko_armenio }
-		NOT = { nationalism = 1 }
-		OR = {
-			and = {
-				culture_group = byzantine
-				is_city = yes
-			}
-		}
-		OR = { #Influence check
-			any_neighbor_province = { culture_group = byzantine }
-			has_building = university
-			province_trade_power = 15
-			development = 30
-			is_island = yes
-			is_capital = yes
-		}
+		ci_assimilation_check = yes
 		has_global_flag = CI_events_enabled
 	}
 
@@ -935,7 +936,10 @@ province_event = { #Alexandrian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -1092,7 +1096,10 @@ province_event = { #Arabian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -1249,7 +1256,10 @@ province_event = { #Hibernian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -1407,7 +1417,10 @@ province_event = { #Albian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -1564,7 +1577,10 @@ province_event = { #Varangian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -1721,7 +1737,10 @@ province_event = { #Avissinos settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}	
@@ -1878,7 +1897,10 @@ province_event = { #Antiochiou settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -2035,7 +2057,10 @@ province_event = { #Persic settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -2325,7 +2350,10 @@ province_event = { #Rhomaio settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -2482,7 +2510,10 @@ province_event = { #Libyan settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -2639,7 +2670,10 @@ province_event = { #Carthaginian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -2796,7 +2830,10 @@ province_event = { #Moroccan settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -2953,7 +2990,10 @@ province_event = { #Skythian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -3110,7 +3150,10 @@ province_event = { #Bactrian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -3267,7 +3310,10 @@ province_event = { #Western Indian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -3424,7 +3470,10 @@ province_event = { #Massalian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -3581,7 +3630,10 @@ province_event = { #Northern Italian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -3738,7 +3790,10 @@ province_event = { #Septimanian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -3895,7 +3950,10 @@ province_event = { #Hesperic settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -4052,7 +4110,10 @@ province_event = { #Galatian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -4209,7 +4270,10 @@ province_event = { #Velgoi settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -4366,7 +4430,10 @@ province_event = { #Pannonion settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -4523,7 +4590,10 @@ province_event = { #Dacion settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}			
 	}	
 
@@ -4679,7 +4749,10 @@ province_event = { #Southwestern Germania settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -4836,7 +4909,10 @@ province_event = { #Northwestern Germania settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -4993,7 +5069,10 @@ province_event = { #Southeastern Germania settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -5150,7 +5229,10 @@ province_event = { #Northeastern Germania settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -5307,7 +5389,10 @@ province_event = { #Kefales settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -5464,7 +5549,10 @@ province_event = { #Savramata settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -5621,7 +5709,10 @@ province_event = { #Krios Savramata settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -5778,7 +5869,10 @@ province_event = { #Vuonos Savramata settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -5935,7 +6029,10 @@ province_event = { #Makria Savramata settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -6092,7 +6189,10 @@ province_event = { #South African settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -6249,7 +6349,10 @@ province_event = { #Tavrika settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -6406,7 +6509,10 @@ province_event = { #Sogdanika settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -6563,7 +6669,10 @@ province_event = { #Helika settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -6720,7 +6829,10 @@ province_event = { #Kavlika settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -6877,7 +6989,10 @@ province_event = { #Thivetiani settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -7034,7 +7149,10 @@ province_event = { #Seresike settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -7191,7 +7309,10 @@ province_event = { #Sineaka settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -7348,7 +7469,10 @@ province_event = { #Anatoliarianka settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}	
@@ -7505,7 +7629,10 @@ province_event = { #Indiki settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -7662,7 +7789,10 @@ province_event = { #Koniaka settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -7819,7 +7949,10 @@ province_event = { #Taprovanika settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -7976,7 +8109,10 @@ province_event = { #Palivothrika settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -8133,7 +8269,10 @@ province_event = { #Megali Sineaka settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -8290,7 +8429,10 @@ province_event = { #Anatoliarianka settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -8447,7 +8589,10 @@ province_event = { #Polinesika settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -8604,7 +8749,10 @@ province_event = { #Erimos Aethiopas settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -8761,7 +8909,10 @@ province_event = { #Nkini settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -8918,7 +9069,10 @@ province_event = { #Akti Aethiopas settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -9075,7 +9229,10 @@ province_event = { #Esoteikos Aethiopas settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -9232,7 +9389,10 @@ province_event = { #Souachiliaktikos settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -9389,7 +9549,10 @@ province_event = { #Olissoponion settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -9402,7 +9565,7 @@ province_event = { #Olissoponion settlements and assimilation
 		modifier = {
 			factor = 0.0
 			has_global_flag = 00_CI_MTTH_flag
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9500,12 +9663,6 @@ province_event = { #Olissoponion settlements and assimilation
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_= { #Passive settlement (I.E without a colonist)
-			factor = 3
-			has_colonist = no
-		}
-		modifier = {
-			factor = 0.8
 			has_idea_to_settle_faster = yes
 		}
 		modifier = {
@@ -9549,31 +9706,18 @@ province_event = { #Turkish assimilation
 		has_global_flag = hellenic_turkish_assimilation_flag
 		owner = { culture_group = byzantine }
 		NOT = { culture = tourkiki }
-		NOT = { nationalism = 1 }
-		OR = {
-			development = 10 #To prevent Sahara converting
-			and = {
-				culture_group = byzantine
-				is_city = yes
-			}
-		}
-		OR = { #Influence check
-			OR = {
-					any_neighbor_province = { culture_group = byzantine }
-					any_friendly_coast_border_province = { culture_group = byzantine }
-				}
-			has_building = university
-			province_trade_power = 15
-			development = 30
-			is_island = yes
-			is_capital = yes
-		}
+		ci_assimilation_check = yes
 		has_global_flag = CI_events_enabled
 	}	
 
 	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
 		modifier = {
 			factor = 0.5
 			has_global_flag = 05_CI_MTTH_flag
@@ -9589,11 +9733,6 @@ province_event = { #Turkish assimilation
 		modifier = {
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
-		}
-
-		modifier = {
-			factor = 0.5
-			culture_group = byzantine
 		}
 
 		#Dev. factors
@@ -9682,7 +9821,10 @@ province_event = { #Moesian Greek settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -9834,14 +9976,17 @@ province_event = { #Phrygian Greek settlements and assimilation
 	trigger = {
 		owner = { culture_group = byzantine }
 		phrygian_culture_region = yes
-		hellenic_anatolian_culture = no
+		NOT = { culture = phrygian }
 		NOT = { has_global_flag = anatolian_merge }
 		NOT = { has_global_flag = rhomaio_formed }
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -9993,14 +10138,17 @@ province_event = { #Pamphylian Greek settlements and assimilation
 	trigger = {
 		owner = { culture_group = byzantine }
 		pamphylian_culture_region = yes
-		hellenic_anatolian_culture = no
+		NOT = { culture = phrygian }
 		NOT = { has_global_flag = anatolian_merge }
 		NOT = { has_global_flag = rhomaio_formed }
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -10159,7 +10307,10 @@ province_event = { #Cypriot settlements and assimilation, well now it's not rare
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -10883,7 +11034,10 @@ province_event = { #Thracian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -11041,7 +11195,10 @@ province_event = { #Macedonian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -11199,7 +11356,10 @@ province_event = { #Epirotan settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -11357,7 +11517,10 @@ province_event = { #Dodecanesian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -11515,7 +11678,10 @@ province_event = { #Mikrasiatic settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -11673,7 +11839,10 @@ province_event = { #Hellas Culture settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
 			owner = { ai = no }
-			owner = { overlord = { has_country_modifier = hellenic_settlements } }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -11960,6 +12129,165 @@ province_event = { #Expansion of Hellas Culture under foreign rule, comes to rep
 }
 
 
+province_event = { #Mesopotamian settlements and assimilation
+	id = cultural_influence_greek.82
+	title = greek_reclamation_2.title
+	desc = greek_reclamation_2.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = byzantine }
+		hellenic_mesopotamian_culture_region = yes
+		NOT = { culture = hellenic_mesopotamian }
+		ci_settlement_check = yes
+		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
+			owner = { has_country_modifier = hellenic_settlements }
+			owner = { ai = no }
+			AND = {
+				owner = { overlord = { has_country_modifier = hellenic_settlements } }
+				ai = yes
+			}	
+		}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 20
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacier
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				has_terrain = mountain
+				has_terrain = desert
+			}	
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+			}	
+		}
+		modifier = {
+			factor = 1.2
+			OR = { 
+				has_terrain = woods
+				has_terrain = drylands
+			}	
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			has_idea_to_settle_faster = yes
+		}
+		modifier = {
+			factor = 1.4
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 4 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 5 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 6 }
+		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
+	}
+
+	option = {
+		name = greek_reclamation_2.a
+
+		change_culture = hellenic_mesopotamian
+	}
+}
 
 
 #Colonial Cultures

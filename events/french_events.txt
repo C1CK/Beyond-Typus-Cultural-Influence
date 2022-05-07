@@ -94,29 +94,7 @@ province_event = { #Castillane expansion
 	trigger = {
 		owner = { culture_group = french }
 		castillane_culture_region = yes		
-		NOT = { culture = castillane }
-		OR = { #Permit AI to settle accepted cultures since they don't understand
-			AND = {
-				has_owner_accepted_culture = no
-				NOT = { culture_group = french }
-			}	
-			owner = { ai = yes }
-		}
-		OR = {
-			any_neighbor_province = {
-				culture = OWNER
-			}
-			any_neighbor_province = {
-				culture = galicien
-			}
-			any_neighbor_province = {
-				culture = castillane
-			}
-			any_neighbor_province = {
-				culture = valencien
-			}
-		}
-		printing_press = 100 #Check if province has institution not country
+		ci_assimilation_check_french_latin_cultures = yes
 		has_global_flag = CI_events_enabled
 	}
 
