@@ -1631,8 +1631,10 @@ country_decisions = {
 			NOT = { tag = HSA }
 			NOT = { tag = SAX } #Saxe-Lauenburg should form either Saxony or Hannover, not both
 			NOT = { exists = HAN }
-			primary_culture = lower_saxon
-			primary_culture = eastphalian #CI
+			OR = {
+				primary_culture = lower_saxon
+				primary_culture = eastphalian #CI
+			}
 		}
 		provinces_to_highlight = {
 			OR = {
