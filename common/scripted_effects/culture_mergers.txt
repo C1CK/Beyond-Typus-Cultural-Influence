@@ -1,6 +1,35 @@
 #Scripted Effects
 #Mergers file for Celtic, Slavic, etc
 
+#Dynamic Merger
+merge_culture_into = {
+	every_province = { #Provinces
+		limit = { culture = $old_culture$ }
+		change_culture = $new_culture$
+	}
+	every_country = { #Primary cultures
+		limit = { primary_culture = $old_culture$ }
+		change_primary_culture = $new_culture$
+	}
+	every_country = { #Accepted cultures
+		limit = { has_accepted_culture = $old_culture$ }
+		remove_accepted_culture = $old_culture$
+		add_accepted_culture = $new_culture$
+	}
+	every_country = { #Rulers
+		limit = { ruler_culture = $old_culture$ }
+		set_ruler_culture = $new_culture$
+	}
+	every_country = { #Heirs
+		limit = { heir_culture = $old_culture$ }
+		set_heir_culture = $new_culture$
+	}
+	every_country = { #Consorts
+		limit = { consort_culture = $old_culture$ }
+		set_consort_culture = $new_culture$
+	}
+}
+
 merge_celtic = { #Merges Brythonic and Goidelic into Celtic
 	every_country = {
 		limit = { primary_culture = irish }
