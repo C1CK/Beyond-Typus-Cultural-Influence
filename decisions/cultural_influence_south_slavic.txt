@@ -21,4 +21,36 @@ country_decisions = {
 			factor = 1
 		}
 	}
+
+	slovak_south_slavic_alignment = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = slovaks_aligned_south_slavs_flag }
+			culture_group = south_slavic
+			OR = {
+				any_owned_province = { culture = slovak }
+				any_owned_province = { culture = ceskoslovensky }
+			}
+		}
+
+		allow = {
+			has_accepted_culture = slovak
+			has_country_modifier = south_slavic_settlements
+			total_development = 1200 #A struggle still
+			owns_core_province = 8174 #Nitra
+		}
+
+		effect = {
+			custom_tooltip = slovak_south_slavic_alignment_effect_tt
+			set_country_flag = slovaks_aligned_south_slavs_flag
+			add_country_modifier = {
+				name = slovaks_aligned_south_slavs_modifier
+				duration = -1
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }

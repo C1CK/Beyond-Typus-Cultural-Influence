@@ -16,10 +16,11 @@ province_event = { #Czech settlements and assimilation
 	desc = {
 		desc = greater_czech_settlements.desc
 		trigger = {
-			OR = {
-				province_id = 133 #Ob der Enns
-				province_id = 1770 #Ostmark
-				province_id = 134 #Wien
+			AND = {
+				NOT = { area = erzgebirge_area } #Ore Mountains
+				NOT = { area = bohemian_forest_area }
+				NOT = { area = bohemia_area }
+				NOT = { area = moravia_area }
 			}
 		}
 	}
@@ -219,7 +220,14 @@ province_event = { #Slovak settlements and assimilation
 	goto = root
 
 	trigger = {
-		owner = { culture_group = west_slavic }
+		OR = {
+			owner = { culture_group = west_slavic }
+			AND = { #South Slavs can align Slovaks with them
+				owner = { culture_group = south_slavic }
+				owner = { has_country_flag = slovaks_aligned_south_slavs_flag }
+				NOT = { culture_group = south_slavic } #Prefer South Slavic still
+			}
+		}
 		slovakian_culture_region = yes		
 		NOT = { culture = slovak }
 		NOT = { culture = ceskoslovensky }
