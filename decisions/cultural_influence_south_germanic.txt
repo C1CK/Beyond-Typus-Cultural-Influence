@@ -34,120 +34,806 @@ country_decisions = {
 		}
 	}
 
-	standardize_sudeten_german = {
+	low_german_standardisation = {
 		major = yes
 		potential = {
+			NOT = { has_global_flag = plattduutsch_created_flag }
 			culture_group = germanic
-			has_global_flag = hochdeutsch_created_flag
-			any_owned_province = { hochdeutsch_sudeten_cultures = yes }
-			OR = {
+			OR = { #Low Saxon, or Central German
+				primary_culture = hannoverian #Westphalian
+				primary_culture = eastphalian
+				primary_culture lower_saxon
+				primary_culture = pommeranian
+				primary_culture = markish
+				primary_culture = prussian
+				primary_culture = central_franconian
+				primary_culture = hessian #Rhine Franconian
+				primary_culture = saxon
+				primary_culture = silesian_german
+				primary_culture = sudeten
 				primary_culture = hochdeutsch
-				accepted_culture = hochdeutsch
 			}
 		}
 
 		provinces_to_highlight = {
-			hochdeutsch_sudeten_region = yes
-			NOT = { owned_by = ROOT }
-			hochdeutsch_sudeten_cultures = no
+			OR = {
+				eastphalian_culture_region = yes
+				northern_low_saxon_culture_region = yes
+				pommeranian_culture_region = yes
+				markish_culture_region = yes
+				westphalian_culture_region = yes
+				preussisch_culture_region = yes
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 
 		allow = {
-			custom_trigger_tooltip = {
-				tooltip = bohemia_germanicized_trigger_tt
-				europe = {
-					OR = {
-						hochdeutsch_sudeten_region = no
-						AND = {
-							owned_by = ROOT
-							hochdeutsch_sudeten_cultures = yes
+			has_institution = printing_press
+			total_development = 1500
+			OR = { #West or East
+				#Westphalian
+				#AND = {
+					calc_true_if = {
+						westphalian_culture_region_provinces = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
 						}
+						amount = 13 #of 26
 					}
-					type = all
-				}
+					#OR = {
+					#	owns_or_non_sovereign_subject_of = 86 #Münster
+					#	owns_or_non_sovereign_subject_of = 8118 #Groningen
+					#}
+				#}
+				#Prussian
+				#AND = {
+					calc_true_if = {
+						preussisch_culture_region_provinces = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+						amount = 12 #of 25
+					}
+					#OR = {
+					#	owns_or_non_sovereign_subject_of = 43 #Danzig
+					#	owns_or_non_sovereign_subject_of = 41 #Königsberg
+					#}
+				#}
 			}
+			#Eastphalian
+			calc_true_if = {
+				eastphalian_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 5 #of 10
+			}
+			#OR = {
+			#	owns_or_non_sovereign_subject_of = 52 #Magdeburg
+			#	owns_or_non_sovereign_subject_of = 57 #Braunschweig
+			#	owns_or_non_sovereign_subject_of = 1758 #Calenberg
+			#}
+			#Northern Low Saxon
+			calc_true_if = {
+				northern_low_saxon_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 16 #of 33
+			}
+			#OR = {
+			#	owns_or_non_sovereign_subject_of = 1874 #Bremen
+			#	owns_or_non_sovereign_subject_of = 53 #Lüneburg
+			#	owns_or_non_sovereign_subject_of = 45 #Lübeck
+			#}
+			#Pommeranian
+			calc_true_if = {
+				pommeranian_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 15 #of 30
+			}
+			#OR = {
+			#	owns_or_non_sovereign_subject_of = 46 #Rostock
+			#	owns_or_non_sovereign_subject_of = 1858 #Stettin
+			#	owns_or_non_sovereign_subject_of = 2995 #Stolp
+			#}
+			#Markish
+			calc_true_if = {
+				markish_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 9 #of 18
+			}
+			#OR = {
+			#	owns_or_non_sovereign_subject_of = 4748 #Brandenburg
+			#	owns_or_non_sovereign_subject_of = 50 #Berlin
+			#}
 		}
 
 		effect = {
-			country_event = { id = cultural_influence_germanic_rework.65 }
+			custom_tooltip = low_german_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = plattduutsch_created_flag
+				merge_culture_into = {
+					old_culture = eastphalian
+					new_culture = plattduutsch
+				}
+				merge_culture_into = {
+					old_culture = lower_saxon
+					new_culture = plattduutsch
+				}
+				merge_culture_into = {
+					old_culture = markish
+					new_culture = plattduutsch
+				}
+				merge_culture_into = {
+					old_culture = pommeranian
+					new_culture = plattduutsch
+				}
+				if = {
+					limit = {
+						calc_true_if = {
+							westphalian_culture_region_provinces = {
+								type = all
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+							amount = 13 #of 26
+						}
+					}
+					set_global_flag = plattduutsch_westphalian_flag
+					merge_culture_into = {
+						old_culture = hannoverian
+						new_culture = plattduutsch
+					}
+				}
+				if = {
+					limit = {
+						calc_true_if = {
+							preussisch_culture_region_provinces = {
+								type = all
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+							amount = 12 #of 25
+						}
+					}
+					set_global_flag = plattduutsch_prussian_flag
+					merge_culture_into = {
+						old_culture = prussian
+						new_culture = plattduutsch
+					}
+				}
+			}
+			country_event = { id = cultural_influence_germanic_rework.6 }
 		}
 	}
 
-	standardize_schlesisch_german = {
+	dutch_standardisation = {
 		major = yes
 		potential = {
-			culture_group = germanic
-			has_global_flag = plattduutsch_created_flag
-			any_owned_province = { plattduutsch_schlesisch_cultures = yes }
-			OR = {
-				primary_culture = plattduutsch
-				accepted_culture = plattduutsch
-			}
+			NOT = { has_global_flag = dutch_created_flag }
+			primary_culture = dutch
 		}
 
 		provinces_to_highlight = {
-			plattduutsch_schlesisch_region = yes
+			OR = {
+				dutch_culture_region = yes
+			}
 			NOT = { owned_by = ROOT }
-			plattduutsch_schlesisch_cultures = no
 		}
 
 		allow = {
-			custom_trigger_tooltip = {
-				tooltip = silesia_germanicized_trigger_tt
-				europe = {
-					OR = {
-						plattduutsch_schlesisch_region = no
-						AND = {
-							owned_by = ROOT
-							plattduutsch_schlesisch_cultures = yes
-						}
-					}
-					type = all
-				}
-			}
+			has_institution = printing_press
+			total_development = 1000
+			tag = NED #Basically an ethnogenesis
 		}
 
 		effect = {
-			country_event = { id = cultural_influence_germanic_rework.66 }		
+			custom_tooltip = dutch_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = dutch_created_flag
+				merge_culture_into = {
+					old_culture = dutch
+					new_culture = dutch_modern
+				}
+				westphalian_culture_region_provinces = {
+					limit = {
+						owned_by = ROOT
+						OR = {
+							culture = hannoverian
+							culture = plattduutsch
+						}
+					}
+					change_culture = dutch_low_saxon
+				}
+			}
+			country_event = { id = cultural_influence_germanic_rework.9 }
 		}
 	}
 
-	standardize_preussisch_german = {
+	high_german_standardisation = {
 		major = yes
 		potential = {
+			NOT = { has_global_flag = hochdeutsch_created_flag }
 			culture_group = germanic
-			has_global_flag = plattduutsch_created_flag
-			any_owned_province = { plattduutsch_preussisch_cultures = yes }
 			OR = {
-				primary_culture = plattduutsch
-				accepted_culture = plattduutsch
+				primary_culture = swabian
+				primary_culture = bavarian
+				primary_culture = franconian
+				primary_culture = hessian #Rhine Franconian
+				primary_culture = central_franconian
+				primary_culture = saxon
+				primary_culture = sudeten
 			}
 		}
 
 		provinces_to_highlight = {
-			plattduutsch_preussisch_region = yes
-			NOT = { owned_by = ROOT }
-			plattduutsch_preussisch_cultures = no
+			OR = {
+				alemannisch_culture_region = yes
+				bavarian_culture_region = yes
+				east_franconian_culture_region = yes
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 
 		allow = {
-			custom_trigger_tooltip = {
-				tooltip = prussia_germanicized_trigger_tt
-				europe = {
-					OR = {
-						plattduutsch_preussisch_region = no
-						AND = {
-							owned_by = ROOT
-							plattduutsch_preussisch_cultures = yes
-						}
-					}
+			has_institution = printing_press
+			total_development = 1500
+			#Alemannisch
+			calc_true_if = {
+				alemannisch_culture_region_provinces = {
 					type = all
+					country_or_non_sovereign_subject_holds = ROOT
 				}
+				amount = 26 #of 53
+			}
+			#Bavarian
+			calc_true_if = {
+				bavarian_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 39 #of 78
+			}
+			#East Franconian
+			calc_true_if = {
+				east_franconian_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 8 #of 16
 			}
 		}
 
 		effect = {
-			country_event = { id = cultural_influence_germanic_rework.67 }				
+			custom_tooltip = high_german_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = hochdeutsch_created_flag
+				if = { #If capital in Austria simply merge Bavarian
+					limit = {
+						capital_scope = { hochdeutsch_austrian_exemption = yes }
+					}
+					merge_culture_into = {
+						old_culture = bavarian
+						new_culture = hochdeutsch
+					}
+				}
+				else = { #Otherwise, splinter Austrian off
+					every_country = {
+						limit = { capital_scope = { hochdeutsch_austrian_exemption = yes } }
+					}
+					country_event = { id = cultural_influence_germanic_rework.2 } #Austrian Splinter?
+				}
+				if = { #If capital in Switzerland simply merge Bavarian
+					limit = {
+						capital_scope = { hochdeutsch_swiss_exemption = yes }
+					}
+					merge_culture_into = {
+						old_culture = swabian
+						new_culture = hochdeutsch
+					}
+				}
+				else = { #Otherwise, splinter Swiss off
+					every_country = {
+						limit = { capital_scope = { hochdeutsch_swiss_exemption = yes } }
+					}
+					country_event = { id = cultural_influence_germanic_rework.3 } #Swiss Splinter?
+				}
+				merge_culture_into = {
+					old_culture = franconian
+					new_culture = hochdeutsch
+				}
+				merge_culture_into = {
+					old_culture = bavarian
+					new_culture = hochdeutsch
+				}
+				merge_culture_into = {
+					old_culture = swabian
+					new_culture = hochdeutsch
+				}
+			}
+			country_event = { id = cultural_influence_germanic_rework.1 }
+		}
+	}
+
+	rhenish_standardisation = {
+		major = yes
+		potential = {
+			NOT = { has_global_flag = dutch_created_flag }
+			OR = {
+				primary_culture = central_franconian
+				primary_culture = hessian
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				central_franconian_culture_region = yes
+				rhine_franconian_culture_region = yes
+			}
+			NOT = { owned_by = ROOT }
+		}
+
+		allow = {
+			has_institution = printing_press
+			total_development = 1000
+			tag = RHI #Basically an ethnogenesis
+		}
+
+		effect = {
+			custom_tooltip = rhenish_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = rhenish_created_flag
+				merge_culture_into = {
+					old_culture = central_franconian
+					new_culture = hessian
+				}
+			}
+			country_event = { id = cultural_influence_germanic_rework.9 }
+		}
+	}
+
+	standardise_westphalian_german = {
+		major = no
+		potential = {
+			NOT = { has_global_flag = plattduutsch_westphalian_flag }
+			has_global_flag = plattduutsch_created_flag
+			primary_culture = plattduutsch
+			any_owned_province = { culture = hannoverian }
+		}
+
+		provinces_to_highlight = {
+			westphalian_culture_region = yes
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			calc_true_if = {
+				westphalian_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 20 #of 26
+			}
+		}
+
+		effect = {
+			custom_tooltip = westphalian_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = plattduutsch_westphalian_flag
+				merge_culture_into = {
+					old_culture = hannoverian
+					new_culture = plattduutsch
+				}
+			}
+		}
+	}
+
+	standardise_prussian_german = {
+		major = no
+		potential = {
+			NOT = { has_global_flag = plattduutsch_prussian_flag }
+			has_global_flag = plattduutsch_created_flag
+			primary_culture = plattduutsch
+			any_owned_province = { culture = prussian }
+		}
+
+		provinces_to_highlight = {
+			westphalian_culture_region = yes
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			calc_true_if = {
+				preussisch_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 18 #of 25
+			}
+		}
+
+		effect = {
+			custom_tooltip = prussian_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = plattduutsch_prussian_flag
+				merge_culture_into = {
+					old_culture = prussian
+					new_culture = plattduutsch
+				}
+			}
+		}
+	}
+
+	standardise_low_franconian = {
+		major = no
+		potential = {
+			NOT = { has_global_flag = plattduutsch_low_franconian_flag }
+			NOT = { has_global_flag = dutch_created_flag }
+			has_global_flag = plattduutsch_created_flag
+			has_global_flag = plattduutsch_westphalian_flag
+			primary_culture = plattduutsch
+			any_owned_province = { culture = dutch }
+		}
+
+		provinces_to_highlight = {
+			low_franconian_culture_region = yes
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			calc_true_if = {
+				low_franconian_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 30 #of 43
+			}
+		}
+
+		effect = {
+			custom_tooltip = low_franconian_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = plattduutsch_low_franconian_flag
+				merge_culture_into = {
+					old_culture = dutch
+					new_culture = plattduutsch
+				}
+			}
+		}
+	}
+
+	standardise_central_franconian_plattduutsch = {
+		major = no
+		potential = {
+			NOT = { has_global_flag = plattduutsch_central_franconian_flag }
+			NOT = { has_global_flag = rhenish_created_flag }
+			has_global_flag = plattduutsch_created_flag
+			has_global_flag = plattduutsch_westphalian_flag
+			primary_culture = plattduutsch
+			any_owned_province = { culture = central_franconian }
+		}
+
+		provinces_to_highlight = {
+			central_franconian_culture_region = yes
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			calc_true_if = {
+				central_franconian_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 15 #of 21
+			}
+		}
+
+		effect = {
+			custom_tooltip = central_franconian_plattduutsch_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = plattduutsch_central_franconian_flag
+				merge_culture_into = {
+					old_culture = central_franconian
+					new_culture = plattduutsch
+				}
+			}
+		}
+	}
+
+	standardise_rhine_franconian_plattduutsch = {
+		major = no
+		potential = {
+			NOT = { has_global_flag = plattduutsch_rhine_franconian_flag }
+			NOT = { has_global_flag = rhenish_created_flag }
+			has_global_flag = plattduutsch_created_flag
+			has_global_flag = plattduutsch_central_franconian_flag
+			primary_culture = plattduutsch
+			any_owned_province = { culture = rhine_franconian }
+		}
+
+		provinces_to_highlight = {
+			rhine_franconian_culture_region = yes
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			calc_true_if = {
+				rhine_franconian_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 23 #of 31
+			}
+		}
+
+		effect = {
+			custom_tooltip = rhine_franconian_plattduutsch_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = plattduutsch_rhine_franconian_flag
+				merge_culture_into = {
+					old_culture = hessian
+					new_culture = plattduutsch
+				}
+			}
+		}
+	}
+
+	standardise_saxon_plattduutsch = {
+		major = no
+		potential = {
+			NOT = { has_global_flag = plattduutsch_saxon_flag }
+			has_global_flag = plattduutsch_created_flag
+			primary_culture = plattduutsch
+			any_owned_province = { culture = saxon }
+		}
+
+		provinces_to_highlight = {
+			saxon_culture_region = yes
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			calc_true_if = {
+				saxon_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 20 #of 26
+			}
+		}
+
+		effect = {
+			custom_tooltip = saxon_plattduutsch_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = plattduutsch_saxon_flag
+				merge_culture_into = {
+					old_culture = saxon
+					new_culture = plattduutsch
+				}
+			}
+		}
+	}
+
+	standardise_sudeten_plattduutsch = {
+		major = no
+		potential = {
+			NOT = { has_global_flag = plattduutsch_sudeten_flag }
+			has_global_flag = plattduutsch_created_flag
+			has_global_flag = plattduutsch_saxon_flag
+			primary_culture = plattduutsch
+			any_owned_province = { culture = sudeten }
+		}
+
+		provinces_to_highlight = {
+			sudeten_culture_region = yes
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			calc_true_if = {
+				sudeten_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 15 #of 21
+			}
+		}
+
+		effect = {
+			custom_tooltip = sudeten_plattduutsch_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = plattduutsch_sudeten_flag
+				merge_culture_into = {
+					old_culture = sudeten
+					new_culture = plattduutsch
+				}
+			}
+		}
+	}
+
+	standardise_silesian_german = {
+		major = no
+		potential = {
+			NOT = { has_global_flag = plattduutsch_silesian_flag }
+			has_global_flag = plattduutsch_created_flag
+			primary_culture = plattduutsch
+			any_owned_province = { culture = silesian_german }
+		}
+
+		provinces_to_highlight = {
+			schlesisch_culture_region = yes
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			calc_true_if = {
+				schlesisch_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 26 #of 34
+			}
+		}
+
+		effect = {
+			custom_tooltip = silesian_german_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = plattduutsch_silesian_flag
+				merge_culture_into = {
+					old_culture = silesian_german
+					new_culture = plattduutsch
+				}
+			}
+		}
+	}
+
+	standardise_rhine_franconian_hochdeutsch = {
+		major = no
+		potential = {
+			NOT = { has_global_flag = hochdeutsch_rhine_franconian_flag }
+			NOT = { has_global_flag = rhenish_created_flag }
+			has_global_flag = hochdeutsch_created_flag
+			primary_culture = hochdeutsch
+			any_owned_province = { culture = hessian }
+		}
+
+		provinces_to_highlight = {
+			rhine_franconian_culture_region = yes
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			calc_true_if = {
+				rhine_franconian_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 23 #of 31
+			}
+		}
+
+		effect = {
+			custom_tooltip = rhine_franconian_hochdeutsch_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = hochdeutsch_rhine_franconian_flag
+				merge_culture_into = {
+					old_culture = hessian
+					new_culture = hochdeutsch
+				}
+			}
+		}
+	}
+
+	standardise_central_franconian_hochdeutsch = {
+		major = no
+		potential = {
+			NOT = { has_global_flag = hochdeutsch_rhine_franconian_flag }
+			NOT = { has_global_flag = rhenish_created_flag }
+			has_global_flag = hochdeutsch_created_flag
+			has_global_flag = hochdeutsch_rhine_franconian_flag
+			primary_culture = hochdeutsch
+			any_owned_province = { culture = central_franconian }
+		}
+
+		provinces_to_highlight = {
+			central_franconian_culture_region = yes
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			calc_true_if = {
+				central_franconian_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 15 #of 21
+			}
+		}
+
+		effect = {
+			custom_tooltip = central_franconian_hochdeutsch_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = hochdeutsch_central_franconian_flag
+				merge_culture_into = {
+					old_culture = central_franconian
+					new_culture = hochdeutsch
+				}
+			}
+		}
+	}
+
+	standardise_saxon_hochdeutsch = {
+		major = no
+		potential = {
+			NOT = { has_global_flag = plattduutsch_hochdeutsch_flag }
+			has_global_flag = hochdeutsch_created_flag
+			primary_culture = hochdeutsch
+			any_owned_province = { culture = saxon }
+		}
+
+		provinces_to_highlight = {
+			saxon_culture_region = yes
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			calc_true_if = {
+				saxon_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 20 #of 26
+			}
+		}
+
+		effect = {
+			custom_tooltip = saxon_hochdeutsch_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = hochdeutsch_saxon_flag
+				merge_culture_into = {
+					old_culture = saxon
+					new_culture = hochdeutsch
+				}
+			}
+		}
+	}
+
+	standardise_sudeten_plattduutsch = {
+		major = no
+		potential = {
+			NOT = { has_global_flag = plattduutsch_sudeten_flag }
+			has_global_flag = hochdeutsch_created_flag
+			primary_culture = hochdeutsch
+			any_owned_province = { culture = sudeten }
+		}
+
+		provinces_to_highlight = {
+			sudeten_culture_region = yes
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			calc_true_if = {
+				sudeten_culture_region_provinces = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 15 #of 21
+			}
+		}
+
+		effect = {
+			custom_tooltip = sudeten_hochdeutsch_standardisation_effect_tt
+			hidden_effect = {
+				set_global_flag = hochdeutsch_sudeten_flag
+				merge_culture_into = {
+					old_culture = sudeten
+					new_culture = plattduutsch
+				}
+			}
 		}
 	}
 }
