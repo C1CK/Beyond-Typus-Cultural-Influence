@@ -1,0 +1,61 @@
+country_decisions = {
+	promote_italian_literary_language = { #Step 1 of unification of Italian
+		major = yes
+		potential = {
+			NOT = { has_global_flag = italo_dalmatian_italian_literary_language_flag }
+			NOT = { has_global_flag = gallo_italic_italian_literary_language_flag }
+			NOT = { has_global_flag = rhaetian_literary_italian_language_flag }
+			NOT = { has_global_flag = island_romance_italian_literary_language_flag }
+			OR = {
+				culture_group = latin #Italo-Dalmatian
+				culture_group = gallo_italic
+				culture_group = rhaetian
+				culture_group = island_romance
+			}
+		}
+
+		allow = {
+			has_institution = printing_press
+			total_development = 1000
+			NOT = { #Largest Italian tag
+				any_country = {
+					limit = {
+						OR = {
+							culture_group = latin #Italo-Dalmatian
+							culture_group = gallo_italic
+							culture_group = rhaetian
+							culture_group = island_romance
+						}
+					}
+					total_development = ROOT
+				}
+			}
+		}
+
+		effect = {
+			custom_tooltip = promote_italian_literary_language_effect_tt
+			add_country_modifier = {
+				name = "italian_literary_language_modifier"
+				duration = -1
+			}
+			hidden_effect = {
+				if = {
+					limit = { primary_culture = latin }
+					set_global_flag = italo_dalmatian_italian_literary_language_flag
+				}
+				else_if = {
+					limit = { primary_culture = gallo_italic }
+					set_global_flag = gallo_italic_italian_literary_language_flag
+				}
+				else_if = {
+					limit = { primary_culture = rhaetian }
+					set_global_flag = rhaetian_literary_italian_language_flag
+				}
+				else_if = {
+					limit = { primary_culture = island_romance }
+					set_global_flag = island_romance_italian_literary_language_flag
+				}
+			}
+		}
+	}
+}
