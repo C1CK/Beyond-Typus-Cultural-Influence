@@ -2,10 +2,12 @@ country_decisions = {
 	promote_italian_literary_language = { #Step 1 of unification of Italian
 		major = yes
 		potential = {
-			NOT = { has_global_flag = italo_dalmatian_italian_literary_language_flag }
-			NOT = { has_global_flag = gallo_italic_italian_literary_language_flag }
-			NOT = { has_global_flag = rhaetian_literary_italian_language_flag }
-			NOT = { has_global_flag = island_romance_italian_literary_language_flag }
+			AND = {
+				NOT = { has_global_flag = italo_dalmatian_italian_literary_language_flag }
+				NOT = { has_global_flag = gallo_italic_italian_literary_language_flag }
+				NOT = { has_global_flag = rhaetian_literary_italian_language_flag }
+				NOT = { has_global_flag = island_romance_italian_literary_language_flag }
+			}
 			OR = {
 				culture_group = latin #Italo-Dalmatian
 				culture_group = gallo_italic
