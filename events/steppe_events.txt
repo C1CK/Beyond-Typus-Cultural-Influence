@@ -204,7 +204,7 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 	}
 }
 
-###Free ID 3
+#Unused ID 3
 
 province_event = { #Rise of Steppe City
 	id = cultural_influence_steppe.4
@@ -839,8 +839,7 @@ country_event = { #Non-nomadic capital as a nomad, changes them to a monarchy
 
 	trigger = {
 		is_nomad = yes
-		capital_scope = { has_province_modifier = nomadic_province }
-		capital_scope = { has_province_modifier = steppe_city }
+		capital_scope = { steppe_culture_region = no }
 	}
 
 	option = {
