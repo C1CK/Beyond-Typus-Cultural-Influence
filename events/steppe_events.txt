@@ -55,8 +55,11 @@ country_event = { #Add Steppe modifiers
 			limit = {
 				steppe_culture_region = yes
 				owner = { is_nomad = yes }
-				development = 16
-				province_has_center_of_trade_of_level = 1
+				#development = 16
+				OR = { #Being genorous for setup
+					province_has_center_of_trade_of_level = 1
+					fort_level = 1
+				}
 			}
 			remove_province_modifier = nomadic_province
 			add_permanent_province_modifier = {
@@ -220,12 +223,15 @@ province_event = { #Rise of Steppe City
 		has_province_modifier = nomadic_province
 		development = 12 
 		NOT = { devastation = 1 }
-		province_has_center_of_trade_of_level = 1
+		OR = {
+			province_has_center_of_trade_of_level = 1
+			fort_level = 1 #Permit castles and capitals, Without these you have literally no economy or defensibility
+		}
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 20
+		years = 10
 
 
 		modifier = {
