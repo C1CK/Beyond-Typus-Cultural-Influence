@@ -3488,6 +3488,36 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 		ai_will_do = {
 			factor = 0
 		}
+	}
+	hellas_culture_homelands_foreign = { #Foreign spread
+		major = no
+		potential = {
+			OR = {
+				culture_group = byzantine
+				accepted_culture = hellas_culture
+			}
+			AND = {
+				NOT = { any_province = { culture = greek } }
+				NOT = { any_province = { culture = rhomaio } }				
+			}	
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			agaio_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
 	}			
 	epirotan_homelands = {
 		major = no
@@ -8092,7 +8122,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	siryon_homelands = { #Aramaic Start
 		major = no
 		potential = {
-			culture_group = syriac_group
+			OR = {
+				culture_group = syriac_group
+				has_country_flag = neo_aramaic_promotion_flag
+			}
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -8115,7 +8148,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	syriac_homelands = { #Semitic End, Aramaic End
 		major = no
 		potential = {
-			culture_group = syriac_group
+			OR = {
+				culture_group = syriac_group
+				has_country_flag = neo_aramaic_promotion_flag
+			}
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -8134,7 +8170,33 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 		ai_will_do = {
 			factor = 0
 		}
-	}			
+	}
+	coptic_homelands = { #Egyptian
+		major = no
+		potential = {
+			OR = {
+				culture_group = egyptian_group
+				has_country_flag = coptic_promotion_flag
+			}
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			coptic_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
 	guanche_homelands = { #Berber Start, Tamazight Start
 		major = no
 		potential = {
@@ -8443,6 +8505,52 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 
 		provinces_to_highlight = {
 			kurdish_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	armenian_homelands = { #Armenian
+		major = no
+		potential = {
+			culture_group = armenian_g
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			armenian_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	cilician_homelands = {
+		major = no
+		potential = {
+			culture_group = armenian_g
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			cilician_culture_region = yes
 		}
 
 		allow = {

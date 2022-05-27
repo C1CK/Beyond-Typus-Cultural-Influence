@@ -1,0 +1,65 @@
+country_decisions = {
+	armenian_settlements_decision = { #Repopulate the Armenian valleys
+		major = yes
+		potential = {
+			NOT = { has_country_modifier = armenian_settlements }
+			culture_group = armenian_g
+		}
+
+		allow = {
+			total_development = 250 #Same as arm_prove_sovereignty mission
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = armenian_settlements
+				duration = -1
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	greco_armenian_theory_decision = {
+		major = yes
+		potential = {
+			NOT = { has_country_modifier = greco_armenian_theory_modifier }
+			has_global_flag = aegean_split #Modern greek must've begun development
+			culture_group = armenian_g
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 320 #Rhodes
+				province_id = 318 #Smyrna
+				province_id = 5139 #Nicosia
+				culture = mikrasiatic
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			OR = {
+				owns_or_non_sovereign_subject_of = 320 #Rhodes
+				owns_or_non_sovereign_subject_of = 318 #Smyrna
+				owns_or_non_sovereign_subject_of = 5139 #Nicosia
+				any_owned_province = { culture = mikrasiatic }
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = greco_armenian_theory_modifier
+				duration = -1
+			}
+			add_accepted_culture = hellas_culture
+			add_accepted_culture = mikrasiatic
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

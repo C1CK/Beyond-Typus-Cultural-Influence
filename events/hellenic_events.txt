@@ -11029,10 +11029,12 @@ province_event = { #Thracian settlements and assimilation
 		owner = { culture_group = byzantine }
 		thracian_culture_region = yes
 		NOT = { culture = hellenic_thracian }
+		NOT = { culture = hellas_culture }
 		has_global_flag = aegean_split
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
+			owner = { has_country_modifier = greco_armenian_theory_modifier }
 			owner = { ai = no }
 			AND = {
 				owner = { overlord = { has_country_modifier = hellenic_settlements } }
@@ -11190,10 +11192,12 @@ province_event = { #Macedonian settlements and assimilation
 		owner = { culture_group = byzantine }
 		macedonian_culture_region = yes
 		NOT = { culture = macedonian }
+		NOT = { culture = hellas_culture }
 		has_global_flag = aegean_split
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
+			owner = { has_country_modifier = greco_armenian_theory_modifier }
 			owner = { ai = no }
 			AND = {
 				owner = { overlord = { has_country_modifier = hellenic_settlements } }
@@ -11351,10 +11355,12 @@ province_event = { #Epirotan settlements and assimilation
 		owner = { culture_group = byzantine }
 		epirotan_culture_region = yes
 		NOT = { culture = epirotan }
+		NOT = { culture = hellas_culture }
 		has_global_flag = aegean_split
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
+			owner = { has_country_modifier = greco_armenian_theory_modifier }
 			owner = { ai = no }
 			AND = {
 				owner = { overlord = { has_country_modifier = hellenic_settlements } }
@@ -11511,11 +11517,13 @@ province_event = { #Dodecanesian settlements and assimilation
 	trigger = {
 		owner = { culture_group = byzantine }
 		dodecanesian_culture_region = yes
-		NOT = { culture = dodecanesian }
+		NOT = { culture_group = OWNER }
+		NOT = { culture = hellas_culture }
 		has_global_flag = aegean_split
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
+			owner = { has_country_modifier = greco_armenian_theory_modifier }
 			owner = { ai = no }
 			AND = {
 				owner = { overlord = { has_country_modifier = hellenic_settlements } }
@@ -11673,10 +11681,12 @@ province_event = { #Mikrasiatic settlements and assimilation
 		owner = { culture_group = byzantine }
 		mikrasiatic_culture_region = yes
 		NOT = { culture = mikrasiatic }
+		NOT = { culture = hellas_culture }
 		has_global_flag = aegean_split
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
+			owner = { has_country_modifier = greco_armenian_theory_modifier }
 			owner = { ai = no }
 			AND = {
 				owner = { overlord = { has_country_modifier = hellenic_settlements } }
@@ -11833,11 +11843,13 @@ province_event = { #Hellas Culture settlements and assimilation
 	trigger = {
 		owner = { culture_group = byzantine }
 		hellas_culture_region = yes
+		NOT = { culture_group = OWNER }
 		NOT = { culture = hellas_culture }
 		has_global_flag = aegean_split
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
+			owner = { has_country_modifier = greco_armenian_theory_modifier }
 			owner = { ai = no }
 			AND = {
 				owner = { overlord = { has_country_modifier = hellenic_settlements } }
@@ -11997,7 +12009,8 @@ province_event = { #Expansion of Hellas Culture under foreign rule, comes to rep
 		agaio_culture_region = yes
 		NOT = { culture = hellas_culture }
 		OR = {
-			has_owner_culture = no #Don't want this spreading to Turkish provinces as the Ottomans for example, Phanariot Greeks event in the Turkish file already does that anyway to a minor extent (which can be ignored anyway)
+			NOT = { culture_group = OWNER } #Don't want this spreading to Turkish provinces as the Ottomans for example, Phanariot Greeks event in the Turkish file already does that anyway to a minor extent (which can be ignored anyway)
+			culture_group = byzantine #Permit any Greeks to merge, incase AI accepts other greek splinter cultures
 			AND = {
 				has_owner_accepted_culture = no #Or accepted Bulgarians
 				NOT = { culture_group = byzantine } #Except other Greeks
@@ -12016,8 +12029,7 @@ province_event = { #Expansion of Hellas Culture under foreign rule, comes to rep
 		NOT = { has_province_modifier = hellas_culture_settlers_scorned } #Previously prevented, however attempts to settle will continue causing further unrest after the modifier wears off and they are prevented again
 	}
 
-	mean_time_to_happen = {
-		#Template Settled MTTH
+	mean_time_to_happen = { #Generic Assimilation MTTH
 		years = 25
 
 		#MTTH settings
@@ -12045,6 +12057,10 @@ province_event = { #Expansion of Hellas Culture under foreign rule, comes to rep
 		modifier = {
 			factor = 0.5
 			culture_group = byzantine
+		}
+		modifier = {
+			factor = 0.5
+			OWNER = { has_modifier = greco_armenian_theory_modifier }
 		}
 
 		#Dev. factors
