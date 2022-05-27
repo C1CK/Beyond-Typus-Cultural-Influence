@@ -227,5 +227,52 @@ country_decisions = {
 		ai_will_do = {
 			factor = 1
 		}
-	}	
+	}
+
+	promote_modern_greek_decision = { #Mostly to help AI accept the right culture, but will also guide players to it
+		major = yes
+		potential = {
+			NOT = { has_accepted_culture = hellas_culture }
+			has_global_flag = aegean_split #Modern greek must've begun development
+			NOT = { culture_group = byzantine }
+			any_owned_province = { agaio_culture_region = yes }
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 146 #Athens
+				culture = hellas_culture
+				culture = epirotan
+				culture = macedonian
+				culture = hellenic_thracian
+				culture = dodecanesian
+				culture = mikrasiatic
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			OR = {
+				owns_or_non_sovereign_subject_of = 146 #Athens
+				any_owned_province = {
+					OR = {
+						culture = hellas_culture
+						culture = epirotan
+						culture = macedonian
+						culture = hellenic_thracian
+						culture = dodecanesian
+						culture = mikrasiatic
+					}
+				}
+			}
+		}
+
+		effect = {
+			add_accepted_culture = hellas_culture
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }
