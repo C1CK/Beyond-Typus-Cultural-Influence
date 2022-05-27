@@ -1,0 +1,84 @@
+country_decisions = {
+	promote_neo_aramaic_decision = {
+		major = yes
+		potential = {
+			NOT = { culture_group =  }
+			NOT = { has_country_flag = neo_aramaic_promotion_flag }
+			religion_group = christian
+			OR = {
+				any_owned_province = { superregion = near_east_superregion }
+				any_owned_province = { region = egypt_region }
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 5205 #Beyrut
+				province_id = 6084 #Maalula
+				province_id = 6125 #Karakosh
+				province_id = 2312 #Wasit
+				culture_group = syriac_group
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			OR = {
+				owns_or_non_sovereign_subject_of = 5205 #Beyrut
+				owns_or_non_sovereign_subject_of = 6084 #Maalula
+				owns_or_non_sovereign_subject_of = 6125 #Karakosh
+				owns_or_non_sovereign_subject_of = 2312 #Wasit
+				any_owned_province = { culture_group = syriac_group }
+			}
+		}
+
+		effect = {
+			custom_tooltip = promote_western_neo_aramaic_effect_tt
+			set_country_flag = neo_aramaic_promotion_flag
+			add_accepted_culture = syriac_culture
+			add_accepted_culture = assyrian_culture
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	promote_coptic_decision = {
+		major = yes
+		potential = {
+			NOT = { culture_group = egyptian_group }
+			NOT = { has_country_flag = coptic_promotion_flag }
+			religion_group = christian
+			OR = {
+				any_owned_province = { superregion = near_east_superregion }
+				any_owned_province = { region = egypt_region }
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 358 #Alexandria
+				culture_group = egyptian_group
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		allow = {
+			OR = {
+				owns_or_non_sovereign_subject_of = 358 #Alexandria
+				any_owned_province = { culture_group = egyptian_group }
+			}
+		}
+
+		effect = {
+			custom_tooltip = promote_western_neo_aramaic_effect_tt
+			set_country_flag = coptic_promotion_flag
+			add_accepted_culture = coptic_culture
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

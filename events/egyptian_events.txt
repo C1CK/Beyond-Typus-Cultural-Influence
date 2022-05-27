@@ -10,10 +10,14 @@ province_event = { #Coptic spread along the Nile
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = egyptian_group }
-		coptic_culture_region = yes		
+		OR = {
+			owner = { culture_group = egyptian_group }
+			owner = { has_country_flag = coptic_promotion_flag }
+		}
+		coptic_culture_region = yes
+		NOT = { culture_group = OWNER }	
 		NOT = { culture = coptic_culture }
-		religion = coptic
+		religion_group = christian
 		ci_assimilation_check = yes
 		has_global_flag = CI_events_enabled
 	}

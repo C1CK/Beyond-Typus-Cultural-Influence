@@ -9,8 +9,12 @@ province_event = { #Syriac spread in Mesopotamia
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = syriac_group }
-		syriac_culture_region = yes		
+		OR = {
+			owner = { culture_group = syriac_group }
+			owner = { has_country_flag = neo_aramaic_promotion_flag }
+		}
+		syriac_culture_region = yes
+		NOT = { culture_group = OWNER }
 		NOT = { culture = assyrian_culture }
 		ci_assimilation_check = yes
 		NOT = { religion_group = muslim }
@@ -125,8 +129,12 @@ province_event = { #Suuryan spread in the Levant
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = syriac_group }
-		siryon_culture_region = yes		
+		OR = {
+			owner = { culture_group = syriac_group }
+			owner = { has_country_flag = neo_aramaic_promotion_flag }
+		}
+		siryon_culture_region = yes
+		NOT = { culture_group = OWNER }
 		NOT = { culture = syriac_culture }
 		ci_assimilation_check = yes
 		NOT = { religion_group = muslim }
