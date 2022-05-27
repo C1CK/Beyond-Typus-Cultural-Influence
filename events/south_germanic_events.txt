@@ -5820,8 +5820,7 @@ province_event = { #Norwegisch settlements and assimilation
 		owner = { culture_group = germanic }
 		norwegisch_culture_region = yes		
 		NOT = { culture = norwegisch }
-		ci_settlement_check = yes}							
-		}
+		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
 			owner = { ai = no }
@@ -8703,65 +8702,5 @@ province_event = { #Karpatendeutsch settlements and assimilation #Added with BT 
 		name = karpatendeutsch_settlements.a
 
 		change_culture = carpathian_german
-	}
-}
-
-province_event = { #Moved effect trigger from decision to event as the decision was causing lag
-	id = cultural_influence_germanic_rework.65
-	title = hochdeutsch_sudeten_assimilated.title
-	desc = hochdeutsch_sudeten_assimilated.desc
-	picture = CULTURE_eventPicture
-	goto = root
-
-	is_triggered_only = yes
-
-
-	option = {
-		name = hochdeutsch_sudeten_assimilated.a
-
-		every_owned_province = {
-			limit = { hochdeutsch_sudeten_cultures = yes }
-			change_culture = hochdeutsch
-		}
-	}
-}
-
-province_event = { #Moved effect trigger from decision to event as the decision was causing lag
-	id = cultural_influence_germanic_rework.66
-	title = plattduutsch_schlesisch_assimilated.title
-	desc = plattduutsch_schlesisch_assimilated.desc
-	picture = CULTURE_eventPicture
-	goto = root
-
-	is_triggered_only = yes
-
-
-	option = {
-		name = plattduutsch_schlesisch_assimilated.a
-
-		every_owned_province = {
-			limit = { plattduutsch_schlesisch_cultures = yes }
-			change_culture = plattduutsch
-		}
-	}
-}
-
-province_event = { #Moved effect trigger from decision to event as the decision was causing lag
-	id = cultural_influence_germanic_rework.66
-	title = plattduutsch_preussisch_assimilated.title
-	desc = plattduutsch_spreussisch_assimilated.desc
-	picture = CULTURE_eventPicture
-	goto = root
-
-	is_triggered_only = yes
-
-
-	option = {
-		name = plattduutsch_preussisch_assimilated.a
-
-		every_owned_province = {
-			limit = { plattduutsch_preussisch_cultures = yes }
-			change_culture = plattduutsch
-		}
 	}
 }
