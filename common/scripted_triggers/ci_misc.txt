@@ -109,7 +109,8 @@ ci_settlement_check = {
 			AND = {
 				has_owner_accepted_culture = no
 				NOT = { culture_group = OWNER }
-			}	
+			}
+			has_colonist = yes #Allow accepted cultures to convert if active conversion
 			OWNER = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
@@ -119,10 +120,7 @@ ci_settlement_check = {
 				any_friendly_coast_border_province = { culture_group = OWNER }
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
-			AND = { #Dharma intent check
-				has_colonist = yes
-				is_city = yes
-			}
+			has_colonist = yes #Dharma intent check
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
 				any_neighbor_province = { culture_group = OWNER }
