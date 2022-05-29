@@ -1,0 +1,1618 @@
+#Copy of the Occitanic file from Occitan Renaissance submod
+
+#CODE
+#This is designed so that we have a 'base' Occitan file (Lengadocian) with the names to *replace* for each dialect contained in a separate file. Meaning to localize dialects, I can duplicate this and paste in the changes rapidly, rather than managing four whole lists for Occitan alone.
+#A NOTE ON SPELLING
+#OCCITAN - Generally 'OA' and not 'UA'. 'What' wants to be 'Oat' and not 'Uat', which Catalan may (potentially) like more. Places named after a saint typically have the word 'saint' and their name as separate words. Trasnliterations with -ook/-uk/-uc should be '-uc'. Save the '-òc' for the long ò.
+#Occitan sometimes loses the -ium and -is in toponyms along with Piedmontese, where Italian would keep them as -i or -io. Elysium -> Aliscamps (Cognate:'Alis'); Italian 'Campi Alisi'.
+#However, these -ius is kept in the name of saints. Bausèli, Salvi, Antòni, Jòrdi...
+#French -ll- generally becomes -l-, unless it's making a Y sound, in which case -lh-.
+#
+#Sent and Sant coexist in Occitan; neither has a universal majority. Gascon can have Sent and Provençal have Sant, but the 'Occitain' and 'Auvergnat' cultures in BT are pretty split.
+#^As such, I'm using both based on either etymology or what the nearest dialect uses. N France gets 'Sent' partly due to Limousin, Marchois and Poitevin-Saintongeais, partly because that's the closest shift to what French has RL.
+#^Navarra gets 'Sent' as Gascon has native names for the cities here, using 'Sent'.
+#^Italy and Arpitania, likewise, get 'Sant' as that's the nearest dialectally and linguistically (Vivaroalpine).
+#^Catalonia, closest sister to Occitan, uses 'Sant' just as in Languedoc, so that's what she gets. Extending 'Sant' to the rest of Iberia, as that's closest to local (plus potentially Occitanoromance Aragonese has 'Sant').
+#&TLDR:Sant - Romance-speaking Iberia, Italy, Arpitania, Mediterranean. Sent - N France, British Isles, possibly Americas (most likely to be settled from Atlantic-facing territories - ie Gascony&Poitou - as hisotrical).
+#
+#SPANISH NEW-WORLD TERMS
+#CAYO (m) - French CAYE (f), English CAY. Here I'm using "Cai", as "Càia" would sound like "Calla", which is "shut up" in Catalan. :P
+#
+#ENGLISH Toponyms
+#'Caster' is 'Castria' in Latin, which has an Occitan evolution in toponymy:Càstria. Using this.
+#'Chester' comes from Latin 'Castrum', which is 'Castre' in Occitan despite not being used much.
+#'Bury' comes from 'burg'. While Norman likes 'Béry' for these, Occitan is far south enough that certain word-ending changes to Y from consonants never happened...I'm more confident using Occitan 'borg' than trying to craft from French forms.
+#
+#Names to use #"Nòu Bordèu" #New Bordeaux.#"Nòva Camarga" #Rhone Estuary #Baia de Loiras #Otter Bay
+#to use:Roian (Gironde estuary), Horet (peninsula), Peiriac (town near Narbonne, on a marsh.)
+#2013 = Casco
+#4558 = Orense/Ourense..?
+#8022 = Dinant #Same
+#888 = "Arcoquisa"
+#894 = "Bauç a Filhiol" #It's a bluff. Needs a name
+#895 = "Arcansea"
+#898 = "Cavagnal"
+#899 = "Monts als Arcs"
+#910 = "Fons del Lac"
+#913 = "Pradariá del Can"
+#915 = "Pimitéoui"
+#918 = "Pruadelòme" #Pruna del Òme
+#919 = "Cicacha"
+#921 = "Bròcaroja"
+#924 = "Alibamos"
+#927 = "La Carolina"
+#942 = "Ouiaténon"
+#945 = "Michilimackinac"
+#946 = "Sandoské"
+#947 = "Chiningué"
+#964 = Anhiers
+
+#####AFRICA#####
+###EGYPT###
+#EASTERN DESERT
+2315 = {"Suèz" "Suèz"} #http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+#NILE DELTA
+358 = {Alexàndria Alexàndria} #CAT:Alexandria
+362 = {Roseta Roseta} #Rosetta, named 'Rosette' by the French under Napoleon. I can find attestations for both Roseta and Rosèta; the word "rosette" translates to "Roseta" universally. To verify.
+363 = {Pelúsion Pelúsion} #Catalan Wikipedia. Feels more Greek-in-Catalan-orthography than actual Catalan. FR Péluse. Temp.
+2316 = {Tanta Tanta} #Modern Catalan, again temp.
+4316 = {Felbes Felbes} #Portuguese loc; temp. #FR Phelbes/Bilbéis, CA Bilbeis... PT Bilbeis/Felbes
+4317 = {Damanhur Damanhur} #Arabic, used in other languages... TEMP.
+5621 = {Damiata Damiata} #Catalan name. Temporary loc.
+
+###MAGHREB###
+#BARBARY COAST
+336 = {Tremissèn Tremissèn} #Tlemcen. Tremissèn in medieval Catalan, though Tlimsen (Arab orthography) is also used. Temp.
+337 = {Oran Oran}
+338 = {Argièr Argièr} #AUV:Argèir CAT:Alger GAS:Argèr PRO:Argier
+2459 = {Medea Medea}
+2461 = {Mostaganem Mostaganem} #Modern FR name.
+4562 = {Nemors Nemors} #French name during colonization.
+5322 = {Tenès Tenès} #Ténès. Two accents is pretty uncommon in Occ.
+#KABYLIA
+339 = {Bogía Bogía} #Bogía/Begía. CAT:Bogia (medieval catalan) #Béjaia/Bougie
+340 = {Constantina Constantina}
+1882 = {Annaba Annaba} #Annaba. Formerly 'Bona' in Catalan, as it was Bône during the French colonial era.
+5318 = {Cocó Cocó} #CAT:Cucú #Kuku/Koukou. Transliterated.
+5319 = {Setif Setif} #CAT:Sitifis/Sitifi #Sétif
+5321 = {Gíger Gíger} #Jijel/Gigéry #Catalan name.
+5323 = {Cala Cala} #Kalaa, transliterated.
+#MARRAKESH
+344 = {"Marraquèsh" "Marraquèsh"} #CAT: Marràqueix. Attested. http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+348 = {Shishaoa Shishaoa} #CAT:Xixaua
+5226 = {"Ben Garir" "Ben Garir"} #CAT:"Bé Garir"
+#SUS
+1110 = {Agadir Agadir}
+
+#RIF
+334 = {"Tànger" "Tànger"} #http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+
+#TRIPOLITANIA
+354 = {Trípol Trípol} #ARA:Tripoli. CAT:Trípoli. Tripoli in Libya.
+#TUNISIA
+341 = {Tunis Tunis}
+2453 = {Esfaqs Esfaqs} #Sfax. CAT:Esfaques #Transliterated+Occitanized. Technically it's Sfaqs in current Oc orthography, but s+consonant is usually illegal.
+2454 = {Cairoan Cairoan} #CAT:Cairuan #Kairouan/Kairwan. Transliterated.
+2455 = {Bizerta Bizerta} #Bizerte. Using Catalan spelling.
+2473 = {Sussa Sussa} #Using Catalan.
+4566 = {Hebira Hebira}
+5224 = {Nabel Nabel} #Transliterated.
+5225 = {Madia Madia} #Transliterated/Occitanized.
+5314 = {Beja Beja}
+5317 = {Tabarca Tabarca} #Tabarka, transliterated.
+###GUINEA###
+#CAP VERDE
+1096 = {"Cap Verd" "Ribièra Granda"} #AUV:"Ribeira Granda" CAT:"Ribera Gran" GAS:"Ribèra/Arribèra Grana" PRO:"Ribiera Granda" #Praia is the modern capital; Ribeira Grande was the pre-1770 capital.
+#GUINEA
+1119 = "Còsta deu Pebre" #Grain Coast. WIP.
+#WEST AFRICAN COAST
+1126 = {"Còsta d'Evòri" Abidjan}
+1139 = {"Còsta d'Aur" Accra}
+
+#####ASIA#####
+###?
+2308 = {Edessa Edessa} #Urfa/Edessa. Modern Catalan calls it Edessa, and French édesse. Old Occitan (Crusade era) used the Kurdish-derived name, 'Roays'/'Roais', attested in several poems.
+###ANATOLIA###
+326 = {Ancira Ancira} #CAT:Ancira. Ankara. Like the French localization, using the old Greek Ancyra.
+###ARABIA###
+388 = {Adèn Adèn}
+396 = {Bahrain Manama} #Technically the Oc spelling is Bahrayn, but the letter Y is not native to Occitan. Other attested form is Barein, but source is far less reliable.
+397 = {"Abu Dabi" "Abu Dabi"} #Abu Dhabi. Normally wouldn't have the H in Occitan, but is a foreign name so they include it.
+###CAUCASIA###
+#ODISHI
+2195 = {Adiguesia Tuapsé} #Tuapsé is technically the Catalan spelling, but both Catalan and French accent that E.
+###COROMANDEL###
+574 = {"Illas Andaman" "Pòrt Blasi"} #VIVAUP:"Pòrt Blai" #The word 'illa' changes by dialect. Port Blair is a British name, so using an Occitan one here.
+###HINDUSTAN###
+523 = {Lacnau Lacnau} #Would be Lacnau if Occitans had been the first to spell it; modern language uses Lakhnau, however.
+
+###JAPAN###
+
+###LEVANT###
+#CYPRUS
+321 = {Limassol Limassol} #FR&CA: Limassol. Only attestations on the Oc wiki also say limassol and not Limassòl. to verify...
+5139 = {Nicosia Nicosia}
+5145 = {Famagosta Famagosta}
+#?
+377 = {Alèp Alèp}
+378 = {Trípol Trípol} #ARA:Tripoli. CAT:Trípoli. Tripoli in Lebanon.
+379 = {Jerusalèm Jerusalèm}
+1855 = {Galilèa Safed}
+2313 = {Antiòquia Antiòquia}
+4297 = {Baalbèc Baalbèc} #French localization uses Héliopolis rather than modern Baalbek. Modern Occitan is Baalbèc. The old form in Occitan may be Eliòple/òble/opòli/ols, but I need to check. Using Baalbèc for now to avoid an etymology mess, but I'll figure it out soon.
+5170 = {Laodicèa Laodicèa} #FR:Lattaquié. Oc dictionary gives Ataquié, but this feels wrong when the etymology is Laodicea (and Catalan uses Latàquia). The old name Laodicèa is attested in Occitan, so using this for now to avoid etymology mess.
+5180 = {Gaza Gaza}
+5205 = {Beirot Beirot}
+#KERAK
+380 = {Crac Crac} #CA Crac de Moab/dels Moabites ... FR Kerak de Moab/Krak des Moabites ... 'Krak' ... BT loc just 'Karak'/'Al-Karak' exists in Oc, but really not a common letter. Using Catalan spelling. https://oc.wikipedia.org/wiki/Krak_deus_Cavali%C3%A8rs
+4270 = {Transjordania Maan} #Capital is Ma'an/Maan in Catalan...  FR loc has Outre-Jourdain as provname, CA version is Trandjordània... Surprisingly no accent on the A in Occitan here.
+5203 = {Montreal Montreal}
+###MESOPOTAMIA###
+410 = {Bagdad Bagdad}
+###WESTERN INDIA###
+#AHMEDABAD
+2054 = {Ahmadabad Ahmadabad} #Oc translations conflict between Ahmedabad and Ahmadabad, with linguistic sources saying Ahmadabad and Wikipedia saying Ahmedabad.
+
+#####ASIA - SOUTHEAST#####
+596 = {Malaca Malaca}
+605 = {Saigon Saigon} #Unsure whether it needs an accent or not; I think no.
+2372 = {"Hai Phong" "Hai Phong"}
+2373 = {Hue Hue}
+8556 = {Bangcòc Bangcòc} #Bangkòk. K is foreign in Occitan.
+8649 = {Singapor Singapor}
+
+#####AUSTRALIA#####
+1086 = {Adelaïda Adelaïda}
+#####OCEANIA#####
+1243 = {Samoa Apia}
+
+#####EUROPE#####
+###BALKANS###
+#AEGEAN ISLANDS
+320 = {Ròdes Ròdes}
+#CROATIA
+131 = {Zagrèb Zagrèb} #Zagrèb (Zagreb lem)
+4752 = {Flume Flume} #Fiume, Translated. It's a common noun meaning a river that flows into the sea.
+7735 = {Velha Velha} #Krk/Veglia/Vikla #Using (altered/cognate) Italian/Latin for now.
+#DALMATIA
+136 = {Spalat Spalat} #Split/Spalato/Spalatro #Using (altered) Italian/Latin for now.
+137 = {Ragusa Ragusa} #Dubrovnik/Ragusa/Raugia
+4753 = {Iadera Iadera} #Zadar/Zara/Jadera(pron. Iadera) #Using (altered) Italian/Latin for now. THOUGH the Croatian loan 'Zadar' does exist...
+4754 = {Catar Catar} #Kotor/Càttaro/Cattaro #Using (altered) Italian/Latin for now.
+7730 = {Macarsca Macarsca} #Makarska/Macarsca #Using (altered) Italian/Latin for now.
+7731 = {Brassa Neresi} #Brazza/Brac Nerezisca/Neresi #Using (altered) Italian/Latin for now. Note IT -azza = -assa or -aça in Oc. Piazza = plaça, terrazza = terrassa, corazza = cuirassa, etc.
+7732 = {Sebenic Sebenic} #Sibenic/Sebenico #Using (altered) Italian/Latin for now.
+7733 = {Tenin Tenin} #Knin/Canina #Using Italian for now.
+#HELLAS
+146 = {Atenas Atenas}
+
+#MACEDONIA
+148 = {"Tessalonica" "Tessalonica"}
+
+#PELEPONNESE
+7102 = {Arcadia Arcadia}
+#SYRMIA
+4239 = {Belgrad Belgrad} #Belgrad. One dict says Belgrada, but I think that's wrong.
+#THRACE
+149 = {Andrinòple Andrinòple}
+
+###BRITAIN###
+#NOTE: -bury has a few -bièira attestations in Old Occitan. Conturbieyra for Canterbury. https://web.archive.org/web/20181022153247/http://revistadoc.com/wp-content/uploads/2013/07/LinguisticaOccitana9Lieutard.pdf
+#EAST ANGLIA
+1860 = {Nòrfòlc Nòrvic} #'folk' in Occitan is always transliterated as fòlc. Folc without the accnet is a medieval given name. Norwich - Lat:Nordovicum
+3028 = {Suffòlc Ipsvic}
+4370 = {Cantabrigia Cantabrigia} #Cambridge. Nrm:Cantebruge Lat:Cantabrigia
+#ESSEX
+235 = {Cant Cantorborg} #Kent+Canterbury #Fr:Cantorbéry
+236 = {Londres Londres}
+237 = {Ossònia Ossònia} #Latin:Oxonia (here Occitanized), Oxonium {"Ga del Buòu" "Ga del Buòu"} #GAS:Gua deth Buòu PRO:Gafa dau Buòu #Oxford, Translated. Called 'Oxenaforda' in Anglo-Saxon times.
+238 = {Èsseises Cesaromag} #Essex Chelmsford. Chelmsford from 'Ceolmaer's ford'. Romans called it Caesaromagus. So my options are Cesaromag or something Saxon and harder to translate.
+4371 = {Susseises Cicastre} #Sussex, Occitanified. Chichester - Cicestre in Old English, named for Cissa ('Ch' sound). Latin uses 'Cicestria'. Modern Norman spells the English 'cester' as 'chêtre'.
+8123 = {Surrèia Gadaurat} #GAS:Guadaurat CAT:Surreia Gualdaurat #Surrey - derives from Suthrige, meaning "southern region" (Rige is cognate to Reich, sometimes translated to Realm in English; etymologically became 'ric(k)' in some words). In Latin it's Surria or Surregia. Capital Guildford, likely from 'Gold' and not 'Guild'. Ford generally translates to Occitan as a word starting with 'g(u)a' (masculine), but this varies. Here using 'Goldenford' as translation base.
+8125 = {Vilabuca Vilabuca} #Buckingham x2 #Named for Bucca, Anglo-Saxon leader.
+8127 = {Gabeda Gabeda} #GAS:Guabeda CAT:Gualbeda #Bedford x2 #Bedford comes from a Saxon chief named Beda.
+#GRAMPIANS
+251 = {Aberdeen Aberdeen} #Surprisingly also Aberdeen in Occitan. That 'ee' could be from an older 'é' sound, as with most of its usage in English. so if we're Occitanizing from 1291 or 1444...Would only need one E. Keeping it until certain.
+#LANCASHIRE
+244 = {Lancàstria Lancàstria} #Lancastria is Latin for 'Lancaster'. Asuming emphasis on 2nd syllable, this is what we get for Occitan+Catalan.
+247 = {Cúmbria Carlilh} #Carlisle...Corrpution of Caer-luel (here used w/ Occitanization), corruption of Cair Ligualid, probably *Castrum Luguvalium. #Catalan/Portuguese spelling for now. Unsure.
+4375 = {Castre Castre}
+#LOWLANDS
+248 = {Edimborg Edimborg}
+3019 = Glasgòvia #From FR 'Glasgovie' used in BT... #Glasgow Lanark
+#MIDLANDS
+4376 = {Leicastre Leicastre} #Leicester. Nrm:Leichêtre
+8126 = {Nòrdhantonha Nòrdhantonha} #Northampton, Constructed. In Latin it's Northamptonia.
+#NORTHUMBERLAND
+246 = {Nortúmbria Alonvic} #Alnwick...Town on the Aln. #CAT:Northúmbria #Occitan Wikipedia is split between "Northumbria" and "Nortumbria"; no official spelling I can find. Portuguese (spelling conventions similar to Occitan) has Nortúmbria.
+#POWYS
+240 = {Shirosborg Shirosborg} #Shrewsbury. Latin name Salopia. Could Occitanize this, or Occitanize the English a bit:Shrósborg. Old French:Sciropesberie.
+#SOUTHERN ISLES
+253 = {"Hèbrides Exteriors" "Baia de Navigacion"} #Hebrides here are in Catalan. Occitan has no term for "Hebrides" that I'm able to find, so going with the closest linguistically. #Stornoway evolved from Stjórnavágr, Old Norse for "bay of navigation". Translating this...
+4364 = {"Hèbrides Interiors" Slèite} #Sleat. Rough transliteration based on Gaelic and Norse.
+4365 = {Man Vilacastèl} #GAS:"Vilacastèth" #Castletown; Translated.
+#WESSEX
+233 = {Cornoalha Truro} #CAT:Cornualla
+234 = {Hanteshira Oincastre} #Hampshire Winchester. Nrm:Hantésire Ouînchêtre. Occitanized. Note 'shire' comes from 'scir/scire/scira'. Southampton is Hantonne/Suhantoune in Norman. so it's 'Hant' + 'Shira', but needs an 'e' consonant->S is generally illegal in Oc.
+239 = {Glocastre Glocastre} #Invented. Temporary... Lat:Glevum/Glocastre.
+4130 = {Somerset Taunton} #Somerset Taunton #Somerset - from Somerton, formerly the capital. Either from 'sea lake enclosure', 'summer town' or 'summer farmstead'. #Taunton - Town on the River Tone/Tone Town. So could be Vilataun, or keep the English,
+4373 = {"Devon del Sud" Exònia} #AUV&PRO:Devon dau Sud #GAS:"Devon deu Sud" #'S Devon' Exeter. Translated; Occitanized from Latin 'Exonia'.
+4374 = {Dorset Dorcastre} #Dorset Dorchester.
+8122 = {"Devon del Nòrd" Barnastaple} #'N Devon' Barnstaple (slightly etymological form based on Latin usage; needs that 'a' as ST must have a vowel before it. -Polis/-politum can become -ble, a seen w/ Adrianople's Occitan name).
+8124 = {Barqueshira Abendon} #Berkshire Abingdon #Berkshire pronounced 'barkshire' (spelling var Barkeshire), even centuries ago. Old English Bearrocscir. #Abingdon named for Aebba or Aebbe.
+8170 = {Oiltonshira Saroborg} #Wiltshire Salisbury #Wiltshire was Wiltunscir and then Wiltonshire, named for town of Wilton (think -tsh is illegal in Occitan, so the old -on is useful if transliterating. 'Oiltonshira' if transliteration, 'Comtat de Oilton' if translated, 'Oilton' if I leave the Comtat part out like the modern Occitan parçans, since they're no longer feudal). #Salisbury is Sorbiodunum, whose ending (modern Occitan -dun) was changed to Old English 'burg'. Old English Searoburg, Middle English Sarisberie.
+#YORKSHIRE
+245 = {Iòrc Iòrc} #CAT:Iorc #Occitanization of 'York'.
+###CARPATHIA###
+#BESSARABIA
+1756 = {Bessaràbia Quilia}
+2405 = {Orhei Orhei}
+3159 = {Soroca Soroca} #Soroca, Moldova. TBD whether an O gets an accent.
+7277 = {Tighina Tighina}
+7278 = {Montcastèl Montcastèl} #AUV:Montchastèl CAT:Montcastell? GAS:Montcastèu PRO:Montcastèth #Translated from Genoese.
+8220 = {Lapusna Quisinau}
+#BUKOVINA
+3156 = {Suceava Suceava}
+7274 = {Bucovina Chèrnovic} #Chernivtsi - Invented. #Romanian Cernauti (Chernautsi). Ukrainian Chernivtsi. Latin (modern) Czernovicum. Has also been referred to as simply 'Chern'.
+7275 = {Cotin Cotin} #Could do 'Hotin' as in Romanian, or 'Cotin' from Slavic Khotyn. Occitan has voiced H and could get away with Romanian, but Catalan needs the C.
+#MOLDOVIA
+268 = {Botoshani Dorohoi} #Why does BT just call it Moldova? The province is Botosani (s comma, which is the 'sh' symbol in Cyrilic...possibly -ssium etymologically).
+3157 = {Bacòvia Bacòvia} #Bacau.
+4529 = {Iashi Iashi} #Iasi. Latin Iassium, sometimes Jassy in other European languages.
+4530 = {Birlad Birlad} #Possibly from Slavic "berlo" or "birlo" with Hungarian -d.
+7276 = {Focshani Focshani} #Focsani - Transliteration.
+8180 = {Neamts Pèira} #Neamt - Transliteration. Piatra is rock, so Pèira in Occitan.
+8219 = {Vaslui Vaslui}
+#WEST ALFOLD
+153 = {Pèst Pèst} #Pest, later Budapest.
+###FRANCE###
+#ANJOU-MAINE
+177 = {"Lo Mans" "Lo Mans"} #GAS:"Lo/Eth Mans" Natural evolution; 'Ce' was replaced by 'Le' (article), and most Occitans decided to use their article.
+178 = {Angieus Angieus}
+7980 = {Percha Maurtanha} #Perche - Invented. Latin:Particus Perticus Pert[ic]ensem pertensis Perticus Perticus Particus Perticus Pertico. Mortagne - Invented. Latin:Mauritaniae, Mauritania.
+7988 = {Sablat Sablat} #Sablé - Sandy. Yes, it's actually named for sand.
+7989 = {Lavau Lavau} #Laval; Northern Occitan L -> U.
+7990 = {Cholet Cholet}
+7991 = {Saumur Saumur}
+#AUVERGNE
+190 = {Molins Molins}
+199 = {Clarmont Clarmont}
+3087 = {Orlhac Orlhac}
+7914 = {Tièrn Tièrn}
+7915 = {"Sant Flor" "Sant Flor"} #Pronounced Sent Flor locally, but spelled Sant.
+7916 = {Riam Riam}
+7917 = {Montleçon Montleçon}
+#BERRY-TOURAINE
+179 = {Borges Borges}
+4389 = {Tors Tors}
+7935 = {Chinon Chinon}
+7936 = {Lochas Lochas} #Loches - Invented. Attested in medieval Latin as Loccae, Lucas and Lochiis.
+7937 = {Chasteurós Chasteurós} #Châteauroux (Château Raoul) Attested.
+7959 = {"Sant Saire" "Sant Saire"} #Invented. According to an attestation, 'sancti Satyri', could be a corruption of 'Saint-Satur'. (Satyrus, "Satyr".) Satur->Sayre->Serre. Effectively it's 'Satyre' evolved without the T. Occitan cognate 'Satir/Satire', following the same pattern is 'Sair/Saire'. Keeping 'Sant' here as the French spelling doesn't add I.
+#BURGUNDY
+191 = {Nivernés Nivèrns}
+192 = {Dijon Dijon}
+1877 = {Charolés Charòlas} #CAT:Charolés Charolas(?) #Charolés attested in other Romance languages and the most logical construction in Occitan. Charòlas is best-guess.
+3091 = {Macon Macon}
+4392 = {Aussèrra Aussèrra} #Attested. http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+7938 = {Chalon Chalon} #French.
+7951 = {Semur Semur} #French.
+7952 = {Chastilhon Chastilhon} #Châtillon - A few attestations for other cities in Occitan.
+8028 = {Autun Autun} #French.
+#CHAMPAGNE
+181 = {Retèl Retèl} #Transliteration. Could - in theory - be Retèth or Retèu based on this.
+186 = {Rems Rems}
+3071 = {Chalaons Chalaons} #Châlons; Invented. Latin:Catalaunum.
+4390 = {Tròias Tròias}
+7950 = {Langres Langres} #French, to verify.
+7953 = {"Sent Desíer" "Sent Desíer"} #Saint-Dizier, translated to (N) Auvergnat.
+7955 = {Sens Sens} #French, to verify.
+7956 = {Meiaus Meiaus} #Meaux.
+7964 = {Masèiras Masèiras} #Mézières. Existing evolution in Occitan from the same Latin etymology.
+#DAUPHINY
+204 = {Grenòble Grenòble} #Arp:Grenoblo
+3089 = {Valença Valença}
+7895 = {Briançon Briançon}
+7896 = {Gap Gap}
+7897 = {Montelaimar Montelaimar}
+7910 = {Viana Viana}
+#FRANCHE-COMTE
+193 = {Besançon Besançon}
+3092 = {Vesol Vesol} #Vesoul; Invented.
+4764 = {Dòla Dòla} #CAT:Dola #Dole; Invented. Dola is the Latin name.
+7939 = {Loans Loans} #CAT:Luans #Louhans. Arp:Luens. Louans is an attested past evolution; would be pronounced in Occitan as Loans and Catalan as Luans.
+7940 = {"Sant Claudi" "Sant Claudi"} #CAT:Sant Claudi; GAS:Sent Claudi
+7942 = {Montbeliard Montbeliard} #Montbéliard, Invented. Latin:Mons Belicardus.
+8029 = {Pontarlièr Pontarlièr} #AUV:Pontarlèir GAS:Pontarlèr PRO:Pontarlier #Invented.
+8030 = {Luxuèlh Luxuèlh} #CAT:Luxull PRO:Luxuelh #Invented. Follows the toponymy... Novio -> Novium -> Nuelh; Luxovium -> Luxuelh* (oc) & Luxull* (cat)
+#GASCONY
+173 = {"Labord" "Baiona"}
+175 = {"Armanhac" "Aush"}
+176 = {"Bearn" "Pau"}
+3083 = {"Labrit" "Labrit"} #Capital could also be "Nerac".
+7919 = {"Comenge" "Murèl"} #-l -> -th change in Gascon. Medieval Lengadocian would be 'Murèl'; Medieval Catalan would be 'Murell'.
+7921 = {"Bigòrra" "Tarba"}
+7922 = {"Lomanha" "Leitora"}
+7923 = {"Bassa Navarra" "Sent Joan Pè de Pòrt"} #GAS:"Baisha Navarra" PRO:"Sant Joan Pè de Pòrt"
+7924 = {"Dacs" "Dacs"}
+7926 = {"Marsan" "Lo Mont"}
+#GUYENNE
+174 = {Bordèu Bordèu}
+194 = {Perigòrd Periguers}
+198 = {Rodés Rodés}
+3081 = {Agenés Agen}
+4112 = {Carcin Caors}
+7905 = {Milhau Milhau}
+7907 = {Montalban Montalban}
+7925 = {Bug "La Tèsta"}
+7927 = {Vasats Vasats}
+7928 = {Liborna Liborna}
+7930 = {Brageirac Brageirac}
+#ILE-DE-FRANCE
+182 = {Valés Compenha}
+183 = {París París}
+185 = {Gastinés Nemors} #Gâtinais - Gâtine - Invented. Formerly Gastine, Vastine.
+3070 = {Laon Laon}
+7960 = {Uripés Rambolhet} #Hurepoix & Rambouillet - Invented.
+7961 = {Soissons Soissons} #Soissons. From the Suessiones (FR Suessions). In OC could transliterate out as either spelling, or even Suissons.
+7962 = {Mantés Mantas} #Mantois - Invented.
+7963 = {Belvés Belvés} #Beauvais - Invented/Semiattested.
+#LANGUEDOC
+196 = {Tolosa Tolosa}
+197 = {Rosselhon Perpinhan} #CAT:Rosselló Perpinyà
+200 = {Montpelhièr Montpelhièr} #AUV:Montpelhèir GAS:Montpelhèr PRO:Montpelhier (following the dialectal differences. Attested elsewhere, but only once have I seen it w/ relation to the city in Languedoc.)
+2753 = {Narbona Narbona} #Same in Catalan.
+3085 = {Nimes Nimes}
+4391 = {Velai "Lo Puèi"} #Possibly Puei in some dialects. Dictionary and Wikipedia differ from each other.
+4694 = {Fois Fois} #CAT:Foix GAS:Foish
+4695 = {Carcassona Carcassona} #Same in Catalan
+7898 = {Usès Usès}
+7899 = {Vivarés Vivièrs}
+7900 = {Besièrs Besièrs} #AUV:Besèirs CAT:Besers (medieval Catalan) GAS:Besèrs PRO:Besiers (Following dialectal differences)
+7901 = {Castras Castras}
+7904 = {Albi Albi}
+7906 = {Gavaudan Mende}
+#LIMOUSIN
+195 = {Limòtges Limòtges}
+4697 = {"La Marcha" Garait} #CAT:La Marxa
+7918 = {Ventadorn Ventadorn}
+7931 = {Torèna Torèna}
+#LORRAINE
+187 = {Barrés Bar} #Bar-le-Duc's name fluctuated until 1707, retaining the 'Bar' portion but alternately adding -villa or -le Duc. Theoretically could be "Bar lo Duc" following this.
+188 = {Mètz Mètz}
+189 = {Nancí Nancí} #Attested! http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+4766 = {Verdun Verdun}
+7945 = {Saraborg Saraborg} #Sarrebourg; Invented. Latin:Saraburgum.
+7946 = {Espinal Espinal} #Invented.
+7947 = {Tol Tol}
+7948 = {Teonvila Teonvila} #Thionville, invented.
+7949 = {Saragaimonda Saragaimonda} #Sarreguemines; Invented.
+#LOWER BRITTANY
+170 = {Leon Brèst}
+171 = {Vannetés Vannas} #Vannetais & Vannes - Invented & Attested. https://web.archive.org/web/20181022153247/http://revistadoc.com/wp-content/uploads/2013/07/LinguisticaOccitana9Lieutard.pdf. Old Forms:Veneda, Guéned, Guenette. Venetis, Vennes.
+3068 = {Cornoalha Quimpèr} #Yes, same as the British Cornwall. Capital - Kemper/Quimper - e is prouounced è according to French wiki. Older spellings allowed C or QU where today it's just K. Translates as 'Confluent', where it was written in Latin in 1166 (Confluentia). Celtic word is a cognate of Old French 'Combre', of which today only derivatives survive.
+7997 = {Rohan Pontivi} #PRO&AUV:Pòntivi #Pontivy comes from St Ivy/St David. Pont is bridge.
+7998 = {Poher Carhais} #Carhaix - Tweaked.
+7999 = {Tregor Morlais} #Trégor + Morlaix; invented. Breton:Montroulez.
+#LYONNAIS
+203 = {Lion Lion} #Arp:Liyon
+4777 = {Forés Fuers} #Arp:Fuèrs:Occitan name's a guess.
+7908 = {Anonai Anonai} #Occitan-speaking
+7909 = {"Sant Estève" "Sant Estève"} #Arp:Sant-Etiève
+7911 = {Beljoqués Beljòc} #Arp:Biôjolês. Beljoqués is my guess...
+#ORLEANAIS
+184 = {Orleans Orleans}
+3075 = {Dunés Chastèudun} #Châteaudun - Invented.
+4388 = {Chartres Chartres}
+4776 = {Bles Bles} #Blois.
+7957 = {Estampas Estampas} #Attested. 
+7958 = {Montargís Montargís} #Montargis - Invented.
+7979 = {Vendòsme Vendòsme} #Invented. Vendosme is an actual older form.
+7981 = {Droas Droas} #Invented, OldFR Drocas + the medieval loss of the C.
+#NORMANDY
+167 = {Roan Roan}
+168 = {Can Can} #BUM badadada bum bum badadada...
+1879 = {Alençon Alençon}
+3073 = {Evrieis Evrieis}
+3110 = {"Illas Normandas" "Sent Elièr"} #AUV:Sent Elèir? GAS:"Islas Normandas" "Sent Elèr"*?
+4385 = {Cheraborg Cheraborg}
+7967 = {Auga Auga} #Eu; construction. Attested Auvae Auga Aucia Auga Aucum Ou.
+7970 = {Vessin Gisòrs} #Constructed.
+7971 = {Diepa Diepa} #Construction from Latin Dieppa.
+7972 = {Harflor Harflor} #Construction.
+7982 = {Lisieus Lisieus} #Construction.
+7983 = {Falèsia Falèsia} #Falaise; constructed. Latin 'Falesia'. Latin 'Alesia' is written 'Alèsia' in both Occitan and Catalan, so using this transformation.
+7984 = {Bessin Baieus} #Bayeux - older form.
+7985 = {Maurtan Maurtan} #Constructed.
+7986 = {Constància Constància} #AUV:Constança #Etymologic form.
+7987 = {Avranchin Avranchas} #Invented.
+#PICARDY
+87 = {Calés Calés} #Picard name for Calais. Occitan wiki borrows from modern French^. the 'ais' in French is -és in Occitan and Catalan both.
+88 = {Arràs Arràs} #Artés
+89 = {Amians Amians}
+7965 = {Pontieu Pontieu} #Ponthieu; constructed. GAS:Pontiu.
+7966 = {Vermandés Vermandés}
+7968 = {Goïsa Goïsa} #ARA:Guíza #CAT:Guïsa #Guise; constructed. Medieval Latin:Guisia/Guisa
+7969 = {Bolonha Bolonha} #Attested in Occitan.
+7973 = {"Sent Omèr" "Sent Omèr"} #CAT:Sant Homer; ARA:Sant Homero
+7974 = {Betuna Betuna} #Béthune. Constructed/1121 attestation.
+#POITOU
+180 = {Peitieus Peitieus}
+4111 = {Aunís "La Rochèla"}
+4386 = {Fontanet Fontanet} #WAS Lower Poitou; BT loc is shifting to Fontenay. #The city name is my best guess at an Occitanization of Fontenay. Poitevin-Saintongeais has 'Funtenaes', but looking at other Fontenay cities around France, they appear to all come from Latin 'Fontanetum'. So that'd be Fontanet in Occitan.
+4387 = {Engolmés Engoleime}
+3077 = {Toars Toars}
+7932 = {Santonge Santas} #Santonge/Santonja. LEM and GAS would have Sentonge and Sentas, probably Auvergnat also.
+7933 = {Niòrt Niòrt}
+7934 = {Chastèlairaud Chastèlairaud} #Châtellerault; best guess Occitanization. Ancient name comes from Castel Airaud. Northern Occitan follows the same C->Ch shift, and the L becomes U like in French. Airaud is attested in an Occitan commune. Since this one kept the L, so too shall the Occitan.
+#PROVENCE
+201 = {Marselha Marselha}
+202 = {Avinhon Avinhon}
+2991 = {Forcauquièr Forcauquièr} #GAS:Horcauquèr LDC:Forcauquièr PRO:Forcauquier
+4696 = {Tolon Tolon} #CAT:Toló
+7890 = {Frejús Frejús}
+7891 = {Draguinhan Draguinhan}
+7892 = {Barcilona Barcilona}
+7893 = {Ais Ais}
+7894 = {Arle Arle}
+#SAVOY
+205 = {Chamberí Chamberí}
+3046 = {Anecí Anecí}
+4719 = {Bressa Borg} #CAT:Burg
+7913 = {Chablés Tonon} #Arp:Chablès & Tonon.
+8031 = {Tarantesa Mostièrs} #Tarantesa attested. http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf #GAS:Mostèrs AUV:Mostèirs PRO:Mostiers #Moûtiers.
+#UPPER BRITTANY
+169 = {"Sent Brioc" "Sent Brioc"} #Brioc is the Catalan form.
+172 = {Nantés Nantas}
+4384 = {Renés Renas} #Rennais & Rennes - Invented/partly attested. 'Rennas' is attested once on Jornalet and 'Renas' comes up several times on Wikipedia. Rennés and Rènnas come up also. Several places in Languedoc are called "Rènnas", but from a different etymology. Arp:Rènes.
+7992 = {Rais Rais} #Retz - using an older form and transliterating.
+7993 = {Ancenís Ancenís} #Ancenis - Invented.
+7994 = {Vitriac Vitriac} #Vitré - Etymological form.
+7995 = {"Sent Maclovi" "Sent Maclovi"} #CAT:Sant Maclovi #Saint-Malo, invented. Malo comes from Maclovius. Maclou in Picard and Old French; Maclovi in Catalan. I'll keep Maclovi for both languages.
+7996 = {Porhoèt Ploermèl} #Porhoet - Transliterated. Capital is Ploërmel, which is a bit less straightforward. It's two parts, Ploer (from Latin 'Plebs') and Mel (from Armel, saint. IT:'Armagilo')
+8013 = {Gueranda Gueranda} #Transliterated.
+
+###GERMANY###
+#ALSACE
+75 = {Estrasborg Estrasborg} #CAT:Estrasburg
+1880 = {Sudgòvia Glèisavièlha} #Constructed. Sundgòvia - Based on POR loc. #Typically the -gau becomes -gòvia. Aargau is Argòvia, Thurgau is Turgòvia. Theoretically since sund is south, could be Sudgòvia. Capital means 'old church'.
+4765 = {Colmar Colmar}
+7944 = {Aianòvia Aianòvia} #Haguenau #Aguenòvia - Based on POR loc...Temp. #But it's the same word--Haag--as the one in the Netherlands, which is 'L'Aia' in Occitan. Aianòvia?
+#AUSTRIA PROPER
+134 = {Viena Viena}
+
+#BADEN
+72 = {Brisgòvia Friborg} #Cat:Brisgòvia Friburg
+74 = {Bada Bada}
+4714 = {Durlac Durlac} #Durlach. French cites Baden-Dourlach as an older name; the German transliterates to Durlac in Occitan.
+
+#BAVARIA
+65 = {"Munic" "Munic"} #http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+
+#CARNIOLA
+#129 = Carniòla
+#HESSE
+83 = {Nassòvia Nassòvia} #Latin 'Nassovia'. Nassau's capital fluctuated between Nassau and Wiesbaden. Nassau is easier to Occitanize, so there you have it.
+
+#HOLSTEIN
+44 = {Amborg Amborg}
+#INNER AUSTRIA
+128 = Caríntia
+132 = Estíria
+#LOWER SWABIA
+70 = {Stocarda Stocarda} #Stuttgart, constructed. Stocarda in Piemontese, Stucàrda in Emilian.
+1872 = {Olma Olma} #Ulm. 'Ulma' in Latin and Italian. Ulmus -> Olme, so Ulma -> Olma.
+#NEUMARK
+#NORTH RHINE
+85 = {Colonha Colonha}
+2975 = {Cleveris Cleveris} #Either Cleveris (like Catalan Clèveris) or Clèves, as in French. I can find evidence of both, unsure which is correct.
+#PALATINATE
+77 = {Aisemont Aisemont} #Heidelberg, the 'mount of bilberries'. Translates to Avajon in GAS and LEN, and Aise and PRO and VIVAUP. AUV Aira/Airela. LMS Maurela.
+78 = {Maiança Maiança} #CAT:Magúncia
+1761 = {Palatinat Palatinat} #Catalan.
+3207 = {Darmestadi Darmestadi} #Darmstadt. Latin is Darmstadium, the latter bit of which becomes 'Estadi' in Occitan.
+4718 = {Asciborg Asciborg} #Constructed. Latin is Asciburgum...So Asci is the Aschaff river, in theory giving Ascinborg and Ascinburg. French wiki says Aschaffenbourg, so they at least have a local Germanic-dervied form.
+4767 = {"Dos Ponts" "Dos Ponts"} #AUV:Dos Pònts GAS:Dus Ponts PRO:Dos Pònts #Translated from French. 
+
+#RHAETIA
+1870 = {"Sant Galh" "Sant Galh"} #Saint-Gall/Sankt Gallen. #CA: 'Sant Gall'; GAS,LEM,AUV 'Sent Galh' #Was using 'Sent Gal', the form of a town in Gévaudan, very close to the Arpitan form for it. But the Occitan wiki says SANT GALH, maybe from Romansh Son Gagl???
+1873 = {"Coira" "Coira"} #(Gotteshausbund Chur)
+4710 = {"Vorarlberga" "Brigança"} #(Vorarlberg Bregenz) #borrowing the Iberian/Italian '-berga' ending for Occitanics for now. #Bregenz. Romansh Briganza, Latin Brigantium (same Latin name as Briançon), apparently feminized. Irregular retention of the G, Romansh normally loses it like French and northern Occitan: Compare cognates for French "lier". Thusly, FR Brigance, OC+CAT Brigança. Regularly would be FR Briance, N-OC Briança, S-OC+CAT Brigança.
+4722 = {"Lhon" "Lhon"} #(Grauerbund Inlanz) #CAT:('Lliga Grisa' Lló)? Or just 'Lló'? #Romansh 'Glion'.
+8484 = {"Tavaus" "Tavaus"} #(Zehngerichtebund Davos) #Davos - RM Tavau, LA Tavaus, archaic IT Tavate.
+
+8486 = {"Toggenborg" "Lichtensteig"} #(Toggenburg Lichtensteig) #TEMP!!!
+
+#ROMANDY
+1867 = {"Lausana" "Lausana"} #Arp:Losena
+1871 = {"Valés" "Sion"} #Arp:Valês
+4720 = {"Genèva" "Genèva"} #CAT:Ginebra
+4721 = {"Friborg" "Friborg"} #CAT:Friburg
+8490 = {"Nòuchastèl" "Nòuchastèl"} #Neuchâtel
+8491 = {"Gruièra" "Gruièras"} #Gruyère Gruyères
+8492 = {"Sant Maurici" "Sant Maurici"} #Saint-Maurice
+
+#SALZBURG
+76 = {"Salzborg" "Salzborg"} #http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+
+#SOUTH RHINE
+80 = {Trevèri Trevèri} #CAT:Trèveris
+1760 = {Coblença Coblença} #Catalan.
+1878 = {Aquisgran Aquisgran}
+3198 = {Sarapont Sarapont} #Saarbrücken, translated.
+4768 = {Julièrs Julièrs} #AUV:Julèirs GAS:Julèrs PRO:Joliers #Temporary, constructed from French and Latin.
+
+#SWITZERLAND
+165 = {Bèrna Bèrna} #CAT:Berna
+166 = {Soïtz Soïtz} #Schwyz, constructed. FR Schwytz, Romansh Sviz, IT Svitto. Latin Suitius. BT SWISS: (Waldstätte Schwyz) ... Other BT cultures just localize Schwyz...
+1869 = {Zuric Zuric}
+3055 = {Basilèa Basilèa} #CAT:Basilea
+8485 = {"Dun" "Dun"} #DE Thun/FR Thoune. From Latin 'Dunum'; mentioned as 'Tuno' in 1133. I could Occitanize it either as Dun or as Tun. The former looks way less weird.
+8487 = {Turgòvia Frauenfeld} #TEMPPPP. #(Thurgau Frauenfeld).
+8488 = {"Argòvia" "Araiga"} #(Aargau Aarau). #Argòvia is attested for Aargau. #Aarau's name is 'Aar[e]' (river's name) + 'au' (floodplain). https://en.wikipedia.org/wiki/Aarau#Origin_of_the_name . AU - This meaning of it seems to be the variant-form of German Aue, cognate to Latin 'aqua', thus Occitan Aiga, Catalan Aigua, etc.
+8489 = {Lucèrna Lucèrna} #Lucerne/Luzern. Attested.
+
+#UPPER SWABIA
+1868 = {Augsborg Augsborg}
+###LOW COUNTRIES###
+#BRABANT
+92 = {Brussèlas Brussèlas} #CAT:Brussel·les #GAS:Brussèras? #Since it's -ss- in both Catalan and Occitan, no -sh- for Gascon here.
+95 = {Breda Breda}
+1744 = {Anvèrs Anvèrs} #CAT:Anvers (formerly Antuèrpia)
+4770 = {"Bòsc del Duc" "Bòsc del Duc"} #CAT:Bosc del Duc GAS:Bòsc deu/deth Duc #Auv&PRO:Bòsc dau Duc #Den Bosch ('Lo Bòsc')/Des-Hertogenbosch ('Bòsc del Duc').
+8019 = {Lovaina Lovaina}
+#FLANDERS
+90 = {Brujas Brujas} #CAT:Bruges
+1865 = {Gant Gant} #Attested. A town is named after it in Gascony.
+3064 = {Dunquèrca Dunquèrca} #CAT:Dunkerque/Dunquerca
+4769 = {Lilla Lilla}
+8015 = {Ipras Ipras} #CAT:Ipras #Ypres/Ieper. Constructed from the Latin names:Ypra/Ipera/Hyprae. Iberian localization uses Ipras, though I'd like Ipèra/Ipera.
+8018 = {Alòst Alòst} #CAT:Alost #Alost/Aalst. Best guess. Latin uses Alostum.
+8020 = {Tornai Tornai} #CAT:Turnai. #Tournai; constructed.
+8021 = {Agreu Agreu} #CAT:Grèvol #Houx/Hulst. 'Holly'. Yes, some Occitan dialects have names which more closely match the Catalan word. However, Agreu is the most universal form AFAIK.
+#FRISIA
+100 = {Vestrogòvia Leovarda} #CAT:Frisía #Friesland Leeuwarden #FRIESLAND -> WESTERGOA. So now it's Vestrogòvia, inspired by POR loc + Västergötland/Westrogothia (FR Westrogothie)
+1931 = {Amisgòvia Emda} #(borrowed from POR loc)... #Emden. Emden is Latin's name for the city, and the form Oc would take if it followed Groningen's pattern (see below).
+3058 = {Drenta Covòrda} #CAT: Cuvòrda? #Drenthe Coevorden. First one is using Portuguese, second is transliteration+the -en -> -a transformation.
+4382 = {Omelàndia Confluent} #Delfzijl/Delfsiehl. Portuguese loc has Omelàndia, for the Ommelanden. Delven 'to delve' + Zijl 'sluice'/water outlet. Delf was a canal connecting Fivel and Ems rivers. Could call it "Canal Mouth" or "The Low" or "Confluence" or such.
+8118 = {Groninga Groninga} #Groningen.
+8119 = {Estrogòvia Docum} #(Eastergoa Dokkum) #inspired by POR loc + Östergötland/Ostrogothia (FR Ostrogothie)
+8299 = {Jèvras Jèvras} #(borrowed from POR+FRA loc)...
+8401 = {Ler Ler} #Leer (borrowed from POR loc)...
+#GUELDERS
+98 = {Utrecht Utrecht}
+99 = {Guèldres Arnhem} #CAT:Güeldes. Unknown Oc capital name.
+3060 = {Nimega Nimega} #Nijmegen. Spanish and Catalan form.
+4381 = {Transisalània Suvòla} #Invented. Overijssel Zwolle. Latin: Transisalania Suvola. The river itself is Isala.
+8017 = {Ceuc Ceuc} #Cuijk. Very temporary Dutch transliteration until I can reexamine the area. Romans called it Ceuclum, Cevelum, Cevecum.
+8032 = {"Caricet del Sud" "Caricet del Sud"} #AUV&PRO:"Caricet dau Sud" GAS:""Caricet deu Sud" #Zutphen. Means 'South fen'. Italian would be something like 'Cariceto del Sud', but Occitan doesn't have a word for fen. Would have to use Caricet, the most likely cognate.
+8120 = {Tuenta Enscheda} #Twente Enschede. Latin.
+#HAINAUT
+91 = {Monts Monts} #CAT:Munts #Mons (dutch Bergen). Literal translation of 'Bergen' and the Latin form 'Montes' is 'Mountains', which gives us Monts in Occitan and Munts in Catalan.
+1743 = {Cambrai Cambrai}
+7976 = {Valencianas Valencianas} #CAT:Valencianes
+7977 = {Maubuèi Maubuèi} #CAT:Maubuig #Maubeuge, constructed. Latin:Malbodium. Latin 'Podium' gives us the Occitan Puèg, Puech, Puèi, Puòg, Poi, and Catalan Puig. 'Puei' and 'Puèg' are the most common Occitan forms.
+8014 = {Cobin Cobin} #CAT:Cubí #Couvin, constructed. Latin:Cubinium. Occitan and Catalan have some betacism, like in Spanish. Italian would be likely to use Covino or Covinio.
+#HOLLAND
+96 = {Zelanda Middelborg} #CAT:Middelburg #Middelburg is the name listed on Occitan Wikipedia also, but 'burg'/'bourg' always becomes 'borg' in Occitan, even as its own noun.
+97 = {Amsterdam Amsterdam}
+4383 = {"L'Aia" "L'Aia"} #CAT:La Haia
+7954 = {Helder Helder} #Don't know if there's a native Occitan term. French is Le Helder, as opposed to Den Helder. Even Arpitan calls it Lo Helder, so...
+7975 = {Dort Dort} #Dort, Netherlands. Could also be Dòrt, at least in theory.
+8112 = {Rotterdam Rotterdam} #http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+#LIEGE
+93 = {Lièja Lièja} #CAT:Lieja
+1742 = {Limborg Limborg} #CAT:Limburg
+1866 = {Namur Namur} #CAT:Namur #Namur, transliterated.
+2974 = {Lon Lon} #CAT:Ló #Loon/Looz. Constructed translation, following BorchLONium/Lossensis urbs. Other names:Borchloen. French pronunciation:Lau.
+3063 = {Ruramonda Ruramonda} #CAT:Ruramonda #Ruremonde/Roermond, constructed. In Latin the river is 'Rura'; in Walloon, is 'Roûle' (feminine). French is using -e feminine; Latinizations of -monde cities have the same (Termonde/Dendermonde -> Teneramonda).
+8025 = {Vervièrs Vervièrs}
+#LUXEMBOURG
+94 = {Luxemborg Luxemborg} #CAT:Luxemburg
+3066 = {Arlon Arlon} #CAT:Arló
+8022 = {Dinant Dinant} #Temp? French.
+8023 = {Bolhon Bolhon} #CAT:Bulló #Bouillon; constructed (guess!).
+8024 = {Bastonha Bastonha} #CAT:Bastonya #Bastogne; constructed. Latin:Bastonica.
+8027 = {"Sent Vit" "Sent Vit"} #Saint-Vith/Sankt Vith. Occitan and Catalan happen to have a saint whose name is very similar, from 'Vitus' or 'Vitius'. In this case, does perfectly!
+
+###IBERIA###
+#ALENTEJO
+229 = {Beja Beja} #Portuguese.
+4150 = {Évora Évora} #Portuguese.
+8063 = {Olivença Olivença} #Portuguese.
+8100 = {Marvan Marvan} #Semi-Spanish.
+8101 = {Elvas Elvas} #Portuguese.
+8102 = {Estremoz Estremoz} #Portuguese.
+8104 = {Mòra Mòra} #constructed.
+
+#ALGARVE
+230 = {Lacs Lacs}
+8105 = {"Sant Jacme" Sinus} #Translated.
+8106 = {"Castre Verd" "Castre Verd"} #Castro Verde.
+8107 = {Far Far}
+
+#ANDALUSIA
+222 = {Almeria Almeria} #ARA:Almería CAT+OCC:Almeria #Historically Almaria in Occitan, ca 1148. http://thalamus.huma-num.fr/index-lieux/lettre-A.html
+223 = {Granada Granada}
+224 = {Sevilha Sevilha}
+225 = {Còrdoa Còrdoa}
+226 = {Gibartar Gibartar}
+1748 = {Jaen Jaen} #Jaén. ARA Chaén. #Arabic Djayyan (regular orthograpgy?) Chayán (in Aragonese orthogrsaphy). Castilians took Jahen/Jayén. Old aragonese took Jaen or Jahen, probably borrowing from the Castilian. Medieval Catalan Jayen.
+1749 = {Cadis Cadis} #Attested.
+4546 = {Malaga Malaga} #CAT:Màlaga #Malaga in most OCC dialects; Màlaga in Niçard and Cisalpine.
+4548 = {Òlva Òlva} #Huelva, constructed. CAT: Olva (attested). ES ue- generally is o- in Catalan and ò- in Occitan. Ex. Fueros, Fors, and Fòrs.  Older attestation is Olba. Retaining the V matches closer to Spanish spelling on the one hand and can still be pronounced 'b' on the other. (Occitan, similar to Ibero-Romance, has partial betacism). The -ue- part at the beginning is something which changes to -o- in Catalan and -o- or -ò- in Occitan (see #2990 Teruel, as well as cognates like ES 'muerto' and OCI 'mòrt').
+8070 = {Beda Beda} #Úbeda, probable. There's an Ubeda (no accent) in Valencia, plus 'Beda' is an Old Occitan term for this Andalusian one ( http://thalamus.huma-num.fr/index-lieux/lettre-U.html ). Hmm...
+8071 = {Andúlhar Andúlhar} #Temp Occitanization. ú/ó... #Andújar. BYZ Istourgis; ARB Anduyar... Historically Isturgi, confused w/ Iliturgi. old names still used in demonyms https://es.wikipedia.org/wiki/And%C3%BAjar#Historia
+8072 = {Lucena Lucena} #Lucena. Matching Castilian for now... Hist. Eliossana, from Hebrew 'Eli [h]ossana'; Arabic calls it 'Al-Yussana'. Could get away with Luçana if we need it to sound more Occitano-Romance. Luçana is attested at least once, but i don't know where it refers to. https://ca.wikisource.org/wiki/Curial_y_Guelfa/Observacions_preliminars https://fr.wikipedia.org/wiki/Personnages_de_Tirant_le_Blanc#L https://www.jstor.org/stable/43808388 https://www.academia.edu/33556269/Eliseu_Tirant_lo_Blanc_ante_el_espejo_de_Lucrecia_La_Celestina_retrato_de_la_doncella_como_c%C3%B3mplice_fiel_del_amor_secreto https://ia600304.us.archive.org/2/items/dictionnairenobi00vors/dictionnairenobi00vors.pdf https://www.scribd.com/document/385504772/Alejandro-Sendra-INH-El-Tirante-El-Blanco-Demostra-Que-El-Segle-d-or-Castella-Va-Ser-Escrit-en-Catala ACTUALLY! DOES EXIST AS A CATALAN GIVEN NAME https://ca.wiktionary.org/wiki/Llu%C3%A7ana
+8073 = {Pedroches Potzblanc} #Pedroches is a plural vers. of Pedroche, the town...From Arabic 'Bitrawsh'? Mozarabic 'Betruchi'? Visigothic 'Betrus Hins'? https://an.wikipedia.org/wiki/Pedroche https://es.wikipedia.org/wiki/Pedroche#Historia Pozoblanco = 'White Well', so translating.
+8074 = {"Pauma del Riu" "Pauma del Riu"} #AUV:? dau Riu CAT:Palma del Riu GAS:Pauma deu Riu LEM&PRO:Pauma dau Riu #Palma del Rio.
+8075 = {Carmona Carmona} #Portuguese.
+8076 = {Ecíja Ecíja} #Écija. Rough Occitanization... The word 'exodus' in the the 3 languages is accented on the é in Castilian, is accented on è in Catalan, and the ò in Occitan.
+8077 = {Aracena Aracena}
+8078 = {"Medina Sidònia" "Medina Sidònia"} #Constructed.
+8079 = {Sàfara "Sàfara de la Sèrra"} #Zahara de la Sierra, constructed. ARB Sahra. Old Portuguese (+BT POR) Sáfara, Old Castilian Çafara. Occitan allows init C, so could be Çafara, Safara, Çàfara, or Sàfara. Two accented letters looks weird.
+8080 = {Marbèla Marbèla} #Marbella, constructed.
+8081 = {Anticària Anticària} #Antequera, constr. ROM Anticaria/(later?)Antiquaria, ARB Antaquira. Hmm... What's this? https://archive.org/stream/DictionnaireClassiqueDesNomsPropres/Dictionnaire_classique_des_noms_propres_djvu.txt
+8082 = {Alfama Alfama} #ARA+BT POR 'Alfama'. GAS Al·hama??? #Aragon's Alhama (w/ the same Arabic name as this one) is Alfama in Aragonese. https://an.wikipedia.org/wiki/Alfama_d%27Arag%C3%B3n
+8083 = {Lausa Lausa} #Castilian 'Loja', formerly 'Loxa' and 'Lauxa'. Arabic 'Lawša' (lapis). Could have been Losa (slab), which is Lausa in Occitan and Llosa in Catalan. Lawša could also give a similar Latinization.
+8084 = {Guadiç Guadiç} #Guadix. The ancient Acci/Accitum. Muslims called it Wadi'Ashi (Wadi of Ashi), and it reentered Spanish as Guadix. So I could go with 'Accit/Aquit' or similar. I could go from Arabic, which lends something like 'G(u)adish', or from Guadiz (BT Portuguese), which lends something like "G(u)adis". The latter is a nice match to Cadiz. Etymologically, while keeping that -s sound, could also do G(u)adiç.
+8085 = {Baça Baça} #Baza; TEMP. LAT Basti, region Bastetània/Bastitania. ARB Bastha/Batza https://ca.wikipedia.org/wiki/Baza . BT POR Baça. Using Baça for now...
+8086 = {Vera Vera}
+8087 = {Òscar Òscar} #Huéscar. Basing on BT POR Óscar.
+
+#ASTURIAS
+207 = {Ovet Ovet} #Oviedo, Invented.
+1745 = {Santandèr Santandèr}
+8033 = {Laret Laret} #Invented.
+8034 = {Camp Reinosa} #AUV:Champ #Campoo, Invented.
+8035 = {Gigon Gigon} #Ivented.
+8037 = {Avilés Avilés} #Base BT.
+8038 = {Navia Navia} #Eonavia and Navia.
+8039 = {Tinèu "Cangas de Tinèu"} #Tineo, Invented. Temporary. Cangas is a word, but doesn't feel like it should be translated as I'm unsure of town's etymology.
+
+#ARAGON
+211 = {Òsca Òsca} #ARA:Uesca #CAT:Osca
+214 = {Saragossa Saragossa} #ARA:Zaragoza/Zaragoça
+2990 = {Teròl Teròl} #ARA:Teruel CAT:Terol GAS&PRO:Teròu (Etymologically) #Attested! http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+3095 = {Calataiut Calataiut} #ARA:Calatayú CAT:Calataiud (formerly Calatauit). Etymologically the -it wins out in Occitan.
+8108 = {Jaca Jaca} #ARA:Jaca/Chaca
+8109 = {Borja Borja} #ARA:Borja/Borcha
+8110 = {"L'Aínsa" "L'Aínsa"} #ARA:L'Aínsa #CAT:L'Aïnsa
+8111 = {Barbastre Barbastre}
+8116 = {Alcanhís Alcanhís} #ARA:Alcanyiz CAT:Alcanyís #Occitan name is a construction.
+8117 = {Albarrasin Albarrasin} #ARA:Albarrazín CAT:Albarrasí #Occitan wiki uses the Aragonese version...In theory, Oc would be Albarrasin.
+
+#BALEARES
+333 = {Malhòrca Palma} #CAT:Mallorca Palma
+4559 = {Menòrca Ciutadèla} #Maon ARA:Menorca Ciutadiella #CAT:Menorca #Maó #New BT uses Ciutadella for Menorca capital
+4560 = {Pitiusas Eivissa} #CAT:Pitiüses Eivissa
+
+#BEIRAS
+228 = {Viseu Viseu} #Viseu, Invented. #CLOSED E, per Chrysocyon.
+1851 = {Coïmbra Coïmbra}
+4556 = {Avièr Avièr} #AUV:Avèir CAT:Aver GAS:Avèr PRO:Avier #Aveiro, Constructed.
+8096 = {Covilhana Covilhana} #Constructed from Portuguese and Spanish.
+8097 = {Provença Provença} #Proença. Founded by Occitan colonists during the Reconquista.
+8099 = {Garda Garda} #VAR.GAS:Guarda
+
+#CATALONIA
+212 = {"Girona" "Girona"} #Same in Occitan as Catalan, but necessary to include these so French localization doesn't override.
+213 = {"Barcelona" "Barcelona"} #Same in Occitan as Catalan, but necessary to include these so French localization doesn't override.
+2987 = {"Urgèl" "Urgèl"} #CAT:Urgell GAS:Urgèu
+2988 = {"Tarragona" "Tarragona"}
+4557 = {"Lhèida" "Lhèida"} #CAT:Lleida; Var. Occ:Lèida, Lheida
+7889 = {"Andòrra" "Andòrra"} #CAT:Andorra
+8113 = {"Vic" "Vic"}
+8114 = {"Empúrias" "Figuièras"} #ARA:Empurias Figueras #CAT:Empúries Figueres OC:Empúrias GAS Figuèras/LDC Figuièras/PRO+LEM+VIV Figuieras/AUV Figuèiras*? Arart from 'Figuèras' for Occitan, all these are attested.
+8115 = {"Tortosa" "Tortosa"}
+
+#DOURO-E-MINHO
+231 = {Pòrt Pòrt} #Translated.
+232 = {Bragança Bragança}
+3104 = {Braga Braga}
+8090 = {Viana Viana}
+8091 = {Valença Valença}
+8092 = {Claus Claus} #Translated.
+8093 = {Miranda Miranda}
+8094 = {Vilareiala Vilareiala} #CAT:Vilareial
+8095 = {Montcòrb Montcòrb} #Moncorvo 'Mount Raven'? Unfortunately there's a lot of Oc variants for raven. Còrb/Corbàs seems to be most common.
+
+#ESTREMADURA
+227 = {Lisbona Lisbona} #GAS:Lisbona/Lisboa (Gascon loses intervocalic N in some dialects, just like Portuguese.)
+3108 = {Setúbal Setúbal} #Setúbal - Portuguese.
+4787 = {"Ribatage" "Santa Irèna"} #CAT: "Santa Irene" AUV:"Santa Irèna" GAS:"Senta Irèna" PRO:"Santa Irena"(No accent?) #Constructed/Translated. #Ribatejo. Ribatejo = Bank of the Tagus. Riba is the same word, and Tagus is Tage in Occitan. https://oc.wikipedia.org/wiki/Tage. Santarém derives from 'Sancta Irene', which is 'Santa/Senta Irèna/Irena' in Occitan.
+8098 = {Lèiria Lèiria} #Constructed. Does the è accent work there? #Leiria, derived from leira, from laria, from a Celtic word.
+8103 = {Abrantes Abrantes} #Abrantes. Latin Aurantes.
+
+#EXTREMADURA
+218 = {Badalhoç Badalhoç} #Badajoz - Castilian, but Attested (loan). #LAT Badaiocium & BT POR Badalhouce -> OCC Badalhoç (or Badalhos, going off Cadiz->Cadis) & CAT Badalloç (or Badallos, idem).
+1747 = {Càceres Càceres} #CAT.
+3099 = {Mèrida Mèrida} #CAT.
+4788 = {Plasença Plasença} #CAT name aligns w/ Italy's 'Piacenza', which in Occitan is Plasença.
+8058 = {Bèlalcàsser Bèlalcàsser} #Belalcázar. Probably Bel + Alcázar. These words are element Bell + Alcàsser in Catalan. NOTE: Occitan-speaking friend says, of the element combinations, Bèlalcàsser is better than Belalcàsser or Bèl Alcàsser.
+8060 = {Trugalh Trugalh} #Trujillo, constructed. LA: Turgalium. BT POR: Truxilho.
+8061 = {Alcàntera Alcàntera} #Alcántara. Catalan form is Alcàntera. https://an.wikipedia.org/wiki/Alc%C3%A0ntera_de_X%C3%BAquer
+8062 = {Lherena Lherena} #Llerena, transliteration.
+
+#GALICIA
+206 = {"La Coronha" "La Coronha"} #CAT:"La Corunya" GAS:"La/Era Coronha"
+4554 = {"Luc" "Luc"} #Lugo. Lucus in Latin, same as 'Lucq' in Bearn ('Luc' in Occitan).
+4555 = {Pontvièlh Pontvièlh} #PRO&VIVAUP:Pòntvielh #Pontevedra.
+4558 = {Aurés Aurés} #Constructed. Ourense. Latin 'Auriensis', city of gold.
+8040 = {Montonhet Montonhet} #CAT:Muntonyet #Mondoñedo; Constructed.
+8041 = {Betants Ferròl} #Invented. Betanzos Ferrol.
+8042 = {Compostèla Compostèla} #GAS:Compostèra (Etymologically) #Or St Jaume/Jacme de Compostèla. #CAT:Sant Jaume (de Galícia)
+
+#LA MANCHA
+219 = {Toleda Toleda} #Toledo - 'Toleta/Toleda' in Old Occitan; modern just uses Castilian 'Toledo' or, more rarely, the older 'Toleda'. I'm keen on Toleda.
+2754 = {"Ciutat Reiala" "Ciutat Reiala"} #CAT:"Ciutat Reial"
+8054 = {Talavera Talavera} #Castilian, temp.
+8057 = {"La Solana" "La Solana"} #The word solana apparently exists in Languedoc. Catalan name would be the same.
+8059 = {Alcàsser Alcàsser} #Catalan word for Alcázar.
+8064 = {Alcaras Alcaras} #'Alcaraz' in Castilian... Arabic toponym means 'Cherry trees' (CA Cirerer; OC cas a bunch of dialect forms. AUV çarsèir/Cersèir, GAS Cerisèr/Ceridèr/Cerilhèr/Cerolhèr/Cerièr; LDC Cerièr/Cirièr; LEM Cirier, PRO Cereisier/Cereier, VIV Cerier/Cereisier). #https://es.wikipedia.org/wiki/Alcaraz#Historia
+8121 = {Almaden Almaden} #Almadén, from Arabic toponym 'al-ma`din'. BT Almadén for CAS and Almadém for POR. Lit. 'La Mina', but can Oc+Catalanize as 'Almaden/Almadé'...
+
+#LEON
+208 = {Leon Leon}
+215 = {Valhadolit Valhadolit} #Etymological and Aragonese form would sound out as Valhadolit. Modern Oc spells Valhadolid.
+216 = {Salamanca Salamanca} #Salamanca. Either OCC+CAT forms are unattested, OR the localized forms happen to match Castilian's.
+4552 = {Paléncia Paléncia}
+4553 = {Çamora Çamora} #Zamora. LAT Ocellum Duri, Ocellodurum.
+8043 = {Pontferrada Pontferrada} #GAS:Pontherrada PRO:Pòntferrada? 'Iron Bridge'.
+8044 = {Benavent Benavent}
+8045 = {"Sant Fagond" "Sant Fagond"} #Sahagún. From Castilian form: ARA:Safagún (attested) CAT:Safagú* GAS:Sahagon*? OCC:Safagon*? #Etymological form: LAT 'Sancti Facundi', so 'Sant Facundo' in Aragonese, 'Sant Facund' in Catalan (attested https://ca.wikipedia.org/wiki/Facund_i_Primitiu_de_Sahag%C3%BAn), 'Sant (F/H)a(c/g)(u/o)nd' in Occitan (following Secundus->Segond, can do Fagundus->Fagond, BUT Facund like in Catalan still works).
+8050 = {"Ciutat Roderic" "Ciutat Roderic"} #Ciutat Rodrigo, Translated.
+
+#MACARONESIA
+366 = {"Lançalòt" "Escuèlh"} #CAT:Lançalot Escull GAS,PRO,VIVAUP:Escuelh #Lanzarote Arrecife.
+367 = {"Açòres" "Punta Delgada"} #Açores 'Ponta Delgada'. CAT:Açores 'Punta Delgada'; OCC Açòres 'Punta/Poncha Delgada/Dalgada(/Deugada/Daugada?)'. Thankfully Delgada's cognate exists as pretty much the same word... Daugat (therefore theoretically Daugada too) existsa as a surname in Occitan, see Bernat Daugat. https://books.google.com/books?id=LvTIUHsftI0C&pg=PA92&lpg=PA92&dq=%22delgat%22+AND+%22catal%C3%A0%22&source=bl&ots=ryWfellVjJ&sig=ACfU3U0XpqLmK4OwqdYYXtTZAkVJCceXkQ&hl=en&sa=X&ved=2ahUKEwiHmOXmlPj0AhWUCjQIHSdTAxoQ6AF6BAgCEAM#v=onepage&q=%22delgat%22%20AND%20%22catal%C3%A0%22&f=false
+368 = {"Madièra" "Fenolhal"} #Madeira Funchal. ARA,CAT (Madera Fenollal); AUV (Madèira Fenolhal/Fenolhau); GAS (Madèra Henolhau); LDC (Madièra Fenolhal); LEM,PRO,VIV (Madiera Fenolhau) #Madeira is from Latin Materia, meaning wood. While the placename Madèira is loaned from Portuguese, BT favors etymological forms if we can help it. OC has Madièra as a placename evolved from Materia, and more rarely as a word meaning a place where lumber is harvested. Also madièr in the masculine to mean plank/wood/etc.. Dialectal forms: ARA,CAT Madera; AUV Madèira; GAS Madèra; LDC Madièra; LEM,PRO,VIV Madiera; also can constr. FR Madrière. #Funchal: Following that 'Funchal' came from 'Funcho' (Funchal, place where Funcho grows), the Occitan term is Fenolh/Fenon/Henolh/Holh. Catalan is Fenoll. Aragonese is fenullo/fenollo. +al/au.
+4565 = {"Tenerife" "Santa Crotz"} #CAT:"Santa Creu" #GAS&LEM:"Senta Crotz"
+5096 = {"Grand Canària" "Las Paumas"} #CAT:"Gran Canària" "Les Palmes"
+
+#MURCIA
+221 = {Múrcia Múrcia} #ARA:Murcia CAT:Múrcia
+4547 = {Albacet Albacet} #Albacete. Borrowing 'Albacet' from Aragonese. #Arabic was 'Al Basit'. As Occitan doesn't have the ending -e like that, can do Albacet or similar. Translates from Arabic as 'The Plain' ('Lo Plan' in Occitan).
+8065 = {Vilhena Vilhena} #Villena, in both Castilian and Catalan. So we can't really say it translates to OCC+CAT 'vila' w/ diminutive and can the L. Vilhena?
+8066 = {Caravaca Caravaca} #Castilian, but if is Cara+Vaca should be the same. LEM,AUV,VIV 'Vacha'.
+8067 = {Cartagena Cartagena} #Cartagena. ARA:Cartachena CAT:Cartagena. Etymologically would be Cartagina.
+8068 = {Lòrca Lòrca} #Lorca. Cat:Llorca. Probably Lòrca in Occitan. To verify.
+8069 = {Siles Siles} #Castilian; TEMP.
+
+#NEW CASTILE
+217 = {Madrit Madrit} #Madrid exists in Occitan, but etymologically is Madrit. Also, Madrit is Base-EU4's Catalan loc for it.
+2751 = {Cònca Cònca} #Cuenca, constructed. CAT:Conca (Attested). OCC should be Cònca, based on ES Fuero / CA For / OC Fòr.
+8052 = {Guadalajara Guadalajara} #Guadalajara.
+8053 = {Molina Molina} #Molina. Typically masculine (minus the A) in Occitan, but feminine exists as a synonym in Languedoc.
+8055 = {Arança Arança} #Aranjuez. Transliterating etymological Basque 'Arantza'.
+8056 = {Mòia Mòia} #Moya. Transliteration from likely Catalan pronunciation. Need to look, though.
+
+#OLD CASTILE
+1746 = {Borgs Borgs} #Burgos, Translated.
+2755 = {Sòria Sòria} #{Soria Soria} #Unknown whether the lack of accent on the O is a product of Occitan Wikipedia or its actual Occitan pronunciation. Ò is usually present in Occitan when it is in Catalan, so going with this *for now*.
+2989 = {"La Rioja" Logronh}
+8047 = {Almaçan Almaçan} #Transliterated.
+8048 = {Miranda Miranda}
+8049 = {Aranda Aranda}
+
+#SEGOVIA
+4551 = {Àvila Àvila} #Ávila in Spanish. Using Catalan.
+4789 = {Segòvia Segòvia} #Attested. http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+8036 = {Areval Areval} #CAT:Areval GAS&PRO:Arevau #Arevalo, constructed. Possible origins: Celtic 'Arevalon', Latin 'Acrifulu' -> Agrébalo -> Arévalo. Using the Celtic origin looks the closest to Occitan and Spanish, so using it for now.
+8051 = {Cuèlhar Cuèlhar} #Cuéllar. Unknown etymology, so transliterating for now.
+
+#VALENCIA
+220 = {Valéncia Valéncia} #CAT:València
+1750 = {Alacant Alacant} #CAT:Alacant
+4549 = {Sàtiva Sàtiva} #CAT:Xàtiva #The Catalan X would be pronounced 'Shàtiva' in Gascon and 'Sàtiva' in the rest of Oc. Same way Renaixença in Catalan is Renaishença in Gascon and Renaissença in the other dialects.
+4550 = {Castilhon Castilhon} #CAT:Castelló
+8088 = {Dénia Dénia} #CAT:Dénia
+8089 = {Maestrat Peníscola} #CAT:Maestrat Peníscola #ARA:Mayestrato Peniscola #Effectively it's 'Magistrate' without the G.
+
+#VASCONIA
+209 = {Biscaia Bilbau}
+210 = {Pampalona Pampalona}
+7903 = {Tudèla Tudèla}
+7920 = {Sangòssa Sangòssa}
+7929 = {Lagàrdia Lagàrdia} #Laguardia, Translated.
+8016 = {Guipuscoa "Sent Sebastian"}
+8026 = {Alaba Vitòria} #Attested.
+
+###ITALY###
+#ABRUZZO
+120 = {Aigla Aigla}
+4733 = {Molise Campbas} #Molise; Campobasso, Translated.
+7013 = {Quieti Quieti} #Chieti; invented.
+7014 = {Teram Teram} #Teramo. Using the same -o cutting as in Bergam for Bergamo.
+7015 = {Marsica Aveçan}
+#APULIA
+122 = {Tarent Tarent}
+1933 = {"Bar" "Bar"} #Bari, attested Old Occitan form. Chemical element in Oc is 'bari', and Catalan and Piedmontese both retain the I for this city. HOWEVER, Arnaut Danièl's Old Occitan uses "Bar", though this could be wordplay on his part to have the desired number of syllables (http://trobar.org/troubadours/arnaut_daniel/arnaut_daniel_03.php). NO, for Old Occitan archives of Montpellier ALSO use Bar! http://thalamus.huma-num.fr/index-lieux/lettre-B.html
+2985 = {Capitanada Lucera} #Constructed.
+7005 = {Lece Lece} #Lecce. Borrowing from Piedmontese. Close to BT Portuguese.
+7006 = {Brindisi Brindisi} #Catalan and Piedmontese both retain the I.
+7007 = {Barleta Barleta} #Attested. http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+7011 = {"Sant Sevèr" "Sant Sevèr"} #Gascon would be 'Sent Sever'. I'm using Languedocien+Provençal as they actually border the Mediterranean.
+#CALABRIA and LUCANIA
+123 = {Calàbria Rès} #Reggio - Invented (based on Piedmontese).
+1934 = {Lucània Potença}
+2984 = {Cosença Cosença}
+7003 = {Catançar Catançar} #Invented, based on BT Portuguese.
+7004 = {Matèra Matèra} #Base BT 'Matera'. Oc Wikipedia uses 'Matera' also, but whether this is just using the Italian word is unknown. Matèra is itself an Occitan word, and Italian pronounces w/ short E, which is why the è here..
+7008 = {Mèlfes Mèlfes} #Melfi, invented. Delphi in Oc is 'Dèlfes'.
+#CAMPANIA
+121 = {Nàpols Nàpols}
+2983 = {Salèrne Salèrne} #Salèrne or Salèrn. #http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+3039 = {Càpoa Càpoa}
+4734 = {Avelin Avelin} #Avellino. Occitan masculine of 'Avelina'.
+7009 = {Cilent Cilent} #Cilento, Constrcuted.
+7012 = {Benevent Benevent}
+7016 = {Sòra Sòra} #Sora. A city by this name exists in Gascony, possibly by Latin Sorus, which would be masculine of Sora.
+7017 = {Gaieta Gaieta} #Gaeta. The diminutive 'Gaetano/Gaetana' exists in Occitan, usually with an added I (with the exception of Provençal, which doesn't add it.) Old Occitan placename was Gayeta. https://web.archive.org/web/20181022153247/http://revistadoc.com/wp-content/uploads/2013/07/LinguisticaOccitana9Lieutard.pdf
+#CARNIA
+7088 = {Cador Parròquia} #AUV:Parròcha? LEM:Parròfia #Cadore. Best transformation to Occitan is Cador, which happens to match Venetian. Pieve translates to 'Parish Church', which I've shortened to 'Parish'.
+7089 = {Fèltria Fèltria} #Feltre. Mixing Venetian Fèltre w/ Latin Feltria.
+7094 = {Belun Belun} #From Piedmontese.
+7098 = {Tolmeç Tolmeç} #Tolmezzo; Constructed.
+#CORSICA
+1247 = {"Adiaci" "Adiaci"} #Ajaccio, borrowing historical Catalan 'Adiaci'. https://ca.wikipedia.org/wiki/Ajaccio
+5092 = {"Bastia" "Bastia"} #Confirmed in Occitan, demonym is bastiés.
+7038 = {"Bonifaci" "Bonifaci"} #Bonifacio. OC+CAT Bonifaci; ARA Bonifacio.
+7040 = {"Corts" "Corts"} #Corte, probable translation. ARA:Cortz OC+CAT: Corts #ARAGONESE notes: seems to also be 'Cort', w/ probable plural 'Cortz' (IDK why they spell plurals for words ending in T with a Z). https://an.wikipedia.org/wiki/Cort_Internacional_de_Chusticia https://an.wikipedia.org/wiki/Lista_de_toponimos_d%27os_territorios_historicament_aragonesofonos #NOTES: CO Corti, LA Curia. Demonyms Cortinesi/Curtinesi. https://fr.wikipedia.org/wiki/Corte#Toponymie #Is Corti a plural-cognate of 'Courts'? It seems 'corte' in Italian means 'court', and 'curtu' is cognate to FR 'court' in the sens of 'short'...Wouldn't be surprised if it is to 'cour' ('Court') as well. GOING WITH THIS! https://co.wikipedia.org/wiki/Pruverbii_cuminesi
+
+#EMILIA
+105 = {Parma Parma}
+106 = {Modena Modena}
+113 = {Ferrara Ferrara}
+4730 = {Bolonha Bolonha}
+7045 = {Bardi Bardi} #For now.
+7057 = {Plasença Plasença}
+7060 = {Bòbi Bòbi} #Bobbio. Local dialect:Bòbi. For the moment, using the latter. Could come out to Bòb or something.
+7067 = {Rès Rès} #Reggio; Invented. #Res in Piedmontese and Rèz in local dialect, which could be Occitanized to "Rès". Could also construct Règi off the Italian.
+7068 = {Guastalla Guastalla} #CAT:"Guastal·la" (pronunciation) #Guastalla; constructed. Local dialect:Guastàla.
+#FRIULI
+111 = {Aquileia Aquileia} #Unsure which exactly we're supposed to be localizung this to. Friuli or Aquileia or Exitia/whatever I saw England's loc was?
+130 = {Pola Pola} #Pula
+1769 = {Gorícia Gorícia} #Or Goriça... Gorizia, Invented.
+4738 = {Trièste Trièste} #Attested! http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf Piedmontese'd be 'Triest'.
+7082 = {Pisin Pisin}
+7090 = {Rovinh Rovinh}
+7091 = {Tolmin Tolmin}
+7096 = {Udin Udin} #Friulian. Piedmontese, Spanish and Portuguese all accent the U.
+
+#LAZIO/LATIUM
+118 = {"Roma" "Roma"}
+3295 = {"Vitèrbe" "Vitèrbe"} #Viterbo. LEM Viterbe; other OC Vitèrbe. Attested on Oc Wikpiedia. Piedmontese:Viterb. Occitan word with same ending:Supèrb(e) - Italian Superbo.
+4732 = {"Velètri" "Velètri"} #Velletri, constructed. Accents based off Romance-language versions of Demetrius. LA: Velitrae. https://www.locongres.org/images/flipbook/lexics/prenoms/files/assets/basic-html/index.html#23
+7019 = {"Sabina" "Tivòli"} #Tivoli. Given Mondòvi, I think the accent goes on the o, making this Tivòli. A few scant sources may back this up, mostly dealing w/ the Limoux carnival: https://caoc.cat/carnaval-de-limos/ http://occitan-aude.over-blog.com/2014/02/calendi%C3%A8r-del-mes-de-mar%C3%A7-de-2014.html https://occitanica.eu/items/show/20075?output=omeka-xml https://www.jornalet.com/noticia/1277/limos-per-tuar-livern-carnaval-es-arribat
+7020 = {"Campanha" "Alatri"} #Campagna Alatri. ARA+CAT: Campanya? N-OC: Champanha; S-OC: Campanha. Alatri matches base BT...fow now.
+7021 = {"Orvet" "Orvet"} #Orvieto, constructed. LA 'Urbs Vetus'.
+
+#LIGURIA
+101 = {"Gènoa" "Gènoa"}
+2992 = {"Albenga" "Albenga"} #Attested. http://thalamus.huma-num.fr/index-lieux/lettre-A.html
+7053 = {"Finari" "Finari"} #Finale; TEMP...translated as best I can. #LA:Finarium; Ligurian: Finô (local)/O Finâ (Genoese). Genoese -â is difficult to assign to its cognate word ending. The demonym is Finarìn, which could mean the city ending is -ari like the Latin, hence 'Finari' for the Occitans. Could MAYBE correspond to Occitan -ala and Italian -ale, in the feminine. For ex. 'Principal Page' is 'Pagina prinçipâ', OC 'pagina principala' https://lij.wikipedia.org/wiki/Pagina_prin%C3%A7ip%C3%A2
+7054 = {"Onelha" "Onelha"} #ARA+CAT Onelya (transliteration). OC: Onelha, attested. http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+7055 = {"L'Espècia" "L'Espècia"} #ARA: 'A Espezia'/'A Especia'; CAT:L'Espècia; AUV:L'Espiça; Other OC:L'Espècia #La Spezia; Translated. #NOTE Aragonese: Can't find an attestation for 'spice', but the same word is used for Spice&Species in Castilian, Catalan, and Occitan. Pretty positive that Espezia is right. https://an.wiktionary.org/wiki/espezie
+7056 = {"Mónegue" "Mónegue"} #CAT:Mònaco
+
+#LOMBARDY
+104 = {Milan Milan}
+107 = {Breissa Breissa} #GAS:Breisha (Brescia - that 'sh' sound) #http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+109 = {Màntoa Màntoa}
+1862 = {Cremona Cremona}
+2992 = {Albenga Albenga}
+3054 = {Lugan Lugan} #Piedmontese name. #Ticino is Tecin in Oc.
+3294 = {Valtelina Sondri} #Valtellina; Constructed. Sondrio; using Piedmontese.
+4728 = {Pavia Pavia}
+4739 = {Bergam Bergam}
+4740 = {Còme Còme}
+7078 = {Lòd Lòd} #Lodi, again using Piedmontese.
+7083 = {"Val Camonica" Bren} #GAS:Vath Camonica? How far south does that change? #Val Camonica matches vanilla; "Bren" is the natural Occitan evolution of Brennus and Brenum ('Breno' in Italian), attested in Occitan toponymy under names such as Bren, Brenhac (Breniacum), etc. In most dialects it means 'grain' or 'dust', but in modern Lengadocian can also mean 'excrement'. So it works, it's etymologically correct, just Lengadocian soldiers might not want to step in Bren...
+
+#MARCHE
+119 = {Ancona Ancona}
+2977 = {Urbin Urbin}
+7025 = {Pesar Pesar} #Pesaro; Invented.
+7026 = {Camerin Camerin}
+7027 = {Fabrian Fabrian}
+7029 = {Gubi Gubi} #Gubbio; Invented.
+7030 = {Macerata Macerata}
+7034 = {Carpenha Carpenha}
+7035 = {Ciutat "Ciutat del Castèl"} #Città di Castello; Constructed.
+7037 = {Fèrme Fèrme} #Fermo; Rough cognate from Latin 'Firmum' (Occitan Fèrm(e)). Piedmontese:'Ferm'.
+
+#PIEDMONT
+102 = {"Niça" "Niça"}
+103 = {"Turin" "Turin"}
+1875 = {"Coni" "Coni"} #http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+2979 = {"Novara" "Novara"} #Mistralian 'Nouvaro'? = classic 'Novara'. https://www.occitanica.eu/items/show/4059?output=omeka-xml
+2981 = {"Montferrat" "Montferrat"} #GAS:Montherrat (at least topynomically) http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+3045 = {"Aosta" "Aosta"} #Arp:Aoûta
+4727 = {"Saluças" "Saluças"}
+7048 = {"Tortona" "Tortona"} #???
+7052 = {Alba Alba}
+7058 = {Alexàndria Alexàndria}
+7061 = {"Aic" "Tèrmes d'Aic"} #('Acqui' 'Acqui Terme'), 'Àich' in Piedmontese. Aic or Ais for Occitan. Aix-en-Provence was Aquae Sextiae in Latin, and became Ais in Occitan. Old Occitan name for aix-en-Provence was 'Aics', so w/o the s could become Aic. Piedmontese may point us in this direction, but I don't know whether that -ch is pronounced as a -c or a -ch in English. However, the Latin name of Acqui Terme is Aquae Statiellae or Aquae Statiellorum, so the s- might push it to ('Ais' 'Ais de Piemont') or something.
+7062 = {"Ceva" "Ceva"} #Ceva, probable. Latin:Seva; Piedmontese:Seva.
+7063 = {"Mondòvi" "Mondòvi"} #Mondòvi/Mondví...Latter is attested, but I think it's Piedmontese. http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+7064 = {"Tenda" "Tenda"}
+7065 = {"Clevàs" "Clevàs"} #Quivàs? #Chivasso; Invented. Piedmontese is 'Civass'; Latin is Clevasium/Clavasium. The -asso in IT can be -as in Occ (Passo/Pas; Masso/Mas), but could also be -às if name is from -acium.
+7066 = {"Cair" "Cair"} #https://it.wikipedia.org/wiki/Storia_di_Chieri #Chieri; Invented. Piedmontese Cher (Ker); FR Quiers. LA Carrea->medieval Kaira/Kairo/Cari->PMS Cher/IT Chieri. I think it's like Pinerolo, where Oc spelling is etymological -ai- but is pronounced -e- or -ei-, andt Piedmontese spells it w/ an -e-. Etim. Cair; potentially Chair.
+7070 = {"Ast" "Ast"} #Asti #http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+7071 = {"Pinairòl" "Pinairòl"} #JFBLANC: IS 'Pinairòl' https://oc.wikipedia.org/wiki/Pinair%C3%B2l NOT 'Pineròl' http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+7072 = {"Ivrèa" "Ivrèa"} #CAT Ivrea; FRP Ivrèa; S-OCC Ivrèa; LEM&VIV: Ivrea.
+7075 = {"Vercèlh" "Vercèlh"} #Attested. http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+7079 = {Bièla Masseran} #Masserano. Invented name. Piedmontese is 'Massran'.
+7080 = {Ossòla Ossòla} #Ossola, Invented.
+#ROMAGNA
+114 = {"Ravena" "Ravena"}
+7028 = {"Faiença" "Faiença"} #Faenza. #Version 1: CAT Faiança; GAS Faiença/Faïença; LDC Faiança/Faiença; LEM Faiença; PRO Faiença; VIV Faiènça #Version 2: Faiença for Catalan as well. The -ança is likely a transliteration of the first E in -ence, given a loan from French...It appears that way in Portuguese https://en.wiktionary.org/wiki/faian%C3%A7a. Castilian uses Fayenza. #V1: The English 'faience' & French 'faïence' pottery comes from the French name for the city. https://en.wikipedia.org/wiki/Faience Which appears to have Occitan cognates... https://locongres.org/oc/aplicacions/dicodoc-oc/dicodoc-recerca?option=com_dicodoc&view=search&Itemid=168&type=fr-oc&dic%5B%5D=BASIC&dic%5B%5D=RBVD&dic%5B%5D=ALPC&dic%5B%5D=ATAU&dic%5B%5D=PROV&dic%5B%5D=PNST&dic%5B%5D=OMLH&dic%5B%5D=LAUS&dic%5B%5D=LAGA&dic%5B%5D=LEMO&q=fa%C3%AFence&q2=&submit=Cercar and Catalan https://ca.wikipedia.org/wiki/Faian%C3%A7a . #V2: Faiença, based on Provence's Fayence. https://fr.wikipedia.org/wiki/Fayence#Toponymie It and Faenza may both derive from Latin 'Faventia'. https://ca.wikipedia.org/wiki/Faenza
+7031 = {Forli Forli} #Keeping the I, as it's 'Forum Livii' and not an -ium/-is.
+7032 = {Rimin Rimin} #Rimini; Constructed. Piedmontese:Rìmin.
+7033 = {Portic Portic} #Portico.
+#SARDINIA
+127 = {"Gallura" "Terranòva"} #ARA:Galura Terranova #Capital is Olbia, in BT timeline still Civita or Terranoa. Today in Catalan is Òlbia; in older Catalan was Terranova. I'll use the latter for Occitan base.
+2986 = {"Càlher" "Càlher"} #ARA:Cáller #Cagliari. Càlher or some variant of Castèl (castle) in Occitan. Both seem to exist in Old Occitan 'lo Castel de Calher'. https://oc.wikipedia.org/wiki/Cast%C3%A8l_(vila)
+4735 = {"Arborea" "Oristanh"} #ARA:Oristán
+5091 = {"Logudor" "Sàsser"} #ARA:Logudor? Sasser
+7095 = {"Sulcis" "Glèisas"} #(Sulcis Iglesias) #To verify... #http://thalamus.huma-num.fr/index-lieux/lettre-I.html <- So Iglesias DOES just translate into Occitan as Glèisas and its variants. Good.
+7097 = {"Nuòr" "Ocièr"} #(Nuoro Ozieri) Nuòro or Nuoro??? Using Occitan -uor words, it's 'Nuòr' in Occitan and 'Nuor' in Catalan...see 'Fluòr', OC for 'Fluorine'. Borrowing Ocier from Catalan version of Ozieri.
+7099 = {"Olhastra" "Jers"} #(Ogliastra Jerzu) ARA:Olyastra? #Constructed. #Catalan is attested as Ullastre. #Jerzu = LA Ierzum; SC Jersu. Using constrcuted 'Jerz' for RN based on Gers dept, plus similarity w/ Jersei, plus OC evolution of the name LA Hierosolyma/Ierusalem -> LA Jerusalèm.
+#SICILY
+124 = {Messina Messina} #Messina. Alternative transliteration:Meçina.
+125 = {Palèrme Palèrme}
+126 = {Malta Medina} #The latter is adding a vowel, using Occ spelling since it's a loanword from Arabic.
+2982 = {Siracusa Siracusa}
+4736 = {Drapena Drapena}
+4737 = {Agrigent Agrigent}
+7001 = {Caltaniçeta Caltaniçeta} #Caltanissetta, invented.
+7002 = {Catània Catània}
+#TRENTINO
+110 = {Trent Trent} #http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+3048 = {Bolsan Bolsan} #Native dialect 'Bulsan'.
+4758 = {Meran Meran}
+7093 = {Bressanon Bressanon} #Constructed.
+#TUSCANY
+115 = {"Pisa" "Pisa"} #Universal Occitanic.
+116 = {"Florença" "Florença"} #ARA: Florencia; CAT: Florència; OC: Florença
+117 = {"Sena" "Sena"} #Siena. CA Sena http://comunicacio.grec.cat/ajuda/toponimia.pdf ; makes sense for OC as well. ARA probably uses Siena.
+2978 = {"Areç" "Areç"} #Arezzo; constructed. Piedmontese:Aress; Genoese: Aresso. Latin: Arretium.
+2980 = {"Luca" "Luca"} #Universal Occitanic? http://comunicacio.grec.cat/ajuda/toponimia.pdf
+3040 = {"Plombin" "Plombin"} #Piombino; constructed. ARA Plombín; CA Plombí; OC Plombin? Name may derive from Latin Populonia. Latinized in 1110 as Plumbinum.
+3042 = {"Massa" "Massa"} #Massa. ARA Masa; OC+CAT Massa.
+7039 = {"Clusi" "Clusi"} #Chiusi. Could transliterate as Quiusi, OR use etymology from LA Clusium -> OC Clusi.
+7041 = {"Orbetèl" "Orbetèl"} #Orbetello; Invented. #ARA:Orbetello; AUV&LEN:Orbetèl; CAT:Orbetell; GAS&PRO:Orbetèu; LEM&VIV:Orbeteu.
+7042 = {"Grosset" "Grosset"} #Invented; to verify.
+7043 = {"Castilhon" "Castilhon"}
+7044 = {"Massa Maritima" "Massa Maritima"}
+7046 = {"Cortona" "Cortona"}
+7047 = {"Pistòia" "Pistòia"} #ARA: Pistoya; CAT: Pistoia; OC: Pistòia
+7049 = {"Prat" "Prat"} #ARA Prau https://an.wikipedia.org/wiki/Pradiella_d%27Ebro https://an.wikipedia.org/wiki/Prau , less common Prato https://an.wikipedia.org/wiki/Prau ; OC+CAT Prat
+7050 = {"Sovana" "Petilhan"} #Sovana is probably the same. Pitigliano, however... LA: Pitilianum, Petilianum, Pitiglianum. Possibly locally Pitiglianu or Pitijjanu. Just gonna Occitanize it for OCR: ARA Petilyán, CA Petilyà, OC Petilhan.
+7051 = {"Voltèrra" "Voltèrra"} #Volterra, constructed. ARA:Voltierra; AUV,GAS,LEN,PRO:Voltèrra; CAT:Volterra; LEM&VIV: Volterra?<-Most Vol-+consonant stays Vol-. So not Vouterra.
+7059 = {"Lunijana" "Lunijana"} #Lunigiana; transliterated slightly. OC+CAT Lunijana; ARA Lunichana?
+#UMBRIA
+2976 = {Perosa Perosa} #http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf
+4731 = {Espolet Espolet}
+7022 = {Tèrne Tèrne} #Terni; temporary translation. Italian 'Eterni' is 'Etèrn(e)' in Occitan; Etern in Catalan.
+7024 = {Norcia Norcia} #CAT:Nurcia?
+7036 = {Folinh Folinh}
+#VENETO
+108 = {Verona Verona}
+112 = {Venècia Venècia}
+1774 = {Trevís Trevís} #Treviso, attested. http://linguistica-oc.com/wp-content/uploads/2013/07/Linguistica-occitana-6-CLO.pdf Piedmontese:Trevis.
+4729 = {Pàdoa Pàdoa} #Occitan and Piedmontese match on this one.
+7076 = {Cloja Cloja} #Chioggia, constructed. LAT Clodia; later names Clodia, Cluza, Clugia, Chiozza and Chioggia. Unaccented -o- keeps etymological -o- but is pronounced more like the -u- versions. https://en.wikipedia.org/wiki/Chioggia
+7081 = {Polesin Rovic} #Polesine - Constructed (That final -E is often cut in Galloitalic; same for Occitan); Rovigo - Some -go endings in Occitan are -c. Luogo -> Luòc; Barbarigo -> Barbaric. A G here would make the a J sound as in 'just', so C is closer to the actual pronunciation of the consonant. Piedmontese uses 'Rovigh' here.
+7084 = {Lagarina Loveret} #Rovereto/Rofreit, Invented.
+7085 = {Vicença Vicença} #Attested. Same as BT Portuguese.
+7086 = {Pordenon Pordenon} #From Piedmontese.
+7087 = {Ceneda Ceneda} #'Cenèda' if following BT French.
+
+###POLAND###
+#KRAKOW
+262 = {Cracòvia Cracòvia} #Krakow
+#MAZOVIA
+257 = {Varsòvia Varsòvia} #Warsaw
+#SANDOMIERZ
+2959 = {Tarnòvia Tarnòvia} #Tarnow, from French loc 'Tarnovie'.
+#SILESIA
+2966 = {Glogòvia Glogòvia} #Glogow/Glogau, from French loc 'Glogovie'.
+###RUSSIA###
+274 = {Plescòvia Plescòvia} #Pskov, from French loc 'Plescovie'.
+###SCANDINAVIA###
+1 = {Estocòlme Estocòlme} #CAT:Estocolm
+2 = {Lincopia Lincopia} #Latin; Temporary.
+3 = {Calmar Calmar}
+4 = {Vestmània Arosia} #Invented based on Latin (Vestmannia Arosia). the -ània is the Catalan evolution of the ending in words such as Marcomània. Both Oc and Cat have it in Aquitània. -osia remains WITHOUT an accent on the O in both Nicosia and Ambrosia, so keeping this.
+5 = {Vermlàndia Carlesvila} #Värmland. Latin Vermelandia(Vermelàndia)/Varmelandia. Old French had Varmie, Portuguese has Varmlândia (though Vermlàndia appears to be attested *once*). So effectively I can choose between Verm(e)làndia, Varm(e)làndia or Varmia. Capital is Tingvalla. Ting is justice or administration; Valla is field or meadow. So could be "Prat de (la) Justícia", but the modern name is Karlstadt (Carl's Town), which is Carlesvila in Oc.
+6 = {"Castèl de Malmo" Malmo} #AUV:Chastèu CAT:Castell GAS:Castèth PRO:Castèu
+7 = {Escaraborg Escara} #CAT:Escaraburg
+12 = {Copenaga Copenaga}
+25 = {Gotlàndia Visbiac} #Gotland; Constructed. '-land' in 'Iceland' is '-làndia' in Occitan, so doing the same here. 'Visbiac' is an Occitanization of Visby.
+#NORTHERN ISLES
+369 = {Orcadas "Baia de la Glèisa"} #Orkney Kirkwall. Kirkwall = Kirkjuvagr, 'Bay of the Church'.
+1979 = {"Illas Feròe" "Pòrt de Tòr"} #GAS:"Islas Feròe". Translated Torshavn.
+###PONTIC STEPPE###
+#ASTRAKHAN
+464 = {Astracan Astracan}
+
+#####NORTH AMERICA#####
+###CALIFORNIA###
+#ARIZONA
+876 = {Fènix Fènix}
+877 = {Cucson Cucson} #CAT:Cucsó #Tuscon. Here transliterated from the native 'Cuc Son'. Cuc is a term in Occitan used in toponyms, so works better than the T here.
+879 = "Montanha Blanca" #White Mountain, for the Apache. From the Portuguese localization.
+2492 = "Vila d'Argent" #From English 'Silver City', and the French localization.
+2494 = Gilà #CAT:Gila #From the Portuguese localization.
+5839 = "Aiga Cauda" #AUV:Aiga Chauda; CAT:Aigua Calenta
+5840 = Òiadaibuc #Native name. Gila Bend, despite having a native name, wasn't founded until the 1870s. Native:Oyadaibuc (Spanish ortography)
+5841 = "Granda Maison" #From the Portuguese localization, Casa Grande.
+5843 = Anmas #Spanish Ánimas - 'Anmas' or 'Armas' in most Occitan dialects; GAS:Amnas; PRO:Armas; CAT:Ánimes
+#COLORADO
+2608 = Saoach #Sawatch/Saguache.
+4962 = Iapotcan #CAT:Iaputcà #Yapudttka
+4963 = Colorat #CAT:Colorit #Not the same meaning (colored red) as in Spanish, I don't think. Could also translate from Grand Junction, giving Granda Junccion or similar.
+4975 = Seuvarits #Moab area. Here named for the tribe (Seuvarits/Sahyehpeech /Sheberetch).
+5834 = Ointan #CAT:Ointà #Uintah (Yoowetum/Yoovwetuh/Uinta-at)
+5836 = Tavíoach #CAT:Taviuach #Taveewach/Taviwach/Taviwac/Tabeguache.
+5845 = {Cohògue "Fonts de la Ròca"} #AUV:Fonts de la Ròcha #Rock Springs, BT nativename is Kohogue. Depnding on pronunciation, could transliterate to Cohog(ue)? Cuhòg(ue)? Cuòg(ue)? Researching...
+#GRAND CANYON
+867 = "Val Canelada" #CAT:"Vall Acanalada" GAS:"Vath Canelada/Acanalada" PRO:"Vau Canelada"? #Located almost entirely within the Parker Valley region of California+Arizona. Here I'm calling it "Channeled Valley" for the dry, eroded channels in aerial photos. Capital would be Parker or Poston, neither of which really fits for Occitan.
+2491 = Oalapai #Hualapai/Walapai.
+4966 = Cohonino #
+5042 = Mohave #From Portuguese localization.
+5838 = Iantarí #Yantarii. For now.....
+#GREAT BASIN
+1808 = {Toquima Agustin} #à #Humboldt is a local range, Toiyabe is a local range... Here, have Toquima, a range that looks close enough to Occitan (could be Tòquima with the psanish pron, but more likely to be pron toquima.)! Closest I can do to the capital on BT's map might be Eureka, NV...Or Hamilton/Shermantown, or (less so) Ruth/Ely. Could also do Austin (OC Augustin/Agustin), as it's literally right next to the Toquima Range.
+5016 = {Oinemuca Oinemuca} #à
+5044 = {"Lac Mono" Levinhac} #CAT:'Llac Mono' Levinyac #Can name the capital for Mono City, after a person like Lee Vining (Leroy Vining), or parody the Anglo name with existing Occitan ones (Levinhac is a city; 'Lorei Vinhac' could be constructed out of existing surnames) or after one of Lee Vining's old names: 'Poverty Flat' and 'Lakeview'. Could also translate Mono Mills (Molinas de Mono).
+5769 = {"Lac de Piramidas" "Pas d'Arenas"} #CAT:Llac de Piràmides 'Pas d'Arenes' #Pyramid Lake. Sand Pass: 'Pas d'Are(n)a(s)'/'Pas d'Arenes'. 'Pass' as a landform: Còl/Pas/Pòrt/Portelha/Passa. Pòrt and Còl seem the most widespread, while Pas exists in toponyms. Will use Pòrt or Pas as those don't have the dialectal variation. Arena/Arenes/Arenys is more common in Catalan toponyms, though the word sorra is more common in today's usage. BT capital appears to be near Sand Pass on the map, though can use the ghost town of Pyramid if this doesn't work.
+5770 = {"Riu Desconegut" Lafontan} #CAT:"Riu Desconegut" #Humboldt River, translating an older name, the "Unknown River". Anglo name - Fallon, NV - is located in the Lahontan Valley, which is a Gascon family name, so keeping the Oc form.
+5815 = {Natacoa Natacoa} #à #Natakkoa, modern Elko. Occitan transliteration of the Shoshoni name.
+5782 = {Goiatocà Paulina} #CAT:Guiatuca. #Native:Goyatöka. Not 100% sure what the ö corresponds to, so this is tentative. BT capital on the map seems to be near Hampton, Suntex, Riley, Suplee, Paulina, and Wagontire. Using Paulina for now bs it's easy.
+#LAKE CAHUILLA
+4639 = Paipai #Paipai
+5774 = Pauma #From Portuguese localization. #Aiga Cauda #Hot Water. From ES Agua Caliente, derived likely from Se-Khi (boiling water), the native Cahuila name of Palm Springs. Translation of the English name would yield something like Terons del Palmièr or Fonts del Palmièr
+5791 = Cauquilha #GAS&AUV:Coquilha #From Portuguese localization.
+5858 = Quechan #CAT:Quechà #Yuma might come from Spanish 'Humo', for smoke, but also could be from the Pima term Yu'mi, or a comprehension error of yamahyo (Son of the chief). The people call themselves Quechan/Kwtsaan, which I'm using for the moment.
+#LOWER CALIFORNIA
+865 = {Cochimí Mulegé} #Cochimí for the native people, Mulegé for the capital.
+866 = {"La Patz" "La Patz"} #CAT:"La Pau" GAS:"La/Era Patz"
+2620 = {"Sant Quintin" "Sant Quintin"} #GAS:Sent Quintin; PRO:Sant Quentin. #San Quintín.
+5043 = {Mexicali Mexicali} #Hopefully a temporary name.
+5859 = {Perlamar Perlamar} #CAT:Pelmar #Tijuana. #Supposedly Tijuana/Tía Juana was named after native term 'Tiwan', meaning 'by the sea'. BT's Norse name actually uses this translation, so I have my pick of Tioan/Tiuà, or Per la mar/Pel mar. As one word, the Occitan also happens to spell 'Pearlsea'.
+5860 = {"Baia de Leons" "Sant Borja"} #CAT:"Badia de Lleons" "Sant Borja" #San Borja. A translation from the modern Spanish bay could be 'Baia de los Àngels', but actual LA is too close. However, in Cortes's time it was known as 'Bahía de Lobos', or 'Bay of Sea Lions'. Translating from the latter.
+5861 = {Lauret Lauret} #CAT:Lloret #Loreto. #Còncho #Native name.
+5862 = {Pericun "Sant Josèp del Cap"} #AUV&PRO:"Sant Jausèp dau Cap" CAT:Pericú "St Josep del Cap" GAS:"St Josèp deu Cap" #Two Spanish saints' names nearby:Saint Luke and Saint Joseph. Here named for the mission of St. Joseph of the Cape, which is the older settlement.
+#MOJAVE DESERT
+2478 = {Noan Trona} #CAT:Nuà #País Noan. Land of the Nüwa. (in this case Occitanized as Noan). English localization is 'Searles Valley', which--named after an Anglo guy--doesn't work in Occitan. Instead calling it 'Trona' after the mineral abundant in the town and Searles Lake, and the nearby Trona Pinnacles. Same name in Occitan.
+4955 = {"Val de la Mòrt" Mahunu} #Maahunu is the Native American term for Grapevine Canyon, and BT's indigenous capital for the province.
+5771 = {Tataviam Antilòp} #Naming the city for Antelope Valley.
+5772 = {Tantàoats Cima} #Cima - English loc for the province is Kelso, named after a guy. Using nearby Cima as it's a name that actually exists in Occitan (same meaning as in Spanish) and sits near the Cima Grande. #Tantàoats/Tantaóats #Tantáwats is alternative name of the Nüwüwü, meaning Southern Men rather than The People.
+5773 = {Tactam Vinhas} #País Tactam Land of the Taaqtam.#Vinhas#From Grapevines, older English name for North Barstow due to wild grapes growing here.
+5821 = {"Las Vegas" "Las Vegas"} #Las Vegas. Could be translated as "Las Pradas", but "Vega" exists in Catalan and is etymologically Basque, o I'll keep it.
+#PAINTED DESERT
+875 = {Hòpi Aoatòvi} #Hopi Awatovi (Awatovi was their main village for centuries, abandoned 1700s under Spanish pressure).
+878 = {"Sant Joan" "Sant Joan"} #GAS:Sent Joan
+2493 = Zoni #CAT:Zuni
+4634 = Sensaiga #GAS:Shensaiga #Flagstaff, Arizona. Here I'm translating the (Sierra) Sin Agua, a name Spanish explorers originally gave to the nearby San Francisco Peaks.
+4979 = Navaho #Where would we place their capital? Window Rock was a ceremonial capital, but its modern name didn't exist until 1936.
+5064 = "L'Argent" #CAT:"La Plata" #Durango, capital of La Plata County. Here I'm translating the latter.
+5823 = Iavapai #Yavapai
+5835 = Oiminuc #CAT:Uiminuc #Wiminuc.
+#SACRAMENTO VALLEY
+4951 = {Sacrament Sacrament} #CAT:Sagrament (also found in Lengadoc alongside the C-spelling)
+5045 = Ointun #CAT:Uintú #Wintu.
+5765 = Patoin #CAT:Patoí
+5775 = {"Lo Daurat" "Lo Daurat"} #"El Dorado". Not actually in the same place as the CA county, but rather in place of Oroville, which means "Golden city".
+5797 = {Gojat Gojat} #A longer-lived Catalan and Occitan translation of Chico. Dròlle is too recent, a Dutch loanword.
+5799 = Nomlaquí
+#SAN FRANCISCO BAY
+2021 = {"Sant Francés" "Sant Francés"} #GAS:"Sent Francés"
+4637 = {Motsun Mòtsum} #"Sant Benet" #GAS:"Sent Benet" #San Benito. #ALTERNATIVELY..."Motsun" #CAT:Mutsú #Mutsun band of Ohlone, with 'Motssum' (Mòtsum/Motsú) as capital.
+4638 = {Suisun Suisun} #CAT:Suisú #País Suisun. Named for the Suisun people (southern band of Wintun). Gave their names to Suisun Bay and Suisun City RL.
+5030 = {"Sant Rafaèl" "Sant Rafaèl"} #CAT:Sant Rafael GAS:"Sent Rafèu" #Sant Raf(a)èl
+5764 = {Sonòma Napa} #Napa is temp.
+5766 = {Antiòquia Antiòquia} #Antioch, CA.
+5767 = {Montrei Montrei} #Monterey, CA. Literal translation Mont Rei.
+5814 = {"Contra Còsta" "Sant Josèp"}
+5852 = {"Santa Ròsa" "Santa Ròsa"}
+#SAN JOAQUIN VALLEY
+870 = {Estanislau Modèst} #CAT:Modest #Stanislaus County seat is Modesto, which translates to Modèst(e)/Modeste in Occitan and Modest in Catalan.
+4636 = {Mercé Mercé} #Cognate of Merced.
+4950 = {Fraisse Fraisse} #Ash tree, the same meaning as Fresno in Spanish.
+5032 = {"Sant Joaquim" Passacimas} #GAS:"Sent Joaquim" #There was a Yokuts village at Stockton called Pasasimas. Assuming the spelling is Spanish orthography, could very easily be corrupted to 'Passacimas' in Occitan (Pass Summits), which fits the fact the village was built on a mound.
+5795 = {Tachi "Èrba Salada"} #AUV,LEM&VIVAUP:"Erba Salada" CAT:"Herba Salada" #Or Tachí. Yokuts group. Latache/La Tache is an older name, possibly of Native American origin but also possibly French or just another English spelling of Tachi. For now calling it "Saltgrass" after a road on the reservation, and the saltgrass (CAS&POR:Grama salada) which used to grow along the lakeshore.
+5856 = {Tolièr "Quatre Rius"} #AUV:Tolèir; CAT:Tuler; GAS:Tolèr "Quate (Ar)rius" #Today's capital Visalia was originally called Four Creeks. Modern city is named for Visalia, KY. #Invented word. Tule/Tole + -ièr (see vinhièr 'vineyard', irangièr 'orange grove'), that which grows tules. #Tulare. New World Spanish name, with 'Tule' coming from a native word for reed. Occitan would spell it Tule or Tole by that pronunciation. 'Tulare' is, according to Wikipedia, a word meaning tule marsh in Spanish. See Tule River at https://en.wikipedia.org/wiki/Tule_(disambiguation) . Google translate for 'tular' or 'tulares' spits out 'tular' in Catalan and 'tulaire' in French, but not found in any dictionary.
+#SIERRA NEVADA
+2479 = Maidun #CAT:Maidú #País Maidun. Named for the Maidun, a variant of Maiduan which includes the Maidu. In this case it also happens to be a phonetic transliteration for both. In theory 'Maiduan' could still be the word for the whole linguistic group :p.
+4952 = Oacapí #Wakapee, indigenous term for the Owens River. #The BT capital, Pacheta, is the indigenous name of Lake Owens.
+4953 = Oashiun #CAT:Uashiú #For the Washoe. Here I'm doing a sort of 'Washuan' to refer to the land in the style of Occitan parçans and encontradas (Tolosa, Tolosan...) which is phonetically still the same, or nearly.
+4954 = Achomaoí #Achomawi
+5768 = Mioac #CAT:Miuac #Miwok.
+5793 = Pacàn #CAT:Pacà #Or Pacan... #Temporary native name, from a shorter term for their language, Pakhan (Paka’anil ). ##Palagoan #CAT:Palaguà #TEMPORARY NAME. #Palagewan = Band of Tübatulabal around the N fork of the Kern River, where the 'town' is located on BT's map. #Tobatolabal
+5796 = {Vilaplacèr Vilaplacèr} #Placerville! How about that? So we have Vila first in Occitan, placer is 'placèr'
+#SONORA
+862 = {Sonòra Eudève} #Sonora Eudeve
+2616 = {Cabòrca Cabòrca} #CAT:Caborca #Caborca. Spanish, del idioma pima alto 'Cabota':Corita boca abajo
+4577 = {Tohono Tohono} #Tohono.
+4633 = {Noguièrs Noguièrs} #AUV:Nogèirs; GAS:Noguèrs; LDC:Noguièrs; PRO:Noguiers #ES:Nogales, which translates to 'Walnut trees'.
+4649 = {Navohoa Navohoa} #Navojoa
+4650 = {Nacòçari Nacòçari} #CAT:Nacoçari #Òpata, for the people. #Spanish:Nacozari (en Idioma ópata:Abundancia de nopales), transliterates as something like 'Nacòçarin'. Accented letters aren't usually found together, however.
+4964 = {Seri Seri} #Can't name it Kino, as that was a dude in 1600s. For now, keeping the old name until I figure out new name or transliteration. 'Bay of the Seri' could be interesting.
+5061 = {Guaimas Guaimas}
+#UPPER CALIFORNIA
+868 = {"Santa Barbara" "Santa Barbara"} #GAS:"Senta Barbara"
+869 = {"Sant Laurenç" "Sant Laurenç"} #GAS:"Sent Laurenç" #King City, CA. For a dude's surname in the 1880s. Acquired from the Rancho San Lorenzo, so could do "Sant Laurenç" here instead.
+4635 = {"Los Paires" "Los Paires"} #GAS:Eths/Los Pairs; CAT:Els Pares (Los Padres Nat'l Forest) #BT mislabeled this Taaqtam.
+2476 = {"Sant Jacme" "Sant Jacme"} #CAT:"Sant Jaume" GAS:"Sent Jacme"
+5018 = {"Los Àngels" "Los Àngels"} #CAT:"Els Àngels" PRO:"Lei Àngels"
+5792 = {"Sant Loís" "Sant Loís"} #CAT:"Sant Lluís"; GAS:"St Loís" #Or Lompòc.
+5794 = {"Santa Lucia" "Santa Lucia"} #CAT:"Santa Llúcia" #Big Sur. Here with name of the Santa Lucia mountains
+5855 = {"Mitzcanaca" "Sant Bonaventura"} #GAS:St Bonaventura #Mitskanaka - Occitanized.
+5857 = {"Santa Anna" "Santa Anna"} #Santa Ana, CA.
+#UTAH
+2490 = {"Lac Salat" "Lac Salat"} #I don't want to deal with a bunch of dialectal stuff for 'City of', so just calling the city Salt Lake as well.
+4965 = {Oasach Efraïm} #Wasatch. Giving it modern-day Ephraim (named for biblical character) as its capital.
+4967 = {Iotan Pavant} #CAT:Iutà #Ute/Utah. From Spanish 'Yuta' and ultimately the Apache 'Yuttahih'. The city on the map is roughly where modern Fillmore is, in the Pahvant Valley, originally intended as Utah's capital. I will use the name of the tribe and valley.
+5822 = {"Sant Jòrdi" "Sant Jòrdi"} #CAT:Sant Jordi; AUV:Sant Jòrgi?; PRO:Sant Jòrdi #Saint George.
+5833 = {"Val Amagada" "Val Amagada"} #CAT:Vall Amagat #Cache Valley. Here I'm calling it "Hidden Valley", as translations of the word 'cache' are all over the place across Occitan dialects.
+###CANADA###
+#COTE NORD
+996 = {"Sablon Blanc" "Sablon Blanc"}
+2576 = {Mingan Mingan}
+2577 = {Oashat Oashat} #CAT:Uaxat #Using the indigenous name. French would translate to "Sèt Illas"/"Sèt Islas"
+2578 = {Anticosti Anticosti} #Accent the í? It's not accented in Catalan or Spanish, so no... #Innu:Notiskuan (Notiscoan); FR:Anticosti
+5011 = {Manicoagan Manicoagan} #CAT:Manicuagà
+5012 = {Mecatina Mecatina} #Mecatina River.
+5055 = {"Poncha dels Ostardas" "Poncha dels Ostardas"} #AUV:Poenta? daus Ostardas #CAT:"Punta de les Avutardes" GAS:Punta deus Ostardas PRO:"Poncha deis Ostardas" #Avutarda is possibly dialectal form in Catalan, but closest we've got to the Occitan word.
+#GASPESIE
+986 = {"Baia Calorosa" Cascapèdia} #AUV:"Baia Chalorosa" CAT:"Badia Calenta" #FR Baie des Chaleurs. #Capital:Gespe'gewa'gi ('Kespékewáki) Gesgapegiag Cascapédia
+2582 = {Arimosquí Arimosquí}
+5054 = {Gaspèg Gaspèg} #Gaspésie Gaspé, Oc form invented from native name and older French.
+#GRAND RIVER
+991 = {"Sauts Nibachis" "Sauts Nibachis"} #CAT:"Salts Nibachis" #FR:Saults des Chenaux. Here given it the native tribe's name, so now it's the 'Nibachi Falls'.
+992 = {Otaoés Asinabca} #CAT:Utaoés? #FR:Outaouais EN:Ottawa Native:Odawa #Capital - Native name:Asinabka Modern name:Ottawa (FR Ò.ta.oua).
+2581 = {Òbagioan Òbagioan} #CAT:Obagiuan #FR:Obadjiwan, with a long 'O'.
+2585 = {"L'Orinhal" "L'Orinhal"} #CAT:"El Ant"; GAS&PRO:L'Orinhau.
+2588 = {Nipissin Mataoa} #CAT:Nipissí Mataua #Nipissing. Capital - Mattawa
+2590 = {Temiscamin Temiscamin} #CAT:Temiscamí #EN Timiskaming/Temiskaming FR:Témiscamingue Native:Temikami/Temikaming
+5056 = {Pontiac Pontiac} #Here to match French, but this is a specific war chief from the 1700s. An invention could be good here also.
+#HURONIA
+2586 = {"Santa Clara" "Santa Clara"} #GAS:Senta Clara #Today Sarnia, the Latin name for Guernsey. Three earlier names (1820s) were The Rapids, Buenos Aires, New Glasgow. River and lake are St Clair (FR: Sainte-Claire).
+2587 = {Petúnia Petúnia} #Same for Catalan.
+2671 = {Oasaucsin Oasaucsin} #CAT:Uasaucsí #Wasauksing - Name of a village and the First Nation.
+5037 = {Hurònia Ossossané} #CAT:Hurònia #Hurons were named by the French; they called themselves Wendat. Native capital was Ossossané; today the location is Tiny, Ontario.
+5039 = {Manitolin Manitolin} #CAT:Manitulí #Manitoulin - Originally Manidoowaaling, spelt elsewhere as Manitowaning.
+#LABRADOR
+997 = {"Baia Vermelha" "Baia Vermelha"} #CAT:"Badia Vermella" #Red Bay.
+2574 = {Naina Naina} #Nain/Naina/Nunainguk. Northernmost settlement and BT's province name.
+2575 = {Regòlet Regòlet} #Appears to be a diminutive of 'Rigole', a generic term for a small body of water. Occitan is Regòla, so Regòlet.
+5014 = {Labrador Ashuanipi} #Ashuanipi Lake is still around today; BT's capital on on its northeastern shore.
+5015 = {Nascapi "Lac Volant"} #FR:Nascapi ENG:Naskapi Using the name of 'Vollant Lake'. There's hardly anything out here, apart from Vollant Lake and Orma Lake Road. so this is highly temporary. #Nitassinan
+#LAURENTIA
+990 = {"Lo Bonet" "Lo Bonet"} #CAT:"El Bonet" GAS:"Lo/Eth Bonet" #FR:Mauricie, after a dude's lordship here. Today the BT capital village, Ushabatshuan, is called "La Tuque", referring to a bonnet or knitted cap. It is *possible* that a cognate "toca" exists, and is used (rarely) in Catalan and Occitan as a kind of hat. This would-in theory-make the province "La Toca" for all Occitan and Catalan.
+993 = {Laurentidas "Montlaurièr"} #CAT:Laurentianes "Montllorer" AUV:"Montlaurèir"? #GAS:"Montlaurèr" #PRO:"Montlausier" #<-S and not R? #FR:Laurentides; named for the Saint-Lawrence river. Capital is Mos Pawâtik in BT, today's Mont-Laurier, also once called Rapide-de-l'Orignal in French. Translating the modern one.
+995 = {Tadoçac Tadoçac} #FR:Tadoussac #Native names:Totouskak Tadaosakw Tsheshagut
+2579 = {Saguenai Saguenai} #Saguenay....
+2580 = {Nitasquinan Oemòtashi} #CAT:Nitasquinà Oemotashi #The REGION:Nitaskinan. The PEOPLE:Atikamekw/Aticamècs. #The CAPITAL:Wemotaci #API:wemotashi (little SH symbol it doesn't let you write here)
+5010 = {Peribònca Peribònca} #FR:Péribonka #Native: Pelipoko, Pelipaukau.
+#LOWER ACADIA
+982 = {"Illa Reiala" Borgloís} #CAT:"Illa Real" "Burglluís"? GAS:"Isla Reiala" #Could go with Fort Louisbourg, French capital, or St Anne, their first settlement.
+983 = {"Illa de Sant Joan" "Pòrta de la Jòia"} #GAS:"Isla de Sent Joan" #French capital was Port-la-Joye.
+984 = {"Prat Grand" "Prat Grand"} #GAS:"Prat Gran"
+2568 = {"Pòrt Reial" "Pòrt Reial"} #GAS,PRO:"Pòrt Reiau" #"Nòu Biarritz"
+2569 = {"Nòva Audenja" "Nòva Audenja"}
+5047 = {Tacamagush Tacamagush} #Native:Taqamiju’jk/Takumegoochk, FR:Tat(a)magouche
+5048 = {Chedabucto Chedabucto} #Mikmaq/French:Chedabuctou
+5051 = {"Cap de Sabla" "Cap de Sabla"} #CAT:"Cap de Sorra"
+#LOWER CANADA
+994 = {Quebèc Quebèc}
+2012 = {Artabasca Artabasca}
+2583 = {"Tres Ribièras" "Tres Ribièras"} #GAS:"Tres Ribèras" #FR:Trois-Rivières
+2584 = {Montreal Montreal} #DAU:Montriau GAS:Montreau #Toponym exists in Occitan regions; current Oc name for the city. The word "Real" in fact becomes "Reau" in other dialects, so Montreau works for Gas.
+5053 = {Camorasca Camorasca}
+5060 = {Èstria "Forcas Grandas"} #AUV:"Forcas Grandas" CAT:? GAS:"Horcas Granas" #Derivative of French 'Estrie', from Est (East). From Cantons de l'Est and ultimately Eastern Townships....wow. Capital - Sherbrooke was an 1820s British name. Older names include Grand Portage, Sault, Grandes-Fourches, Fourches-d'en-Haut, Great Forks, Big Forks.
+#NEWFOUNDLAND
+980 = {Bonavista Bonavista} #PRO:Bònavista #"Baia de Santa Clara". FR Baie de Sainte-Claire; EN Bonavista. Supposedly from a freelance Italian explorer's exclamation, "O, Buon Vista!" So either would work in Occitan; Bonavista just happens to already be an existing Occitan spelling.
+981 = {Tacamcuc "Riu del Caire"} #AUV&PRO:"Riu dau Caire" CAT:"Riu del Cantó" GAS:"Arriu deu Caire" #Corner Brook. Approximate translation. #Corner can be 'canton', or we could use Occitan 'Caire' (Catalan would be 'angle' or 'cantó')
+2573 = {"Pòrt Basc" "Pòrt Basc"} #CAT:"Port Basc" #GAS&PRO:"Pòrt Basco" #FR:Port-aux-Basques.
+4974 = {"Grand Banc" "Grand Banc"} #GAS:"Gran Banc" #Grand Bank.
+5013 = {Beòtuc "Sant Joan"} #CAT:Beotuc Sant Joan GAS:Sent Joan #FR:Béothuk, Saint-Jean.
+5019 = {"Sant Pèire e Miquelon" "Sant Pèire"} #GAS:"Sent Pèir e Miquelon" "Sent Pèir"
+5058 = {Trespassats Trespassats} #FR:Trépassés.
+5059 = {Plasença Plasença}
+#PENOBSCOT BAY
+971 = {Castina Castina} #Castine in English and French, named for Jean-Vincent d'Abbadie de Saint-Castin, an explorer from Bearn. Bearn is Occitan, so...Occitanized name.
+2566 = {Machias Machias} #ENG:Machias, from a Native American term.
+5052 = {Piscataquís Granjarainarda} #Today's capital is Dover-Foxcroft, a combined city (formerly Dover and Foxcroft). 'Fox' translates to Rainard in Occitan (Re(i)nard in Gascon), and 'croft' is a small farm. We can use Occitan and Catalan 'granja', as this is one of the few words for 'farm' without a ton of dialectal variations.
+#UPPER ACADIA
+985 = {"Baia Verda" "Lo Coide"} #CAT:"Badia Verda" #From "Baie Verte; North side. #GAS:"Lo Cobde" #Bèl Sejorn? FR:Beauséjour; Miqmaq:Siknikt. Acadians called Moncton 'Le Coude' (the Elbow), translated here for the city.
+2567 = {Arostuc Arostuc} #EN&FR:Aroostook
+2570 = {"Sant Joan" "Sant Joan"} #CAT:"Sant Joan" GAS:"Sent Joan" #FR:Saint-Jean.
+2571 = {Meductic Clarièra} #AUV:Clarèira CAT:Clar (Clarera works as well. Same two-word switching it's got from Occitan all the way to Portuguese. OC Clar(-a)/Clarèira, CA Clar, CAS Claro, PT Clareira. It's also new-world invented in a mix of Europeans, so room to play with words a bit) #GAS:Clarèra PRO:Clariera (actually VivAup, but etymologically it works in Provence) #Meductic - Native. Woodstock, Maine. Means 'clearing in the woods', which Occitan has a word for:Clarièra.
+2572 = {Miramishi Miramishi} #FR:Miramichi. Miramichi, New Brunswick. Unfortunately the pronunciation today it a bit odd, Mermashi, so would need a source for older pronunciation if I want to sound it out properly in Occitan rather than change from French.
+5046 = {"Santa Anna" "Santa Anna"} #GAS:"Senta Anna" #Nashoak Abenaki:Nashwaak; FR:Sainte-Anne
+5049 = {Caraquet Caraquet} #FR:Caraquet; MQ:Kalaket
+5050 = {Madaoasca "Saut Petit"} #CAT:"Salt Petit" #Madawaska County, New Brunswick. Capital - Originally called Petit-Sault (Little Falls), name changed to Edmundston in 1851.
+#UPPER CANADA
+987 = {Niagara Niagara} #CAT:Niagara #Capital Kandoucho was 'All Saints' to Christians. Also had Onguioaahra on the Niagara River.
+988 = {"Còsta Petita" "Sant Miquèl"} #AUV:"Sant/Sent Michial/Michiau" GAS:"Sent Miquèu" #FR:Petite Cote #Native name:Khioetoa Christian name:St. Michel
+989 = {Cataraqui Cataraqui} #Native:Cataraqui
+2670 = {Toronto Toronto}
+5038 = {Quentèc Quentèc} #Native:Kentèke
+5904 = {"Sant Guilhèm" "Sant Guilhèm"} #GAS:St Guilhèm; CAT:St Guillem #Teotongniaton, historically given the Christian name of Saint William by the Jesuits, so this is what I'll go with.
+#UPPER ONTARIO
+1001 = {"Saut de Santa Maria" "Saut de Santa Maria"} #CAT:"Salt de Santa Maria" GAS:"Saut de Senta Maria"
+1007 = {"Baia de Tron" "Pòrt Guilhèm"} #CAT:"Badia de Tro" #or 'Trons' #AUV:Tròn; GAS:Tron; LEM:Tron; LDC:Tron/Tròn; PRO:Tròn; VIVAUP:Tron. In the case of BT cultures.. Occitan&Gascon Tron, Augergnat&Provençal Tròn. Keeping Thunder Bay for the county, but the modern city was a merger of several smaller settlements. French founded Fort Caministogoyan, later Fort William. Nearby a town called Port Arthur was formed, which merged with Fort William to create Thunder Bay. Here I'm using 'Port William' as a nod to both.
+2015 = {Michipicoten Michipicoten} #Renamed Wawa in 2007.
+4973 = {"Santa Anna dels Pins" "Santa Anna dels Pins"} #AUV&PRO:daus #GAS:Senta, deus #Sainte-Anne-des-Pins, early French mission. I don't like this long name. Today is Greater Sudbury in English, Grand-Sudbury in French.
+###CARIBBEAN###
+#CUBA
+484 = {"L'Avana" "L'Avana"} #CAT:"L'Havana"
+485 = {Trinitat Trinitat}
+486 = {"Santa Catarina" "Santa Catarina"} #GAS:"Senta Catarina"
+2654 = {Baracoa Baracoa} #Spanish or Native. Nearby water is the 'Bay of Honey'.
+2655 = {Baiam Baiam} #Bayamo. Apparently from a tree called Bayam. People are called Bayameses in Spanish.
+2656 = {Camaguei Camaguei} #Occitanization of Camaguey.
+4622 = {"Illa dels Pins" "Nòva Girona"} #CAT:"Illa dels Pins" "Nova Girona" GAS:"Isla deus Pins" "Nava Girona"
+4623 = {"Santa Clara" "Santa Clara"} #GAS:"Senta Clara"
+4624 = {"Pineda del Riu" "Pineda del Riu"} #GAS:"Pineda/Pinar deu Riu/de l'Arriu"
+5572 = {Floretas Floretas} #Holguin named for a guy. Let's give ours an Occitan surname!
+#EAST HISPANIOLA
+490 = {"Higuei" "Higuei"} #Higüey, Occitanized.
+2658 = {Azua Azua}
+2659 = {Cibau Cibau} #Cibao, native name. Spanish uses Santiago after Santiago de Compostella, but BT's German uses Kiebau. I want to keep a few more native names in Occitan, so this is what it's getting.
+4620 = {"La Vega" "La Vega"} #La Vega. The word Vega exists in Catalan and comes ultimately from Basque, so I'm willing to fudge it into Occitan.
+4621 = {"Sant Domenge" "Sant Domenge"} #GAS:"Sent Domenge"
+5565 = {Barahona Barahona}
+5567 = {Maguana Maguana} #Native name, retained in Spanish.
+#GREATER ANTILLES
+481 = {Bermudas Teulasblancas} #AUV:Teulasblanchas #Calling this 'White-tiles' after the many white rooftops and buildings of the city. I mistook it for snow the first time... #Capital is 'Hamilton', which doesn't translate. Hamill may be Old French Hamel (today Hameau), meaning 'village'.
+487 = {Jamaica "Pòrt Reial"} #CAT:"Port Reial" GAS&PRO:"Pòrt Reiau"
+492 = {"Pòrt Ric" "Sant Joan"} #CAT:"Port Ric" #GAS:"Sent Joan"
+#LEEWARD ANTILLES
+491 = {Curaçau Vilaguilhèm} #Curaçau if autonym. If cure/healing, then Garison. If heart, then Còr. Capital - Willemstad. Originally 'de punt' (le point), but Willemstad name dates from the same year.
+5578 = {Aruba "Vila d'Aurenja"}
+5579 = {"Illa Margarida" "L'Assompcion"} #Translated. Modern Catalan is 'Illa Margarita' where spanish has 'de', so don't need a 'de' for Oc either.
+#LEEWARD ISLANDS
+493 = {Tortòla "Vila de la Rada"} #CAT:Tórtola #Literal translation of roadtown (Roadstead - nautical term - Rade in French, Rada in Occitan, Catalan and Spanish)
+494 = {"Sant Cristòl" Bassatèrra} #CAT:"Sant Cristòfol" Bassaterra GAS:"Sent Cristau" Baishaterra PRO:"Sant Cristòu" Bassatèrra #Saint Kitts, ie St Cristopher. CAT:Cristòfor/Cristòfol OCC:Cristòl/Cristòu, formerly Cristòfol. VAR.GAS:Cristau Cristòli. Capital is Basseterre.
+495 = {"Antica e Barbuda" "Sant Joan"} #CAT:"Antiga i Barbuda" "Sant Joan" #Catalan actually spells it w/ the U and Occitan spells with the GU, but those're carryovers from Spanish. #CAS:Antigua y Barbuda - 'Old and Bearded'.
+496 = {Guadalope Vilaflorida} #APT:Goadeloupe CAT:Guadalupe GAS:Vilahlorida #Guadeloupe. Annoyingly the capital has the same name as St Kitts, but using flowers due to Native American culture. #'Before Basse-Terre became a French town it was a village of American Indian horticulturists and potters.' - Wikipedia. So could do a name to do w/ flowers or pottery if I like.
+1881 = {Anguila "La Val"} #AUV:Anguilha? (diff orthography) CAT:Anguila "La Vall" GAS:Angèla/Anguièla/Anguila "La Vath" PRO:Anguiela "La Val" #Anguilla/Anguila/Anguille. From Italian 'Anguilla' meaning eel. Translates mostly to Anguila or a variant thereof.
+5583 = {"Montserrat" "Santa Maria"}  #GAS:"Senta Maria"
+5584 = {"Sant Tomàs" "Carlòta Amelha"} #AUV:"Charlòta Amelha" GAS:"Sent Tomàs" #BT is going with St Thomas as the prov and Charlotte Amalie as the capital. {"Santa Crotz" Vilabernat} #GAS:"Senta Crotz" #Capital is Christiansted, also formerly Fort Christianswærn, for the Danish king. Let's name it for our boi instead!
+5585 = {"Sant Bartomieu" "Lo Carenatge"} #AUV:"Sant/Sent Bartomieu" CAT:"Sant Bartomeu" "El Carenatge" GAS:"Sent Bertomiu" #Saint Bartholomew. #Capital is Gustavia in honor of the Swedish king, renamed 1786. Originally Le Carénage, which I've translated.
+5586 = {"Sant Martin" Marigòt} #CAT:"Sant Martí" Marigot (Catalan borrows Spanish 'Remanso', but etymologically 'Marigot' should be fine.) GAS:"Sent Martin"
+#LUCAYAN ARCHIPELAGO
+482 = {"Grand Bahama" Nassòvia} #CAT&GAS:"Gran Bahama" #Nassau named for Nassau in Germany (see #83 in Hesse).
+483 = {"Turcas e Caïcas" Providencials} #GAS:Providenciaus #PRO:Providenciaus
+5574 = {Cigateo "Sant Salvador"} #AUV:"Sent Salvor" GAS:"Sent Sauvador" PRO:"Sant Sauvador" #Eleuthera. Known as Cigateo in the 1600s.
+5575 = {Ferrandina "Sant Pèire"} #ENG:Long Island SPA:Fernandina Arawak:Yuma #Capital is Clarence Town, with two churches - one to St Peter and the other to both him and St Paul.
+5576 = {Isabèla Puntaprima} #Acklins. Capital is Spring Point (Roughly translated here using spring the season); church in the capital is St. Clement's.
+5577 = {Inagua Vilamatieu} #AUV:? CAT:? GAS:Vilamatèu PRO:? #Only settlement is Matthew Town.
+#WEST HISPANIOLA
+488 = {"Pòrt del Prince" "Pòrt del Prince"} #AUV&PRO:"Pòrt dau Prince" GAS:"Pòrt deu Princi"
+489 = {"Pòrt de Patz" "Pòrt de Patz"} #CAT:"Port de Pau"
+4618 = {Gonaïbo Gonaïbo} #Gonaïves/Gonaibo/Gonayiv, invented.
+4619 = {"Guaric" "Guaric"} #Guarico, native name. could be Occitanized as Guaric or Guaricon. Since Mexico loses its O, going with Guaric.
+5563 = {"Los Cais" "Los Cais"} #CAT:"Els Cais" PRO:"Lei Cais"
+#WINDWARD ISLANDS
+497 = {Domenja Canavèra} #CAT:Canya #Dominica. The *country* has the same name in Occitan, but the given name is Domenja. Roseau translates to Canavèra, at least in western Occitan.
+498 = {Martinica "Fòrt Marin"} #APT:Martininca "Fôrt-Marin" #CAT:Martinica "Fòrt Marí" #POI:? "Fort-Marin" #Martinique Fort-Royal (today's Fort-de-France)...Giving the fort 'marine' adj in the mod languages.
+499 = {"Santa Lucia" Càstias} #CAT:"Santa Llúcia" Càst(r)ies (Etymology construction) FRP:"Santa-Lucie" Castries #GAS:"Senta Lucia" POI:"Sénte-Llucie"? Castries #St Lucia. Capital is named for the baron of Castries (OCC:Càstias, formerly Càstrias in the Middle Ages)
+500 = {"Sant Vincenç" Barroàlia} #GAS:"Sent Vincenç" #Agreed-upon in BT chats.
+501 = {Barbuts Vilapont} #AUV&PRO:Vilapònt FRP:Velapont? Pontvela? #Barbados (from Barbudos, bearded-Arpitan has Barbâda as a corruption from French Barbade, again a corruption from Ibero-Romance) Bridgetown (for Tobias Bridge, dude in English CivWar). Personally I don't like keeping bridge, and kind of like something referring to 'Olive Blossom', the ship that brought the English, but other BT namers will likely disagree.
+502 = {Trinitat "Pòrt Prosperós"} #CAT:"Port Prosperós" #FRP:Trinitât POI:Trnetai #Capital - Port of Spain. Native:Cumucurapo. Neither really fits...Today it's one of the most prosperous cities in the Caribbean, so giving it 'Port Prosperous' for now.
+5581 = {Tabac "Pòrt Loís"} #CAT:"Port Lluís" #Tobago ('Tobacco'). Capital - Scarborough. Under the French, Port-Louis. So, Pòrt Loís.
+5582 = {Miugrana "Fòrt Reial"} #CAT:Magrana "Fort Reial" GAS&PRO:"Fòrt Reiau" #OCC Milgrana/Miugrana #Grenada, translated. Capital - Fort Royal (FR)/Saint George's (ENG)
+###CASCADIA###
+#CENTRAL ROCKIES
+4948 = Missola #CAT:Misula #Missoula, from Salish nmesuletkw. The French called it Porte de l'Enfer or Hell's Gate, but placesw by this name are found in Canada also, so Missoula is better for the location.
+#4948 = Calispèl #Kalispel(l).
+#4960 Porte de l'Enfer
+5743 = "Penja d'Aurelha" #CAT:"Penja d'Orella" #Pend d'Oreille, 'Ear Pendant'.
+5824 = "Maison Salisha" #CAT:"Casa Salixa" #Saleesh/Salish House.
+#COLUMBIA PLATEAU
+2483 = "La Granda" #GAS:"La Grana"
+2488 = {Iaquamà Iaquamà} #CAT:Iaquama
+5751 = Sause #CAT:Salze; GAS:Sauç; AUV:Sause #Moses Lake was named after a historical Native American chief, but the native name, Houaph, means 'willow'. So here's an Occitan willow for you!
+5756 = Imatilam #Native:ímatalam.
+5812 = Pona #CAT:Puna #EN:Priest rapids, but again named after a specific person. So I'm trasnliterating the native name, P'na.
+5881 = Shalan #CAT:Xalà #Tsi-Laan/Chelan (pronounced sha-lan).
+#HELLS CANYON
+2019 = "Nases Traucats" #CAT:Nassos Calats
+4957 = "Mont de Fragas" #EN:Strawberry Mountain. GAS:Mont d'Ahragas
+5754 = Oalaoà #CAT:Ualaua. #EN:Wallowa. Lewis&Clark:Wil-le-wah. Occitanized from the two.
+5612 = Saumon #Alt. LDC:Salmon; CAT:Salmó
+5825 = Lamtàma #To keep or to change...?
+#KOOTENAYS
+5816 = Banhat #Bonners Ferry. Here it's instead named for nearby Moyie, and the Moyie River, derived from French mouillé, meaning wet.
+#LOWER COLUMBIA
+873 = Chinuc #CAT:Chinuc #RL Astoria; here named for the native Chinook.
+4945 = "Las Lausas" #The Dalles. Translation Oc:Las Lausas; CAT:Lloses. Native name:Quenett, which could be transliterated Coènet.
+5750 = Ròcamossuda #Mossyrock, translated. CAT:Rocamolsa
+5755 = Esquitsotòho #Skit-so-to-ho. S+consonant is an illegal syllable structure in Occitan, so it needs to be broken up with an initial vowel
+5809 = Clatscanaí #Tlatscanai (Corrupted in EN as Clatskanie/Klaskanine). Here Oc-corrupted as Clatscana'i.
+5810 = Clacamàs #Clackamas.
+5876 = Cliquitat
+5877 = Catlamet #Kathlamet. Or the native city, Kathla'amat.
+#LOST COAST
+871 = {Oapití Oapití} #Mendocino County. Named 'Elk' here instead, borrowing the name of another, more generic, city. #NATIVE BT: (Pomo Buldam)
+2477 = Matoal #Mattóal/Mattole. Native tribal name. #NATIVE BT: 
+5031 = {Eureka Eureka} #NATIVE BT: 
+5763 = Ioquian #CAT:Iuquià #Constructed. País Iuquian = Yukian Country. #NATIVE BT: (Yuki Yuki)
+5848 = Aulecuòl #CAT:Olecuol. #Transliteration. NATIVE BT: (Olekwo'l Takelma)
+5849 = Natinuc #Natinook. English:Hupa Valley. NATIVE BT: (Natinixwe Natinixwe)
+5851 = {Sempervirent Sempervirent} #CAT:Sempreviva #Sequòia is named for a chief. Evergreen could work...Sempervirent for all Oc; Sempreviva for Catalan. #NATIVE BT: (Wailaki Wailaki)
+5853 = Bòquèia #NATIVE BT: (Bokeya Bokeya)
+5854 = Cabenapos #NATIVE BT: (Kabenapos 'Kaci Badon')
+#LOWER FRASER
+5874 = {Lamí Lamí} #Maybe Lomí/Lumí, depending on pronunciation? #Xwlemi/Lummi.
+5878 = {Tait Tait} #Native name, for now.
+#NORTH CASCADES
+2486 = Esnocoalmí #CAT:Esnucualmi. #Snoqualmie. Occitanized from a variant, Snuqualmi.
+4949 = Metau #Methow ('Met how')
+5746 = Oenatchí #Wenatchee
+5790 = Similcamé #Similkameen.
+5806 = "Granda Valada" #EN:Randle. Translated loosely from the English nickname of the region, 'Big Bottom Valley'.
+5808 = Escagit #Does Catalan pronounce G as J also? #Skagit. S+consonant is an illegal syllable structure in Occitan, so it needs to be broken up with an initial vowel
+5880 = Quititàs #Kititas.
+#OKANOGAN
+2607 = Quelòna #Kelowna.
+5744 = Shònitico #CAT:Xoniticu #Shonitkwu/Schwenetekoo.
+5745 = Òmac #Omac. Transliteration based on the pronunciation.
+5879 = Espacsomin #CAT:Espacsomí #Stuwix...Nicola people. Unfortunately this is a Europeanized chief's name, so I'm using one of the three tribes of the alliance, the Spaxomin.
+5882 = Òcanagan #CAT:Ocanagan #EN:Okanogan/Okanagan. Transliteration based on the pronunciation.
+5885 = Penticton #CAT:Pentictó #Penticton.
+#OLYMPIC PENINSULA
+2484 = "La Boca" #Same spelling Oc+Cat, despite different pronunciations.
+5748 = Coilhut #CAT:Cuilyut. #Quileute. Kwil'yut; Kwi'lei.u;t
+5749 = Hòcoiam #Hoquiam/Aberdeen area. Not sure this is best transliteration. Could be Hòcoiam.
+5801 = {Maca "Baia de Nia"} #English:Neah Bay, 'Baia de Nià' (Makah chief Dee-ah). Named instead for the Maka.
+5811 = Chalís #Chehalis in English. Occitanized from the Native American name, 'Ts-a-lis'/'Chi-ke-lis'. Old translation:Tsialis.
+5872 = Coinault #CAT:Cuinault #Quinault. #Quoinail?
+5875 = Coaïailc #CAT:Cuaïailc? #Kwaiailk/Upper Chehalis. Q'way'áyilq. This Occitanization would get us roughly to 'Qway-Ayl'.
+#OREGON
+872 = Oilamet #Or Oilamèt. CAT:Uilamet. 'Willamete,' Prounounced like Wil-AM-it in English.
+2481 = Còquil #Ko-Kwell (Còcuèl)/Coquille (Còquil), for the Coquille tribe.
+4942 = {Tilamuc Tilamuc}
+5759 = "Pòrt Nòu" #GAS:"Pòrt Nau"
+5760 = Eugèni
+5761 = "Plaja Daurada" #CAT:Platja...Something
+5802 = Vilacreissenta #CAT:Vilacreixenta?
+5805 = {"Pòrt de Ròsas" "Pòrt de Ròsas"} #Portland. Its nickname is 'City of Roses' due to its ideal climate for growing them, so Occitan here is 'Port of Roses' in honor of this.
+#PALOUSE
+2487 = {Espòcan Espòcan} #CAT:Espocà #Spokan/Spokane.
+4961 = Pelosa
+5752 = "Tres Forcas" #GAS:Tres Horcas #Pullman, originally Three Forks, which is wht I'm using.
+5753 = "Còr d'Alsena" #CAT:Cor d'Alena; GAS:Còr de Lesena #Coeur d'Alène, or 'Heart of an awl'.
+5883 = {Camia Camia} #Kamiah.
+#PUGET SOUND
+874 = {Alquí Alquí} #Seattle. Transcribes as Siatl, but that is a specific chief's name from *after* the BT period. Other native names:Alki (Alquí), sbaqWábaqs (Sbacoabacs). Alki was the predecessor to modern Seattle, founded at Alki Point not far south of today's city.
+2485 = {Poialap Poialap} #Pòialap? #CAT:Poialà? #Puyallup. English pron transcribes as Piualap. Transcribed from Native:S’Puyalupubsh (Spoy-all-up-obsh), without the S.
+5747 = Oatcam #CAT:Uatcam? #Whatcom
+5781 = Secoim #CAT:Secuim #Sequim. If we're going with 'Skwim', Occitan would be Escoim.
+5807 = Sucoamish #EN:Kitsap, named for a chief. Occitanized the tribal name, Suquamish, instead.
+5873 = Toanà #CAT:Tuana
+#QUADRA AND VANCOUVER
+972 = Mòichat #Nootka Sound area. Native name:Mowichat.
+4940 = {Lecuongen Victòria} #EN:Victoria, Oc Victòria. Nearby native-named town Esquimalt/Ess-whoy-malth. Local tribe is Lekwungen/Lekungen...Named prov for them and capital for Victoria.
+5733 = Coaquiutl #CAT:Cuaquiutl #Kwagu'l/Kwakiutl. If I wanted to, could do Nuiti for Nahwitti, a major First Nations trading village.
+#SISKIYOU
+2480 = Shastan #CAT:Shastà #Shastan Country (land of the Shasta) #Ka'hosadi. BT NATIVE: (Kahosadi Wáik'a)
+4956 = {Latgaua Lagauc} #Ortografia? #BT NATIVE (WAS A DUPLICATE OF 5847'S; RESEARCHED+FIXED BY ME): (Latgawa/Lat’gaawáe Latgawa/Lat’gaawáe/Latgau(k)). I don't see an -aoa- in Oc dictionary, but do see -aua-.
+5798 = {Caruc "Forcas de Saumon"} #Alt. LDC:Salmon. #GAS:'Horcas de Saumon'; AUV:'Forchas de Saumon' #Forks of Salmon. #BT NATIVE: (Káruk Ithivthanéen'aachip) #<-Karuk is pronounced Kuh-ruke, 'u' similar (but not exact) to in 'cut' and 'uke' like 'Luke' w/ a French accent. After listening to indigenous pronunciations and experimenting w/ Oc pronunciation @ https://votz.eu, I'm not likely to get a much closer transliteration.
+5803 = Dacobetede #Oc:Dacobetede; CAT:Dacubetede. Native:Dakubetede.
+5804 = "Riu de Cèrvis" #After 'Deer Creek', original name of Roseburg.
+5847 = {Taquèlma Didalam} #Occitanized version of native capital. #BT NATIVE (FIXED): (Takelma Didalam/Didalâm) (DUPLICATE LOC?) #DRAIOCHT MADE CAPITAL Sikuptat. CAN'T FIND THIS NAME ONLINE ANYWHERE!!!
+5850 = {Chimarico Haïmpom} #BT NATIVE: (Chimariko Hyampom) Other spellings: see https://en.wikipedia.org/wiki/Chimariko_people . Hyampom possibly from Wintu-language 'xaayin-pom', meaning 'slippery place'. I've rughly transliterated a middle form between the two.
+#SOUTH CASCADES
+2482 = Oaïst #CAT:Uaïst. #EN:Mount Hood. Native:Wy'east. The latter is Occitanized as our name.
+4946 = {Tinainu Maupin} #CAT:Malpi? #FR Rivière des Chutes (Riu de Cascadas), ENG Maupin (Maupin). Really both work. BT Native names: Tinaynuláma/Tinainu, both referring to the Tenino. Here keeping with my format of naming a region after the natives but the capital in Occitan.
+4958 = Clamat #Klamath
+5777 = Mòlala #CAT:Molala. #For the Molala people. Today Molalla, Oregon.
+5800 = "Lac d'Aucas" #CAT:"Llac d'Oques" #Goose Lake...Here it's plural 'geese' like the BT French name.
+5819 = Corba #EN:Bend. Shortened from "Farewell Bend," a fordable point on the river. This is the Occitan term for a river bend, and is also the Catalan term for curve.
+#SNAKE RIVER
+2020 = "Ròca d'Agla" #CAT:Roca d'Àguila #Eagle Rock, an older name of Idaho Falls. It is possible the name 'Idaho' was made up by one man after US annexation.
+2489 = Boscós #Assuming the La rivière boisée origin of Boise's name, the Occitan and Catalan translation is Lo/El/Eth Riu Boscós.
+5017 = Orinhal #CAT:Ratolí #GAS,PRO&AUV:Orinhau #Orignal, French-Canadian word for 'moose' derived from Basque. Apparently orinhal/orinhau also exists in Occitan, which was...unexpected.
+5757 = "Riu dels Malauts" #CAT:Riu dels Malalts #From French Rivière aux Malades, an older term for the Malad River in the Wood River/Magic Valley reegion.
+5758 = "Sant Antòni" #GAS:Sent Antòni; CAT:Sant Antoni #Ultimately named after a waterfall in Minnesota and a Catholic saint, Anthony of Padua. I'm keeping this name for the time being.
+5762 = Sheòqui #CAT:Sheoquí #Shewoki.
+5820 = "Taga Toca" #CAT:Taga Tuca #Tagötöka/Taga Ticutta
+###GREAT LAKES###
+#ILLINOIS
+914 = "La Baia" #CAT:"La Badia" GAS:"La/Era Baia"
+#MICHIGAN
+944 = "L'Estreit"
+#MINNESOTA
+904 = "La Ròca Marin" #The Fort Marin. (based off La Ròcha Focaud)
+908 = Minnesòta
+#OHIO
+948 = "Bèla Ribièra" #Gas:"Bèla/Bèra Ribèra"
+#WISCONSIN
+911 = "Sant Ignaci" #GAS:"Sent Ignaci"
+###MEXICO###
+#MEXICO
+852 = {Mexic Mexic}
+###MISSISSIPPI###
+#KENTUCKY
+940 = Vilaloís #Louisville, KY.
+#LOUISIANA
+893 = {"Nòva Guiana" "Nòva Guiana"} #GAS:"Nava Guiana" #Rather than Orleans (east-west French duchy on a river), naming it for Guyenne (east-west Occitan duchy on a river).
+895 = {"Los Arcansas" "Los Arcansas"} #PRO:"Leis Arcansas" #from French 'Les Arcansas'. Masculine or feminine?
+#OZARKS
+897 = {"La Ròca Petita" "La Ròca Petita"} #LEM&AUV:"La Ròcha Petita" #FR La Petite Roche.
+#UPPER MISSISSIPPI
+900 = "Sant Loís" #GAS:"Sent Loís"
+902 = Missorí
+#WEST FLORIDA
+921 = {"Baston Roge" "Baston Roge"}
+###NORTHEAST###
+#CONNECTICUT
+966 = {Nipmuc Nipmuc} #Native for now.
+967 = {Narraganset Providéncia} #Can go with native name and Providence, or Baie Notre-Dame like the French. Personally I prefer the former. "Baia de Nòstra Dòna" #CAT:"Badia de Nostra Senyora"
+2010 = {Connecticut Connecticut} #Capital is Hartford under the British.
+2560 = {Quinnipiac "Nòu Refugi"} #AUV:Rafugi? CAT:"Nou Refugi" GAS:"Nau Refugi" #Native Quinnipiac, English New Haven.
+2562 = {Pennacuc Pennacuc} #Transliterated native for now.
+#DELAWARE VALLEY
+956 = {Filadèlfia Filadèlfia}
+957 = {Lenape "Nòvas Fabregas"} #CAT:"Novas Fabregas"? GAS:"Navas Fabregas" #Delaware is Anglo-Norman derived. #Fabregas - Named after a place in Languedoc. Moved Lenape southward a province, as it still refers to the river and people here.
+962 = {Unami "Cap de Mai"} #Cap de Mai is from French BT.
+2023 = {Munsi Carantouan} #Munsee - subtribe of the Lenape. French localization calls it Carantouanie, for the Carantouan settlement (Susquehannock) at the northern border of Pennsylvania (location is still identifiable today). Here using Carantouan as the capital name.
+#GREAT WOODS
+969 = {Pocumtuc Pocumtuc} #Native, for now.
+2563 = {Montverd Montpelhièr} #GAS:Montpelhèr #Originally Verd Mont by the French. English Vermont. Occitan word order is reversed, and an actual Montverd exists in Auvergne. The US state's capital is named after the Occitan city of Montpelhièr, so I can just Occitanize the original name. Happy day!
+2564 = {Socòqui Socòqui} #Native people are the Sokoki (Socòqui). Keeping their name for now, though I could name the city or province differently in the future.
+2565 = {Quennebèc Agusta} #PRO:Agustà? or is that more east/Niçard? Easier to drop the accent... #Named for the Kennebec; need to know the pronunciation of the 'e'; natives called it Kínipekw. English founded Augusta here, which isn't out-of-place in Occitan (though perhaps Agusta would fit better). Native name of the Augusta area was Cushnoc (or Coussinoc, Koussinoc).
+#HUDSON VALLEY
+963 = {Mahican "Nòva Santonja"} #GAS:"Nava Sentonja" #BT French says Nouvelle-Saintonge. No argument here. Note that Occitan has Santonja in Languedoc for feminine (same as in Catalan), and Santonge/Sentonge universally in the masculine. Here I'm stretching the F form a bit to cover all dialects.
+965 = {Manhattan "Nòva Engoleime"} #GAS:"Nava Engoleime"; CAT:"Nova Angulema". FR:Nouvelle-Angoulême. Named for a French king's lineage, but also a major city near the linguistic border between Occitan and Poitevin-Saintongeais. Still feminine in Occitan, or at least in French-influenced Occitan.
+2558 = {Esòp Esòp} #Native: Espachomy. Is this another name for the Esopus people? The Dutch name 'Catskill' means 'Cat's Creek'. BT French says ésope.
+2639 = {Raritan Raritan} #Native for now.
+#MASSACHUSETTS BAY
+968 = {Massachasat Salèm} #CAT:Massachasat Salem #Massachusetts...people are Massachusett in colonial English, Massachusee in the singular, or Massachuseuk (Mid Central Vowel). Made a rough approximation using IPA and native dialectal forms. #Can keep Salem, MA as capital -- there's a town by the same name in Valencia. However, in Catalan there's a verb-form 'salem' (salar) without the accent, but the same form (salèm) has it in Gascon. So likely it needs an accent in Occitan, not in Catalan.
+970 = {Mèiramac "Punta Verda"} #CAT:Meiramac #Or Poncha. #Merrimack. Older French 'Merremack', English 'Merrimack' (older spellings Merimacke Merimack Merrimacke Merrimake Merrymake Marrymac Merrimac). Possibly from 'merruh auke' ("strong place") according ot Wikipedia. Assuming that -uh and the french -e- are Mid central vowel, letter would be A.
+2013 = {Molinas Molinas} #Transliteration of tribal name for the province (English 'Androscoggin') would be Arosaguntacuc, but six syllables seems too difficult to pronounce. #ENG Casco, for the city. So Casco was once part of nearby Raymond, but there's a mountain between them so they split and formed Casco. Not good soil for crops, but there were many ponds whose outlets fueled water-powered mills. Naming the town for those.
+2561 = {Oampanòc "Cap Blanc"} #CAT:Oampanoc #Wampanoag/Wôpanâak #Transliterated using IPA. Needs G as in Guy at the end, or nearest approximation (here giving C). The Mid Central Vowel can be 'e' in Auvergnat or 'a' in Catalan. In Gascony, 'A' is also pronounced like this at the end of adverbs or in words ending in -ament. So best to use A.
+#NORTH IROQUOISIA
+960 = {Ònondaga Asuigo} #CAT:Onondaga #Oswego - derived from an Iroquois term. How does this transliterate? IPA to the rescue!
+961 = {Òneiut Útica} #CAT:Oneiut #Oneida is the English form of Onyota'a:ka or Onayotekaonotyu, endonyms. French call them the Onneiout. Capital of modern Oneida county is Utica, which may be named after Utica, Tunisia (Útica in Catalan).
+964 = {Scanectadi Scanectadi} #Schenectady, from the Mohawk people. French called the native folk Aigniers/Agniers, by corruption of their endonym. The capital (and later NY county name) is Schenectady, from the original skahnéhtati. Roughly comes out as Scanectadi in Occitan, using IPA.
+2559 = {Adirondac Carrilhon} #CAT:Carilló. #FR:Carillon, a church bell. Could also go for Ticonderoga if I wanted.
+#SOUTH IROQUOISIA
+954 = {Alleguèni Peninsula} #Allegheny - Could be from Allegewi, Alligewinenk, 'Alligewi Sipo', anglicized as Alleghene, Allegheny, Allegany.
+958 = {Seneca Bufle} #CAT:Seneca Búfal #Seneca Buffalo
+959 = {Caiuga "Castèl Caiuga"} #AUV:Chastèl/Chastèu Caiuga CAT:Castell Caiuga GAS:Castèth Caigua #PRO:Casteu(?) Caiuga #Cayuga (FR Cayouga). Could name capital after Cayuga Castle (English name for one of the major villages), or St. Joseph for the mission built there.
+#SUSQUEHANNA
+955 = {Susquehanna Susquehanna} #French uses Andastes for the province, from the Huron term Andastoerrhonon, "people of the blackened ridge pole" (Wikipedia)
+2555 = {Òniasont Borgdeuse} #Honniasont, Oniasont, Oniassontke, Honniasontkeronon. The English and French both built forts in the area, Fort Duquesne (Du Quesne) and Fort Pitt (later Pittsburgh). EU4 history also puts capital at Fort Henry in WV. Here I'm calling the city "Borgdeuse" (Borg d'Euse - Burg of Oak) in reference to the city's hills and oak trees, plus keeping the 'burg' portion of its English name (Coincidentally, a country club called Oakmont was later founded nearby)
+2556 = {Juniata Vilatomàs} #To give a city name. Its early boroughs all have an English character to their names, like Mifflintown and Thompsontown, so not really applicable. The later could be translated as 'Vilatomàs' (Thomasville), in theory.
+2557 = {Atracoaí Atracoaí} #CAT:Atracuaí? #Atrakwaye - principal village of the Akhrakouaeronon or Atrakouaehronon subtribe of Susquehannock. Attempted transliteration.
+###RIO GRANDE###
+#CHIHUAHUA
+2618 = {"Santa Barbara" "Santa Barbara"} #GAS:"Senta Barbara"
+#NEW MEXICO
+2495 = {"Nòva Lomanha" "Nòva Lomanha"} #GAS:"Nava Lomanha" #Albuquerque. Named after the Duke of Alburquerque - and the city of Alburquerque in Badajoz - very close to the border with Portugal. Here I've done similar, naming it 'New Lomagne' after the ruling dynasty in Lomagne and Armagnac both in 1291 and 1444. ##Here I'm naming it for Banhèras/Banhères de Luishon, very close to the French-Spanish border.
+4632 = {Ponderosa Ponderosa}
+5827 = "Los Píbols" #CAT:Els Àlbers #Names 'los alamos' in Spanish, meaning 'the poplars'. The -l here is more common than I'd expect.
+#PECOS
+2498 = {"Lo Pas" "Lo Pas"} #CAT:"El Pas"
+#TEXAS
+883 = {"Sant Antòni" "Sant Antòni"} #GAS:"Sent Antòni"
+887 = {"Los Tèxas" "Los Tèxas"} #CAT:"Els Texas" PRO:"Lei Tèxas" #Los Texas/Tejas. PEOPLE, not roof tiles!
+###SOUTHEAST###
+
+#########################
+##### OCEANIA #####
+#########################
+###POLYNESIA
+#Polynesia
+1243 = {Samoa Apia}
+
+#########################
+##### SOUTH AMERICA #####
+#########################
+###BRAZIL###
+#CEARA
+753 = "Riu Grand" #GAS:"Riu/Arriu Gran" #How do we want to do word order here? #RIO GRANDE.
+#GRAO PARA
+748 = Betelèm
+2890 = "Santa Maria" #GAS:"Senta Maria" #or "Illa de Santa Maria"
+#PIAUI
+752 = {"Rosari" "Rosari"}
+###COLOMBIA###
+#GUYANA
+2803 = {Orenòc Orenòc} #Orinoco/Orenoco/Orénoque; Occitanized.
+#VENEZUELA
+741 = Sucre
+###LA PLATA###
+#BAHIA BLANCA
+780 = {Candelièra Candelièra} #AUV:Chandelèira CAT:Candelera GAS:Candelèra PRO:Candeliera #Candelaria is Candlemas, which translates as Candelera in Catalan and C(h)andelosa or C(h)andel(è/èi/iè/ie)ra in Occitan. #Candelaria x2
+786 = {Carmen Carmen} #Generally Carmen or Càrmen in Occitan. #Carmen x2
+2868 = {"Sant Antòni" "Sant Antòni"} #GAS:"Sent Antòni" #San Antonio x2
+#BANDA ORIENTAL
+772 = {Uruguai Paiçandó} #CAT:Paiçandó #Paúçandó - older form? #Uruguay Paysandú
+773 = {"Riba Orientala" "Fòrt Sant Miquèl"} #'Banda Oriental' here is for 'Eastern Shore', which translates as 'Riba Orientala' in both Occitan and Catalan. #"Banda Oriental" "Fuerte San Miguel"
+2850 = {Montvist Montvist} #Montevideo's name most likely from Latin 'Monte Vidi' ('I saw a mountain'), from the Magellan Expedition. Giving it the nearest two-word translation here, 'Mountain Seen'. #Montevideo x2
+2851 = {Colonia Colonia} #CAT:Colònia #Colonia x2
+2852 = {Tacuarembó Tacuarembó} #Tacuaremboty/Tacuarembó Salto
+#BUENOS AIRES
+778 = {"L'Argent" "L'Argent"} #CAT:"La Plata" #GAS:"L'/Eth Argent" #(Río de) la Plata. Occitanized.
+2846 = {Còrdoa Còrdoa} #Quisquisacate Cordoba
+2848 = {"Santa Fe" "Santa Fe"} #GAS:"Senta He" #SPA:Santa Fe
+2849 = {Rosari Rosari} #Rosario x2
+#CENTRAL CHILE
+#784 = {} #Huillimapu x2
+#787 = {} #Picunmapu x2
+2862 = {Coquimbo Coquimbo} #Coquimbo x2
+#CUYO
+#2843 = {} #La Rioja x2
+#2844 = {} #Chepes x2
+2845 = {"Sant Joan" "Sant Joan"} #GAS:"Sent Joan" #San Juan x2
+2847 = {"Sant Loís" "Sant Loís"} #CAT:"Sant Lluís" #GAS:"Sent Loís" #San Luis x2
+#2877 = {} #Mendoza x2
+#MESOPOTAMIA
+777 = {Corrents Corrents} #Corrientes x2
+#2853 = {} #Yareyu x2
+2855 = {Missions Candelièra} #AUV:Chandelèira CAT:Candelera GAS:Candelèra PRO:Candeliera #Candelaria is Candlemas, which translates as Candelera in Catalan and C(h)andelosa or C(h)andel(è/èi/iè/ie)ra in Occitan. #Misiones Candelaria
+2858 = {"Sant Jacme" "Sant Jacme"} #CAT:"Sant Jaume" GAS:"Sent Jacme" #Santiago x2
+2859 = {Itapúa Encarnacion} #CAT:Encarnació #GAS:Incarnacion #PRO:Encarnacion/Incarnacion #Itapúa is a Guarani name; modern capital is Encarnación (Incarnation), used here for the translation. #Itapúa x2
+#NEHEUNKEN
+#785 = {} #Pehuenmapu x2
+2867 = {Chanhar Chanhar} #CAT:Chanyar #Chañar is a tree in South America. Giving a slight Occitanization for now. #Chañar x2
+#2871 = {} #Poya x2
+#2872 = {} #Chiquiyami x2
+#PATAGONIA
+781 = {"Pòrt Desirat" "Pòrt Desirat"} #Puerto Deseado/Port Desire x2
+782 = {"Tèrra del Fuòc" "Cap Hòrn"} #AUV&PRO:"Tèrra dau Fuòc"(or fuec? auvergne is pretty north...) #CAT:"Terra del Foc" "Cap Horn" #GAS:"Tèrra deu Huec" #"Tierra del Fuego" x2
+2869 = {"Floridablanca" "Floridablanca"} #AUV:"Floridablancha" #"Florida Blanca" x2
+#PATAGONIAN ANDES
+2863 = {"Riu Negre" "Riu Negre"} #GAS:Ne(g)re/Ner #Rio Negro x2
+#2870 = {} #Tehuelmapu x2
+#2875 = {} #Chubut x2
+#2876 = {} #Teush x2
+#SOUTH ATLANTIC ISLANDS
+1095 = {"Illas Malvinas" "Pòrt Solitud"} #CAT:"Illes Malvines" "Port Solitud" #"Islas Malvinas", from French 'Îles Malouines' after St Malo (OC Maclòvi, CAT Maclovi)./Falklands. Capital - Port (Saint) Louis/Puerto Soledad (original French settlement, Stanley was founded later)
+1098 = {"Santa Elena" "Santa Elena"} #AUV:Senta/Santa Elena CAT:Santa Elena GAS:Senta Elena PRO:Santa Elena #St. Helena. Santa/Senta variation in Occitan.
+2025 = {"Illa Blanca" "Cala de las Olas"} #AUV:"Illa Blancha" CAT:"Cala de las Ollas" #GAS:"Cala deras Olas"? #"Isla San Pedro"/"South Georgia", earlier "Roché Island". Here calling it 'White Island' in reference to its frigid climate. Capital is Grytviken, name means "The Pot Cove", after several try-pots used for boiling seal oil that were found there.
+#SOUTHERN CHILE
+#783 = {} #Kawesqar Alacaluf (yes, there's 2. Bad BT)
+#2873 = {} #Chiloe x2
+#2874 = {} #Aysen Alacaluf (yes, there's 2. Bad BT)
+#SOUTHERN PAMPAS
+779 = {Tandil Tandil} #Tandil x2
+#2860 = {} #Querandi x2
+2861 = {Sause Sause} #CAT:Salze #GAS:Sauç/Sauce #If it's 'Sauce' as in 'Salix', then Sause/Salze/Sauç in Occitan and Salze in Catalan. #Puelches x2
+2865 = {Puelches Puelches} #Puelches
+#2866 = {} #Named RL for José Valentín de Olavarría. #Olavarria x2
+###UPPER PERU###
+#CHACO
+790 = {"Chaco Austral" "Sant Just"} #GAS:"Chaco Austrau" "Sent Just" PRO:"Chaco Austrau" #Chaco Austral x2. Chaco is an indigenous word, coming from 'Chaqu'. On the cap, capital is NE of the bend in the Rio Salado, rrrrrroughly near San Justo or Villa Saralegui.
+2854 = {"Chaco Central" "Granda Gàrdia"} #GAS:"Chaco Centrau" "Grana Gàrdia" PRO:"Chaco Centrau" #Chaco Central x2. Capital city in BT map is somewhere around Pirané, Palo Santo or Gran Guardia. Really inexact though.
+2878 = {Matara Matara} #Matará x2, named for the Mataraes/Matarás, an indigenous people.
+#JUJUY
+#794 = {} #Juluy x2
+#2837 = {} #Santa Catalina x2
+#2839 = {} #"Puna de Atacama" Catarpe
+#NORTHERN CHILE
+792 = {Copiapó Copiapó} #CAT:Copiapó #Quecha qupa-yapu? #Copiapó x2
+793 = {Iquiquí Iquiquí} #Native:'Iki Iki' #Iquique x2
+796 = {Arica Arica} #Arica x2
+2840 = {Calama Calama} #Calama x2
+2841 = {Antofagasta Antofagasta} #Antofagasta x2
+#PARAGUAY
+775 = {Assompcion Assompcion} #Asunción, translated.
+776 = {Concepcion Concepcion} #Concepcion x2
+799 = {"Chaco Boreal" "Chaco Boreal"} #Chaco Boreal x2
+2882 = {"Fòrt Borbon" "Fòrt Borbon"} #CAT:Fort Borbó #Fuerte Borbon x2
+2883 = {Melodia Melodia} #Melodia x2
+#TUCUMAN
+791 = {Catamarca Catamarca} #Catamarca x2
+2836 = {Tucuman Tucuman} #CAT:Tucumà #Tucuman x2
+2842 = {"Sant Jacme de la Laguna" "Sant Jacme de la Laguna"} #CAT:"Sant Jaume de la Llacuna" GAS:"Sent Jacme dera/de la Laguna" #Santiago del Estero x2
