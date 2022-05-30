@@ -327,3 +327,44 @@ UEF_ideas = {
 		#allowed_marine_fraction = 0.50
 	}
 }
+
+KEM_ideas = { #Khemi
+	start = {
+		build_cost = -0.15
+		production_efficiency = 0.1
+	}
+
+	bonus = {
+		prestige_decay = -0.01 #Legacy of Pharaohs
+	}
+
+	trigger = {
+		tag = KEM
+	}
+	free = yes
+
+	KEM_black_soil_of_the_nile = { #Nile. Nile! Nile!!!
+		development_cost = -0.1
+		global_trade_goods_size_modifier = 0.10
+	}
+	KEM_defence_of_copts = { #Mayyyyyy help against Ottomans
+		land_morale = 0.15
+	}
+	KEM_restore_coptic_language = {
+		global_missionary_strength = 0.01
+		culture_conversion_cost = -0.10 #Won't actually be used in CI, but this idea /will/ flag as idea_to_settle_faster (Won't help with Assimilated cultures)
+	}
+	KEM_great_cities_of_the_nile = { #Same as Mamluk ambition, best in class
+		global_prov_trade_power_modifier = 0.25
+	}
+	KEM_legacy_of_administration = { #Early advanced government, plus will help a tag that won't exist for the early part of the game catch up
+		reform_progress_growth = 0.15
+	}
+	KEM_nile_dockyards = { #Quite powerful, but most of Khemi's land is non-coastal along the Nile, makes sense as a late ambition for resurgent Khemi to protect trade from large naval hegemons
+		naval_forcelimit_modifier = 0.50
+	}
+	KEM_monuments_of_egypt = { #I mean, yeah..
+		build_time = -0.1
+		great_project_upgrade_cost = -0.1
+	}
+}
