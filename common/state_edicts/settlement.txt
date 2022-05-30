@@ -16,7 +16,28 @@ edict_settlement = {
 	color = { 180 60 60 }
 	
 	ai_will_do = {
-		factor = 100
+		factor = 10
+		modifier = {
+			factor = 2
+			any_province_in_state = { #Repopulate the devastated land
+				devastation = 10
+			}
+		}
+		modifier = {
+			factor = 2
+			all_province_in_state = { #Rural fertile lands
+				NOT = { development = 10 }
+			}
+		}
+		modifier = {
+			factor = 2
+			any_province_in_state = {
+				AND = {
+					has_terrain = farmlands
+					NOT = { culture_group = ROOT }
+				}
+			}
+		}
 		modifier = {
 			factor = 0
 			all_province_in_state = {
