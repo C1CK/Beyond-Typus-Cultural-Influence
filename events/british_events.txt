@@ -235,9 +235,9 @@ country_event = { #Solidifying of Scots
 		name = solidifying_of_scots.a
 
 		trigger = {
-			248 = { NOT = { owner = { primary_culture = english } } } #Lothian
-			248 = { NOT = { owner = { primary_culture = northumbrian } } } #Lothian
-			246 = { NOT = { owner = { primary_culture = scottish } } } #Northumberland
+			248 = { NOT = { OWNER = { primary_culture = english } } } #Lothian
+			248 = { NOT = { OWNER = { primary_culture = northumbrian } } } #Lothian
+			246 = { NOT = { OWNER = { primary_culture = scottish } } } #Northumberland
 		}
 
 		set_global_flag = scottish_solidified_flag
@@ -245,14 +245,14 @@ country_event = { #Solidifying of Scots
 
 		SCO = { remove_historical_rival = ENG }
 		ENG = { remove_historical_rival = SCO }
-		#Shift based on owner if neither is dominant
+		#Shift based on OWNER if neither is dominant
 		british_isles_region = { #Shift Scots outside of Scotland -> Northumbrian
 			limit = {
 				anglo_northumbrian_culture_region = yes
 				culture = scottish
 				OR = {
-					owner = { primary_culture = english }
-					owner = { primary_culture = northumbrian }
+					OWNER = { primary_culture = english }
+					OWNER = { primary_culture = northumbrian }
 				}
 			}
 			change_culture = northumbrian
@@ -264,8 +264,8 @@ country_event = { #Solidifying of Scots
 
 		trigger = {
 			OR = {
-				248 = { owner = { primary_culture = english } } #Lothian
-				248 = { owner = { primary_culture = northumbrian } } #Lothian
+				248 = { OWNER = { primary_culture = english } } #Lothian
+				248 = { OWNER = { primary_culture = northumbrian } } #Lothian
 			}
 		}
 
@@ -278,7 +278,7 @@ country_event = { #Solidifying of Scots
 			limit = {
 				anglo_northumbrian_culture_region = yes
 				culture = scottish
-				#NOT = { owner = { primary_culture = scottish } }
+				#NOT = { OWNER = { primary_culture = scottish } }
 			}
 			change_culture = northumbrian
 		}
@@ -288,7 +288,7 @@ country_event = { #Solidifying of Scots
 		name = solidifying_of_scots.c
 
 		trigger = {
-			246 = { owner = { primary_culture = scottish } } #Northumberland
+			246 = { OWNER = { primary_culture = scottish } } #Northumberland
 		}
 
 		set_global_flag = scottish_solidified_flag
@@ -300,7 +300,7 @@ country_event = { #Solidifying of Scots
 		#	limit = {
 		#		anglo_northumbrian_culture_region = yes
 		#		culture = scottish
-		#		NOT = { owner = { primary_culture = scottish } }
+		#		NOT = { OWNER = { primary_culture = scottish } }
 		#	}
 		#	change_culture = northumbrian
 		#}
@@ -315,7 +315,7 @@ province_event = { #Anglo-Welsh (Assimilation)
 	goto = root
 	
 	trigger = {
-		owner = { has_country_flag = anglicizing_wales_flag }
+		OWNER = { has_country_flag = anglicizing_wales_flag }
 		NOT = { culture_group = british }
 		anglo_welsh_culture_region = yes
 		ci_assimilation_check_british = yes
@@ -438,15 +438,15 @@ province_event = { #Anglo-Welsh (Assimilation)
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -481,7 +481,7 @@ province_event = { #Anglo-Irish (Assimilation)
 	goto = root
 	
 	trigger = {
-		owner = { has_country_flag = anglicizing_ireland_flag }
+		OWNER = { has_country_flag = anglicizing_ireland_flag }
 		NOT = { culture_group = british }
 		anglo_irish_culture_region = yes
 				ci_assimilation_check_british = yes
@@ -604,15 +604,15 @@ province_event = { #Anglo-Irish (Assimilation)
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -647,7 +647,7 @@ province_event = { #Scottish (Assimilation)
 	
 	trigger = {
 		OR = {
-			owner = { has_country_flag = anglicizing_scotland_flag }
+			OWNER = { has_country_flag = anglicizing_scotland_flag }
 			OR = { #Allow Lowlands before decision
 				area = lowlands_area #Eastern Lowlands
 				area = scottish_marches_area #Western Lowlands
@@ -780,15 +780,15 @@ province_event = { #Scottish (Assimilation)
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -804,10 +804,10 @@ province_event = { #Scottish (Assimilation)
 			limit = {
 				province_id = 4365 #Mann
 				OR = {
-					owner = { primary_culture = scottish }
-					owner = { primary_culture = english }
-					owner = { primary_culture = northumbrian }
-					owner = { primary_culture = anglo_irish }
+					OWNER = { primary_culture = scottish }
+					OWNER = { primary_culture = english }
+					OWNER = { primary_culture = northumbrian }
+					OWNER = { primary_culture = anglo_irish }
 				}
 			}
 			change_culture = OWNER
@@ -1175,15 +1175,15 @@ province_event = { #Irish -> British
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -1207,7 +1207,7 @@ province_event = { #Arctic settlements & Assimilation
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_arctic_culture_region = yes		
 		NOT = { culture = anglo_arctic }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -1215,7 +1215,7 @@ province_event = { #Arctic settlements & Assimilation
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
 		#No decision for settlements here
@@ -1339,15 +1339,15 @@ province_event = { #Arctic settlements & Assimilation
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -1370,7 +1370,7 @@ province_event = { #Norman settlements & Assimilation -Continental Settlements P
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_norman_english_culture_region = yes		
 		NOT = { culture = anglo_norman_english } #Not French
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -1378,10 +1378,10 @@ province_event = { #Norman settlements & Assimilation -Continental Settlements P
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -1502,15 +1502,15 @@ province_event = { #Norman settlements & Assimilation -Continental Settlements P
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -1533,7 +1533,7 @@ province_event = { #Aquitanian settlements & Assimilation -Continental Settlemen
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_aquitanian_culture_region = yes		
 		NOT = { culture = anglo_aquitanian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -1541,10 +1541,10 @@ province_event = { #Aquitanian settlements & Assimilation -Continental Settlemen
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -1665,15 +1665,15 @@ province_event = { #Aquitanian settlements & Assimilation -Continental Settlemen
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -1696,7 +1696,7 @@ province_event = { #Burgundian settlements & Assimilation -Continental Settlemen
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_burgundian_culture_region = yes		
 		NOT = { culture = anglo_burgundian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -1704,10 +1704,10 @@ province_event = { #Burgundian settlements & Assimilation -Continental Settlemen
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -1828,15 +1828,15 @@ province_event = { #Burgundian settlements & Assimilation -Continental Settlemen
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -1859,7 +1859,7 @@ province_event = { #Toulousain settlements & Assimilation -Continental Settlemen
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_toulousain_culture_region = yes		
 		NOT = { culture = anglo_toulousain }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -1867,10 +1867,10 @@ province_event = { #Toulousain settlements & Assimilation -Continental Settlemen
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -1991,15 +1991,15 @@ province_event = { #Toulousain settlements & Assimilation -Continental Settlemen
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -2022,7 +2022,7 @@ province_event = { #Lower Rhenish settlements & Assimilation -Continental Settle
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_lower_rhenish_culture_region = yes		
 		NOT = { culture = anglo_lower_rhenish }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -2030,10 +2030,10 @@ province_event = { #Lower Rhenish settlements & Assimilation -Continental Settle
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -2154,15 +2154,15 @@ province_event = { #Lower Rhenish settlements & Assimilation -Continental Settle
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -2185,7 +2185,7 @@ province_event = { #Frisian settlements & Assimilation -Continental Settlements 
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_frisian_culture_region = yes		
 		NOT = { culture = anglo_frisian_culture }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -2193,10 +2193,10 @@ province_event = { #Frisian settlements & Assimilation -Continental Settlements 
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -2317,15 +2317,15 @@ province_event = { #Frisian settlements & Assimilation -Continental Settlements 
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -2348,7 +2348,7 @@ province_event = { #Upper Rhenish settlements & Assimilation -Continental Settle
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_upper_rhenish_culture_region = yes		
 		NOT = { culture = anglo_upper_rhenish }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -2356,10 +2356,10 @@ province_event = { #Upper Rhenish settlements & Assimilation -Continental Settle
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -2480,15 +2480,15 @@ province_event = { #Upper Rhenish settlements & Assimilation -Continental Settle
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -2511,7 +2511,7 @@ province_event = { #Danish settlements & Assimilation -Continental Settlements P
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_danish_culture_region = yes		
 		NOT = { culture = anglo_danish }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -2519,10 +2519,10 @@ province_event = { #Danish settlements & Assimilation -Continental Settlements P
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -2643,15 +2643,15 @@ province_event = { #Danish settlements & Assimilation -Continental Settlements P
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -2674,7 +2674,7 @@ province_event = { #Norwegian settlements & Assimilation -Continental Settlement
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_norwegian_culture_region = yes		
 		NOT = { culture = anglo_norwegian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -2682,10 +2682,10 @@ province_event = { #Norwegian settlements & Assimilation -Continental Settlement
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -2806,15 +2806,15 @@ province_event = { #Norwegian settlements & Assimilation -Continental Settlement
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -2837,7 +2837,7 @@ province_event = { #Swedish settlements & Assimilation -Continental Settlements 
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_swedish_culture_region = yes		
 		NOT = { culture = anglo_swedish }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -2845,10 +2845,10 @@ province_event = { #Swedish settlements & Assimilation -Continental Settlements 
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -2969,15 +2969,15 @@ province_event = { #Swedish settlements & Assimilation -Continental Settlements 
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -3000,7 +3000,7 @@ province_event = { #Finnish settlements & Assimilation -Continental Settlements 
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_finnish_culture_region = yes		
 		NOT = { culture = anglo_finnish }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -3008,10 +3008,10 @@ province_event = { #Finnish settlements & Assimilation -Continental Settlements 
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -3132,15 +3132,15 @@ province_event = { #Finnish settlements & Assimilation -Continental Settlements 
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -3163,7 +3163,7 @@ province_event = { #Laplander settlements & Assimilation -Continental Settlement
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_laplander_culture_region = yes		
 		NOT = { culture = anglo_laplander }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -3171,10 +3171,10 @@ province_event = { #Laplander settlements & Assimilation -Continental Settlement
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -3295,15 +3295,15 @@ province_event = { #Laplander settlements & Assimilation -Continental Settlement
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -3326,7 +3326,7 @@ province_event = { #Baltic settlements & Assimilation -Continental Settlements P
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_baltic_culture_region = yes		
 		NOT = { culture = anglo_baltic }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -3334,10 +3334,10 @@ province_event = { #Baltic settlements & Assimilation -Continental Settlements P
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -3458,15 +3458,15 @@ province_event = { #Baltic settlements & Assimilation -Continental Settlements P
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -3489,7 +3489,7 @@ province_event = { #Pomeranian settlements & Assimilation -Continental Settlemen
 	goto = root
 	
 	trigger = {
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		anglo_pomeranian_culture_region = yes		
 		NOT = { culture = anglo_pomeranian }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -3497,10 +3497,10 @@ province_event = { #Pomeranian settlements & Assimilation -Continental Settlemen
 				has_owner_accepted_culture = no
 				NOT = { culture_group = british }
 			}	
-			owner = { ai = yes }
+			OWNER = { ai = yes }
 		}
 		ci_settlement_check = yes
-		owner = { has_country_modifier = british_continental_settlement_plans_modifier }
+		OWNER = { has_country_modifier = british_continental_settlement_plans_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -3621,15 +3621,15 @@ province_event = { #Pomeranian settlements & Assimilation -Continental Settlemen
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 4 }
+			OWNER = { adm = 4 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 5 }
+			OWNER = { adm = 5 }
 		}
 		modifier = {
 			factor = 0.9
-			owner = { adm = 6 }
+			OWNER = { adm = 6 }
 		}
 		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
 		#	factor = 0.75
@@ -3659,7 +3659,7 @@ province_event = { #Australian
 		anglo_australian_culture_region = yes
 		is_city = yes
 		british_new_world = no
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
@@ -3710,7 +3710,7 @@ province_event = { #Kiwi
 		anglo_kiwi_culture_region = yes
 		is_city = yes
 		british_new_world = no
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
@@ -3763,7 +3763,7 @@ province_event = { #Caribbean
 		anglo_caribbean_culture_region = yes
 		is_city = yes
 		british_new_world = no
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 	
@@ -3816,7 +3816,7 @@ province_event = { #American
 		anglo_american_culture_region = yes
 		is_city = yes
 		british_new_world = no
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		OR = {
 			NOT = {	culture = anglo_yankee }
 			NOT = {	culture = anglo_dixee }
@@ -3872,7 +3872,7 @@ province_event = { #Canadian
 		anglo_canadian_culture_region = yes
 		is_city = yes
 		british_new_world = no
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
@@ -3923,7 +3923,7 @@ province_event = { #Texan
 		anglo_texan_culture_region = yes
 		is_city = yes
 		british_new_world = no
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
@@ -3974,7 +3974,7 @@ province_event = { #Newfoundlander
 		anglo_newfoundlander_culture_region = yes
 		is_city = yes
 		british_new_world = no
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
@@ -4014,431 +4014,7 @@ province_event = { #Newfoundlander
 	}
 }
 
-#Still North America but these IDs are after South African
 
-province_event = { #Californian
-	id = cultural_influence_british.55
-	title = british_californian.title
-	desc = british_californian.desc
-	picture = CULTURE_eventPicture
-	goto = root
-	
-	trigger = {
-		anglo_californian_culture_region = yes
-		is_city = yes
-		british_new_world = no
-		owner = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
-	}
-
-	mean_time_to_happen = {
-		years = 25
-		#MTTH settings
-		modifier = {
-			factor = 0.0
-			has_global_flag = 00_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0
-			british_european = yes
-		}
-	}
-
-	option = {
-		name = british_californian.a
-
-		change_culture = anglo_californian
-	}
-}
-
-province_event = { #Cascadian
-	id = cultural_influence_british.56
-	title = british_cascadian.title
-	desc = british_cascadian.desc
-	picture = CULTURE_eventPicture
-	goto = root
-	
-	trigger = {
-		anglo_cascadian_culture_region = yes
-		is_city = yes
-		british_new_world = no
-		owner = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
-	}
-
-	mean_time_to_happen = {
-		years = 25
-		#MTTH settings
-		modifier = {
-			factor = 0.0
-			has_global_flag = 00_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0
-			british_european = yes
-		}
-	}
-
-	option = {
-		name = british_cascadian.a
-
-		change_culture = anglo_cascadian
-	}
-}
-
-province_event = { #Midwestern (except no idea what to actually call them because midwestern is a horrible name)
-	id = cultural_influence_british.58
-	title = british_midwestern.title
-	desc = british_midwestern.desc
-	picture = CULTURE_eventPicture
-	goto = root
-	
-	trigger = {
-		anglo_midwestern_culture_region = yes
-		is_city = yes
-		OR = {
-			british_new_world = no
-			culture = american
-		}	
-		owner = { is_subject = no } #Has to be independent
-		owner = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
-	}
-
-	mean_time_to_happen = {
-		years = 25
-		#MTTH settings
-		modifier = {
-			factor = 0.0
-			has_global_flag = 00_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0
-			british_european = yes
-		}
-	}
-
-	option = {
-		name = british_midwestern.a
-
-		change_culture = anglo_midwestern
-	}
-}
-
-province_event = { #Mexican
-	id = cultural_influence_british.59
-	title = british_mexican.title
-	desc = british_mexican.desc
-	picture = CULTURE_eventPicture
-	goto = root
-	
-	trigger = {
-		anglo_mexican_culture_region = yes
-		is_city = yes
-		british_new_world = no
-		owner = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
-	}
-
-	mean_time_to_happen = {
-		years = 25
-		#MTTH settings
-		modifier = {
-			factor = 0.0
-			has_global_flag = 00_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0
-			british_european = yes
-		}
-	}
-
-	option = {
-		name = british_mexican.a
-
-		change_culture = anglo_mexican
-	}
-}
-
-province_event = { #Anglo Great Plains (yea no idea for this one as well)
-	id = cultural_influence_british.60
-	title = british_great_plains.title
-	desc = british_great_plains.desc
-	picture = CULTURE_eventPicture
-	goto = root
-	
-	trigger = {
-		anglo_great_plains_culture_region = yes
-		is_city = yes
-		british_new_world = no
-		owner = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
-	}
-
-	mean_time_to_happen = {
-		years = 25
-		#MTTH settings
-		modifier = {
-			factor = 0.0
-			has_global_flag = 00_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0
-			british_european = yes
-		}
-	}
-
-	option = {
-		name = british_great_plains.a
-
-		change_culture = anglo_great_plains
-	}
-}
-
-province_event = { #Alaskan
-	id = cultural_influence_british.61
-	title = british_alaskan.title
-	desc = british_alaskan.desc
-	picture = CULTURE_eventPicture
-	goto = root
-	
-	trigger = {
-		anglo_alaskan_culture_region = yes
-		is_city = yes
-		british_new_world = no
-		owner = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
-	}
-
-	mean_time_to_happen = {
-		years = 25
-		#MTTH settings
-		modifier = {
-			factor = 0.0
-			has_global_flag = 00_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0
-			british_european = yes
-		}
-	}
-
-	option = {
-		name = british_alaskan.a
-
-		change_culture = anglo_alaskan
-	}
-}
-
-province_event = { #Yankee
-	id = cultural_influence_british.62
-	title = british_yankee.title
-	desc = british_yankee.desc
-	picture = CULTURE_eventPicture
-	goto = root
-	
-	trigger = {
-		anglo_yankee_culture_region = yes
-		is_city = yes
-		OR = {
-			british_new_world = no
-			culture = american
-		}	
-		owner = { is_subject = no } #Has to be independent
-		owner = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
-	}
-
-	mean_time_to_happen = {
-		years = 25
-		#MTTH settings
-		modifier = {
-			factor = 0.0
-			has_global_flag = 00_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0
-			british_european = yes
-		}
-		modifier = {
-			factor = 0
-			culture = american
-		}
-	}
-
-	option = {
-		name = british_yankee.a
-
-		change_culture = anglo_yankee
-	}
-}
-
-province_event = { #Dixie
-	id = cultural_influence_british.63
-	title = british_dixie.title
-	desc = british_dixie.desc
-	picture = CULTURE_eventPicture
-	goto = root
-	
-	trigger = {
-		anglo_dixie_culture_region = yes
-		is_city = yes
-		OR = {
-			british_new_world = no
-			culture = american
-		}	
-		owner = { is_subject = no } #Has to be independent
-		owner = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
-	}
-
-	mean_time_to_happen = {
-		years = 25
-		#MTTH settings
-		modifier = {
-			factor = 0.0
-			has_global_flag = 00_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0.5
-			has_global_flag = 05_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 1.5
-			has_global_flag = 15_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 2.0
-			has_global_flag = 20_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 4.0
-			has_global_flag = 40_CI_MTTH_flag
-		}
-		modifier = {
-			factor = 0
-			british_european = yes
-		}
-	}
-
-	option = {
-		name = british_dixie.a
-
-		change_culture = anglo_dixie
-	}
-}
 #South America
 
 province_event = { #Brazilian
@@ -4452,7 +4028,7 @@ province_event = { #Brazilian
 		anglo_brazilian_culture_region = yes
 		is_city = yes
 		british_new_world = no
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
@@ -4503,7 +4079,7 @@ province_event = { #Peruvean
 		anglo_peruvean_culture_region = yes
 		is_city = yes
 		british_new_world = no
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
@@ -4554,7 +4130,7 @@ province_event = { #Colombian
 		anglo_colombian_culture_region = yes
 		is_city = yes
 		british_new_world = no
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
@@ -4605,7 +4181,7 @@ province_event = { #Argentine
 		anglo_argentine_culture_region = yes
 		is_city = yes
 		british_new_world = no
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
 	}
 
@@ -4648,7 +4224,7 @@ province_event = { #Argentine
 #Africa
 
 province_event = { #South African
-	id = cultural_influence_british.54
+	id = cultural_influence_british.52
 	title = british_south_african.title
 	desc = british_south_african.desc
 	picture = CULTURE_eventPicture
@@ -4659,7 +4235,7 @@ province_event = { #South African
 		is_city = yes
 		british_new_world = no
 		any_neighbor_province = { culture_group = british }	
-		owner = { culture_group = british }
+		OWNER = { culture_group = british }
 	}
 
 	mean_time_to_happen = {
@@ -4695,6 +4271,477 @@ province_event = { #South African
 		name = british_south_african.a
 
 		change_culture = anglo_south_african
+	}
+}
+
+#North America again
+
+province_event = { #Californian
+	id = cultural_influence_british.53
+	title = british_californian.title
+	desc = british_californian.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		anglo_californian_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		OWNER = { culture_group = british }
+		any_neighbor_province = { culture_group = british }	
+	}
+
+	mean_time_to_happen = {
+		years = 25
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_californian.a
+
+		change_culture = anglo_californian
+	}
+}
+
+province_event = { #Cascadian
+	id = cultural_influence_british.54
+	title = british_cascadian.title
+	desc = british_cascadian.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		anglo_cascadian_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		OWNER = { culture_group = british }
+		any_neighbor_province = { culture_group = british }	
+	}
+
+	mean_time_to_happen = {
+		years = 25
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+
+	option = {
+		name = british_cascadian.a
+
+		change_culture = anglo_cascadian
+	}
+}
+
+province_event = { #Laurentian
+	id = cultural_influence_british.55
+	title = british_midwestern.title
+	desc = british_midwestern.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		anglo_midwestern_culture_region = yes
+		is_city = yes
+		OR = {
+			british_new_world = no
+			culture = american
+		}	
+		AND = {
+			OWNER = { is_subject = no } #Has to be independent
+			OWNER = { is_former_colonial_nation = yes }
+		}	
+		OWNER = { culture_group = british }
+		any_neighbor_province = { culture_group = british }	
+	}
+	mean_time_to_happen = {
+		years = 25
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+	option = {
+		name = british_midwestern.a
+
+		change_culture = anglo_midwestern
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_midwestern } } }
+			add_accepted_culture = anglo_midwestern
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_midwestern
+		}	#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+	}
+}
+
+province_event = { #Mexican
+	id = cultural_influence_british.56
+	title = british_mexican.title
+	desc = british_mexican.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		anglo_mexican_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		OWNER = { culture_group = british }
+		any_neighbor_province = { culture_group = british }	
+	}
+	mean_time_to_happen = {
+		years = 25
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+	option = {
+		name = british_mexican.a
+
+		change_culture = anglo_mexican
+	}
+}
+
+province_event = { #Prariean
+	id = cultural_influence_british.57
+	title = british_great_plains.title
+	desc = british_great_plains.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		anglo_great_plains_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		OWNER = { culture_group = british }
+		any_neighbor_province = { culture_group = british }	
+	}
+	mean_time_to_happen = {
+		years = 25
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+	option = {
+		name = british_great_plains.a
+
+		change_culture = anglo_great_plains
+	}
+}
+
+province_event = { #Alaskan
+	id = cultural_influence_british.58
+	title = british_alaskan.title
+	desc = british_alaskan.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		anglo_alaskan_culture_region = yes
+		is_city = yes
+		british_new_world = no
+		OWNER = { culture_group = british }
+		any_neighbor_province = { culture_group = british }	
+	}
+	mean_time_to_happen = {
+		years = 25
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+	option = {
+		name = british_alaskan.a
+
+		change_culture = anglo_alaskan
+	}
+}
+
+province_event = { #Yankee
+	id = cultural_influence_british.59
+	title = british_yankee.title
+	desc = british_yankee.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		anglo_yankee_culture_region = yes
+		is_city = yes
+		OR = {
+			british_new_world = no
+			culture = american
+		}	
+		AND = {
+			OWNER = { is_subject = no } #Has to be independent
+			OWNER = { is_former_colonial_nation = yes }
+		}	
+		OWNER = { culture_group = british }
+		any_neighbor_province = { culture_group = british }	
+	}
+	mean_time_to_happen = {
+		years = 25
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+		modifier = {
+			factor = 0
+			culture = american
+		}
+	}
+	option = {
+		name = british_yankee.a
+
+		change_culture = anglo_yankee
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_yankee } } }
+			add_accepted_culture = anglo_yankee
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_yankee
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+	}
+}
+
+province_event = { #Dixie
+	id = cultural_influence_british.60
+	title = british_dixie.title
+	desc = british_dixie.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		anglo_dixie_culture_region = yes
+		is_city = yes
+		OR = {
+			british_new_world = no
+			culture = american
+		}	
+		AND = {
+			OWNER = { is_subject = no } #Has to be independent
+			OWNER = { is_former_colonial_nation = yes }
+		}	
+		OWNER = { culture_group = british }
+		any_neighbor_province = { culture_group = british }	
+	}
+	mean_time_to_happen = {
+		years = 25
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0
+			british_european = yes
+		}
+	}
+	option = {
+		name = british_dixie.a
+
+		change_culture = anglo_dixie
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_dixie } } }
+			add_accepted_culture = anglo_dixie
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_dixie
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
