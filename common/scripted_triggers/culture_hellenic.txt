@@ -125,1023 +125,362 @@ hellenic_rhomaio_culture = {
 }
 
 rhomaio_culture_region = {	
-	OR = {	
-		region = anatolia_region	
-		area = northern_greece_area #epirus	
-		area = morea_area #Morea	
-		area = western_aegean_area #Hellas			
-		area = thessaly_area #Thessaly	
-		area = macedonia_area #West Macedonia	
-		area = eastern_macedonia_area #East Macedonia	
-		area = aegean_archipelago_area #Aegean Islands	
-		area = eastern_mediterrenean_islands_area #Crete	
-		area = northern_epirus_area #Ionian Islands	
-		area = albania_area #Albania	
-		area = northern_macedonia_area #Northern Macedonia	
-		area = thrace_area #Thrace
-		area = upper_thrace_area #Upper Thrace	
-		area = northern_thrace_area #Northern Thrace	
-		area = bulgaria_area #Bulgaria	
-		area = danubian_plain_area #Lower Moesia	
-		area = vidin_area #Vidin
-		area = silistria_area #Silistria
-		province_id = 3182	
-		province_id = 5094	
-		province_id = 7702	
-		province_id = 7701	
-		province_id = 1766	
-		province_id = 7700	
-		province_id = 2447	
-		province_id = 2303
-		area = crimea_area	
-		area = imereti_area	
-		area = cyprus_area	
+	OR = {
+		province_group = rhomaio_culture_region_provinces
 	}	
 }	
 cypriot_culture_region = { #Rhomaioi Split cultures
 	OR = {
-		area = cyprus_area
-	}
-}
+		province_group = cypriot_culture_region_provinces
+	}	
+}	
 moesian_culture_region = { #Rhomaioi Split cultures
 	OR = {
-		AND = {
-			area = rascia_area
-			NOT = { province_id = 7709 }
-			NOT = { province_id = 7710 }			
-			NOT = { province_id = 7712 }			
-		}
-		area = bulgaria_area
-		area = vidin_area
-		area = danubian_plain_area
-		area = silistria_area
-		AND = { 
-			area = albania_area 
-			NOT = { province_id = 143 }
-			NOT = { province_id = 3181 }
-			NOT = { province_id = 7143 }			
-		}
-		AND = {
-			area = northern_macedonia_area
-			NOT = { province_id = 3183 }
-		}
-		AND = { 
-			area = upper_thrace_area #Mysia
-			NOT = { province_id = 3168 }
-			NOT = { province_id = 7151 }
-		}
-		province_id = 7156
-		province_id = 3182
-		province_id = 5094		
-	}
-}	
-
-agaio_culture_region = { #Rhomaioi Split cultures
-	OR = {	
-		area = thrace_area							#Thracian
-		province_id = 3168
-		province_id = 7151
-		AND  ={
-			area = northern_thrace_area #Asia
-			NOT = { province_id = 7156 }
-		}	
-		area = macedonia_area						#Macedonian
-		province_id = 3183
-		area = eastern_macedonia_area
-		area = aegean_archipelago_area				#Dodecanesian
-		area = eastern_mediterrenean_islands_area
-		area = western_aegean_area					#Hellenic
-		area = morea_area
-		area = thessaly_area
-		area = aetolia_area							#Epirotan
-		area = northern_epirus_area
-		area = northern_greece_area
-		province_id = 143
-		province_id = 3181
-		province_id = 7143
-		area = aydin_area							#Mikrasiatic
-		AND = {
-			area = caria_area
-			NOT = { province_id = 6010 }
-		}
-		province_id = 2297
-		province_id = 6008
-		AND = {
-			area = karasi_area #Mysia
-			NOT = { province_id = 6003 }
-		}
-		province_id = 316
-		province_id = 317
-		province_id = 5157
-		province_id = 5168		
+		province_group = moesian_culture_region_provinces
 	}	
-}
-
+}	
+agaio_culture_region = { #Rhomaioi Split cultures
+	OR = {
+		province_group = agaio_culture_region_provinces
+	}	
+}	
 thracian_culture_region = { #Aegean Split Cultures
 	OR = {
-		area = thrace_area
-		province_id = 7151
-		province_id = 3168
-		AND  = {
-			area = northern_thrace_area #Asia
-			NOT = { province_id = 7156 }
-		}
+		province_group = thracian_culture_region_provinces
 	}	
-}
+}	
 macedonian_culture_region = { #Aegean Split Cultures
 	OR = {
-		area = macedonia_area
-		area = eastern_macedonia_area		
-		province_id = 3183
-	}
-}
+		province_group = macedonian_culture_region_provinces
+	}	
+}	
 dodecanesian_culture_region = { #Aegean Split Cultures
 	OR = {
-		area = aegean_archipelago_area
-		area = eastern_mediterrenean_islands_area
-	}
-}
+		province_group = dodecanesian_culture_region_provinces
+	}	
+}	
 hellas_culture_region = { #Aegean Split Cultures
 	OR = {
-		area = western_aegean_area
-		area = morea_area
-		area = thessaly_area
-	}
-}
+		province_group = hellas_culture_region_provinces
+	}	
+}	
 epirotan_culture_region = { #Aegean Split Cultures
 	OR = {
-		area = aetolia_area
-		area = northern_epirus_area
-		area = northern_greece_area
-		province_id = 143
-		province_id = 3181
-		province_id = 7143
-	}
-}
+		province_group = epirotan_culture_region_provinces
+	}	
+}	
 mikrasiatic_culture_region = { #Aegean Split Cultures
 	OR = {
-		area = aydin_area
-		AND = {
-			area = caria_area
-			NOT = { province_id = 6010 }
-		}
-		province_id = 2297
-		province_id = 6008
-		AND = {
-			area = karasi_area #Mysia
-			NOT = { province_id = 6003 }
-		}
-		province_id = 316
-		province_id = 317
-		province_id = 5157
-		province_id = 5168
-	}
+		province_group = mikrasiatic_culture_region_provinces
+	}	
 }	
-
 anatolikos_culture_region = { #Rhomaioi Split cultures
 	OR = {
-		province_id = 2447							#Pontic
-		province_id = 2303
-		area = crimea_area	
-		area = imereti_area	
-		AND = {
-			region = anatolia_region				#Cappadocian, Phrygian, Pamphylian
-			NOT = {									#Excludes Mikrasiatic, that goes to Aegean instead
-				area = aydin_area
-				AND = {
-					area = caria_area
-					NOT = { province_id = 6010 }
-				}
-				province_id = 2297
-				province_id = 6008
-				AND = {
-					area = karasi_area #Mysia
-					NOT = { province_id = 6003 }
-				}
-				province_id = 316
-				province_id = 317
-				province_id = 5157
-				province_id = 5168			
-			}
-		}
-	}
+		province_group = anatolikos_culture_region_provinces
+	}	
 }	
-
 pontic_greek_culture_region = { #Anatolian Split Cultures
-	OR = {	
-		province_id = 2447	
-		area = crimea_area	
-		area = imereti_area	
-		area = pontus_area		
-		AND = {
-			area = rum_area
-			NOT = { province_id = 329 }
-		}	
-		AND = {
-			area = kastamonu_area	
-			NOT = { province_id = 4313 }
-		}
-		province_id = 6016
-		province_id = 6032
+	OR = {
+		province_group = pontic_greek_culture_region_provinces
 	}	
 }	
 cappadocian_culture_region = { #Anatolian Split Cultures
-	OR = {	
-		province_id = 329
-		province_id = 5165
-		province_id = 5167
-		province_id = 5137
-		province_id = 2303
-		area = dulkadir_area #Cappadocia
-		area = karaman_area	#Lycaonia
-		AND = {
-			area = cukurova_area
-			NOT = { province_id = 2302 }
-			NOT = { province_id = 6021 }			
-			NOT = { province_id = 6022 }			
-			NOT = { province_id = 6023 }			
-			NOT = { province_id = 5161 }			
-		}
+	OR = {
+		province_group = cappadocian_culture_region_provinces
 	}	
-}
+}	
 phrygian_culture_region = { #Anatolian Split Cultures
 	OR = {
-		province_id = 6010
-		province_id = 5172
-		province_id = 6041
-		province_id = 6003
-		province_id = 6002
-		province_id = 6001
-		province_id = 4312
-		area = germiyan_area #Phrygia
-		AND = {
-			area = ankara_area 
-			NOT = { province_id = 5165 }
-			NOT = { province_id = 5167 }
-			NOT = { province_id = 5137 }			
-		}
-		province_id = 4313
-	}
-}
+		province_group = phrygian_culture_region_provinces
+	}	
+}	
 pamphylian_culture_region = { #Anatolian Split Cultures
 	OR = {
-		province_id = 2302
-		province_id = 6021
-		province_id = 6022
-		province_id = 6023
-		province_id = 5161
-		area = pamphylia_area
-	}
-}
-
+		province_group = pamphylian_culture_region_provinces
+	}	
+}	
 illyrion_culture_region = { #Should work for Greek settlement in Old Illyria	
-	OR = {	
-		area = east_adriatic_coast_area	
-		area = herzegovina_area	
-		area = bosnia_area	
-		area = syrmia_area	
-		area = slavonia_area	
-		area = croatia_area	
-		area = serbia_area #Serbia	
-		area = krajina_area	
-		area = carniola_area		
-		province_id = 138	
-		province_id = 7708	
-		province_id = 7709	
-		province_id = 7710	
-		province_id = 7712	
-		province_id = 3050
-		province_id = 4751
-		province_id = 8216
+	OR = {
+		province_group = illyrion_culture_region_provinces
 	}	
 }	
 graiko_culture_region = { #Should work for Greek settlement in Southern Italy	
-	OR = {	
-		area = sicily_area	
-		area = naples_area	
-		area = calabria_area	
-		area = apulia_area	
-		area = abruzzo_area		
-		province_id = 7018	
-		province_id = 7020	
+	OR = {
+		province_group = graiko_culture_region_provinces
 	}	
 }	
 italiote_culture_region = {	#Greek Settlement in Northen Italy	
-	OR = {	
-		AND = {	
-			region = italy_region	
-			NOT = { area = sardinia_area }	
-			NOT = { area = corsica_sardinia_area }	
-			NOT = { area = liguria_area }	
-			NOT = { area = south_piedmont_area }	
-			NOT = { area = sicily_area }	
-			NOT = { area = naples_area }	
-			NOT = { area = calabria_area }	
-			NOT = { area = apulia_area }	
-			NOT = { area = abruzzo_area }	
-			NOT = { province_id = 7018}	
-			NOT = { province_id = 7020}	
-		}			
+	OR = {
+		province_group = italiote_culture_region_provinces
+	}	
+}	
+nkreko_armenio_culture_region = {	
+	OR = {
+		province_group = nkreko_armenio_culture_region_provinces
 	}	
 }		
-nkreko_armenio_culture_region = {	
-	OR = {	
-		area = sophene_area
-		area = ararat_area
-		area = erzurum_area	
-		area = north_kurdistan_area	
-		area = samtskhe_area	
-		area = armenia_area	
-		area = shirvan_area	
-		province_id = 416
-		province_id = 4304
-		province_id = 5331
-		province_id = 6114
-	}	
-}	
 alexandrian_culture_region = {	
-	region = egypt_region	
-}	
+	OR = {
+		province_group = alexandrian_culture_region_provinces
+	}	
+}		
 aravikos_culture_region = {	
-	region = arabia_region	
-}	
+	OR = {
+		province_group = aravikos_culture_region_provinces
+	}	
+}		
 hibernian_culture_region = {	
-	region = ireland_region
+	OR = {
+		province_group = hibernian_culture_region_provinces
+	}	
 }	
 albian_culture_region = {	
 	OR = {	
-		region = british_isles_region	
-		province_id = 369	
+		province_group = albian_culture_region_provinces
 	}	
 }	
 varangian_culture_region = {	
 	OR = {	
-		AND = {	
-			region = scandinavia_region	
-			NOT = { province_id = 369 }	
-		}	
-		area = karelia_area	
-		area = laponia_area	
+		province_group = varangian_culture_region_provinces
 	}	
 }	
 avissinos_culture_region = {	
 	OR = {
-		region = horn_of_africa_region	
+		province_group = avissinos_culture_region_provinces
 	}	
-}	
+}		
 antiocheia_culture_region = {	
 	OR = {	
-		AND = {	
-			NOT = { area = cyprus_area }	
-			region = mashriq_region	
-		}		
+		province_group = antiocheia_culture_region_provinces
 	}	
 }	
 hellenic_mesopotamian_culture_region = {
 	OR = {
-		AND = {
-			region = mesopotamia_region
-			NOT = { area = sophene_area }
-			NOT = { area = north_kurdistan_area }
-			NOT = { area = erzurum_area }
-			NOT = { area = ararat_area }
-			NOT = { province_id = 2303 }
-			NOT = { province_id = 5331 }
-			NOT = { province_id = 6114 }
-		}
-	}
-}
+		province_group = hellenic_mesopotamian_culture_region_provinces
+	}	
+}	
 persic_culture_region = {	
 	OR = {	
-		AND = {
-			region = persia_region	
-			NOT = { province_id = 416 }
-			NOT = { province_id = 4304 }
-		}
-		area = iraq_arabi_area	
-		area = basra_area	
-		area = birjand_area
-		area = mashhad_area
+		province_group = persic_culture_region_provinces
 	}	
 }	
 kirenike_culture_region = {	
 	OR = {	
-		area = fezzan_area	
-		area = nafusa_mountains_area	
-		area = cyrenaica_area	
-		area = tripolitania_area	
+		province_group = kirenike_culture_region_provinces
 	}	
 }	
 karchidoniac_culture_region = {	
 	OR = {	
-		area = tunisia_area	
-		area = djerba_area	
-		area = north_saharan_area	
-		area = hautes_plaines_area	
-		area = ouled_nail_area	
-		area = kabylia_area	
-		area = barbary_coast_area	
+		province_group = karchidoniac_culture_region_provinces
 	}	
 }	
 mavritanias_culture_region = {	
 	OR = {	
-		area = northwest_sahara_area	
-		area = southern_morocco_area	
-		area = northern_morocco_area	
-		area = tafilalt_area	
-		area = sus_area	
-		area = marrekesh_area	
-		area = western_morocco_area	
+		province_group = mavritanias_culture_region_provinces
 	}	
 }	
 skythis_culture_region = {	
 	OR = {	
-		AND = {	
-			region = crimea_region	
-			NOT = { area = crimea_area }	
-			NOT = { province_id = 2447}	
-		}	
-		area = nogai_area	
-		area = saratov_area	
-		area = dagestan_area	
-		area = circassia_area	
+		province_group = skythis_culture_region_provinces
 	}	
 }	
 vaktrianos_culture_region = {	
 	OR = {	
-		AND = {
-			region = khorasan_region
-			NOT = { area = birjand_area }
-			NOT = { area = mashhad_area }
-		}	
-		area = transoxiana_area	
-		area = termez_area	
+		province_group = vaktrianos_culture_region_provinces
 	}	
 }	
 indiki_koilada_culture_region = {	
 	OR = {	
-		AND = {	
-			region = west_india_region	
-			NOT = { area = malwa_area }	
-			NOT = { area = tapti_area }	
-			NOT = { area = khandesh_area }	
-		}		
-		area = multan_area	
-		area = sind_sagar_area	
-		area = lahore_area	
-		area = sirhind_area	
+		province_group = indiki_koilada_culture_region_provinces
 	}	
 }	
 septimanikion_culture_region = {	
 	OR = {	
-		
-		area = asturias_area	
-		area = basque_country	
-		area = aragon_area	
-		area = castille_area	
-		area = leon_area	
-		area = new_castile_area	
-		area = segovia_area	
-		province_id = 216
-		province_id = 4788
-		province_id = 8050
+		province_group = septimanikion_culture_region_provinces
 	}	
-}	
+}		
 karpessosion_culture_region = {	
 	OR = {	
-		area = murcia_area	
-		area = lower_andalucia_area	
-		area = upper_andalucia_area	
-		area = toledo_area	
-		area = northern_andalusia_area	
-		AND = {
-			area = extremadura_area	
-			NOT = { province_id = 216 }
-			NOT = { province_id = 4788 }
-			NOT = { province_id = 8050 }
-		}	
+		province_group = karpessosion_culture_region_provinces
 	}	
 }	
 olissiponion_culture_region = {
 	OR = {
-		area = galicia_area	
-		area = minho_duoro_area
-		area = beieras_area
-		area = alentejo_area	
-		area = algarve_area	
-		area = macaronesia_area	
-		area = estremadura_area
-	}
-}
+		province_group = olissiponion_culture_region_provinces
+	}	
+}	
 massalian_culture_region = {	
 	OR = {	
-		area = catalonia_area	
-		area = valencia_area	
-		area = baleares_area	
-		area = provence_area	
-		area = south_piedmont_area	
-		area = liguria_area	
-		area = corsica_sardinia_area	
-		area = sardinia_area	
-		AND = {
-			area = west_languedoc_area
-			NOT = { province_id = 4694 }
-			NOT = { province_id = 196 }
-			NOT = { province_id = 7904 }
-		}	
-		province_id = 200
-		province_id = 7898
-		province_id = 3085
-		province_id = 7905
+		province_group = massalian_culture_region_provinces
 	}	
 }		
 galatian_culture_region = {	
 	OR = {	
-		AND = {
-			region = france_region
-			NOT = { area = provence_area }
-			NOT = { area = normandy_area }
-			NOT = { area = lower_normandy_area }
-			NOT = { area = picardy_area }
-			NOT = { area = ile_de_france_area }
-			NOT = { area = champagne_area }
-			NOT = { area = lorraine_area }
-			NOT = { area = barrois_area }
-			NOT = { province_id = 200 }
-			NOT = { province_id = 7898 }
-			NOT = { province_id = 3085 }
-			NOT = { province_id = 7905 }
-			NOT = { province_id = 7900 }
-			NOT = { province_id = 7901 }
-			NOT = { province_id = 2753 }
-			NOT = { province_id = 4695 }
-			NOT = { province_id = 197 }
-		}
+		province_group = galatian_culture_region_provinces
 	}	
 }	
 velgoi_culture_region = {	
 	OR = {	
-		area = normandy_area
-		area = lower_normandy_area
-		area = picardy_area
-		area = ile_de_france_area
-		area = champagne_area
-		area = lorraine_area
-		area = brabant_area
-		area = luxembourg_area
-		area = wallonia_area
-		area = flanders_area
-		area = luxemburg_liege_area
-		AND = {
-			area = lower_rhineland_area
-			NOT = { province_id = 8414 }
-		}	
-		AND = {
-			area = north_rhine_area 
-			NOT = { province_id = 84 }
-			NOT = { province_id = 8409 }
-			NOT = { province_id = 8413 }
-		}			
-		area = palatinate_area
-		area = alsace_area
-		area = barrois_area
-		province_id = 3060
-		province_id = 3063
-		province_id = 8017
-		province_id = 96
-		province_id = 8112
-		province_id = 7975
-		province_id = 78
+		province_group = velgoi_culture_region_provinces
 	}	
-}		
+}	
 dacion_culture_region = {	
 	OR = {
-		AND = {	
-			region = carpathia_region	
-			NOT = { area = alfold_area }	
-			NOT = { area = transdanubia_area }	
-			NOT = { area = slovakia_area }	
-			NOT = { area = carpathian_ruthenia_area }	
-			NOT = { area = upper_hungary_area }		
-			NOT = { province_id = 155 }
-			NOT = { province_id = 1953 }			
-			NOT = { province_id = 8200 }			
-			NOT = { province_id = 8218 }				
-		}
-		province_id = 8203
-		province_id = 157
-		province_id = 3152
-		province_id = 8493
-		province_id = 8206
-		province_id = 8204 			
+		province_group = dacion_culture_region_provinces
 	}	
-}				
-
+}	
 pannonion_culture_region = {	
 	OR = {	
-		area = alfold_area	
-		area = transdanubia_area	
-		area = slovakia_area	
-		AND = {
-			area = carpathian_ruthenia_area	
-			NOT = { province_id = 8204 }			
-		}			
-		area = upper_hungary_area
-		AND = {
-			area = eastern_alfold_area
-			NOT = { province_id = 8203 }
-			NOT = { province_id = 157 }
-			NOT = { province_id = 3152 }	
-			NOT = { province_id = 8493 }
-			NOT = { province_id = 8206 }
-		}	
-	}		
+		province_group = pannonion_culture_region_provinces
+	}	
 }	
 notiodytiki_germanikos_culture_region = {	#Almanikos
 	OR = {	
-		AND = {
-			region = south_german_region
-			NOT = { area = carniola_area }
-			NOT = { area = bohemia_area }
-			NOT = { area = erzgebirge_area }
-			NOT = { area = bohemian_forest_area }
-			NOT = { area = moravia_area }
-			NOT = { area = palatinate_area }
-			NOT = { area = alsace_area }			
-			NOT = { province_id = 3050 }
-			NOT = { province_id = 4751 }
-			NOT = { province_id = 8216 }
-		}
-		
+		province_group = notiodytiki_germanikos_culture_region_provinces
 	}	
 }		
 voreiodytiki_germanikos_culture_region = {	#Saxonikos
 	OR = {	
-		AND = {
-			region = north_german_region
-			NOT = {
-				AND = {
-					area = north_rhine_area 
-					NOT = { province_id = 84 }
-					NOT = { province_id = 8409 }
-					NOT = { province_id = 8413 }
-				}	
-			}
-			NOT = {
-				AND = {
-					area = lower_rhineland_area 
-					NOT = { province_id = 8414 }
-				}	
-			}
-			NOT = { area = lusatia_area }
-			NOT = { area = neumark_area }
-			NOT = { area = hinter_pommern_area }
-			NOT = { province_id = 8269 }			
-			NOT = { province_id = 78 }
-		}
-		area = frisia_area
-		area = oversticht_area
-		AND = {
-			area = holland_area 
-			NOT = { province_id = 96 }
-			NOT = { province_id = 7975 }			
-			NOT = { province_id = 8112 }			
-		}
-		province_id = 99
-		province_id = 8032							
+		province_group = voreiodytiki_germanikos_culture_region_provinces
 	}	
-}		
+}	
 notioanatolikosgermanikos_culture_region = {	#Ostrogothikos
 	OR = {		
-		area = moravia_area
-		area = bohemia_area
-		area = erzgebirge_area
-		area = bohemian_forest_area
-		area = malopolska_area			
-		area = red_ruthenia_area	
-		area = volhynia_area	
-		area = lusatia_area
-		AND = {
-			region = poland_region
-			NOT = { area = wielkopolska_area }
-			NOT = { area = kuyavia_area }
-			NOT = { area = mazovia_area }
-		}	
-		province_id = 259
-		province_id = 260
-		province_id = 2959
-		province_id = 8223	
+		province_group = notioanatolikosgermanikos_culture_region_provinces
 	}	
 }		
 voreioanatolikosgermanikos_culture_region = {	#Thuringikos
 	OR = {	
-		province_id = 269	
-		province_id = 277	
-		province_id = 7262	
-		province_id = 7263	
-		area = neumark_area	
-		area = hinter_pommern_area	
-		area = west_prussia_area	
-		area = east_prussia_area	
-		area = nadruvia_area	
-		area = masuria_area	
-		area = yotvingia_area	
-		area = wielkopolska_area
-		area = kuyavia_area
-		area = mazovia_area
+		province_group = voreioanatolikosgermanikos_culture_region_provinces
 	}	
-}		
+}			
 kefales_culture_region = {	
 	OR = {	
-		AND = {	
-			region = baltic_region	
-			NOT = { area = west_prussia_area }	
-			NOT = { area = east_prussia_area }	
-			NOT = { area = nadruvia_area }	
-			NOT = { area = masuria_area }	
-		}	
-		area = trakai_area	
-		area = pskov_area	
-		area = polotsk_area	
+		province_group = kefales_culture_region_provinces
 	}	
 }	
 savramata_culture_region = {	
 	OR = {	
-		AND = {	
-			region = ruthenia_region	
-			NOT = { area = trakai_area }	
-			NOT = { area = polotsk_area }	
-			NOT = { area = volhynia_area }		
-			NOT = { area = red_ruthenia_area }	
-			NOT = { area = yotvingia_area }	
-			NOT = { province_id = 269 }	
-			NOT = { province_id = 277 }	
-			NOT = { province_id = 7262 }	
-			NOT = { province_id = 7263 }	
-		}	
-	}		
-}	
+		province_group = savramata_culture_region_provinces
+	}	
+}		
 krios_savramata_culture_region = {	
 	OR = {	
-		AND = {	
-			region = russia_region	
-			NOT = { area = karelia_area }	
-			NOT = { area = laponia_area }	
-			NOT = { area = pskov_area }	
-		}	
-	}		
-}	
+		province_group = krios_savramata_culture_region_provinces
+	}	
+}		
 vounos_savramata_culture_region = {	
 	OR = {	
-		AND = {	
-			region = ural_region	
-			NOT = { area = saratov_area }	
-		}	
-	}		
-}	
+		province_group = vounos_savramata_culture_region_provinces
+	}	
+}		
 makria_savramata_culture_region = {	
 	OR = {	
-		province_id = 2102	
-		region = west_siberia_region	
-		AND = {	
-			region = east_siberia_region	
-			NOT = { province_id = 2103 }	
-		}	
-		area = tannu_uriankhai_area	
+		province_group = makria_savramata_culture_region_provinces
 	}	
 }	
 notia_aethiopas_culture_region = {	
 	OR = {	
-		region = south_africa_region	
+		province_group = notia_aethiopas_culture_region_provinces
 	}	
 }		
 tavrika_culture_region = {	
 	OR = {	
-		AND = {	
-			region = central_asia_region	
-			NOT = { area = transoxiana_area }	
-			NOT = { area = termez_area }	
-			NOT = { area = lower_yik_area }	
-			NOT = { area = nogai_area }	
-		}	
-		area = north_zungaria	
-		area = zungaria_area	
-		area = turpan_kumul_area	
-		area = kashmir_area	
+		province_group = tavrika_culture_region_provinces
 	}	
 }		
 sogdanika_culture_region = {	
 	OR = {	
-		AND = {	
-			region = mongolia_region	
-			NOT = { area = north_zungaria}	
-			NOT = { area = zungaria_area }	
-			NOT = { area = turpan_kumul_area }	
-			NOT = { area = tannu_uriankhai_area }	
-		}	
-		AND = {	
-			region = manchuria_region	
-			NOT = { area = liaoning_area }	
-			NOT = { province_id = 2102 }				
-		}	
-		area = west_gansu_area	
+		province_group = sogdanika_culture_region_provinces
 	}	
-}		
+}	
 helika_culture_region = {	
 	OR = {	
-		region = japan_region	
+		province_group = helika_culture_region_provinces
 	}	
 }	
 kavlika_culture_region = {	
 	OR = {	
-		region = korea_region	
+		province_group = kavlika_culture_region_provinces
 	}	
 }	
 thivetiani_culture_region = {	
 	OR = {	
-		region = tibet_region	
+		province_group = thivetiani_culture_region_provinces
 	}	
 }		
 seresike_culture_region = {	
 	OR = {	
-		AND = {	
-			region = north_china_region	
-			NOT = { area = west_gansu_area }	
-		}	
-		area = liaoning_area	
-		area = south_jiangsu_area	
+		province_group = seresike_culture_region_provinces
 	}	
 }		
-
 sinaeka_culture_region = {	
 	OR = {	
-		AND = {	
-			region = south_china_region	
-			NOT = { area = south_jiangsu_area }	
-		}	
-		region = xinan_region	
-		area = taiwan_area			
+		province_group = sinaeka_culture_region_provinces
 	}	
 }		
 anatoliarianka_culture_region = {	
 	OR = {	
-		AND = {	
-			region = bengal_region	
-			NOT = { area = orissa_area }	
-			NOT = { area = garjat_area }	
-			NOT = { area = upper_mahanadi_area }	
-		}	
-		area = upper_doab_area	
-		area = himalayan_hills_area	
-		area = katehar_area	
-		area = lower_doab_area	
-		area = oudh_area	
-		area = baisi_rajya_area	
-		area = purvanchal_area	
-		area = bihar_area	
-		area = mithila_area	
-		area = nepal_area	
+		province_group = anatoliarianka_culture_region_provinces
 	}	
 }	
 indiki_culture_region = {	
 	OR = {	
-		area = orissa_area	
-		area = garjat_area	
-		area = upper_mahanadi_area	
-		area = berar_area	
-		area = khandesh_area	
-		area = tapti_area	
-		area = malwa_area	
-		area = gondwana_area	
-		area = baghelkhand_area	
-		area = gird_area	
-		area = bundelkhand_area	
+		province_group = indiki_culture_region_provinces
 	}	
 }	
 koniaka_culture_region = {	
 	OR = {	
-		AND = {	
-			region = deccan_region	
-			NOT = { area = berar_area }	
-			NOT = { area = gondwana_area }	
-		}	
-		area = kongu_area	
+		province_group = koniaka_culture_region_provinces
 	}	
 }		
 taprovanika_culture_region = {	
 	OR = {	
-		AND = {	
-			region = coromandel_region	
-			NOT = { area = kongu_area }	
-		}	
+		province_group = taprovanika_culture_region_provinces
 	}	
-}	
+}		
 palivothrika_culture_region = {	
 	OR = {	
-		region = burma_region	
-		area = central_thai_area	
-		area = sukothai_area	
-		area = northern_thai_area	
+		province_group = palivothrika_culture_region_provinces
 	}	
 }	
 megali_sinaeka_culture_region = {	
 	OR = {	
-		AND = {	
-			region = indo_china_region	
-			NOT = { area = central_thai_area }	
-			NOT = { area = sukothai_area }	
-			NOT = { area = northern_thai_area }	
-		}	
+		province_group = megali_sinaeka_culture_region_provinces
 	}	
 }	
 anatolianesika_culture_region = {	
 	OR = {	
-		region = malaya_region	
-		region = moluccas_region	
-		region = indonesia_region	
-		region = celebes_region	
-		region = sumatran_region	
-		region = borneo_region	
-		area = vogelkop_area	
-		area = papua_area	
-		area = melanesia_area	
-		AND = {	
-			region = philippines_region	
-			NOT = { area = taiwan_area }	
-		}	
+		province_group = anatolianesika_culture_region_provinces
 	}	
-}	
+}		
 polinesika_culture_region = {	
 	OR = {	
-		AND = {	
-			region = oceanea_region	
-			NOT = { area = vogelkop_area }	
-			NOT = { area = papua_area }	
-			NOT = { area = melanesia_area }	
-		}	
-		province_id = 2002
-		province_id = 5020
+		province_group = polinesika_culture_region_provinces
 	}	
 }	
 erimos_aethiopas_culture_region = {	
 	OR = {	
-		AND = {	
-			region = sahel_region	
-			NOT = { area = fezzan_area }	
-			NOT = { area = northwest_sahara_area }	
-		}	
+		province_group = erimos_aethiopas_culture_region_provinces
 	}	
 }	
 nkini_culture_region = {	
 	OR = {	
-		region = niger_region	
-		area = cap_verde_area	
-		area = jolof_area	
-		area = futa_jallon_area	
-	}		
+		province_group = nkini_culture_region_provinces
+	}	
 }		
 akti_aethiopas_culture_region = {	
 	OR = {	
-		AND = {	
-			region = guinea_region	
-			NOT = { area = cap_verde_area }	
-			NOT = { area = jolof_area }	
-			NOT = { area = futa_jallon_area }	
-		}	
-		area = coastal_kongo	
-		area = angola_namibia_area	
-		area = kongo_area	
+		province_group = akti_aethiopas_culture_region_provinces
 	}	
 }		
 esoterikos_aethiopas_culture_region = {	
 	OR = {	
-		region = central_africa_region	
-		area = matamba_area	
-		area = lower_kasai	
-		area = kasai_area	
-
-		area = zimbabwe_area	
-		area = butua_area	
-		area = shire_area	
-		area = upper_zambezi_area	
-		area = lower_zambezi_area	
-		area = ruvuma_area		
-		area = uticulo_makuana_area	
-		area = jubba_area	
+		province_group = esoterikos_aethiopas_culture_region_provinces
 	}	
-}			
+}		
 souachiliaktikos_culture_region = {	
 	OR = {	
-		AND = {	
-			region = east_africa_region	
-			NOT = { area = zimbabwe_area }	
-			NOT = { area = butua_area }	
-			NOT = { area = shire_area }	
-			NOT = { area = upper_zambezi_area }	
-			NOT = { area = lower_zambezi_area }	
-			NOT = { area = ruvuma_area }	
-			NOT = { area = uticulo_makuana_area }	
-			NOT = { area = jubba_area }	
-		}	
+		province_group = souachiliaktikos_culture_region_provinces
 	}	
 }
