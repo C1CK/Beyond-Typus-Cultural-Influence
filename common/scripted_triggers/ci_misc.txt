@@ -227,6 +227,33 @@ ci_assimilation_check = {
 		}	
 	}
 }
+ci_assimilation_check_arabic = {
+	AND = {
+		NOT = { nationalism = 1 }
+		OR = {
+			religion_group = muslim
+			religion_group = arabic_pagan_group		#PW Compatibility
+			religion_group = canaanite_group		#PW Compatibility
+			religion_group = egyptian_pagan_group	#PW Compatibility
+		}	
+		OR = {
+			development = 10 #To prevent Sahara converting
+			AND = {
+				culture_group = OWNER
+				is_city = yes
+			}
+		}
+		OR = { #Influence check
+			any_neighbor_province = { culture_group = OWNER }
+			any_friendly_coast_border_province = { culture_group = OWNER }
+			has_building = university
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}	
+	}
+}
 ci_assimilation_check_berber = {
 	AND = {
 		NOT = { nationalism = 1 }
