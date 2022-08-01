@@ -1,52 +1,52 @@
 country_decisions = {
-	cossackization_of_the_pontic_steppe = {
-		major = yes
-		potential = {
-			NOT = { has_country_modifier = cossackization }
-			culture_group = east_slavic
-		}
+#	cossackization_of_the_pontic_steppe = {
+#		major = yes
+#		potential = {
+#			NOT = { has_country_modifier = cossackization }
+#			culture_group = east_slavic
+#		}
+#
+#		allow = {
+#			total_development = 1200
+#			any_owned_province = { has_province_modifier = nomadic_province }
+#		}
+#
+#		effect = {
+#			add_country_modifier = {
+#				name = cossackization
+#				duration = -1
+#			}
+#			remove_country_modifier = east_slavic_settlements #Only allowed one colonist via modifiers
+#		}
+#
+#		ai_will_do = {
+#			factor = 1
+#		}
+#	}
 
-		allow = {
-			total_development = 1200
-			any_owned_province = { has_province_modifier = nomadic_province }
-		}
-
-		effect = {
-			add_country_modifier = {
-				name = cossackization
-				duration = -1
-			}
-			remove_country_modifier = east_slavic_settlements #Only allowed one colonist via modifiers
-		}
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
-
-	east_slavic_settlements_decision = {
-		major = yes
-		potential = {
-			NOT = { has_country_modifier = east_slavic_settlements } #Only allowed one colonist via modifiers
-			culture_group = east_slavic
-		}
-
-		allow = {
-			total_development = 600
-			NOT = { has_country_modifier = cossackization }
-		}
-
-		effect = {
-			add_country_modifier = {
-				name = east_slavic_settlements
-				duration = -1
-			}
-		}
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
+#	east_slavic_settlements_decision = { #Commented out as makes things easier not having two separate decisions, this would only be needed in very niche situations anyways
+#		major = yes
+#		potential = {
+#			NOT = { has_country_modifier = east_slavic_settlements } #Only allowed one colonist via modifiers
+#			culture_group = east_slavic
+#		}
+#
+#		allow = {
+#			total_development = 600
+#			NOT = { has_country_modifier = cossackization }
+#		}
+#
+#		effect = {
+#			add_country_modifier = {
+#				name = east_slavic_settlements
+#				duration = -1
+#			}
+#		}
+#
+#		ai_will_do = {
+#			factor = 1
+#		}
+#	}
 
 	construction_of_great_abatis_line_russia_decision = {
 		major = yes

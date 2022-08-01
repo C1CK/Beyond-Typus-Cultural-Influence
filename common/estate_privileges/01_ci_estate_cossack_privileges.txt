@@ -1,0 +1,34 @@
+estate_cossacks_autonomous_steppe_settlements = { #Permits Cossacks events for tags other than North Slavs
+	icon = privilege_grant_new_world_charter
+	land_share = 10
+	max_absolutism = -10
+	loyalty = 0.05
+	influence = 0.20
+
+	penalties = {
+		range = -0.5 #Focusing colonial efforts on the steppe limits ability to colonise far flung places (Also, free colonist that I don't want being sent to the fucking Caribbean)
+	}
+	benefits = {
+		colonists = 1
+		cavalry_cost = -0.1
+		cav_to_inf_ratio = 0.1
+	}
+	on_granted = {
+		add_accepted_culture = cossack
+		custom_tooltip = ci_enables_cossackization_tooltip
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { crown_land_share = 30 }
+				estate_influence = {
+					estate = estate_cossacks
+					influence = 75
+				}
+			}
+			NOT = { has_estate_privilege = estate_cossacks_autonomous_steppe_settlements }
+		}
+	}
+}

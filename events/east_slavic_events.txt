@@ -2092,6 +2092,7 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 	goto = root
 	
 	trigger = {
+		owner = { has_estate_privilege = estate_cossacks_autonomous_steppe_settlements }
 		OR = {
 			owner = { culture_group = east_slavic }
 			owner = { accepted_culture = ruthenian } #These are to allow a PLC/Lithuania to deal with zaporizhia
@@ -2109,12 +2110,6 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 			owner = { ai = yes }
 		}
 		ci_settlement_check = yes
-		OR = { #Players can do it before the decision provided they dev it, or send a colonist
-			owner = { has_country_modifier = east_slavic_settlements }
-			owner = { has_country_modifier = cossackization }
-			owner = { has_country_modifier = cossackization_west_slavs } #West Slavic cossacks
-			owner = { ai = no }
-		}
 		owner = { is_nomad = no }
 		NOT = { has_province_modifier = steppe_city } #Must be sacked first
 		cossack_rule_region_european_steppe = yes
