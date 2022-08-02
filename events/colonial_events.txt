@@ -264,17 +264,20 @@ province_event = { #Generic Merchant Republic Colonies
 	picture = MERCHANTS_TALKING_eventPicture
 
 	trigger = {
-		owner = { has_government_attribute = is_merchant_republic }
+		OR = {
+			owner = { has_government_attribute = is_merchant_republic }
+			owner = { has_estate_privilege = estate_burghers_colony_rights }
+		}
 		NOT = { culture = OWNER }
 		NOT = { has_province_modifier = foreign_merchant_colony_modifier }
-		has_port = yes #Coastal
 		OR = { #Real checks here
-			province_has_center_of_trade_of_level = 2
+			province_has_center_of_trade_of_level = 1
 			#is_island = yes #May cause some unforseen issues
 			has_province_modifier = trade_post_modifier #Merchant Republic trade post
 			AND = { #Dharma intent check
 				has_colonist = yes
 				is_city = yes
+				has_port = yes #Coastal
 			}
 		}
 		OR = {
@@ -440,12 +443,13 @@ province_event = { #Generic Merchant Republic Colonies
 
 		if = {
 			limit = {
-				has_global_flag = BT_COTs_enabled
+				province_has_center_of_trade_of_level = 1
+				NOT = { province_has_center_of_trade_of_level = 2 }
 			}
 			add_center_of_trade_level = 1
 		}
 
-		add_treasury = -200 #Flat 200 per province
+		OWNER = { add_treasury = -200 } #Flat 200 per province
 
 		add_permanent_province_modifier = {
 			name = foreign_merchant_colony_modifier

@@ -1,0 +1,33 @@
+estate_burghers_colony_rights = { #Permits Merchant Colony events for non-merchant republics
+	icon = privilege_grant_new_world_charter
+	land_share = 10
+	max_absolutism = -5
+	loyalty = 0.10
+	influence = 0.10
+	can_select = {
+		trade_income_percentage = 0.50
+	}
+	penalties = {
+		global_tax_modifier = -0.10
+	}
+	benefits = {
+		development_cost = -0.05
+	}
+	on_granted = {
+		custom_tooltip = ci_enables_merchant_colonies_tooltip
+	}
+	ai_will_do = {
+		factor = 15
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { crown_land_share = 30 }
+				estate_influence = {
+					estate = estate_burghers
+					influence = 75
+				}
+			}
+			NOT = { has_estate_privilege = estate_burghers_colony_rights }
+		}
+	}
+}
