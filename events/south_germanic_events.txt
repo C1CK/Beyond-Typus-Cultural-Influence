@@ -3581,7 +3581,7 @@ province_event = { #Baltendeutsch settlements and assimilation
 	trigger = {
 		owner = { culture_group = germanic }
 		baltendeutsch_culture_region = yes		
-		NOT = { culture = baltendeutsch }
+		NOT = { culture = baltic_german }
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -3726,7 +3726,7 @@ province_event = { #Baltendeutsch settlements and assimilation
 	option = {
 		name = baltendeutsch_settlements.a
 
-		change_culture = baltendeutsch
+		change_culture = baltic_german
 	}
 }
 
@@ -5010,15 +5010,15 @@ province_event = { #Bosporusdeutsch settlements and assimilation
 
 province_event = { #Russlanddeutsch settlements and assimilation
 	id = cultural_influence_germanic_rework.39
-	title = moskauer_rjasaner_settlements.title
-	desc = moskauer_rjasaner_settlements.desc
+	title = russlanddeutsch_settlements.title
+	desc = russlanddeutsch_settlements.desc
 	picture = CULTURE_eventPicture
 	goto = root
 
 	trigger = {
 		owner = { culture_group = germanic }
 		russlanddeutsch_culture_region = yes
-		NOT = { culture = moskauer_rjasaner }
+		NOT = { culture = russlanddeutsch }
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = ostsiedlung }
@@ -5161,7 +5161,7 @@ province_event = { #Russlanddeutsch settlements and assimilation
 	}
 
 	option = {
-		name = moskauer_rjasaner_settlements.a
+		name = russlanddeutsch_settlements.a
 
 		change_culture = russlanddeutsch
 	}
