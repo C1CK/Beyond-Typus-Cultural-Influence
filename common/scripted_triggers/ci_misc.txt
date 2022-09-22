@@ -174,12 +174,12 @@ ci_settlement_check_france = {
 		}
 		owner = {
 			num_of_owned_provinces_with = {
-				value = 45 #At least ~2/3 of France's 71 provinces
+				value = 62 #At least ~1/4 of The Greater French Homeland's 247 provinces
 				is_state = yes
-				french_homeland = yes
+				greater_french_homeland = yes
 			}
 		}
-		french_homeland = yes
+		greater_french_homeland = yes
 		printing_press = 100 #Check if province has institution not country
 	}	
 }
@@ -283,6 +283,10 @@ ci_assimilation_check_british = {
 }	
 ci_french_latin_cultures = {
 	OR = {
+		any_neighbor_province = { culture = franco_occitan }
+		any_friendly_coast_border_province = { culture = franco_occitan }
+		any_neighbor_province = { culture = franco_arpitan }
+		any_friendly_coast_border_province = { culture = franco_arpitan }
 		any_neighbor_province = { culture = castillane }
 		any_friendly_coast_border_province = { culture = castillane }
 		any_neighbor_province = { culture = galicien }

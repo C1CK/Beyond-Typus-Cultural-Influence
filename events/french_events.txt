@@ -9,13 +9,28 @@ province_event = { #French expansion (Home Region)
 	
 	trigger = {
 		owner = { culture_group = french }
-		NOT = { culture = OWNER }
+		french_homeland = yes
+		OR = {
+			NOT = { culture = OWNER }
+			if = {
+				limit = {
+					owner = { 
+						OR = {
+							NOT = { primary_culture = normand } 
+							NOT = { primary_culture = angevin_culture } 
+							NOT = { primary_culture = burgundian } 
+						}	
+					}
+				}
+				NOT = { culture = cosmopolitan_french }
+			}
+		}	
 		ci_settlement_check_france = yes
 		has_global_flag = CI_events_enabled
 	}
 
 	mean_time_to_happen = {
-		years = 20
+		years = 30
 		#MTTH Modifiers
 		modifier = {
 			factor = 0.0
@@ -77,8 +92,519 @@ province_event = { #French expansion (Home Region)
 
 	option = {
 		name = french_expansion.a
+		if = {
+			limit = {
+				owner = { primary_culture = normand }
+			}
+			change_culture  = normand
+		}
+		else_if = {
+			limit = {
+				owner = { primary_culture = burgundian }
+			}
+			change_culture  = burgundian
+		}
+		else_if = {
+			limit = {
+				owner = { primary_culture = angevin_culture }
+			}
+			change_culture  = angevin_culture
+		}
+		else = {
+			change_culture  = cosmopolitan_french
+		}
+	}
+}
 
-		change_culture = OWNER
+province_event = { #Poetevin expansion (Home Region)
+	id = cultural_influence_french.34
+	title = poitevin_expansion.title
+	desc = poitevin_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = french }
+		poetvin_culture_region
+		NOT = { culture = poitevin_culture }
+		ci_settlement_check_france = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = poitevin_expansion.a
+		change_culture  = poitevin_culture
+	}
+}
+province_event = { #Galo expansion (Home Region)
+	id = cultural_influence_french.53
+	title = galo_expansion.title
+	desc = galo_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = french }
+		galo_culture_region = yes
+		NOT = { culture = gallo_culture }
+		ci_settlement_check_france = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = galo_expansion.a
+		change_culture  = gallo_culture
+	}
+}
+
+province_event = { #Picard expansion (Home Region)
+	id = cultural_influence_french.54
+	title = picard_expansion.title
+	desc = picard_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = french }
+		picard_culture_region = yes
+		NOT = { culture = picard }	
+		ci_settlement_check_france = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = picard_expansion.a
+		change_culture  = picard
+	}
+}
+
+province_event = { #Walon expansion (Home Region)
+	id = cultural_influence_french.55
+	title = walon_expansion.title
+	desc = walon_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = french }
+		walon_culture_region = yes
+		NOT = { culture = wallonian }	
+		ci_settlement_check_france = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = walon_expansion.a
+		change_culture  = wallonian
+	}
+}
+
+province_event = { #Loherenc expansion
+	id = cultural_influence_french.61
+	title = loherenc_expansion.title
+	desc = loherenc_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture = lorraine_culture }
+		loherenc_culture_region = yes
+		ci_settlement_check_france = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = french_expansion.a
+		change_culture  = lorraine_culture
+	}
+}
+
+province_event = { #Standardisation of Langues d'Oïl
+	id = cultural_influence_french.62
+	title = oil_expansion.title
+	desc = oil_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = french }
+		NOT = { culture = OWNER }
+		has_country_modifier = french_stardardisation_modifier
+		greater_french_homeland = yes
+		ci_settlement_check_france = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = oil_expansion.a
+		change_culture  = OWNER
 	}
 }
 
@@ -746,10 +1272,175 @@ province_event = { #Sarde expansion
 		change_culture = sarde
 	}
 }
+province_event = { #Occitan expansion
+	id = cultural_influence_french.28
+	title = franco_occitan_expansion.title
+	desc = franco_occitan_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = french }
+		franco_occitan_culture_region = yes		
+		NOT = { culture = franco_occitan }
+		ci_assimilation_check_french_latin_cultures = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = franco_occitan_expansion.a
+
+		change_culture = franco_occitan
+	}
+}
+
+province_event = { #Francoprovençal expansion
+	id = cultural_influence_french.29
+	title = franco_arpitan_expansion.title
+	desc = franco_arpitan_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = french }
+		franco_arpitan_culture_region = yes		
+		NOT = { culture = franco_arpitan }
+		ci_assimilation_check_french_latin_cultures = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = franco_arpitan_expansion.a
+
+		change_culture = franco_arpitan
+	}
+}
 
 #####################Re-educated (Settled) Cultures#####################
 
-province_event = { #Franglais settlements and assimilation
+province_event = { #Bretain settlements and assimilation
 	id = cultural_influence_french.10
 	title = franglais_settlements.title
 	desc = franglais_settlements.desc
@@ -915,7 +1606,7 @@ province_event = { #Franglais settlements and assimilation
 	}
 }
 
-province_event = { #Bas Francais settlements and assimilation
+province_event = { #Batave settlements and assimilation
 	id = cultural_influence_french.11
 	title = bas_francais_settlements.title
 	desc = bas_francais_settlements.desc
@@ -1904,7 +2595,7 @@ province_event = { #Alpin settlements and assimilation
 	}
 }
 
-province_event = { #Franque settlements and assimilation
+province_event = { #Outre-Rhénain settlements and assimilation
 	id = cultural_influence_french.17
 	title = franque_settlements.title
 	desc = franque_settlements.desc
@@ -4872,8 +5563,6 @@ country_event = { #Kweyol Kechwa (Choice)
 
 ######################Free Event IDS######################
 #These IDs came from scrapped events so should be used before adding new IDs
-#id28 Free ID
-#id29 Free ID
 #id34 Free ID
 #id53 Free ID
 #id54 Free ID
