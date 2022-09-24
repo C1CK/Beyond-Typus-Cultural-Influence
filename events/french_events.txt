@@ -1272,7 +1272,7 @@ province_event = { #Sarde expansion
 		change_culture = sarde
 	}
 }
-province_event = { #Occitan expansion
+province_event = { #Aquitain expansion
 	id = cultural_influence_french.28
 	title = franco_occitan_expansion.title
 	desc = franco_occitan_expansion.desc
@@ -1355,7 +1355,7 @@ province_event = { #Occitan expansion
 	}
 }
 
-province_event = { #Francoprovençal expansion
+province_event = { #Arpitain expansion
 	id = cultural_influence_french.29
 	title = franco_arpitan_expansion.title
 	desc = franco_arpitan_expansion.desc
@@ -1435,6 +1435,89 @@ province_event = { #Francoprovençal expansion
 		name = franco_arpitan_expansion.a
 
 		change_culture = franco_arpitan
+	}
+}
+
+province_event = { #Provençal expansion
+	id = cultural_influence_french.63
+	title = franco_provencal_expansion.title
+	desc = franco_provencal_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = french }
+		franco_provencal_culture_region = yes		
+		NOT = { culture = franco_provencal }
+		ci_assimilation_check_french_latin_cultures = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 30
+		#MTTH Modifiers
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.9
+			development = 20
+		}
+		modifier = {
+			factor = 0.9
+			development = 30
+		}
+		modifier = {
+			factor = 0.9
+			development = 40
+		}
+		modifier = {
+			factor = 0.9
+			development = 50
+		}
+		modifier = {
+			factor = 0.9
+			development = 60
+		}
+		modifier = {
+			factor = 0.9
+			development = 70
+		}
+		modifier = {
+			factor = 0.9
+			development = 80
+		}
+		modifier = {
+			factor = 0.9
+			development = 90
+		}
+		modifier = {
+			factor = 0.9
+			development = 100
+		}
+	}
+
+	option = {
+		name = franco_provencal_expansion.a
+
+		change_culture = franco_provencal
 	}
 }
 
