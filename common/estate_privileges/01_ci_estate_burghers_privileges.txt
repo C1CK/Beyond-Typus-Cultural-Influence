@@ -31,3 +31,35 @@ estate_burghers_colony_rights = { #Permits Merchant Colony events for non-mercha
 		}
 	}
 }
+
+estate_burghers_union_of_three_nations = { #Starting privilege for Hungary and Transylvania (Prevents settling of Saxon lands)
+	icon = privilege_demand_more_troops
+	land_share = 20
+	max_absolutism = -30
+	loyalty = 0.10
+	influence = 0.20
+	is_valid = {
+		has_estate_privilege = estate_burghers_union_of_three_nations #Exclusive starting reform to HUN & TRA
+	}
+	penalties = {
+
+	}
+	benefits = { #Generally want this to be very good for HUN for ~200 years, then cause issues
+		nobles_influence_modifier = 0.10
+		defensiveness = 0.3
+		global_unrest = -2
+	}
+	mechanics = {
+		exempt_from_seize_land
+	}
+	on_granted = {
+		custom_tooltip = ci_disables_transylvanian_german_settlement_tooltip
+	}
+	ai_will_do = {
+		factor = 0 #Not sure how AI weights to revoke, but this is how golden liberty is, so ig this works
+	}
+}
+
+#estate_burghers_union_of_three_nations_extended = { #Enhanced privilege for Hungary and Transylvania, including the Cossacks in the union 
+#	
+#}
