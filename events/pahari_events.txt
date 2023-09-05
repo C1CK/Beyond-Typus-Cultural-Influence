@@ -1,0 +1,38 @@
+namespace = cultural_influence_pahari
+#Simply Contains Nepali unification for now
+country_event = { #Nepali unification
+	id = cultural_influence_pahari.1
+	title = pahari_nepali_merger.title
+	desc = pahari_nepali_merger.desc
+	picture = ARTWORK_eventPicture
+	
+	trigger = {
+		nepali_cultures = yes
+		asia = { #Owned by ROOT, or not needed
+			OR = {
+				nepali_cultures = no
+				owned_by = ROOT
+			}
+			type = all
+		}
+		has_global_flag = CI_events_enabled
+		NOT = { has_global_flag = nepali_merger_flag }
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	immediate = {
+		hidden_effect = {
+			merge_nepali = yes
+			set_global_flag = nepali_merger_flag
+		}
+	}
+
+	option = {
+		name = nepali_merger.a
+
+		add_prestige = 20
+	}
+}

@@ -791,3 +791,83 @@ melt_into_modern_english = { #Changes English, Northumbrian, and Scottish to the
 		change_primary_culture = scottish_modern
 	}
 }
+
+merge_nepali = {
+	every_province = {
+		limit = {
+			OR = {
+				culture = pahari
+				culture = dogri
+				culture = garhwali
+				culture = kumaoni
+				culture = khas
+			}
+		}
+		change_culture = nepali
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = pahari
+				primary_culture = dogri
+				primary_culture = garhwali
+				primary_culture = kumaoni
+				primary_culture = khas
+			}
+		}
+		change_primary_culture = nepali
+	}
+	every_country = {
+		limit = {
+			OR = {
+				accepted_culture = pahari
+				accepted_culture = dogri
+				accepted_culture = garhwali
+				accepted_culture = kumaoni
+				accepted_culture = khas
+			}
+		}
+		remove_accepted_culture = pahari
+		remove_accepted_culture = dogri
+		remove_accepted_culture = garhwali
+		remove_accepted_culture = kumaoni
+		remove_accepted_culture = khas
+		add_accepted_culture = nepali
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = pahari
+				ruler_culture = dogri
+				ruler_culture = garhwali
+				ruler_culture = kumaoni
+				ruler_culture = khas
+			}
+		}
+		set_ruler_culture = nepali
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = pahari
+				heir_culture = dogri
+				heir_culture = garhwali
+				heir_culture = kumaoni
+				heir_culture = khas
+			}
+		}
+		set_heir_culture = nepali
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = pahari
+				consort_culture = dogri
+				consort_culture = garhwali
+				consort_culture = kumaoni
+				consort_culture = khas
+			}
+		}
+		set_ruler_culture = nepali
+	}
+}
