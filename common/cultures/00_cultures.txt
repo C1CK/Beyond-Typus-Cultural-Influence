@@ -127,6 +127,9 @@ zzzignore102 = {}
 zzzignore103 = {}
 zzzignore104 = {}
 zzzignore105 = {}
+zzzignore106 = {}
+zzzignore107 = {}
+zzzignore108 = {}
 
 french	= {	#Langues d'oïl
 	graphical_culture = westerngfx
@@ -462,6 +465,7 @@ occitanic = {
 	}
 	#Cultural Influence Cultures
 	occitan_andalucian = { #Occitan variant of Andalucian
+		province = { local_has_caravel = yes local_has_galleon = yes }
 		primary = GRA
 	}
 }
@@ -3030,10 +3034,12 @@ iberian	= {
 		primary = xxx #Needs new tag
 	}
 	andalucian = { #Exists as a dialect, but probably distinct enough to call a language
+		province = { local_has_caravel = yes local_has_galleon = yes }
 		primary = GRA
 	}
 	#Colonial
 	brazilian = {
+		province = { local_has_caravel = yes local_has_galleon = yes }
 		primary = BRZ
 		dynasty_names = {
 			"de Bragança" "de Camargo" "de Alburquerque" "de Vassouras" "de Noronha" "de Melo" 
@@ -6253,28 +6259,10 @@ slavic = {	#Apparently only Russia can unite the Slavic cultures through their m
 			"Krum" "Dulo" "Cometopuli" "Asen" "Terter" "Shishman" "Teleki"
 		}
 	}
-	schlesian_new = {
-		primary = SIL
-		male_names = {
-			Fryderyk Jan Henryk Ludwik Jan Krystian Jerzy Jerzy Rudolf Jerzy Wilhelm Joachim Fryderyk Krystian
-			Jan Jerzy Jerzy Ernest August Ernest Krystian Ludwik Rudolf Wladislaw Albert Aleksander Andel
-			Cezar Dietrich Eugeniusz Filip Hermann Joachim Krzysztof Lech Libor Markus Maurycy Radomir
-			Václav Wilhelm Ruprecht Branko Bruno Siegfried Tomás
-		}
-		female_names = {
-			Heinrike Ilona Andrea Helgi Heli Helina Helju Helle Helmi Helve Hiie Hilda Hilja Hille Iiris Ille Ilme Ilona Imbi
-			Ines Inga Inge
-		}
-	}
 	#BtPLegacy Culture
 	polabian_culture_new = {
 		graphical_culture = westerngfx
 		primary = RUG
-	}
-	#BtPLegacy Culture
-	kashubian_culture_new = {
-		graphical_culture = westerngfx
-		#primary = XXX
 	}
 	dynasty_names = {
 		Rurikovich Godunov Shuisky Romanov Sheremetev Golitsyn Naryshkin Khilkov Gorchakov
@@ -6301,6 +6289,30 @@ slavic = {	#Apparently only Russia can unite the Slavic cultures through their m
 		Veleslava Verkhoslava Vasilisa
 		Vseslava Viacheslava Yaroslava Zabava Zvenislava
 	}
+	#Cultural Influence Cultures
+	ukrainian_new = { #Ruthenian now splits into Belarussian and Ukrainian
+		#primary = xxx #Needs Ukraine
+	}
+	cossack_new = {
+		primary = ZAZ
+	}
+	siberian_russian_new = {
+		primary = RUS
+	}
+	rusyn_new = {
+		#primary = ###
+	}
+	alaskan_russian_new = {
+		#primary = ###
+	}
+	#Cultural Influence Cultures
+	ceskoslovensky_new = { #ceskoslovensky
+		primary = XXX #Needs Czechoslovakia tag
+	}
+	pomeransky_new = { #Pomeransky
+		primary = XXX #Needs new tag
+	}
+	#No Kashubian since it isn't really significant enough to be its own culture, just gonna call it a Pomeranian dialect (Sorry)
 }
 kipchak = {
 	graphical_culture = muslimgfx
@@ -6845,6 +6857,40 @@ byzantine = {
 	}
 	pontic_greek = {
 		primary = TRE
+	}
+	georgian_new = {	#CI had Armenian assimilate into Hellenic, but I guess this can work for Caucasia north of them but south of the mountains?
+		primary = GEO
+		dynasty_names = { 
+			Bagrationi Mukhrani
+			# CKII
+			"Javakhishvili" "Jaqeli" "Sologashvili" "Tavdgiridze" "Vakhvakhishvili" 
+			"Andronikashvili" "Gurieli" "Machabeli" "Abazasdze" "Zevdginidze" "Amirejibi" "Abuladze" 
+			"Chkhetidze" "Gelovani" "Panaskerteli" "Agiashvili" "Chavchavadze" 
+			"Cholokashvili" "Diasamidze" "Shildisani" "Iashvili" "Anchabadze"
+			"Orbeliani" "Japaridze" "Jorjadze"
+			"Kakhaberisdze" "Kherkheulidze" "Khimshiashvili" "Shervashidze" "Dadiani" 
+			"Kobulashvili" "Lortkipanidze" "Machutadze" "Mikeladze" "Mkhetsidze" "Palavandishvili"
+		}
+		male_names = {
+			Giorgi David Vakhtang Bagrat Alexander Erekle Konstantine Luarsab Simon Teimuraz Archil Bakar Iesse 
+			Kaihosro Rostom-Mirza Levan Demetre Stefanoz Anzori Bebur Birtveli Djurkha Gulikho Kartlos Koki 
+			Lukhum Malkhazi Mushni Okhropir Orbeli Revaz Takha Torgva Tornike Tsotne Xareba Zviadi
+			Adarnase Atrnerseh Aghsartan Aleksandre Alexander Andronik Andronicus Anzori Archili Ashot 
+			Ashot Bagrat Bakur Bagour Davit David Demetre Demetrius Demna Djavakhi Erekle Heracles 
+			Gabriel Gagiki Gagik Giorgi George Grigoli Gregory Guaram Guaram Gubaz Kviria
+			Gurgen Lupo Iese Ioane John Ishkhanik Ishkhan Iveri Jarji Kaikhosro Keykhosrau Kakhi Koba 
+			Konstantine Constantine Kvarkvare Kvirike Levan Leo Luarsab Malkhazi Malkhas Mamia Merab 
+			Mikheil Michael Mukhran Nerse Narses Nikoloz Nicholas Okhropir Orbeli Gabrieli
+			Padla Samoeli Samuel Shanshe Shahanshah Shota Simon Simon Stepanoz Stephen Sumbat Smbat 
+			Teimuraz Teimuraz Tornike Tornik Ushisha Vache Vakhtang Vakhtank Zurab Zviad
+		}
+		female_names = {
+			Ana Anna Baia Bedisa Borena Chiora Chito Dali Dedika Duda Dzabuli Elene Helen Eliso Endzela 
+			Gogutsa Gulchara Guliko Gulisa Gulvardi Guranduht Gorandukht Gvantsa Ia Judjuna Thamar
+			Kekela Ketevan Catherine Lamara Lamzira Lela Mariami Mariam Mathiko Mthvarisa Mzekhar Natia 
+			Nino Rusudan Sanatha Shorena Shukhia Suliko
+			Tamari Tamar Taplo Tinatini Tsiala Vardo
+		}
 	}
 	#Goths Removed by CI
 	#BtPLegacy Culture
@@ -7798,6 +7844,7 @@ turkish_g = {
 	}
 	
 	turkish = {
+		province = { local_has_qizilbash = yes }
 		primary = TRK
 		dynasty_names = {
 			"Osmanoglu" "Karamanoglu" "Menteseoglu" "Ramazanoglu" "Saruhanoglu"
@@ -7833,6 +7880,7 @@ turkish_g = {
 		}
 	}
 	turkmeni = {
+		province = { local_has_qizilbash = yes }
 		primary = KHI
 		dynasty_names = {
 			"Arabshahid" "Qungrat" "Bayan Arslan" "Mongke Cheren" "Mongke Bayar" "Suren Chinua" "Oyugun Nasan"
@@ -7873,6 +7921,7 @@ turkish_g = {
 		}
 	}
 	azerbaijani = {
+		province = { local_has_qizilbash = yes }
 		primary = ARL
 		dynasty_names = {
 			"Qara Qoyunlu" "Aq Qoyunlu" "Safavid" "Shirvanshah" Javanshir Chupanid Ziyadoghlu Chalabi
@@ -7921,6 +7970,7 @@ turkish_g = {
 		}
 	}
 	turkoman = { #(JP) Names copied from azerbaijani. Turkoman represents Qara and Aq, plus the Turks who settled in Dulkadir and Iraq #Replacing tribal_turkman in CI
+		province = { local_has_qizilbash = yes }
 		primary = QAR
 		dynasty_names = {
 			"Qara Qoyunlu" "Aq Qoyunlu" "Safavid" "Shirvanshah" Javanshir Chupanid Ziyadoghlu Chalabi
@@ -7940,7 +7990,7 @@ turkish_g = {
 	}
 }
 
-iranian	= {
+iranian	= {	#Western Iranian
 	graphical_culture = muslimgfx
 	persian = {
 		primary = PER
@@ -8230,6 +8280,69 @@ iranian	= {
 		Afsharid Zand Qajar Qoli Zahedi Talish Safavid Zulqadr Shamlu Sahandlu Zanganeh
 		Zaman Ustajlu Tekkelu Jaberi Khuzani Kujuji Ordubadi Khalifeh Karaki 
 	}
+	turco_iranian = {	#Vanilla 1.36, not sure what to make of this, will leave it for now
+		primary = QAR
+		province = { local_has_qizilbash = yes }
+		dynasty_names = {
+			"Osmanoglu" "Karamanoglu" "Menteseoglu" "Ramazanoglu" "Saruhanoglu"
+			"Dulkadiroglu" "Candaroglu" "Germiyanoglu" "Aydinoglu" "Eretnaoglu"
+			"Artukoglu" "Mutahhartenoglu" "Tekeoglu" "Hamidoglu" "Tacettinoglu"
+			"Oguzoglu" "Haciemiroglu" "Kubatoglu" "Bafraoglu" "Alaiyeoglu"
+			Afsharid Zand Qajar Qoli Zahedi Talish Safavid Zulqadr Shamlu Sahandlu Zanganeh
+			Zaman Ustajlu Tekkelu Jaberi Khuzani Kujuji Ordubadi Khalifeh Karaki 
+		}
+		male_names = {
+			Mehmet Mustafa Murat Ahmet Selim Osman Mahmut Süleyman Bayezid Orhan Abdulaziz Abdülhamit Ibrahim 
+			Abdülmecit Abdullah Cem Cihangir Alaattin Isa Musa Ömer Seyfettin Yakup Yusuf Giyasettin Numan 
+			Ali Davut Hasan Hüseyin Ishak Kamer Kasim Korkut Emin Iskender Halil Sait Hamit Ertugrul Izzettin 
+			Nizamettin Sinan Ferhat Salih Ismail Cüneyt Bahadir Hizir Harun Cemal Inal Celalettin Ilyas 
+			Dursun Ramazan Recep Abdulrahman Hayrettin
+			Çagri Çaka Afsin Ahmet Aksonqor Alaeddin Ali Alkan "Alp Arslan" "Alp Yurek" Alptigin Artuk Ayaz 
+			Aydin Aydogan Aydogdu Aytekin Böru Bulend Bahadir Balaban Basbuga Batuhan Baturay Baybars 
+			Bayezid Baytas Belek Berkan Berkiyaruk Bozan Bugra Burak Cuneyd Dundar Danismend Davud David 
+			Demir Dogan Dogukan Dukak Erdem Ertan Ertekin Ertugrul Gunduz Hasan Hasan Hizir Ibrahim Ilgazi 
+			Inal Iskender Alexander Kurboga Kaikaus Kaikhusraw Kaiqobad Kara Karatay Kasim Kaya Kaytun 
+			Kemal Kiliç Korkut Kutalmis Kutay Kutlug Mursel Mahmud Mehmed Meliksah Mengucek Mesud Murad 
+			Mustafa Orhan Osman Porsuk Rustem Ramazan Ridvan Söbuk Sökmen Sönmez Suleyman Saim Saltuk 
+			Saruca Savtekin Savur Sehinsah Selçuk Selim Sencer Sinan Tanrivermis Tekin Timurtas Togay 
+			Togtekin Toktamis Tolun Toruntay Tugrul Tunga Turgut Turhan Tutus Uluç Umur Yakut Yaman Yinal 
+			Yunus
+			Abbas Abolhassan Afshar Afshar Ahmad Ahmad Akbar Akbar Allahyar Amin Anushirvan Anushirvan 
+			Aram Ardahan Ardahan Ardavan Ardavan Ardeshir Ardeshir Assad Aurang Ayeshah Babak Babak Bahman 
+			Bahram Bahram Bakhtiar Bakhtiar Behrad Behrouz Bozorg Danush Danush Darab Dariush Darius Davud 
+			David Djamasp Ebrahim Abraham Ehsan Esfandiar Esfandiar Eskander Alexander Esma'il Ismail 
+			Faramarz Faramarz Faraz Faraz Fareed Farid Farhad Farhad Fariborz Fariborz Farroukh Farroukh 
+			Farrukhzad Farrukhzad Farzad Farzad Fath Ferdows Ferdows Fereedun Feridun Ghobad Gholam Godarz 
+			Goshtasb Goshtasb Hafez Hassan Hasan Hazarasp Hazarasp Hedayat Hooshyar Hooshyar Hormazd 
+			Hormazd Hormoz Hossein Hossein Humayun Jahandar Jahandar Jahangir Jahangir Jahanshah Jahanshah 
+			Jamshid Jamshid Javeed Javeed Kambiz Kamran Kavoos Kavoos Keyghobad Keykhosrau Keykhosrau 
+			Kharmandar Kharmandar Khashayar Khashayar Kavadh Khodadad Khodadad Khosrau Khosrau Khudayar 
+			Khudayar Khurshid Khurshid Kurush Cyrus Mahmud Manuchihr Manuchihr Manushihr Manushihr Marzuban 
+			Marzuban Mashad Mashad Maziar Mehrab Mehrzad Mohammed Muhammad Morad Morad Morteza Mozaffar 
+			Nard Naveed Nawid Nezam Parviz Pashang Pashang Peroz Peroz Pujman Reza Rostam Rostam Ruhollah 
+			Sadri Salman Shahab Shahab Shahbaz Shahbaz Shahin Shahin Shahram Shahram Shahrokh Sharokh 
+			Shahruz Shahruz Shahryar Shahryar Shapur Shapur Shayan Shayan Sina Tahmasb Tahmasb Vahhab 
+			Vahhab Vahid Vali Vandad Varshasb Varshasb Vishtasb Vishtasb Yazdegerd Yousef Joseph Zahak 
+			Zakaria Zand Zartosht Zartosht Zia Joneid Haidar Ismâ'îl Tamâshp Mohammad Kodabânda 'Abbâs Safi 
+			Hosayn Nâder Shâh 'Âdel Shâh Ebrâhim Shâh Rukh Nâder Mirza Karim Khân Abu'l Fath 
+			Sâdiq Morâd Ja'far Loft Ali Aga Muhammad Fath Alî Solaymân
+		}
+		female_names = {
+			Çiçek Çilen Çiltanesi Özgul Özlem Akgul Asli Aslihan Ayasun Ayla Ayse Ayten Azize Bahar Banu 
+			Bozçin Canan Ceylan Dunya Dilber Dilek Emine Esin Fatma Firuze Gulçiçek Gulay Gulbahar Gulfem 
+			Gulsum Gumus Gunduz Gundes Gunes Hatice Hayat Huriye Ilkay Ilknur Ipek Ipekel Irge Karacik Lale 
+			Leyla Mala Mansure Merve Mutlu Nagihan Nergis Neslihan Nilufer Nur Peksen Terkhen Samur Sarica 
+			Sati Sehnaz Serap Serife Sevilay Sevindik Sibel Sibylla Sirin Sirma Songul Sumru Tekçe Tura 
+			Umay Usunbike Vahide Yasar Yeldem Yildiz Zehra Zuhal Hatice Safiye Zeynep Hürrem Mihrimah Nurbanu 
+			Handan Alime Kösem Hüma 
+			Afsaneh Ahu Arghavan Azarmidokht Asa Azadeh Bahar Banafsheh Behnaz Burandokht Darya Delaram 
+			Delbar Dinah Donya Elham Elnaz Farah Fareedeh Farnaz Farrin Farva Furuzan Ghamze Ghazal 
+			Ghoncheh Ghoncheh Golbahar Golbahar Golnaz Golnaz Golpari Golshan Hamdam Hurmat Irandokht 
+			Jamileh Javaneh Leila Mahdokht Mahtab Mariam Mariam Navvaba Nazgol Nazgol Nazilla Noor Parvaneh 
+			Parvaneh Parvin Pertevniyal Pourandokht Pourandokht Roshanora Roxana Salomeh Shahrzad Shahzadeh 
+			Shirin Soraya Touran Tourandokht Yasaman Yekta Zarrindokht Zeynab Zohreh Atiya
+		}
+	}
 	#Cultural Influence Cultures
 	tajik = {
 		primary = KOK #Ferghana
@@ -8300,7 +8413,7 @@ iranian	= {
 	}
 }
 
-eastern_iranian = {	#CI Group
+alan_group = {	#BT, CI relocalised as Khateez Irani (Eastern Iranian)
 	afghani = {	#CI localised to Peshetw
 		primary = AFG
 		male_names = {
@@ -8357,7 +8470,7 @@ eastern_iranian = {	#CI Group
 			Sêlaz Sîlan Sînî Sîwen
 		}
 	}
-	alan = {
+	ossetian = {
 		primary = ALN
 		male_names = {
 			Ælbeg Æmbalan Aghsartan Alatey Akhsar Anbal Anbazuk Aravat Arsen Askhkadar Ashot Aslan Aspar Athom Balambar Balsag Barlah Bæqætar Basil Bazuk Beler Ber Biræg Boz-Uruz Buürgur Buriberdi
@@ -8368,6 +8481,8 @@ eastern_iranian = {	#CI Group
 			Adadza Alda Altun Ana Atsyrukhs Baia Bedisa Borena Btsenon Burudukan Duda Elene Eliso Gergana Gulchara Guranduht Kera Keratsa Ketevan Koser
 			Lamara Lashin Lela Mariami Natia Nino Rusudan Sanatha Satinik Shatana Shorena Shukhia Tamari Tinatini Tsiala Vardo Vedokha Yeran
 		}
+	}
+	xorasani = {
 	}
 }
 
@@ -8482,7 +8597,7 @@ caucasian = { #CI reworked this to be Kartvelian (Georgian)
 	}
 }
 
-armenian_group = { #Repalced CIs armenian_g with BT16s armenian_group
+armenian_group = { #Repalced CIs armenian_group with BT16s armenian_group
 	graphical_culture = easterngfx
 
 	armenian = {
@@ -9212,7 +9327,7 @@ turko_semitic = { #Levantine  -Draiocht changed to Arabic (CI This is very large
 	}
 }
 
-southern_semitic = {
+ethiopian_group = {	#Replace CI's southern_semitic with BT16's ethiopian_group
 	graphical_culture = muslimgfx
 
 	mahri_culture = { #South Arabs
@@ -9323,6 +9438,284 @@ southern_semitic = {
 		female_names = {
 			Beila Belet Chana Doltza Esther Guta Guthela Madrona Matrona Minna Pultzelina Rachel Rivkah Saris Scolaster
 			Shluida Shoinlin Shonlin Tziporah Yehudis Yeintil
+		}
+	}
+	tigre = { #Tigre, not Tigrayan or Tigrina
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	dahalik = {
+		primary = DHK
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	argobba = {
+		primary = IFT #(JP) Walashama of Ifat and Adal were likely Argobba. This maintains the Ifat tag longer. 
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	gafat = {
+		primary = DAM
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	gurage = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+}
+
+
+omotic_group = {
+	graphical_culture = africangfx
+	
+	koman-mao = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	gonga = {
+		primary = KAF #(JP) Primary state here
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	yemsa = {
+		primary = JJI
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	ometo = {
+		primary = WLY #(JP) Most established and northerly of the Ometo states
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	ari-banna = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	maji = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+}
+
+gumuz_group = {
+	graphical_culture = africangfx
+	
+	gumuz = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+}
+
+beja_group = {
+	graphical_culture = africangfx
+	
+	beja = {
+		primary = BEJ
+	}
+}
+
+kunama_group = {
+	graphical_culture = africangfx
+	
+	
+	kunama = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+}
+
+agaw_group = {
+	graphical_culture = africangfx
+	
+	awngi = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	qwara = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	kayla = {
+		primary = BTI #(JP) Semien
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	bilen = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+}
+
+highland_east_cushite_group = {
+	graphical_culture = africangfx
+	
+	sidamo = {
+		primary = BLE #(JP) Should probably be a later Sidama tag, but for now, Bale will do
+
+		male_names = {
+			"Minjo" "Iyâsû" "Taqla Hâymânôt" "Salômôn" "Yôhannes" "Hezqeyâs" "Zar'a Yâqob" "Ba'eda Mâryâm"
+			"Quastantînôs" "'Amda Seyôn" "Nâ'ôd" "Lebna Dengel" "Galâwdêwôs" "Mînâs" "Sarsa Dengel" "Yâ'qob" "Sûsenyôs"
+			"Fâsîladas" "Têwôflôs" "Yôstôs" "Yônas" "Dâwît" "'Amsa Gîyôrgîs" "Tuqla Gîyôrgîs" "Demetros" "Gîyôrgîs"
+			"Fiqtor" "Menas" "Marqos" "Hamalmal" "Saga Krestos" "Malta Krestos" "Fâsîl" "'Endreyâs" "Yeshaq" "Mika'el"
+			"Amda Seyon" "Antenatewos" "Welde Giyorgis" "Mika'el Sehul" "Gusho" "Wand Bewossen" "Haile" "Wolda Gabrael"
+		}
+		female_names = {
+			Abeba Hagos Tenagne Habesha Abeba Abrihet Adanech Adina Alaworld Alitash Amhara Ayana Bathsheba Bekele
+			Belkis Berhane Berta Desta Dilla Falasha Falashina Fana Fannah Genat Hagos Jahzara Jazarah Kayla Kelile
+			Kelyle Keren Kess Kifle
+		}
+	}
+	gedeo = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	kambaata = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	hadiya = {
+		primary = HDY
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+}
+
+oromo_group = {
+	graphical_culture = africangfx
+	
+	oromo = { #Barentu
+		#primary = JIM #(JP) Not sure what JIM is
+		male_names = {
+			"Taqla Hâymânôt" "'Amsa Gîyôrgîs" "Tuqla Gîyôrgîs" "Zar'a Yâqob" "Ba'eda Mâryâm" "'Amda Seyôn" "Lebna"
+			"Saga Krestos" "Malta Krestos" "Dengel" "Welde Giyorgis" "Mika'el Sehul" "Wolda Gabrael" "Wand Bewossen"
+			"Amda Seyon" "Sarsa Dengel" Iyâsû Quastantînôs Salômôn Yôhannes Hezqeyâs Nâ'ôd Galâwdêwôs Mînâs Yâ'qob
+			Sûsenyôs Fâsîladas Têwôflôs Yôstôs Yônas Dâwît Demetros Gîyôrgîs Fiqtor Menas Marqos Hamalmal Fâsîl
+			'Endreyâs Yeshaq Mika'el Antenatewos Gusho Haile
+		}
+		female_names = {
+			Abeba Hagos Tenagne Habesha Abeba Abrihet Adanech Adina Alaworld Alitash Amhara Ayana Bathsheba Bekele
+			Belkis Berhane Berta Desta Dilla Falasha Falashina Fana Fannah Genat Hagos Jahzara Jazarah Kayla Kelile
+			Kelyle Keren Kess Kifle
+		}
+	}
+	borana = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	konso = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	orma = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
 		}
 	}
 }
@@ -9818,32 +10211,11 @@ saharan_group = {
 	}
 }
 
-cushitic = {
+cushitic = { #Representing Lowland East Cushite
 	graphical_culture = africangfx
-	
-	somali = {
-		primary = ADA
-		dynasty_names = {
-			Walashma Muzaffar Gareen Gobroon Karanle Jaladi Harti Darod Gerad
-			# CKII
-			"Abrone" "Dir" "Hawiye" "Isaaq" "Digil" "Mirifle" "Gadabuursi" "Akishe" "Biyomaal" "Surre"  "Issa" "Marehan" "Bartire" "Rahanweyn" "Warsangali" "Samaale"
-		}
-		male_names = {
-			Abadir Abdale Abdirahman Abdulah Abdullah Abram Abu-Bakr Adan Adeer Ahmed Ali Amlale Aul Awe
-			Aydahis Balad Baraka Barakat Ciise Dagale Dhidhin Hamalmal Hamar Hamid Hantale Haqq Harire
-			Ibrahim Irir Isman Jamal Kadhafo Kedafu Khalaf Liban Mahammad Muhammad Mahamed Muhammed
-			Mahamud Mahmud Mansur Nahwi Naleye Nassir Nur Omer Sa'ad Sa'adaddin Sabir Sabr Sabraddin
-			Sadiq Salah Siciid Talha Umar Umardin Yayyo Yusuf Zuber Zubeyr
-		}
-		female_names = {
-			Aasha Adey Alaso Ambro Amburo Asha Asli Astur Awa Awrala Ayaan Barni Basr Beydaan
-			Billan Canab Cawo Deeqa Delombira Dobira Faadumo Fathia Fawzia Geesi Haweeya Hibaaq
-			Hodan Hoodo Iftiin Jiinow Khadra Ladan Leyla Laila Libin Luula Magol Maka Mariam
-			Mulki Nasteexo Sagal Sahra Sufia Ubah Ubax Waris Xalwo
-		}
-	}
+
 	afar = {
-		primary = AFA
+		primary = DNK #(JP) Vanilla was Aussa
 		dynasty_names = {
 			Walashma Muzaffar Gareen Gobroon Karanle Jaladi Harti Darod Gerad
 			# CKII
@@ -9863,86 +10235,80 @@ cushitic = {
 			Mulki Nasteexo Sagal Sahra Sufia Ubah Ubax Waris Xalwo
 		}
 	}
-	oromo = {
-		primary = JIM
+	saho = {
+		#primary = XYZ #(JP) No tags
 		male_names = {
-			"Taqla Hâymânôt" "'Amsa Gîyôrgîs" "Tuqla Gîyôrgîs" "Zar'a Yâqob" "Ba'eda Mâryâm" "'Amda Seyôn" "Lebna" 
-			"Saga Krestos" "Malta Krestos" "Dengel" "Welde Giyorgis" "Mika'el Sehul" "Wolda Gabrael" "Wand Bewossen" 
-			"Amda Seyon" "Sarsa Dengel" Iyâsû Quastantînôs Salômôn Yôhannes Hezqeyâs Nâ'ôd Galâwdêwôs Mînâs Yâ'qob 
-			Sûsenyôs Fâsîladas Têwôflôs Yôstôs Yônas Dâwît Demetros Gîyôrgîs Fiqtor Menas Marqos Hamalmal Fâsîl 
-			'Endreyâs Yeshaq Mika'el Antenatewos Gusho Haile
 		}
 		female_names = {
-			Abeba Hagos Tenagne Habesha Abeba Abrihet Adanech Adina Alaworld Alitash Amhara Ayana Bathsheba Bekele 
-			Belkis Berhane Berta Desta Dilla Falasha Falashina Fana Fannah Genat Hagos Jahzara Jazarah Kayla Kelile 
-			Kelyle Keren Kess Kifle
 		}
-	}
-	sidamo = {
-		primary = KAF
-		
-		male_names = {
-			"Minjo" "Iyâsû" "Taqla Hâymânôt" "Salômôn" "Yôhannes" "Hezqeyâs" "Zar'a Yâqob" "Ba'eda Mâryâm" 
-			"Quastantînôs" "'Amda Seyôn" "Nâ'ôd" "Lebna Dengel" "Galâwdêwôs" "Mînâs" "Sarsa Dengel" "Yâ'qob" "Sûsenyôs" 
-			"Fâsîladas" "Têwôflôs" "Yôstôs" "Yônas" "Dâwît" "'Amsa Gîyôrgîs" "Tuqla Gîyôrgîs" "Demetros" "Gîyôrgîs" 
-			"Fiqtor" "Menas" "Marqos" "Hamalmal" "Saga Krestos" "Malta Krestos" "Fâsîl" "'Endreyâs" "Yeshaq" "Mika'el" 
-			"Amda Seyon" "Antenatewos" "Welde Giyorgis" "Mika'el Sehul" "Gusho" "Wand Bewossen" "Haile" "Wolda Gabrael" 
-		}
-		female_names = {
-			Abeba Hagos Tenagne Habesha Abeba Abrihet Adanech Adina Alaworld Alitash Amhara Ayana Bathsheba Bekele 
-			Belkis Berhane Berta Desta Dilla Falasha Falashina Fana Fannah Genat Hagos Jahzara Jazarah Kayla Kelile 
-			Kelyle Keren Kess Kifle
-		}
-	}
-	#BtPLegacy Culture
-	beja = {
-		primary = BEJ
 		dynasty_names = {
-			Senar
-			# CKII
-			"Bigawi" "Qamhat" "Hadendiwa" "Hadareb" "Beni-Amer" "Hadendoa"
-			"Hedareb" "Jarin" "Bisharin"
-		}
-		male_names = {
-			"'Amâra" "'Abd al-Qâdir" "Nâ'l" "Dakîn al-'Adil" "Dûra" "Taiyîb" "Unsa" "Adlân" "Bâdî" "Rubât" "Nûl" 
-			"Nâsir" "Ranfi" "Eltecit" "Joel" "Koudlaniel" "Isawi" "Hashim" "Maqdum" "Awkal" "Hassan" "Agban" 
-			"Abu Likayik" "Rajab" "Ahmad" "Rifaya" "Ibrahim" "Idris" "Tindhim" "'Abd al-Rahman" "Sulayman" "Yusuf" 
-			"Ya'qub" "Ismâ'îl" "Musa" "Muhammad" "Ishaq" "Halim" "Mustafa" "Abu Bakr" 
-			Aarôn Aaron Aberikos Abraam Abraham Añgelos Angelus Andreas Andrew Athanasios Balô 
-			Bartholomaios Bartholomew Birêl Chael Christophoros Dauid David Dimetheos Timothy
-			Dioskoros Diônisios Dionysus Eliezer Eionkouda Emmanouel Emmanuel Enôch Enoch Ephannê Epimachos 
-			Epiphanios Gabriel Gabriel Gabrielkouda Gabrielophorou Gennatios Gennadius
-			Geôrgios George Hêlias Elias Hoase Jesse Hoassi Jesse Hoasse Jesse Iacob Jacob Ieremias 
-			Jeremiah Iêsous Jesus Iêsousinkouda Iôannou Jonah Iôannês John Iordanes Jordanes Ioseph Joseph 
-			Kalinikos Kallinikios Kollouthos
-			Krisanthos Chrystanthos Kuriakos Kyriakos Kurillos Cyril Lazaros Lazarus Leon Leo Leontios 
-			Leontius Makarios Makarius Mariana Mariankouda Marianos Marianus Marios Marius Markos Marcus 
-			Marturophoros
-			Masanñal Maththias Matthew Mêlênkouda Mena Menankouda Merkourios Mercurius Michaêl Michael 
-			Michaêlkouda Mouses Moses Orna Panigiros Papasinen Papasinkouda Patrikios Patrick
-			Paulos Paul Petros Peter Petrou Philotheos Philemon Prochoros Raphael Raphaelkouda Samson 
-			Senouthios Sentiko Sergios Sergius Simeoni Simon Soizuros Solomôn Solomon Sotinkouda Stephanos 
-			Stephen
-			Stephanou Thadeosi Thaddeus Theodôros Theodore Theodosios Theodosius Theodote Theodat Thoma 
-			Thomas Tophêna Tirsakouni Zacharias Zachary Zosima Zosimus
-		}
-		female_names = {
-			Agathe Alethia Anthelia Athanasia Chaelsoñoja Chrissa Christina Douriko Egaloskoura Eikkir 
-			Eionmnne Eionñoka Eitou Elisabeth Elizabeth Eirena Eirene Eirota Eirotatouññlki
-			Entaeiri Eôneille Ephannê Epimachosi Eudosia Eudoxia Eulabia Eusebia Eustephanou Fatima 
-			Genseoua Hellene Helen Hemene Iannia Joan Iêsousyko Ioustina Justina Kel Kerike Kersiami Kettoudi
-			Keudonia Kurake Kyriake Maraña Maria Maria Mariam Maria Mariane Marianou Michaêliko Michaela 
-			Ña??a Ñe??adena Ñejin Ñilesa Ñojjl Ñoltou Ñonne Ñonnen Ñouddl Ñssitkitol Ouarenô Patrikia 
-			Patricia Pelagia Gulzar Maram
-			Penatti Pesanthia Petronia Prisisilla Priscilla Rahimah Sophia Sousanna Staurophania Theobronia 
-			Theodorake Theodosia Theognosta Theophania Theophilia Theipisthe Theozia Zerebekka
 		}
 	}
-	dynasty_names = {
-		Ginocho Bahrid "Darod" "Marisid" "Muqurrid" "Pakhoras" "Ramlid" "Sebsibeid" "Kebedeid" "Bekeleid" 
-		"Abateid" "Sabraid" "Astatkeid" "Habeshid" "Dubé" "Gobena" "Selassie" "Zagwe" "Dengel" "Sehul" 
-		"Daw" "Alwa" "Dahnay" "Gideon" "Assabi" "Afari" "Tamirat" "Mengesha" "Teka" "Getachew" "Na'akuelo" "Yostos" 
-		"Merkourios" "Shamumun" "Desta"
+	somali = { #old Somali Culture. Going to keep present for possible later use?
+		#primary = ADA
+		dynasty_names = {
+			Walashma Muzaffar Gareen Gobroon Karanle Jaladi Harti Darod Gerad
+			# CKII
+			"Abrone" "Dir" "Hawiye" "Isaaq" "Digil" "Mirifle" "Gadabuursi" "Akishe" "Biyomaal" "Surre"  "Issa" "Marehan" "Bartire" "Rahanweyn" "Warsangali" "Samaale"
+		}
+		male_names = {
+			Abadir Abdale Abdirahman Abdulah Abdullah Abram Abu-Bakr Adan Adeer Ahmed Ali Amlale Aul Awe
+			Aydahis Balad Baraka Barakat Ciise Dagale Dhidhin Hamalmal Hamar Hamid Hantale Haqq Harire
+			Ibrahim Irir Isman Jamal Kadhafo Kedafu Khalaf Liban Mahammad Muhammad Mahamed Muhammed
+			Mahamud Mahmud Mansur Nahwi Naleye Nassir Nur Omer Sa'ad Sa'adaddin Sabir Sabr Sabraddin
+			Sadiq Salah Siciid Talha Umar Umardin Yayyo Yusuf Zuber Zubeyr
+		}
+		female_names = {
+			Aasha Adey Alaso Ambro Amburo Asha Asli Astur Awa Awrala Ayaan Barni Basr Beydaan
+			Billan Canab Cawo Deeqa Delombira Dobira Faadumo Fathia Fawzia Geesi Haweeya Hibaaq
+			Hodan Hoodo Iftiin Jiinow Khadra Ladan Leyla Laila Libin Luula Magol Maka Mariam
+			Mulki Nasteexo Sagal Sahra Sufia Ubah Ubax Waris Xalwo
+		}
+	}
+	issa = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}	
+	dir = { #(JP) Messed up here. This is Isaaq instead. 
+		primary = ISI
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	darood = {
+		primary = WAR #(JP) Tough choice here, the culture is split between five tags representing the five largest states. Warsangali is the tag most likely to die so... yeah...
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	hawiye = {
+		primary = AJU
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
+	}
+	reewin = {
+		#primary = XYZ #(JP) No tags
+		male_names = {
+		}
+		female_names = {
+		}
+		dynasty_names = {
+		}
 	}
 }
 
@@ -10648,7 +11014,7 @@ mongolic = {
 	}
 }
 
-tungusic = {
+evenks = {
 	graphical_culture = inuitgfx
 	second_graphical_culture = asiangfx
 

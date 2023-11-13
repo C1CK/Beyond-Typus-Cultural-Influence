@@ -840,7 +840,7 @@ tribe_remain_tribal_reform = {
 	}
 }
 
-tribe_tribal_unity_reform = {
+tribe_tribal_unity = {
 	icon = "fist_in_air"
 	allow_normal_conversion = yes
 	potential = {
@@ -848,7 +848,7 @@ tribe_tribal_unity_reform = {
 		has_dlc = "Cradle of Civilization"
 	}
 	modifiers = {
-		yearly_tribal_allegiance = 1
+		yearly_government_power = 1
 		church_loyalty_modifier = 0.05
 		nobles_loyalty_modifier = 0.05
 		dhimmi_loyalty_modifier = 0.05
@@ -856,5 +856,27 @@ tribe_tribal_unity_reform = {
 	}
 	ai = {
 		factor = 2
+	}
+}
+
+#(JP) I hope I'm doing this right. Any issues, please go ahead and fix
+#(JP) Possibly also usable for Oromos or others in the Horn. Who knows. 
+somali_clan = {
+	icon = "tribal_council"
+	allow_normal_conversion = no
+	potential = {
+		has_reform = somali_clan
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = -10
+	#legacy_equivalent = tribal_confederacy_legacy #(JP) Using another here I think?
+	native_mechanic = no
+	allow_migration = yes
+	modifiers = {
+		cavalry_cost = -0.10
+		loot_amount = 0.10
+	}
+	ai = {
+		factor = 1
 	}
 }

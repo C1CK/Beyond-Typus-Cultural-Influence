@@ -166,6 +166,19 @@ split_rhomaio = { #Splits Rhomaioi into Aegean, Anatolian, Moesian and Cypriot
 		}
 		change_culture = cypriot
 	}
+	every_province = { #Fallback if outside of other regions, Aegean
+		limit = {
+			culture = {
+			OR = {
+				agaio_culture_region = no
+				anatolikos_culture_region = no
+				moesian_culture_region = no
+				dodecanesian_culture_region = no
+				cypriot_culture_region = no
+			}	
+		}
+		change_culture = greek
+	}
 	#Handle Primary switches via event to offer a choice
 	#Accepted Cultures
 	every_country = {
@@ -355,6 +368,18 @@ split_anatolikos = {  #Splits Anatolian into Pontic, Cappadocian, Phrygian and P
 			pamphylian_culture_region = yes
 		}
 		change_culture = pamphylian
+	}
+	every_province = { #Fallback if outside of other regions, Pontic
+		limit = {
+			culture = anatolikos
+			OR = {
+				pontic_greek_culture_region = no
+				cappadocian_culture_region = no
+				phrygian_culture_region = no
+				pamphylian_culture_region = no
+			}	
+		}
+		change_culture = pontic_greek
 	}
 	#Handle Primary switches via event to offer a choice
 	#Accepted Cultures

@@ -1,0 +1,81 @@
+
+ci_west_germanic_cousin = {	#Partially offsets different culture group penalties
+	potential = {
+		owner = {
+			OR = {
+				culture_group = british
+				culture_group = anglo_frisian
+				culture_group = germanic
+			}
+		}
+		OR = {
+			culture_group = british
+			culture_group = anglo_frisian
+			culture_group = germanic
+		}	
+	}
+	trigger = {
+		owner = {
+			OR = {
+				culture_group = british
+				culture_group = anglo_frisian
+				culture_group = germanic
+			}
+		}
+		#NOT = {
+		#	OR = {
+		#		culture_group = ROOT
+		#		has_owner_accepted_culture = yes
+		#	}	
+		#}
+		OR = {
+			culture_group = british
+			culture_group = anglo_frisian
+			culture_group = germanic
+		}	
+	}
+	local_tax_modifier = 0.10 #Evens out to -0.15
+	local_missionary_strength = 0.01 #Evens out to -0.01
+	local_manpower_modifier = 0.10 #Evens out to -0.15
+	local_sailors_modifier = 0.10 #Evens out to -0.15
+	local_unrest = -1 #Evens out 1
+	local_development_cost = -0.10 #Evens out to 0.20
+	local_governing_cost = -0.10 #Evens out to 0.20
+}
+
+ci_germanic_distant_cousin = {
+	potential = {
+		owner = {
+			germanic_cultures = yes
+		}
+		germanic_cultures = yes
+	}
+	trigger = {
+		owner = {
+			OR = {
+				west_germanic_cultures = yes
+				north_germanic_cultures = yes
+			}	
+		}
+		NOT = {
+			OR = {
+				AND = {
+					owner = { west_germanic_cultures = yes }
+					west_germanic_cultures = yes
+				}
+				AND = {
+					owner = { north_germanic_cultures = yes }
+					north_germanic_cultures = yes
+				}	
+				has_owner_accepted_culture = yes
+			}	
+		}
+	}
+	local_tax_modifier = 0.05 #Evens out to -0.2
+	local_missionary_strength = 0.005 #Evens out to -0.015
+	local_manpower_modifier = 0.05 #Evens out to -0.20
+	local_sailors_modifier = 0.05 #Evens out to -0.20	
+	local_unrest = -0.5 #Evens out 1.5
+	local_development_cost = -0.05 #Evens out to 0.25
+	local_governing_cost = -0.05 #Evens out to 0.25
+}
