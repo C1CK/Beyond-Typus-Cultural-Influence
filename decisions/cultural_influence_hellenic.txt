@@ -166,6 +166,45 @@ country_decisions = {
 		}
 	}
 
+	hellenic_georgian_assimilation_decision = {
+		major = yes
+		potential = {
+			NOT = { has_global_flag = hellenic_georgian_assimilation_flag }
+			NOT = { primary_culture = georgian_new }
+			has_country_modifier = hellenic_settlements		
+			AND = {
+				culture_group = byzantine
+				OR = {
+					any_core_province = { 
+						culture = georgian 
+					}
+				}
+			}
+		}
+		allow = {
+			accepted_culture = georgian
+			OR = {
+				development_in_provinces = { #In 1444, 128 dev is Georgian culture. 160 is therefore reasonable considering you can culture-convert OR dev to reach this number.
+					value = 160
+					culture = georgian
+				}
+			}
+			adm_power = 200
+			dip_power = 100
+		}
+		effect = {
+			hidden_effect = {
+				hellenic_georgian_assimilation = yes #Reworked to only effect the Georgian provinces with 25 or more dev. Advisors and whatnot will still change, however.
+			}		
+			set_global_flag = hellenic_georgian_assimilation_flag
+			custom_tooltip = enables_hellenisation_of_georgian
+			add_adm_power = -200
+			add_dip_power = -100
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
 	hellenic_turkish_assimilation_decision = {
 		major = yes
 		potential = {

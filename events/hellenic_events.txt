@@ -813,7 +813,10 @@ province_event = { #Armenian Assimilation
 	goto = root
 	
 	trigger = {
-		has_global_flag = hellenic_armenian_assimilation_flag
+		OR = {
+			has_global_flag = hellenic_armenian_assimilation_flag
+			primary_culture = nkreko_armenio
+		}	
 		owner = { culture_group = byzantine }
 		nkreko_armenio_culture_region = yes
 		NOT = { culture = nkreko_armenio }
@@ -849,6 +852,10 @@ province_event = { #Armenian Assimilation
 		modifier = {
 			factor = 0.5
 			culture_group = byzantine
+		}
+		modifier = {
+			factor = 0.5
+			culture = armenian
 		}
 
 		#Dev. factors
@@ -12305,6 +12312,128 @@ province_event = { #Mesopotamian settlements and assimilation
 	}
 }
 
+province_event = { #Georgian Assimilation
+	id = cultural_influence_greek.83
+	title = greek_reclamation_1.title
+	desc = greek_reclamation_1.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		OR = {
+			has_global_flag = hellenic_georgian_assimilation_flag
+			primary_culture = georgian_new
+		}	
+		owner = { culture_group = byzantine }
+		nkreko_armenio_culture_region = yes
+		NOT = { culture = georgian_new }
+		ci_assimilation_check = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = byzantine
+		}
+		modifier = {
+			factor = 0.5
+			culture = georgian
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = yes
+		}
+	}
+
+	option = {
+		name = greek_reclamation_1.a
+
+		change_culture = georgian_new
+	}
+}
 
 #Colonial Cultures
 

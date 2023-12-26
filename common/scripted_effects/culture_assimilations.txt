@@ -110,3 +110,58 @@ hellenic_turkish_assimilation = { #Assimilates the Turks into Hellenic
 		set_ruler_culture = tourkiki
 	}
 }
+
+hellenic_georgian_assimilation = { #Assimilates Georgian into Hellenic
+	every_province = {
+		limit = {
+			AND = {
+				OR = {
+					culture = georgian
+				}
+			development = 25	
+			}
+		}
+		change_culture = georgian_new
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = georgian
+			}
+		}
+		change_primary_culture = georgian_new
+	}
+	every_country = {
+		limit = {
+			OR = {
+				accepted_culture = georgian
+			}
+		}
+		remove_accepted_culture = georgian
+		add_accepted_culture = georgian_new
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = georgian
+			}
+		}
+		set_ruler_culture = georgian_new
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = georgian
+			}
+		}
+		set_heir_culture = georgian_new
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = georgian
+			}
+		}
+		set_ruler_culture = georgian_new
+	}
+}

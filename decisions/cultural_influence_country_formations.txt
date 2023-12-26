@@ -1,181 +1,181 @@
 country_decisions = {
-	form_england_france_ENG_military = { #For ENG via conquest
-		major = yes
-		potential = {
-			bt_generic_can_form_potential_check = yes
-			NOT = { tag = UEF }
-			NOT = { exists = UEF }
-			NOT = { exists = UNK } #Great Britain often gets formed first, so I'm making it so that GBR can either go and form UNK or UEF
-			NOT = { has_country_flag = formed_UEF_flag }
-			tag = ENG
-		}
+	# form_england_france_ENG_military = { #For ENG via conquest #Vanilla now has an England-France formable
+		# major = yes
+		# potential = {
+			# bt_generic_can_form_potential_check = yes
+			# NOT = { tag = UEF }
+			# NOT = { exists = UEF }
+			# NOT = { exists = UNK } #Great Britain often gets formed first, so I'm making it so that GBR can either go and form UNK or UEF
+			# NOT = { has_country_flag = formed_UEF_flag }
+			# tag = ENG
+		# }
 
-		provinces_to_highlight = {
-			OR = {
-				#England
-				province_id = 236 #London
-				province_id = 239 #Gloucester
-				province_id = 245 #Leeds
-				province_id = 244 #Lancashire
-				province_id = 238 #Essex
-				#France
-				province_id = 183 #Paris
-				province_id = 177 #Maine
-				province_id = 178 #Anjou
-				province_id = 174 #Aquitaine
-				province_id = 184 #Orleanais
-			}
-			NOT = { is_core = ROOT }
-		}
+		# provinces_to_highlight = {
+			# OR = {
+				# #England
+				# province_id = 236 #London
+				# province_id = 239 #Gloucester
+				# province_id = 245 #Leeds
+				# province_id = 244 #Lancashire
+				# province_id = 238 #Essex
+				# #France
+				# province_id = 183 #Paris
+				# province_id = 177 #Maine
+				# province_id = 178 #Anjou
+				# province_id = 174 #Aquitaine
+				# province_id = 184 #Orleanais
+			# }
+			# NOT = { is_core = ROOT }
+		# }
 
-		allow = {
-			government_rank = 2
-			#adm_tech = 10 #Not needed
-			NOT = { exists = FRA }
-			#England
-			calc_true_if = {
-				all_owned_province = {
-					region = british_isles_region
-				}
-				amount = 40
-			}
-			is_core = 236 #London
-			is_core = 239 #Gloucestershire
-			is_core = 245 #Leeds
-			is_core = 244 #Lancashire
-			is_core = 238 #Essex
-			#France
-			calc_true_if = {
-				all_owned_province = {
-					region = france_region
-				}
-				amount = 50
-			}
-			is_core = 183 #Paris
-			is_core = 177 #Maine
-			is_core = 178 #Anjou
-			is_core = 174 #Aquitaine
-			is_core = 184 #Orleanais
-			total_development = 1200
-		}
+		# allow = {
+			# government_rank = 2
+			# #adm_tech = 10 #Not needed
+			# NOT = { exists = FRA }
+			# #England
+			# calc_true_if = {
+				# all_owned_province = {
+					# region = british_isles_region
+				# }
+				# amount = 40
+			# }
+			# is_core = 236 #London
+			# is_core = 239 #Gloucestershire
+			# is_core = 245 #Leeds
+			# is_core = 244 #Lancashire
+			# is_core = 238 #Essex
+			# #France
+			# calc_true_if = {
+				# all_owned_province = {
+					# region = france_region
+				# }
+				# amount = 50
+			# }
+			# is_core = 183 #Paris
+			# is_core = 177 #Maine
+			# is_core = 178 #Anjou
+			# is_core = 174 #Aquitaine
+			# is_core = 184 #Orleanais
+			# total_development = 1200
+		# }
 
-		effect = {
-			change_tag = UEF
-			remove_non_electors_emperors_from_empire_effect = yes
-			add_country_modifier = {
-				name = "centralization_modifier"
-				duration = 7300
-			}
-			add_prestige = 50
-			swap_ideas = yes
-			set_country_flag = formed_UEF_flag
-			hidden_effect = {
-				complete_mission = vassalize_france
-			}
-			swap_non_generic_missions = yes
-			remove_non_electors_emperors_from_empire_effect = yes
-		}
-	}
+		# effect = {
+			# change_tag = UEF
+			# remove_non_electors_emperors_from_empire_effect = yes
+			# add_country_modifier = {
+				# name = "centralization_modifier"
+				# duration = 7300
+			# }
+			# add_prestige = 50
+			# swap_ideas = yes
+			# set_country_flag = formed_UEF_flag
+			# hidden_effect = {
+				# complete_mission = vassalize_france
+			# }
+			# swap_non_generic_missions = yes
+			# remove_non_electors_emperors_from_empire_effect = yes
+		# }
+	# }
 
-	form_england_france_ENG_diplomatic = { #For ENG via PU
-		major = yes
-		potential = {
-			bt_generic_can_form_potential_check = yes
-			NOT = { tag = UEF }
-			NOT = { exists = UEF }
-			NOT = { exists = UNK } #Great Britain often gets formed first, so I'm making it so that GBR can either go and form UNK or UEF
-			NOT = { has_country_flag = formed_UEF_flag }
-			tag = ENG
-			exists = FRA
-		}
+	# form_england_france_ENG_diplomatic = { #For ENG via PU
+		# major = yes
+		# potential = {
+			# bt_generic_can_form_potential_check = yes
+			# NOT = { tag = UEF }
+			# NOT = { exists = UEF }
+			# NOT = { exists = UNK } #Great Britain often gets formed first, so I'm making it so that GBR can either go and form UNK or UEF
+			# NOT = { has_country_flag = formed_UEF_flag }
+			# tag = ENG
+			# exists = FRA
+		# }
 
-		provinces_to_highlight = {
-			OR = {
-				#England
-				province_id = 236 #London
-				province_id = 239 #Gloucester
-				province_id = 245 #Leeds
-				province_id = 244 #Lancashire
-				province_id = 238 #Essex
-				#France
-				province_id = 183 #Paris
-				province_id = 177 #Maine
-				province_id = 178 #Anjou
-				province_id = 174 #Aquitaine
-				province_id = 184 #Orleanais
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
+		# provinces_to_highlight = {
+			# OR = {
+				# #England
+				# province_id = 236 #London
+				# province_id = 239 #Gloucester
+				# province_id = 245 #Leeds
+				# province_id = 244 #Lancashire
+				# province_id = 238 #Essex
+				# #France
+				# province_id = 183 #Paris
+				# province_id = 177 #Maine
+				# province_id = 178 #Anjou
+				# province_id = 174 #Aquitaine
+				# province_id = 184 #Orleanais
+			# }
+			# NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		# }
 
-		allow = {
-			government_rank = 2
-			adm_tech = 10 #An attempt at balancing
-			FRA = { #France must be a PU and /really/ like you
-				is_subject_of_type = personal_union
-				is_subject_of = ROOT
-				has_opinion = {
-					who = ROOT
-					value = 200
-				}
-				NOT = { liberty_desire = 10 }
-			}
-			#England
-			is_core = 236 #London
-			is_core = 239 #Gloucestershire
-			is_core = 245 #Leeds
-			is_core = 244 #Lancashire
-			is_core = 238 #Essex
-			#France (Must be owned directly or via France, since this is a union of FRA & ENG, not ENG and whatever vassals they've made)
-			183 = { #Paris
-				OR = {
-					is_core = ROOT
-					is_core = FRA
-				}
-			}
-			177 = { #Maine
-				OR = {
-					is_core = ROOT
-					is_core = FRA
-				}
-			}
-			178 = { #Anjou
-				OR = {
-					is_core = ROOT
-					is_core = FRA
-				}
-			}
-			174 = { #Aquitaine
-				OR = {
-					is_core = ROOT
-					is_core = FRA
-				}
-			}
-			184 = { #Orleanais
-				OR = {
-					is_core = ROOT
-					is_core = FRA
-				}
-			}
-			total_development = 1000
-		}
+		# allow = {
+			# government_rank = 2
+			# adm_tech = 10 #An attempt at balancing
+			# FRA = { #France must be a PU and /really/ like you
+				# is_subject_of_type = personal_union
+				# is_subject_of = ROOT
+				# has_opinion = {
+					# who = ROOT
+					# value = 200
+				# }
+				# NOT = { liberty_desire = 10 }
+			# }
+			# #England
+			# is_core = 236 #London
+			# is_core = 239 #Gloucestershire
+			# is_core = 245 #Leeds
+			# is_core = 244 #Lancashire
+			# is_core = 238 #Essex
+			# #France (Must be owned directly or via France, since this is a union of FRA & ENG, not ENG and whatever vassals they've made)
+			# 183 = { #Paris
+				# OR = {
+					# is_core = ROOT
+					# is_core = FRA
+				# }
+			# }
+			# 177 = { #Maine
+				# OR = {
+					# is_core = ROOT
+					# is_core = FRA
+				# }
+			# }
+			# 178 = { #Anjou
+				# OR = {
+					# is_core = ROOT
+					# is_core = FRA
+				# }
+			# }
+			# 174 = { #Aquitaine
+				# OR = {
+					# is_core = ROOT
+					# is_core = FRA
+				# }
+			# }
+			# 184 = { #Orleanais
+				# OR = {
+					# is_core = ROOT
+					# is_core = FRA
+				# }
+			# }
+			# total_development = 1000
+		# }
 
-		effect = {
-			inherit = FRA
-			change_tag = UEF
-			remove_non_electors_emperors_from_empire_effect = yes
-			add_country_modifier = {
-				name = "centralization_modifier"
-				duration = 7300
-			}
-			swap_ideas = yes
-			add_prestige = 50
-			set_country_flag = formed_UEF_flag
-			hidden_effect = {
-				complete_mission = vassalize_france
-			}
-			swap_non_generic_missions = yes
-		}
-	}
+		# effect = {
+			# inherit = FRA
+			# change_tag = UEF
+			# remove_non_electors_emperors_from_empire_effect = yes
+			# add_country_modifier = {
+				# name = "centralization_modifier"
+				# duration = 7300
+			# }
+			# swap_ideas = yes
+			# add_prestige = 50
+			# set_country_flag = formed_UEF_flag
+			# hidden_effect = {
+				# complete_mission = vassalize_france
+			# }
+			# swap_non_generic_missions = yes
+		# }
+	# }
 
 	declare_greater_prussia = {
 		major = yes

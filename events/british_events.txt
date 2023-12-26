@@ -3664,7 +3664,7 @@ province_event = { #Australian
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -3686,9 +3686,24 @@ province_event = { #Australian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.80
 			british_european = yes
+		}
+		modifier = {
+			factor = 0.20	#About 30 years if a separate colonial culture
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_australian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
@@ -3696,6 +3711,22 @@ province_event = { #Australian
 		name = british_australian.a
 
 		change_culture = anglo_australian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_australian } } }
+			add_accepted_culture = anglo_australian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_australian
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -3715,7 +3746,7 @@ province_event = { #Kiwi
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -3737,9 +3768,24 @@ province_event = { #Kiwi
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.80
 			british_european = yes
+		}
+		modifier = {
+			factor = 0.20	#About 30 years if a separate colonial culture
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_kiwi }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
@@ -3747,6 +3793,22 @@ province_event = { #Kiwi
 		name = british_kiwi.a
 
 		change_culture = anglo_kiwi
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_kiwi } } }
+			add_accepted_culture = anglo_kiwi
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_kiwi
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -3768,7 +3830,7 @@ province_event = { #Caribbean
 	}
 	
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -3790,9 +3852,24 @@ province_event = { #Caribbean
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.80
 			british_european = yes
+		}
+		modifier = {
+			factor = 0.20	#About 30 years if a separate colonial culture
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_caribbean }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
@@ -3800,6 +3877,22 @@ province_event = { #Caribbean
 		name = british_caribbean.a
 
 		change_culture = anglo_caribbean
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_caribbean } } }
+			add_accepted_culture = anglo_caribbean
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_caribbean
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -3815,18 +3908,18 @@ province_event = { #American
 	trigger = {
 		anglo_american_culture_region = yes
 		is_city = yes
-		british_new_world = no
 		OWNER = { culture_group = british }
 		OR = {
 			NOT = {	culture = anglo_yankee }
-			NOT = {	culture = anglo_dixee }
+			NOT = {	culture = anglo_dixie }
 			NOT = { culture = anglo_midwestern }
 		}
 		any_neighbor_province = { culture_group = british }	
+		NOT = { has_global_flag = american_splinter_flag }
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -3848,16 +3941,48 @@ province_event = { #American
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.80
 			british_european = yes
 		}
+		modifier = {
+			factor = 0.20	#About 30 years if a separate colonial culture
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = american }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
 	}
+
 
 	option = {
 		name = british_american.a
 
 		change_culture = american
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = american } } }
+			add_accepted_culture = american
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = american
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -3871,13 +3996,12 @@ province_event = { #Canadian
 	trigger = {
 		anglo_canadian_culture_region = yes
 		is_city = yes
-		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -3899,9 +4023,24 @@ province_event = { #Canadian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.80
 			british_european = yes
+		}
+		modifier = {
+			factor = 0.20	#About 30 years if a separate colonial culture
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_canadian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
@@ -3909,6 +4048,22 @@ province_event = { #Canadian
 		name = british_canadian.a
 
 		change_culture = anglo_canadian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_canadian } } }
+			add_accepted_culture = anglo_canadian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_canadian
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -3922,13 +4077,12 @@ province_event = { #Texan
 	trigger = {
 		anglo_texan_culture_region = yes
 		is_city = yes
-		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -3950,9 +4104,24 @@ province_event = { #Texan
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.80
 			british_european = yes
+		}
+		modifier = {
+			factor = 0.20	#About 30 years if a separate colonial culture
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_texan }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
@@ -3960,6 +4129,22 @@ province_event = { #Texan
 		name = british_texan.a
 
 		change_culture = anglo_texan
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_texan } } }
+			add_accepted_culture = anglo_texan
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_texan
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -3973,13 +4158,12 @@ province_event = { #Newfoundlander
 	trigger = {
 		anglo_newfoundlander_culture_region = yes
 		is_city = yes
-		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4001,9 +4185,24 @@ province_event = { #Newfoundlander
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.80
 			british_european = yes
+		}
+		modifier = {
+			factor = 0.20	#About 30 years if a separate colonial culture
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_newfoundlander }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
@@ -4011,6 +4210,22 @@ province_event = { #Newfoundlander
 		name = british_newfoundlander.a
 
 		change_culture = anglo_newfoundlander
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_newfoundlander } } }
+			add_accepted_culture = anglo_newfoundlander
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_newfoundlander
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -4027,13 +4242,12 @@ province_event = { #Brazilian
 	trigger = {
 		anglo_brazilian_culture_region = yes
 		is_city = yes
-		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4055,9 +4269,24 @@ province_event = { #Brazilian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.80
 			british_european = yes
+		}
+		modifier = {
+			factor = 0.20	#About 30 years if a separate colonial culture
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_brazilian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
@@ -4065,6 +4294,22 @@ province_event = { #Brazilian
 		name = british_brazilian.a
 
 		change_culture = anglo_brazilian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_brazilian } } }
+			add_accepted_culture = anglo_brazilian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_brazilian
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -4078,13 +4323,12 @@ province_event = { #Peruvean
 	trigger = {
 		anglo_peruvean_culture_region = yes
 		is_city = yes
-		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4106,9 +4350,24 @@ province_event = { #Peruvean
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.80
 			british_european = yes
+		}
+		modifier = {
+			factor = 0.20	#About 30 years if a separate colonial culture
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_peruvean }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
@@ -4116,6 +4375,22 @@ province_event = { #Peruvean
 		name = british_peruvean.a
 
 		change_culture = anglo_peruvean
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_peruvean } } }
+			add_accepted_culture = anglo_peruvean
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_peruvean
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -4135,7 +4410,7 @@ province_event = { #Colombian
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4157,9 +4432,24 @@ province_event = { #Colombian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.80
 			british_european = yes
+		}
+		modifier = {
+			factor = 0.20	#About 30 years if a separate colonial culture
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_colombian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
@@ -4167,6 +4457,22 @@ province_event = { #Colombian
 		name = british_colombian.a
 
 		change_culture = anglo_colombian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_colombian } } }
+			add_accepted_culture = anglo_colombian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_colombian
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -4180,13 +4486,12 @@ province_event = { #Argentine
 	trigger = {
 		anglo_argentine_culture_region = yes
 		is_city = yes
-		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4208,9 +4513,24 @@ province_event = { #Argentine
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.80
 			british_european = yes
+		}
+		modifier = {
+			factor = 0.20	#About 30 years if a separate colonial culture
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_argentine }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
@@ -4218,6 +4538,22 @@ province_event = { #Argentine
 		name = british_argentine.a
 
 		change_culture = anglo_argentine
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_argentine } } }
+			add_accepted_culture = anglo_argentine
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_argentine
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -4233,13 +4569,12 @@ province_event = { #South African
 	trigger = {
 		anglo_south_african_culture_region = yes
 		is_city = yes
-		british_new_world = no
 		any_neighbor_province = { culture_group = british }	
 		OWNER = { culture_group = british }
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4261,9 +4596,24 @@ province_event = { #South African
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.80
 			british_european = yes
+		}
+		modifier = {
+			factor = 0.20	#About 30 years if a separate colonial culture
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_south_african }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
@@ -4271,6 +4621,22 @@ province_event = { #South African
 		name = british_south_african.a
 
 		change_culture = anglo_south_african
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_south_african } } }
+			add_accepted_culture = anglo_south_african
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_south_african
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -4286,13 +4652,12 @@ province_event = { #Californian
 	trigger = {
 		anglo_californian_culture_region = yes
 		is_city = yes
-		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4314,9 +4679,24 @@ province_event = { #Californian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.80
 			british_european = yes
+		}
+		modifier = {
+			factor = 0.20	#About 30 years if a separate colonial culture
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_californian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
@@ -4324,6 +4704,22 @@ province_event = { #Californian
 		name = british_californian.a
 
 		change_culture = anglo_californian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_californian } } }
+			add_accepted_culture = anglo_californian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_californian
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -4337,13 +4733,12 @@ province_event = { #Cascadian
 	trigger = {
 		anglo_cascadian_culture_region = yes
 		is_city = yes
-		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4365,9 +4760,24 @@ province_event = { #Cascadian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.8
 			british_european = yes
+		}
+		modifier = {	#About 30 years if a separate colonial culture
+			factor = 0.2	
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_cascadian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
@@ -4375,6 +4785,22 @@ province_event = { #Cascadian
 		name = british_cascadian.a
 
 		change_culture = anglo_cascadian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_cascadian } } }
+			add_accepted_culture = anglo_cascadian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_cascadian
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -4388,10 +4814,7 @@ province_event = { #Laurentian
 	trigger = {
 		anglo_midwestern_culture_region = yes
 		is_city = yes
-		OR = {
-			british_new_world = no
-			culture = american
-		}	
+		culture_group = british
 		AND = {
 			OWNER = { is_subject = no } #Has to be independent
 			OWNER = { is_former_colonial_nation = yes }
@@ -4400,7 +4823,7 @@ province_event = { #Laurentian
 		any_neighbor_province = { culture_group = british }	
 	}
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4422,11 +4845,27 @@ province_event = { #Laurentian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.8
 			british_european = yes
 		}
+		modifier = {	#About 30 years if a separate colonial culture
+			factor = 0.2	
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_midwestern }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
 	}
+	
 	option = {
 		name = british_midwestern.a
 
@@ -4460,12 +4899,11 @@ province_event = { #Mexican
 	trigger = {
 		anglo_mexican_culture_region = yes
 		is_city = yes
-		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4487,15 +4925,47 @@ province_event = { #Mexican
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.8
 			british_european = yes
 		}
+		modifier = {	#About 30 years if a separate colonial culture
+			factor = 0.2	
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_mexican }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
 	}
+	
 	option = {
 		name = british_mexican.a
 
 		change_culture = anglo_mexican
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_mexican } } }
+			add_accepted_culture = anglo_mexican
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_mexican
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -4509,12 +4979,11 @@ province_event = { #Prariean
 	trigger = {
 		anglo_great_plains_culture_region = yes
 		is_city = yes
-		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4536,15 +5005,46 @@ province_event = { #Prariean
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.8
 			british_european = yes
+		}
+		modifier = {	#About 30 years if a separate colonial culture
+			factor = 0.2	
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_great_plains }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 	option = {
 		name = british_great_plains.a
 
 		change_culture = anglo_great_plains
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_great_plains } } }
+			add_accepted_culture = anglo_great_plains
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_great_plains
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -4558,12 +5058,11 @@ province_event = { #Alaskan
 	trigger = {
 		anglo_alaskan_culture_region = yes
 		is_city = yes
-		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
 	}
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4585,15 +5084,46 @@ province_event = { #Alaskan
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.8
 			british_european = yes
+		}
+		modifier = {	#About 30 years if a separate colonial culture
+			factor = 0.2	
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_alaskan }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 	option = {
 		name = british_alaskan.a
 
 		change_culture = anglo_alaskan
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = anglo_alaskan } } }
+			add_accepted_culture = anglo_alaskan
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		if = {
+			limit = {
+				is_capital = yes
+				is_overseas = no
+				OWNER = {
+					OR = {
+						culture_group = british
+					}
+				}
+			}
+			change_primary_culture = anglo_alaskan
+		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
 	}
 }
 
@@ -4607,19 +5137,12 @@ province_event = { #Yankee
 	trigger = {
 		anglo_yankee_culture_region = yes
 		is_city = yes
-		OR = {
-			british_new_world = no
-			culture = american
-		}	
-		AND = {
-			OWNER = { is_subject = no } #Has to be independent
-			OWNER = { is_former_colonial_nation = yes }
-		}	
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
+		has_global_flag = { american_splinter_flag }
 	}
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4641,13 +5164,24 @@ province_event = { #Yankee
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.8
 			british_european = yes
 		}
-		modifier = {
-			factor = 0
-			culture = american
+		modifier = {	#About 30 years if a separate colonial culture
+			factor = 0.2	
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_yankee }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 	option = {
@@ -4683,19 +5217,12 @@ province_event = { #Dixie
 	trigger = {
 		anglo_dixie_culture_region = yes
 		is_city = yes
-		OR = {
-			british_new_world = no
-			culture = american
-		}	
-		AND = {
-			OWNER = { is_subject = no } #Has to be independent
-			OWNER = { is_former_colonial_nation = yes }
-		}	
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
+		has_global_flag = { american_splinter_flag }
 	}
 	mean_time_to_happen = {
-		years = 25
+		years = 150	#150 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4717,9 +5244,24 @@ province_event = { #Dixie
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {
-			factor = 0
+		modifier = {	#About 120 years for colonies to diverge
+			factor = 0.8
 			british_european = yes
+		}
+		modifier = {	#About 30 years if a separate colonial culture
+			factor = 0.2	
+			british_new_world = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = anglo_dixie }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = british
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 	option = {
@@ -4745,4 +5287,166 @@ province_event = { #Dixie
 	}
 }
 
+country_event = { #American Splinter
+	id = cultural_influence_british.61
+	title = american_splinter.title
+	desc = american_splinter.desc
+	picture = CITY_VIEW_eventPicture
+
+	major = yes
+
+	trigger = {
+		any_owned_province = { #Make sure it actually fires for someone relevant
+			culture = american
+		}
+		USA = { exists = yes } #American can only splinter after the US gains independence
+		NOT = {	#Basically checking if the Americans are under foreign control, if they are, they don't split.
+			OR = {
+				AND = { #Provinces fell to Foreign rule
+					calc_true_if = {
+						all_province = {
+							culture = american
+							owner = { NOT = { primary_culture = american } }
+						}
+						amount = 25
+					}
+				}
+				953 = { #Checking if Washington is under foreign domination (Principally checking for a British Colony)
+					OWNER = {
+						culture_group = british
+						is_subject = yes
+						OVERLORD = {
+							NOT = { primary_culture = american }
+						}
+					}
+				}
+			}
+		}
+		has_global_flag = CI_events_enabled
+		NOT = { has_global_flag = american_splinter_flag }
+	}
+
+	mean_time_to_happen = {
+		years = 75
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			split_american = yes
+
+			set_global_flag = american_splinter_flag
+
+			every_country = {
+				limit = {
+					primary_culture = american
+				}
+				country_event = {
+					id = cultural_influence_british.62 #Pick new Primary
+					days = 0
+				}
+			}
+		}
+	}
+
+	option = {
+		name = american_splinter.a
+	}
+}
+
+country_event = { #Choose new Primary
+	id = cultural_influence_british.2
+	title = american_splinter_new_primary.title
+	desc = american_splinter_new_primary.desc
+	picture = CITY_VIEW_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #Yankee
+		name = american_splinter_new_primary.a
+
+		remove_accepted_culture = anglo_yankee
+		change_primary_culture = anglo_yankee
+		set_ruler_culture = anglo_yankee
+		set_heir_culture = anglo_yankee
+		set_consort_culture = anglo_yankee
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = anglo_yankee
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { anglo_yankee_culture_region = yes }
+			}
+		}
+	}
+
+	option = { #Midwestern
+		name = american_splinter_new_primary.b
+
+		remove_accepted_culture = anglo_midwestern
+		change_primary_culture = anglo_midwestern
+		set_ruler_culture = anglo_midwestern
+		set_heir_culture = anglo_midwestern
+		set_consort_culture = anglo_midwestern
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = anglo_midwestern
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { anglo_midwestern_culture_region = yes }
+			}
+		}
+	}
+
+	option = { #Dixie
+		name = american_splinter_new_primary.c
+
+		remove_accepted_culture = anglo_dixie
+		change_primary_culture = anglo_dixie
+		set_ruler_culture = anglo_dixie
+		set_heir_culture = anglo_dixie
+		set_consort_culture = anglo_dixie
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				dominant_culture = anglo_dixie
+			}
+			modifier = {
+				factor = 100
+				capital_scope = { anglo_dixie_culture_region = yes }
+			}
+		}
+	}
+}
 #Considered adding India to this list, but the influence of English in India 1600-1947 was fairly insignificant, if someone can convince me otherwise, please do - Sam
