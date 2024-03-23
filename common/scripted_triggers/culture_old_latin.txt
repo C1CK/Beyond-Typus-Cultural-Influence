@@ -75,1237 +75,238 @@ old_latin_old_worlder = {
 	}
 }	
 
+roman_italian_region = { 
+	OR = {
+		roman_culture_region_provinces
+	}
+}
+roman_aquitanian_region = { 
+	OR = {
+		roman_aquitanian_culture_region_provinces
+	}
+}
+roman_occitanian_region = { 
+	OR = {
+		roman_occitanian_culture_region_provinces
+	}
+}
+roman_french_region = { 
+	OR = {
+		roman_french_culture_region_provinces
+	}
+}
+roman_iberian_region = { 
+	OR = {
+		roman_iberian_culture_region_provinces
+	}
+}
+roman_lusitanian_region = { 
+	OR = {
+		roman_lusitanian_culture_region_provinces
+	}
+}
+roman_andalusian_region = { 
+	OR = {
+		roman_andalusian_culture_region_provinces
+	}
+}
 roman_irish_region = { 
-	region = ireland_region
-}
-
-roman_anglo_region = {
-	OR = {
-		area = east_anglia_area
-		area = home_counties_area #Essex
-		area = wessex_area
-		area = west_midlands_area
-		area = east_midlands_area
-		area = yorkshire_area
-		area = northern_england_area
-		area = wales_area #Gwynedd
-		area = powys_area
-		area = deheubarth_area
-	}
-}
-
-roman_scot_region = {
-	OR = {
-		area = lowlands_area
-		area = highlands_area
-		area = grampians_area
-		area = kingdom_of_the_isles_area
-		area = scottish_marches_area
-		province_id = 369 #Orkney
-		province_id = 1978 #Shetland
-		province_id = 1979 #Faroe Islands
-	}
-}
-
-roman_greater_gallic_region = {
-	OR = {
-		region = france_region
-		area = brabant_area
-		area = luxemburg_liege_area #Now Called Liege
-		area = luxembourg_area
-		area = wallonia_area
-		AND = {	
-			area = romandie_area
-			NOT = { province_id = 1871 }
-		}	
-		area = flanders_area	
-		AND = {
-			area = north_rhine_area #Lower Rhine
-			NOT = { province_id = 8409 }
-			NOT = { province_id = 8413 }
-			NOT = { province_id = 84 }			
-		}	
-		AND = {
-			area = lower_rhineland_area #South Rhineland
-			NOT = { province_id = 8414 }
-		}			
-		area = palatinate_area	
-		area = alsace_area		
-		province_id = 8017 #Cuijk
-		province_id = 96 #Zeeland
-		province_id = 7975 #Dordrecht
-		province_id = 3060 #Betuwe
-		province_id = 3063 #Overmaas
-		province_id = 3179 #Jülich
-		province_id = 78 #Mainz
-		province_id = 197 #Rousillon
-		province_id = 3055
-	}
-}
-
-roman_aquitanian_region = {
-	OR = {
-		area = pyrenees_area
-		area = guyenne_area
-		area = poitou_area
-		area = limousin_area
-		area = upper_gascony
-	}
-}
-
-roman_occitanian_region = {
-	OR = {
-		area = west_languedoc_area
-		area = upper_guyenne_area
-		area = languedoc_area
-		area = provence_area
-		area = dauphine_area
-		area = savoy_dauphine_area
-		area = lyonnais_area
-		area = massif_central_area
-	}
-}
-
-roman_french_region = {
-	OR = {
-		AND = {
-			region = france_region 
-			NOT = { roman_occitanian_region = yes }
-			NOT = { roman_aquitanian_region = yes }
-		}
-		area = brabant_area
-		area = luxemburg_liege_area #Now Called Liege
-		area = luxembourg_area
-		area = wallonia_area
-		AND = {	
-			area = romandie_area
-			NOT = { province_id = 1871 }
-		}	
-		area = flanders_area	
-		AND = {
-			area = north_rhine_area #Lower Rhine
-			NOT = { province_id = 8409 }
-			NOT = { province_id = 8413 }
-			NOT = { province_id = 84 }			
-		}	
-		AND = {
-			area = lower_rhineland_area #South Rhineland
-			NOT = { province_id = 8414 }
-		}			
-		area = palatinate_area	
-		area = alsace_area		
-		province_id = 8017 #Cuijk
-		province_id = 96 #Zeeland
-		province_id = 7975 #Dordrecht
-		province_id = 3060 #Betuwe
-		province_id = 3063 #Overmaas
-		province_id = 3179 #Jülich
-		province_id = 78 #Mainz
-		province_id = 197 #Rousillon
-		province_id = 3055
-	}
-}
-
-roman_italian_region = {
-	OR = {
-		region = italy_region
-		province_id = 7735 #Krk
-		province_id = 1871 #Valais
-	}
-}
-
-roman_iberian_region = { #East Iberia
-	OR = {
-		area = catalonia_area
-		area = aragon_area
-		area = valencia_area
-		area = murcia_area
-		area = galicia_area
-		area = asturias_area
-		area = leon_area
-		area = minho_duoro_area
-		area = castille_area
-		area = new_castile_area
-		area = basque_country
-		area = segovia_area
-		area = toledo_area
-		area = baleares_area
-	}
-}
-
-roman_lusitanian_region = { #Weirdish Portugal area
-	OR = {
-		area = beieras_area
-		area = macaronesia_area
-		area = estremadura_area
-		area = extremadura_area
-		area = alentejo_area
-		area = algarve_area
-		area = macaronesia_area
-		province_id = 8077 #Aracena
-		province_id = 4548 #Huelva
-	}
-}
-
-roman_andalusian_region = { #Andalusia
-	OR = {
-		area = upper_andalucia_area
-		AND = {
-			area = lower_andalucia_area
-			NOT = {
-				OR = {
-					province_id = 8077 #Aracena
-					province_id = 4548 #Huelva
-				}
-			}
-		}
-		area = northern_andalusia_area
-	}		
-}
-
-roman_maghreb_region = {
-	OR = {
-		AND = {
-			region = maghreb_region
-			NOT = {
-				OR = {
-					area = nafusa_mountains_area
-					area = tripolitania_area
-					area = cyrenaica_area
-				}
-			}
-		}
-		area = northwest_sahara_area
-	}
-}
-
-roman_libyan_region = {
-	OR = {
-		area = tripolitania_area
-		area = cyrenaica_area
-		area = nafusa_mountains_area
-		area = fezzan_area
-	}
-}
-
-roman_egyptian_region = {
-	OR = {
-		region = egypt_region
-		area = southeast_sahara_area
-		area = kurdufan_area
-		area = white_nile_area
-		area = sennar_area
-		area = butana_area
-		area = tigray_area
-		area = medri_bahri_area
-	}
-}
-
-roman_levant_region = {
-	OR = {
-		AND = {
-			region = mashriq_region
-			NOT = { area = cyprus_area }
-		}
-		province_id = 407 #Al-Raqqah
-	}
-}
-
-roman_arabian_region = {
-	region = arabia_region
-}
-
-roman_greek_region = {
-	OR = {
-		area = eastern_mediterrenean_islands_area
-		area = aegean_archipelago_area
-		area = morea_area
-		area = western_aegean_area #Hellas
-		area = aetolia_area
-		area = northern_epirus_area
-		area = thessaly_area
-		area = macedonia_area
-		area = thrace_area
-		AND = {
-			area = hudavendigar_area #Turkey
-			NOT = { province_id = 4312 } 
-			NOT = { province_id = 6001 }
-			NOT = { province_id = 6002 }
-		}	
-		AND = {
-			area = karasi_area
-			NOT = { province_id = 6003 }
-		}	
-		area = aydin_area
-		province_id = 328
-		province_id = 2299
-		province_id = 2304		
-		province_id = 6033
-		province_id = 6035
-		province_id = 6039		
-		AND = {
-			area = pamphylia_area
-			NOT = { province_id = 6014 }
-			NOT = { province_id = 6020 }
-		}	
-		AND = {
-			area = cukurova_area
-			NOT = { province_id = 5138 }
-			NOT = { province_id = 5154 }
-		}
-		area = cyprus_area
-		area = pontus_area
-		area = northern_greece_area
-		area = caria_area
-		AND = {
-			area = eastern_macedonia_area 
-			NOT = { province_id = 3167 }
-		}
-		province_id = 3181 #Avlonya #Vlore
-		province_id = 143 #Belgrad-i Arnavud #Berat
-		province_id = 7143 #Myzeqe #Myzeqeja
-		province_id = 2297
-		province_id = 6008
-	}
-}
-
-roman_anatolian_region = {
-	region = anatolia_region
-	NOT = {
-		roman_greek_region = yes
-	}
-}
-
-roman_bulgarian_region = {
-	OR = {
-		area = northern_macedonia_area
-		area = bulgaria_area
-		area = vidin_area
-		area = upper_thrace_area
-		area = northern_thrace_area
-		area = danubian_plain_area
-		province_id = 3167
-		province_id = 3165 #Varna
-		province_id = 7154 #Karvuna
-	}
-}
-
-roman_romanian_region = {
-	OR = {
-		area = oltenia_area
-		area = upper_muntenia_area
-		area = wallachia_area
-		province_id = 7765 #Harsovo
-		province_id = 3164 #Kostence #Constanta
-		province_id = 7759 #Isaccea
-		province_id = 4706 #Tolcu #Tulcea
-		area = moldavia_area
-		area = western_moldovia_area
-		area = bukovina_area
-		area = southern_transylvania_area
-	}
-}
-
-roman_hungarian_region = {
-	OR = {
-		area = transdanubia_area
-		area = alfold_area
-		area = slovakia_area
-		area = banat_area
-		area = carpathian_ruthenia_area
-		area = transylvania_area
-		area = slavonia_area
-		area = upper_hungary_area
-		area = eastern_alfold_area
-		AND = {
-			area = syrmia_area
-			OR = {
-				NOT = { province_id = 3187 } #Podrinje
-				NOT = { province_id = 4239 } #Belgrade
-			}
-		}
-	}
-}
-
-roman_illyrian_region = {
-	OR = {
-		area = serbia_area
-		area = rascia_area
-		area = montenegro_area
-		province_id = 4174 #Durazzo/Durres
-		province_id = 4175 #Lezha/Scutari 4175
-		province_id = 7144 #Qarku i Dibres
-		province_id = 4750 #Kruje
-		area = east_adriatic_coast_area
-		province_id = 3187 #Podrinje
-		province_id = 4239 #Belgrade		
-		area = herzegovina_area
-		area = bosnia_area
-		area = krajina_area
-		AND = {
-			area = croatia_area
-			NOT = { province_id = 7735 } #Krk
-		}
-		area = carniola_area #Carniola
-		province_id = 4751 #Celje/Cilli
-	}
-}
-
-roman_alpine_region = {
-	OR = {
-		area = austria_proper_area
-		AND = {
-			area = inner_austria_area
-			NOT = { province_id = 4751 } #Celje/Cilli
-		}
-		area = tirol_area
-		area = trentino_area
-		area = switzerland_area
-		area = swiss_alps_area
-		area = salzburg_area	
-		area = carinthia_area
-		area = upper_austria_area
-		province_id = 3294 #Valtellina	
-		area = upper_rhineland_area
-		area = east_bavaria_area
-		area = upper_bavaria_area
-		province_id = 8438		
-		area = upper_swabia_area
-		area = lower_bavaria_area
-	}
-}
-
-roman_west_slavic_region = {
-	OR = {
-		area = erzgebirge_area
-		area = bohemia_area
-		area = moravia_area
-		area = bohemian_forest_area
-		area = silesia_area
-		area = middle_silesia_area
-		area = lower_silesia_area
-		area = lusatia_area
-		area = south_saxony_area
-	}
-}
-
-roman_dutch_region = {
-	OR = {
-		AND = {
-			region = low_countries_region
-			NOT = { roman_french_region = yes }
-		}
-	}
-}
-
-roman_saxon_region = {
-	OR = {
-		area = weser_area
-		area = north_westphalia_area
-		area = lower_saxony_area
-		AND = {
-			area = northern_saxony_area
-			NOT = { province_id = 4786 }
-		}
-		area = north_westphalia_area
-		area = westphalia_area
-		area = braunschweig_area
-		area = holstein_area
-		area = bremen_verden_area
-		area = middle_saxony_area
-		province_id = 84
-		province_id = 8409
-		province_id = 8413
-		province_id = 8414		
-		area = schleswig_area
-		area = jutland_area
-	}
-}
-
-roman_south_german_region = {
-	OR = {
-		AND = {
-			area = lower_swabia_area
-			NOT = { province_id = 8438 }
-		}	
-		AND = {
-			area = nassau_area
-			NOT = { province_id = 78 }
-		}	
-		area = franconia_area
-		area = hesse_area
-		area = upper_franconia_area
-		area = upper_palatinate_area
-		area = thuringia_area
-	}
-}
-
-roman_east_german_region = { # Semnones?
-	OR = {
-		area = mecklenburg_area
-		area = mittelmark_area
-		area = neumark_area
-		area = vorpommern_area
-		area = hinter_pommern_area
-		area = west_prussia_area
-		area = wielkopolska_area
-		province_id = 4786
-	}
-}
-
-roman_polish_region = {
-	OR = {
-		AND = {
-			region = poland_region
-			NOT = { area = wielkopolska_area }
-			NOT = { area = lower_silesia_area }
-			NOT = { area = middle_silesia_area }
-			NOT = { area = silesia_area }
-		}
-		area = masuria_area
-		area = east_prussia_area
-		AND = {
-			area = nadruvia_area
-			NOT = { province_id = 40 } #Memel
-		}
-		area = yotvingia_area
-		area = novogrudok_area
-		area = podlasie_area
-		area = volhynia_area
-		area = eastern_volhynia_area
-		area = red_ruthenia_area
-	}
-}
-
-roman_armenian_region = {
-	OR = {
-		area = erzurum_area
-		area = mardin_area
-		area = north_kurdistan_area
-		AND = {
-			area = armenia_area
-			NOT = { province_id = 3253 } #Lori
-		}		
-	}
-}
-
-roman_mesopotamian_region = {
-	OR = {
-		area = al_jazira_area
-		area = iraq_arabi_area
-		province_id = 2314 #Rahba
-		area = basra_area
-		AND = {
-			area = shahrizor_area
-			NOT = {	province_id = 2211 } #Ardalan
-		}
-	}
-}
-
-roman_caucasus_region = { #Iberian?
-	OR = {
-		province_id = 3253 #Lori
-		AND = {
-			area = imereti_area
-			NOT = { province_id = 2195 } #Adyghe
-		}
-		area = samtskhe_area
-		AND = {
-			area = shirvan_area
-			NOT = {
-				OR = {
-					province_id = 424 #Ardabil
-					province_id = 4340 #Talysh
-				}
-			}
-		}
-	}
-}
-
-roman_scandinavian_region = { #Scandinavianus
-	OR = {
-		area = denmark_area
-		area = skaneland_area
-		area = gotaland_area
-		area = vastra_gotaland_area
-		area = svealand_area
-		area = norrland_area
-		area = southern_norway_area
-		area = eastern_norway
-		area = western_norway
-		area = trondelag_area
-		area = iceland_area
-		province_id = 5591
-		AND = {
-			area = northern_norway
-			NOT = { province_id = 315 } #Finnmork
-		}
-	}
-}
-
-roman_baltic_region = {
-	OR = {
-		area = samogitia_area
-		area = lithuania_area
-		area = curonia_area
-		area = latgallia_area
-		area = livonia_area
-		area = north_livonia_area
-		area = estonia_ingria_area
-		area = pskov_area
-		area = polotsk_area
-		area = trakai_area
-		area = semigallia_area
-		province_id = 40 #Memel
-	}
-}
-
-roman_finnic_region = { #Rest of Finnoscandia
-	OR = {
-		area = finland_area
-		area = bothnia_area
-		area = west_karelia_area
-		area = north_karelia_area
-		area = laponia_area
-		area = karelia_area
-		province_id = 315 #Finnmark
-	}
-}
-
-roman_russian_region = { #L O N K Ruthenia
-	OR = {
-		area = minsk_area
-		area = pripyat_area
-		area = vitebsk_area
-		area = bryansk_area
-		area = white_ruthenia_area
-		AND = {
-			region = russia_region
-			NOT = { area = karelia_area }
-			NOT = { area = north_karelia_area }
-			NOT = { area = laponia_area }
-			NOT = { area = pskov_area }
-		}
-		AND = { #Before Ural mountains
-			region = ural_region
-			NOT = { province_id = 2418 } #Ukek
-			NOT = { province_id = 2419 } #Kanadey
-			NOT = { area = ural_area }
-			NOT = { province_id = 1072 } #Obdorsk
-		}
-	}
-}
-
-roman_persian_region = {
-	OR = {
-		AND = {
-			region = persia_region
-			NOT = {
-				OR = {
-					province_id = 4293 #Arbil
-					province_id = 4294 #Sulimaniyeh
-					province_id = 415 #Sehrizor
-				}
-			}
-		}
-		province_id = 4340 #Talysh
-		province_id = 424 #Ardabil
-		area = birjand_area
-		area = mashhad_area
-	}
-}
-
-roman_khorasani_region = {
-	OR = {
-		AND = {
-			region = khorasan_region
-			NOT = { area = merv_area }
-			NOT = { area = mashhad_area }
-			NOT = { area = birjand_area }
-		}
-	}
-}
-
-roman_crimean_region = {
-	OR = {
-		area = yedisan_area
-		area = lower_dnieper_area
-		area = pryazovia_area
-		area = azov_area
-		area = crimea_area
-	}
-}
-
-roman_sarmatian_region = {
-	OR = {
-		area = podolia_volhynia_area
-		area = west_dniepr_area
-		area = east_dniepr_area
-		area = chernigov_area
-		area = middle_don_area
-		area = lower_don_area
-		area = astrakhan_area
-		area = circassia_area
-		area = dagestan_area
-		area = zaporizhia_area
-		area = sloboda_ukraine_area
-		province_id = 2195 #Adyghe
-	}
-}
-
-roman_massagetana_region = { #Think that's the right plural
-	OR = {	
-		area = lower_yik_area
-		area = nogai_area
-		area = kazakhstan_area
-		area = syr_darya_area
-		area = balchasj_area
-		area = jetysuu_area
-		province_id = 2418 #Ukek
-		province_id = 2419 #Kanadey
-	}
-}
-
-roman_bactrian_region = {
-	OR = {
-		area = merv_area
-		area = termez_area
-		area = ferghana_area
-		area = kyzylkum_area
-		area = khiva_area
-		area = transcaspia_area
-		area = arys_area
-		area = transoxiana_area
-	}
-}
-
-roman_west_indian_region = {
-	OR = {
-		area = sindh_area
-		area = northern_sindh_area
-		area = marwar_area
-		area = patan_area
-		area = saurashtra_area
-		area = jangladesh_area
-		area = mewar_area
-		area = jaipur_area
-		province_id = 2051 #Gohilvad
-		province_id = 4457 #Khambhat
-		province_id = 2054 #Ahmadabad
-		area = upper_doab_area
-		area = sirhind_area
-		area = lahore_area
-		area = sind_sagar_area
-		area = multan_area
-		AND = {
-			area = himalayan_hills_area
-			NOT = { province_id = 2069 } #Kumaon
-		}
-		province_id = 4449 #Jammu
-		province_id = 508 #Kashmir
-		province_id = 2073 #Baltistan
-	}
-}
-
-roman_north_indian_region = {
-	OR = {
-		area = katehar_area
-		area = baisi_rajya_area
-		area = nepal_area
-		area = mithila_area
-		area = bihar_area
-		area = purvanchal_area
-		area = oudh_area
-		area = lower_doab_area
-		province_id = 2069 #Kumaon
-	}
-}
-
-roman_central_indian_region = {
-	OR = {
-		area = gird_area
-		area = bundelkhand_area
-		area = baghelkhand_area
-		area = malwa_area
-		area = tapti_area
-		area = khandesh_area
-		area = gondwana_area
-		area = berar_area
-		area = telingana_area
-		area = ahmednagar_area
-		area = maidan_area
-		area = desh_area
-		area = konkan_area
-		area = garjat_area
-		area = upper_mahanadi_area
-		area = golconda_area
-		province_id = 4470 #Soumelpur
-		province_id = 4512 #Bharuch
-		province_id = 516 #Baroda
-	}
-}
-
-roman_south_indian_region = {
-	OR = {
-		AND = {
-			region = coromandel_region
-			NOT = { province_id = 8581 } #Nicobar Islands
-			NOT = { province_id = 574 } #The Andamans
-		}
-		area = raichur_doab_area
-		area = rayalaseema_area
-		area = mysore_area
-		area = kanara_area
-		area = malabar_area
-		area = orissa_area
-		AND = {
-			area = jharkhand_area
-			NOT = { province_id = 4470 } #Soumelpur
-			NOT = { province_id = 2096 } #Damin
-		}
-	}
-}
-
-roman_east_indian_region = {
-	OR = {
-		AND = {
-			region = bengal_region
-			NOT = { area = garjat_area }
-			NOT = { area = upper_mahanadi_area }
-			NOT = { area = orissa_area }
-			NOT = { area = jharkhand_area }
-		}
-		province_id = 2096 #Damin
-	}
-}
-
-roman_tibetan_region = {
-	OR = {
-		region = tibet_region
-		area = kashgaria_area
-		area = shanshan_area
-		area = tarim_basin_area
-		area = west_gansu_area
-		province_id = 2074 #Ladakh
-		province_id = 4521 #Skardu
-	}
-}
-
-roman_burmese_region = {
-	OR = {
-		region = burma_region
-		area = northern_thai_area
-		area = sukothai_area
-		area = central_thai_area
-	}
-}
-
-roman_indochinese_region = {
-	OR = {
-		area = vietnam_area
-		area = south_laos_area
-		area = north_laos_area
-		area = cambodia_area
-		area = mekong_area
-		area = champa_area
-		area = khorat_area
-		area = red_river_delta_area
-		area = degar_highlands_area
-		area = prachin_area
-		area = thai_cantons
-	}
-}
-
-roman_malay_region = {
-	OR = {
-		region = malaya_region
-		region = borneo_region
-		region = philippines_region
-	}
-}
-
-roman_indonesian_region = {
-	OR = {
-		region = sumatran_region
-		region = indonesia_region
-		region = celebes_region
-		region = moluccas_region
-	}
-}
-
-roman_australian_region = {
-	OR = {
-		region = australia_region
-		region = new_zealand_region
-	}
-}
-
-roman_melanesian_region = {
-	OR = {
-		area = micronesia_area
-		area = melanesia_area
-		area = papua_area
-		area = vogelkop_area
-	}
-}
-
-roman_polynesian_region = {
-	OR = {
-		area = polynesia_area
-		area = northern_polynesia_area
-	}
-}
-
-roman_ethiopian_region = {
-	OR = {
-		area = central_ethiopia_area
-		area = southern_ethiopia_area
-		area = ifat_area
-		AND = {
-			area = somaliland_area
-			NOT = { province_id = 2786 } #Bosaso
-		}
-		area = ogaden_area
-		area = hadiya_area
-		area = damot_area
-		area = aussa_area
-		area = shewa_area
-	}
-}
-
-roman_east_african_region = {
-	OR = {
-		area = majarteen_area
-		area = ajuuran_area
-		area = mogadishu_area
-		area = jubba_area
-		area = northern_swahili_coast_area
-		area = mombasa_area
-		area = central_swahili_coast_area
-		province_id = 2786 #Bosaso
-		province_id = 1925 #Tana
-	}
-}
-
-roman_east_sahara_region = {
-	OR = {
-		area = darfur_central_sahara_area
-		area = kanem_area
-		area = bornu_area
-		area = east_azbin_area
-		area = azbin_area
-		area = katsina_area
-		area = zazzau_area
-		area = hausa_area
-		area = lower_niger_area
-		area = adamawa_plateau_area
-		area = benin_area
-		area = gulf_of_guinea_area
-		area = sao_tome_area
-	}
-}
-
-roman_west_sahara_region = {
-	OR = {
-		area = western_sahara_area
-		area = dendi_area
-		area = niger_bend_area
-		area = baghena_area
-		area = upper_volta_area
-		area = atacora_oueme_area
-		area = lower_volta_area
-		area = kong_area
-		area = massina_area
-		area = manding_area
-		area = tekrur_area
-		area = jenne_area
-		area = west_africa_coast_area
-		province_id = 1117 #Futa Jallon
-	}
-}
-
-roman_west_african_coast_region = {
-	OR = {
-		area = cap_verde_area
-		area = jolof_area
-		AND = {
-			area = futa_jallon_area
-			NOT = { province_id = 1117 } #Futa Jallon
-		}
-		area = guinea_coast_area
-	}
-}
-
-roman_congolese_region = {
-	OR = {
-		region = kongo_region
-		area = sankuru_area
-		area = luba_area
-		area = katanga_area
-		area = chokwe_area
-		area = zambia_area
-		province_id = 4046 #Lala
-		province_id = 4050 #Luangwa
-	}
-}
-
-roman_central_african_region = {
-	OR = {
-		AND = {
-			area = ngonde_area
-			NOT = { province_id = 4045 } #Tumbuka
-		}
-		area = buha_area
-		area = tanzania_area
-		AND = {
-			area = kenya_area
-			NOT = { province_id = 1925 } #Tana
-		}
-		area = buzinza_area
-		area = uganda_area
-		area = rwanda_area
-		area = bunyoro_area
-		area = ruvuma_area
-	}
-}
-
-roman_zambezi_region = {
-	OR = {
-		area = mozambique_area
-		area = lower_zambezi_area
-		area = upper_zambezi_area
-		area = butua_area
-		area = quelimane_area
-		area = zimbabwe_area
-		area = uticulo_makuana_area
-		area = shire_area
-		province_id = 4045 #Tumbuka
-	}
-}
-
-roman_madagascar_region = {
-	OR = {
-		area = mascarenes_area
-		area = madagascar_highlands_area
-		area = betsimasaraka_area
-		area = sakalava_area
-		area = southern_madagascar
-	}
-}
-
-roman_south_african_region = {
-	OR = {
-		area = cape_of_good_hope_area
-		area = limpopo_area
-		area = bt_natal_area
-		area = eastern_cape_area
-		area = northern_cape_area
-		area = xhosa_area
-		area = highveld_area
-		area = transvaal_area
-		area = lowveld_area
-		area = south_african_plateau_area
-		province_id = 5384 #Thembelihle
-		province_id = 5362 #Prieschap
-		province_id = 5347 #'a'keis
-		province_id = 1175 #Gariep
-	}
-}
-
-roman_namibian_region = {
-	OR = {
-		area = upper_limpopo_area
-		area = bechuanaland_area
-		area = zambezi_area
-		area = kalahari_area
-		AND = {
-			area = skeleton_coast_land_area
-			NOT = { province_id = 1175 } #Gariep
-		}
-		area = ovambo_area
-		area = damaraland_area
-		area = namaqualand_area
-		area = okavango_area
-		province_id = 5385 #Cuoa
-		province_id = 2880 #Griquatown
-		province_id = 2864 #Kakamas
-	}
-}
-
-roman_north_china_region = {
-	OR = {
-		area = hebei_area
-		area = south_hebei_area
-		area = shandong_area
-		area = henan_area
-		area = shanxi_area
-		area = north_henan_area
-		area = anhui_area
-		area = jiangsu_area
-		area = south_jiangsu_area
-		area = ordos_area
-	}
-}
-
-roman_south_china_region = {
-	AND = {
-		region = south_china_region
-		NOT = {
-			area = south_jiangsu_area
-		}
-	}
-}
-
-roman_west_china_region = {
-	OR = {
-		region = xinan_region
-		area = gansu_area
-		area = shaanxi_area
-	}
-}
-
-roman_mongolian_region = {
-	OR = {
-		AND = {
-			region = mongolia_region
-			NOT = {
-				OR = {
-					area = tannu_uriankhai_area
-					area = ordos_area
-				}
-			}
-		}
-		AND = {
-			region = manchuria_region
-			NOT = {
-				OR = {
-					area = sakhalin_area
-					province_id = 2102 #Urkan
-				}
-			}
-		}
-	}
-}
-
-roman_siberian_region = {
-	OR = {
-		region = west_siberia_region
-		region = east_siberia_region
-		area = ural_area
-		area = tannu_uriankhai_area
-		province_id = 2102 #Urkan
-	}
-}
-
-roman_korean_region = { region = korea_region }
-
-roman_japanese_region = { region = japan_region }
-
-roman_canadian_region = {
-	OR = {
-		AND = {
-			region = hudson_bay_region
-			NOT = {
-				OR = {
-					area = red_river_area
-					area = assiniboia_area
-					area = prairies_area
-				}
-			}
-		}
-		AND = {
-			region = canada_region
-			NOT = {
-				OR = {
-					area = upper_acadia_area
-					area = lower_acadia_area
-					area = maine_area
-				}
-			}
-		}
-		AND = {
-			region = northwest_territories_region
-			NOT = { area = omenica_area }
-		}
-	}
-}
-
-roman_east_north_american_region = {
-	OR = {
-		area = upper_acadia_area
-		area = lower_acadia_area
-		area = maine_area
-		region = northeast_america_region
-		region = southeast_america_region
-		province_id = 2551 #Monongahela
-	}
-}
-
-roman_central_north_american_region = {
-	OR = {
-		AND = {
-			region = mississippi_region
-			NOT = { province_id = 2551 } #Monongahela
-		}
-		region = great_lakes_region
-		region = great_plains_region
-		region = rio_grande_region
-		area = red_river_area
-		area = assiniboia_area
-		area = prairies_area
-	}
-}
-
-roman_west_north_american_region = {
-	OR = {
-		region = alaska_region
-		region = cascadia_region
-		region = california_region
-		area = omenica_area
-	}
-}
-
-roman_caribbean_region = { region = carribeans_region }
-
-roman_mexican_region = {
-	OR = {
-		region = mexico_region
-		region = central_america_region
-	}
-}
-
-roman_colombian_region = {
-	OR = {
-		region = colombia_region
-		AND = {
-			region = peru_region
-			NOT = {
-				OR = {
-					area = kuntisuyu_area
-					area = antisuyu_area
-					area = peruan_coast
-				}
-			}
-		}
-	}
-}
-
-roman_brazilian_region = {
-	OR = {
-		region = brazil_region
-		area = banda_oriental_area
-	}
-}
-
-roman_argentinian_region = {
-	OR = {
-		AND = {
-			region = la_plata_region
-			NOT = { area = banda_oriental_area }
-		}
-		region = upper_peru_region
-		area = kuntisuyu_area
-		area = antisuyu_area
-		area = peruan_coast
+	OR = {
+		roman_irish_culture_region_provinces
+	}
+}
+roman_scot_region = { 
+	OR = {
+		roman_scot_culture_region_provinces
+	}
+}
+roman_anglo_region = { 
+	OR = {
+		roman_anglo_culture_region_provinces
+	}
+}
+roman_maghreb_region = { 
+	OR = {
+		roman_maghreb_culture_region_provinces
+	}
+}
+roman_libyan_region = { 
+	OR = {
+		roman_libyan_culture_region_provinces
+	}
+}
+roman_egyptian_region = { 
+	OR = {
+		roman_egyptian_culture_region_provinces
+	}
+}
+roman_levant_region = { 
+	OR = {
+		roman_levant_culture_region_provinces
+	}
+}
+roman_arabian_region = { 
+	OR = {
+		roman_arabian_culture_region_provinces
+	}
+}
+roman_greek_region = { 
+	OR = {
+		roman_greek_culture_region_provinces
+	}
+}
+roman_anatolian_region = { 
+	OR = {
+		roman_anatolian_culture_region_provinces
+	}
+}
+roman_bulgarian_region = { 
+	OR = {
+		roman_bulgarian_culture_region_provinces
+	}
+}
+roman_romanian_region = { 
+	OR = {
+		roman_romanian_culture_region_provinces
+	}
+}
+roman_hungarian_region = { 
+	OR = {
+		roman_hungarian_culture_region_provinces
+	}
+}
+roman_illyrian_region = { 
+	OR = {
+		roman_illyrian_culture_region_provinces
+	}
+}
+roman_western_alpine_region = { 
+	OR = {
+		roman_western_alpine_culture_region_provinces
+	}
+}
+roman_west_slavic_region = { 
+	OR = {
+		roman_west_slavic_culture_region_provinces
+	}
+}
+roman_dutch_region = { 
+	OR = {
+		roman_dutch_culture_region_provinces
+	}
+}
+roman_saxon_region = { 
+	OR = {
+		roman_saxon_culture_region_provinces
+	}
+}
+roman_south_german_region = { 
+	OR = {
+		roman_south_german_culture_region_provinces
+	}
+}
+roman_east_german_region = { 
+	OR = {
+		roman_east_german_culture_region_provinces
+	}
+}
+roman_polish_region = { 
+	OR = {
+		roman_polish_culture_region_provinces
+	}
+}
+roman_armenian_region = { 
+	OR = {
+		roman_armenian_culture_region_provinces
+	}
+}
+roman_mesopotamian_culture_region_provinces = { 
+	OR = {
+		roman_mesopotamian_culture_region_provinces
+	}
+}
+roman_caucasus_region = { 
+	OR = {
+		roman_caucasus_culture_region_provinces
+	}
+}
+roman_scandinavian_region = { 
+	OR = {
+		roman_scandinavian_culture_region_provinces
+	}
+}
+roman_baltic_region = { 
+	OR = {
+		roman_baltic_culture_region_provinces
+	}
+}
+roman_finnic_region = { 
+	OR = {
+		roman_finnic_culture_region_provinces
+	}
+}
+roman_russian_region = { 
+	OR = {
+		roman_russian_culture_region_provinces
+	}
+}
+roman_persian_region = { 
+	OR = {
+		roman_persian_culture_region_provinces
+	}
+}
+roman_khorasani_region = { 
+	OR = {
+		roman_khorasani_culture_region_provinces
+	}
+}
+roman_western_pontic_steppe_region = { 
+	OR = {
+		roman_western_pontic_steppe_culture_region_provinces
+	}
+}
+roman_sarmatian_region = { 
+	OR = {
+		roman_sarmatian_culture_region_provinces
+	}
+}
+roman_massagetana_region = { 
+	OR = {
+		roman_massagetana_culture_region_provinces
+	}
+}
+roman_bactrian_region = { 
+	OR = {
+		roman_bactrian_culture_region_provinces
+	}
+}
+roman_belgian_region = { 
+	OR = {
+		roman_belgae_culture_region_provinces
+	}
+}
+roman_african_region = { 
+	OR = {
+		roman_african_culture_region_provinces
+	}
+}
+roman_eastern_alpine_culture_region = { 
+	OR = {
+		roman_eastern_alpine_culture_region_provinces
+	}
+}
+roman_jutland_culture_region = { 
+	OR = {
+		roman_jutland_culture_region_provinces
+	}
+}
+roman_ruthenian_culture_region = { 
+	OR = {
+		roman_ruthenian_culture_region_provinces
+	}
+}
+roman_crimean_culture_region = { 
+	OR = {
+		roman_crimean_culture_region_provinces
 	}
 }
