@@ -69,15 +69,15 @@ country_decisions = {
 			}
 		}
 		effect = {
-			restore_country_name = yes
-			add_government_reform = austrian_archduchy_reform
+			#Mission completions - None at the moment
+			#Country formation effects
 			change_tag = HAB
+			on_change_tag_effect = yes
+			restore_country_name = yes
+			swap_non_generic_missions = yes
+			set_capital = 134 #Not sure why we keep this. I presume for Styria mainly, but... eh. //Dub	Yes for styria #Harb
+			#Rank + prestige
 			add_prestige = 10
-			if = {
-				limit = { is_emperor = YES }
-				set_government_rank = 3
-			}
-			set_capital = 134
 			austria_proper_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
@@ -90,18 +90,18 @@ country_decisions = {
 				}
 				add_permanent_claim = HAB
 			}
-#			tirol_area = {
-#				limit = {
-#					NOT = { owned_by = ROOT }
-#				}
-#				add_permanent_claim = HAB
-#			}
-#			salzburg_area = {
-#				limit = {
-#					NOT = { owned_by = ROOT }
-#				}
-#				add_permanent_claim = HAB
-#			}
+			tirol_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HAB
+			}
+			salzburg_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HAB
+			}
 			austria_proper_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
@@ -126,114 +126,18 @@ country_decisions = {
 				}
 				add_permanent_claim = HAB
 			}
-			76 = {		#Salzburg
-				if = {
-					limit = {
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = HAB
-				}
-			}
-			8465 = {	#Pongau
-				if = {
-					limit = {
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = HAB
-				}
-			}
-			8463 = {	#Pinzgau
-				if = {
-					limit = {
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = HAB
-				}
-			}
-			8462 = {	#Krimml
-				if = {
-					limit = {
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = HAB
-				}
-			}
-			4758 = {	#Meran
-				if = {
-					limit = {
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = HAB
-				}
-			}
-			3048 = {	#Botzen
-				if = {
-					limit = {
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = HAB
-				}
-			}
-			7093 = {	#Brixen
-				if = {
-					limit = {
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = HAB
-				}
-			}
-			1768 = {	#Lienz
-				if = {
-					limit = {
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = HAB
-				}
-			}
-			8482 = {	#Kufstein
-				if = {
-					limit = {
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = HAB
-				}
-			}
-			73 = {		#Innsbruck
-				if = {
-					limit = {
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = HAB
-				}
-			}
-			8483 = {	#Landeck
-				if = {
-					limit = {
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = HAB
-				}
-			}
-			4710 = { 	#Vorarlberg
-				if = {
-					limit = {
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = HAB
-				}
-			}
-			swap_non_generic_missions = yes
-			set_country_flag = formed_austria_flag
-
+			#Swap culture, government, government reform & ideas, plus set flag
+			add_government_reform = austrian_archduchy_reform
 			if = {
 				limit = {
-					has_custom_ideas = no
+					NOT = { has_idea_group = HAB_ideas }
 				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_ideas = yes
 			}
+			set_country_flag = formed_austria_flag
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 10 #Vanilla sets this to 10. I honestly don't think it matters. //Dub     Then dont change it Harbivore
 		}
 		ai_importance = 400
 	}

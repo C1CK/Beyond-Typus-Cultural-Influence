@@ -1,0 +1,446 @@
+#Moving forming decisions to BtPLReplaceVanillaCountryFormations
+
+#I normally don't like messing with vanilla files when I don't have to, but between all the map changes and the fact that I wanted to clean up a few things
+#and make everything more dynamic anyway, I figured I'd just reorganise. Hope this doesn't mess with anyone too much. - Draiocht
+
+#Order is British Nation Militarily, British Nation Diplomatically, British Parliamentary Union & Angevin Parliamentary Union
+country_decisions = {
+	
+	british_nation = { #BritishNation.txt
+		major = yes
+		potential = {
+			OR = { #New in 1.35: Britain now forms through Parliament
+				NOT = { has_government_attribute = english_parliament }	#Formation through the Parliament
+				ai = yes
+			}
+			bt_generic_can_form_potential_check = yes
+			NOT = { has_country_flag = formed_great_britain_flag }
+			NOT = { tag = GBR }
+			NOT = { tag = AVE } #New in 1.35 because Angevin Empire
+			NOT = { has_country_flag = eng_took_ave_branch }
+			OR = {
+				tag = ENG
+				tag = SCO
+				AND = {
+					culture_group = british #CI, don't need to loosen these, as most other cultures that appear in Britain can form ENG, rather than skipping like this
+					num_of_cities = 25			#At least 1/2 of Britain's 49 provinces to see, if not ENG or SCO
+				}
+			}
+		}
+		provinces_to_highlight = {
+			region = british_isles_region
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = GBR }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			owns_core_province = 236			#London
+			owns_core_province = 241			#Glamorgan
+			owns_core_province = 248			#Lothian
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				region = british_isles_region
+				value = 63	#At least 3/4 of Britain's 84 provinces ##OUTDATED##(Note England has 26 in 1444 with 7 more under subjects, so this is rather easy)##END OUTDATED##
+			}
+			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted
+			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
+		}
+		effect = {
+			#Mission completions
+			hidden_effect = {
+				complete_mission = eng_rb_war_of_roses
+			}
+			hidden_effect = {
+				if = {
+					limit = { tag = SCO }
+					complete_mission = eng_mighty_army
+					complete_mission = conquer_scotland
+				}	
+			}
+			hidden_effect = {
+				if = {
+					limit = { tag = IRE }			#sounds moot with BtP formables, but putting in 1.26 update just for the sake of it.
+					complete_mission = eng_mighty_army
+					complete_mission = conquer_scotland
+					complete_mission = conquer_ireland
+				}	
+			}
+			#Country formation effects
+			change_tag = GBR
+			on_change_tag_effect = yes
+			restore_country_name = yes
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			#Rank + prestige
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			#Nation claims + Mission claims
+			british_isles_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = GBR
+			}
+			#Nation claims + Mission claims
+			if = {
+				limit = {
+					mission_completed = conquer_scotland
+					has_dlc = "Rule Britannia"
+				}
+				give_permaclaims_for_mission = { mission=eng_rb_take_shetland_and_faro_isles }
+				iceland_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_claim = ROOT }
+					}
+					add_claim = ROOT
+				}
+			}
+			if = {
+				limit = {
+					mission_completed = eng_rb_spice_islands
+					has_dlc = "Rule Britannia"
+				}
+				give_permaclaims_for_mission = { mission=gbr_rb_india_landfall }
+			}
+			#Swap culture, government, government reform & ideas, plus set flag
+			if = {
+				limit = {
+					NOT = { has_idea_group = GBR_ideas }
+				}
+				swap_ideas = yes
+			}
+			set_country_flag = formed_great_britain_flag
+			set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+	british_nation_diplomatically = { #BritishNation.txt
+		major = yes
+		potential = {
+			OR = { #New in 1.35: Britain now forms through Parliament
+				NOT = { has_government_attribute = english_parliament }	#Formation through the Parliament
+				ai = yes
+			}
+			bt_generic_can_form_potential_check = yes
+			NOT = { has_country_flag = formed_great_britain_flag }
+			NOT = { tag = GBR }
+			NOT = { tag = AVE } #New in 1.35 because Angevin Empire
+			NOT = { has_country_flag = eng_took_ave_branch }
+			OR = {
+				tag = ENG
+				tag = SCO
+				AND = {
+					culture_group = british #CI, don't need to loosen these, as most other cultures that appear in Britain can form ENG, rather than skipping like this
+					num_of_cities = 42			#At least 1/2 of Britain's 84 provinces to see, if not ENG or SCO
+				}
+			}
+		}
+		provinces_to_highlight = {
+			region = british_isles_region
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = GBR }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			if = {
+				limit = { government = monarchy }
+				legitimacy = 100
+			}
+			adm_tech = 10			#Diplo tech requirement
+			owns_or_vassal_of = 236		# London
+			owns_or_vassal_of = 242		# Gwynedd
+			owns_or_vassal_of = 250		# Fife
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = british_isles_region
+				is_core = owner
+				value = 76			#At least 90 percent of Britain's 84 provinces
+			}
+			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted
+			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
+		}
+		effect = {
+			#Diplomatic formation: Integrate
+			every_subject_country = {
+				limit = {
+					ai = yes
+					capital_scope = { 
+						region = british_isles_region 
+						NOT = { province_id = 4365 } #Excluding Mann
+					}
+					OR = {
+						NOT = { num_of_cities = 12 }
+						AND = {
+							tag = SCO
+							NOT = { num_of_cities = 36 } #Has flippin' 27 now.
+						}
+					}
+				}
+				ROOT = { inherit = PREV }
+			}
+			#Mission completions
+			hidden_effect = {
+				complete_mission = eng_rb_war_of_roses
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						tag = SCO
+					}
+					complete_mission = eng_mighty_army
+					complete_mission = conquer_scotland
+					complete_mission = eng_rb_war_of_roses
+				}	
+			}
+			#Country formation effects
+			change_tag = GBR
+			on_change_tag_effect = yes
+			restore_country_name = yes
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			#Rank + prestige
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			#Nation claims + Mission claims
+			british_isles_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = GBR
+			}
+			#Adding mission claims here as well, even though they're mysteriously missing from vanilla.
+			if = {
+				limit = {
+					mission_completed = conquer_scotland
+					has_dlc = "Rule Britannia"
+				}
+				give_permaclaims_for_mission = { mission=eng_rb_take_shetland_and_faro_isles }
+				iceland_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_claim = ROOT }
+					}
+					add_claim = ROOT
+				}
+			}
+			if = {
+				limit = {
+					mission_completed = eng_rb_spice_islands
+					has_dlc = "Rule Britannia"
+				}
+				give_permaclaims_for_mission = { mission=gbr_rb_india_landfall }
+			}
+			#Swap culture, government, government reform & ideas, plus set flag
+			if = {
+				limit = {
+					NOT = { has_idea_group = GBR_ideas }
+				}
+				swap_ideas = yes
+			}
+			set_country_flag = formed_great_britain_flag
+			set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+		do_not_integrate = ENG
+		do_not_integrate = SCO
+		do_not_integrate = WLS
+	}
+
+	#TODO: Tweak new vanillas
+	force_british_union_debate = {
+		major = yes
+		potential = {
+			has_government_attribute = english_parliament
+			ai = no
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { exists = GBR }
+			NOT = { tag = AVE }
+			NOT = { has_country_flag = eng_took_ave_branch }
+			has_not_enacted_parliament_action = { parliament_action = english_scottish_act_of_union }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 237		# Oxfordshire
+				province_id = 234		# Wessex
+				province_id = 248		# Lothian
+				province_id = 251		# Aberdeen
+				province_id = 236		# London
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			has_issue_unlocked_tooltip = {
+				issue = english_scottish_act_of_union
+			}
+			has_active_debate = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			OR = {
+				AND = {
+					owns_core_province = 237		# Oxfordshire
+					owns_core_province = 234		# Wessex
+					owns_core_province = 248		# Lothian
+					owns_core_province = 251		# Aberdeen
+					owns_core_province = 236		# London
+					236 = {							# London
+						is_state = yes
+					}
+				}
+				AND = {
+					OR = {
+						SCO = {	junior_union_with = ROOT }
+						SCO = {	is_subject_of = ROOT }
+					}
+					SCO = { NOT = { num_of_cities = 36 } }
+				}
+			}
+		}
+		effect = {
+			start_debate = english_scottish_act_of_union
+			custom_tooltip = DEBATE_EFFECT_TT
+			tooltip = {
+				if = {
+					limit = {
+						SCO = {
+							exists = yes
+							ai = yes
+							is_subject_of = ROOT
+							NOT = { num_of_cities = 36 } #Has flippin' 27 now.
+						}
+					}
+					inherit = SCO
+					custom_tooltip = english_scottish_act_of_union_bt
+				}
+				change_tag = GBR
+				add_prestige = 25
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+		do_not_integrate = SCO
+	}
+	
+	force_french_union_debate = {
+		major = yes
+		potential = {
+			has_government_attribute = english_parliament
+			ai = no
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { exists = GBR }
+			NOT = { tag = AVE }
+			has_country_flag = eng_took_ave_branch
+			has_not_enacted_parliament_action = { parliament_action = english_french_act_of_union }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 237		# Oxfordshire
+				province_id = 234		# Wessex
+				province_id = 236		# London
+				province_id = 177		# Maine
+				province_id = 183		# Paris
+				province_id = 178		# Anjou
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			has_issue_unlocked_tooltip = {
+				issue = english_french_act_of_union
+			}
+			has_active_debate = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			OR = {
+				AND = {
+					owns_core_province = 237		# Oxfordshire
+					owns_core_province = 234		# Wessex
+					owns_core_province = 236		# London
+					owns_core_province = 177		# Maine
+					owns_core_province = 183		# Paris
+					owns_core_province = 178		# Anjou
+					178 = {							# Anjou
+						is_state = yes
+					}
+				}
+				AND = {
+					OR = {
+						FRA = {	junior_union_with = ROOT }
+						FRA = {	is_subject_of = ROOT }
+					}
+					FRA = { NOT = { num_of_cities = 80 } }
+				}
+			}
+		}
+		effect = {
+			start_debate = english_french_act_of_union
+			custom_tooltip = DEBATE_EFFECT_TT
+			tooltip = {
+				if = {
+					limit = {
+						FRA = {
+							exists = yes
+							ai = yes
+							is_subject_of = ROOT
+							NOT = { num_of_cities = 80 } #BT Doubled to 80 for now. Needs to be looked at properly at some point.
+						}
+					}
+					inherit = FRA
+					custom_tooltip = english_french_act_of_union_ct
+				}
+				change_tag = AVE
+				add_prestige = 25
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+		do_not_integrate = FRA
+	}
+}

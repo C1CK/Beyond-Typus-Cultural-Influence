@@ -1,0 +1,91 @@
+#Moving forming decisions to BtPLReplaceVanillaCountryFormations
+
+#I normally don't like messing with vanilla files when I don't have to, but between all the map changes and the fact that I wanted to clean up a few things
+#and make everything more dynamic anyway, I figured I'd just reorganise. Hope this doesn't mess with anyone too much. - Draiocht
+country_decisions = {
+
+	arab_nation = { #ArabNation.txt
+		major = yes
+		potential = {
+			bt_generic_can_form_potential_check = yes
+			NOT = { has_country_flag = formed_arabia_flag }
+			NOT = { tag = ARB }
+			OR = {
+				culture_group = turko_semitic
+				primary_culture = mahri_culture #CI
+			}
+			any_owned_province = { region = arabia_region }
+		}
+		provinces_to_highlight = {
+			region = arabia_region
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = ARB }
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			owns_core_province = 384			#Medina
+			owns_core_province = 385			#Mecca
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				region = arabia_region
+				value = 50			#At least 2/3 of Arabia's 74 provinces
+			}
+			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted
+			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
+		}
+		effect = {
+			#Mission completions - None at the moment
+			#Country formation effects
+			change_tag = ARB
+			on_change_tag_effect = yes
+			swap_non_generic_missions = yes #Arabia no missions yet has
+			remove_non_electors_emperors_from_empire_effect = yes
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			#Rank + prestige
+			if = { #Vanilla gives it Empire rank. Vanilla also requires Egypt + Iraq and everything else though. BT treats it more like Saudi Arabia.
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			#Nation claims + Mission claims
+			arabia_region = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ARB
+			}
+			#Swap culture, government, government reform & ideas, plus set flag
+			if = {
+				limit = {
+					NOT = { has_idea_group = ARB_ideas }
+				}
+				swap_ideas = yes
+			}
+			set_country_flag = formed_arabia_flag
+			set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
+			country_event = {
+				id = flavor_ARB.10
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { capital_scope = { region = arabia_region } }			#Capital not in Arabia
+			}
+			modifier = {
+				factor = 0
+				not = { adm_tech = 19 }
+			}
+		}
+		ai_importance = 400 #
+	}
+}

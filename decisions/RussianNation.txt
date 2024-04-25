@@ -23,6 +23,10 @@ country_decisions = {
 				primary_culture = novgorodian
 				primary_culture = muscovite
 				primary_culture = ryazanian
+				primary_culture = russian_new
+				primary_culture = novgorodian_new
+				priamry_culture = muscovite_new
+				primary_culture = ryazanian_new
 			}
 			OR = {
 				ai = no
@@ -107,20 +111,25 @@ country_decisions = {
 				}
 			}
 			change_tag = RUS
+			on_change_tag_effect = yes
+			restore_country_name = yes
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
-				limit = {
-					NOT = { government = monarchy }
-					is_revolutionary = no
+				limit = { is_revolutionary = no }
+				if = {
+					limit = { government = republic }
+					add_government_reform = great_veche_republic
 				}
-				change_government_to_monarchy = yes
+				else = {
+					if = {
+						limit = { NOT = { government = monarchy } }
+						change_government = monarchy
+					}
+					add_government_reform = tsardom
+				}
 			}
 			RUS = { set_government_rank = 3 }
-			if = {
-				limit = { is_revolutionary = no }
-				add_government_reform = tsardom
-			}
 			russia_region = {
 				limit = {
 					NOT = { owned_by = ROOT }
@@ -153,6 +162,7 @@ country_decisions = {
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 			set_country_flag = formed_russia_flag
+			set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
 			add_prestige = 25
 		}
 		ai_will_do = {

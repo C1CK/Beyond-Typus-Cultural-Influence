@@ -91,14 +91,16 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
-			every_province = {
+			low_countries_region = {
 				limit = {
-					NOT = { owned_by = ROOT }
-					OR = {
-						region = low_countries_region
-						area = picardy_area
-					}
-					#NOT = { province_id = 87 }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { province_id = 1931 }
+				}
+				add_permanent_claim = BEL
+			}
+			picardy_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
 					NOT = { province_id = 1931 }
 				}
 				add_permanent_claim = BEL
@@ -108,6 +110,10 @@ country_decisions = {
 		}
 		ai_will_do = {
 			factor = 1
+	        modifier = { # make dutchs focus on forming netherlands instead of belgium
+	         	factor = 0.25
+	         	primary_culture = dutch
+	        }
 		}
 		ai_importance = 400 #
 	}
@@ -162,7 +168,7 @@ country_decisions = {
 				name = "centralization_modifier"
 				duration = 3650
 			}
-			every_province = {
+			italy_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -314,8 +320,14 @@ country_decisions = {
 		}
 		allow = {
 			NOT = { exists = IBE }
-			NOT = { exists = SPA }			#Special, no doubling up on Iberia superpowers
-			NOT = { exists = ADU }			#Special, no doubling up on Iberia superpowers
+			OR = {
+				NOT = { exists = SPA }			#Special, no doubling up on Iberia superpowers
+				num_of_cities = SPA 			#...Unless you eclipse them.
+			}
+			OR = {
+				NOT = { exists = ADU }			#Special, no doubling up on Iberia superpowers
+				num_of_cities = ADU 			#...Unless you eclipse them.
+			}
 			is_nomad = no
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
@@ -356,6 +368,7 @@ country_decisions = {
 			#No Iberian ideas yet.
 			# swap_ideas = yes
 			set_country_flag = formed_iberia_flag_btp
+			set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
 		}
 		ai_will_do = {
 			factor = 1
@@ -437,13 +450,15 @@ country_decisions = {
 				limit = { NOT = { government_rank = 3 } }
 				set_government_rank = 3
 			}
-			every_province = {
+			balkan_region = {
 				limit = {
-					NOT = { owned_by = ROOT }
-					OR = {
-						region = balkan_region
-						area = carinthia_area
-					}
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ILY
+			}
+			carinthia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ILY
 			}
@@ -455,6 +470,7 @@ country_decisions = {
 			#No Illyrian ideas yet.
 			# swap_ideas = yes
 			set_country_flag = formed_illyria_flag_btp
+			set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
 		}
 		ai_will_do = {
 			factor = 1
@@ -576,8 +592,7 @@ country_decisions = {
 						exists = VEN
 					}
 					NOT = {
-						any_province = {
-							region = italy_region
+						italy_region = {
 							owned_by = VEN
 						}
 					}
@@ -587,8 +602,7 @@ country_decisions = {
 						exists = LOM
 					}
 					NOT = {
-						any_province = {
-							region = italy_region
+						italy_region = {
 							owned_by = LOM
 						}
 					}
@@ -603,8 +617,7 @@ country_decisions = {
 						exists = MLO
 					}
 					NOT = {
-						any_province = {
-							region = italy_region
+						italy_region = {
 							owned_by = MLO
 						}
 					}
@@ -614,8 +627,7 @@ country_decisions = {
 						exists = LOM
 					}
 					NOT = {
-						any_province = {
-							region = italy_region
+						italy_region = {
 							owned_by = LOM
 						}
 					}
@@ -630,8 +642,7 @@ country_decisions = {
 						exists = MLO
 					}
 					NOT = {
-						any_province = {
-							region = italy_region
+						italy_region = {
 							owned_by = MLO
 						}
 					}
@@ -641,8 +652,7 @@ country_decisions = {
 						exists = VEN
 					}
 					NOT = {
-						any_province = {
-							region = italy_region
+						italy_region = {
 							owned_by = VEN
 						}
 					}
@@ -708,12 +718,21 @@ country_decisions = {
 				primary_culture = ceskoslovensky
 				primary_culture = bohemian #Don't exist, but will in earlier start dates
 				primary_culture = moravian #Don't exist, but will in earlier start dates
-			}
+			if = {		#BT added - special limitations for the ai so they don't try to do this even if they meet the requirements
+				limit = {
+					ai = yes
+				}
+				is_emperor = no 	#BT added so ai emperor cannot try to forfil the requirements by killing the hre
+				num_of_cities = 50	#BT added they need to be quite large to think about becoming domineering
+				owns = 262	#BT added they need to own 3 of the major cities to think about it
+				owns = 266
+				owns = 154
+				}
 		}
 		provinces_to_highlight = {
 			OR = {
 				province_id = 60 #Budyszin
-				province_id = 8174 #Nitra
+				province_id = 154 #Nitra
 				#province_id = 257 #Warsaw #CI, why this far?
 				province_id = 262 #Krakow
 				province_id = 263 #Ratibor
@@ -733,6 +752,7 @@ country_decisions = {
 		allow = {
 			NOT = { exists = GMV }
 			is_at_war = no
+			is_emperor = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			owns_core_province = 60 #Budyszin
@@ -741,7 +761,7 @@ country_decisions = {
 			owns_core_province = 264 #Breslau
 			owns_core_province = 265 #Brno
 			owns_core_province = 266 #Prague
-			owns_core_province = 8174 #Nitra
+			owns_core_province = 154 #Nitra
 			owns_core_province = 1772 #Bratislava
 			owns_core_province = 262 #Krakow
 			#owns_core_province = 257 #Warsaw #CI, why this far?
@@ -752,6 +772,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = GMV
+			#remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
 					is_part_of_hre = yes
@@ -773,6 +794,12 @@ country_decisions = {
 				# set_government_rank = 3
 			# }
 			bohemia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = GMV
+			}
+			erzgebirge_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
@@ -826,7 +853,7 @@ country_decisions = {
 		ai_will_do = {
 			factor = 1
 		}
-		ai_importance = 400
+		ai_importance = 0
 	}
 	
 ###################################################################################################
@@ -874,13 +901,15 @@ country_decisions = {
 		effect = {
 			change_tag = NAJ
 			remove_non_electors_emperors_from_empire_effect = yes
-			every_province = {
+			nafud_area = {
 				limit = {
-					NOT = { owned_by = ROOT }
-					OR = {
-						area = nafud_area
-						area = yamamah_area
-					}
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = NAJ
+			}
+			yamamah_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = NAJ
 			}
@@ -908,6 +937,7 @@ country_decisions = {
 ################################			Pomerania			 ##############################################			#Done by JP 2019-4 & adjusted a bit by Draiocht
 ###################################################################################################
 #Moved to BtPLReplaceVanillaCountryFormations due to appearing in vanilla in 1.30.
+
 ###################################################################################################
 ################################			Rhineland			 ##############################################			#Done by Velius 2021-11, note needs work
 ###################################################################################################

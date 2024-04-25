@@ -1,0 +1,168 @@
+#Moving forming decisions to BtPLReplaceVanillaCountryFormations
+
+#I normally don't like messing with vanilla files when I don't have to, but between all the map changes and the fact that I wanted to clean up a few things
+#and make everything more dynamic anyway, I figured I'd just reorganise. Hope this doesn't mess with anyone too much. - Draiocht
+country_decisions = {
+	armenia_nation = { #ArmeniaNation.txt
+		major = yes
+		potential = {
+			bt_generic_can_form_potential_check = yes
+			NOT = { has_country_flag = formed_armenia_flag }
+			NOT = { tag = ARM }
+			OR = {
+				primary_culture = armenian
+				primary_culture = cilician #CI
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = armenia_area #Armenia 6
+				area = ararat_area #Ararat 5
+				area = sophene_area #Sophene 8
+				area = north_kurdistan_area #Vaspurakan 8
+				area = erzurum_area #Lesser Armenia 6
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = ARM }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			#religion_group = christian
+			owns_core_province = 419			#Yerivan
+			owns_core_province = 3254			#Ararat 
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				OR = {
+					area = armenia_area #Armenia 6
+					area = ararat_area #Ararat 5
+					area = sophene_area #Sophene 8
+					area = north_kurdistan_area #Vaspurakan 8
+					area = erzurum_area #Lesser Armenia 6
+				}
+				value = 16			#At least 1/2 of Greater Armenia's 33 provinces (approximate)
+			}
+			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted.
+			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
+		}
+		effect = {
+			#Mission completions - None at the moment
+			#Country formation effects
+			change_tag = ARM
+			on_change_tag_effect = yes
+			restore_country_name_effect = yes
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				swap_non_generic_missions = yes
+			}
+			remove_non_electors_emperors_from_empire_effect = yes
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			#Rank + prestige
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			#Nation claims + Mission claims
+			armenia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ARM
+			}
+			ararat_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ARM
+			}
+			sophene_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ARM
+			}
+			north_kurdistan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ARM
+			}
+			erzurum_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ARM
+			}
+			#Swap culture, government, government reform & ideas, plus set flag
+			if = {
+				limit = {
+					NOT = { has_idea_group = ARM_ideas }
+				}
+				swap_ideas = yes
+			}
+			set_country_flag = formed_armenia_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400 #
+	}
+	
+	armenia_tigranakert = {
+		major = yes
+		potential = {
+			OR = {
+				tag = MLK
+				was_tag = MLK
+				tag = ARM
+				was_tag = ARM
+			}
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = arm_moved_capital }
+			has_country_flag = arm_capital_tigranakert
+		}
+		allow = {
+			is_core = 418
+			owns = 418
+			NOT = { capital = 418 }
+			is_at_war = no
+		}
+		provinces_to_highlight = {
+			province_id = 418
+		}
+		effect = {
+			set_country_flag = arm_moved_capital
+			418 = {
+				move_capital_effect = yes
+			}
+			418 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+			418 = {
+				add_province_modifier = {
+					name = "arm_new_capital"
+					duration = 7300
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

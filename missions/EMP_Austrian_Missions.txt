@@ -1,4 +1,4 @@
-
+#Semi-scriptified by someone I do not know. Probably Nuq. //Dub
 
 emp_hab_poland_branch = {
 	slot = 1
@@ -10,7 +10,7 @@ emp_hab_poland_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		or = { 
+		OR = { 
 			tag = HAB
 			tag = STY
 			tag = TIR
@@ -116,6 +116,9 @@ emp_hab_poland_branch = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 75	#Just a little bit of goodies for Austria
+		}
 	}
 }
 
@@ -130,7 +133,7 @@ emp_hab_empire_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		or = { 
+		OR = { 
 			tag = HAB
 			tag = STY
 			tag = TIR
@@ -226,17 +229,20 @@ emp_hab_empire_branch = {
 			is_emperor = yes
 			custom_trigger_tooltip = {
 				tooltip = no_hre_province_owned_by_non_hre_member_or_overlord_trigger
-				any_province = {
-					is_part_of_hre = no
-					AND = {
-						is_part_of_hre = yes
-						owner = {
+				europe = {
+					type = all
+					OR = {
+						is_part_of_hre = no
+						AND = {
 							is_part_of_hre = yes
-							OR = {
-								is_subject = no
-								AND = {
-									is_subject = yes
-									overlord = { is_part_of_hre = yes }
+							owner = {
+								is_part_of_hre = yes
+								OR = {
+									is_subject = no
+									AND = {
+										is_subject = yes
+										overlord = { is_part_of_hre = yes }
+									}
 								}
 							}
 						}
@@ -474,17 +480,20 @@ emp_hab_empire_branch = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = no_hre_province_owned_by_non_hre_member_or_overlord_trigger
-				any_province = {
-					is_part_of_hre = no
-					AND = {
-						is_part_of_hre = yes
-						owner = {
+				europe = {
+					type = all
+					OR = {
+						is_part_of_hre = no
+						AND = {
 							is_part_of_hre = yes
-							OR = {
-								is_subject = no
-								AND = {
-									is_subject = yes
-									overlord = { is_part_of_hre = yes }
+							owner = {
+								is_part_of_hre = yes
+								OR = {
+									is_subject = no
+									AND = {
+										is_subject = yes
+										overlord = { is_part_of_hre = yes }
+									}
 								}
 							}
 						}
@@ -517,7 +526,7 @@ emp_hab_prestige_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		or = { 
+		OR = { 
 			tag = HAB
 			tag = STY
 			tag = TIR
@@ -632,7 +641,7 @@ emp_hab_prestige_branch = {
 				ROOT = {
 					NOT = {
 						development_in_provinces = {
-							value = 240 #start:122
+							value = 240 # Up from 180. Starts with 157, 60ish can be conquered.
 							OR = {
 								culture = austrian
 								culture = bavarian #Austrian doesn't exist at start in CI
@@ -660,7 +669,7 @@ emp_hab_prestige_branch = {
 		}
 		trigger = {
 			development_in_provinces = {
-				value = 240 #start:122
+				value = 240
 				OR = {
 					culture = austrian
 					culture = bavarian #Austrian doesn't exist at start in CI
@@ -783,7 +792,7 @@ emp_hab_minorities_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		or = { 
+		OR = { 
 			tag = HAB
 			tag = STY
 			tag = TIR
@@ -868,7 +877,7 @@ emp_hab_minorities_branch = {
 					NOT = { accepted_culture = hungarian }
 					NOT = { primary_culture = hungarian }
 				}
-				add_accepted_culture = hungarian
+				add_accepted_culture_or_dip_power = { culture = hungarian dip_reward = yes }
 				if = {
 					limit = {
 						153 = { culture_group = germanic } #CI, just made these check for German, no reason why they are limited to Austrian
@@ -892,7 +901,13 @@ emp_hab_minorities_branch = {
 					NOT = { accepted_culture = slovak }
 					NOT = { primary_culture = slovak }
 				}
-				add_accepted_culture = slovak
+				if = {
+					limit = { has_updated_culture = { culture = slavic } }
+					add_accepted_culture_or_dip_power = { culture = slovak_new dip_reward = yes }
+				}
+				else = {
+					add_accepted_culture_or_dip_power = { culture = slovak dip_reward = yes }
+				}
 				if = {
 					limit = {
 						1772 = { culture_group = germanic } #CI, just made these check for German, no reason why they are limited to Austrian
@@ -911,6 +926,9 @@ emp_hab_minorities_branch = {
 					add_base_tax = 1
 				}
 			}
+		}
+		ai_weight = {
+			factor = 500	#Historical Conquest
 		}
 	}
 	
@@ -976,7 +994,7 @@ emp_hab_german_expansion_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		or = { 
+		OR = { 
 			tag = HAB
 			tag = STY
 			tag = TIR
@@ -994,15 +1012,15 @@ emp_hab_german_expansion_branch = {
 		
 		required_missions = {  }
 		provinces_to_highlight = {
-			austrian_take_the_bishoprics_provinces = yes
+			province_group = austrian_take_the_bishoprics_provinces
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			has_fulfiled_num_of_province_requirement_for_mission_trigger = {
-				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted_num
-				provinces=austrian_take_the_bishoprics_provinces
-				owner_type=country_or_non_sovereign_subject_holds
-				value=7 #Vanilla: 2/4, BT 7/19: forces at least 2 wars to take enough provinces.
+				tooltip = country_holds_or_non_sovereign_subject_holds_highlighted_num
+				provinces = austrian_take_the_bishoprics_provinces
+				owner_type = country_or_non_sovereign_subject_holds
+				value = 20 #Vanilla: 2/4, BT 7/19: forces at least 2 wars to take enough provinces. Completely changed to encourage and reward austria for forming vanilla borders
 			}
 		}
 		effect = {
@@ -1019,29 +1037,20 @@ emp_hab_german_expansion_branch = {
 					months = 300
 					target = BAV
 				}
-				hidden_effect = {
-					every_province = {
-						limit = {
-							austrian_bayern_provinces = yes
-							NOT = { owned_by = BAV }
-							NOT = { owned_by = ROOT }
-						}
-						add_permanent_claim = ROOT
-					}
-				}
 			}
 			else = {
-				custom_tooltip = austrian_bayern_claims
-				hidden_effect = {
-					every_province = {
-						limit = {
-							austrian_bayern_provinces = yes
-							NOT = { is_core = ROOT }
-							NOT = { owned_by = ROOT }
-						}
-						add_permanent_claim = ROOT
-					}
-				}
+				give_permaclaims_for_mission = { mission=austrian_bayern }
+			}
+			add_country_modifier = {
+				name = "bt_centralization_effort"
+				duration = 5475 #15 years
+			}
+		}
+		ai_weight = {
+			factor = 1000	#Historical conquest
+			modifier = {
+				TAG = STY
+				factor = 0 #Unless they are the emperor #BT Changed they need to do this one to form natural austrian borders
 			}
 		}
 	}
@@ -1051,7 +1060,7 @@ emp_hab_german_expansion_branch = {
 		
 		required_missions = { emp_hab_take_salzburg }
 		provinces_to_highlight = {
-			austrian_bayern_provinces = yes
+			province_group = austrian_bayern_provinces
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
@@ -1068,6 +1077,13 @@ emp_hab_german_expansion_branch = {
 				duration = 7300
 			}
 		}
+		ai_weight = {
+			factor = 500	#Reasonable conquest
+			modifier = {
+				is_emperor = yes
+				factor = 0	#Unless they are the emperor
+			}
+		}
 	}
 	
 	emp_hab_swabia = {
@@ -1076,7 +1092,7 @@ emp_hab_german_expansion_branch = {
 		
 		required_missions = { emp_hab_union_bayern emp_hab_connect_further_austria }
 		provinces_to_highlight = {
-			austrian_swabia_provinces = yes
+			province_group = austrian_swabia_provinces
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
@@ -1121,6 +1137,13 @@ emp_hab_german_expansion_branch = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Reasonable conquest
+			modifier = {
+				is_emperor = yes
+				factor = 0	#Unless they are the emperor
+			}
+		}
 	}
 }
 
@@ -1134,7 +1157,7 @@ emp_hab_german_expansion_branch_2 = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		or = { 
+		OR = { 
 			tag = HAB
 			tag = STY
 			tag = TIR
@@ -1346,6 +1369,9 @@ emp_hab_german_expansion_branch_2 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 0	#Not really doable
+		}
 	}
 }
 
@@ -1359,7 +1385,7 @@ emp_hab_western_expansion_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		or = { 
+		OR = { 
 			tag = HAB
 			tag = STY
 			tag = TIR
@@ -1372,17 +1398,6 @@ emp_hab_western_expansion_branch = {
 	
 	emp_hab_connect_further_austria = {
 		icon = connect_further_austria
-		
-		ai_weight = {
-			factor = 3
-			modifier = {
-				factor = 0.33
-				NOT = { owns = 1880 }
-			}
-		}
-		ai_priority = {
-			factor = 5
-		}
 
 		position = 9
 		
@@ -1422,16 +1437,17 @@ emp_hab_western_expansion_branch = {
 				}
 				add_permanent_claim = root
 			}
-			custom_tooltip = austrian_swabia_claims
-			hidden_effect = {
-				every_province = {
-					limit = {
-						austrian_swabia_provinces = yes
-						NOT = { is_core = ROOT }
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
+			give_permaclaims_for_mission = { mission=austrian_swabia }
+		}
+		ai_weight = {
+			factor = 100	#Historical conquest #Lowered for bt even if not the emperor they should focus other missions. Harbivore
+			modifier = {
+				is_emperor = yes	#But not when you are the emperor (Unknown person)  #Good change #Harbivore
+				factor = 0
+			}
+			modifier = {
+				factor = 0.33
+				NOT = { owns = 1880 }
 			}
 		}
 	}
@@ -1522,6 +1538,13 @@ emp_hab_western_expansion_branch = {
 					}
 				}
 				add_permanent_claim = root
+			}
+		}
+		ai_weight = {
+			factor = 500	#Historical conquest
+			modifier = {
+				is_emperor = yes	#But not when you are the emperor
+				factor = 0
 			}
 		}
 	}
@@ -1622,6 +1645,9 @@ emp_hab_western_expansion_branch = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical conquest
+		}
 	}
 	
 	emp_hab_conquer_france = {
@@ -1655,6 +1681,9 @@ emp_hab_western_expansion_branch = {
 				duration = 10950
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical rivalry
+		}
 	}
 }
 
@@ -1670,7 +1699,7 @@ emp_hab_balkans = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		or = { 
+		OR = { 
 			tag = HAB
 			tag = STY
 			tag = TIR
@@ -1685,17 +1714,10 @@ emp_hab_balkans = {
 		icon = defeat_the_serbs
 
 		position = 7
-
-		ai_weight = {
-			factor = 2
-		}
-		ai_priority = {
-			factor = 3
-		}
 		
 		required_missions = { austrian_croatia }
 		provinces_to_highlight = {
-			austrian_defeat_the_serbs_provinces = yes
+			province_group = austrian_defeat_the_serbs_provinces
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
@@ -1742,6 +1764,9 @@ emp_hab_balkans = {
 				add_permanent_claim = root
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical conquest
+		}
 	}
 }
 
@@ -1755,7 +1780,7 @@ emp_hab_balkans_2 = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		or = { 
+		OR = { 
 			tag = HAB
 			tag = STY
 			tag = TIR
@@ -1770,13 +1795,6 @@ emp_hab_balkans_2 = {
 		icon = push_on_to_bulgaria
 
 		position = 8
-
-		ai_weight = {
-			factor = 2
-		}
-		ai_priority = {
-			factor = 3
-		}
 		
 		required_missions = { emp_hab_take_serbia conquer_transylvania }
 		provinces_to_highlight = {
@@ -1836,9 +1854,8 @@ emp_hab_balkans_2 = {
 			}
 			custom_tooltip = emp_hab_take_wallachia_bulgaria_effect_tooltip
 			hidden_effect = {
-				every_province = {
+				europe = {
 					limit = {
-						continent = europe
 						owned_by = TUR
 						NOT = { is_core = root }
 						NOT = { is_permanent_claim = root }
@@ -1850,19 +1867,15 @@ emp_hab_balkans_2 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical rivalry conquest
+		}
 	}
 	
 	emp_hab_scourge_of_europe = {
 		icon = mission_ottoman_diplomacy
 
 		position = 10
-
-		ai_weight = {
-			factor = 2
-		}
-		ai_priority = {
-			factor = 3
-		}
 		
 		required_missions = { emp_hab_take_wallachia_bulgaria }
 		provinces_to_highlight = {
@@ -1873,10 +1886,9 @@ emp_hab_balkans_2 = {
 		}
 		trigger = {
 			NOT = {
-				any_province = {
+				europe = {
 					custom_trigger_tooltip = {
 						tooltip = emp_hab_scourge_of_europe_trigger_tooltip
-						continent = europe
 						owned_by = TUR
 						NOT = { region = anatolia_region }
 						NOT = { region = caucasia_region }
@@ -1897,6 +1909,9 @@ emp_hab_balkans_2 = {
 				country_event = { id = new_flavour_hun.3 } #event used by Hungary too
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical rivalry conquest
+		}
 	}
 }
 
@@ -1911,7 +1926,7 @@ emp_hab_more_italy_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		or = { 
+		OR = { 
 			tag = HAB
 			tag = STY
 			tag = TIR
@@ -1926,13 +1941,6 @@ emp_hab_more_italy_branch = {
 		icon = kingdom_of_lombardy
 
 		position = 9
-		
-		ai_weight = {
-			factor = 3
-		}
-		ai_priority = {
-			factor = 5
-		}
 		
 		required_missions = { austrian_italian_ambition }
 		provinces_to_highlight = {
@@ -2029,19 +2037,19 @@ emp_hab_more_italy_branch = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical conquest
+			modifier = {
+				factor = 0	#Shadow Kingdom and Emperorship though
+				is_emperor = yes
+				NOT = { is_year = 1490 }
+			}
+		}
 	}
 	
 	emp_hab_naples = {
 		icon = union_with_naples
-
 		position = 10
-		
-		ai_weight = {
-			factor = 3
-		}
-		ai_priority = {
-			factor = 5
-		}
 		
 		required_missions = { emp_hab_veneto_lombardy }
 		provinces_to_highlight = {
@@ -2096,6 +2104,9 @@ emp_hab_more_italy_branch = {
 				add_permanent_claim = root
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical conquest
+		}
 	}
 }
 
@@ -2111,7 +2122,7 @@ emp_hab_diplo_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		or = { 
+		OR = { 
 			tag = HAB
 			tag = STY
 			tag = TIR
@@ -2479,8 +2490,8 @@ emp_hab_diplo_branch = {
 			calc_true_if = {
 				desc = emp_hab_our_balance_of_power_tooltip
 				amount = 1000
-				all_province = {
-					continent = europe
+				europe = {
+					type = all
 					NOT = { region = anatolia_region }
 					NOT = { region = caucasia_region }
 					OR = {

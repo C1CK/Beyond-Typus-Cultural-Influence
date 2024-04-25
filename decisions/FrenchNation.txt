@@ -1,0 +1,102 @@
+#Moving forming decisions to BtPLReplaceVanillaCountryFormations
+
+#I normally don't like messing with vanilla files when I don't have to, but between all the map changes and the fact that I wanted to clean up a few things
+#and make everything more dynamic anyway, I figured I'd just reorganise. Hope this doesn't mess with anyone too much. - Draiocht
+country_decisions = {
+	french_nation = {
+		major = yes
+		potential = {
+			bt_generic_can_form_potential_check = yes
+			NOT = { has_country_flag = formed_france_flag }
+			NOT = { tag = FRA }
+			OR = {
+				culture_group = french
+				culture_group = occitanic #CI
+				culture_group = francoprovencal #CI
+				#primary_culture = basque
+				#primary_culture = breton #Bizarre CI disabled this since Gaul has such similar borders and is more appropriate
+			}
+		}
+		provinces_to_highlight = {
+			region = france_region
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = FRA }
+			is_nomad = no
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			owns_core_province = 183			# Paris
+			owns_core_province = 186			# Rheims, coronation site
+			owns_core_province = 203			# Lyon
+			owns_core_province = 4389			# Tours
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				region = france_region
+				value = 111			#At least 2/3 of France's 166 provinces
+			}
+			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted
+			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
+		}
+		effect = {
+			#Mission completions - None at the moment
+			#Country formation effects
+			change_tag = FRA
+			on_change_tag_effect = yes
+			restore_country_name = yes
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			add_country_modifier = {
+				name = centralization_modifier
+				duration = 7300
+			}
+			#Rank + prestige
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			#Nation claims + Mission claims
+			france_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+					NOT = { area = brittany_area }
+					NOT = { area = lower_brittany_area }
+				}
+				add_permanent_claim = FRA
+			}
+			brittany_area = {
+				limit = {
+					NOT = { is_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_claim = FRA
+			}
+			lower_brittany_area = {
+				limit = {
+					NOT = { is_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_claim = FRA
+			}
+			#Swap culture, government, government reform & ideas, plus set flag
+			if = {
+				limit = {
+					NOT = { has_idea_group = FRA_ideas }
+				}
+				swap_ideas = yes
+			}
+			set_country_flag = formed_france_flag
+			set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400 #
+	}
+	
+}

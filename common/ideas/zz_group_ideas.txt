@@ -38,6 +38,44 @@ client_ideas = {
 	}
 }
 
+trading_city_ideas = {
+	start = {
+		development_cost = -0.05
+		build_cost = -0.1
+	}
+	
+	bonus = {
+		production_efficiency = 0.1
+	}
+	
+	trigger = {
+		has_reform = trading_city
+	}
+	free = yes
+		
+	tc_city_of_commerce = {
+		global_prov_trade_power_modifier = 0.15
+	}
+	tc_self_defense = {	
+		garrison_size = 0.25
+	}
+	tc_merchant_guild = {
+		merchants = 1
+	}
+	tc_citys_artisans = {
+		global_trade_goods_size_modifier = 0.1
+	}	
+	tc_city_mercenary_contracts = {
+		mercenary_cost = -0.15
+	}
+	tc_merchant_range = {
+		trade_range_modifier = 0.25
+	}	
+	tc_trade_fleet = {
+		global_ship_trade_power = 0.15
+	}
+}
+
 
 colonial_ideas = {
 	start = {
@@ -55,7 +93,11 @@ colonial_ideas = {
 	free = yes
 	
 	founding_fathers = {
+		legitimacy = 1
+		devotion = 1
 		republican_tradition = 0.5
+		meritocracy = 1
+		horde_unity = 1
 	}
 	continental_trade = {
 		global_prov_trade_power_modifier = 0.25
@@ -74,6 +116,7 @@ colonial_ideas = {
 		global_colonial_growth = 20
 	}
 	liberty_heroes = {
+		global_unrest = -1
 		free_leader_pool = 1
 	}
 }
@@ -84,11 +127,14 @@ barbary_pirate_ideas = {
 		privateer_efficiency = 0.2
 	}
 	bonus = {
-		republican_tradition = 0.5
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.5
+		meritocracy = 1
+		horde_unity = 1
 	}
 	trigger = {
-		has_reform = pirate_republic_reform
+		has_government_attribute = is_pirate_republic_reform
 		OR = {
 			culture_group = maghrebi
 			tag = TET
@@ -124,22 +170,24 @@ barbary_pirate_ideas = {
 pirate_ideas = {
 	start = {
 		navy_tradition = 1
-		free_leader_pool = 1
+		naval_maintenance_modifier = -0.1
 	}
 	bonus = {
 		unjustified_demands = -0.25
 	}
 	trigger = {
 		OR = {
-		has_reform = pirate_republic_reform
+			AND = {
+				has_government_attribute = is_pirate_republic_reform
+				NOT = { culture_group = maghrebi }
+				NOT = { tag = TET }
+				NOT = { tag = SLE }
+			}
 			tag = NSS
 			tag = PRY
 			tag = TOR
 			tag = LIB
 		}
-		NOT = { culture_group = maghrebi }
-		NOT = { tag = TET }
-		NOT = { tag = SLE }
 	}
 	free = yes
 	
@@ -148,9 +196,11 @@ pirate_ideas = {
 	}	
 	pirates_plunder = {
 		loot_amount = 0.25
+		coast_raid_range = 1
 	}
 	pirates_bucanneers_ideas = {	
 		infantry_cost = -0.1
+		free_leader_pool = 1
 	}
 	pirates_sail_in_consort = {
 		global_naval_engagement_modifier = 0.2
@@ -184,7 +234,11 @@ cossack_ideas = {
 		manpower_recovery_speed = 0.2
 	}
 	cossacks_hetmanate = {
+		legitimacy = 1
+		devotion = 1
 		republican_tradition = 0.5
+		meritocracy = 1
+		horde_unity = 1
 	}
 	zaz_steppe_riders = {
 		# as the ZAZ idea, land attrition
@@ -203,10 +257,11 @@ cossack_ideas = {
 	}
 }
 
+
 berber_ideas = {
 	start = {
 		naval_attrition = -0.25
-		may_perform_slave_raid = yes
+		land_morale = 0.1
 	}
 	
 	bonus = {
@@ -324,6 +379,10 @@ telugu_ideas = { #Telugu Ideas
 	}
 	yor_legend_of_prataparudra = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	yor_diamond_mines_of_kollur = {
 		production_efficiency = 0.1
@@ -364,6 +423,10 @@ dravidian_ideas = {
 	}
 	patronage_of_temples = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	south_indian_literature = {
 		prestige = 1
@@ -452,6 +515,10 @@ gujarati_ideas = {
 	}
 	guj_ashapura_mata = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	guj_african_trade = {
 		trade_range_modifier = 0.2
@@ -697,6 +764,10 @@ daimyo_ideas = {
 	}
 	honor_ancestors = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	five_rings = {
 		land_morale = 0.10
@@ -729,6 +800,10 @@ BAV_ideas = {
 	
 	everlating_succeession = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	bavarian_purity_law = {
 		production_efficiency = 0.1
@@ -781,6 +856,10 @@ swabian_ideas = {
 	}
 	swabian_thorn_of_the_empire = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	swabian_habsburg_league = {
 		global_unrest = -1
@@ -840,7 +919,7 @@ malayan_ideas = {
 	
 	trigger = {
 		OR = {
-		religion_group = muslim
+			religion_group = muslim
 			tag = PAH
 		}
 		culture_group = malay
@@ -1080,13 +1159,18 @@ central_indic_ideas = { #Gond Ideas
 		hostile_attrition = 1.0
 	}
 	flexible_caste_central_indic = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 	raiding_the_plains_central_indic = {
 		infantry_power = 0.1
 	}
 	ancient_roots_central_indic = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	formalize_relations_with_cheifs_central_indic = {
 		global_tax_modifier = 0.1
@@ -1370,6 +1454,10 @@ mesoamerican_ideas = {
 	
 	ritual_bloodletting = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 
 	pyramid_architecture = {
@@ -1406,7 +1494,7 @@ TIB_ideas = {
 	}
 	free = yes       #will be added at load.
 	
-	vajrayana_buddhism = {                    
+	vajrayana_buddhism  = {                    
 		stability_cost_modifier = -0.10
 	}
 	bon_influence = {                
@@ -1469,13 +1557,18 @@ west_african_ideas = {
 		envoy_travel_time = -0.25
 	}
 	west_african_idea_7 = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 }
 
 andean_ideas = {
 	start = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 		heir_chance = 0.5
 	}
 	
@@ -1608,7 +1701,8 @@ caucasus_ideas = {
 	free = yes
 	
 	crossroads_of_cultures = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 	alan_mercenaries = {
 		merc_maintenance_modifier = -0.10
@@ -1622,6 +1716,10 @@ caucasus_ideas = {
 	}
 	highland_khans = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	eastern_influence = {
 		army_tradition = 0.5
@@ -1647,31 +1745,27 @@ ruthenian_ideas = {
 			primary_culture = byelorussian
 			primary_culture = ukrainian #CI
 			primary_culture = rusyn #CI
+			primary_culture = ruthenian_new
+			primary_culture = byelorussian_new
+			primary_culture = ukrainian_new #CI
+			primary_culture = rusyn_new #CI
 		}
 	}
 	free = yes
- 
+	#For the modifiers see UKR_ideas
 	mother_of_russian_cities = { #Mother of Russian States
-		legitimacy = 0.5
-		prestige = 0.5
 	}
 	international_influences = {
-		tolerance_heretic = 2
 	}
 	zaporizhian_cossacs = {
-		cavalry_power = 0.15
 	}
 	east_and_west = {
-		global_trade_power = 0.1
 	}
 	legacy_of_ancient_rus = {
-		stability_cost_modifier = -0.1
 	}
 	reuniting_rus = {
-		years_of_nationalism = -5
 	}
 	birth_of_russian_orthodoxy = {
-		tolerance_own = 1
 	}
 }
 
@@ -1700,7 +1794,8 @@ guajiro_ideas = {
 		global_trade_power = 0.1
 	}
 	tribal_tolerance = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 		tolerance_heretic = 1		
 	}
 	guajiro_raiders = {
@@ -1717,7 +1812,8 @@ guajiro_ideas = {
 shan_ideas = {
 	start = {
 		heir_chance = 0.5
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 	
 	bonus = {
@@ -1747,6 +1843,10 @@ shan_ideas = {
 	}
 	shan_chronicles = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	shan_expansionism = {
 		global_manpower_modifier = 0.25
@@ -1789,6 +1889,10 @@ chinese_ideas = {
 	}
 	son_of_heaven = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 		imperial_mandate = 0.05
 	}
 	middle_kingdom = {
@@ -1798,7 +1902,8 @@ chinese_ideas = {
 
 vindhyan_ideas = {
 	start = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 		fort_maintenance_modifier = -0.2
 	}
 	
@@ -1839,6 +1944,10 @@ vindhyan_ideas = {
 	}
 	candella_legacy = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 }
 
@@ -1849,7 +1958,7 @@ kurdish_ideas = {
 	}
 	
 	bonus = {
-		free_leader_pool = 1
+		manpower_recovery_speed = 0.15
 	}
 	
 	trigger = {
@@ -1874,6 +1983,10 @@ kurdish_ideas = {
 	}
 	legacy_of_the_kurdish_dynasties = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	gorani_literature = {
 		prestige_decay = -0.01
@@ -2094,6 +2207,10 @@ moluccan_ideas = {
 	}
 	moluccan_cultural_heritage = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	moluccan_agents_of_trade = {
 		merchants = 1
@@ -2299,6 +2416,10 @@ malagasy_ideas = {
 	}
 	malagasy_zafivolemena = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	malagasy_pirate_ports = {
 		#Effects from BTS Ideas
@@ -2353,6 +2474,9 @@ zambezi_ideas = { #Above all based on the Bororo/Lundu.
 	zambezi_centralizing_the_mbona_cult = {
 		legitimacy = 1
 		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	zambezi_wealth_of_the_shire_valley = {
 		diplomatic_annexation_cost = -0.15
@@ -2526,7 +2650,8 @@ highland_scottish_ideas = {
 deccani_muslim_ideas = {
 	start = {
 		cavalry_power = 0.1
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 	
 	bonus = {
@@ -2544,6 +2669,10 @@ deccani_muslim_ideas = {
 	
 	dec_legacy_of_bahmanis = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	dec_deccani_identity = {
 		idea_cost = -0.10
@@ -2629,6 +2758,10 @@ garjati_ideas = {
 	}
 	garjati_ancient_mandalas = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	garjati_tribal_feudatories = {
 		global_manpower_modifier = 0.15
@@ -2722,6 +2855,10 @@ maori_ideas = { #Credit to James Beaumont
 	maori_king = {
 		core_creation = -0.10
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 }
 
@@ -2775,8 +2912,8 @@ nw_native_ideas = {
 		leader_land_manuever = 1
 	}
 	division_as_a_strength_nw = {
-		num_accepted_cultures = 1
-		promote_culture_cost = -0.25
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.15 #BT Nerfed from -0.25 as part of Accepted Culture Slots overhaul
 	}
 }
 
@@ -2799,6 +2936,7 @@ plains_native_ideas = {
 			primary_culture = kiowa
 			primary_culture = shoshone
 		}
+		NOT = { primary_culture = caddo }
 	}
 	free = yes
 	
@@ -2845,8 +2983,8 @@ california_native_ideas = {
 	free = yes
 	
 	division_as_a_strength_cf = {
-		num_accepted_cultures = 1
-		promote_culture_cost = -0.25
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.15 #BT Nerfed from -0.25 as part of Accepted Culture Slots overhaul
 	}
 	basketweaving = {
 		production_efficiency = 0.05
@@ -2905,8 +3043,8 @@ ne_native_ideas = {
 		defensiveness = 0.15
 	}
 	ne_deer_clan = {
-		num_accepted_cultures = 1
-		promote_culture_cost = -0.25
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.15 #BT Nerfed from -0.25 as part of Accepted Culture Slots overhaul
 	}
 	ne_bear_clan = {
 		manpower_recovery_speed = 0.2
@@ -3035,7 +3173,8 @@ fijian_ideas = { #Credit to James Beaumont
 	free = yes
 	
 	fijian_crossroad = {
-		num_accepted_cultures = 2
+		#num_accepted_cultures = 2
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 	fijian_degel = {
 		range = 0.1
@@ -3089,13 +3228,18 @@ hawaiian_ideas = { #Credit to James Beaumont
 	}
 	alii_nui = {
 		legitimacy = 1
+		devotion = 1
+		republican_tradition = 0.3
+		meritocracy = 1
+		horde_unity = 1
 	}
 	hula_idea = {
 		prestige = 1
 	}
 	ohana = {
 		diplomatic_upkeep = 1
-		num_accepted_cultures = 2
+		#num_accepted_cultures = 2
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 	kanawai_mamalahoe = {
 		manpower_recovery_speed = 0.2
@@ -3144,7 +3288,8 @@ iroquoian_federation_ideas = {
 		land_morale = 0.15
 	}
 	iro_sachems = {
-		num_accepted_cultures = 2
+		#num_accepted_cultures = 2
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 	iro_the_grand_council = {
 		global_colonial_growth = 30
@@ -3276,7 +3421,7 @@ central_algonquian_federation_ideas = {
 		global_manpower_modifier = 0.2
 	}
 	calg_teaching_scrolls = {
-		idea_cost = 0.1
+		idea_cost = -0.1
 	}
 	calg_seven_fires_prophecy = {
 		technology_cost = -0.1
@@ -3291,7 +3436,8 @@ central_algonquian_federation_ideas = {
 
 muskogean_federation_ideas = {
 	start = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 		reinforce_speed = 0.1
 	}
 	
@@ -3373,5 +3519,46 @@ generic_federation_ideas = {
 	}
 	fed_sunrise_invasion = {
 		global_colonial_growth = 30
+	}
+}
+
+horn_of_african_ideas = {
+	start = {
+		stability_cost_modifier = -0.1
+		global_tax_modifier = 0.1
+	}
+	
+	bonus = {
+		prestige = 1
+	}
+	
+	trigger = {
+		culture_group = cushitic
+		NOT = { primary_culture = somali }
+		NOT = { primary_culture = tigray }
+		NOT = { tag = ETH }
+	}
+	free = yes
+	
+	horn_of_african_aksumite_legacy = {
+		global_unrest = -1
+	}
+	horn_of_african_punt_legend = {
+		trade_range_modifier = 0.2
+	}
+	horn_of_african_highland_cultivation = {
+		development_cost = -0.05
+	}
+	horn_of_african_oromon_warriors = {
+		infantry_power = 0.1
+	}
+	horn_of_african_religious_melting_pot = {
+		tolerance_heathen = 1
+	}
+	horn_of_african_cushitic_language = {
+		improve_relation_modifier = 0.15
+	}
+	horn_of_african_religious_defensive_nature = {
+		defensiveness = 0.2
 	}
 }

@@ -268,10 +268,12 @@ country_decisions = {
 	celtic_nation = { #Nation for all of the Celts (CEL) -Now represents UNK for Celts since Gaul now exists
 		major = yes
 		potential = {
-			was_never_end_game_tag_trigger = yes
+			bt_generic_can_form_potential_check = yes
 			NOT = { has_country_flag = formed_tir_na_gceilteach_btp }
 			NOT = { exists = CEL }
 			NOT = { exists = UNK } 
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
 			OR = {
 				primary_culture = brythonaidd #Briton
 				primary_culture = goidhealach #Gaelic
@@ -290,7 +292,6 @@ country_decisions = {
 				}
 			}
 		}
-
 		provinces_to_highlight = {
 			OR = {
 				region = british_isles_region
@@ -326,8 +327,7 @@ country_decisions = {
 			}
 			total_development = 600
 			prestige = 40			#Normal requirement for rank 3 is 75 prestige.
-		}
-		
+			}
 		effect = {
 			change_tag = CEL
 			remove_non_electors_emperors_from_empire_effect = yes
@@ -875,7 +875,7 @@ country_decisions = {
 				}
 				value = 20			#3/4 of Scotland's 28 provinces
 			}
-			total_development = 1000
+			total_development = 400
 			prestige = 25			#Special discount. Normal requirement for rank 2 is 75 prestige, so this is 2/3rds discounted
 		}
 
