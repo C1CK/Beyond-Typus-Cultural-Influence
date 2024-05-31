@@ -951,15 +951,19 @@ great_lighthouse = {
 
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
 		area_modifier = {
-			province_trade_power_modifier = 0.25
+		}
+		
+		#what modifiers are added to the provinces in the map region when we have this project here on this tier
+		region_modifier = {
 			block_slave_raid = yes
+			province_trade_power_modifier = 0.25
 		}
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			light_ship_cost = -0.2
 			global_ship_trade_power = 0.25
-			own_coast_naval_combat_bonus = 1.5
+			own_coast_naval_combat_bonus = 1
 		}
 
 		#what effects happen when this tier is achieved
@@ -1277,7 +1281,30 @@ mosque_cathedral = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			global_heathen_missionary_strength = 0.01
+		}
+		
+		conditional_modifier = {
+			tooltip_potential = {
+				owner = { religion_group = muslim }
+			}
+			trigger = {
+				religion_group = muslim
+			}
+			modifier = {
+				monthly_piety_accelerator = 0.001
+			}
+		}
+		
+		conditional_modifier = {
+			tooltip_potential = {
+				owner = { religion_group = christian }
+			}
+			trigger = {
+				religion_group = christian
+			}
+			modifier = {
+				global_heathen_missionary_strength = 0.01
+			}
 		}
 
 		#what effects happen when this tier is achieved
@@ -1313,8 +1340,32 @@ mosque_cathedral = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			church_loyalty_modifier = 0.05
-			global_heathen_missionary_strength = 0.02
-			warscore_cost_vs_other_religion = -0.05
+		}
+		
+		conditional_modifier = {
+			tooltip_potential = {
+				owner = { religion_group = muslim }
+			}
+			trigger = {
+				religion_group = muslim
+			}
+			modifier = {
+				monthly_piety_accelerator = 0.002
+				tolerance_heathen = 1
+			}
+		}
+		
+		conditional_modifier = {
+			tooltip_potential = {
+				owner = { religion_group = christian }
+			}
+			trigger = {
+				religion_group = christian
+			}
+			modifier = {
+				global_heathen_missionary_strength = 0.02
+				warscore_cost_vs_other_religion = -0.05
+			}
 		}
 
 		#what effects happen when this tier is achieved
@@ -1350,8 +1401,33 @@ mosque_cathedral = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			church_loyalty_modifier = 0.1
-			global_missionary_strength = 0.02
-			warscore_cost_vs_other_religion = -0.10
+		}
+		
+		conditional_modifier = {
+			tooltip_potential = {
+				owner = { religion_group = muslim }
+			}
+			trigger = {
+				religion_group = muslim
+			}
+			modifier = {
+				monthly_piety_accelerator = 0.005
+				tolerance_heathen = 3
+				tolerance_of_heathens_capacity = 3
+			}
+		}
+		
+		conditional_modifier = {
+			tooltip_potential = {
+				owner = { religion_group = christian }
+			}
+			trigger = {
+				religion_group = christian
+			}
+			modifier = {
+				global_missionary_strength = 0.02
+				warscore_cost_vs_other_religion = -0.10
+			}
 		}
 
 		#what effects happen when this tier is achieved
@@ -1515,7 +1591,7 @@ sdc_cathedral = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			papal_influence_from_cardinals = 0.025
+			papal_influence_from_cardinals = 0.25
 			enforce_religion_cost = -0.1
 		}
 
@@ -1552,7 +1628,7 @@ sdc_cathedral = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			papal_influence_from_cardinals = 0.05
+			papal_influence_from_cardinals = 0.50
 			enforce_religion_cost = -0.2
 			manpower_in_true_faith_provinces= 0.10
 		}
@@ -2331,11 +2407,16 @@ mt_athos = {
 
 	#can we build it?
 	build_trigger = {
-		AND = {
-			religion = orthodox
+		religion = orthodox
+		OR = {
 			has_owner_religion = yes
+			owner = { 
+				OR = {
+					tag = TUR 
+					tag = RUM
+				}
+			}
 		}
-		
 	}
 
 	#what to do when it's built
@@ -2348,17 +2429,31 @@ mt_athos = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		AND = {
-			religion = orthodox
+		religion = orthodox
+		OR = {
 			has_owner_religion = yes
+			owner = { 
+				OR = {
+					tag = TUR 
+					tag = RUM
+				}
+			}
 		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		AND = {
-			religion = orthodox
-			has_owner_religion = yes
+		OR = {
+			AND = {
+				religion = orthodox
+				has_owner_religion = yes
+			}
+			owner = { 
+				OR = {
+					tag = TUR 
+					tag = RUM
+				}
+			}
 		}
 	}
 
@@ -2417,7 +2512,45 @@ mt_athos = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			missionaries = 1
+			global_tax_income = 6 #BT Added: Apparently conditional modifiers *require* a country modifier to exist to show up in the tooltip. Paradox, why???
+		}
+		
+		conditional_modifier = {
+			tooltip_potential = {
+				owner = { religion = orthodox }
+			}
+			trigger = {
+				religion = orthodox
+				has_owner_religion = yes
+			}
+			modifier = {
+				missionaries = 1
+			}
+		}
+		
+		conditional_modifier = {
+			tooltip_potential = {
+				owner = { 
+					OR = {
+						tag = TUR 
+						tag = RUM
+					}
+				}
+			}
+			trigger = {
+				religion = orthodox
+				hidden_trigger = {
+					owner = { 
+						OR = {
+							tag = TUR 
+							tag = RUM
+						}
+					}
+				}
+			}
+			modifier = {
+				tolerance_of_heathens_capacity = 0.5
+			}
 		}
 
 		#what effects happen when this tier is achieved
@@ -2447,8 +2580,47 @@ mt_athos = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			global_heretic_missionary_strength = 0.01
-			missionaries = 1
+			global_tax_income = 6 #BT Added: Apparently conditional modifiers *require* a country modifier to exist to show up in the tooltip. Paradox, why???
+		}
+		
+		conditional_modifier = {
+			tooltip_potential = {
+				owner = { religion = orthodox }
+			}
+			trigger = {
+				religion = orthodox
+				has_owner_religion = yes
+			}
+			modifier = {
+				global_heretic_missionary_strength = 0.01
+				missionaries = 1
+			}
+		}
+		
+		conditional_modifier = {
+			tooltip_potential = {
+				owner = { 
+					OR = {
+						tag = TUR 
+						tag = RUM
+					}
+				}
+			}
+			trigger = {
+				religion = orthodox
+				hidden_trigger = {
+					owner = { 
+						OR = {
+							tag = TUR 
+							tag = RUM
+						}
+					}
+				}
+			}
+			modifier = {
+				tolerance_of_heathens_capacity = 1
+				dhimmi_loyalty_modifier = 0.05
+			}
 		}
 
 		#what effects happen when this tier is achieved
@@ -2478,8 +2650,49 @@ mt_athos = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			global_missionary_strength = 0.01
-			missionaries = 2
+			global_tax_income = 6 #BT Added: Apparently conditional modifiers *require* a country modifier to exist to show up in the tooltip. Paradox, why???
+		}
+		
+		conditional_modifier = {
+			tooltip_potential = {
+				owner = { religion = orthodox }
+			}
+			trigger = {
+				religion = orthodox
+				has_owner_religion = yes
+			}
+			modifier = {
+				global_missionary_strength = 0.01
+				missionaries = 2
+				church_privilege_slots = 1
+			}
+		}
+		
+		conditional_modifier = {
+			tooltip_potential = {
+				owner = { 
+					OR = {
+						tag = TUR 
+						tag = RUM
+					}
+				}
+			}
+			trigger = {
+				religion = orthodox
+				hidden_trigger = {
+					owner = { 
+						OR = {
+							tag = TUR 
+							tag = RUM
+						}
+					}
+				}
+			}
+			modifier = {
+				tolerance_of_heathens_capacity = 1
+				dhimmi_loyalty_modifier = 0.1
+				dhimmi_privilege_slots = 1
+			}
 		}
 
 		#what effects happen when this tier is achieved
@@ -3076,19 +3289,11 @@ rock_cashel = {
 	#can we build it?
 	build_trigger = {
 		OR = {
-			AND = {
-				culture_group = gaelic
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = anglo_irish
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture_group = unified_celtic_group
-				province_is_or_accepts_culture = yes
-			}
+			culture_group = gaelic
+			culture = anglo_irish
+			culture_group = unified_celtic_group
 		}
+		province_is_or_accepts_culture = yes
 	}
 
 	#what to do when it's built
@@ -3102,37 +3307,21 @@ rock_cashel = {
 	#can our country use it?
 	can_use_modifiers_trigger = {
 		OR = {
-			AND = {
-				culture_group = gaelic
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = anglo_irish
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture_group = unified_celtic_group
-				province_is_or_accepts_culture = yes
-			}
+			culture_group = gaelic
+			culture = anglo_irish
+			culture_group = unified_celtic_group
 		}
+		province_is_or_accepts_culture = yes
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
 		OR = {
-			AND = {
-				culture_group = gaelic
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = anglo_irish
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture_group = unified_celtic_group
-				province_is_or_accepts_culture = yes
-			}
+			culture_group = gaelic
+			culture = anglo_irish
+			culture_group = unified_celtic_group
 		}
+		province_is_or_accepts_culture = yes
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -4506,6 +4695,7 @@ schonbrunn_palace = {
 
 	#can we build it?
 	build_trigger = {
+		is_capital = yes
 		owner = {
 			government_rank = 3
 		}
@@ -4521,6 +4711,7 @@ schonbrunn_palace = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
+		is_capital = yes
 		owner = {
 			government_rank = 3
 		}
@@ -4528,6 +4719,7 @@ schonbrunn_palace = {
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
+		is_capital = yes
 		owner = {
 			government_rank = 3
 		}
@@ -5009,6 +5201,9 @@ aachen_cathedral = {
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
+			owner = {
+				add_reform_desire = -0.1
+			}
 		}
 	}
 
@@ -5041,6 +5236,7 @@ aachen_cathedral = {
 		#what effects happen when this tier is achieved
 		on_upgraded = {			
 			owner = {
+				add_reform_desire = -0.25
 				add_estate_loyalty = {
 					estate = estate_church
 					loyalty = 5
@@ -5080,6 +5276,7 @@ aachen_cathedral = {
 		#what effects happen when this tier is achieved
 		on_upgraded = {
 			owner = {
+				add_reform_desire = -0.5 #huge bonus as this tier is very unlikely to be reached before reformation begins
 				add_estate_loyalty = {
 					estate = estate_church
 					loyalty = 5
@@ -7857,7 +8054,7 @@ st_catherines = {	#St. Catherine's Monastery
 		on_upgraded = {
 			add_base_tax = 1
 			owner = {
-				add_patriarch_authority = 5
+				add_patriarch_authority = 0.05
 				add_papal_influence = 25
 			}
 		}
@@ -7893,7 +8090,7 @@ st_catherines = {	#St. Catherine's Monastery
 		on_upgraded = {
 			add_base_tax = 1
 			owner = {
-				add_patriarch_authority = 5
+				add_patriarch_authority = 0.05
 				add_papal_influence = 25
 				add_estate_loyalty = {
 					estate = estate_church
@@ -9012,7 +9209,7 @@ aleppo_mosque = {		#Great Mosque of Aleppo
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			enforce_religion_cost = -0.05
-			monthly_piety = 0.0005
+			monthly_piety_accelerator = 0.0005
 			global_heretic_missionary_strength = 0.005
 		}
 
@@ -9044,7 +9241,7 @@ aleppo_mosque = {		#Great Mosque of Aleppo
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			enforce_religion_cost = -0.1
-			monthly_piety = 0.0005
+			monthly_piety_accelerator = 0.0005
 			global_heretic_missionary_strength = 0.01
 		}
 
@@ -9075,7 +9272,7 @@ aleppo_mosque = {		#Great Mosque of Aleppo
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			enforce_religion_cost = -0.2
-			monthly_piety = 0.001
+			monthly_piety_accelerator = 0.001
 			global_heretic_missionary_strength = 0.02
 		}
 
@@ -10838,6 +11035,7 @@ uluru = {		#Uluru
 
 		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
+			local_unrest = -1
 		}
 
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
@@ -10866,6 +11064,7 @@ uluru = {		#Uluru
 
 		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
+			local_unrest = -1.5
 		}
 
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
@@ -10874,6 +11073,7 @@ uluru = {		#Uluru
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
+			prestige = 0.25
 		}
 
 		#what effects happen when this tier is achieved
@@ -10893,14 +11093,17 @@ uluru = {		#Uluru
 
 		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
+		
 		}
 
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
 		area_modifier = {
+			local_unrest = -2
 		}
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
+			prestige = 0.5
 		}
 
 		#what effects happen when this tier is achieved

@@ -119,8 +119,7 @@ country_decisions = {
 						ruler_has_personality = expansionist_personality
 						ruler_has_personality = conqueror_personality
 						ruler_has_personality = greedy_personality
-						any_province = {
-							region = ireland_region
+						ireland_region = {
 							NOT = { owned_by = ENG }
 							OR = {
 								is_claim = ROOT
@@ -220,11 +219,11 @@ country_decisions = {
 			NOT = { culture_group = gaelic }			#Gaels will try to form TnG
 			num_of_owned_provinces_with = {
 				value = 16
-				region = ireland_region
+				region = ireland_region # Brian; changed from _area
 			}	#over half of Ireland to see
 		}
 		provinces_to_highlight = {
-			region = ireland_region
+			region = ireland_region # Brian; changed from _area
 			owned_by = ROOT
 		}
 		allow = {
@@ -239,7 +238,7 @@ country_decisions = {
 				tooltip = three_quarters_of_ireland_tooltip
 				num_of_owned_provinces_with = {
 					value = 23
-					region = ireland_region
+					region = ireland_region # Brian; changed from _area
 					is_core = ROOT
 				}	#3/4 of Ireland's 30 provinces
 			}
@@ -250,13 +249,13 @@ country_decisions = {
 				add_permanent_claim = ANI
 			}
 			hidden_effect = {
-				ireland_region = {
+				ireland_region = { # Brian; changed from _area
 					limit = { owned_by = ROOT }
 					remove_core = ROOT
 					add_core = ANI
 				}
 			}
-			ireland_region = {
+			ireland_region = { # Brian; changed from _area
 				limit = { owned_by = ROOT }
 				cede_province = ANI
 			}

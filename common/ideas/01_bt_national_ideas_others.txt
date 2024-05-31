@@ -129,7 +129,8 @@ BEL_ideas = {
 		manpower_recovery_speed = 0.1
 	}
 	bel_divided_peoples = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 	bel_flemish_scientists = {
 		technology_cost = -0.10
@@ -146,53 +147,6 @@ BEL_ideas = {
 	}
 	bel_independence = {
 		diplomatic_reputation = 2
-	}
-}
-
-#Scandinavia
-SCA_ideas = {
-	start = {
-		infantry_power = 0.2 #In Swedish ideas
-		global_sailors_modifier = 0.33 #In Danish & Norwegian ideas
-	}
-	bonus = { #Idea set is pretty powerful already. Taking a Swedish dump idea here.
-		stability_cost_modifier = -0.1
-	}
-	trigger = {
-		tag = SCA
-	}
-
-	free = yes
-
-	sca_king_in_the_north = { #New.
-		land_morale = 0.15
-	}
-
-	sca_cold_steel = { #In Danish 1.30 ideas and functions like Sweden's +5% discipline.
-		shock_damage = 0.1
-	}
-
-	sca_ruler_of_the_three_kingdoms = { #In Danish & Swedish ideas.
-		legitimacy = 1
-		yearly_absolutism = 0.5
-	}
-
-	sca_every_king_a_captain = { #An in-between of Danish & Norwegian ideas.
-		naval_morale = 0.15
-	}
-
-	sca_dominium_maris_baltici = { #Norwegian ambition.
-		trade_steering = 0.25
-	}
-
-	sca_winter_is_coming = { #Two Swedish ideas in one. Norway has production efficiency.
-		global_trade_goods_size_modifier = 0.1
-		manpower_recovery_speed = 0.2
-	}
-
-	sca_call_of_our_forefathers = { #Combining two Norwegian ideas into one, slightly reducing range.
-		colonists = 1
-		range = 0.25
 	}
 }
 
@@ -240,7 +194,8 @@ LMV_ideas = {
 
 	lmv_italian_unification = { #LMV shall be the unifiers of Italy!
 		governing_capacity_modifier = 0.1
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 }
 
@@ -479,6 +434,292 @@ JAE_ideas = {
 	}
 }
 
+#Magdeburg
+MAG_ideas = {
+	start = {
+		trade_efficiency = 0.1 #Hanseatic city
+		defensiveness = 0.2 #Referencing the major fort of Magdeburg and its later defense against the Catholic League
+	}
+	
+	bonus = {
+		leader_siege = 1 #Semi-dump, referencing Otto von Guericke's military engineering education
+	}
+	
+	trigger = {
+		tag = MAG
+	}
+	free = yes
+	
+	mag_magdeburg_rights = { #The world-famous Magdeburg Rights. This tag does not utilise them as such for their ideas because the tag represents the Archbishopric, and so instead harnesses its reputation.
+		prestige = 1
+		diplomatic_reputation = 1
+	}
+	
+	mag_cathedral = { #Cathedral of Saints Maurice and Catherine, seat of the archbishop, today the principal church of the Evangelical Church in Central Germany, landmark of the city, houses the body of Otto I the great and wife, and is the oldest Gothic cathedral in Germany.
+		papal_influence = 1
+		monthly_fervor_increase = 1
+		church_power_modifier = 0.1
+	}
+	
+	mag_christianize_the_east = { #Magdeburg and its bishopric were instrumental in spreading Catholicism to the likes of the Magyards, and likely also for the later Northern Crusades.
+		devotion = 1
+		legitimacy = 1
+		republican_tradition = 0.2
+		global_missionary_strength = 0.01
+	}
+	
+	mag_strike_against_the_city = { #The Burghers of Magdeburg were in constant conflict with the Archbishopric. This idea represents the idea of pacifying them through a variety of reforms. As well, Martin Luther attented school in the city.
+		burghers_influence_modifier = -0.1
+		estate_interaction_cooldown_modifier = -0.2
+	}
+	
+	mag_question_of_secularization = { #The Archbishopric eventually converted to Protestantism and was secularised. Herein represented as better reforms of governance.
+		monthly_reform_progress_modifier = 0.1
+		monthly_reform_progress = 0.25
+	}
+	
+	mag_magdeburgization = { #The city of Magdeburg recovered awfully quick despite losing about 80% of its population during the 30 years war, Magdeburg's Sacrifice.
+		manpower_recovery_speed = 0.10 #Modifier's probably not the best, but this idea set needs some sort of military buff.
+	}
+	
+	mag_magdeburg_hemispheres = { #There's little that can be based off of the archbishopric itself, and at this point, post-secularisation and "pacifying" the burghers, these kinds of things become more interesting. I don't think I need to mention what this idea is about.
+		innovativeness_gain = 0.25
+		yearly_innovativeness = 0.1
+	}
+}
+
+#Mission-altered Ruthenian ideas
+UKR_ideas_2 = { #Literally, all I do is double the CCR in reuniting_rus. A bit wasteful, code-wise, but looks *much* cooler in my opinion, and ultimately, that is all that matters.
+	start = {
+		manpower_recovery_speed = 0.2
+		morale_damage_received = -0.1
+	}
+
+	bonus = {
+		discipline = 0.05
+	}
+ 
+	trigger = {
+		tag = UKR
+		mission_completed = ukr_mother_of_all_rus
+	}
+	free = yes
+ 
+	mother_of_russian_cities = { #In UKR_ideas
+	}
+	international_influences = { #In UKR_ideas
+	}
+	zaporizhian_cossacs = { #In UKR_ideas
+	}
+	east_and_west = { #In UKR_ideas
+	}
+	legacy_of_ancient_rus = { #In UKR_ideas
+	}
+	reuniting_rus_2 = {
+		core_creation = -0.2
+		years_of_nationalism = -5
+	}
+	birth_of_russian_orthodoxy = { #In UKR_ideas
+	}
+}
+
+#Lovech
+LVC_ideas = {
+	start = {
+		diplomatic_reputation = 1 #Diplomacy got them here
+		fire_damage_received = -0.10 #Something meant to help against Ottoboi
+	}
+	
+	bonus = {
+		trade_goods_size_modifier = 0.1
+	}
+ 
+	trigger = {
+		tag = LVC
+	}
+	free = yes
+	
+	lvc_last_outpost_of_bulgars = {
+		defensiveness = 0.20
+		land_morale = 0.1
+	}
+	
+	lvc_a_great_trade_center = {
+		global_trade_power = 0.25
+	}
+	
+	bul_byzantine_administration = { #In new_BUL_ideas
+		# global_tax_modifier = 0.1
+		# expand_infrastructure_cost_modifier = -0.25
+	}
+	
+	lvc_migration_of_intellectuals = {
+		idea_cost = -0.1
+	}
+	
+	
+	bul_court_titles = { #In new_BUL_ideas
+		# all_estate_loyalty_equilibrium = 0.05
+	}
+	
+	
+	lvc_drive_back_turks = {
+		manpower_in_own_culture_provinces = 0.25
+	}
+	
+	bul_restore_the_tsardom = { #In new_BUL_ideas
+		# years_of_nationalism = -5
+		# core_creation = -0.15
+	}
+}
+
+#Vidin
+BDN_ideas = {
+	start = {
+		infantry_power = 0.1 #Order of the Dragon kind of
+		stability_cost_modifier = -0.1
+	}
+	
+	bonus = {
+		manpower_in_true_faith_provinces = 0.15
+	}
+ 
+	trigger = {
+		tag = BDN
+	}
+	free = yes
+
+	bdn_order_of_dragon = {
+		leader_land_shock = 1
+	}
+	
+	bdn_signs_of_weakness = {
+		spy_offence = 0.25
+		spy_action_cost_modifier = -0.2
+	}
+	
+	bul_byzantine_administration = { #In new_BUL_ideas
+		# global_tax_modifier = 0.1
+		# expand_infrastructure_cost_modifier = -0.25
+	}
+	
+	bdn_united_resistance = {
+		rebel_support_efficiency = 0.5
+		diplomatic_reputation = 1
+	}
+	
+	bul_court_titles = { #In new_BUL_ideas
+		# all_estate_loyalty_equilibrium = 0.05
+	}
+	
+	bdn_avenge_varna = {
+		prestige_from_land = 1
+	}
+	
+	bul_restore_the_tsardom = { #In new_BUL_ideas
+		# years_of_nationalism = -5
+		# core_creation = -0.15
+	}
+}
+
+#Dobruja
+DRJ_ideas = {
+	start = {
+		global_trade_goods_size_modifier = 0.15 #Bread basket
+		leader_naval_fire = 1 #Apparently a convertee from this principality engaged in the Siege of Constantinople in 1453.
+		
+	}
+	
+	bonus = {
+		privateer_efficiency = 0.25 #Dobrujan privateering
+	}
+ 
+	trigger = {
+		tag = DRJ
+	}
+	free = yes
+
+	drj_venetian_genoese_trade_relations = {
+		diplomatic_reputation = 1
+		merchants = 1
+	}
+	
+	drj_navy_of_varna = {
+		ship_durability = 0.1
+		number_of_cannons_modifier = 0.1
+	}
+	
+	bul_byzantine_administration = { #In new_BUL_ideas
+		# global_tax_modifier = 0.1
+		# expand_infrastructure_cost_modifier = -0.25
+	}
+	
+	drj_resettle_dobruja = {
+		development_cost = -0.1
+		culture_conversion_cost = -0.1
+	}
+	
+	bul_court_titles = { #In new_BUL_ideas
+		# all_estate_loyalty_equilibrium = 0.05
+	}
+	
+	drj_secure_the_danube = {
+		defensiveness = 0.2
+	}
+	
+	bul_restore_the_tsardom = { #In new_BUL_ideas
+		# years_of_nationalism = -5
+		# core_creation = -0.15
+	}
+}
+
+#Prilep
+# PRL_ideas = {
+	
+	# start = {
+		
+		
+	# }
+	
+	# bonus = {
+		
+	# }
+ 
+	# trigger = {
+		# #tag = PRL
+	# }
+	# free = yes
+
+	# prl_legacy_of_king_marko = {
+		# yearly_patriarch_authority = 0.005
+		# papal_influence = 0.5
+	# }
+# }
+
+#Velbazhd
+# VBZ_ideas = {
+	
+	# start = {
+		
+		
+	# }
+	
+	# bonus = {
+		
+	# }
+ 
+	# trigger = {
+		# #tag = VBZ
+	# }
+	# free = yes
+
+	# vbz_byzantine_ties = {
+		# diplomatic_reputation = 1
+		# heir_chance = 0.25
+	# }
+# }
+
+
 # Eris's work
 PMO_ideas = {
 	start = {
@@ -576,7 +817,8 @@ BOU_ideas = {
 	free = yes		#will be added at load
 
 	bou_frontier_area = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 	bou_bath_bourbon = {
 		prestige = 0.5
@@ -798,7 +1040,8 @@ ANC_ideas = {
 	}
 
 	anc_cosmopolitan_city = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 		religious_unity = 0.25
 	}
 
@@ -942,7 +1185,8 @@ new_DAI_ideas = {
 LIG_ideas = {
 	start = {
 		religious_unity = 0.20
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 
 	bonus = {
@@ -1104,44 +1348,46 @@ musi_ideas = {
 	}
 }
 
-BEI_ideas = {
-	start = {
-		naval_forcelimit_modifier = 0.15
-		naval_maintenance_modifier = -0.10
-	}
+#BT Cut because vanilla provided new ones. If CR disagrees, we'll reintroduce this as new_BEI_ideas. //Dub
+# BEI_ideas = {
+	# start = {
+		# naval_forcelimit_modifier = 0.15
+		# naval_maintenance_modifier = -0.10
+	# }
 
-	bonus = {
-		trade_range_modifier = 0.15
-	}
+	# bonus = {
+		# trade_range_modifier = 0.15
+	# }
 
-	trigger = {
-		tag = BEI
-	}
-	free = yes
+	# trigger = {
+		# tag = BEI
+	# }
+	# free = yes
 
-	bei_tribal_sailors = {
-		sailors_recovery_speed = 0.10
-		sailor_maintenance_modifer = -0.1
-	}
-	bei_thalassocratic_realm = {
-		trade_efficiency = 0.2
-	}
-	bei_naval_tolls = {
-		global_tax_modifier = 0.10
-	}
-	bei_council_of_princes = {
-		legitimacy = 1
-	}
-	bei_scattering_of_merchants = {
-		global_trade_power = 0.1
-	}
-	bei_multiculturalism = {
-		num_accepted_cultures = 1
-	}
-	bei_white_rajahs = {
-		global_unrest = -2
-	}
-}
+	# bei_tribal_sailors = {
+		# sailors_recovery_speed = 0.10
+		# sailor_maintenance_modifer = -0.1
+	# }
+	# bei_thalassocratic_realm = {
+		# trade_efficiency = 0.2
+	# }
+	# bei_naval_tolls = {
+		# global_tax_modifier = 0.10
+	# }
+	# bei_council_of_princes = {
+		# legitimacy = 1
+	# }
+	# bei_scattering_of_merchants = {
+		# global_trade_power = 0.1
+	# }
+	# bei_multiculturalism = {
+		# #num_accepted_cultures = 1
+		# promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
+	# }
+	# bei_white_rajahs = {
+		# global_unrest = -2
+	# }
+# }
 
 SIA_ideas = {
 	start = {
@@ -1468,7 +1714,8 @@ nusa_tenggara_ideas = {
 		hostile_attrition = 2
 	}
 	nt_ethnic_diversity = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 	nt_splendid_isolation = {
 		global_unrest = -1
@@ -1681,7 +1928,8 @@ new_laotian_ideas = {
 		tolerance_heathen = 2
 	}
 	lao_ethnic_diversity = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 	lao_elephant_cavalry = {
 		cavalry_power = 0.1
@@ -1697,7 +1945,8 @@ new_laotian_ideas = {
 new_shan_ideas = {
 	start = {
 		heir_chance = 0.5
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 
 	bonus = {
@@ -1707,14 +1956,14 @@ new_shan_ideas = {
 	trigger = {
 		NOT = {
 			tag = MMA
-                        tag = MYA
-                        tag = MKA
-                        tag = MMT
+			tag = MYA
+			tag = MKA
+			tag = MMT
 		}
 		OR = {
 			primary_culture = shan
 			primary_culture = khun
-                        primary_culture = tai
+			primary_culture = tai
 		}
 	}
 	free = yes
@@ -2182,7 +2431,8 @@ TLD_ideas = {
 	#City of Three Cultures
 	#Toledo has a lot of Christian, Muslim, and Jewish influence. Three cultures!
 	tld_city_three_cultures = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 		global_institution_spread = 0.15
 	}
 
@@ -2264,8 +2514,10 @@ MKL_ideas = {
 	}
 	
 	trigger = {
-		tag = MKL
-		tag = STR
+		OR = {
+			tag = MKL
+			tag = STR
+		}
 	}
 	free = yes
 	
@@ -2291,6 +2543,47 @@ MKL_ideas = {
 	mkl_grand_duchy = {
 		unjustified_demands = -0.2
  	}
+}
+SLZ_ideas = {
+	start = {
+		land_morale = 0.1
+		tolerance_own = 1
+	}
+	bonus = {
+		warscore_cost_vs_other_religion = -0.2
+	}
+	trigger = {
+		tag = SLZ
+	}
+	free = yes
+	
+	SLZ_idea_1 = {
+		global_tax_modifier = 0.1
+	}
+	SLZ_idea_2 = {
+		production_efficiency = 0.1
+	}
+	SLZ_idea_3 = { #trying to be inclusive
+		papal_influence = 0.5
+		church_power_modifier = 0.5
+		monthly_fervor_increase = 1
+		devotion = 1
+	}
+	SLZ_idea_4 = {
+		prestige = 1
+		great_project_upgrade_cost = -0.15
+	}
+	SLZ_idea_5 = {
+		expel_minorities_cost = -0.2
+		global_missionary_strength = 0.01
+	}
+	SLZ_idea_6 = {
+		global_manpower_modifier = 0.2
+	}
+	SLZ_idea_7 = {
+		innovativeness_gain = 0.25
+		curia_powers_cost = -0.1
+	}
 }
 SBG_ideas = {
 	start = {
@@ -2434,7 +2727,8 @@ JER_ideas = {
 		range = 0.20
 	}
 	jer_jerriais_guerriesais = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 	jer_neutral_trade = {
 		trade_efficiency = 0.15
@@ -2580,7 +2874,8 @@ GRN_ideas = {
 		global_tax_modifier = 0.1
 	}
 	GRN_idea_4 = {
-		num_accepted_cultures = 1
+		#num_accepted_cultures = 1
+		promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 	}
 	GRN_idea_5 = {
 		religious_unity = 0.2
@@ -2749,4 +3044,56 @@ MNC_ideas = {
 	MNC_idea_7 = {
 		global_tax_modifier = 0.15
 	}
+}
+
+# Jackkade's work, 18-04-24
+KEM_ideas = {
+    start = {
+        development_cost = -0.05
+        army_tradition_decay = -0.01
+    }
+
+    bonus = {
+        development_cost_modifier = -0.05
+    }
+    
+    trigger = {
+        OR = {
+            tag = KEM
+            culture_group = coptic_culture
+        }
+    }
+    free = yes
+
+    
+    kem_religious_scholars = {
+        global_heathen_missionary_strength = 0.02
+    }
+    kem_nile_fleet = {
+        global_prov_trade_power_modifier = 0.1
+        naval_forcelimit_modifier = 0.2
+    }
+    kem_fertile_river = {
+        country_dev_points_modifier = 0.15
+        trade_goods_size_modifier = 0.1
+    }
+    kem_coptic_literacy = {
+        technology_cost = -0.05
+        innovativeness_gain = 0.5
+    }
+    kem_administative_state = {
+        max_absolutism_effect = 0.15
+    }
+    kem_pharonic_legacy = {
+        tolerance_own = 2
+        legitimacy = 1
+		republican_tradition = 0.3
+		devotion = 1
+		horde_unity = 1
+		meritocracy = 1
+    }
+    kem_monumentality = {
+        build_cost = -0.15
+        great_project_upgrade_cost = -0.25
+    }
 }

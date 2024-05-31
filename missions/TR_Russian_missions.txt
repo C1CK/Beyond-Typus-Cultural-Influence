@@ -5,6 +5,7 @@ tr_russia_religious_missions = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 	}
 	potential = {
 		OR = {
@@ -12,6 +13,7 @@ tr_russia_religious_missions = {
 			tag = RUS
 		}
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -54,10 +56,12 @@ tr_russia_exclusive_church = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 	}
 	potential = {
 		tag = RUS
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -109,10 +113,12 @@ tr_muscovy_conquest = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 	}
 	potential = {
 		tag = RUS
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -123,7 +129,7 @@ tr_muscovy_conquest = {
 		completed_by = 1776.1.1
 		position = 4
 		provinces_to_highlight = {
-			tr_access_to_the_baltic_sea_provinces = yes
+			province_group = tr_access_to_the_baltic_sea_provinces
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -146,7 +152,7 @@ tr_muscovy_conquest = {
 		icon = mission_partition_poland
 		required_missions = { tr_russia_partitions_poland_new }
 		provinces_to_highlight = {
-			rus_partition_poland_mission_provinces = yes
+			province_group = rus_partition_poland_mission_provinces
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -175,6 +181,7 @@ tr_russia_conquest_1 = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 	}
 	potential = {
 		OR = {
@@ -182,6 +189,7 @@ tr_russia_conquest_1 = {
 			tag = RUS
 		}
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -315,7 +323,7 @@ tr_russia_conquest_1 = {
 		required_missions = { tr_subjugate_novgorod }
 		completed_by = 1776.1.1
 		provinces_to_highlight = {
-			tr_consolidate_russia_mission_provinces = yes
+			province_group = tr_consolidate_russia_mission_provinces
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -352,39 +360,9 @@ tr_russia_conquest_1 = {
 				add_base_production = 1
 				add_base_manpower = 1
 			}
-			custom_tooltip = tr_russia_partitions_poland_new_claims
-			hidden_effect = {
-				every_province = {
-					limit = {
-						tr_russia_partitions_poland_new_provinces = yes
-						NOT = { is_core = ROOT }
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			custom_tooltip = tr_access_to_the_baltic_sea_claims
-			hidden_effect = {
-				every_province = {
-					limit = {
-						tr_access_to_the_baltic_sea_provinces = yes
-						NOT = { is_core = ROOT }
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			custom_tooltip = tr_conquer_finland_claims
-			hidden_effect = {
-				every_province = {
-					limit = {
-						tr_conquer_finland_provinces = yes
-						NOT = { is_core = ROOT }
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
+			give_permaclaims_for_mission = { mission=tr_russia_partitions_poland_new }
+			give_permaclaims_for_mission = { mission=tr_access_to_the_baltic_sea }
+			give_permaclaims_for_mission = { mission=tr_conquer_finland }
 		}
 	}
 	# liberate ruthenia
@@ -392,7 +370,7 @@ tr_russia_conquest_1 = {
 		icon = mission_conquer_5_states
 		required_missions = { tr_consolidate_russia_mission }
 		provinces_to_highlight = {
-			tr_russia_partitions_poland_new_provinces = yes 
+			province_group = tr_russia_partitions_poland_new_provinces
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
@@ -416,28 +394,8 @@ tr_russia_conquest_1 = {
 					duration = 5475
 				}
 			}
-			custom_tooltip = rus_partition_poland_mission_claims
-			hidden_effect = {
-				every_province = {
-					limit = {
-						rus_partition_poland_mission_provinces = yes
-						NOT = { is_core = ROOT }
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			custom_tooltip = rus_romania_conquest_claims
-			hidden_effect = {
-				every_province = {
-					limit = {
-						rus_romania_conquest_provinces = yes
-						NOT = { is_core = ROOT }
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
+			give_permaclaims_for_mission = { mission=rus_partition_poland_mission }
+			give_permaclaims_for_mission = { mission=rus_romania_conquest }
 		}
 	}
 }
@@ -448,10 +406,12 @@ tr_russia_exclusive_1 = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 	}
 	potential = {
 		tag = RUS
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -461,7 +421,7 @@ tr_russia_exclusive_1 = {
 		required_missions = { tr_russia_partitions_poland_new }
 		position = 5
 		provinces_to_highlight = {
-			rus_romania_conquest_provinces = yes
+			province_group = rus_romania_conquest_provinces
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -474,17 +434,7 @@ tr_russia_exclusive_1 = {
 			}
 		}
 		effect = {
-			custom_tooltip = rus_third_rome_mission_claims
-			hidden_effect = {
-				every_province = {
-					limit = {
-						rus_third_rome_mission_provinces = yes
-						NOT = { is_core = ROOT }
-						NOT = { owned_by = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
+			give_permaclaims_for_mission = { mission=rus_third_rome_mission }
 		}
 	}
 	
@@ -494,7 +444,7 @@ tr_russia_exclusive_1 = {
 		provinces_to_highlight = {
 			OR = {
 				AND = {
-					rus_third_rome_mission_provinces = yes
+					province_group = rus_third_rome_mission_provinces
 					NOT = {
 						country_or_non_sovereign_subject_holds = ROOT
 					}
@@ -539,7 +489,12 @@ tr_russia_exclusive_1 = {
 		icon = mission_autocratic_rule
 		required_missions = { rus_streltsy_mission }
 		trigger = {
-			absolutism = 50
+			if = {
+				limit = {
+					is_revolutionary = no
+				}
+				absolutism = 50
+			}
 			NOT = {
 				estate_influence = {
 					estate = estate_church
@@ -558,10 +513,10 @@ tr_russia_exclusive_1 = {
 					influence = 50
 				}
 			}
-			# certain gov reforms if dharma
+			crown_land_share = 75
 		}
 		effect = {
-			add_adm_power = 50 # or reform mana if dharma enabled
+			add_adm_power = 50
 			add_country_modifier = {
 				name = "russian_autocracy"
 				duration = 7300
@@ -576,6 +531,7 @@ tr_russia_conquest_2 = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 	}
 	potential = {
 		OR = {
@@ -583,6 +539,7 @@ tr_russia_conquest_2 = {
 			tag = RUS
 		}
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -592,7 +549,7 @@ tr_russia_conquest_2 = {
 		required_missions = { tr_consolidate_russia_mission }
 		position = 4
 		provinces_to_highlight = {
-			tr_conquer_finland_provinces = yes
+			province_group = tr_conquer_finland_provinces
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -619,10 +576,12 @@ tr_russia_exclusive_2 = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 	}
 	potential = {
 		tag = RUS
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -667,7 +626,6 @@ tr_russia_exclusive_2 = {
 		}
 		effect = {
 			2106 = {
-				change_province_name = "Vladivostok"
 				rename_capital = "Vladivostok"
 				change_religion = ROOT
 				change_culture = ROOT
@@ -702,7 +660,6 @@ tr_russia_exclusive_2 = {
 		}
 		effect = {
 			add_prestige = 10
-			# gov reform mana if dharma
 		}
 	}
 	tr_revolution_mission = {
@@ -713,16 +670,18 @@ tr_russia_exclusive_2 = {
 		}
 		trigger = {
 			OR = {
+				has_reform = revolutionary_empire_reform
+				has_reform = revolutionary_republic_reform
+				custom_trigger_tooltip = {
+					tooltip = center_of_revolution.3000.A.tt
+					has_global_flag = no_more_revolutions_ever
+				}
 				any_known_country = {
 					is_revolution_target = yes
 					war_with = ROOT
 					capital_scope = {
 						controlled_by = ROOT
 					}
-				}
-				OR = {
-					has_reform = revolutionary_empire_reform
-					has_reform = revolutionary_republic_reform
 				}
 			}
 			
@@ -732,11 +691,14 @@ tr_russia_exclusive_2 = {
 			if = {
 				limit = {
 					OR = {
-						has_reform = revolutionary_empire
+						has_reform = revolutionary_empire_reform
 						has_reform = revolutionary_republic_reform
 					}
 				}		
-				country_event = { id = flavor_rus.2000 }
+				add_country_modifier = {
+					name = "rus_revolutionary_zeal"
+					duration = -1
+				}
 			}
 			else = {
 				add_country_modifier = {
@@ -754,6 +716,7 @@ tr_russia_conquest_3 = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 	}
 	potential = {
 		OR = {
@@ -761,6 +724,7 @@ tr_russia_conquest_3 = {
 			tag = RUS
 		}
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -1066,10 +1030,12 @@ tr_russia_exclusive_3 = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 	}
 	potential = {
 		tag = RUS
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -1164,6 +1130,7 @@ tr_siberia_missions = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 	}
 	potential = {
 		OR = {
@@ -1171,6 +1138,7 @@ tr_siberia_missions = {
 			tag = RUS
 		}
 		has_dlc = "Third Rome"
+		NOT = { has_dlc = "Domination" }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -1356,8 +1324,6 @@ tr_siberia_missions = {
 		required_missions = {  }
 		completed_by = 1508.1.1
 		position = 4
-		
-		
 		provinces_to_highlight = {
 			region = ural_region
 			OR = {
@@ -1395,12 +1361,9 @@ tr_siberia_missions = {
 			}
 		}
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = russia_westsiberia.tooltip
-				num_of_owned_provinces_with = {
-					region = west_siberia_region
-					value = 15
-				}
+			num_of_owned_provinces_with = {
+				region = west_siberia_region
+				value = 15
 			}
 		}
 		effect = {
@@ -1426,12 +1389,9 @@ tr_siberia_missions = {
 			}
 		}
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = russia_eastsiberia.tooltip
-				num_of_owned_provinces_with = {
-					region = east_siberia_region
-					value = 10
-				}
+			num_of_owned_provinces_with = {
+				region = east_siberia_region
+				value = 10
 			}
 			owns_core_province = 1043
 		}
@@ -1504,9 +1464,9 @@ tr_siberia_missions = {
 			has_discovered = ROOT
 		}
 		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 5
-				colonial_region = colonial_alaska
+			colonial_alaska = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {

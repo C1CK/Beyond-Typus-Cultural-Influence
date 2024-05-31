@@ -227,9 +227,51 @@ hagia_sophia = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			tolerance_own = 0.25
-			tolerance_heretic = 0.25
 			church_loyalty_modifier = 0.05
+		}
+		conditional_modifier = { #Heretic tolerance for catholics
+			tooltip_potential = {
+				owner = { religion = catholic }
+			}
+			trigger = {
+				religion = catholic
+			}
+			modifier = {
+				tolerance_heretic = 0.25
+			}
+		}
+		conditional_modifier = { #True faith tolerance for other christians
+			tooltip_potential = {
+				OR = {
+					owner = { religion = orthodox }
+					owner = { religion = coptic }
+					owner = { religion = apostolic }
+					owner = { religion = nestorian }
+				}
+			}
+			trigger = {
+				OR = {
+					religion = orthodox
+					religion = coptic
+					religion = apostolic
+					religion = nestorian
+				}
+				
+			}
+			modifier = {
+				tolerance_own = 0.25
+			}
+		}
+		conditional_modifier = { #Heathen tolerance for muslims
+			tooltip_potential = {
+				owner = { religion_group = muslim }
+			}
+			trigger = {
+				religion_group = muslim
+			}
+			modifier = {
+				tolerance_heathen = 0.25
+			}
 		}
 
 		#what effects happen when this tier is achieved
@@ -258,12 +300,54 @@ hagia_sophia = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			tolerance_own = 0.5
-			tolerance_heretic = 0.5
-			monthly_piety_accelerator = 0.001
-			yearly_patriarch_authority = 0.002
-			papal_influence = 0.5
 			church_loyalty_modifier = 0.1
+		}
+		conditional_modifier = { #Heretic tolerance for catholics
+			tooltip_potential = {
+				owner = { religion = catholic }
+			}
+			trigger = {
+				religion = catholic
+			}
+			modifier = {
+				tolerance_heretic = 0.5
+				papal_influence = 0.5
+			}
+		}
+		conditional_modifier = { #True faith tolerance for other christians
+			tooltip_potential = {
+				OR = {
+					owner = { religion = orthodox }
+					owner = { religion = coptic }
+					owner = { religion = apostolic }
+					owner = { religion = nestorian }
+				}
+			}
+			trigger = {
+				OR = {
+					religion = orthodox
+					religion = coptic
+					religion = apostolic
+					religion = nestorian
+				}
+				
+			}
+			modifier = {
+				tolerance_own = 0.5
+				yearly_patriarch_authority = 0.002
+			}
+		}
+		conditional_modifier = { #Heathen tolerance for muslims
+			tooltip_potential = {
+				owner = { religion_group = muslim }
+			}
+			trigger = {
+				religion_group = muslim
+			}
+			modifier = {
+				tolerance_heathen = 0.5
+				monthly_piety_accelerator = 0.001
+			}
 		}
 
 		#what effects happen when this tier is achieved
@@ -298,12 +382,57 @@ hagia_sophia = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			tolerance_own = 1
-			tolerance_heretic = 1
-			monthly_piety_accelerator = 0.002
-			yearly_patriarch_authority = 0.005
-			papal_influence = 1
 			church_loyalty_modifier = 0.15
+		}
+		conditional_modifier = { #Heretic tolerance for catholics
+			tooltip_potential = {
+				owner = { religion = catholic }
+			}
+			trigger = {
+				religion = catholic
+			}
+			modifier = {
+				tolerance_heretic = 1
+				papal_influence = 1
+				unrest_catholic_provinces = -1 #BT Added: A little bonus to Catholics for mending the schism.
+			}
+		}
+		conditional_modifier = { #True faith tolerance for other christians
+			tooltip_potential = {
+				OR = {
+					owner = { religion = orthodox }
+					owner = { religion = coptic }
+					owner = { religion = apostolic }
+					owner = { religion = nestorian }
+				}
+			}
+			trigger = {
+				OR = {
+					religion = orthodox
+					religion = coptic
+					religion = apostolic
+					religion = nestorian
+				}
+				
+			}
+			modifier = {
+				tolerance_own = 1
+				yearly_patriarch_authority = 0.005
+				war_exhaustion = -0.03 #BT Added: Church masses, a nice little bonus.
+			}
+		}
+		conditional_modifier = { #Heathen tolerance for muslims
+			tooltip_potential = {
+				owner = { religion_group = muslim }
+			}
+			trigger = {
+				religion_group = muslim
+			}
+			modifier = {
+				tolerance_heathen = 1
+				monthly_piety_accelerator = 0.002
+				manpower_in_true_faith_provinces = 0.25 #BT Added: This represents Ghazi
+			}
 		}
 
 		#what effects happen when this tier is achieved
@@ -738,7 +867,8 @@ tower_of_london = {
 			modifier = {
 				max_absolutism = 5
 			}
-		}	}
+		}	
+	}
 
 	tier_2 = {
 		#time to upgrade to this level (0 for tier 0)
@@ -769,6 +899,7 @@ tower_of_london = {
 		#what effects happen when this tier is achieved
 		on_upgraded = {
 		}
+		
 		conditional_modifier = {
 			trigger = {
 				owner = { 
@@ -789,7 +920,7 @@ tower_of_london = {
 				max_absolutism = 10
 				max_revolutionary_zeal = 5
 			}
-		}
+		}	
 	}
 
 	tier_3 = {
@@ -862,7 +993,7 @@ buddha_statues = {
 	build_cost = 0
 	
 	#can we move it?
-	can_be_moved = yes
+	can_be_moved = no #Noooooooo!
 	
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
@@ -2844,7 +2975,7 @@ moai = {
 	build_cost = 0
 	
 	#can we move it?
-	can_be_moved = yes
+	can_be_moved = no #Noooooooo!
 	
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
@@ -5044,7 +5175,7 @@ alhambra = {
 				diplomatic_annexation_cost = -0.05
 			}
 		}
-		
+
 		#what effects happen when this tier is achieved
 		on_upgraded = {	
 		}
@@ -7696,7 +7827,7 @@ inukshuk = {
 	build_cost = 0
 	
 	#can we move it?
-	can_be_moved = yes
+	can_be_moved = no #BT Change: We do not want to move the stones. They're precious. And while precious things were moved throughout history, I do not believe massive stones would be transportable overseas. At least not in this era.
 	
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
@@ -7783,7 +7914,8 @@ inukshuk = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			num_accepted_cultures = 1
+			#num_accepted_cultures = 1
+			promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 		}
 
 		#what effects happen when this tier is achieved
@@ -7812,7 +7944,8 @@ inukshuk = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			num_accepted_cultures = 1
+			#num_accepted_cultures = 1
+			promote_culture_cost = -0.1 #BT Accepted Culture Slots overhaul
 			same_culture_advisor_cost = -0.15
 		}
 
@@ -8186,6 +8319,7 @@ kiev_pechersk_lavra = {
 		#what effects happen when this tier is achieved
 		on_upgraded = {
 		}
+		
 		conditional_modifier = {
 			trigger = {
 				owner = { 
@@ -8204,7 +8338,7 @@ kiev_pechersk_lavra = {
 				global_missionary_strength = 0.01
 				church_loyalty_modifier = 0.05
 			}
-		}
+		}	
 	}
 
 	tier_3 = {
@@ -8242,14 +8376,17 @@ kiev_pechersk_lavra = {
 				}
 			}
 		}
+		
 		conditional_modifier = {
 			trigger = {
 				owner = { 
-					OR = { 
-						tag = KIE 
-						was_tag = KIE 
-						tag = UKR 
-						was_tag = UKR 
+					hidden_trigger = {
+						OR = { 
+							tag = KIE 
+							was_tag = KIE 
+							tag = UKR 
+							was_tag = UKR 
+						}
 					}
 					mission_completed = ukr_reclaim_kievan_metropolitanate
 				}
@@ -9418,7 +9555,7 @@ versailles = {
 				leader_land_fire = 1 
 				reinforce_speed = 0.2
 			}
-		}		
+		}
 		#what effects happen when this tier is achieved
 		on_upgraded = {	
 		}
@@ -9511,7 +9648,7 @@ el_escorial = {
 				culture_group = old_latin
 				province_is_or_accepts_culture = yes
 			}
-		}	
+		}
 	}
 
 	#can our country upgrade it?
@@ -9537,7 +9674,7 @@ el_escorial = {
 				culture_group = old_latin
 				province_is_or_accepts_culture = yes
 			}
-		}	
+		}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -9804,7 +9941,7 @@ potosi = {
 				trade_goods_size = 1
 				inflation_reduction = 0.02
 			}
-		}	
+		}				
 	}
 
 	tier_2 = {
@@ -9856,7 +9993,7 @@ potosi = {
 				trade_goods_size = 2
 				inflation_reduction = 0.03
 			}
-		}
+		}	
 	}
 
 	tier_3 = {
@@ -9888,6 +10025,7 @@ potosi = {
 		#what effects happen when this tier is achieved
 		on_upgraded = {
 		}
+		
 		conditional_modifier = {
 			trigger = {
 				owner = {
@@ -9907,7 +10045,7 @@ potosi = {
 				trade_goods_size = 3
 				inflation_reduction = 0.05
 			}
-		}
+		}	
 	}
 }
 
@@ -10067,6 +10205,7 @@ kaaba = {
 				global_prov_trade_power_modifier = 0.025
 			}
 		}
+		
 		#what effects happen when this tier is achieved
 		on_upgraded = {
 		}
@@ -10153,6 +10292,7 @@ kaaba = {
 			religious_unity = 0.2
 			warscore_cost_vs_other_religion = -0.1
 		}
+
 		conditional_modifier = {
 			tooltip_potential = {
 				owner = { tag = BYZ }
@@ -10178,6 +10318,7 @@ kaaba = {
 				global_prov_trade_power_modifier = 0.1
 			}
 		}
+		
 		#what effects happen when this tier is achieved
 		on_upgraded = {
 		}
@@ -12063,7 +12204,7 @@ duomo_milano = {
 	}
 }
 
-dutch_polders = {
+dutch_polders = {				#BT Changed to be more appropriate and cool
 	start = 97 #Amsterdam
 	date = 1100.01.01
 	time = { months = 0	}
@@ -12075,31 +12216,14 @@ dutch_polders = {
 
 	build_trigger = {
 		OR = {
-			AND = {
-				culture = dutch
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = dutch_modern		#CI Changed, Dutch evolves from Low Franconian (or dutch in the code)
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = dutch_low_saxon
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = west_frisian #CI
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = frisian #CI
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture_group = old_latin
-				province_is_or_accepts_culture = yes
-			}
-		}	
+			culture = dutch
+			culture = dutch_modern		#CI Changed, Dutch evolves from Low Franconian (or dutch in the code)
+			culture = dutch_low_saxon
+			culture = west_frisian #CI
+			culture = frisian #CI
+			culture_group = old_latin
+		}
+		province_is_or_accepts_culture = yes	
 	}
 
 	on_built = {
@@ -12110,60 +12234,26 @@ dutch_polders = {
 
 	can_use_modifiers_trigger = {
 		OR = {
-			AND = {
-				culture = dutch
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = dutch_modern		#CI Changed, Dutch evolves from Low Franconian (or dutch in the code)
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = dutch_low_saxon
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = west_frisian #CI
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = frisian #CI
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture_group = old_latin
-				province_is_or_accepts_culture = yes
-			}
-		}	
+			culture = dutch
+			culture = dutch_modern		#CI Changed, Dutch evolves from Low Franconian (or dutch in the code)
+			culture = dutch_low_saxon
+			culture = west_frisian #CI
+			culture = frisian #CI
+			culture_group = old_latin
+		}
+		province_is_or_accepts_culture = yes		
 	}
 
 	can_upgrade_trigger = {
 		OR = {
-			AND = {
-				culture = dutch
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = dutch_modern		#CI Changed, Dutch evolves from Low Franconian (or dutch in the code)
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = dutch_low_saxon
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = west_frisian #CI
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture = frisian #CI
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture_group = old_latin
-				province_is_or_accepts_culture = yes
-			}
-		}	
+			culture = dutch
+			culture = dutch_modern		#CI Changed, Dutch evolves from Low Franconian (or dutch in the code)
+			culture = dutch_low_saxon
+			culture = west_frisian #CI
+			culture = frisian #CI
+			culture_group = old_latin
+		}
+		province_is_or_accepts_culture = yes	
 	}
 
 	keep_trigger = {
@@ -12196,11 +12286,12 @@ dutch_polders = {
 		province_modifiers = {
 		}
 		area_modifier = {
-			local_defensiveness = 0.1
-			local_monthly_devastation = -0.25
+			local_monthly_devastation = -0.02
+			local_development_cost = -0.05
+			local_state_maintenance_modifier = 0.25 	
+			trade_goods_size_modifier = 0.15
 		}
 		country_modifiers = {
-			global_trade_goods_size_modifier = 0.05
 			burghers_loyalty_modifier = 0.05
 		}
 		on_upgraded = {
@@ -12217,11 +12308,14 @@ dutch_polders = {
 		province_modifiers = {
 		}
 		area_modifier = {
-			local_defensiveness = 0.15
-			local_monthly_devastation = -0.5
+		}
+		region_modifier = {
+			local_monthly_devastation = -0.05
+			local_development_cost = -0.05
+			local_state_maintenance_modifier = 0.25	
+			trade_goods_size_modifier = 0.15
 		}
 		country_modifiers = {
-			global_trade_goods_size_modifier = 0.05
 			burghers_loyalty_modifier = 0.1
 		}
 		on_upgraded = {
@@ -12238,11 +12332,14 @@ dutch_polders = {
 		province_modifiers = {
 		}
 		area_modifier = {
-			local_defensiveness = 0.25
-			local_monthly_devastation = -1
+		}
+		region_modifier = {
+			local_monthly_devastation = -0.1
+			local_development_cost = -0.1
+			trade_goods_size_modifier = 0.3
+			local_state_maintenance_modifier = 0.5	
 		}
 		country_modifiers = {
-			global_trade_goods_size_modifier = 0.1
 			burghers_loyalty_modifier = 0.15
 		}
 		on_upgraded = {
@@ -12260,7 +12357,7 @@ ellora_caves = {
 	starting_tier = 1
 	type = monument
 
-	build_trigger = {		
+	build_trigger = {
 		OR = {
 			AND = {
 				religion_group = dharmic
@@ -12743,7 +12840,7 @@ gomateshwara_statue = {
 	date = 983.01.01
 	time = { months = 0	}
 	build_cost = 0
-	can_be_moved = yes
+	can_be_moved = no #Noooooooooo!
 	move_days_per_unit_distance = 10
 	starting_tier = 1
 	type = monument
@@ -12809,7 +12906,7 @@ gomateshwara_statue = {
 			tolerance_heretic = 0.25
 			tolerance_heathen = 0.25
 			tolerance_of_heretics_capacity = 0.25
-			tolerance_of_heathens_capacity = 0.25	
+			tolerance_of_heathens_capacity = 0.25
 			diplomatic_reputation = 1
 		}
 		on_upgraded = {
@@ -12833,7 +12930,7 @@ gomateshwara_statue = {
 			tolerance_heretic = 0.5
 			tolerance_heathen = 0.5
 			tolerance_of_heretics_capacity = 0.5
-			tolerance_of_heathens_capacity = 0.5	
+			tolerance_of_heathens_capacity = 0.5
 			diplomatic_reputation = 1
 		}
 		on_upgraded = {
@@ -12857,7 +12954,7 @@ gomateshwara_statue = {
 			tolerance_heretic = 1
 			tolerance_heathen = 1
 			tolerance_of_heretics_capacity = 1
-			tolerance_of_heathens_capacity = 1		
+			tolerance_of_heathens_capacity = 1
 			diplomatic_reputation = 2
 		}
 		on_upgraded = {
@@ -13064,7 +13161,7 @@ gyeongbok_palace = {
 					has_country_flag = enable_korean_palace_flag
 				}
 			}
-		}
+		}	
 	}
 
 	keep_trigger = {
@@ -16064,7 +16161,7 @@ white_house = {
 						}
 					}
 				}
-			}		
+			}			
 		}
 	}
 
@@ -16145,7 +16242,7 @@ white_house = {
 		}
 		country_modifiers = {
 			reform_progress_growth = 0.05
-			state_governing_cost = -0.05
+			state_maintenance_modifier = -0.1
 			reelection_cost = -0.05
 		}
 		on_upgraded = {
@@ -16165,7 +16262,7 @@ white_house = {
 		}
 		country_modifiers = {
 			reform_progress_growth = 0.1
-			state_governing_cost = -0.15
+			state_maintenance_modifier = -0.25
 			reelection_cost = -0.1
 		}
 		on_upgraded = {
@@ -16185,7 +16282,8 @@ white_house = {
 		}
 		country_modifiers = {
 			reform_progress_growth = 0.2
-			state_governing_cost = -0.25
+			state_maintenance_modifier = -0.5
+			state_governing_cost = -0.05
 			reelection_cost = -0.1
 		}
 		on_upgraded = {
@@ -16791,19 +16889,11 @@ winter_palace = {
 
 	build_trigger = {
 		OR = {
-			AND = {
-				culture_group = east_slavic
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture_group = slavic
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture_group = old_latin
-				province_is_or_accepts_culture = yes
-			}	
-		}		
+			culture_group = east_slavic
+			culture_group = slavic
+			culture_group = old_latin
+		}
+		province_is_or_accepts_culture = yes
 	}
 
 	on_built = {
@@ -16814,36 +16904,20 @@ winter_palace = {
 
 	can_use_modifiers_trigger = {
 		OR = {
-			AND = {
-				culture_group = east_slavic
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture_group = slavic
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture_group = old_latin
-				province_is_or_accepts_culture = yes
-			}	
-		}		
+			culture_group = east_slavic
+			culture_group = slavic
+			culture_group = old_latin
+		}
+		province_is_or_accepts_culture = yes
 	}
 
 	can_upgrade_trigger = {
 		OR = {
-			AND = {
-				culture_group = east_slavic
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture_group = slavic
-				province_is_or_accepts_culture = yes
-			}
-			AND = {
-				culture_group = old_latin
-				province_is_or_accepts_culture = yes
-			}	
-		}		
+			culture_group = east_slavic
+			culture_group = slavic
+			culture_group = old_latin
+		}
+		province_is_or_accepts_culture = yes
 	}
 
 	keep_trigger = {
@@ -16993,9 +17067,9 @@ zacatecas_mine_city = {
 		on_upgraded = {
 			if = {
 				limit = {	
-					NOT = { trade_goods = gold }
+					NOT = { trade_goods = bt_trade_good_silver } #BT Harb changed with new trade good 
 				}
-				change_trade_goods = gold 
+				change_trade_goods = bt_trade_good_silver  #BT Harb changed with new trade good 
 			}
 			else = { add_base_production = 1 }
 		}
@@ -17020,9 +17094,9 @@ zacatecas_mine_city = {
 		on_upgraded = {
 			if = {
 				limit = {	
-					NOT = { trade_goods = gold }
+					NOT = { trade_goods = bt_trade_good_silver } #BT Harb changed with new trade good 
 				}
-				change_trade_goods = gold 
+				change_trade_goods = bt_trade_good_silver  #BT Harb changed with new trade good 
 			}
 			else = { add_base_production = 1 }
 		}
@@ -17047,9 +17121,9 @@ zacatecas_mine_city = {
 		on_upgraded = {
 			if = {
 				limit = {	
-					NOT = { trade_goods = gold }
+					NOT = { trade_goods = bt_trade_good_silver } #BT Harb changed with new trade good 
 				}
-				change_trade_goods = gold 
+				change_trade_goods = bt_trade_good_silver  #BT Harb changed with new trade good 
 			}
 			else = { add_base_production = 1 }
 		}

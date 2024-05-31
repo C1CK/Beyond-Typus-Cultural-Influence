@@ -354,7 +354,9 @@ shaka_regime = {
 		allow = {
 			has_dlc = "Rights of Man"
 		}
-		militarised_society = yes
+		government_abilities = {
+			militarization_mechanic
+		}
 	}
 
 	ai = {
@@ -580,6 +582,16 @@ tribe_becomes_monarchy_reform = {
 			change_unit_type = chinese
 		}
 		change_government = monarchy
+		if = {
+			limit = {
+				tag = AVE
+			}
+			hidden_effect = {
+				country_event = {
+					id = flavor_gbr.20
+				}
+			}
+		}
 	}
 	ai = {
 		factor = 1
@@ -670,6 +682,16 @@ tribe_becomes_republic_reform = {
 			change_unit_type = chinese
 		}
 		change_government = republic
+		if = {
+			limit = {
+				tag = AVE
+			}
+			hidden_effect = {
+				country_event = {
+					id = flavor_gbr.20
+				}
+			}
+		}
 		if = {
 			limit = {
 				have_had_reform = stateless_society
@@ -786,6 +808,16 @@ tribe_becomes_theocracy_reform = {
 			change_unit_type = chinese
 		}
 		change_government = theocracy
+		if = {
+			limit = {
+				tag = AVE
+			}
+			hidden_effect = {
+				country_event = {
+					id = flavor_gbr.20
+				}
+			}
+		}
 	}
 	ai = {
 		factor = 1
@@ -810,12 +842,19 @@ tribe_becomes_horde_reform = {
 	}
 	effect = {
 		set_country_flag = populists_in_government
-		lose_reforms = 4
 		add_government_reform = steppe_horde
 		change_unit_type = nomad_group
 		change_technology_group = nomad_group
 		custom_tooltip = STEPPE_HORDE_BENEFITS
 		change_government = steppe_nomads
+	}
+	trigger = {
+		OR = {
+			NOT = {	has_reform = steppe_horde }
+			has_reform = tribe_becomes_horde_reform
+		}
+		NOT = { has_reform = great_mongol_state_reform }
+		NOT = { has_government_attribute_short_desc = locked_government_type }
 	}
 	ai = {
 		factor = 0
@@ -844,7 +883,10 @@ tribe_tribal_unity = {
 	icon = "fist_in_air"
 	allow_normal_conversion = yes
 	potential = {
-		has_reform = tribal_federation
+		OR = {
+			has_reform = tribal_federation
+			has_reform = turkoman_ottoman_institutions
+		}
 		has_dlc = "Cradle of Civilization"
 	}
 	modifiers = {
@@ -861,22 +903,114 @@ tribe_tribal_unity = {
 
 #(JP) I hope I'm doing this right. Any issues, please go ahead and fix
 #(JP) Possibly also usable for Oromos or others in the Horn. Who knows. 
-somali_clan = {
+somali_clan_reform = {
 	icon = "tribal_council"
 	allow_normal_conversion = no
 	potential = {
-		has_reform = somali_clan
+		has_reform = somali_clan_reform
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = -10
 	#legacy_equivalent = tribal_confederacy_legacy #(JP) Using another here I think?
-	native_mechanic = no
+	native_mechanic = yes
 	allow_migration = yes
 	modifiers = {
 		cavalry_cost = -0.10
 		loot_amount = 0.10
 	}
+	
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
+	
 	ai = {
 		factor = 1
+	}
+}
+
+arabic_tribe_reform = {
+	icon = "tribal_council"
+	allow_normal_conversion = no
+	potential = {
+		has_reform = arabic_tribe_reform
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = -10
+	#legacy_equivalent = tribal_confederacy_legacy #(JP) Using another here I think?
+	native_mechanic = yes
+	allow_migration = yes
+	modifiers = {
+		cavalry_cost = -0.10
+		leader_land_shock = 1
+	}
+	
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			tribal_federation_mechanic
+		}
+	}
+	
+	ai = {
+		factor = 1
+	}
+}
+
+non_sedentary_clan_settle_down_reform = {
+	icon = "native_settle_down_reform"
+	fixed_rank = 0
+	potential = {
+		OR = {
+			has_reform = somali_clan_reform
+			has_reform = arabic_tribe_reform #TBI
+		}
+	}
+	trigger = {
+		if = { 
+			limit = {
+				has_dlc = "Conquest of Paradise"
+			}
+			custom_trigger_tooltip = {
+				tooltip = "MUST_BE_IN_TRIBAL_LAND_TO_SETTLE"
+				capital_scope = { tribal_land_of = ROOT }
+			}
+		}
+	}
+	modifiers = {
+		global_institution_spread = 0.2
+		add_tribal_land_cost = 2.0
+		governing_capacity_modifier = -0.25
+	}
+	conditional = {
+		allow = { has_dlc = "Conquest of Paradise" }
+		allow_migration = no
+		custom_attributes = {
+			enable_settled_mechanics = yes
+			enable_tribal_grazing = no
+		}
+	}
+	
+	custom_attributes = {
+		locked_government_type = yes
+	}
+
+	ai = {
+		factor = 0.5
+		
+
+		modifier = { 
+			factor = 2
+			tribal_development = 30
+		}
+
+		modifier = { 
+			factor = 2
+			tribal_development = 40
+		}
 	}
 }

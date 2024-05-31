@@ -2,9 +2,9 @@ estate_cossacks = {
 	icon = 4
 	
 	# Used for when declaring independence
-	independence_government = tribal
-	starting_reform = steppe_horde
-	independence_tech_group = nomad_group
+	independence_government = republic
+	starting_reform = cossacks_reform
+	independence_tech_group = eastern
 
 	province_independence_weight = {
 		factor = 1
@@ -14,7 +14,10 @@ estate_cossacks = {
 		}
 		modifier = {
 			factor = 2
-			culture_group = east_slavic
+			OR = {
+				culture_group = east_slavic
+				culture_group = slavic
+			}
 		}
 		modifier = {
 			factor = 0.75
@@ -38,26 +41,39 @@ estate_cossacks = {
 	
 	trigger = {	
 		has_dlc = "The Cossacks"
-		NOT = { has_reform = pirate_republic_reform }
-		NOT = { has_reform = cossacks_reform }
-		NOT = { has_government_attribute = is_merchant_republic }
-		NOT = { has_reform = trading_city }
-		NOT = { is_revolutionary_republic_trigger = yes }
-		NOT = { government = native }
-		NOT = { has_reform = siberian_tribe }
-		NOT = { has_reform = veche_republic }
-		is_nomad = no
-		is_colonial_nation = no
-		NOT = { has_reform = celestial_empire }
-		unit_type = eastern
-		religion_group = christian
-		NOT = { has_reform = revolutionary_empire_reform }
+		NOT = { has_government_attribute = disables_estate_cossacks }
+		NOT = { has_disabled_estate = { estate = estate_cossacks } }
 		OR = {
-			has_estate = estate_cossacks
-			any_owned_province = {
-				has_terrain = steppe
+			has_government_attribute = enables_estate_cossacks
+			has_enabled_estate = { estate = estate_cossacks }
+			AND = {
+				OR = {
+					has_unlocked_estate = { estate = estate_cossacks }
+					AND = {
+						unit_type = eastern
+						religion_group = christian
+						OR = {
+							has_estate = estate_cossacks
+							any_owned_province = {
+								has_terrain = steppe
+							}
+						}
+					}
+				}
+				NOT = { has_government_attribute = is_pirate_republic_reform }
+				#NOT = { has_reform = cossacks_reform }
+				NOT = { is_revolutionary_republic_trigger = yes }
+				NOT = { government = native }
+				NOT = { has_reform = siberian_tribe }
+				is_nomad = no
+				is_colonial_nation = no
+				NOT = { has_reform = celestial_empire }
+				NOT = { has_reform = revolutionary_empire_reform }
 			}
 		}
+		#NOT = { has_government_attribute = is_merchant_republic }
+		#NOT = { has_reform = trading_city }
+		#NOT = { has_reform = veche_republic }
 	}
 
 	# These scale with loyalty & power
@@ -65,6 +81,7 @@ estate_cossacks = {
 		cavalry_cost = -0.2
 		cavalry_power = 0.2
 		cav_to_inf_ratio = 0.10
+		country_dev_points_modifier = 0.02
 	}
 	country_modifier_neutral = {
 		cavalry_power = 0.2
@@ -73,6 +90,7 @@ estate_cossacks = {
 		cavalry_cost = 0.2
 		cavalry_power = -0.1
 		global_unrest = 2
+		country_dev_points_modifier = -0.02
 	}
 	land_ownership_modifier = {
 		cossacks_loyalty_modifier = 0.2
@@ -93,14 +111,8 @@ estate_cossacks = {
 	influence_modifier = {
 		desc = EST_VAL_OTHER_ESTATE_IN_POWER
 		trigger = {
-			OR = {
-				has_disaster = estate_nobility_disaster
-				has_disaster = estate_church_disaster
-				has_disaster = estate_burghers_disaster
-				has_disaster = estate_brahmins_disaster
-				has_disaster = estate_vaisyas_disaster
-				has_disaster = estate_jains_disaster
-			}
+			has_any_estate_disaster_active = yes
+			has_not_own_estate_disaster_active = { estate = estate_cossacks }
 		}
 		influence = -40
 	}
@@ -110,14 +122,8 @@ estate_cossacks = {
 	loyalty_modifier = {
 		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
 		trigger = {
-			OR = {
-				has_disaster = estate_nobility_disaster
-				has_disaster = estate_church_disaster
-				has_disaster = estate_burghers_disaster
-				has_disaster = estate_brahmins_disaster
-				has_disaster = estate_vaisyas_disaster
-				has_disaster = estate_jains_disaster
-			}
+			has_any_estate_disaster_active = yes
+			has_not_own_estate_disaster_active = { estate = estate_cossacks }
 		}
 		loyalty = -20
 	}
@@ -130,7 +136,16 @@ estate_cossacks = {
 		estate_cossacks_expand_the_cossack_regiments
 		estate_cossacks_recruit_cossack_generals
 		estate_cossacks_prime_herding_rights
-		estate_cossacks_autonomous_steppe_settlements #CI
+		estate_cossacks_freedom_of_the_steppes
+		estate_cossacks_grant_military_leadership
+		estate_cossacks_exempt_from_bureaucracy
+		estate_cossacks_military_service
+		estate_cossacks_expand_cossacks_raiders
+		#BT
+		estate_cossacks_siberian_frontier
+		estate_cossacks_monopoly_of_vodka
+		#CI
+		estate_cossacks_autonomous_steppe_settlements
 	}
 
 	agendas = {

@@ -10,6 +10,13 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			if = {		#BT added - special limitations for the ai so they don't try to do this even if they meet the requirements
+				limit = {
+					ai = yes
+				}
+				is_emperor = no 	#BT added so ai emperor cannot try to forfil the requirements by killing the hre
+				num_of_cities = 50	#BT added they need to be quite large to think about becoming domineering
+			}
 			NOT = { exists = GER }
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
@@ -227,6 +234,7 @@ country_decisions = {
 				}
 				add_permanent_claim = GER
 			}
+
 			#Swap culture, government, government reform & ideas, plus set flag
 			if = {
 				limit = {
@@ -235,6 +243,7 @@ country_decisions = {
 				swap_ideas = yes
 			}
 			set_country_flag = formed_germany_flag
+			set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
 		}
 		ai_will_do = {
 			factor = 1

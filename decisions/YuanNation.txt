@@ -1,6 +1,6 @@
 country_decisions = {
 
-	from_great_yuan = {
+	form_great_yuan = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
@@ -9,6 +9,10 @@ country_decisions = {
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
 			}
 			NOT = { exists = YUA }
 			NOT = { tag = MUG }
@@ -39,7 +43,7 @@ country_decisions = {
 				province_id = 688 #Kaifeng
 				province_id = 723 #Xilin Gol
 				province_id = 1816 #Beijing
-				province_id = 2190 #Qaraqorum
+				province_id = 4678 #Qaraqorum
 				province_id = 2136 #Xuanha
 				province_id = 2171 #Xiangyang
 				AND = {
@@ -114,11 +118,20 @@ country_decisions = {
 			if = {
 				limit = {
 					has_dlc = "Mandate of Heaven"
+					any_country = {
+						is_emperor_of_china = yes
+					}
 				}
 				is_emperor_of_china = yes
-				else = {
-					government_rank = 3
+			}
+			else_if = {
+				limit = {
+					has_dlc = "Common Sense"
 				}
+				government_rank = 3
+			}
+			else = {
+				total_development = 2000 # BT; 1000
 			}
 		}
 		effect = {
@@ -139,6 +152,7 @@ country_decisions = {
 				rename_capital = Zhongdu 
 			}
 			change_tag = YUA
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			china_superregion = {
 				limit = {
@@ -172,6 +186,77 @@ country_decisions = {
 			}
 			add_prestige = 20
 			set_country_flag = formed_yuan_flag
+			set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
+			if = { #Sinicize the Mongols
+				limit = {
+					NOT = { has_global_flag = sinicized_altaic_flag }
+				}
+				change_primary_culture = altaic_new
+				set_ruler_culture = altaic_new
+				if = {
+					limit = {
+						has_heir = yes
+					}
+					set_heir_culture = altaic_new
+				}
+				if = {
+					limit = {
+						has_consort = yes
+						OR = {
+							consort_culture = mongol
+							consort_culture = oirats
+							consort_culture = khalkha
+							consort_culture = chahar
+						}
+					}
+					set_consort_culture = altaic_new
+				}
+				hidden_effect = {
+					every_province = {
+						limit = {
+							OR = {
+								culture = mongol
+								culture = oirats
+								culture = khalkha
+								culture = chahar
+							}
+						}
+						change_culture = altaic_new
+					}
+					every_country = {
+						limit = {
+							OR = {
+								primary_culture = mongol
+								primary_culture = oirats
+								primary_culture = khalkha
+								primary_culture = chahar
+							}
+						}
+						change_primary_culture = altaic_new
+						set_ruler_culture = altaic_new
+						if = {
+							limit = {
+								has_heir = yes
+							}
+							set_heir_culture = altaic_new
+						}
+						if = {
+							limit = {
+								has_consort = yes
+								OR = {
+									consort_culture = mongol
+									consort_culture = oirats
+									consort_culture = khalkha
+									consort_culture = chahar
+								}
+							}
+							set_consort_culture = altaic_new
+						}
+					}
+					set_global_flag = sinicized_altaic_flag
+				}
+				custom_tooltip = sinicize_mongols_ct
+			}
 			if = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
