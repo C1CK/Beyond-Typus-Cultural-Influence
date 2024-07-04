@@ -12,5 +12,5 @@ dependencies={
 	"1088606279"
 }
 name="[BETA] BT Addon : Cultural Influence | Github Mirror"
-supported_version="1.36.*"
+supported_version="1.37.*"
 remote_file_id="2296930803"
