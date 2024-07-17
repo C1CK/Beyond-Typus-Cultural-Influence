@@ -655,7 +655,7 @@ province_event = { #Cappadocian settlements and assimilation
 		owner = { culture_group = byzantine }
 		cappadocian_culture_region = yes
 		NOT = { has_global_flag = rhomaio_formed }
-		NOT = { culture = cappadocian }
+		NOT = { culture = cappadocian_greek }
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist. Due to Byzantium's Exarchs AIs are allowed to do it if their overlord (presumably the player) has it.
 			owner = { has_country_modifier = hellenic_settlements }
@@ -801,7 +801,7 @@ province_event = { #Cappadocian settlements and assimilation
 	option = {
 		name = greek_reclamation.a	
 
-		change_culture = cappadocian	
+		change_culture = cappadocian_greek	
 	}
 }
 
@@ -10833,17 +10833,17 @@ country_event = { #Choose new Primary
 	option = { #Cappadocian
 		name = anatolian_split_new_primary.b
 
-		remove_accepted_culture = cappadocian
-		change_primary_culture = cappadocian
-		set_ruler_culture = cappadocian
-		set_heir_culture = cappadocian
-		set_consort_culture = cappadocian
+		remove_accepted_culture = cappadocian_greek
+		change_primary_culture = cappadocian_greek
+		set_ruler_culture = cappadocian_greek
+		set_heir_culture = cappadocian_greek
+		set_consort_culture = cappadocian_greek
 
 		ai_chance = { 
 			factor = 1
 			modifier = {
 				factor = 100
-				dominant_culture = cappadocian
+				dominant_culture = cappadocian_greek
 			}
 			modifier = {
 				factor = 100
