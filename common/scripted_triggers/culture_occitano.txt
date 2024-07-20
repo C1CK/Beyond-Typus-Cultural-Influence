@@ -12,77 +12,42 @@ occitano_homeland = {
 
 gascon_culture_region = {
 	OR = {
-		area = pyrenees_area #Lower Gascony
-		area = upper_gascony
-		province_id = 7925 #Buch
-		province_id = 174 #Bordeaux
-		province_id = 7927 #Bazas
-		province_id = 7928 #Libourne
+		province_group = gascon_culture_region_provinces
 	}
 }
 
 gascon_langadocian_conflict_region = {
 	OR = {
-		area = poitou_area
+		province_group = gascon_langadocian_conflict_region_provinces
 	}
 }
 
 langadocian_culture_region = {
 	OR = {
-		province_id = 194 #Perigord
-		province_id = 7030 #Bergerac
-		province_id = 3081 #Agenais
-		area = limousin_area
-		province_id = 3087 #Aurillac
-		area = upper_guyenne_area #Quercy-Rouergue
-		AND = {
-			area = west_languedoc_area
-			NOT = { province_id = 197 } #Rosellon
-		}
-		AND = {
-			area = languedoc_area
-			NOT = { province_id = 4391 } #Velay
-		}
+		province_group = langadocian_culture_region_provinces
 	}
 }
 
 auvergnat_culture_reghion = {
 	OR = {
-		AND = {
-			area = massif_central_area #Auvergne
-			NOT = { province_id = 3087 } #Aurillac
-		}
-		province_id = 4391 #Velay
-		area = lyonnais_area
+		province_group = auvergnat_culture_reghion_provinces
 	}
 }
 
 provencal_culture_region = {
 	OR = {
-		area = dauphine_area
-		area = provence_area
-		province_id = 102 #Nice
-		province_id = 7056 #Monaco
+		province_group = provencal_culture_region_provinces
 	}
 }
 
 aragonese_culture_region = {
 	OR = {
-		area = basque_country #Vasconia
-		province_id = 2989 #Rioja
-		province_id = 2755 #Soria
-		area = aragon_area
+		province_group = aragonese_culture_region_provinces
 	}
 }
 
 catalan_culture_region = {
 	OR = {
-		province_id = 197 #Rosellon
-		area = catalonia_area
-		area = valencia_area
-		province_id = 8065 #Villena
-		province_id = 221 #Murcia
-		province_id = 8067 #Cartagena
-		area = baleares_area
+		province_group = catalan_culture_region_provinces
 	}
 }
