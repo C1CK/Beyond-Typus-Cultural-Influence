@@ -57,24 +57,22 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			owns_core_province = 92 # Brussel
-			calc_true_if = {
-				all_owned_province = {
-					is_core = ROOT
-					OR = {
-						province_id = 90 # Brugge
-						province_id = 91 # Hainaut
-						province_id = 92 # Brussel
-						province_id = 93 # Liege
-						province_id = 1742 # Limburg
-						province_id = 1744 # Antwerpen
-						province_id = 1865 # Ghent
-						province_id = 1866 # Namur
-						province_id = 2974 # Loon
-						province_id = 3064 # Westhoek
-						province_id = 4769 # Lille
-					}
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				OR = {
+					province_id = 90 # Brugge
+					province_id = 91 # Hainaut
+					province_id = 92 # Brussel
+					province_id = 93 # Liege
+					province_id = 1742 # Limburg
+					province_id = 1744 # Antwerpen
+					province_id = 1865 # Ghent
+					province_id = 1866 # Namur
+					province_id = 2974 # Loon
+					province_id = 3064 # Westhoek
+					province_id = 4769 # Lille
 				}
-				amount = 7			#At least 2/3 of Belgium's 11 provinces (approximate)
+				value = 7			#At least 2/3 of Belgium's 11 provinces (approximate)
 			}
 			total_development = 100			#Normal requirement for rank 2 is 500 dev, so this is 80 percent discounted.
 			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
@@ -153,12 +151,10 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			owns_core_province = 4730	# Bologna
-			calc_true_if = {
-				all_owned_province = {
-					is_core = ROOT
-					culture = romagnan
-				}
-				amount = 15			#At least 2/3rds of Romagnol-cultured 22 provinces
+			num_of_owned_provinces_with  = {
+				is_core = ROOT
+				culture = romagnan
+				value = 15			#At least 2/3rds of Romagnol-cultured 22 provinces
 			}
 		}
 		effect = {
@@ -227,16 +223,14 @@ country_decisions = {
 			owns_or_vassal_of = 186			# Rheims, coronation site
 			owns_or_vassal_of = 203			# Lyon
 			owns_or_vassal_of = 4389			# Tours
-			custom_trigger_tooltip = {
-				tooltip = hegemony_over_france_tooltip
-				calc_true_if = {
-					france_region = {
-						type = all
-						country_or_vassal_holds = ROOT
-						is_core = owner
-					}
-					amount = 149			#At least 90 percent of France's 161 provinces. Note the modern france includes a further 30 provinces, give or take a couple
+			calc_true_if = {
+				desc = hegemony_over_france_tooltip
+				france_region = {
+					type = all
+					country_or_vassal_holds = ROOT
+					is_core = owner
 				}
+				amount = 149			#At least 90 percent of France's 161 provinces. Note the modern france includes a further 30 provinces, give or take a couple
 			}
 			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted
 			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
@@ -334,12 +328,10 @@ country_decisions = {
 			owns_core_province = 227	# Lisboa
 			owns_core_province = 231	# Porto
 			owns_core_province = 8042	# Santiago de la Compostela
-			calc_true_if = {
-				all_owned_province = {
-					is_core = ROOT
-					region = iberia_region
-				}
-				amount = 103			#At least 2/3 of Iberia's 153 provinces. This is Portugal plus 72 other provinces, roughly half of non Portuguese Iberia.
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				region = iberia_region
+				value = 103			#At least 2/3 of Iberia's 153 provinces. This is Portugal plus 72 other provinces, roughly half of non Portuguese Iberia.
 			}
 			total_development = 500			#Special discount. Normal requirement for rank 3 is 2000 dev, so this is 75 percent discounted.
 			prestige = 40			#Normal requirement for rank 3 is 75 prestige.
@@ -419,26 +411,24 @@ country_decisions = {
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			calc_true_if = {
-				all_owned_province = {
-					is_core = ROOT
-					OR = {
-						province_id = 131				# Zagreb
-						province_id = 137				# Ragusa
-						province_id = 138				# Zeta
-						province_id = 139				# Hum
-						province_id = 3002				# Lasva
-						province_id = 141				# Belgrade
-						province_id = 1766			# Kosovo
-						province_id = 1767			# Slavonia
-						province_id = 1826			# Lika
-						province_id = 3001			# Skopje
-						province_id = 4755			# Sarajevo
-						province_id = 3187			# Podrinje
-						province_id = 4752			# Rijeka
-					}
+			num_of_owned_provinces_with  = {
+				is_core = ROOT
+				OR = {
+					province_id = 131				# Zagreb
+					province_id = 137				# Ragusa
+					province_id = 138				# Zeta
+					province_id = 139				# Hum
+					province_id = 3002				# Lasva
+					province_id = 141				# Belgrade
+					province_id = 1766			# Kosovo
+					province_id = 1767			# Slavonia
+					province_id = 1826			# Lika
+					province_id = 3001			# Skopje
+					province_id = 4755			# Sarajevo
+					province_id = 3187			# Podrinje
+					province_id = 4752			# Rijeka
 				}
-				amount = 9			#At least 2/3 of Illyria's 13 provinces (approximate)
+				value = 9			#At least 2/3 of Illyria's 13 provinces (approximate)
 			}
 			total_development = 500			#Special discount. Normal requirement for rank 3 is 2000 dev, so this is 75 percent discounted.
 			prestige = 40			#Normal requirement for rank 3 is 75 prestige.
@@ -508,12 +498,10 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			owns_core_province = 339			# Bugia
-			calc_true_if = {
-				all_owned_province = {
-					is_core = ROOT
-					area = kabylia_area
-				}
-				amount = 4			#All of Kabylia's 4 provinces
+			num_of_owned_provinces_with  = {
+				is_core = ROOT
+				area = kabylia_area
+				value = 4			#All of Kabylia's 4 provinces
 			}
 		}
 		effect = {
@@ -718,6 +706,7 @@ country_decisions = {
 				primary_culture = ceskoslovensky
 				primary_culture = bohemian #Don't exist, but will in earlier start dates
 				primary_culture = moravian #Don't exist, but will in earlier start dates
+			}
 			if = {		#BT added - special limitations for the ai so they don't try to do this even if they meet the requirements
 				limit = {
 					ai = yes

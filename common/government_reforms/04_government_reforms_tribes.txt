@@ -506,6 +506,10 @@ tribe_becomes_monarchy_reform = {
 		NOT = { has_government_attribute_short_desc = locked_government_type }
 	}
 	effect = {
+		if = {
+			limit = { has_reform = steppe_horde }
+			hidden_effect = { set_country_flag = was_horde_flag }
+		}
 		set_country_flag = populists_in_government
 		lose_reforms = 4
 		if = {
@@ -606,6 +610,10 @@ tribe_becomes_republic_reform = {
 		NOT = { has_government_attribute_short_desc = locked_government_type }
 	}
 	effect = {
+		if = {
+			limit = { has_reform = steppe_horde }
+			hidden_effect = { set_country_flag = was_horde_flag }
+		}
 		set_country_flag = populists_in_government
 		lose_reforms = 4
 		if = {
@@ -732,6 +740,10 @@ tribe_becomes_theocracy_reform = {
 		NOT = { has_government_attribute_short_desc = locked_government_type }
 	}
 	effect = {
+		if = {
+			limit = { has_reform = steppe_horde }
+			hidden_effect = { set_country_flag = was_horde_flag }
+		}
 		set_country_flag = populists_in_government
 		lose_reforms = 4
 		if = {

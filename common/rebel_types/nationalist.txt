@@ -39,7 +39,7 @@ nationalist_rebels = {
 		factor = 10
 		#modifier = { #No separatists if accepted and has tolerance
 		#	factor = 0.01
-		#	NOT = { nationalism = 1 }
+		#	NOT = { nationalism_debug = 1 }
 		#	owner = {
 		#		OR = {
 		#			accepted_culture = ROOT
@@ -95,7 +95,7 @@ nationalist_rebels = {
 		}
 		modifier = {
 			factor = 10
-			nationalism = 1
+			nationalism_debug = 1
 		}
 		modifier = {
 			factor = 15
@@ -186,6 +186,38 @@ nationalist_rebels = {
 				NOT = { legitimacy_or_horde_unity = 75 }
 			}
 		}
+		###########################
+		#BT Added factors
+		##########################
+		modifier = {
+			factor = 0.001
+			culture = saxon
+			NOT = {
+				any_country = {
+					primary_culture = saxon
+					is_core = ROOT
+				}
+			}
+			OR = {
+				area = wallachia_area
+				area = upper_muntenia_area
+				area = oltenia_area
+			}
+		}
+		modifier = {
+			factor = 0.001
+			culture = albanian
+			NOT = {
+				any_country = {
+					primary_culture = albanian
+					is_core = ROOT
+				}
+			}
+			OR = {
+				area = morea_area
+				area = western_aegean_area
+			}
+		}
 	}
  
  	# This is checked for EACH province in the Area of Operations
@@ -240,6 +272,13 @@ nationalist_rebels = {
 	
 	# Country scope
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		add_prestige = -10	
 		if = {
 			limit = {

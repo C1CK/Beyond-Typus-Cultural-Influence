@@ -9,9 +9,9 @@ country_decisions = {
 				233 = { culture = cornish } #Cornwall
 				4373 = { culture = cornish } #South Devon
 				8122 = { culture = cornish } #North Devon
-				233 = { culture = celtic_cornish } #Cornwall
-				4373 = { culture = celtic_cornish } #South Devon
-				8122 = { culture = celtic_cornish } #North Devon
+				233 = { culture = celtic_cornish_culture } #Cornwall
+				4373 = { culture = celtic_cornish_culture } #South Devon
+				8122 = { culture = celtic_cornish_culture } #North Devon
 			}
 		}
 
@@ -83,7 +83,7 @@ country_decisions = {
 
 		allow = {
 			#NOT = { accepted_culture = welsh } #Removed -AI is dumb
-			#NOT = { accepted_culture = celtic_welsh } #Removed -Ai is dumb
+			#NOT = { accepted_culture = celtic_welsh_culture } #Removed -Ai is dumb
 			wales_area = { #Gwynedd
 				type = all
 				owned_by = ROOT
@@ -136,7 +136,7 @@ country_decisions = {
 			custom_tooltip = enables_anglicization_of_wales
 			add_dip_power = -300
 			remove_accepted_culture = welsh
-			remove_accepted_culture = celtic_welsh
+			remove_accepted_culture = celtic_welsh_culture
 			add_accepted_culture = anglo_welsh
 		}
 
@@ -260,7 +260,7 @@ country_decisions = {
 			4379 = { change_culture = anglo_irish } #King's County
 			add_dip_power = -300
 			remove_accepted_culture = irish
-			remove_accepted_culture = celtic_irish
+			remove_accepted_culture = celtic_irish_culture
 			add_accepted_culture = anglo_irish
 		}
 
@@ -344,9 +344,9 @@ country_decisions = {
 				233 = { culture = cornish } #Cornwall
 				4373 = { culture = cornish } #South Devon
 				8122 = { culture = cornish } #North Devon
-				233 = { culture = celtic_cornish } #Cornwall
-				4373 = { culture = celtic_cornish } #South Devon
-				8122 = { culture = celtic_cornish } #North Devon
+				233 = { culture = celtic_cornish_culture } #Cornwall
+				4373 = { culture = celtic_cornish_culture } #South Devon
+				8122 = { culture = celtic_cornish_culture } #North Devon
 			}
 			dip_power = 200
 		}
@@ -372,9 +372,9 @@ country_decisions = {
 				}
 				if = {
 					limit = {
-						any_province = { culture = celtic_cornish }
+						any_province = { culture = celtic_cornish_culture }
 					}
-					change_culture = celtic_cornish
+					change_culture = celtic_cornish_culture
 				}
 			}
 			if = {
@@ -385,9 +385,9 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					any_province = { culture = celtic_cornish }
+					any_province = { culture = celtic_cornish_culture }
 				}
-				add_accepted_culture = celtic_cornish
+				add_accepted_culture = celtic_cornish_culture
 			}
 			set_country_flag = cornish_devolved_parliament_flag
 		}
@@ -410,7 +410,7 @@ country_decisions = {
 				type = any
 				OR = {
 					culture = breton
-					culture = celtic_breton
+					culture = celtic_breton_culture
 				}
 			}
 			brittany_area = { #Upper Brittany
@@ -421,7 +421,7 @@ country_decisions = {
 				type = any
 				OR = {
 					culture = breton
-					culture = celtic_breton
+					culture = celtic_breton_culture
 				}
 			}
 			lower_brittany_area = {
@@ -442,9 +442,9 @@ country_decisions = {
 				}
 				if = {
 					limit = {
-						any_province = { culture = celtic_breton }
+						any_province = { culture = celtic_breton_culture }
 					}
-					change_culture = celtic_breton
+					change_culture = celtic_breton_culture
 				}
 			}
 			lower_brittany_area = {
@@ -456,9 +456,9 @@ country_decisions = {
 				}
 				if = {
 					limit = {
-						any_province = { culture = celtic_breton }
+						any_province = { culture = celtic_breton_culture }
 					}
-					change_culture = celtic_breton
+					change_culture = celtic_breton_culture
 				}
 			}
 			if = {
@@ -469,9 +469,9 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					any_province = { culture = celtic_breton }
+					any_province = { culture = celtic_breton_culture }
 				}
-				add_accepted_culture = celtic_breton
+				add_accepted_culture = celtic_breton_culture
 			}
 			172 = {
 				add_province_triggered_modifier = breton_devolved_parliament_modifier

@@ -8,6 +8,10 @@ country_decisions = {
 				tag = YUA
 				tag = GLH
 				tag = ILK
+				custom_trigger_tooltip = {
+					tooltip = IS_CHAGATAI
+					has_country_flag = chagatai_formed_flag
+				}
 				#has_reform = holy_horde_reform #Yeah... nah, that's dumb
 				was_never_end_game_tag_trigger = yes
 			}
@@ -77,17 +81,17 @@ country_decisions = {
 					type = all
 					OR = {
 						is_empty = yes
-						owned_by = ROOT
+						country_or_non_sovereign_subject_holds = ROOT
 					}
 				}
 			}
 			central_asia_region = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			crimea_region = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			1816 = { country_or_non_sovereign_subject_holds = ROOT } #Beijing (No longer need direct control of China)
 			1821 = { country_or_non_sovereign_subject_holds = ROOT } #Nanjing
@@ -149,9 +153,10 @@ country_decisions = {
 				duration = 7300
 			}
 			set_country_flag = mongol_empire_flag
+			set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 0
 		}
 	}
 	
@@ -206,6 +211,8 @@ country_decisions = {
 					culture = ROOT
 					religion = ROOT
 				}
+				set_country_flag = formed_ilkhanate_flag #BT Added: Missing from this subject releasure
+				set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
 			}
 		}
 		ai_will_do = {
@@ -224,7 +231,12 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			OR = {
 				culture_group = tartar
+				primary_culture = altaic_new 
 				culture_group = altaic
 			}
 			capital_scope = {
@@ -255,6 +267,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = ILK
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { primary_culture = ilkhan }

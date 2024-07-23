@@ -417,7 +417,7 @@ province_event = { #Manx reclamation (Settle)
 		}
 		manx_culture_region = yes		
 		NOT = { culture = manx }
-		NOT = { culture = celtic_manx }
+		NOT = { culture = celtic_manx_culture }
 		NOT = { culture = goidhealach }
 		NOT = { culture = brythonaidd }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -578,7 +578,7 @@ province_event = { #Manx reclamation (Settle)
 			limit = {
 				has_global_flag = gaels_and_britons_reunited_into_one_group
 			}
-			change_culture = celtic_manx
+			change_culture = celtic_manx_culture
 		}
 		if = {
 			limit = {
@@ -1691,7 +1691,7 @@ country_event = { #Isles Reclaimed (Enables Goidelic Brythonic in-fighting)
 				OR = {
 					primary_culture = celtic_irish_culture
 					primary_culture = celtic_highland_scottish_culture
-					primary_culture = celtic_manx
+					primary_culture = celtic_manx_culture
 				}
 			}
 			set_country_flag = goidhealach_nation_flag
@@ -2000,7 +2000,7 @@ country_event = { #Goidhealach Spawned
 				limit = {
 					OR = {
 						primary_culture = celtic_irish_culture
-						primary_culture = celtic_manx
+						primary_culture = celtic_manx_culture
 						primary_culture = celtic_highland_scottish_culture
 					}
 				}
