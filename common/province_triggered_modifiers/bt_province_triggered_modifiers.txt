@@ -1,0 +1,443 @@
+#Added modifiers from Byzantine Resurgence
+mount_athos_modifier_muslim = {
+	potential = {
+		owner = {
+			religion_group = muslim
+		}
+	}
+
+	trigger = {
+		owner = {
+			religion_group = muslim
+		}
+		religion = orthodox
+	}
+	
+	tolerance_heathen = 1
+}
+
+mount_athos_modifier_orthodox = {
+	potential = {
+		owner = {
+			religion = orthodox
+		}
+		NOT = { has_dlc = "Leviathan" } #Gets replaced by monument
+	}
+
+	trigger = {
+		owner = {
+			religion = orthodox
+		}
+		religion = orthodox
+	}
+	
+	missionaries = 1
+}
+
+#Ecumenical Patriarch
+ecumenical_patriarch_modifier_muslim = {
+	potential = {
+		owner = {
+			religion_group = muslim
+		}
+	}
+
+	trigger = {
+		owner = {
+			religion_group = muslim
+		}
+		#Adjust this to require the event that Ottomans get.
+		OR = {
+			religion = orthodox
+			custom_trigger_tooltip = {
+				tooltip = br_tur_kept_patriarchate_tooltip
+				owner = {
+					has_country_flag = br_tur_kept_patriarchate
+				}
+			}
+		}
+	}
+	
+	tolerance_heathen = 1
+}
+
+ecumenical_patriarch_modifier_orthodox = {
+	potential = {
+		owner = {
+			religion = orthodox
+		}
+		NOT = { has_dlc = "Leviathan" } #Gets replaced by monument
+	}
+
+	trigger = {
+		owner = {
+			religion = orthodox
+		}
+		religion = orthodox
+	}
+	
+	global_missionary_strength = 0.01
+}
+
+#Orthodox province controlled by Catholic.
+orthodox_catholic_relations = {
+	potential = {
+		religion = orthodox
+		owner = {
+			religion = catholic
+		}
+		#Anything past of the age of discovery nullifies this. For better mod compatibility, I should detect any age past the age of reformation that is modded in. One potential age is the age of Enlightenment featured on the workshop.
+		#hidden_trigger is superfluous here, but easier to copy-paste this way.
+		NOT = { current_age = age_of_reformation }
+		hidden_trigger = { 
+			NOT = { current_age = age_of_absolutism }
+			NOT = { current_age = age_of_revolutions }
+		}
+	}
+
+	trigger = {
+		religion = orthodox
+		owner = {
+			religion = catholic
+			NOT = { has_idea_group = religious_ideas }
+		}
+		#Anything past of the age of discovery nullifies this. For better mod compatibility, I should detect any age past the age of reformation that is modded in. One potential age is the age of Enlightenment featured on the workshop.
+		NOT = { current_age = age_of_reformation }
+		hidden_trigger = {
+			NOT = { current_age = age_of_absolutism }
+			NOT = { current_age = age_of_revolutions }
+		}
+		
+	}
+	
+	local_missionary_strength = -0.03
+	local_unrest = -4
+	picture = "tolerance_heathen"
+}
+
+#Added by Dub
+bt_birkarls = {
+	potential = {
+		owner = {
+			religion_group = christian
+			tag = SWE #For now. They could be used by other tags later down the line, would it would require a way of revoking them.
+		}
+	}
+	trigger = {
+		if = {
+			limit = {
+				has_global_flag = cultural_influence_installed_flag
+			}
+			culture_group = sami_g	
+		}
+		else = {
+			culture = sapmi
+		}	
+		if = {
+			limit = {
+				has_global_flag = pagan_wrath_installed_flag
+			}
+			religion_group = pw_finnic_group
+		}
+		else = {
+			religion = animism
+		}
+		is_state = yes
+		owner = {
+			NOT = {
+				has_country_modifier = vasa_centralization_reforms
+			}
+		}
+	}
+	
+	local_unrest = -4
+	min_local_autonomy = 75
+	local_tax_modifier = 0.25
+	trade_goods_size_modifier = 0.25
+}
+
+
+bt_island_of_venice = { #Mainly here to remedy the fact that anyone can siege down Venice otherwise.
+	potential = {
+		NOT = { has_province_flag = bt_venice_flew_off_the_water_flag }
+	}
+	trigger = {
+		is_blockaded = no
+	}
+	
+	local_defensiveness = 2 #+200%
+	fort_level = 2
+}
+
+bt_kiev_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	missionaries = 1
+}
+
+bt_chernigov_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	global_trade_goods_size_modifier = 0.1
+}
+
+bt_smolensk_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	artillery_power = 0.05
+}
+
+bt_polotsk_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	global_institution_spread = 0.2
+}
+
+bt_turov_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	production_efficiency = 0.1
+}
+
+bt_volodymyr_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	defensiveness = 0.15
+}
+
+bt_halych_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	legitimacy = 1
+	
+}
+
+bt_pereyaslavl_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	shock_damage_received = -0.10
+}
+
+bt_moscow_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	improve_relation_modifier = 0.1
+}
+
+bt_ryazan_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	global_monthly_devastation = -0.05
+}
+
+bt_murom_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	prestige = 1
+}
+
+bt_rostov_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	promote_culture_cost = -0.1
+}
+
+bt_suzdal_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	global_tax_modifier = 0.1
+}
+
+bt_vladimir_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	great_project_upgrade_cost = -0.2
+}
+
+bt_novgorod_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	global_trade_power = 0.1
+}
+
+bt_pskov_principality = {
+	potential = {
+		owner = {
+			has_mission = ukr_rebuild_principalities
+		}
+	}
+	trigger = {
+		owner = {
+			mission_completed = ukr_rebuild_principalities
+		}
+		development = 30
+	}
+	
+	local_development_cost = -0.2
+	merchants = 1
+}
