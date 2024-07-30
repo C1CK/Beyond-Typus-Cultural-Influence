@@ -1,0 +1,160 @@
+
+dutch_theocracy_reform = {
+	icon = "dutch_republic"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			AND = {
+				OR = {
+					primary_culture = dutch
+					primary_culture = frisian
+					primary_culture = flemish
+					primary_culture = dutch_modern
+					primary_culture = dutch_low_saxon
+					primary_culture = west_frisian
+				}
+				NOT = { map_setup = map_setup_random }
+			}
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = dutch_theocracy_reform
+			}
+		}
+		NOT = { tag = PAP }
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	modifiers = {
+		heavy_ship_power = 0.1
+		trade_efficiency = 0.1
+		reduced_liberty_desire_on_other_continent = 10
+		has_voc_indiamen = yes
+		allowed_voc_indiamen_fraction = 0.2
+	}
+
+	removed_effect = {
+		country_event = { id = dutch_republic.33 }
+	}
+	royal_marriage = yes
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_divine_idea_group = no
+		has_dutch_election = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+		}
+		queen = no
+		heir = no
+		duration = 4
+		has_term_election = yes
+		is_eligible_for_hre_emperor = no
+		states_general_mechanic = {
+			statists = {
+				naval_forcelimit_modifier = 0.10
+				global_trade_power = 0.05
+				devotion = -0.5
+			}
+
+			orangists = {
+				land_forcelimit_modifier = 0.25
+				stability_cost_modifier = -0.10
+				devotion = 0.5
+			}
+		}
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+monastic_breweries_reform = {
+	potential = {
+		OR = {
+			religion = catholic
+			culture_group = gaelic
+			primary_culture = celtic_irish_culture
+			primary_culture = celtic_highland_scottish_culture
+			primary_culture = celtic_manx_culture
+			primary_culture = goidhealach
+			primary_culture = scottish
+			primary_culture = scottish_modern
+			primary_culture = standard_british
+		}
+	}
+	trigger = {
+		OR = {
+			religion = catholic
+			culture_group = gaelic
+			primary_culture = celtic_irish_culture
+			primary_culture = celtic_highland_scottish_culture
+			primary_culture = celtic_manx_culture
+			primary_culture = goidhealach
+			primary_culture = scottish
+			primary_culture = scottish_modern
+			primary_culture = standard_british
+		}
+		any_owned_province = {
+			OR = {
+				trade_goods = wine
+				trade_goods = grain
+			}
+		}
+	}
+	icon = "monastic_breweries_reform"
+	allow_normal_conversion = yes
+	modifiers = {
+		global_trade_goods_size_modifier = 0.1
+	}
+	effect = {
+		custom_tooltip = producing_wine_and_grain_tt
+		hidden_effect = {
+			every_owned_province = {
+				if = {
+					limit = {
+						trade_goods = wine
+					}
+					add_province_modifier = { 
+						name = wine_bonus_prod
+						duration = -1
+						hidden = yes
+					}
+				}
+				if = {
+					limit = {
+						trade_goods = grain
+					}
+					add_province_modifier = { 
+						name = grain_bonus_prod
+						duration = -1
+						hidden = yes
+					}
+				}
+			}
+		}
+	}
+	removed_effect = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						has_province_modifier = wine_bonus_prod
+						has_province_modifier = grain_bonus_prod
+					}
+				}
+				remove_province_modifier = wine_bonus_prod
+				remove_province_modifier = grain_bonus_prod
+			}
+		}
+	}
+}

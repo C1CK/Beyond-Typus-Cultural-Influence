@@ -1,0 +1,170 @@
+united_cantons_reform = {
+	icon = "united_cantons_reform"
+	allow_normal_conversion = yes
+	modifiers = {
+		governing_capacity = -100 #BT; -50
+		free_policy = 1
+		mercenary_manpower = 0.5
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	legacy_equivalent = united_cantons_legacy
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			primary_culture = swiss
+			primary_culture = swabian	#Alemannisch - Swiss not present at game start
+			primary_culture = hochdeustch
+			have_had_reform = united_cantons_reform
+		}
+	}
+	ai = {
+		factor = 10 #unique
+		
+		modifier = {
+			factor = 2
+			NOT = {
+				num_of_cities = 11
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			is_subject = yes
+		}
+	}
+
+	custom_attributes = {
+		mercs_do_not_cost_army_professionalism = yes
+	}
+}
+
+tysyatsky_reform = {
+	icon = "soldiers_2"
+	allow_normal_conversion = yes
+	potential = {
+		has_dlc = "Domination"
+		OR = {
+			has_unlocked_government_reform = { government_reform = tysyatsky_reform }
+			AND = {
+				NOT = { tag = RUS }
+				OR = {
+					primary_culture = ruthenian
+					primary_culture = ruthenian_new
+					primary_culture = ukrainian
+					primary_culture = ukrainian_new
+				}
+			}
+			AND = {
+				OR = {
+					culture_group = east_slavic
+					culture_group = slavic
+				}
+				government = republic
+			}
+		}
+	}
+	modifiers = {
+		republican_tradition = 0.3
+		leader_cost = -0.1
+		nobles_influence_modifier = 0.05
+		nobles_loyalty_modifier = 0.1
+	}
+	custom_attributes = {
+		recruiting_generals_increases_nobles_loyalty = yes
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+vodka_of_the_crown_reform = {
+	icon = vodka_monopoly
+	allow_normal_conversion = yes
+	potential = {
+		has_dlc = "Domination"
+		OR = {
+			primary_culture = russian #BT Changed: This does not make sense for Ruthenian nations according to what I've read, who would instead use a vodka monopoly to strengthen estates or similar.
+			primary_culture = muscovite
+			primary_culture = novgorodian
+			primary_culture = ryazanian
+			culture_group = slavic
+			has_unlocked_government_reform = { #BT Added: To allow Ruthenia to unlock the privilege
+				government_reform = vodka_of_the_crown_reform
+			}
+		}
+	}
+	modifiers = {
+		global_unrest = -1
+		idea_cost = 0.05
+		global_trade_goods_size_modifier = 0.1
+	}
+	effect = {
+		hidden_effect = {
+			every_owned_province = {
+				if = {
+					limit = {
+						trade_goods = grain
+					}
+					add_province_modifier = { 
+						name = grain_vodka_bonus_prod
+						duration = -1
+						hidden = yes
+					}
+				}
+			}
+		}
+	}
+	removed_effect = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = grain_vodka_bonus_prod
+				}
+				remove_province_modifier = grain_vodka_bonus_prod
+			}
+		}
+	}
+	custom_attributes = {
+		extra_trade_goods_from_grain = yes
+	}
+
+	ai = {
+		factor = 1
+	}
+}
+#Aragonese
+revive_the_almogavars_reform = {
+	icon = "soldiers_6"
+	allow_normal_conversion = yes
+	potential = {
+		has_dlc = "Domination"
+		NOT = { religion_group = muslim }
+		OR = {
+			primary_culture = catalan
+			primary_culture = aragonese
+			primary_culture = aragonese_decline
+		}
+	}
+	trigger = {
+		if = {
+			limit = { has_modifier_locking_military_tier = yes }
+			OR = {
+				has_reform = revive_the_almogavars_reform
+				has_not_modifier_locking_military_tier = yes
+			}
+		}
+	}
+	modifiers = {
+		manpower_in_true_faith_provinces = 0.05
+		movement_speed = 0.1
+		infantry_cost = -0.1
+	}
+	custom_attributes = {
+		has_improved_almogavars = yes
+	}
+	
+	ai = {
+		factor = 1000
+	}
+}
