@@ -39,7 +39,7 @@ country_decisions = {
 					culture_group = byzantine
 				}
 			}
-			amount = 75 #Out of 113 total
+			amount = 60 #Out of 92 total
 			}				
 		}
 		effect = {
@@ -73,7 +73,7 @@ country_decisions = {
 					culture_group = byzantine
 				}
 			}
-			amount = 80 #out of 129 total
+			amount = 50 #out of 81 total
 			}				
 		}
 		effect = {
@@ -96,25 +96,27 @@ country_decisions = {
 			rhomaio_culture_region = yes	
 		}		
 		allow = {
-		is_year = 1650
-		151 = {
-			has_province_modifier = byz_city_of_cities
-		}
-		148 = {
-			has_province_modifier = byz_co_capital
-		}
-		calc_true_if = { 
-			desc = rhomaio_unification_provinces_tooltip
-			all_owned_province = {
-				AND = {
-					rhomaio_culture_region = yes
-					OR = {
-						culture = anatolikos #Must unify Anatolians and reunify Aegeans first (if the latter splits)
-						culture = greek
-					}	
-				}
+			is_year = 1650
+			151 = {
+				has_province_modifier = byz_city_of_cities
 			}
-			amount = 185 #Out of 242 Total
+			148 = {
+				has_province_modifier = byz_co_capital
+			}
+			calc_true_if = { 
+				desc = rhomaio_unification_provinces_tooltip
+				all_owned_province = {
+					AND = {
+						rhomaio_culture_region = yes
+						OR = {
+							culture = anatolikos #Must unify Anatolians and reunify Aegeans first (if the latter splits)
+							culture = greek
+							culture = moesian
+							culture = cypriot
+						}	
+					}
+				}
+			amount = 170 #Out of 222 Total
 			}				
 		}
 		effect = {
@@ -143,9 +145,14 @@ country_decisions = {
 		allow = {
 			accepted_culture = armenian
 			OR = {
-				has_country_modifier = byz_armenian_auxillaries #Get this from the BR mission tree, a little cheaper then the alternate below
+				if = {
+					limit = {
+						has_global_flag = byz_resurgence_loaded
+					}
+					has_country_modifier = byz_armenian_auxillaries #Get this from the BR mission tree, a little cheaper then the alternate below
+				}	
 				development_in_provinces = { #In 1444, 212 dev is Armenian culture. 300 is therefore reasonable considering you can culture-convert OR dev to reach this number.
-					value = 350 #For non BYZ it's a little more expensive
+					value = 350
 					culture = armenian
 				}
 			}
@@ -231,7 +238,7 @@ country_decisions = {
 							}	
 						is_core = ROOT
 						}
-					amount = 30					
+					amount = 25					
 					}
 				}			
 			}
