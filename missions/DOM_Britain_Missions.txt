@@ -1347,37 +1347,9 @@ ave_row_slot_2_continuation = {
 			}
 		}	
 		effect = {
-			custom_tooltip = ave_promote_angevin_culture_bt
+			custom_tooltip = enables_francification_of_english
 			hidden_effect = {
-				change_primary_culture = anglois
-				set_ruler_culture = anglois
-				if = {
-					limit = { has_heir = yes }
-					set_heir_culture = anglois
-				}
-				if = {
-					limit = { has_consort = yes }
-					set_consort_culture = anglois
-				}
-				every_subject_country = {
-					limit = {
-						culture_group = british
-						NOT = { primary_culture = american }
-					}
-					change_primary_culture = anglois
-				}
-				every_province = {
-					limit = {
-						culture_group = british
-						owner = {
-							OR = {
-								tag = ROOT
-								is_subject_of = ROOT
-							}
-						}
-					}
-					change_culture = anglois
-				}
+				french_anglois_assimilation = yes
 			}
 		}
 		ai_weight = {
