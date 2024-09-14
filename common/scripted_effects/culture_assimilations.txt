@@ -173,32 +173,83 @@ hellenic_georgian_assimilation = { #Assimilates Georgian into Hellenic
 }
 
 french_anglois_assimilation = { #Angevin culture event; replaces English/Modern English with Anglois
-    every_province = {
-        limit = {
-            OR = {
-                culture = english
-                culture = english_modern
-            }
-            OR = {
-                owner = AVE
-                owner = {
-                    is_subject_of = AVE
-                }
-            }
-        }
-        change_culture = anglois
-    }
-    every_country = {
-        limit = {
-            OR = {
-                primary_culture = english
-                primary_culture = english_modern
-            }
-            OR = {
-                tag = AVE
-                is_subject_of = AVE
-            }
-        }
-        change_primary_culture = anglois
-    }
-}    
+	every_province = {
+		limit = {
+			OR = {
+				culture = english
+				culture = english_modern
+			}
+			OR = {
+				owner = ENG
+				owner = {
+					is_subject_of = ENG
+				}
+				owner = AVE
+				owner = {
+					is_subject_of = AVE
+				}
+			}	
+		}
+		change_culture = anglois
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = english
+				primary_culture = english_modern
+			}
+			OR = {
+				tag = ENG
+				is_subject_of = ENG
+				tag = AVE
+				is_subject_of = AVE
+			}
+		}
+		change_primary_culture = anglois
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = english
+				primary_culture = english_modern
+			}
+			OR = {
+				tag = ENG
+				is_subject_of = ENG
+				tag = AVE
+				is_subject_of = AVE
+			}
+		}
+		set_ruler_culture = anglois
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = english
+				primary_culture = english_modern
+			}
+			OR = {
+				tag = ENG
+				is_subject_of = ENG
+				tag = AVE
+				is_subject_of = AVE
+			}
+		}
+		set_heir_culture = anglois
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = english
+				primary_culture = english_modern
+			}
+			OR = {
+				tag = ENG
+				is_subject_of = ENG
+				tag = AVE
+				is_subject_of = AVE
+			}
+		}
+		set_ruler_culture = anglois
+	}
+}	
