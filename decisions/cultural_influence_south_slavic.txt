@@ -3,7 +3,10 @@ country_decisions = {
 		major = yes
 		potential = {
 			NOT = { has_country_modifier = south_slavic_settlements }
-			culture_group = south_slavic
+			OR = {
+				culture_group = south_slavic
+				south_slavic_cultures = yes #Unified Slavic
+			}	
 		}
 
 		allow = {
@@ -26,15 +29,25 @@ country_decisions = {
 		major = yes
 		potential = {
 			NOT = { has_country_flag = slovaks_aligned_south_slavs_flag }
-			culture_group = south_slavic
+			OR = {
+				culture_group = south_slavic
+				south_slavic_cultures = yes	#Unified Slavic (actually not sure how this really works as they're in the same group now...)
+			}	
 			OR = {
 				any_owned_province = { culture = slovak }
 				any_owned_province = { culture = ceskoslovensky }
+				any_owned_province = { culture = slovak_new }
+				any_owned_province = { culture = ceskoslovensky_new }
 			}
 		}
 
 		allow = {
-			accepted_culture = slovak
+			OR = {
+				accepted_culture = slovak
+				accepted_culture = ceskoslovensky
+				accepted_culture = slovak_new
+				accepted_culture = ceskoslovensky_new
+			}	
 			has_country_modifier = south_slavic_settlements
 			total_development = 1200 #A struggle still
 			owns_core_province = 8174 #Nitra

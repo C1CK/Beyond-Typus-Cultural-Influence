@@ -12,6 +12,8 @@ province_event = { #Croatian/Bosniak -> Serbian (Calling Croatian a Catholic Ser
 		OR = {
 			culture = croatian
 			culture = bosnian #Heal the Islamic divide
+			culture = croatian_new
+			culture = bosnian_new #Heal the Islamic divide
 		}
 		religion = orthodox
 		has_global_flag = CI_events_enabled
@@ -45,7 +47,18 @@ province_event = { #Croatian/Bosniak -> Serbian (Calling Croatian a Catholic Ser
 	option = {
 		name = serbian_assimilation.a
 
-		change_culture = serbian
+		if = {
+			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
+			}	
+			change_culture = serbian
+		}
+		if = {
+			limit = {
+				has_global_flag = slavic_unified_flag
+			}	
+			change_culture = serbian_new
+		}
 	}
 }
 
@@ -60,6 +73,8 @@ province_event = { #Serbian/Bosniak -> Croatian (Calling Serbian an Orthodox Ser
 		OR = {
 			culture = serbian
 			culture = bosnian #Heal the Islamic divide
+			culture = serbian_new
+			culture = bosnian_new #Heal the Islamic divide
 		}
 		religion_group = christian
 		NOT = { religion = orthodox }
@@ -94,7 +109,18 @@ province_event = { #Serbian/Bosniak -> Croatian (Calling Serbian an Orthodox Ser
 	option = {
 		name = croatian_assimilation.a
 
-		change_culture = croatian
+		if = {
+			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
+			}	
+			change_culture = croatian
+		}
+		if = {
+			limit = {
+				has_global_flag = slavic_unified_flag
+			}	
+			change_culture = croatian_new
+		}
 	}
 }
 
@@ -109,6 +135,8 @@ province_event = { #Serbian/Croatian -> Bosniak (Calling Bosniak an Islamic Serb
 		OR = {
 			culture = croatian
 			culture = serbian
+			culture = croatian_new
+			culture = serbian_new
 		}
 		religion_group = muslim
 		has_global_flag = CI_events_enabled
@@ -142,7 +170,18 @@ province_event = { #Serbian/Croatian -> Bosniak (Calling Bosniak an Islamic Serb
 	option = {
 		name = bosniak_assimilation.a
 
-		change_culture = bosnian
+		if = {
+			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
+			}	
+			change_culture = bosnian
+		}
+		if = {
+			limit = {
+				has_global_flag = slavic_unified_flag
+			}	
+			change_culture = bosnian_new
+		}
 	}
 }
 
@@ -154,23 +193,41 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 	goto = root
 
 	trigger = {
-		owner = { culture_group = south_slavic }
+		OR = {
+			owner = { culture_group = south_slavic }
+			owner = { south_slavic_cultures = yes } #Unified Slavic
+		}	
 		serbo_croat_culture_region = yes
 		if = { #If in Bulgarian region, ensure you are not Bulgarian
 			limit = {
 				bulgarian_culture_region = yes
 			}
-			NOT = { OWNER = { primary_culture = bulgarian } }
+			NOT = { 
+				OR = {
+					OWNER = { primary_culture = bulgarian } 
+					OWNER = { primary_culture = bulgarian_new } 
+				}
+			}
 			#Slovenes closer to Serbo-Croat than Bulgarian
 		}
 		if = { #If in Slovenian region, ensure you are not Slovenian
 			limit = {
 				slovene_culture_region = yes
 			}
-			NOT = { OWNER = { primary_culture = slovene } }
+			NOT = { 
+				OR = {
+					OWNER = { primary_culture = slovene } 
+					OWNER = { primary_culture = slovene_new } 
+				}
+			}
 			#Bulgarians closer to Serbo-Croat than Slovene
 		}		
-		NOT = { culture_group = south_slavic }
+		NOT = { 
+			OR = {
+				culture_group = south_slavic 
+				south_slavic_cultures = yes #Unified Slavic
+			}
+		}
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = south_slavic_settlements }
@@ -317,12 +374,14 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 
 		if = { #Using religion of the province to determine what dialect to use
 			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
 				religion = orthodox
 			}
 			change_culture = serbian
 		}
 		if = {
 			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
 				religion_group = christian
 				NOT = { religion = orthodox }
 			}
@@ -330,12 +389,14 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 		}
 		if = {
 			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
 				religion_group = muslim
 			}
 			change_culture = bosnian
 		}
 		if = { #Western Shtokavian owner
 			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
 				NOT = { religion_group = christian }
 				NOT = { religion_group = muslim }
 				OR = {
@@ -348,6 +409,7 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 		}
 		if = {
 			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
 				NOT = { religion_group = christian }
 				NOT = { religion_group = muslim }
 				OR = {
@@ -356,6 +418,54 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 				}
 			}
 			change_culture = serbian
+		}
+		#Unified Slavic below
+		if = { #Using religion of the province to determine what dialect to use
+			limit = {
+				has_global_flag = slavic_unified_flag
+				religion = orthodox
+			}
+			change_culture = serbian_new
+		}
+		if = {
+			limit = {
+				has_global_flag = slavic_unified_flag
+				religion_group = christian
+				NOT = { religion = orthodox }
+			}
+			change_culture = croatian_new
+		}
+		if = {
+			limit = {
+				has_global_flag = slavic_unified_flag
+				religion_group = muslim
+			}
+			change_culture = bosnian_new
+		}
+		if = { #Western Shtokavian owner
+			limit = {
+				has_global_flag = slavic_unified_flag
+				NOT = { religion_group = christian }
+				NOT = { religion_group = muslim }
+				OR = {
+					owner = { primary_culture = slovene_new }
+					owner = { primary_culture = croatian_new }
+					owner = { primary_culture = bosnian_new }
+				}
+			}
+			change_culture = croatian_new
+		}
+		if = {
+			limit = {
+				has_global_flag = slavic_unified_flag
+				NOT = { religion_group = christian }
+				NOT = { religion_group = muslim }
+				OR = {
+					owner = { primary_culture = serbian_new }
+					owner = { primary_culture = bulgarian_new }
+				}
+			}
+			change_culture = serbian_new
 		}
 	}
 }
@@ -368,7 +478,10 @@ province_event = { #Bulgarian settlements and assimilation (Settle)
 	goto = root
 
 	trigger = {
-		owner = { culture_group = south_slavic }
+		OR = {
+			owner = { culture_group = south_slavic }
+			owner = { south_slavic_cultures = yes }
+		}	
 		bulgarian_culture_region = yes
 		if = { #If in Serbo-Croat region, ensure you are not Serbo-Croat (or Slovene)
 			limit = {
@@ -378,8 +491,17 @@ province_event = { #Bulgarian settlements and assimilation (Settle)
 			NOT = { OWNER = { primary_culture = bosnian } }
 			NOT = { OWNER = { primary_culture = serbian } }
 			NOT = { OWNER = { primary_culture = slovene } } #Slovenes closer to Serbo-Croat than Bulgarian
+			NOT = { OWNER = { primary_culture = croatian_new } }
+			NOT = { OWNER = { primary_culture = bosnian_new } }
+			NOT = { OWNER = { primary_culture = serbian_new } }
+			NOT = { OWNER = { primary_culture = slovene_new } } #Slovenes closer to Serbo-Croat than Bulgarian
 		}		
-		NOT = { culture_group = south_slavic }
+		NOT = { 
+			OR = {
+				culture_group = south_slavic 
+				south_slavic_cultures = yes #Unified Slavic
+			}
+		}
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = south_slavic_settlements }
@@ -524,7 +646,18 @@ province_event = { #Bulgarian settlements and assimilation (Settle)
 	option = {
 		name = bulgarian_settlements.a
 
-		change_culture = bulgarian
+		if = {
+			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
+			}
+			change_culture = bulgarian
+		}
+		if = {
+			limit = {
+				has_global_flag = slavic_unified_flag
+			}
+			change_culture = bulgarian_new
+		}
 	}
 }
 
@@ -536,16 +669,29 @@ province_event = { #Slovene settlements and assimilation (Settle)
 	goto = root
 
 	trigger = {
-		owner = { culture_group = south_slavic }
+		OR = {
+			owner = { culture_group = south_slavic }
+			owner = { south_slavic_cultures = yes }
+		}	
 		slovene_culture_region = yes
 		if = { #If in Serbo-Croat region, ensure you are not Slovene
 			limit = {
 				serbo_croat_culture_region = yes
 			}
-			NOT = { OWNER = { primary_culture = slovene } }
+			NOT = { 
+				OR = {
+					OWNER = { primary_culture = slovene }
+					OWNER = { primary_culture = slovene_new } 
+				}
+			}
 			#Bulgarians closer to Serbo-Croat than Slovene
 		}		
-		NOT = { culture_group = south_slavic }
+		NOT = { 
+			OR = {
+				culture_group = south_slavic 
+				south_slavic_cultures = yes
+			}
+		}
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = south_slavic_settlements }
@@ -690,7 +836,18 @@ province_event = { #Slovene settlements and assimilation (Settle)
 	option = {
 		name = slovene_settlements.a
 
-		change_culture = slovene
+		if = {
+			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
+			}
+			change_culture = slovene
+		}
+		if = {
+			limit = {
+				has_global_flag = slavic_unified_flag
+			}
+			change_culture = slovene_new
+		}
 	}
 }
 
@@ -706,15 +863,27 @@ province_event = { #Serbo-Croat influences (Custom Assimilated)
 			OWNER = { primary_culture = croatian }
 			OWNER = { primary_culture = bosnian }
 			OWNER = { primary_culture = serbian }
+			OWNER = { primary_culture = croatian_new }
+			OWNER = { primary_culture = bosnian_new }
+			OWNER = { primary_culture = serbian_new }
 		}
 		NOT = { culture = croatian }
 		NOT = { culture = bosnian }
 		NOT = { culture = serbian }
-		culture_group = south_slavic
+		NOT = { culture = croatian_new }
+		NOT = { culture = bosnian_new }
+		NOT = { culture = serbian_new }
+		OR = {
+			culture_group = south_slavic
+			south_slavic_cultures = yes
+		}	
 		OR = {
 			any_neighbor_province = { culture = croatian }
 			any_neighbor_province = { culture = bosnian }
 			any_neighbor_province = { culture = serbian }
+			any_neighbor_province = { culture = croatian_new }
+			any_neighbor_province = { culture = bosnian_new }
+			any_neighbor_province = { culture = serbian_new }
 		}
 		serbo_croat_culture_region = yes
 		has_global_flag = CI_events_enabled
@@ -751,7 +920,10 @@ province_event = { #Serbo-Croat influences (Custom Assimilated)
 					OR = {
 						culture = croatian
 						culture = bosnian
-						culture = serbian
+						culture = serbian						
+						culture = croatian_new
+						culture = bosnian_new
+						culture = serbian_new
 					}
 				}
 				amount = 2
@@ -764,7 +936,10 @@ province_event = { #Serbo-Croat influences (Custom Assimilated)
 					OR = {
 						culture = croatian
 						culture = bosnian
-						culture = serbian
+						culture = serbian						
+						culture = croatian_new
+						culture = bosnian_new
+						culture = serbian_new
 					}
 				}
 				amount = 3
@@ -777,7 +952,10 @@ province_event = { #Serbo-Croat influences (Custom Assimilated)
 					OR = {
 						culture = croatian
 						culture = bosnian
-						culture = serbian
+						culture = serbian						
+						culture = croatian_new
+						culture = bosnian_new
+						culture = serbian_new
 					}
 				}
 				amount = 4
@@ -807,12 +985,14 @@ province_event = { #Serbo-Croat influences (Custom Assimilated)
 
 		if = { #Using religion of the province to determine what dialect to use
 			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
 				religion = orthodox
 			}
 			change_culture = serbian
 		}
 		if = {
 			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
 				religion_group = christian
 				NOT = { religion = orthodox }
 			}
@@ -820,12 +1000,14 @@ province_event = { #Serbo-Croat influences (Custom Assimilated)
 		}
 		if = {
 			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
 				religion_group = muslim
 			}
 			change_culture = bosnian
 		}
 		if = { #Western Shtokavian owner
 			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
 				NOT = { religion_group = christian }
 				NOT = { religion_group = muslim }
 				OR = {
@@ -838,6 +1020,7 @@ province_event = { #Serbo-Croat influences (Custom Assimilated)
 		}
 		if = {
 			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
 				NOT = { religion_group = christian }
 				NOT = { religion_group = muslim }
 				OR = {
@@ -846,6 +1029,54 @@ province_event = { #Serbo-Croat influences (Custom Assimilated)
 				}
 			}
 			change_culture = serbian
+		}
+		#Unified Slavic below
+		if = { #Using religion of the province to determine what dialect to use
+			limit = {
+				has_global_flag = slavic_unified_flag
+				religion = orthodox
+			}
+			change_culture = serbian_new
+		}
+		if = {
+			limit = {
+				has_global_flag = slavic_unified_flag
+				religion_group = christian
+				NOT = { religion = orthodox }
+			}
+			change_culture = croatian_new
+		}
+		if = {
+			limit = {
+				has_global_flag = slavic_unified_flag
+				religion_group = muslim
+			}
+			change_culture = bosnian_new
+		}
+		if = { #Western Shtokavian owner
+			limit = {
+				has_global_flag = slavic_unified_flag
+				NOT = { religion_group = christian }
+				NOT = { religion_group = muslim }
+				OR = {
+					owner = { primary_culture = slovene_new }
+					owner = { primary_culture = croatian_new }
+					owner = { primary_culture = bosnian_new }
+				}
+			}
+			change_culture = croatian_new
+		}
+		if = {
+			limit = {
+				has_global_flag = slavic_unified_flag
+				NOT = { religion_group = christian }
+				NOT = { religion_group = muslim }
+				OR = {
+					owner = { primary_culture = serbian_new }
+					owner = { primary_culture = bulgarian_new }
+				}
+			}
+			change_culture = serbian_new
 		}
 	}
 }
@@ -858,10 +1089,24 @@ province_event = { #Slovene influences (Custom Assimilated)
 	goto = root
 
 	trigger = {
-		OWNER = { primary_culture = slovene }
-		NOT = { culture = slovene }
-		culture_group = south_slavic
-		any_neighbor_province = { culture = slovene }
+		OR = {
+			OWNER = { primary_culture = slovene }
+			OWNER = { primary_culture = slovene_new }
+		}	
+		NOT = { 
+			OR = {
+				culture = slovene 
+				culture = slovene_new
+			}
+		}
+		OR = {
+			culture_group = south_slavic
+			south_slavic_cultures = yes #Unified Slavic
+		}	
+		OR = {
+			any_neighbor_province = { culture = slovene }
+			any_neighbor_province = { culture = slovene_new }
+		}	
 		slovene_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -894,7 +1139,10 @@ province_event = { #Slovene influences (Custom Assimilated)
 			factor = 0.75
 			calc_true_if = {
 				all_neighbor_province = {
-					culture = slovene
+					OR = {
+						culture = slovene
+						culture = slovene_new
+					}	
 				}
 				amount = 2
 			}
@@ -903,7 +1151,10 @@ province_event = { #Slovene influences (Custom Assimilated)
 			factor = 0.75
 			calc_true_if = {
 				all_neighbor_province = {
-					culture = slovene
+					OR = {
+						culture = slovene
+						culture = slovene_new
+					}	
 				}
 				amount = 3
 			}
@@ -912,7 +1163,10 @@ province_event = { #Slovene influences (Custom Assimilated)
 			factor = 0.75
 			calc_true_if = {
 				all_neighbor_province = {
-					culture = slovene
+					OR = {
+						culture = slovene
+						culture = slovene_new
+					}	
 				}
 				amount = 4
 			}
@@ -938,8 +1192,19 @@ province_event = { #Slovene influences (Custom Assimilated)
 
 	option = {
 		name = serbo_croat_influences.a
-
-		change_culture = slovene
+		
+		if = {
+			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
+			}
+			change_culture = slovene
+		}
+		if = {
+			limit = {
+				has_global_flag = slavic_unified_flag
+			}
+			change_culture = slovene_new
+		}
 	}
 }
 
@@ -951,10 +1216,24 @@ province_event = { #Bulgarian influences (Custom Assimilated)
 	goto = root
 
 	trigger = {
-		OWNER = { primary_culture = bulgarian }
-		NOT = { culture = bulgarian }
-		culture_group = south_slavic
-		any_neighbor_province = { culture = bulgarian }
+		OR = {
+			OWNER = { primary_culture = bulgarian }
+			OWNER = { primary_culture = bulgarian_new }
+		}
+		NOT = { 
+			OR = {	
+				culture = bulgarian 
+				culture = bulgarian_new
+			}
+		}
+		OR = {
+			culture_group = south_slavic
+			south_slavic_cultures = yes #Unified Slavic
+		}	
+		OR = {
+			any_neighbor_province = { culture = bulgarian }
+			any_neighbor_province = { culture = bulgarian_new }
+		}	
 		slovene_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -988,7 +1267,10 @@ province_event = { #Bulgarian influences (Custom Assimilated)
 			factor = 0.75
 			calc_true_if = {
 				all_neighbor_province = {
-					culture = bulgarian
+					OR = {
+						culture = bulgarian
+						culture = bulgarian_new
+					}	
 				}
 				amount = 2
 			}
@@ -997,7 +1279,10 @@ province_event = { #Bulgarian influences (Custom Assimilated)
 			factor = 0.75
 			calc_true_if = {
 				all_neighbor_province = {
-					culture = bulgarian
+					OR = {
+						culture = bulgarian
+						culture = bulgarian_new
+					}
 				}
 				amount = 3
 			}
@@ -1006,7 +1291,10 @@ province_event = { #Bulgarian influences (Custom Assimilated)
 			factor = 0.75
 			calc_true_if = {
 				all_neighbor_province = {
-					culture = bulgarian
+					OR = {
+						culture = bulgarian
+						culture = bulgarian_new
+					}
 				}
 				amount = 4
 			}
@@ -1033,6 +1321,17 @@ province_event = { #Bulgarian influences (Custom Assimilated)
 	option = {
 		name = bulgarian_influences.a
 
-		change_culture = bulgarian
+		if = {
+			limit = {
+				NOT = { has_global_flag = slavic_unified_flag }
+			}
+			change_culture = bulgarian
+		}
+		if = {
+			limit = {
+				has_global_flag = slavic_unified_flag
+			}
+			change_culture = bulgarian_new
+		}
 	}
 }

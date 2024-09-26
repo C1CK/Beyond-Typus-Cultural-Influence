@@ -31,11 +31,21 @@ steppe_gain_random_dev = {
 peasant_colonization_of_steppe_effect = {
 	if = { #Ruthenian pure
 		limit = {
+			NOT = { has_global_flag = unified_slavic_flag }
 			russka_culture_region = yes
 			russki_culture_region = no
 			NOT = { has_global_flag = russka_splinter_flag }
 		}
 		change_culture = ruthenian
+	}
+	if = { #Ruthenian pure (Unified Slavic)
+		limit = {
+			has_global_flag = unified_slavic_flag
+			russka_culture_region = yes
+			russki_culture_region = no
+			NOT = { has_global_flag = russka_splinter_flag }
+		}
+		change_culture = ruthenian_new
 	}
 	if = { #Ruthenian, prio over Russian
 		limit = {
@@ -43,37 +53,83 @@ peasant_colonization_of_steppe_effect = {
 			russka_culture_region = yes
 			russki_culture_region = yes
 			NOT = { has_global_flag = russka_splinter_flag }
+			NOT = { has_global_flag = unified_slavic_flag }
 		}
 		change_culture = ruthenian
 	}
+	if = { #Ruthenian, prio over Russian (Unified Slavic)
+		limit = {
+			OWNER = { primary_culture = ruthenian_new }
+			russka_culture_region = yes
+			russki_culture_region = yes
+			NOT = { has_global_flag = russka_splinter_flag }
+			has_global_flag = unified_slavic_flag
+		}
+		change_culture = ruthenian_new
+	}
 	if = { #Ukrainian pure
 		limit = {
+			NOT = { has_global_flag = unified_slavic_flag }
 			ukrainian_culture_region = yes
 			russki_culture_region = no
 			has_global_flag = russka_splinter_flag
 		}
 		change_culture = ukrainian
 	}
+	if = { #Ukrainian pure (Unified Slavic)
+		limit = {
+			has_global_flag = unified_slavic_flag
+			ukrainian_culture_region = yes
+			russki_culture_region = no
+			has_global_flag = russka_splinter_flag
+		}
+		change_culture = ukrainian_new
+	}
 	if = { #Ukrainian, prio over Russian
 		limit = {
 			OR = {
 				OWNER = { primary_culture = ukrainian }
-				OWNEr = { primary_culture = byelorussian }
+				OWNER = { primary_culture = byelorussian }
 				OWNER = { primary_culture = rusyn }
 			}
 			russka_culture_region = yes
 			russki_culture_region = yes
 			NOT = { has_global_flag = russka_splinter_flag }
+			NOT = { has_global_flag = unified_slavic_flag }
 		}
 		change_culture = ukrainian
+	}
+	if = { #Ukrainian, prio over Russian (Unified Slavic)
+		limit = {
+			OR = {
+				OWNER = { primary_culture = ukrainian_new }
+				OWNER = { primary_culture = byelorussian_new }
+				OWNER = { primary_culture = rusyn_new }
+			}
+			russka_culture_region = yes
+			russki_culture_region = yes
+			NOT = { has_global_flag = russka_splinter_flag }
+			has_global_flag = unified_slavic_flag
+		}
+		change_culture = ukrainian_new
 	}
 	if = { #Russian pure
 		limit = {
 			russki_culture_region = yes
 			russka_culture_region = no
 			NOT = { has_global_flag = russki_splinter_flag }
+			NOT = { has_global_flag = unified_slavic_flag }
 		}
 		change_culture = russian
+	}
+	if = { #Russian pure (Unified Slavic)
+		limit = {
+			russki_culture_region = yes
+			russka_culture_region = no
+			NOT = { has_global_flag = russki_splinter_flag }
+			has_global_flag = unified_slavic_flag
+		}
+		change_culture = russian_new
 	}
 	if = { #Russian, prio over Ukrainian
 		limit = {
@@ -81,23 +137,53 @@ peasant_colonization_of_steppe_effect = {
 			russki_culture_region = yes
 			russka_culture_region = yes
 			NOT = { has_global_flag = russki_splinter_flag }
+			NOT = { has_global_flag = unified_slavic_flag }
 		}
 		change_culture = russian
+	}
+	if = { #Russian, prio over Ukrainian (Unified Slavic)
+		limit = {
+			OWNER = { primary_culture = russian_new }
+			russki_culture_region = yes
+			russka_culture_region = yes
+			NOT = { has_global_flag = russki_splinter_flag }
+			has_global_flag = unified_slavic_flag
+		}
+		change_culture = russian_new
 	}
 	if = { #Syevernorusskiye (No overlap here)
 		limit = {
 			northern_russian_culture_region = yes
 			has_global_flag = russki_splinter_flag
+			NOT = { has_global_flag = unified_slavic_flag }
 		}
 		change_culture = novgorodian
+	}
+	if = { #Syevernorusskiye (No overlap here) (Unified Slavic)
+		limit = {
+			northern_russian_culture_region = yes
+			has_global_flag = russki_splinter_flag
+			has_global_flag = unified_slavic_flag
+		}
+		change_culture = novgorodian_new
 	}
 	if = { #Srednoyerusskiye pure
 		limit = {
 			middle_russian_culture_region = yes
 			russka_culture_region = no
 			has_global_flag = russki_splinter_flag
+			NOT = { has_global_flag = unified_slavic_flag }
 		}
 		change_culture = muscovite
+	}
+	if = { #Srednoyerusskiye pure (Unified Slavic)
+		limit = {
+			middle_russian_culture_region = yes
+			russka_culture_region = no
+			has_global_flag = russki_splinter_flag
+			has_global_flag = unified_slavic_flag
+		}
+		change_culture = muscovite_new
 	}
 	if = { #Srednoyerusskiye, prio over Ukrainian
 		limit = {
@@ -110,16 +196,42 @@ peasant_colonization_of_steppe_effect = {
 			middle_russian_culture_region = yes
 			russka_culture_region = yes
 			has_global_flag = russki_splinter_flag
+			NOT = { has_global_flag = unified_slavic_flag }
 		}
 		change_culture = muscovite
+	}
+	if = { #Srednoyerusskiye, prio over Ukrainian (Unified Slavic)
+		limit = {
+			OR = {
+				OWNER = { primary_culture = novgorodian_new }
+				OWNER = { primary_culture = muscovite_new }
+				OWNER = { primary_culture = ryazanian_new }
+				OWNER = { primary_culture = siberian_russian_new }
+			}
+			middle_russian_culture_region = yes
+			russka_culture_region = yes
+			has_global_flag = russki_splinter_flag
+			has_global_flag = unified_slavic_flag
+		}
+		change_culture = muscovite_new
 	}
 	if = { #Yuzhnorusskiye pure
 		limit = {
 			southern_russian_culture_region = yes
 			russka_culture_region = no
 			has_global_flag = russki_splinter_flag
+			NOT = { has_global_flag = unified_slavic_flag }
 		}
 		change_culture = ryazanian
+	}
+	if = { #Yuzhnorusskiye pure (Unified Slavic)
+		limit = {
+			southern_russian_culture_region = yes
+			russka_culture_region = no
+			has_global_flag = russki_splinter_flag
+			has_global_flag = unified_slavic_flag
+		}
+		change_culture = ryazanian_new
 	}
 	if = { #Yuzhnorusskiye, prio over Ukrainian
 		limit = {
@@ -132,7 +244,23 @@ peasant_colonization_of_steppe_effect = {
 			southern_russian_culture_region = yes
 			russka_culture_region = yes
 			has_global_flag = russki_splinter_flag
+			NOT = { has_global_flag = unified_slavic_flag }
 		}
 		change_culture = ryazanian
+	}
+	if = { #Yuzhnorusskiye, prio over Ukrainian (Unified Slavic)
+		limit = {
+			OR = {
+				OWNER = { primary_culture = novgorodian }
+				OWNER = { primary_culture = muscovite }
+				OWNER = { primary_culture = ryazanian }
+				OWNER = { primary_culture = siberian_russian }
+			}
+			southern_russian_culture_region = yes
+			russka_culture_region = yes
+			has_global_flag = russki_splinter_flag
+			has_global_flag = unified_slavic_flag
+		}
+		change_culture = ryazanian_new
 	}
 }

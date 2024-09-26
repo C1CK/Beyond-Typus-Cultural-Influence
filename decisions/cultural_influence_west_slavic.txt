@@ -3,7 +3,13 @@ country_decisions = { #Germans are removed via settlement
 		major = yes
 		potential = {
 			NOT = { has_country_modifier = west_slavic_settlements }
-			culture_group = west_slavic
+			OR = {
+				culture_group = west_slavic
+				AND = {
+					culture_group = slavic
+					west_slavic_cultures = yes
+				}
+			}	
 		}
 
 		allow = {
@@ -57,6 +63,8 @@ country_decisions = { #Germans are removed via settlement
 			OR = { #Only for Czechs and Slovaks
 				primary_culture = czech
 				primary_culture = slovak
+				primary_culture = czech_new
+				primary_culture = slovak_new
 			}
 		}
 
@@ -68,6 +76,10 @@ country_decisions = { #Germans are removed via settlement
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { culture_group = west_slavic }
+				AND = {
+					NOT = { culture_group = slavic }
+					west_slavic_cultures = yes
+				}
 			}
 		}
 
@@ -82,6 +94,8 @@ country_decisions = { #Germans are removed via settlement
 						OR = {
 							culture = czech
 							culture = slovak
+							culture = czech_new
+							culture = slovak_new
 						}
 					}
 					amount = 21 #Of 21 in Bohemia proper, 3 lie outside
@@ -95,6 +109,8 @@ country_decisions = { #Germans are removed via settlement
 						OR = {
 							culture = czech
 							culture = slovak
+							culture = czech_new
+							culture = slovak_new
 						}
 					}
 					amount = 17 #Of 17 in Modern Slovakia, 8 lie outside
@@ -107,15 +123,39 @@ country_decisions = { #Germans are removed via settlement
 			add_adm_power = -200
 			add_mil_power = -100
 			every_province = {
-				limit = {
-					OR = {
-						culture = czech
-						culture = slovak
+				if = {	
+					limit = {
+						NOT = { has_global_flag = slavic_unified_flag }
+						OR = {
+							culture = czech
+							culture = slovak
+						}
 					}
+					change_culture = ceskoslovensky
 				}
-				change_culture = ceskoslovensky
+				else_if = {
+					limit = {
+						has_global_flag = slavic_unified_flag
+						OR = {
+							culture = czech_new
+							culture = slovak_new
+						}
+					}
+					change_culture = ceskoslovensky_new
+				}
 			}
-			change_primary_culture = ceskoslovensky
+			if = {
+				limit = {
+					NOT = { has_global_flag = slavic_unified_flag }
+				}
+				change_primary_culture = ceskoslovensky
+			}	
+			else_if = {
+				limit = {
+					has_global_flag = slavic_unified_flag
+				}
+				change_primary_culture = ceskoslovensky_new
+			}	
 			266 = { add_base_tax = 2 } #Praha
 			265 = { add_base_tax = 2 } #Brno
 			1772 = { add_base_tax = 2 } #Bratislav
