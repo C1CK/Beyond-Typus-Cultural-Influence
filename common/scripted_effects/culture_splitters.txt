@@ -92,6 +92,35 @@ split_russki = { #Splits Russki into Northern, Middle, Southern and Siberian
 		}
 		change_culture = siberian_russian
 	}
+	every_province = { #Northern (Unified Slavic)
+		limit = {
+			culture = russian_new
+			northern_russian_culture_region = yes
+		}
+		change_culture = novgorodian_new
+	}
+	every_province = { #Middle (Unified Slavic)
+		limit = {
+			culture = russian_new
+			middle_russian_culture_region = yes
+		}
+		change_culture = muscovite_new
+	}
+	every_province = { #Southern (Unified Slavic)
+		limit = {
+			culture = russian_new
+			southern_russian_culture_region = yes
+		}
+		change_culture = ryazanian_new
+	}
+	every_province = { #Siberian (Unified Slavic)
+		limit = {
+			culture = russian_new
+			cossack_rule_region_siberia = yes
+			northern_russian_culture_region = no #There is an overlap here, giving prio to Novgorodian
+		}
+		change_culture = siberian_russian_new
+	}
 	#Handle Primary switches via event to offer a choice
 	#Accepted Cultures
 	every_country = {
@@ -132,6 +161,45 @@ split_russki = { #Splits Russki into Northern, Middle, Southern and Siberian
 			add_accepted_culture = siberian_russian
 		}
 		remove_accepted_culture = russian
+	}
+	every_country = {
+		limit = {
+			accepted_culture = russian_new
+		}
+		if = { #If owns Northern land (Unified Slavic)
+			limit = {
+				any_owned_province = {
+					northern_russian_culture_region = yes
+				}
+			}
+			add_accepted_culture = novgorodian_new
+		}
+		if = { #If owns Middle land (Unified Slavic)
+			limit = {
+				any_owned_province = {
+					middle_russian_culture_region = yes
+				}
+			}
+			add_accepted_culture = muscovite_new
+		}
+		if = { #If owns Southern land (Unified Slavic)
+			limit = {
+				any_owned_province = {
+					southern_russian_culture_region = yes
+				}
+			}
+			add_accepted_culture = ryazanian_new
+		}
+		if = { #If owns Siberian land (Unified Slavic)
+			limit = {
+				any_owned_province = {
+					cossack_rule_region_siberia = yes
+					northern_russian_culture_region = no #There is an overlap here, giving prio to Novgorodian
+				}
+			}
+			add_accepted_culture = siberian_russian_new
+		}
+		remove_accepted_culture = russian_new
 	}
 	#Handle Rulers, Heirs, and Consorts via event to offer a choice
 }
