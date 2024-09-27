@@ -930,6 +930,18 @@ province_event = { #Northern Russian expansion (Settle) (None of these are valid
 			owner = { has_country_modifier = cossackization }
 			owner = { ai = no }
 		}
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { east_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -1138,6 +1150,18 @@ province_event = { #Middle Russian expansion (Settle)
 			owner = { has_country_modifier = east_slavic_settlements }
 			owner = { has_country_modifier = cossackization }
 			owner = { ai = no }
+		}
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { east_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -1348,6 +1372,18 @@ province_event = { #Southern Russian expansion (Settle)
 			owner = { has_country_modifier = cossackization }
 			owner = { ai = no }
 		}
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { east_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -1557,6 +1593,18 @@ province_event = { #Ukrainian expansion (Settle)
 			owner = { has_country_modifier = cossackization }
 			owner = { ai = no }
 		}
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { east_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -1710,6 +1758,18 @@ province_event = { #Belarussian expansion (Settle)
 			owner = { has_country_modifier = east_slavic_settlements }
 			owner = { has_country_modifier = cossackization }
 			owner = { ai = no }
+		}
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { east_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -1865,6 +1925,18 @@ province_event = { #Rusyn expansion (Settle)
 			owner = { has_country_modifier = cossackization }
 			owner = { ai = no }
 		}
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { east_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -2011,6 +2083,18 @@ province_event = { #Northern Russian influences (Custom Assimilated)
 			any_neighbor_province = { culture = russian_new }
 		}
 		northern_russian_culture_region = yes
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { east_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -2166,6 +2250,18 @@ province_event = { #Middle Russian influences (Custom Assimilated)
 			any_neighbor_province = { culture = russian_new }
 		}
 		middle_russian_culture_region = yes
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { east_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -2321,6 +2417,18 @@ province_event = { #Southern Russian influences (Custom Assimilated)
 			any_neighbor_province = { culture = russian_new }
 		}
 		southern_russian_culture_region = yes
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { east_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -2458,6 +2566,8 @@ province_event = { #Ukrainian influences (Custom Assimilated)
 			OWNER = { primary_culture = ruthenian }
 			OWNER = { primary_culture = ukrainian_new }
 			OWNER = { primary_culture = ruthenian_new }
+			OWNER = { west_slavic_cultures = yes }	#I feel this makes for more reasonable borders for these guys
+			OWNER = { south_slavic_cultures = yes }
 		}
 		NOT = { culture = ukrainian }
 		NOT = { culture = ruthenian }
@@ -2478,6 +2588,18 @@ province_event = { #Ukrainian influences (Custom Assimilated)
 			any_neighbor_province = { culture = ruthenian_new }
 		}
 		ukrainian_culture_region = yes
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { east_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -2615,6 +2737,8 @@ province_event = { #Belarussian influences (Custom Assimilated)
 			OWNER = { primary_culture = ruthenian }
 			OWNER = { primary_culture = byelorussian_new }
 			OWNER = { primary_culture = ruthenian_new }
+			OWNER = { west_slavic_cultures = yes }	#I feel this makes for more reasonable borders for these guys
+			OWNER = { south_slavic_cultures = yes }
 		}
 		NOT = { culture = byelorussian }
 		NOT = { culture = ruthenian }
@@ -2635,6 +2759,18 @@ province_event = { #Belarussian influences (Custom Assimilated)
 			any_neighbor_province = { culture = ruthenian_new }
 		}
 		belarussian_culture_region = yes
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { east_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -2770,7 +2906,7 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 		owner = { has_estate_privilege = estate_cossacks_autonomous_steppe_settlements }
 		OR = {
 			owner = { culture_group = east_slavic }
-			owner = { east_slavic_cultures = yes }
+			owner = { culture_group = slavic }
 			owner = { accepted_culture = ruthenian } #These are to allow a PLC/Lithuania to deal with zaporizhia
 			owner = { accepted_culture = ukrainian }
 			owner = { accepted_culture = cossack }
@@ -2798,6 +2934,18 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 		owner = { is_nomad = no }
 		NOT = { has_province_modifier = steppe_city } #Must be sacked first
 		cossack_rule_region_european_steppe = yes
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { east_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -3126,6 +3274,7 @@ province_event = { #Cossack expansion (Custom Settled) (Siberian Cossacks)
 			east_slavic_cultures = yes #Unified Slavic
 		}	
 		NOT = { culture_group = east_slavic } #Must not already be Slavic
+		NOT = { culture_group = slavic } #Must not already be Slavic
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
@@ -3142,6 +3291,18 @@ province_event = { #Cossack expansion (Custom Settled) (Siberian Cossacks)
 		owner = { is_nomad = no }
 		NOT = { has_province_modifier = steppe_city } #Must be sacked first
 		cossack_rule_region_siberia = yes
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { east_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -3243,7 +3404,7 @@ province_event = { #Peasant colonization of Cossack land
 	trigger = {
 		OR = {
 			owner = { culture_group = east_slavic }
-			owner = { east_slavic_cultures = yes }
+			owner = { culture_group = slavic }
 		}	
 		OR = {
 			culture = cossack

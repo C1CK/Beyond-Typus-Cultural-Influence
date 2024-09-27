@@ -30,7 +30,7 @@ province_event = { #Czech settlements and assimilation
 	trigger = {
 		OR = {
 			owner = { culture_group = west_slavic }
-			owner = { west_slavic_cultures = yes } #Unified Slavic
+			owner = { culture_group = slavic } #Unified Slavic
 		}	
 		czech_culture_region = yes		
 		NOT = { 
@@ -77,6 +77,18 @@ province_event = { #Czech settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = west_slavic_settlements }
 			owner = { ai = no }
+		}
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { west_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -259,12 +271,11 @@ province_event = { #Slovak settlements and assimilation
 		OR = {
 			OR = {
 				owner = { culture_group = west_slavic }
-				owner = { west_slavic_cultures = yes } #Unified Slavic
+				owner = { culture_group = slavic } #Unified Slavic
 			}	
 			AND = { #South Slavs can align Slovaks with them
 				OR = {
 					owner = { culture_group = south_slavic }
-					owner = { south_slavic_cultures = yes } #Unified Slavic
 				}	
 				owner = { has_country_flag = slovaks_aligned_south_slavs_flag }
 				NOT = { 
@@ -320,6 +331,18 @@ province_event = { #Slovak settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = west_slavic_settlements }
 			owner = { ai = no }
+		}
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { west_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -501,7 +524,7 @@ province_event = { #Polish settlements and assimilation
 	trigger = {
 		OR = {
 			owner = { culture_group = west_slavic }
-			owner = { west_slavic_cultures = yes } #Unified Slavic
+			owner = { culture_group = slavic } #Unified Slavic
 		}	
 		polish_culture_region = yes		
 		NOT = { 
@@ -546,6 +569,18 @@ province_event = { #Polish settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = west_slavic_settlements }
 			owner = { ai = no }
+		}
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { west_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -710,7 +745,7 @@ province_event = { #Silesian settlements and assimilation
 	trigger = {
 		OR = {
 			owner = { culture_group = west_slavic }
-			owner = { west_slavic_cultures = yes } #Unified Slavic
+			owner = { culture_group = slavic } #Unified Slavic
 		}	
 		silesian_culture_region = yes		
 		NOT = { culture = schlesian }	
@@ -751,6 +786,18 @@ province_event = { #Silesian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = west_slavic_settlements }
 			owner = { ai = no }
+		}
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { west_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -916,7 +963,7 @@ province_event = { #Pomeransky settlements and assimilation
 	trigger = {
 		OR = {
 			owner = { culture_group = west_slavic }
-			owner = { west_slavic_cultures = yes } #Unified Slavic
+			owner = { culture_group = slavic } #Unified Slavic
 		}	
 		pomeransky_culture_region = yes		
 		NOT = { 
@@ -961,6 +1008,18 @@ province_event = { #Pomeransky settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = west_slavic_settlements }
 			owner = { ai = no }
+		}
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { west_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -1126,7 +1185,7 @@ province_event = { #Sorbian settlements and assimilation
 	trigger = {
 		OR = {
 			owner = { culture_group = west_slavic }
-			owner = { west_slavic_cultures = yes } #Unified Slavic
+			owner = { culture_group = slavic } #Unified Slavic
 		}	
 		sorbian_culture_region = yes		
 		NOT = { 
@@ -1171,6 +1230,18 @@ province_event = { #Sorbian settlements and assimilation
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = west_slavic_settlements }
 			owner = { ai = no }
+		}
+		if = {
+			limit = {
+				owner = { culture_group = slavic }
+				NOT = { owner = { west_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures = yes
+				}	
+			}	
 		}
 		has_global_flag = CI_events_enabled
 	}

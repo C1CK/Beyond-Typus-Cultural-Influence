@@ -7,7 +7,7 @@ country_decisions = { #Germans are removed via settlement
 				culture_group = west_slavic
 				AND = {
 					culture_group = slavic
-					west_slavic_cultures = yes
+					any_owned_province = { west_slavic_cultures = yes }
 				}
 			}	
 		}
@@ -122,39 +122,42 @@ country_decisions = { #Germans are removed via settlement
 			set_global_flag = czechoslovak_created_flag
 			add_adm_power = -200
 			add_mil_power = -100
-			every_province = {
-				if = {	
+			custom_tooltip = czechoslovak_merge_tooltip
+			hidden_effect = {
+				every_province = {
+					if = {	
+						limit = {
+							NOT = { has_global_flag = slavic_unified_flag }
+							OR = {
+								culture = czech
+								culture = slovak
+							}
+						}
+						change_culture = ceskoslovensky
+					}
+					else_if = {
+						limit = {
+							has_global_flag = slavic_unified_flag
+							OR = {
+								culture = czech_new
+								culture = slovak_new
+							}
+						}
+						change_culture = ceskoslovensky_new
+					}
+				}
+				if = {
 					limit = {
 						NOT = { has_global_flag = slavic_unified_flag }
-						OR = {
-							culture = czech
-							culture = slovak
-						}
 					}
-					change_culture = ceskoslovensky
-				}
+					change_primary_culture = ceskoslovensky
+				}	
 				else_if = {
 					limit = {
 						has_global_flag = slavic_unified_flag
-						OR = {
-							culture = czech_new
-							culture = slovak_new
-						}
 					}
-					change_culture = ceskoslovensky_new
-				}
-			}
-			if = {
-				limit = {
-					NOT = { has_global_flag = slavic_unified_flag }
-				}
-				change_primary_culture = ceskoslovensky
-			}	
-			else_if = {
-				limit = {
-					has_global_flag = slavic_unified_flag
-				}
-				change_primary_culture = ceskoslovensky_new
+					change_primary_culture = ceskoslovensky_new
+				}	
 			}	
 			266 = { add_base_tax = 2 } #Praha
 			265 = { add_base_tax = 2 } #Brno

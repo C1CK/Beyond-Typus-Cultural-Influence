@@ -195,9 +195,20 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 	trigger = {
 		OR = {
 			owner = { culture_group = south_slavic }
-			owner = { south_slavic_cultures = yes } #Unified Slavic
+			owner = { culture_group = slavic } #Unified Slavic
 		}	
 		serbo_croat_culture_region = yes
+		if = {
+			limit = {
+				NOT = { owner = { south_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					west_slavic_cultures = yes
+				}	
+			}	
+		}
 		if = { #If in Bulgarian region, ensure you are not Bulgarian
 			limit = {
 				bulgarian_culture_region = yes
@@ -451,6 +462,7 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 					owner = { primary_culture = slovene_new }
 					owner = { primary_culture = croatian_new }
 					owner = { primary_culture = bosnian_new }
+					owner = { west_slavic_cultures = yes }	#Going to say West Slavic prefers Croatian if not Christian/Muslim
 				}
 			}
 			change_culture = croatian_new
@@ -463,6 +475,7 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 				OR = {
 					owner = { primary_culture = serbian_new }
 					owner = { primary_culture = bulgarian_new }
+					owner = { east_slavic_cultures = yes }	#Going to say East Slavic prefers Croatian if not Christian/Muslim
 				}
 			}
 			change_culture = serbian_new
@@ -501,6 +514,17 @@ province_event = { #Bulgarian settlements and assimilation (Settle)
 				culture_group = south_slavic 
 				south_slavic_cultures = yes #Unified Slavic
 			}
+		}
+		if = {
+			limit = {
+				NOT = { owner = { south_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					west_slavic_cultures = yes
+				}	
+			}	
 		}
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
@@ -692,6 +716,17 @@ province_event = { #Slovene settlements and assimilation (Settle)
 				south_slavic_cultures = yes
 			}
 		}
+		if = {
+			limit = {
+				NOT = { owner = { south_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					west_slavic_cultures = yes
+				}	
+			}	
+		}
 		ci_settlement_check = yes
 		OR = { #Players can do it before the decision provided they dev it, or send a colonist
 			owner = { has_country_modifier = south_slavic_settlements }
@@ -875,7 +910,7 @@ province_event = { #Serbo-Croat influences (Custom Assimilated)
 		NOT = { culture = serbian_new }
 		OR = {
 			culture_group = south_slavic
-			south_slavic_cultures = yes
+			culture_group = slavic
 		}	
 		OR = {
 			any_neighbor_province = { culture = croatian }
@@ -884,6 +919,17 @@ province_event = { #Serbo-Croat influences (Custom Assimilated)
 			any_neighbor_province = { culture = croatian_new }
 			any_neighbor_province = { culture = bosnian_new }
 			any_neighbor_province = { culture = serbian_new }
+		}
+		if = {
+			limit = {
+				NOT = { owner = { south_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					west_slavic_cultures = yes
+				}	
+			}	
 		}
 		serbo_croat_culture_region = yes
 		has_global_flag = CI_events_enabled
@@ -1101,13 +1147,24 @@ province_event = { #Slovene influences (Custom Assimilated)
 		}
 		OR = {
 			culture_group = south_slavic
-			south_slavic_cultures = yes #Unified Slavic
+			culture_group = slavic #Unified Slavic
 		}	
 		OR = {
 			any_neighbor_province = { culture = slovene }
 			any_neighbor_province = { culture = slovene_new }
 		}	
 		slovene_culture_region = yes
+		if = {
+			limit = {
+				NOT = { owner = { south_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					west_slavic_cultures = yes
+				}	
+			}	
+		}
 		has_global_flag = CI_events_enabled
 	}
 
@@ -1228,12 +1285,23 @@ province_event = { #Bulgarian influences (Custom Assimilated)
 		}
 		OR = {
 			culture_group = south_slavic
-			south_slavic_cultures = yes #Unified Slavic
+			culture_group = slavic #Unified Slavic
 		}	
 		OR = {
 			any_neighbor_province = { culture = bulgarian }
 			any_neighbor_province = { culture = bulgarian_new }
 		}	
+		if = {
+			limit = {
+				NOT = { owner = { south_slavic_cultures = yes } }
+			}
+			NOT = { 
+				OR = {
+					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
+					west_slavic_cultures = yes
+				}	
+			}	
+		}
 		slovene_culture_region = yes
 		has_global_flag = CI_events_enabled
 	}

@@ -32,7 +32,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	serbo_croat_homelands = { #South Slavic Start, Balto-Slavic Start
 		major = no
 		potential = {
-			culture_group = south_slavic
+			OR = {
+				culture_group = south_slavic
+				culture_group = slavic
+			}	
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -58,7 +61,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	bulgarian_homelands = {
 		major = no
 		potential = {
-			culture_group = south_slavic
+			OR = {
+				culture_group = south_slavic
+				culture_group = slavic
+			}	
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -84,7 +90,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	slovene_homelands = { #South Slavic End
 		major = no
 		potential = {
-			culture_group = south_slavic
+			OR = {
+				culture_group = south_slavic
+				culture_group = slavic
+			}	
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -110,8 +119,14 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	ruthenian_homelands = { #East Slavic Start
 		major = no
 		potential = {
-			culture_group = east_slavic
-			any_province = { culture = ruthenian }
+			OR = {
+				culture_group = east_slavic
+				culture_group = slavic
+			}	
+			OR = {
+				any_province = { culture = ruthenian }
+				any_province = { culture = ruthenian_new }
+			}	
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -135,8 +150,14 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	russian_homelands = {
 		major = no
 		potential = {
-			culture_group = east_slavic
-			any_province = { culture = russian }
+			OR = {
+				culture_group = east_slavic
+				culture_group = slavic
+			}	
+			OR = {
+				any_province = { culture = russian }
+				any_province = { culture = russian_new }
+			}	
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -160,7 +181,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	cossack_homelands = {
 		major = no
 		potential = {
-			culture_group = east_slavic
+			OR = {
+				culture_group = east_slavic
+				culture_group = slavic
+			}	
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -184,8 +208,12 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	ukrainian_homelands = {
 		major = no
 		potential = {
-			culture_group = east_slavic
+			OR = {
+				culture_group = east_slavic
+				culture_group = slavic
+			}	
 			NOT = { any_province = { culture = ruthenian } }
+			NOT = { any_province = { culture = ruthenian_new } }
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -209,8 +237,12 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	belarussian_homelands = {
 		major = no
 		potential = {
-			culture_group = east_slavic
+			OR = {
+				culture_group = east_slavic
+				culture_group = slavic
+			}	
 			NOT = { any_province = { culture = ruthenian } }
+			NOT = { any_province = { culture = ruthenian_new } }
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -234,8 +266,12 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	northern_russian_dialect_area = {
 		major = no
 		potential = {
-			culture_group = east_slavic
+			OR = {
+				culture_group = east_slavic
+				culture_group = slavic
+			}	
 			NOT = { any_province = { culture = russian } }
+			NOT = { any_province = { culture = russian_new } }
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -259,8 +295,12 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	middle_russian_dialect_area = {
 		major = no
 		potential = {
-			culture_group = east_slavic
+			OR = {
+				culture_group = east_slavic
+				culture_group = slavic
+			}	
 			NOT = { any_province = { culture = russian } }
+			NOT = { any_province = { culture = russian_new } }
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -284,8 +324,12 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	southern_russian_dialect_area = {
 		major = no
 		potential = {
-			culture_group = east_slavic
+			OR = {
+				culture_group = east_slavic
+				culture_group = slavic
+			}	
 			NOT = { any_province = { culture = russian } }
+			NOT = { any_province = { culture = russian_new } }
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -309,7 +353,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	siberian_russian_homelands = { #East Slavic End
 		major = no
 		potential = {
-			culture_group = east_slavic
+			OR = {
+				culture_group = east_slavic
+				culture_group = slavic
+			}	
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -333,7 +380,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	polish_homelands = { #West Slavic Start
 		major = no
 		potential = {
-			culture_group = west_slavic
+			OR = {
+				culture_group = west_slavic
+				culture_group = slavic
+			}	
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -357,7 +407,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	pomeransky_homelands = {
 		major = no
 		potential = {
-			culture_group = west_slavic
+			OR = {
+				culture_group = west_slavic
+				culture_group = slavic
+			}	
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -381,7 +434,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	sorbian_homelands = {
 		major = no
 		potential = {
-			culture_group = west_slavic
+			OR = {
+				culture_group = west_slavic
+				culture_group = slavic
+			}	
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -405,7 +461,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	czech_homelands = {
 		major = no
 		potential = {
-			culture_group = west_slavic
+			OR = {
+				culture_group = west_slavic
+				culture_group = slavic
+			}	
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -429,7 +488,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	slovakian_homelands = {
 		major = no
 		potential = {
-			culture_group = west_slavic
+			OR = {
+				culture_group = west_slavic
+				culture_group = slavic
+			}	
 			has_global_flag = ci_homelands_shown
 		}
 
@@ -453,7 +515,10 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 	silesian_homelands = { #West Slavic End, Balto-Slavic End
 		major = no
 		potential = {
-			culture_group = west_slavic
+			OR = {
+				culture_group = west_slavic
+				culture_group = slavic
+			}	
 			has_global_flag = ci_homelands_shown
 		}
 
