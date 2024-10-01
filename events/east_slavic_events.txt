@@ -909,7 +909,7 @@ province_event = { #Northern Russian expansion (Settle) (None of these are valid
 		NOT = { 
 			OR = {
 				culture_group = east_slavic #These have special interplay events
-				east_slavic_cultures = yes 
+				east_slavic_cultures_province = yes 
 			} 
 		}
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -933,12 +933,12 @@ province_event = { #Northern Russian expansion (Settle) (None of these are valid
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { east_slavic_cultures = yes } }
+				NOT = { owner = { east_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					west_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -1054,7 +1054,7 @@ province_event = { #Northern Russian expansion (Settle) (None of these are valid
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4
@@ -1130,7 +1130,7 @@ province_event = { #Middle Russian expansion (Settle)
 		NOT = { 
 			OR = {
 				culture_group = east_slavic #These have special interplay events
-				east_slavic_cultures = yes 
+				east_slavic_cultures_province = yes 
 			} 
 		}
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -1154,12 +1154,12 @@ province_event = { #Middle Russian expansion (Settle)
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { east_slavic_cultures = yes } }
+				NOT = { owner = { east_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					west_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -1275,7 +1275,7 @@ province_event = { #Middle Russian expansion (Settle)
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4
@@ -1351,7 +1351,7 @@ province_event = { #Southern Russian expansion (Settle)
 		NOT = { 
 			OR = {
 				culture_group = east_slavic #These have special interplay events
-				east_slavic_cultures = yes 
+				east_slavic_cultures_province = yes 
 			} 
 		}
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -1375,12 +1375,12 @@ province_event = { #Southern Russian expansion (Settle)
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { east_slavic_cultures = yes } }
+				NOT = { owner = { east_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					west_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -1496,7 +1496,7 @@ province_event = { #Southern Russian expansion (Settle)
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4
@@ -1572,7 +1572,7 @@ province_event = { #Ukrainian expansion (Settle)
 		NOT = { 
 			OR = {
 				culture_group = east_slavic #These have special interplay events
-				east_slavic_cultures = yes 
+				east_slavic_cultures_province = yes 
 			} 
 		}
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -1596,12 +1596,12 @@ province_event = { #Ukrainian expansion (Settle)
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { east_slavic_cultures = yes } }
+				NOT = { owner = { east_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					west_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -1650,7 +1650,7 @@ province_event = { #Ukrainian expansion (Settle)
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.2
@@ -1738,7 +1738,7 @@ province_event = { #Belarussian expansion (Settle)
 		NOT = { 
 			OR = {
 				culture_group = east_slavic #These have special interplay events
-				east_slavic_cultures = yes 
+				east_slavic_cultures_province = yes 
 			} 
 		}
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -1762,12 +1762,12 @@ province_event = { #Belarussian expansion (Settle)
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { east_slavic_cultures = yes } }
+				NOT = { owner = { east_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					west_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -1816,7 +1816,7 @@ province_event = { #Belarussian expansion (Settle)
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.2
@@ -1904,7 +1904,7 @@ province_event = { #Rusyn expansion (Settle)
 		NOT = { 
 			OR = {
 				culture_group = east_slavic #These have special interplay events
-				east_slavic_cultures = yes 
+				east_slavic_cultures_province = yes 
 			} 
 		}
 		OR = { #Permit AI to settle accepted cultures since they don't understand
@@ -1928,12 +1928,12 @@ province_event = { #Rusyn expansion (Settle)
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { east_slavic_cultures = yes } }
+				NOT = { owner = { east_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					west_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -1982,7 +1982,7 @@ province_event = { #Rusyn expansion (Settle)
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.2
@@ -2086,12 +2086,12 @@ province_event = { #Northern Russian influences (Custom Assimilated)
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { east_slavic_cultures = yes } }
+				NOT = { owner = { east_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					west_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -2253,12 +2253,12 @@ province_event = { #Middle Russian influences (Custom Assimilated)
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { east_slavic_cultures = yes } }
+				NOT = { owner = { east_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					west_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -2420,12 +2420,12 @@ province_event = { #Southern Russian influences (Custom Assimilated)
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { east_slavic_cultures = yes } }
+				NOT = { owner = { east_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					west_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -2566,8 +2566,14 @@ province_event = { #Ukrainian influences (Custom Assimilated)
 			OWNER = { primary_culture = ruthenian }
 			OWNER = { primary_culture = ukrainian_new }
 			OWNER = { primary_culture = ruthenian_new }
-			OWNER = { west_slavic_cultures = yes }	#I feel this makes for more reasonable borders for these guys
-			OWNER = { south_slavic_cultures = yes }
+			AND = {
+				OWNER = { west_slavic_cultures_country = yes }	#I feel this makes for more reasonable borders for these guys
+				NOT = { culture = byelorussian_new }	#Don't want any infighting between Belarusian and Ukrainian for the other Slav subgroups
+			}	
+			AND = {
+				OWNER = { south_slavic_cultures_country = yes }
+				NOT = { culture = byelorussian_new }
+			}	
 		}
 		NOT = { culture = ukrainian }
 		NOT = { culture = ruthenian }
@@ -2575,7 +2581,7 @@ province_event = { #Ukrainian influences (Custom Assimilated)
 		NOT = { culture = ruthenian_new }
 		OR = {
 			culture_group = east_slavic
-			east_slavic_cultures = yes #Unified Slavic
+			east_slavic_cultures_province = yes #Unified Slavic
 			culture = polish #Eastern dialects are transitional to Polish
 			culture = polish_new #Eastern dialects are transitional to Polish
 		}
@@ -2591,12 +2597,12 @@ province_event = { #Ukrainian influences (Custom Assimilated)
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { east_slavic_cultures = yes } }
+				NOT = { owner = { east_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					west_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -2737,8 +2743,14 @@ province_event = { #Belarussian influences (Custom Assimilated)
 			OWNER = { primary_culture = ruthenian }
 			OWNER = { primary_culture = byelorussian_new }
 			OWNER = { primary_culture = ruthenian_new }
-			OWNER = { west_slavic_cultures = yes }	#I feel this makes for more reasonable borders for these guys
-			OWNER = { south_slavic_cultures = yes }
+			AND = {
+				OWNER = { west_slavic_cultures_country = yes }	#I feel this makes for more reasonable borders for these guys
+				NOT = { culture = ukrainian_new }	#Don't want any infighting between Belarusian and Ukrainian for the other Slav subgroups
+			}	
+			AND = {
+				OWNER = { south_slavic_cultures_country = yes }
+				NOT = { culture = ukrainian_new }
+			}	
 		}
 		NOT = { culture = byelorussian }
 		NOT = { culture = ruthenian }
@@ -2746,7 +2758,7 @@ province_event = { #Belarussian influences (Custom Assimilated)
 		NOT = { culture = ruthenian_new }
 		OR = {
 			culture_group = east_slavic
-			east_slavic_cultures = yes
+			east_slavic_cultures_province = yes
 			culture = polish #Eastern dialects are transitional to Polish
 			culture = polish_new #Eastern dialects are transitional to Polish
 		}
@@ -2762,12 +2774,12 @@ province_event = { #Belarussian influences (Custom Assimilated)
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { east_slavic_cultures = yes } }
+				NOT = { owner = { east_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					west_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -2924,7 +2936,7 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 				NOT = {
 					OR = {
 						culture_group = east_slavic 
-						east_slavic_cultures = yes
+						east_slavic_cultures_province = yes
 					}
 				}
 			}
@@ -2937,12 +2949,12 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { east_slavic_cultures = yes } }
+				NOT = { owner = { east_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					west_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -2996,7 +3008,7 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		#Religion penalty removed, since they are innapropriate here
 		modifier = { #Adm Factors changed to mil, as they make more sense here
@@ -3271,7 +3283,7 @@ province_event = { #Cossack expansion (Custom Settled) (Siberian Cossacks)
 	trigger = {
 		OR = {
 			owner = { culture_group = east_slavic } #Only East Slavs can do the Siberian Cossacks
-			owner = { east_slavic_cultures = yes } #Unified Slavic
+			owner = { east_slavic_cultures_country = yes } #Unified Slavic
 		}	
 		NOT = { culture_group = east_slavic } #Must not already be Slavic
 		NOT = { culture_group = slavic } #Must not already be Slavic
@@ -3281,7 +3293,7 @@ province_event = { #Cossack expansion (Custom Settled) (Siberian Cossacks)
 				NOT = { 
 					OR = {
 						culture_group = east_slavic 
-						east_slavic_cultures = yes
+						east_slavic_cultures_province = yes
 					}
 				}
 			}	
@@ -3294,12 +3306,12 @@ province_event = { #Cossack expansion (Custom Settled) (Siberian Cossacks)
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { east_slavic_cultures = yes } }
+				NOT = { owner = { east_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					west_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					west_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -3351,7 +3363,7 @@ province_event = { #Cossack expansion (Custom Settled) (Siberian Cossacks)
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		#Religion penalty removed, since they are innapropriate here
 		modifier = { #Adm Factors changed to mil, as they make more sense here
@@ -3525,7 +3537,7 @@ province_event = { #Abatis line advancement
 		#owner = { has_country_modifier = cossackization }
 		OR = {
 			culture_group = east_slavic
-			east_slavic_cultures = yes #Unified Slavic
+			east_slavic_cultures_province = yes #Unified Slavic
 		}	
 		cossack_rule_region_european_steppe = yes #Not in Siberia
 		
@@ -3566,7 +3578,7 @@ province_event = { #Siberian City development
 	trigger = {
 		OR = {
 			owner = { culture_group = east_slavic }
-			owner = { east_slavic_cultures = yes } #Unified Slavic
+			owner = { east_slavic_cultures_country = yes } #Unified Slavic
 		}	
 		has_province_modifier = siberian_ostrog_modifier
 		OR = {

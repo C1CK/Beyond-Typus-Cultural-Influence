@@ -233,13 +233,13 @@ province_event = { #Basic Colonial Settlement Event
 
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 0.8
 			OR = {
-				is_colonial_nation = yes
-				is_former_colonial_nation = yes
+				owner = { is_colonial_nation = yes }
+				owner = { is_former_colonial_nation = yes }
 			}
 		}
 		modifier = {
@@ -414,7 +414,7 @@ province_event = { #Generic Merchant Republic Colonies
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4
@@ -610,7 +610,7 @@ province_event = { #Changing settlements in Settler-Colonies (Converts culture t
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4

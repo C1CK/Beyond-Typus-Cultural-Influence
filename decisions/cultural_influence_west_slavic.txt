@@ -7,7 +7,7 @@ country_decisions = { #Germans are removed via settlement
 				culture_group = west_slavic
 				AND = {
 					culture_group = slavic
-					any_owned_province = { west_slavic_cultures = yes }
+					any_owned_province = { west_slavic_cultures_province = yes }
 				}
 			}	
 		}
@@ -76,10 +76,7 @@ country_decisions = { #Germans are removed via settlement
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { culture_group = west_slavic }
-				AND = {
-					NOT = { culture_group = slavic }
-					west_slavic_cultures = yes
-				}
+				NOT = { west_slavic_cultures_province = yes }
 			}
 		}
 

@@ -47,7 +47,7 @@ province_event = { #Czech settlements and assimilation
 				NOT = { 
 					OR = {
 						culture_group = west_slavic 
-						west_slavic_cultures = yes #Unified Slavic
+						west_slavic_cultures_province = yes #Unified Slavic
 					}
 				}
 			}	
@@ -58,7 +58,7 @@ province_event = { #Czech settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { west_slavic_cultures = yes } #Unified Slavic
+					any_neighbor_province = { west_slavic_cultures_province = yes } #Unified Slavic
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -70,7 +70,7 @@ province_event = { #Czech settlements and assimilation
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
 					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { west_slavic_cultures = yes } #Unified Slavic
+					any_neighbor_province = { west_slavic_cultures_province = yes } #Unified Slavic
 				}
 			}				
 		}
@@ -81,12 +81,12 @@ province_event = { #Czech settlements and assimilation
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { west_slavic_cultures = yes } }
+				NOT = { owner = { west_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					east_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -202,7 +202,7 @@ province_event = { #Czech settlements and assimilation
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4
@@ -281,7 +281,7 @@ province_event = { #Slovak settlements and assimilation
 				NOT = { 
 					OR = {
 						culture_group = south_slavic #Prefer South Slavic still
-						south_slavic_cultures = yes #Unified Slavic
+						south_slavic_cultures_province = yes #Unified Slavic
 					}	
 				}	
 			}
@@ -301,7 +301,7 @@ province_event = { #Slovak settlements and assimilation
 				NOT = { 
 					OR = {
 						culture_group = west_slavic 
-						west_slavic_cultures = yes #Unified Slavic
+						west_slavic_cultures_province = yes #Unified Slavic
 					}
 				}
 			}	
@@ -312,7 +312,7 @@ province_event = { #Slovak settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { west_slavic_cultures = yes } #Unified Slavic
+					any_neighbor_province = { west_slavic_cultures_province = yes } #Unified Slavic
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -324,7 +324,7 @@ province_event = { #Slovak settlements and assimilation
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
 					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { west_slavic_cultures = yes } #Unified Slavic
+					any_neighbor_province = { west_slavic_cultures_province = yes } #Unified Slavic
 				}
 			}				
 		}
@@ -335,12 +335,12 @@ province_event = { #Slovak settlements and assimilation
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { west_slavic_cultures = yes } }
+				NOT = { owner = { west_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					east_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -456,7 +456,7 @@ province_event = { #Slovak settlements and assimilation
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4
@@ -539,7 +539,7 @@ province_event = { #Polish settlements and assimilation
 				NOT = { 
 					OR = {
 						culture_group = west_slavic 
-						west_slavic_cultures = yes #Unified Slavic
+						west_slavic_cultures_province = yes #Unified Slavic
 					}
 				}
 			}	
@@ -550,7 +550,7 @@ province_event = { #Polish settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { west_slavic_cultures = yes } #Unified Slavic
+					any_neighbor_province = { west_slavic_cultures_province = yes } #Unified Slavic
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -562,7 +562,7 @@ province_event = { #Polish settlements and assimilation
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
 					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { west_slavic_cultures = yes } #Unified Slavic
+					any_neighbor_province = { west_slavic_cultures_province = yes } #Unified Slavic
 				}
 			}				
 		}
@@ -573,12 +573,12 @@ province_event = { #Polish settlements and assimilation
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { west_slavic_cultures = yes } }
+				NOT = { owner = { west_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					east_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -694,7 +694,7 @@ province_event = { #Polish settlements and assimilation
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4
@@ -756,7 +756,7 @@ province_event = { #Silesian settlements and assimilation
 				NOT = { 
 					OR = {
 						culture_group = west_slavic 
-						west_slavic_cultures = yes #Unified Slavic
+						west_slavic_cultures_province = yes #Unified Slavic
 					}
 				}
 			}	
@@ -767,7 +767,7 @@ province_event = { #Silesian settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { west_slavic_cultures = yes } #Unified Slavic
+					any_neighbor_province = { west_slavic_cultures_province = yes } #Unified Slavic
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -779,7 +779,7 @@ province_event = { #Silesian settlements and assimilation
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
 					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { west_slavic_cultures = yes } #Unified Slavic
+					any_neighbor_province = { west_slavic_cultures_province = yes } #Unified Slavic
 				}
 			}				
 		}
@@ -790,12 +790,12 @@ province_event = { #Silesian settlements and assimilation
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { west_slavic_cultures = yes } }
+				NOT = { owner = { west_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					east_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -911,7 +911,7 @@ province_event = { #Silesian settlements and assimilation
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4
@@ -978,7 +978,7 @@ province_event = { #Pomeransky settlements and assimilation
 				NOT = { 
 					OR = {
 						culture_group = west_slavic 
-						west_slavic_cultures = yes #Unified Slavic
+						west_slavic_cultures_province = yes #Unified Slavic
 					}
 				}
 			}	
@@ -989,7 +989,7 @@ province_event = { #Pomeransky settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { west_slavic_cultures = yes } #Unified Slavic
+					any_neighbor_province = { west_slavic_cultures_province = yes } #Unified Slavic
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -1001,7 +1001,7 @@ province_event = { #Pomeransky settlements and assimilation
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
 					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { west_slavic_cultures = yes } #Unified Slavic
+					any_neighbor_province = { west_slavic_cultures_province = yes } #Unified Slavic
 				}
 			}				
 		}
@@ -1012,12 +1012,12 @@ province_event = { #Pomeransky settlements and assimilation
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { west_slavic_cultures = yes } }
+				NOT = { owner = { west_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					east_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -1133,7 +1133,7 @@ province_event = { #Pomeransky settlements and assimilation
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4
@@ -1200,7 +1200,7 @@ province_event = { #Sorbian settlements and assimilation
 				NOT = { 
 					OR = {
 						culture_group = west_slavic 
-						west_slavic_cultures = yes #Unified Slavic
+						west_slavic_cultures_province = yes #Unified Slavic
 					}
 				}
 			}	
@@ -1211,7 +1211,7 @@ province_event = { #Sorbian settlements and assimilation
 				owner = { ai = yes }
 				OR = {
 					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { west_slavic_cultures = yes } #Unified Slavic
+					any_neighbor_province = { west_slavic_cultures_province = yes } #Unified Slavic
 				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
@@ -1223,7 +1223,7 @@ province_event = { #Sorbian settlements and assimilation
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
 					any_neighbor_province = { culture_group = west_slavic }
-					any_neighbor_province = { west_slavic_cultures = yes } #Unified Slavic
+					any_neighbor_province = { west_slavic_cultures_province = yes } #Unified Slavic
 				}
 			}				
 		}
@@ -1234,12 +1234,12 @@ province_event = { #Sorbian settlements and assimilation
 		if = {
 			limit = {
 				owner = { culture_group = slavic }
-				NOT = { owner = { west_slavic_cultures = yes } }
+				NOT = { owner = { west_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					south_slavic_cultures = yes
+					east_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					south_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -1355,7 +1355,7 @@ province_event = { #Sorbian settlements and assimilation
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4

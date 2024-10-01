@@ -200,12 +200,12 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 		serbo_croat_culture_region = yes
 		if = {
 			limit = {
-				NOT = { owner = { south_slavic_cultures = yes } }
+				NOT = { owner = { south_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					west_slavic_cultures = yes
+					east_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					west_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -361,7 +361,7 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4
@@ -467,7 +467,7 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 					owner = { primary_culture = slovene_new }
 					owner = { primary_culture = croatian_new }
 					owner = { primary_culture = bosnian_new }
-					owner = { west_slavic_cultures = yes }	#Going to say West Slavic prefers Croatian if not Christian/Muslim
+					owner = { west_slavic_cultures_province = yes }	#Going to say West Slavic prefers Croatian if not Christian/Muslim
 				}
 			}
 			change_culture = croatian_new
@@ -480,7 +480,7 @@ province_event = { #Serbo-Croat settlements and assimilation (Settle)
 				OR = {
 					owner = { primary_culture = serbian_new }
 					owner = { primary_culture = bulgarian_new }
-					owner = { east_slavic_cultures = yes }	#Going to say East Slavic prefers Croatian if not Christian/Muslim
+					owner = { east_slavic_cultures_province = yes }	#Going to say East Slavic prefers Serbian if not Christian/Muslim
 				}
 			}
 			change_culture = serbian_new
@@ -498,7 +498,7 @@ province_event = { #Bulgarian settlements and assimilation (Settle)
 	trigger = {
 		OR = {
 			owner = { culture_group = south_slavic }
-			owner = { south_slavic_cultures = yes }
+			owner = { south_slavic_cultures_country = yes }
 		}	
 		bulgarian_culture_region = yes
 		if = { #If in Serbo-Croat region, ensure you are not Serbo-Croat (or Slovene)
@@ -517,17 +517,17 @@ province_event = { #Bulgarian settlements and assimilation (Settle)
 		NOT = { 
 			OR = {
 				culture_group = south_slavic 
-				south_slavic_cultures = yes #Unified Slavic
+				south_slavic_cultures_province = yes #Unified Slavic
 			}
 		}
 		if = {
 			limit = {
-				NOT = { owner = { south_slavic_cultures = yes } }
+				NOT = { owner = { south_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					west_slavic_cultures = yes
+					east_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					west_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -648,7 +648,7 @@ province_event = { #Bulgarian settlements and assimilation (Settle)
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4
@@ -700,7 +700,7 @@ province_event = { #Slovene settlements and assimilation (Settle)
 	trigger = {
 		OR = {
 			owner = { culture_group = south_slavic }
-			owner = { south_slavic_cultures = yes }
+			owner = { south_slavic_cultures_country = yes }
 		}	
 		slovene_culture_region = yes
 		if = { #If in Serbo-Croat region, ensure you are not Slovene
@@ -718,17 +718,17 @@ province_event = { #Slovene settlements and assimilation (Settle)
 		NOT = { 
 			OR = {
 				culture_group = south_slavic 
-				south_slavic_cultures = yes
+				south_slavic_cultures_province = yes
 			}
 		}
 		if = {
 			limit = {
-				NOT = { owner = { south_slavic_cultures = yes } }
+				NOT = { owner = { south_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					west_slavic_cultures = yes
+					east_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					west_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -849,7 +849,7 @@ province_event = { #Slovene settlements and assimilation (Settle)
 		}
 		modifier = {
 			factor = 0.8
-			has_idea_to_settle_faster = yes
+			owner = { has_idea_to_settle_faster = yes }
 		}
 		modifier = {
 			factor = 1.4
@@ -927,12 +927,12 @@ province_event = { #Serbo-Croat influences (Custom Assimilated)
 		}
 		if = {
 			limit = {
-				NOT = { owner = { south_slavic_cultures = yes } }
+				NOT = { owner = { south_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					west_slavic_cultures = yes
+					east_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					west_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -1161,12 +1161,12 @@ province_event = { #Slovene influences (Custom Assimilated)
 		slovene_culture_region = yes
 		if = {
 			limit = {
-				NOT = { owner = { south_slavic_cultures = yes } }
+				NOT = { owner = { south_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					west_slavic_cultures = yes
+					east_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					west_slavic_cultures_province = yes
 				}	
 			}	
 		}
@@ -1298,12 +1298,12 @@ province_event = { #Bulgarian influences (Custom Assimilated)
 		}	
 		if = {
 			limit = {
-				NOT = { owner = { south_slavic_cultures = yes } }
+				NOT = { owner = { south_slavic_cultures_country = yes } }
 			}
 			NOT = { 
 				OR = {
-					east_slavic_cultures = yes #Other subgroups in unified Slavic prefer themselves still
-					west_slavic_cultures = yes
+					east_slavic_cultures_province = yes #Other subgroups in unified Slavic prefer themselves still
+					west_slavic_cultures_province = yes
 				}	
 			}	
 		}
