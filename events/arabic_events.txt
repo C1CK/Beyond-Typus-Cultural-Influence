@@ -13,18 +13,18 @@ country_event = { #Mashriqi creation
 
 	trigger = {
 		government_rank = 3
-		mashriqi_cultures = yes
+		mashriqi_cultures_country = yes
 		NOT = { has_global_flag = mashriqi_created_flag }
 		asia = { #Owned by ROOT, or not needed
 			OR = {
-				mashriqi_cultures = no
+				mashriqi_cultures_province = no
 				owned_by = ROOT
 			}
 			type = all
 		}
 		africa = { #Owned by ROOT, or not needed
 			OR = {
-				mashriqi_cultures = no
+				mashriqi_cultures_province = no
 				owned_by = ROOT
 			}
 			type = all
@@ -38,7 +38,7 @@ country_event = { #Mashriqi creation
 			change_primary_culture = mashriqi
 			every_province = {
 				limit = {
-					mashriqi_cultures = yes
+					mashriqi_cultures_province = yes
 				}
 				change_culture = mashriqi
 			}
@@ -152,11 +152,11 @@ country_event = { #Maghrebi creation
 
 	trigger = {
 		government_rank = 3
-		maghrebi_cultures = yes
+		maghrebi_cultures_country = yes
 		NOT = { has_global_flag = maghrebi_created_flag }
 		africa = { #Owned by ROOT, or not needed
 			OR = {
-				maghrebi_cultures = no
+				maghrebi_cultures_province = no
 				owned_by = ROOT
 			}
 			type = all
@@ -170,7 +170,7 @@ country_event = { #Maghrebi creation
 			change_primary_culture = maghrebi
 			every_province = {
 				limit = {
-					maghrebi_cultures = yes
+					maghrebi_cultures_province = yes
 				}
 				change_culture = maghrebi
 			}

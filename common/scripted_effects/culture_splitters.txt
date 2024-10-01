@@ -491,3 +491,64 @@ split_anatolikos = {  #Splits Anatolian into Pontic, Cappadocian, Phrygian and P
 	}
 	#Handle Rulers, Heirs, and Consorts via event to offer a choice
 }
+
+split_american = { #Splits American into Yankee, Laurentian and Dixie
+	#Provinces
+	every_province = { #Yankee (and fallback)
+		limit = {
+			culture = american
+			NOT = {
+				OR = {
+					anglo_dixie_culture_region = yes
+					anglo_midwestern_culture_region = yes
+				}
+			}
+		}
+		change_culture = anglo_yankee
+	}
+	every_province = { #Laurentian
+		limit = {
+			culture = american
+			anglo_midwestern_culture_region = yes
+		}
+		change_culture = anglo_midwestern
+	}
+	every_province = { #Dixie
+		limit = {
+			culture = american
+			anglo_dixie_culture_region = yes
+		}
+		change_culture = anglo_dixie
+	#Handle Primary switches via event to offer a choice
+	#Accepted Cultures
+	every_country = {
+		limit = {
+			accepted_culture = american
+		}
+		if = { #If owns Yankee land
+			limit = {
+				any_owned_province = {
+					anglo_yankee_culture_region = yes
+				}
+			}
+			add_accepted_culture = anglo_yankee
+		}
+		if = { #If owns Laurentian land
+			limit = {
+				any_owned_province = {
+					anglo_midwestern_culture_region = yes
+				}
+			}
+			add_accepted_culture = anglo_midwestern
+		}
+		if = { #If owns Dixie land
+			limit = {
+				any_owned_province = {
+					anglo_dixie_culture_region = yes
+				}
+			}
+			add_accepted_culture = anglo_dixie
+		}
+		remove_accepted_culture = american
+	}
+}
