@@ -1,4 +1,23 @@
-﻿Version 0.11.1.2
+﻿
+Version 0.12.0.0
+ADDITIONS
+ - (not yet in at the time of writing this log) Added various new colonial languages to German, Dutch, Spanish, Portuguese, Gaelic, Brythonic (and Unified Celtic) and Occitan 
+ - Provinces will retain the native language and religion if said native population is under 1000
+BUGS
+ - Cleared out some more error log things, unfortunately I have no clue what is causing the repeative spam of the primary_culture thing in the log at the moment
+ - Fixed missing '= yes' for the Poetvin expansion event
+ - Copied ship and leader nameslists from Latin Empire and Gaelica to CI's ERO and Gual tags 
+CHANGES 
+ - Changed how colonial languages appear, instead of being nearly instantaneous upon the completion of a colony there is instead of time period until a colonial language establishment event. This event will change the primary language of all tags in the group for the colonial language in that languages homelands (visable via decision list). 
+  - For example any British tags with a capital on the American eastern seaboard will convert to American
+  - After the establishment event happens the colonial language can now begin to spread with a similar set of triggers to how old world settled languages appear, accepted languages will not convert, unless it's the capital or the tag is an AI (so likely all of them because colonial nations). 
+  - You need to one; build religious, trade or tax buildings, two; dev the desired province 10 times, send a colonist to the province to dev boost or use the new Frontier Settlement edict (only availble to colonial nations, or independent former colonial nations, the AI should be quite eager to take it), in order for the events to fire.         
+ - Increased MTTH for generic colonial settlement event from 30 years up to 50 years
+  - The generic event will now also convert religion as long as it is outside the religious group of the owner, though converting them manually will result in a quicker language conversion
+ - Reduced MTTH for specific colonial languages settlement down from 150 years to 50 years
+  - Modifers for changing old world language varients to new world varients also adjusted to result in about 15 years for new world language to supercede the old, this is ontop of the initial establishment event that has a MTTH of 70 years resulting in about 85 years from the initial settlement, this may yet still be a bit high and might be tweaked down.
+ - British Arctic event will now also convert any British country with a capital in its homelands, this is due to Greenland
+Version 0.11.1.2
 BUGS 
  - Too many events to list, but many had country triggers where only province triggers worked, spamming the error log as a result
  - Evenkil group now correctly marked as nomadic at the start
