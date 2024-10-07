@@ -225,11 +225,12 @@ province_event = { #Basic Colonial Settlement Event
 			}
 			NOT = { religion_group = pagan } #Will cause issues for Colonialist Pagans, but any European Neo-Pagans would likely not want to convert them anyways
 		}
+		ci_colonial_settlement_check = yes
 	}
 
 	mean_time_to_happen = {
 		#Template Settled MTTH
-		years = 30
+		years = 50
 
 		modifier = {
 			factor = 0.8
@@ -254,6 +255,12 @@ province_event = { #Basic Colonial Settlement Event
 		name = colonial_settlement.a
 
 		change_culture = OWNER
+		if = {
+			limit = {
+				NOT = { religion_group = OWNER }
+			}
+			change_religion = OWNER
+		}	
 	}
 }
 

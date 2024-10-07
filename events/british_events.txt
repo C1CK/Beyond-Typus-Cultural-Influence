@@ -1354,10 +1354,21 @@ province_event = { #Arctic settlements & Assimilation
 		#	national_focus = adm
 		#}
 	}
-
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is primarily to convert a colonial Greenland tag, but as this stretches outside of colonial regions it may cause some oddity, but if you've moved your capital to Iceland/Jan Mayan as someone in the British group you're already doing something odd.
+						anglo_arctic_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_arctic 
+			}
+		}
+	}
 	option = {
 		name = arctic_settlements.a
-
 		change_culture = anglo_arctic
 	}
 }
@@ -3661,10 +3672,12 @@ province_event = { #Australian
 		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_australian_established_flag 
 	}
 
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -3686,12 +3699,12 @@ province_event = { #Australian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.80
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
 		modifier = {
-			factor = 0.20	#About 30 years if a separate colonial culture
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -3706,6 +3719,19 @@ province_event = { #Australian
 			}	
 		}
 	}
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_australian_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_australian 
+			}
+		}
+	}
 
 	option = {
 		name = british_australian.a
@@ -3714,19 +3740,7 @@ province_event = { #Australian
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_australian } } }
 			add_accepted_culture = anglo_australian
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_australian
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -3743,10 +3757,12 @@ province_event = { #Kiwi
 		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }	
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_kiwi_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -3768,12 +3784,12 @@ province_event = { #Kiwi
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.80
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
 		modifier = {
-			factor = 0.20	#About 30 years if a separate colonial culture
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -3788,6 +3804,19 @@ province_event = { #Kiwi
 			}	
 		}
 	}
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_kiwi_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_kiwi 
+			}
+		}
+	}
 
 	option = {
 		name = british_kiwi.a
@@ -3796,19 +3825,7 @@ province_event = { #Kiwi
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_kiwi } } }
 			add_accepted_culture = anglo_kiwi
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_kiwi
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -3816,8 +3833,8 @@ province_event = { #Kiwi
 
 province_event = { #Caribbean
 	id = cultural_influence_british.43
-	title = british_carribean.title
-	desc = british_carribean.desc
+	title = british_caribbean.title
+	desc = british_caribbean.desc
 	picture = CULTURE_eventPicture
 	goto = root
 	
@@ -3826,11 +3843,13 @@ province_event = { #Caribbean
 		is_city = yes
 		british_new_world = no
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_caribbean_established_flag
 	}
-	
+
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -3852,12 +3871,12 @@ province_event = { #Caribbean
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.80
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
 		modifier = {
-			factor = 0.20	#About 30 years if a separate colonial culture
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -3872,6 +3891,19 @@ province_event = { #Caribbean
 			}	
 		}
 	}
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_caribbean_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_caribbean 
+			}
+		}
+	}
 
 	option = {
 		name = british_caribbean.a
@@ -3880,19 +3912,7 @@ province_event = { #Caribbean
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_caribbean } } }
 			add_accepted_culture = anglo_caribbean
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_caribbean
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -3914,12 +3934,14 @@ province_event = { #American
 			NOT = {	culture = anglo_dixie }
 			NOT = { culture = anglo_midwestern }
 		}
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
 		NOT = { has_global_flag = american_splinter_flag }
+		has_global_flag = anglo_american_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -3941,12 +3963,12 @@ province_event = { #American
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.80
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
 		modifier = {
-			factor = 0.20	#About 30 years if a separate colonial culture
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -3961,7 +3983,19 @@ province_event = { #American
 			}	
 		}
 	}
-
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_american_culture_region = yes
+					}
+				}
+				change_primary_culture = american 
+			}
+		}
+	}
 
 	option = {
 		name = british_american.a
@@ -3970,19 +4004,7 @@ province_event = { #American
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = american } } }
 			add_accepted_culture = american
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = american
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -3997,11 +4019,13 @@ province_event = { #Canadian
 		anglo_canadian_culture_region = yes
 		is_city = yes
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_canadian_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4023,12 +4047,12 @@ province_event = { #Canadian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.80
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
 		modifier = {
-			factor = 0.20	#About 30 years if a separate colonial culture
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -4043,6 +4067,19 @@ province_event = { #Canadian
 			}	
 		}
 	}
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_canadian_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_canadian 
+			}
+		}
+	}
 
 	option = {
 		name = british_canadian.a
@@ -4051,19 +4088,7 @@ province_event = { #Canadian
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_canadian } } }
 			add_accepted_culture = anglo_canadian
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_canadian
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -4078,11 +4103,13 @@ province_event = { #Texan
 		anglo_texan_culture_region = yes
 		is_city = yes
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_texan_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4104,12 +4131,12 @@ province_event = { #Texan
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.80
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
 		modifier = {
-			factor = 0.20	#About 30 years if a separate colonial culture
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -4124,6 +4151,19 @@ province_event = { #Texan
 			}	
 		}
 	}
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_texan_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_texan 
+			}
+		}
+	}
 
 	option = {
 		name = british_texan.a
@@ -4132,19 +4172,7 @@ province_event = { #Texan
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_texan } } }
 			add_accepted_culture = anglo_texan
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_texan
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -4159,11 +4187,13 @@ province_event = { #Newfoundlander
 		anglo_newfoundlander_culture_region = yes
 		is_city = yes
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_newfoundlander_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4185,12 +4215,12 @@ province_event = { #Newfoundlander
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.80
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
 		modifier = {
-			factor = 0.20	#About 30 years if a separate colonial culture
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -4205,6 +4235,19 @@ province_event = { #Newfoundlander
 			}	
 		}
 	}
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_newfoundlander_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_newfoundlander 
+			}
+		}
+	}
 
 	option = {
 		name = british_newfoundlander.a
@@ -4213,22 +4256,9 @@ province_event = { #Newfoundlander
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_newfoundlander } } }
 			add_accepted_culture = anglo_newfoundlander
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_newfoundlander
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
-
 
 #South America
 
@@ -4243,11 +4273,13 @@ province_event = { #Brazilian
 		anglo_brazilian_culture_region = yes
 		is_city = yes
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_brazilian_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4269,12 +4301,12 @@ province_event = { #Brazilian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.80
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
 		modifier = {
-			factor = 0.20	#About 30 years if a separate colonial culture
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -4290,6 +4322,20 @@ province_event = { #Brazilian
 		}
 	}
 
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_brazilian_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_brazilian 
+			}
+		}
+	}
+
 	option = {
 		name = british_brazilian.a
 
@@ -4297,19 +4343,7 @@ province_event = { #Brazilian
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_brazilian } } }
 			add_accepted_culture = anglo_brazilian
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_brazilian
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -4324,11 +4358,13 @@ province_event = { #Peruvean
 		anglo_peruvean_culture_region = yes
 		is_city = yes
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_peruvean_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4350,12 +4386,12 @@ province_event = { #Peruvean
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.80
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
 		modifier = {
-			factor = 0.20	#About 30 years if a separate colonial culture
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -4371,6 +4407,20 @@ province_event = { #Peruvean
 		}
 	}
 
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_peruvean_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_peruvean 
+			}
+		}
+	}
+
 	option = {
 		name = british_peruvean.a
 
@@ -4378,19 +4428,7 @@ province_event = { #Peruvean
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_peruvean } } }
 			add_accepted_culture = anglo_peruvean
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_peruvean
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -4406,11 +4444,13 @@ province_event = { #Colombian
 		is_city = yes
 		british_new_world = no
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_colombian_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4432,12 +4472,12 @@ province_event = { #Colombian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.80
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
 		modifier = {
-			factor = 0.20	#About 30 years if a separate colonial culture
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -4453,6 +4493,20 @@ province_event = { #Colombian
 		}
 	}
 
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_colombian_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_colombian 
+			}
+		}
+	}
+
 	option = {
 		name = british_colombian.a
 
@@ -4460,19 +4514,7 @@ province_event = { #Colombian
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_colombian } } }
 			add_accepted_culture = anglo_colombian
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_colombian
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -4487,11 +4529,13 @@ province_event = { #Argentine
 		anglo_argentine_culture_region = yes
 		is_city = yes
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }		
+		any_neighbor_province = { culture_group = british }			
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_argentine_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4513,12 +4557,12 @@ province_event = { #Argentine
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.80
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
 		modifier = {
-			factor = 0.20	#About 30 years if a separate colonial culture
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -4534,6 +4578,20 @@ province_event = { #Argentine
 		}
 	}
 
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_argentine_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_argentine 
+			}
+		}
+	}
+
 	option = {
 		name = british_argentine.a
 
@@ -4541,19 +4599,7 @@ province_event = { #Argentine
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_argentine } } }
 			add_accepted_culture = anglo_argentine
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_argentine
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -4570,11 +4616,13 @@ province_event = { #South African
 		anglo_south_african_culture_region = yes
 		is_city = yes
 		any_neighbor_province = { culture_group = british }	
-		OWNER = { culture_group = british }
+		OWNER = { culture_group = british }	
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_south_african_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4596,12 +4644,12 @@ province_event = { #South African
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.80
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
 		modifier = {
-			factor = 0.20	#About 30 years if a separate colonial culture
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -4617,6 +4665,20 @@ province_event = { #South African
 		}
 	}
 
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_south_african_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_south_african 
+			}
+		}
+	}
+
 	option = {
 		name = british_south_african.a
 
@@ -4624,19 +4686,7 @@ province_event = { #South African
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_south_african } } }
 			add_accepted_culture = anglo_south_african
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_south_african
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -4653,11 +4703,13 @@ province_event = { #Californian
 		anglo_californian_culture_region = yes
 		is_city = yes
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_californian_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4679,12 +4731,12 @@ province_event = { #Californian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.80
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
 		modifier = {
-			factor = 0.20	#About 30 years if a separate colonial culture
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -4700,6 +4752,20 @@ province_event = { #Californian
 		}
 	}
 
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_californian_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_californian 
+			}
+		}
+	}
+
 	option = {
 		name = british_californian.a
 
@@ -4707,19 +4773,7 @@ province_event = { #Californian
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_californian } } }
 			add_accepted_culture = anglo_californian
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_californian
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -4734,11 +4788,13 @@ province_event = { #Cascadian
 		anglo_cascadian_culture_region = yes
 		is_city = yes
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_cascadian_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4760,12 +4816,12 @@ province_event = { #Cascadian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.8
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
-		modifier = {	#About 30 years if a separate colonial culture
-			factor = 0.2	
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -4781,6 +4837,20 @@ province_event = { #Cascadian
 		}
 	}
 
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_cascadian_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_cascadian 
+			}
+		}
+	}
+
 	option = {
 		name = british_cascadian.a
 
@@ -4788,19 +4858,7 @@ province_event = { #Cascadian
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_cascadian } } }
 			add_accepted_culture = anglo_cascadian
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_cascadian
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -4820,10 +4878,13 @@ province_event = { #Laurentian
 			OWNER = { is_former_colonial_nation = yes }
 		}	
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = american_splinter_flag
 	}
+
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4845,12 +4906,12 @@ province_event = { #Laurentian
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.8
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
-		modifier = {	#About 30 years if a separate colonial culture
-			factor = 0.2	
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -4866,6 +4927,20 @@ province_event = { #Laurentian
 		}
 	}
 	
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_midwestern_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_midwestern 
+			}
+		}
+	}
+
 	option = {
 		name = british_midwestern.a
 
@@ -4873,19 +4948,7 @@ province_event = { #Laurentian
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_midwestern } } }
 			add_accepted_culture = anglo_midwestern
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_midwestern
-		}	#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -4900,10 +4963,13 @@ province_event = { #Mexican
 		anglo_mexican_culture_region = yes
 		is_city = yes
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_mexican_established_flag
 	}
+
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -4925,12 +4991,12 @@ province_event = { #Mexican
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.8
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
-		modifier = {	#About 30 years if a separate colonial culture
-			factor = 0.2	
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -4945,7 +5011,21 @@ province_event = { #Mexican
 			}	
 		}
 	}
-	
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_mexican_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_mexican 
+			}
+		}
+	}
+
 	option = {
 		name = british_mexican.a
 
@@ -4953,19 +5033,7 @@ province_event = { #Mexican
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_mexican } } }
 			add_accepted_culture = anglo_mexican
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_mexican
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -4980,10 +5048,13 @@ province_event = { #Prariean
 		anglo_great_plains_culture_region = yes
 		is_city = yes
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_great_plains_established_flag
 	}
+
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -5005,12 +5076,12 @@ province_event = { #Prariean
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.8
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
-		modifier = {	#About 30 years if a separate colonial culture
-			factor = 0.2	
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -5025,6 +5096,21 @@ province_event = { #Prariean
 			}	
 		}
 	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_great_plains_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_great_plains 
+			}
+		}
+	}
+
 	option = {
 		name = british_great_plains.a
 
@@ -5032,19 +5118,7 @@ province_event = { #Prariean
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_great_plains } } }
 			add_accepted_culture = anglo_great_plains
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_great_plains
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -5059,10 +5133,13 @@ province_event = { #Alaskan
 		anglo_alaskan_culture_region = yes
 		is_city = yes
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = anglo_alaskan_plains_established_flag
 	}
+
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -5084,12 +5161,12 @@ province_event = { #Alaskan
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.8
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			british_european = yes
 		}
-		modifier = {	#About 30 years if a separate colonial culture
-			factor = 0.2	
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -5104,6 +5181,21 @@ province_event = { #Alaskan
 			}	
 		}
 	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_alaskan_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_alaskan 
+			}
+		}
+	}
+
 	option = {
 		name = british_alaskan.a
 
@@ -5111,19 +5203,7 @@ province_event = { #Alaskan
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_alaskan } } }
 			add_accepted_culture = anglo_alaskan
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_alaskan
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -5138,11 +5218,12 @@ province_event = { #Yankee
 		anglo_yankee_culture_region = yes
 		is_city = yes
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
 		has_global_flag = american_splinter_flag
 	}
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -5164,12 +5245,12 @@ province_event = { #Yankee
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.8
+		modifier = {	#About 15 years for colonies to diverge
+			factor = 0.30
 			british_european = yes
 		}
-		modifier = {	#About 30 years if a separate colonial culture
-			factor = 0.2	
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -5184,6 +5265,21 @@ province_event = { #Yankee
 			}	
 		}
 	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_yankee_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_yankee 
+			}
+		}
+	}
+
 	option = {
 		name = british_yankee.a
 
@@ -5191,19 +5287,7 @@ province_event = { #Yankee
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_yankee } } }
 			add_accepted_culture = anglo_yankee
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_yankee
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -5218,11 +5302,12 @@ province_event = { #Dixie
 		anglo_dixie_culture_region = yes
 		is_city = yes
 		OWNER = { culture_group = british }
-		any_neighbor_province = { culture_group = british }	
+		any_neighbor_province = { culture_group = british }		
+		ci_colonial_settlement_check = yes
 		has_global_flag = american_splinter_flag
 	}
 	mean_time_to_happen = {
-		years = 150	#150 years for native cultures to get settled
+		years = 50	#50 years for native cultures to get settled
 		#MTTH settings
 		modifier = {
 			factor = 0.0
@@ -5244,12 +5329,12 @@ province_event = { #Dixie
 			factor = 4.0
 			has_global_flag = 40_CI_MTTH_flag
 		}
-		modifier = {	#About 120 years for colonies to diverge
-			factor = 0.8
+		modifier = {	#About 15 years for colonies to diverge
+			factor = 0.30
 			british_european = yes
 		}
-		modifier = {	#About 30 years if a separate colonial culture
-			factor = 0.2	
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
 			british_new_world = yes
 		}
 		modifier = {	#Once the first provinces flip neighbours will flip faster
@@ -5264,6 +5349,21 @@ province_event = { #Dixie
 			}	
 		}
 	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						anglo_dixie_culture_region = yes
+					}
+				}
+				change_primary_culture = anglo_dixie 
+			}
+		}
+	}
+
 	option = {
 		name = british_dixie.a
 
@@ -5271,19 +5371,7 @@ province_event = { #Dixie
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = anglo_dixie } } }
 			add_accepted_culture = anglo_dixie
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				OWNER = {
-					OR = {
-						culture_group = british
-					}
-				}
-			}
-			change_primary_culture = anglo_dixie
-		}			#If this event hits in a capital, make the national culture the post-colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
@@ -5299,7 +5387,15 @@ country_event = { #American Splinter
 		any_owned_province = { #Make sure it actually fires for someone relevant
 			culture = american
 		}
-		USA = { exists = yes } #American can only splinter after the US gains independence
+		OR = {
+			USA = { exists = yes } #American can only splinter after the US gains independence
+			AND = {	#Or if for some reason the US doesn't form but there is an independent colonial tag
+				capital_scope = {
+					anglo_american_culture_region = yes
+				}
+				is_former_colonial_nation = yes
+			}
+		}
 		NOT = {	#Basically checking if the Americans are under foreign control, if they are, they don't split.
 			OR = {
 				AND = { #Provinces fell to Foreign rule
@@ -5447,6 +5543,686 @@ country_event = { #Choose new Primary
 				capital_scope = { anglo_dixie_culture_region = yes }
 			}
 		}
+	}
+}
+
+country_event = { #Establishment of Aussie
+	id = cultural_influence_british.63
+	title = british_australian_establishment.title
+	desc = british_australian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_australian_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_australian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_australian_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_australian_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_australian }
+				change_primary_culture = anglo_australian
+			}
+		}
+	}
+	
+	option = {
+		name = british_australian_establishment.a
+		custom_tooltip = anglo_australian_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Kiwi
+	id = cultural_influence_british.64
+	title = british_new_zealander_establishment.title
+	desc = british_new_zealander_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_kiwi_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_kiwi_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_kiwi_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_kiwi_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_kiwi }
+				change_primary_culture = anglo_kiwi
+			}
+		}
+	}
+	
+	option = {
+		name = british_new_zealander_establishment.a
+		custom_tooltip = anglo_kiwi_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Caribbean
+	id = cultural_influence_british.65
+	title = british_caribbean_establishment.title
+	desc = british_caribbean_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_caribbean_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_caribbean_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_caribbean_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_caribbean_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_caribbean }
+				change_primary_culture = anglo_caribbean
+			}
+		}
+	}
+	
+	option = {
+		name = british_caribbean_establishment.a
+		custom_tooltip = anglo_caribbean_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of American
+	id = cultural_influence_british.66
+	title = british_american_establishment.title
+	desc = british_american_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_american_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_american_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_american_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_american_culture_region = yes }
+				}
+				capital_scope = { change_culture = american }
+				change_primary_culture = american
+			}
+		}
+	}
+	
+	option = {
+		name = british_american_establishment.a
+		custom_tooltip = anglo_american_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Canadian
+	id = cultural_influence_british.67
+	title = british_canadian_establishment.title
+	desc = british_canadian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_canadian_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_canadian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_canadian_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_canadian_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_canadian }
+				change_primary_culture = anglo_canadian
+			}
+		}
+	}
+	
+	option = {
+		name = british_canadian_establishment.a
+		custom_tooltip = anglo_canadian_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Texan
+	id = cultural_influence_british.68
+	title = british_texan_establishment.title
+	desc = british_texan_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_texan_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_texan_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_texan_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_texan_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_texan }
+				change_primary_culture = anglo_texan
+			}
+		}
+	}
+	
+	option = {
+		name = british_texan_establishment.a
+		custom_tooltip = anglo_texan_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Newfie
+	id = cultural_influence_british.69
+	title = british_newfoundlander_establishment.title
+	desc = british_newfoundlander_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_newfoundlander_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_newfoundlander_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_newfoundlander_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_newfoundlander_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_newfoundlander }
+				change_primary_culture = anglo_newfoundlander
+			}
+		}
+	}
+	
+	option = {
+		name = british_newfoundlander_establishment.a
+		custom_tooltip = anglo_newfoundlander_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Brazilian
+	id = cultural_influence_british.70
+	title = british_brazilian_establishment.title
+	desc = british_brazilian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_brazilian_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_brazilian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_brazilian_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_brazilian_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_brazilian }
+				change_primary_culture = anglo_brazilian
+			}
+		}
+	}
+	
+	option = {
+		name = british_brazilian_establishment.a
+		custom_tooltip = anglo_brazilian_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Peruvean
+	id = cultural_influence_british.71
+	title = british_peruvean_establishment.title
+	desc = british_peruvean_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_peruvean_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_peruvean_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_peruvean_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_peruvean_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_peruvean }
+				change_primary_culture = anglo_peruvean
+			}
+		}
+	}
+	
+	option = {
+		name = british_peruvean_establishment.a
+		custom_tooltip = anglo_peruvean_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Colombian
+	id = cultural_influence_british.72
+	title = british_colombian_establishment.title
+	desc = british_colombian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_colombian_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_colombian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_colombian_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_colombian_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_colombian }
+				change_primary_culture = anglo_colombian
+			}
+		}
+	}
+	
+	option = {
+		name = british_colombian_establishment.a
+		custom_tooltip = anglo_colombian_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Argentine
+	id = cultural_influence_british.73
+	title = british_argentine_establishment.title
+	desc = british_argentine_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_argentine_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_argentine_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_argentine_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_argentine_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_argentine }
+				change_primary_culture = anglo_argentine
+			}
+		}
+	}
+	
+	option = {
+		name = british_argentine_establishment.a
+		custom_tooltip = anglo_argentine_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of South African
+	id = cultural_influence_british.74
+	title = british_south_african_establishment.title
+	desc = british_south_african_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_south_african_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_south_african_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_south_african_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_south_african_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_south_african }
+				change_primary_culture = anglo_south_african
+			}
+		}
+	}
+	
+	option = {
+		name = british_south_african_establishment.a
+		custom_tooltip = anglo_south_african_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Californian
+	id = cultural_influence_british.75
+	title = british_californian_establishment.title
+	desc = british_californian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_californian_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_californian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_californian_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_californian_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_californian }
+				change_primary_culture = anglo_californian
+			}
+		}
+	}
+	
+	option = {
+		name = british_californian_establishment.a
+		custom_tooltip = anglo_californian_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Cascadian
+	id = cultural_influence_british.76
+	title = british_cascadian_establishment.title
+	desc = british_cascadian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_cascadian_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_cascadian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_cascadian_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_cascadian_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_cascadian }
+				change_primary_culture = anglo_cascadian
+			}
+		}
+	}
+	
+	option = {
+		name = british_cascadian_establishment.a
+		custom_tooltip = anglo_cascadian_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Mexican
+	id = cultural_influence_british.77
+	title = british_mexican_establishment.title
+	desc = british_mexican_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_mexican_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_mexican_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_mexican_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_mexican_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_mexican }
+				change_primary_culture = anglo_mexican
+			}
+		}
+	}
+	
+	option = {
+		name = british_mexican_establishment.a
+		custom_tooltip = anglo_mexican_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Prariean
+	id = cultural_influence_british.78
+	title = british_great_plains_establishment.title
+	desc = british_great_plains_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_great_plains_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_great_plains_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_great_plains_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_great_plains_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_great_plains }
+				change_primary_culture = anglo_great_plains
+			}
+		}
+	}
+	
+	option = {
+		name = british_great_plains_establishment.a
+		custom_tooltip = anglo_great_plains_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Alaskan
+	id = cultural_influence_british.79
+	title = british_alaskan_establishment.title
+	desc = british_alaskan_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				anglo_alaskan_culture_region = yes
+				culture_group = british
+			}	
+		}
+		culture_group = british
+		NOT = { has_global_flag = anglo_alaskan_plains_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anglo_alaskan_plains_established_flag
+			every_country = {
+				limit = {
+					culture_group = british
+					capital_scope = { anglo_alaskan_culture_region = yes }
+				}
+				capital_scope = { change_culture = anglo_alaskan }
+				change_primary_culture = anglo_alaskan
+			}
+		}
+	}
+	
+	option = {
+		name = british_alaskan_establishment.a
+		custom_tooltip = anglo_alaskan_established_convert_tags
 	}
 }
 #Considered adding India to this list, but the influence of English in India 1600-1947 was fairly insignificant, if someone can convince me otherwise, please do - Sam

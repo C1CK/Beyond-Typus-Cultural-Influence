@@ -1,10 +1,8 @@
-edict_settlement = {
+edict_frontier_settlement = {
 	potential = {
-		NOT = {
-			OR = {	#They get their own frontier settlement edict
-				is_colonial_nation = yes
-				is_former_colonial_nation = yes
-			}
+		OR = {
+			is_colonial_nation = yes
+			is_former_colonial_nation = yes
 		}
 	}
 	
@@ -16,13 +14,14 @@ edict_settlement = {
 		}
 	}
 	
-	modifier = {
-		local_unrest = 5
-		local_development_cost = -0.1
+	modifier = {	#More focused on coversion then development, unlike the standard settlement edict
+		local_development_cost = -0.05
+		local_monthly_devastation = -0.05
+		local_missionary_strength = 0.01
 		local_culture_conversion_cost = -0.1
 	}
 	
-	color = { 180 60 60 }
+	color = { 20 160 90 }
 	
 	ai_will_do = {
 		factor = 10
