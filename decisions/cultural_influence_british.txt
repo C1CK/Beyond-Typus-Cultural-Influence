@@ -358,36 +358,34 @@ country_decisions = {
 				add_center_of_trade_level = 1 #Woo!
 				add_base_tax = 2
 			}
-			every_owned_province = {
-				limit = {
-					province_id = 233 #Cornwall
-					province_id = 4373 #South Devon
-					province_id = 8122 #North Devon
-				}
+			custom_tooltip = british_grant_cornish_parliament
+			hidden_effect = {
 				if = {
 					limit = {
 						any_province = { culture = cornish }
+						british_cornwall_devolved_parliament_region = yes
 					}
 					change_culture = cornish
 				}
 				if = {
 					limit = {
 						any_province = { culture = celtic_cornish_culture }
+						british_cornwall_devolved_parliament_region = yes
 					}
 					change_culture = celtic_cornish_culture
 				}
-			}
-			if = {
-				limit = {
-					any_province = { culture = cornish }
+				if = {
+					limit = {
+						any_province = { culture = cornish }
+					}
+					add_accepted_culture = cornish
 				}
-				add_accepted_culture = cornish
-			}
-			if = {
-				limit = {
-					any_province = { culture = celtic_cornish_culture }
+				if = {
+					limit = {
+						any_province = { culture = celtic_cornish_culture }
+					}
+					add_accepted_culture = celtic_cornish_culture
 				}
-				add_accepted_culture = celtic_cornish_culture
 			}
 			set_country_flag = cornish_devolved_parliament_flag
 		}
@@ -406,12 +404,17 @@ country_decisions = {
 		}
 
 		allow = {
-			brittany_area = { #Upper Brittany
+			brittany_area = {
 				type = any
-				OR = {
+				if = {
+					limit = {
+						NOT = { has_global_flag = gaels_and_britons_reunited_into_one_group }
+					}
 					culture = breton
+				}	
+				else = {
 					culture = celtic_breton_culture
-				}
+				}	
 			}
 			brittany_area = { #Upper Brittany
 				type = all
@@ -419,10 +422,15 @@ country_decisions = {
 			}
 			lower_brittany_area = {
 				type = any
-				OR = {
+				if = {
+					limit = {
+						NOT = { has_global_flag = gaels_and_britons_reunited_into_one_group }
+					}
 					culture = breton
+				}	
+				else = {
 					culture = celtic_breton_culture
-				}
+				}	
 			}
 			lower_brittany_area = {
 				type = all
@@ -433,45 +441,48 @@ country_decisions = {
 
 		effect = {
 			add_dip_power = -400
-			brittany_area = { #Upper Brittany
+			custom_tooltip = british_grant_breton_parliament
+			hidden_effect = {
+				brittany_area = { #Upper Brittany
+					if = {
+						limit = {
+							any_province = { culture = breton }
+						}
+						change_culture = breton
+					}
+					if = {
+						limit = {
+							any_province = { culture = celtic_breton_culture }
+						}
+						change_culture = celtic_breton_culture
+					}
+				}
+				lower_brittany_area = {
+					if = {
+						limit = {
+							any_province = { culture = breton }
+						}
+						change_culture = breton
+					}
+					if = {
+						limit = {
+							any_province = { culture = celtic_breton_culture }
+						}
+						change_culture = celtic_breton_culture
+					}
+				}
 				if = {
 					limit = {
 						any_province = { culture = breton }
 					}
-					change_culture = breton
+					add_accepted_culture = breton
 				}
 				if = {
 					limit = {
 						any_province = { culture = celtic_breton_culture }
 					}
-					change_culture = celtic_breton_culture
+					add_accepted_culture = celtic_breton_culture
 				}
-			}
-			lower_brittany_area = {
-				if = {
-					limit = {
-						any_province = { culture = breton }
-					}
-					change_culture = breton
-				}
-				if = {
-					limit = {
-						any_province = { culture = celtic_breton_culture }
-					}
-					change_culture = celtic_breton_culture
-				}
-			}
-			if = {
-				limit = {
-					any_province = { culture = breton }
-				}
-				add_accepted_culture = breton
-			}
-			if = {
-				limit = {
-					any_province = { culture = celtic_breton_culture }
-				}
-				add_accepted_culture = celtic_breton_culture
 			}
 			172 = {
 				add_province_triggered_modifier = breton_devolved_parliament_modifier
@@ -494,25 +505,16 @@ country_decisions = {
 		}
 
 		allow = {
-			lower_normandy_area = {
+			num_of_owned_provinces_with = {
 				culture_group = british
 				is_core = ROOT
-				type = all
-			}
-			normandy_area = { #Upper Normandy
-				culture_group = british
-				is_core = ROOT
-				type = all
-			}
-			ile_de_france_area = {
-				culture_group = british
-				is_core = ROOT
-				type = all
-			}
-			picardy_area = {
-				culture_group = british
-				is_core = ROOT
-				type = all
+				OR = {
+					area = lower_normandy_area
+					area = normandy_area
+					area = ile_de_france_area
+					area = picardy_area
+				}
+				value = 30
 			}
 			owns_core_province = 183 #Paris
 		}
@@ -548,15 +550,15 @@ country_decisions = {
 		}
 
 		allow = {
-			guyenne_area = {
+			num_of_owned_provinces_with = {
 				culture_group = british
 				is_core = ROOT
-				type = all
-			}
-			poitou_area = {
-				culture_group = british
-				is_core = ROOT
-				type = all
+				OR = {
+					area = poitou_area
+					area = guyenne_area
+					area = pyrenees_area
+				}	
+				value = 17
 			}
 			owns_core_province = 174 #Aquitaine
 		}
@@ -565,6 +567,7 @@ country_decisions = {
 			OR = {
 				area = guyenne_area
 				area = poitou_area
+				area = pyrenees_area
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
