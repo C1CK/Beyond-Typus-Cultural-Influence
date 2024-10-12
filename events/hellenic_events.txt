@@ -12440,112 +12440,182 @@ province_event = { #Georgian Assimilation
 namespace = cultural_influence_greek_colonial
 #(Another something in greek!)
 
-province_event = { #Voreaka Colonial event
+province_event = { #Boreaka Colonial Settlement event
 	id = cultural_influence_greek_colonial.1
-	title = greek_colony.title
-	desc = greek_colony.desc
+	title = greco_voreaka_settlement.title
+	desc = greco_voreaka_settlement.desc
 	picture = CULTURE_eventPicture
 	goto = root
 	
 	trigger = {
-		OR = {
-			colonial_region = colonial_alaska
-			colonial_region = colonial_canada
-			colonial_region = colonial_hudson_bay
-			colonial_region = colonial_newfoundland
-			colonial_region = colonial_acadia
-			colonial_region = colonial_northwest_territories
-			colonial_region = colonial_greenland
-		}
-		culture_group = byzantine
+		voreaka_culture_region = yes
 		NOT = { culture = voreaka }
 		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_voreaka_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 25
-
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
 		modifier = {
-			factor = 0
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = voreaka }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
-	option = { # Okay
-		name = "greek_colony.a"
-		change_culture = voreaka
-		if = {
-			limit = { owner = { NOT = { accepted_culture = voreaka } } }
-			add_accepted_culture = voreaka
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				owner = {
-					OR = {
-						culture_group = byzantine
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						voreaka_culture_region = yes
 					}
 				}
+				change_primary_culture = voreaka 
 			}
-			change_primary_culture = voreaka	
-		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.	
-	}	
+		}
+	}
+
+	option = {
+		name = greco_voreaka_settlement.a
+
+		change_culture = voreaka
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = voreaka } } }
+			add_accepted_culture = voreaka
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
 }
 
-province_event = { #Antolaktika Colonial event
+province_event = { #Anatolaktika Colonial Settlement event
 	id = cultural_influence_greek_colonial.2
-	title = greek_colony.title
-	desc = greek_colony.desc
+	title = greco_antolaktika_settlement.title
+	desc = greco_antolaktika_settlement.desc
 	picture = CULTURE_eventPicture
 	goto = root
 	
 	trigger = {
-		OR = {
-			colonial_region = colonial_eastern_america
-			colonial_region = colonial_florida #If APE is installed
-		}
-		culture_group = byzantine
+		antolaktika_culture_region = yes
 		NOT = { culture = antolaktika }
 		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_antolaktika_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 25
-
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
 		modifier = {
-			factor = 0
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = antolaktika }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
-	option = { # Okay
-		name = "greek_colony.a"
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						antolaktika_culture_region = yes
+					}
+				}
+				change_primary_culture = antolaktika 
+			}
+		}
+	}
+
+	option = {
+		name = greco_antolaktika_settlement.a
 
 		change_culture = antolaktika
 		if = {
-			limit = { owner = { NOT = { accepted_culture = antolaktika } } }
+			limit = { OWNER = { NOT = { accepted_culture = antolaktika } } }
 			add_accepted_culture = antolaktika
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				owner = {
-					OR = {
-						culture_group = byzantine
-					}
-				}
-			}
-			change_primary_culture = antolaktika
-		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
-province_event = { #Potomika Colonial event
+province_event = { #Potomika Colonial settlement event
 	id = cultural_influence_greek_colonial.3
-	title = greek_colony.title
-	desc = greek_colony.desc
+	title = greco_potomika_settlement.title
+	desc = greco_potomika_settlement.desc
 	picture = CULTURE_eventPicture
 	goto = root
 	
@@ -12557,473 +12627,1395 @@ province_event = { #Potomika Colonial event
 		NOT = { culture = potomika }
 		is_city = yes
 	}	
+	
+	trigger = {
+		potomika_culture_region = yes
+		NOT = { culture = potomika }
+		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_antolaktika_established_flag
+	}
 
 	mean_time_to_happen = {
-		years = 25
-
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
 		modifier = {
-			factor = 0
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = potomika }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
-	option = { # Okay
-		name = "greek_colony.a"
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						potomika_culture_region = yes
+					}
+				}
+				change_primary_culture = potomika 
+			}
+		}
+	}
+
+	option = {
+		name = greco_potomika_settlement.a
 
 		change_culture = potomika
 		if = {
-			limit = { owner = { NOT = { accepted_culture = potomika } } }
+			limit = { OWNER = { NOT = { accepted_culture = potomika } } }
 			add_accepted_culture = potomika
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				owner = {
-					OR = {
-						culture_group = byzantine
-					}
-				}
-			}
-			change_primary_culture = potomika
-		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
 province_event = { #Dytiaktika Colonial event
 	id = cultural_influence_greek_colonial.4
-	title = greek_colony.title
-	desc = greek_colony.desc
+	title = greco_dytiaktika_settlement.title
+	desc = greco_dytiaktika_settlement.desc
 	picture = CULTURE_eventPicture
 	goto = root
 	
 	trigger = {
-		OR = {
-			colonial_region = colonial_california
-			colonial_region = colonial_cascadia
-		}
-		culture_group = byzantine
+		dytiaktika_culture_region = yes
 		NOT = { culture = dytiaktika }
 		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_dytiaktika_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 25
-
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
 		modifier = {
-			factor = 0
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = dytiaktika }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
-	option = { # Okay
-		name = "greek_colony.a"
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						dytiaktika_culture_region = yes
+					}
+				}
+				change_primary_culture = dytiaktika 
+			}
+		}
+	}
+
+	option = {
+		name = greco_dytiaktika_settlement.a
 
 		change_culture = dytiaktika
 		if = {
-			limit = { owner = { NOT = { accepted_culture = dytiaktika } } }
+			limit = { OWNER = { NOT = { accepted_culture = dytiaktika } } }
 			add_accepted_culture = dytiaktika
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				owner = {
-					OR = {
-						culture_group = byzantine
-					}
-				}
-			}
-			change_primary_culture = dytiaktika
-		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
-province_event = { #Kentrika Colonial event
+province_event = { #Kentrika Colonial settlement event
 	id = cultural_influence_greek_colonial.5
-	title = greek_colony.title
-	desc = greek_colony.desc
+	title = greco_kentrika_settlement.title
+	desc = greco_kentrika_settlement.desc
 	picture = CULTURE_eventPicture
 	goto = root
 	
 	trigger = {
-		OR = {
-			colonial_region = colonial_mexico
-		}
-		culture_group = byzantine
+		kentrika_culture_region = yes
 		NOT = { culture = kentrika }
 		is_city = yes
-	}	
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_kentrika_established_flag
+	}
 
 	mean_time_to_happen = {
-		years = 25
-
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
 		modifier = {
-			factor = 0
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = kentrika }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
-	option = { # Okay
-		name = "greek_colony.a"
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						kentrika_culture_region = yes
+					}
+				}
+				change_primary_culture = kentrika 
+			}
+		}
+	}
+
+	option = {
+		name = greco_kentrika_settlement.a
 
 		change_culture = kentrika
 		if = {
-			limit = { owner = { NOT = { accepted_culture = kentrika } } }
+			limit = { OWNER = { NOT = { accepted_culture = kentrika } } }
 			add_accepted_culture = kentrika
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				owner = {
-					OR = {
-						culture_group = byzantine
-					}
-				}
-			}
-			change_primary_culture = kentrika
-		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
-province_event = { #Dyitinisika Colonial event
+province_event = { #Dyitinisika Colonial settlement event
 	id = cultural_influence_greek_colonial.6
-	title = greek_colony.title
-	desc = greek_colony.desc
+	title = greco_dyitinisika_settlement.title
+	desc = greco_dyitinisika_settlement.desc
 	picture = CULTURE_eventPicture
 	goto = root
 	
 	trigger = {
-		OR = {
-			colonial_region = colonial_cuba
-			colonial_region = colonial_bahamas
-			colonial_region = colonial_hispaniola
-			colonial_region = colonial_the_carribean	
-		}
-		culture_group = byzantine
+		dyitinisika_culture_region = yes
 		NOT = { culture = dyitinisika }
 		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_dyitinisika_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 25
-
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
 		modifier = {
-			factor = 0
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = dyitinisika }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
-	option = { # Okay
-		name = "greek_colony.a"
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						dyitinisika_culture_region = yes
+					}
+				}
+				change_primary_culture = dyitinisika 
+			}
+		}
+	}
+
+	option = {
+		name = greco_dyitinisika_settlement.a
 
 		change_culture = dyitinisika
 		if = {
-			limit = { owner = { NOT = { accepted_culture = dyitinisika } } }
+			limit = { OWNER = { NOT = { accepted_culture = dyitinisika } } }
 			add_accepted_culture = dyitinisika
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				owner = {
-					OR = {
-						culture_group = byzantine
-					}
-				}
-			}
-			change_primary_culture = dyitinisika
-		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
-province_event = { #Kolomvika Colonial event
+province_event = { #Kolomvika Colonial settlement event
 	id = cultural_influence_greek_colonial.7
-	title = greek_colony.title
-	desc = greek_colony.desc
+	title = greco_kolomvika_settlement.title
+	desc = greco_kolomvika_settlement.desc
 	picture = CULTURE_eventPicture
 	goto = root
-	
+
 	trigger = {
-		OR = {
-			colonial_region = colonial_colombia
-		}
-		culture_group = byzantine
+		kolomvika_culture_region = yes
 		NOT = { culture = kolomvika }
 		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_kolomvika_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 25
-
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
 		modifier = {
-			factor = 0
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = kolomvika }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
-	option = { # Okay
-		name = "greek_colony.a"
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						kolomvika_culture_region = yes
+					}
+				}
+				change_primary_culture = kolomvika 
+			}
+		}
+	}
+
+	option = {
+		name = greco_kolomvika_settlement.a
 
 		change_culture = kolomvika
 		if = {
-			limit = { owner = { NOT = { accepted_culture = kolomvika } } }
+			limit = { OWNER = { NOT = { accepted_culture = kolomvika } } }
 			add_accepted_culture = kolomvika
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				owner = {
-					OR = {
-						culture_group = byzantine
-					}
-				}
-			}
-			change_primary_culture = kolomvika
-		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
-province_event = { #Amazones Colonial event
+province_event = { #Amazones Colonial settlement event
 	id = cultural_influence_greek_colonial.8
-	title = greek_colony.title
-	desc = greek_colony.desc
+	title = greco_amazones_settlement.title
+	desc = greco_amazones_settlement.desc
 	picture = CULTURE_eventPicture
 	goto = root
 	
 	trigger = {
-		OR = {
-			colonial_region = colonial_brazil
-		}
-		culture_group = byzantine
+		amazones_culture_region = yes
 		NOT = { culture = amazones }
 		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_amazones_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 25
-
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
 		modifier = {
-			factor = 0
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = amazones }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
-	option = { # Okay
-		name = "greek_colony.a"
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						amazones_culture_region = yes
+					}
+				}
+				change_primary_culture = amazones 
+			}
+		}
+	}
+
+	option = {
+		name = greco_amazones_settlement.a
 
 		change_culture = amazones
 		if = {
-			limit = { owner = { NOT = { accepted_culture = amazones } } }
+			limit = { OWNER = { NOT = { accepted_culture = amazones } } }
 			add_accepted_culture = amazones
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				owner = {
-					OR = {
-						culture_group = byzantine
-					}
-				}
-			}
-			change_primary_culture = amazones
-		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
-province_event = { #Dytivounika Colonial event
+province_event = { #Dytivounika Colonial settlement event
 	id = cultural_influence_greek_colonial.9
-	title = greek_colony.title
-	desc = greek_colony.desc
+	title = greco_dytivounika_settlement.title
+	desc = greco_dytivounika_settlement.desc
 	picture = CULTURE_eventPicture
 	goto = root
 	
 	trigger = {
-		OR = {
-			colonial_region = colonial_peru
-			colonial_region = colonial_la_plata
-		}
-		culture_group = byzantine
+		dytivounika_culture_region = yes
 		NOT = { culture = dytivounika }
 		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_dytivounika_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 25
-
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
 		modifier = {
-			factor = 0
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = dytivounika }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
-	option = { # Okay
-		name = "greek_colony.a"
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						dytivounika_culture_region = yes
+					}
+				}
+				change_primary_culture = dytivounika 
+			}
+		}
+	}
+
+	option = {
+		name = greco_dytivounika_settlement.a
 
 		change_culture = dytivounika
 		if = {
-			limit = { owner = { NOT = { accepted_culture = dytivounika } } }
+			limit = { OWNER = { NOT = { accepted_culture = dytivounika } } }
 			add_accepted_culture = dytivounika
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				owner = {
-					OR = {
-						culture_group = byzantine
-					}
-				}
-			}
-			change_primary_culture = dytivounika
-		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
-province_event = { #Notia Aethiopas Colonial event
+province_event = { #Notia Aethiopas Colonial settlement event
 	id = cultural_influence_greek_colonial.10
-	title = greek_colony.title
-	desc = greek_colony.desc
+	title = greco_notia_aethiopas_settlement.title
+	desc = greco_notia_aethiopas_settlement.desc
 	picture = CULTURE_eventPicture
 	goto = root
-	
+
 	trigger = {
-		OR = {
-			colonial_region = colonial_cape
-		}
-		culture_group = byzantine
+		notia_aethiopas_culture_region = yes
 		NOT = { culture = notia_aethiopas }
 		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_notia_aethiopas_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 25
-
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
 		modifier = {
-			factor = 0
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = notia_aethiopas }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
-	option = { # Okay
-		name = "greek_colony.a"
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						notia_aethiopas_culture_region = yes
+					}
+				}
+				change_primary_culture = notia_aethiopas 
+			}
+		}
+	}
+
+	option = {
+		name = greco_notia_aethiopas_settlement.a
 
 		change_culture = notia_aethiopas
 		if = {
-			limit = { owner = { NOT = { accepted_culture = notia_aethiopas } } }
+			limit = { OWNER = { NOT = { accepted_culture = notia_aethiopas } } }
 			add_accepted_culture = notia_aethiopas
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				owner = {
-					OR = {
-						culture_group = byzantine
-					}
-				}
-			}
-			change_primary_culture = notia_aethiopas
-		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
-
-province_event = { #Notiaka Colonial event
+province_event = { #Notiaka Colonial settlement event
 	id = cultural_influence_greek_colonial.11
-	title = greek_colony.title
-	desc = greek_colony.desc
+	title = greco_notiaka_settlement.title
+	desc = greco_notiaka_settlement.desc
 	picture = CULTURE_eventPicture
 	goto = root
-	
+
 	trigger = {
-		OR = {
-			colonial_region = colonial_australia	
-			colonial_region = colonial_western_australia	
-		}
-		culture_group = byzantine
+		notiaka_culture_region = yes
 		NOT = { culture = notiaka }
 		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_notiaka_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 25
-
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
 		modifier = {
-			factor = 0
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = notiaka }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
-	option = { # Okay
-		name = "greek_colony.a"
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						notiaka_culture_region = yes
+					}
+				}
+				change_primary_culture = notiaka 
+			}
+		}
+	}
+
+	option = {
+		name = greco_notiaka_settlement.a
 
 		change_culture = notiaka
 		if = {
-			limit = { owner = { NOT = { accepted_culture = notiaka } } }
+			limit = { OWNER = { NOT = { accepted_culture = notiaka } } }
 			add_accepted_culture = notiaka
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
-		if = {
-			limit = {
-				is_capital = yes
-				is_overseas = no
-				owner = {
-					OR = {
-						culture_group = byzantine
-					}
-				}
-			}
-			change_primary_culture = notiaka
-		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.	
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
 
-province_event = { #Polinesika Colonial event
+province_event = { #Polinesika Colonial settlement event
 	id = cultural_influence_greek_colonial.12
-	title = greek_colony.title
-	desc = greek_colony.desc
+	title = greco_polinesika_settlement.title
+	desc = greco_polinesika_settlement.desc
 	picture = CULTURE_eventPicture
 	goto = root
 	
 	trigger = {
-		OR = {
-			colonial_region = colonial_polynesia
-		}
-		culture_group = byzantine
+		polinesika_culture_region = yes
 		NOT = { culture = polinesika }
 		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_polinesika_established_flag
 	}
 
 	mean_time_to_happen = {
-		years = 25
-
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
 		modifier = {
-			factor = 0
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
 			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = polinesika }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
 		}
 	}
 
-	option = { # Okay
-		name = "greek_colony.a"
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						polinesika_culture_region = yes
+					}
+				}
+				change_primary_culture = polinesika 
+			}
+		}
+	}
+
+	option = {
+		name = greco_polinesika_settlement.a
 
 		change_culture = polinesika
 		if = {
-			limit = { owner = { NOT = { accepted_culture = polinesika } } }
+			limit = { OWNER = { NOT = { accepted_culture = polinesika } } }
 			add_accepted_culture = polinesika
-		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Boreaka
+	id = cultural_influence_greek_colonial.13
+	title = greco_voreaka_establishment.title
+	desc = greco_voreaka_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				voreaka_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_voreaka_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_voreaka_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { voreaka_culture_region = yes }
+				}
+				capital_scope = { change_culture = voreaka }
+				change_primary_culture = voreaka
+			}
+		}
+	}
+	
+	option = {
+		name = greco_voreaka_establishment.a
+		custom_tooltip = greco_voreaka_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Anatolaktika
+	id = cultural_influence_greek_colonial.14
+	title = greco_antolaktika_establishment.title
+	desc = greco_antolaktika_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				antolaktika_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_antolaktika_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_antolaktika_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { antolaktika_culture_region = yes }
+				}
+				capital_scope = { change_culture = antolaktika }
+				change_primary_culture = antolaktika
+			}
+		}
+	}
+	
+	option = {
+		name = greco_antolaktika_establishment.a
+		custom_tooltip = greco_antolaktika_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Potomika
+	id = cultural_influence_greek_colonial.15
+	title = greco_potomika_establishment.title
+	desc = greco_potomika_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				potomika_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_potomika_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_potomika_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { potomika_culture_region = yes }
+				}
+				capital_scope = { change_culture = potomika }
+				change_primary_culture = potomika
+			}
+		}
+	}
+	
+	option = {
+		name = greco_potomika_establishment.a
+		custom_tooltip = greco_potomika_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Dytiaktika
+	id = cultural_influence_greek_colonial.16
+	title = greco_dytiaktika_establishment.title
+	desc = greco_dytiaktika_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				dytiaktika_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_dytiaktika_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_dytiaktika_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { dytiaktika_culture_region = yes }
+				}
+				capital_scope = { change_culture = dytiaktika }
+				change_primary_culture = dytiaktika
+			}
+		}
+	}
+	
+	option = {
+		name = greco_dytiaktika_establishment.a
+		custom_tooltip = greco_dytiaktika_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Kentrika
+	id = cultural_influence_greek_colonial.17
+	title = greco_kentrika_establishment.title
+	desc = greco_kentrika_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				kentrika_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_kentrika_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_kentrika_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { kentrika_culture_region = yes }
+				}
+				capital_scope = { change_culture = kentrika }
+				change_primary_culture = kentrika
+			}
+		}
+	}
+	
+	option = {
+		name = greco_kentrika_establishment.a
+		custom_tooltip = greco_kentrika_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Dyitinisika
+	id = cultural_influence_greek_colonial.18
+	title = greco_dyitinisika_establishment.title
+	desc = greco_dyitinisika_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				dyitinisika_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_dyitinisika_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_dyitinisika_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { dyitinisika_culture_region = yes }
+				}
+				capital_scope = { change_culture = dyitinisika }
+				change_primary_culture = dyitinisika
+			}
+		}
+	}
+	
+	option = {
+		name = greco_dyitinisika_establishment.a
+		custom_tooltip = greco_dyitinisika_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Kolomvika
+	id = cultural_influence_greek_colonial.19
+	title = greco_kolomvika_establishment.title
+	desc = greco_kolomvika_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				kolomvika_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_kolomvika_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_kolomvika_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { kolomvika_culture_region = yes }
+				}
+				capital_scope = { change_culture = kolomvika }
+				change_primary_culture = kolomvika
+			}
+		}
+	}
+	
+	option = {
+		name = greco_kolomvika_establishment.a
+		custom_tooltip = greco_kolomvika_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Amazones
+	id = cultural_influence_greek_colonial.20
+	title = greco_amazones_establishment.title
+	desc = greco_amazones_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				amazones_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_amazones_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_amazones_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { amazones_culture_region = yes }
+				}
+				capital_scope = { change_culture = amazones }
+				change_primary_culture = amazones
+			}
+		}
+	}
+	
+	option = {
+		name = greco_amazones_establishment.a
+		custom_tooltip = greco_amazones_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Dytivounika
+	id = cultural_influence_greek_colonial.21
+	title = greco_dytivounika_establishment.title
+	desc = greco_dytivounika_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				dytivounika_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_dytivounika_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_dytivounika_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { dytivounika_culture_region = yes }
+				}
+				capital_scope = { change_culture = dytivounika }
+				change_primary_culture = dytivounika
+			}
+		}
+	}
+	
+	option = {
+		name = greco_dytivounika_establishment.a
+		custom_tooltip = greco_dytivounika_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Notia Aethiopas
+	id = cultural_influence_greek_colonial.22
+	title = greco_notia_aethiopas_establishment.title
+	desc = greco_notia_aethiopas_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				notia_aethiopas_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_notia_aethiopas_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_notia_aethiopas_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { notia_aethiopas_culture_region = yes }
+				}
+				capital_scope = { change_culture = notia_aethiopas }
+				change_primary_culture = notia_aethiopas
+			}
+		}
+	}
+	
+	option = {
+		name = greco_notia_aethiopas_establishment.a
+		custom_tooltip = greco_notia_aethiopas_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Notiaka
+	id = cultural_influence_greek_colonial.23
+	title = greco_notiaka_establishment.title
+	desc = greco_notiaka_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				notiaka_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_notiaka_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_notiaka_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { notiaka_culture_region = yes }
+				}
+				capital_scope = { change_culture = notiaka }
+				change_primary_culture = notiaka
+			}
+		}
+	}
+	
+	option = {
+		name = greco_notiaka_establishment.a
+		custom_tooltip = greco_notiaka_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Polinesika
+	id = cultural_influence_greek_colonial.24
+	title = greco_polinesika_establishment.title
+	desc = greco_polinesika_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				polinesika_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_polinesika_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_polinesika_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { polinesika_culture_region = yes }
+				}
+				capital_scope = { change_culture = polinesika }
+				change_primary_culture = polinesika
+			}
+		}
+	}
+	
+	option = {
+		name = greco_polinesika_establishment.a
+		custom_tooltip = greco_polinesika_established_convert_tags
+	}
+}
+
+province_event = { #Settlement of the Frontier
+	id = cultural_influence_greek_colonial.25
+	title = greek_colony.title
+	desc = greek_colony.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		OR = {
+			native_american_trigger = yes #Native cultures
+			is_capital = yes
+		}	
+		owner = { culture_group = byzantine }
+		hellenic_old_worlder_country = yes	#Once the colonial language is established they will use their own events instead, if it's a crown colony then either event can fire, eventually it will flip to the colonial varient
+		ci_colonial_settlement_check = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 50
+
+		modifier = {
+			factor = 0.8
+			owner = { has_idea_to_settle_faster = yes }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				owner = { is_colonial_nation = yes }
+				owner = { is_former_colonial_nation = yes }
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = OWNER
+			}
+		}
+		modifier = {
+			factor = 0.6
+			religion = OWNER
+		}
+		modifier = {
+			factor = 0.6
+			is_capital = yes
+		}
+	}
+
+	option = {
+		name = greek_colony.a
+
+		change_culture = OWNER
 		if = {
 			limit = {
-				is_capital = yes
-				is_overseas = no
-				owner = {
-					OR = {
-						culture_group = byzantine
-					}
-				}
+				NOT = { religion_group = OWNER }
 			}
-			change_primary_culture = polinesika
-		}			#If this event hits in a capital, make the national culture the colonial culture. Yes, it will have far reaching effects. This is WaD.	
+			change_religion = OWNER
+		}	
 	}
 }

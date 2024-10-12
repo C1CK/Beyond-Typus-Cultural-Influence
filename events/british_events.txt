@@ -3668,6 +3668,7 @@ province_event = { #Australian
 	
 	trigger = {
 		anglo_australian_culture_region = yes
+		NOT = { culture = anglo_australian }
 		is_city = yes
 		british_new_world = no
 		OWNER = { culture_group = british }
@@ -3753,6 +3754,7 @@ province_event = { #Kiwi
 	
 	trigger = {
 		anglo_kiwi_culture_region = yes
+		NOT = { culture = anglo_kiwi }
 		is_city = yes
 		british_new_world = no
 		OWNER = { culture_group = british }
@@ -3840,6 +3842,7 @@ province_event = { #Caribbean
 	
 	trigger = {
 		anglo_caribbean_culture_region = yes
+		NOT = { culture = anglo_caribbean }
 		is_city = yes
 		british_new_world = no
 		OWNER = { culture_group = british }
@@ -4017,6 +4020,7 @@ province_event = { #Canadian
 	
 	trigger = {
 		anglo_canadian_culture_region = yes
+		NOT = { culture = anglo_canadian }
 		is_city = yes
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
@@ -4101,6 +4105,7 @@ province_event = { #Texan
 	
 	trigger = {
 		anglo_texan_culture_region = yes
+		NOT = { culture = anglo_texan }
 		is_city = yes
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
@@ -4185,6 +4190,7 @@ province_event = { #Newfoundlander
 	
 	trigger = {
 		anglo_newfoundlander_culture_region = yes
+		NOT = { culture = anglo_newfoundlander }
 		is_city = yes
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
@@ -4271,6 +4277,7 @@ province_event = { #Brazilian
 	
 	trigger = {
 		anglo_brazilian_culture_region = yes
+		NOT = { culture = anglo_brazilian }
 		is_city = yes
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
@@ -4356,6 +4363,7 @@ province_event = { #Peruvean
 	
 	trigger = {
 		anglo_peruvean_culture_region = yes
+		NOT = { culture = anglo_peruvean }
 		is_city = yes
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
@@ -4441,8 +4449,8 @@ province_event = { #Colombian
 	
 	trigger = {
 		anglo_colombian_culture_region = yes
+		NOT = { culture = anglo_colombian }
 		is_city = yes
-		british_new_world = no
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
 		ci_colonial_settlement_check = yes
@@ -4527,6 +4535,7 @@ province_event = { #Argentine
 	
 	trigger = {
 		anglo_argentine_culture_region = yes
+		NOT = { culture = anglo_argentine }
 		is_city = yes
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }			
@@ -4614,6 +4623,7 @@ province_event = { #South African
 	
 	trigger = {
 		anglo_south_african_culture_region = yes
+		NOT = { culture = anglo_south_african }
 		is_city = yes
 		any_neighbor_province = { culture_group = british }	
 		OWNER = { culture_group = british }	
@@ -4701,6 +4711,7 @@ province_event = { #Californian
 	
 	trigger = {
 		anglo_californian_culture_region = yes
+		NOT = { culture = anglo_californian }
 		is_city = yes
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
@@ -4786,6 +4797,7 @@ province_event = { #Cascadian
 	
 	trigger = {
 		anglo_cascadian_culture_region = yes
+		NOT = { culture = anglo_cascadian }
 		is_city = yes
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
@@ -4871,6 +4883,7 @@ province_event = { #Laurentian
 	
 	trigger = {
 		anglo_midwestern_culture_region = yes
+		NOT = { culture = anglo_midwestern }
 		is_city = yes
 		culture_group = british
 		AND = {
@@ -4961,6 +4974,7 @@ province_event = { #Mexican
 	
 	trigger = {
 		anglo_mexican_culture_region = yes
+		NOT = { culture = anglo_mexican }
 		is_city = yes
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
@@ -5046,6 +5060,7 @@ province_event = { #Prariean
 	
 	trigger = {
 		anglo_great_plains_culture_region = yes
+		NOT = { culture = anglo_great_plains }
 		is_city = yes
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
@@ -5131,6 +5146,7 @@ province_event = { #Alaskan
 	
 	trigger = {
 		anglo_alaskan_culture_region = yes
+		NOT = { culture = anglo_alaskan }
 		is_city = yes
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
@@ -5216,6 +5232,7 @@ province_event = { #Yankee
 	
 	trigger = {
 		anglo_yankee_culture_region = yes
+		NOT = { culture = anglo_yankee }
 		is_city = yes
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
@@ -5300,6 +5317,7 @@ province_event = { #Dixie
 	
 	trigger = {
 		anglo_dixie_culture_region = yes
+		NOT = { culture = anglo_dixie }
 		is_city = yes
 		OWNER = { culture_group = british }
 		any_neighbor_province = { culture_group = british }		
@@ -6225,4 +6243,65 @@ country_event = { #Establishment of Alaskan
 		custom_tooltip = anglo_alaskan_established_convert_tags
 	}
 }
+
+province_event = { #Settlement of the Frontier
+	id = cultural_influence_british.80
+	title = british_frontier_settlement.title
+	desc = british_frontier_settlement.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		OR = {
+			native_american_trigger = yes #Native cultures
+			is_capital = yes
+		}	
+		owner = { culture_group = british }
+		british_european_country = yes	#Once the colonial language is established they will use their own events instead, if it's a crown colony then either event can fire, eventually it will flip to the colonial varient
+		ci_colonial_settlement_check = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 50
+
+		modifier = {
+			factor = 0.8
+			owner = { has_idea_to_settle_faster = yes }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				owner = { is_colonial_nation = yes }
+				owner = { is_former_colonial_nation = yes }
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = OWNER
+			}
+		}
+		modifier = {
+			factor = 0.6
+			religion = OWNER
+		}
+		modifier = {
+			factor = 0.6
+			is_capital = yes
+		}
+	}
+
+	option = {
+		name = british_frontier_settlement.a
+
+		change_culture = OWNER
+		if = {
+			limit = {
+				NOT = { religion_group = OWNER }
+			}
+			change_religion = OWNER
+		}	
+	}
+}
+
 #Considered adding India to this list, but the influence of English in India 1600-1947 was fairly insignificant, if someone can convince me otherwise, please do - Sam

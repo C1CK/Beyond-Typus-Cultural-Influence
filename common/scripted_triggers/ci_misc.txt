@@ -75,6 +75,15 @@ native_american_trigger = { #West->East
 	}
 }
 
+has_colonial_languages_trigger = {	#Disables generic colonial settlement event, as they have their own
+	OR = {
+		culture_group = british
+		culture_group = french
+		culture_group = french_creole
+		culture_group = byzantine
+	}
+}
+
 is_in_settler_colonial_region = {
 	OR = {
 		#Vanilla
