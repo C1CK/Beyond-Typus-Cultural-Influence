@@ -3506,6 +3506,68 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 			factor = 0
 		}
 	}
+	italian_homelands = { #Italian Start
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			OR = {
+				culture_group = latin #Italo-Dalmatian
+				culture_group = gallo_italic
+				culture_group = rhaetian
+				culture_group = island_romance
+			}	
+		}
+
+		provinces_to_highlight = {
+			italian_homeland = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	greater_italian_homelands = { #Italian End, Romance End
+		major = no
+		potential = {
+			has_global_flag = ci_homelands_shown
+			OR = {
+				culture_group = latin #Italo-Dalmatian
+				culture_group = gallo_italic
+				culture_group = rhaetian
+				culture_group = island_romance
+			}	
+			OR = {
+				has_global_flag = italo_dalmatian_unified_italian_language_flag
+				has_global_flag = gallo_italic_unified_italian_language_flag
+				has_global_flag = rhaetian_unified_italian_language_flag
+				has_global_flag = island_romance_unified_italian_language_flag
+			}
+		}
+
+		provinces_to_highlight = {
+			greater_italian_homeland = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
 	nomadic_homelands = { #Steppe
 		major = no
 		potential = {
@@ -5238,8 +5300,8 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 		ai_will_do = {
 			factor = 0
 		}
-	}
-	souachiliaktikos_homelands = { #Hellenic End
+	}	
+	souachiliaktikos_homelands = {
 		major = no
 		potential = {
 			culture_group = byzantine
@@ -5261,7 +5323,237 @@ country_decisions = { #Areas not otherwise mentioned via another Decision are sh
 		ai_will_do = {
 			factor = 0
 		}
-	}			
+	}	
+	voreaka_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			voreaka_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	antolaktika_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			antolaktika_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	potomika_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			potomika_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	dytiaktika_homelands = { 
+		major = no
+		potential = {
+			culture_group = byzantine
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			dytiaktika_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	kentrika_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			kentrika_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	dyitinisika_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			dyitinisika_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	kolomvika_homelands = { 
+		major = no
+		potential = {
+			culture_group = byzantine
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			kolomvika_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	amazones_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			amazones_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	dytivounika_homelands = {
+		major = no
+		potential = {
+			culture_group = byzantine
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			dytivounika_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	notiaka_homelands = { #Hellenic End
+		major = no
+		potential = {
+			culture_group = byzantine
+			has_global_flag = ci_homelands_shown
+		}
+
+		provinces_to_highlight = {
+			notiaka_culture_region = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			#Pass
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
 	west_frisian_homelands = { #Germanic Start, Anglo-Frisian Start
 		major = no
 		potential = {

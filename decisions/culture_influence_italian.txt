@@ -2,7 +2,7 @@ country_decisions = {
 	promote_italian_literary_language = { #Step 1 of unification of Italian
 		major = yes
 		potential = {
-			AND = {
+			OR = {
 				NOT = { has_global_flag = italo_dalmatian_italian_literary_language_flag }
 				NOT = { has_global_flag = gallo_italic_italian_literary_language_flag }
 				NOT = { has_global_flag = rhaetian_literary_italian_language_flag }
@@ -36,20 +36,81 @@ country_decisions = {
 			}
 			hidden_effect = {
 				if = {
-					limit = { primary_culture = latin }
+					limit = { culture_group = latin }
 					set_global_flag = italo_dalmatian_italian_literary_language_flag
 				}
 				else_if = {
-					limit = { primary_culture = gallo_italic }
+					limit = { culture_group = gallo_italic }
 					set_global_flag = gallo_italic_italian_literary_language_flag
 				}
 				else_if = {
-					limit = { primary_culture = rhaetian }
+					limit = { culture_group = rhaetian }
 					set_global_flag = rhaetian_literary_italian_language_flag
 				}
 				else_if = {
-					limit = { primary_culture = island_romance }
+					limit = { culture_group = island_romance }
 					set_global_flag = island_romance_italian_literary_language_flag
+				}
+			}
+		}
+	}
+	unify_italian_languages = { #Step 2 of unification of Italian
+		major = yes
+		potential = {
+			OR = {
+				has_global_flag = italo_dalmatian_italian_literary_language_flag
+				has_global_flag = gallo_italic_italian_literary_language_flag
+				has_global_flag = rhaetian_literary_italian_language_flag
+				has_global_flag = island_romance_italian_literary_language_flag
+			}
+			OR = {
+				NOT = { has_global_flag = italo_dalmatian_unified_italian_language_flag }
+				NOT = { has_global_flag = gallo_italic_unified_italian_language_flag }
+				NOT = { has_global_flag = rhaetian_unified_italian_language_flag }
+				NOT = { has_global_flag = island_romance_unified_italian_language_flag }
+			}
+			OR = {
+				culture_group = latin #Italo-Dalmatian
+				culture_group = gallo_italic
+				culture_group = rhaetian
+				culture_group = island_romance
+			}
+		}
+
+		allow = {
+			has_institution = global_trade
+			num_of_owned_provinces_with = {	#Owns and has converted to primary language 120 out of 159 provinces in Italy
+				culture = ROOT
+				is_core = ROOT
+				OR = {
+					region = italy_region
+				}
+				value = 120
+			}
+		}
+
+		effect = {
+			custom_tooltip = promote_italian_lingustic_unity_effect_tt
+			hidden_effect = {
+				if = {
+					limit = { culture_group = latin }
+					set_global_flag = italo_dalmatian_unified_italian_language_flag
+					change_primary_culture = standard_italian_italo_dalmate
+				}
+				else_if = {
+					limit = { culture_group = gallo_italic }
+					set_global_flag = gallo_italic_unified_italian_language_flag
+					change_primary_culture = standard_italian_gallo_italic
+				}
+				else_if = {
+					limit = { culture_group = rhaetian }
+					set_global_flag = rhaetian_unified_italian_language_flag
+					change_primary_culture = standard_italian_rhaetian
+				}
+				else_if = {
+					limit = { culture_group = island_romance }
+					set_global_flag = island_romance_unified_italian_language_flag
+					change_primary_culture = standard_italian_island_romance
 				}
 			}
 		}

@@ -1,0 +1,283 @@
+namespace = cultural_influence_italian
+
+
+province_event = { #Italian expansion (Home Region) #For now this is for Retoromanas, Italo-Dalmate, Gallo-Italiche and Romanza de s’isula, might want to do some unique things for Retoromanas and Romanza de s'isula in future but for now this works
+	id = cultural_influence_italian.1
+	title = italian_expansion.title
+	desc = italian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = root
+	
+	trigger = {
+		OR = {
+			owner = { culture_group = latin }
+			owner = { culture_group = gallo_italic }
+			owner = { culture_group = rhaetian }
+			owner = { culture_group = island_romance }
+		}	
+		italian_homeland = yes
+		NOT = { culture = OWNER }
+		ci_assimilation_check = yes
+		OWNER = { has_country_modifier = italian_literary_language_modifier }
+		NOT = { OWNER = { has_country_modifier = italian_standardised_language_modifier } }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			OR = {
+				AND = {
+					culture_group = latin
+					OWNER = { culture_group = latin }
+				}	
+				AND = {
+					culture_group = gallo_italic
+					OWNER = { culture_group = gallo_italic }
+				}	
+				AND = {
+					culture_group = rhaetian
+					OWNER = { culture_group = rhaetian }
+				}	
+				AND = {
+					culture_group = island_romance
+					OWNER = { culture_group = island_romance }
+				}	
+			}
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			AND = {
+				religion_group = OWNER
+				NOT = { religion = OWNER }
+			}	
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = no
+		}
+	}
+
+	option = {
+		name = italian_expansion.a
+		change_culture = OWNER
+	}
+}
+
+province_event = { #Italian expansion (Home Region) #For now this is for Retoromanas, Italo-Dalmate, Gallo-Italiche and Romanza de s’isula, might want to do some unique things for Retoromanas and Romanza de s'isula
+	id = cultural_influence_italian.1
+	title = greater_italian_expansion.title
+	desc = greater_italian_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = root
+	
+	trigger = {
+		OR = {
+			owner = { culture = standard_italian_italo_dalmate }
+			owner = { culture = standard_italian_gallo_italic }
+			owner = { culture = standard_italian_rhaetian }
+			owner = { culture = standard_italian_island_romance }
+		}	
+		greater_italian_homeland = yes #Allows for expansion up to the Rhone, Switzerland and into parts of Illyria
+		NOT = { culture = OWNER }
+		ci_assimilation_check = yes
+		OWNER = { has_country_modifier = italian_literary_language_modifier }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			OR = {
+				AND = {
+					culture_group = latin
+					OWNER = { culture_group = latin }
+				}	
+				AND = {
+					culture_group = gallo_italic
+					OWNER = { culture_group = gallo_italic }
+				}	
+				AND = {
+					culture_group = rhaetian
+					OWNER = { culture_group = rhaetian }
+				}	
+				AND = {
+					culture_group = island_romance
+					OWNER = { culture_group = island_romance }
+				}	
+			}
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			AND = {
+				religion_group = OWNER
+				NOT = { religion = OWNER }
+			}	
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = no
+		}
+	}
+
+	option = {
+		name = greater_italian_expansion.a
+		change_culture = OWNER
+	}
+}
