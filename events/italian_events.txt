@@ -138,7 +138,15 @@ province_event = { #Italian expansion (Home Region) #For now this is for Retorom
 
 	option = {
 		name = italian_expansion.a
-		change_culture = OWNER
+		if = {
+			limit = {
+				OWNER = { primary_culture = dalmatian }	#These guys are outside of Italy proper & do not merge into Standard Italian, so going with Venetian for them instead
+			}
+			change_culture = venetian
+		}
+		else = {
+			change_culture = OWNER
+		}
 	}
 }
 
@@ -151,10 +159,10 @@ province_event = { #Italian expansion (Home Region) #For now this is for Retorom
 	
 	trigger = {
 		OR = {
-			owner = { culture = standard_italian_italo_dalmate }
-			owner = { culture = standard_italian_gallo_italic }
-			owner = { culture = standard_italian_rhaetian }
-			owner = { culture = standard_italian_island_romance }
+			owner = { primary_culture = standard_italian_italo_dalmate }
+			owner = { primary_culture = standard_italian_gallo_italic }
+			owner = { primary_culture = standard_italian_rhaetian }
+			owner = { primary_culture = standard_italian_island_romance }
 		}	
 		greater_italian_homeland = yes #Allows for expansion up to the Rhone, Switzerland and into parts of Illyria
 		NOT = { culture = OWNER }

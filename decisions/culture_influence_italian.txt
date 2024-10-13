@@ -64,10 +64,22 @@ country_decisions = {
 				has_global_flag = island_romance_italian_literary_language_flag
 			}
 			OR = {
-				NOT = { has_global_flag = italo_dalmatian_unified_italian_language_flag }
-				NOT = { has_global_flag = gallo_italic_unified_italian_language_flag }
-				NOT = { has_global_flag = rhaetian_unified_italian_language_flag }
-				NOT = { has_global_flag = island_romance_unified_italian_language_flag }
+				AND = {
+					NOT = { has_global_flag = italo_dalmatian_unified_italian_language_flag }
+					culture_group = latin
+				}	
+				AND = {
+					NOT = { has_global_flag = gallo_italic_unified_italian_language_flag }
+					culture_group = gallo_italic
+				}	
+				AND = {
+					NOT = { has_global_flag = rhaetian_unified_italian_language_flag }
+					culture_group = rhaetian
+				}	
+				AND = {
+					NOT = { has_global_flag = island_romance_unified_italian_language_flag }
+					culture_group = island_romance
+				}	
 			}
 			OR = {
 				culture_group = latin #Italo-Dalmatian
@@ -95,22 +107,22 @@ country_decisions = {
 				if = {
 					limit = { culture_group = latin }
 					set_global_flag = italo_dalmatian_unified_italian_language_flag
-					change_primary_culture = standard_italian_italo_dalmate
+					merge_italo_dalmatian = yes
 				}
 				else_if = {
 					limit = { culture_group = gallo_italic }
 					set_global_flag = gallo_italic_unified_italian_language_flag
-					change_primary_culture = standard_italian_gallo_italic
+					merge_gallo_italic = yes
 				}
 				else_if = {
 					limit = { culture_group = rhaetian }
 					set_global_flag = rhaetian_unified_italian_language_flag
-					change_primary_culture = standard_italian_rhaetian
+					merge_rhaetian = yes
 				}
 				else_if = {
 					limit = { culture_group = island_romance }
 					set_global_flag = island_romance_unified_italian_language_flag
-					change_primary_culture = standard_italian_island_romance
+					merge_island_romance = yes	#Currently this just changed Sardinian, I'll probably add some different form of assimilation with local dialects that then merge, rather then having Sardinian settle all of Italy, but for now this will do.
 				}
 			}
 		}

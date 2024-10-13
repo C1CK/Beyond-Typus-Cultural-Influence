@@ -14019,3 +14019,633 @@ province_event = { #Settlement of the Frontier
 		}	
 	}
 }
+
+country_event = { #Establishment of Arktikós
+	id = cultural_influence_greek_colonial.26
+	title = greco_arctic_establishment.title
+	desc = greco_arctic_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				greco_arctic_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_arctic_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_arctic_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { greco_arctic_culture_region = yes }
+				}
+				capital_scope = { change_culture = greco_arctic_culture }
+				change_primary_culture = greco_arctic_culture
+			}
+		}
+	}
+	
+	option = {
+		name = greco_arctic_establishment.a
+		custom_tooltip = greco_arctic_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Alaskanós
+	id = cultural_influence_greek_colonial.27
+	title = greco_alaskan_establishment.title
+	desc = greco_alaskan_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				greco_alaskan_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_alaskan_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_alaskan_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { greco_alaskan_culture_region = yes }
+				}
+				capital_scope = { change_culture = greco_alaskan_culture }
+				change_primary_culture = greco_alaskan_culture
+			}
+		}
+	}
+	
+	option = {
+		name = greco_alaskan_establishment.a
+		custom_tooltip = greco_alaskan_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Limmnika
+	id = cultural_influence_greek_colonial.28
+	title = greco_limmnika_establishment.title
+	desc = greco_limmnika_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				limnika_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_limmnika_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_limmnika_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { limnika_culture_region = yes }
+				}
+				capital_scope = { change_culture = limmnika }
+				change_primary_culture = limmnika
+			}
+		}
+	}
+	
+	option = {
+		name = greco_limmnika_establishment.a
+		custom_tooltip = greco_limmnika_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Brazilianós
+	id = cultural_influence_greek_colonial.29
+	title = greco_brazilian_establishment.title
+	desc = greco_brazilian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				greco_brazilian_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_brazilian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_brazilian_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { greco_brazilian_culture_region = yes }
+				}
+				capital_scope = { change_culture = greco_brazilian_culture }
+				change_primary_culture = greco_brazilian_culture
+			}
+		}
+	}
+	
+	option = {
+		name = greco_brazilian_establishment.a
+		custom_tooltip = greco_brazilian_established_convert_tags
+	}
+}
+
+country_event = { #Establishment of Argentinós
+	id = cultural_influence_greek_colonial.30
+	title = greco_argentine_establishment.title
+	desc = greco_argentine_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				greco_argentine_culture_region = yes
+				culture_group = byzantine
+			}	
+		}
+		culture_group = byzantine
+		NOT = { has_global_flag = greco_argentine_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greco_brazilian_established_flag
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { greco_argentine_culture_region = yes }
+				}
+				capital_scope = { change_culture = greco_argentine_culture }
+				change_primary_culture = greco_argentine_culture
+			}
+		}
+	}
+	
+	option = {
+		name = greco_argentine_establishment.a
+		custom_tooltip = greco_argentine_established_convert_tags
+	}
+}
+
+province_event = { #Arktikós Colonial settlement event
+	id = cultural_influence_greek_colonial.31
+	title = greco_arctic_settlement.title
+	desc = greco_arctic_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		greco_arctic_culture_region = yes
+		NOT = { culture = greco_arctic_culture }
+		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_arctic_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = greco_arctic_culture }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						greco_arctic_culture_region = yes
+					}
+				}
+				change_primary_culture = greco_arctic_culture 
+			}
+		}
+	}
+
+	option = {
+		name = greco_arctic_settlement.a
+
+		change_culture = greco_arctic_culture
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = greco_arctic_culture } } }
+			add_accepted_culture = greco_arctic_culture
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+province_event = { #Alaskanós Colonial settlement event
+	id = cultural_influence_greek_colonial.32
+	title = greco_alaskan_settlement.title
+	desc = greco_alaskan_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		greco_alaskan_culture_region = yes
+		NOT = { culture = greco_alaskan_culture }
+		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_alaskan_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = greco_alaskan_culture }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						greco_alaskan_culture_region = yes
+					}
+				}
+				change_primary_culture = greco_alaskan_culture 
+			}
+		}
+	}
+
+	option = {
+		name = greco_alaskan_settlement.a
+
+		change_culture = greco_alaskan_culture
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = greco_alaskan_culture } } }
+			add_accepted_culture = greco_alaskan_culture
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+province_event = { #Limmnika Colonial settlement event
+	id = cultural_influence_greek_colonial.33
+	title = greco_limmnika_settlement.title
+	desc = greco_limmnika_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		limnika_culture_region = yes
+		NOT = { culture = limmnika }
+		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_limmnika_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = limmnika }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						limnika_culture_region = yes
+					}
+				}
+				change_primary_culture = limmnika 
+			}
+		}
+	}
+
+	option = {
+		name = greco_limmnika_settlement.a
+
+		change_culture = limmnika
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = limmnika } } }
+			add_accepted_culture = limmnika
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+province_event = { #Argentinós Colonial settlement event
+	id = cultural_influence_greek_colonial.34
+	title = greco_argentine_settlement.title
+	desc = greco_argentine_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		greco_argentine_culture_region = yes
+		NOT = { culture = greco_argentine_culture }
+		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_argentine_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = greco_argentine_culture }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						greco_argentine_culture_region = yes
+					}
+				}
+				change_primary_culture = greco_argentine_culture 
+			}
+		}
+	}
+
+	option = {
+		name = greco_argentine_settlement.a
+
+		change_culture = greco_argentine_culture
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = greco_argentine_culture } } }
+			add_accepted_culture = greco_argentine_culture
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+province_event = { #Brazilianós Colonial settlement event
+	id = cultural_influence_greek_colonial.35
+	title = greco_brazilian_settlement.title
+	desc = greco_brazilian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		greco_brazilian_culture_region = yes
+		NOT = { culture = greco_brazilian_culture }
+		is_city = yes
+		OWNER = { culture_group = byzantine }
+		any_neighbor_province = { culture_group = byzantine }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = greco_argentine_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			hellenic_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			hellenic_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = greco_brazilian_culture }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = byzantine
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					culture_group = byzantine
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						greco_brazilian_culture_region = yes
+					}
+				}
+				change_primary_culture = greco_brazilian_culture 
+			}
+		}
+	}
+
+	option = {
+		name = greco_brazilian_settlement.a
+
+		change_culture = greco_brazilian_culture
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = greco_brazilian_culture } } }
+			add_accepted_culture = greco_brazilian_culture
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}

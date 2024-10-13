@@ -647,12 +647,12 @@ merge_aegean = {
  every_province = {
 	limit = {
 		OR = {
-			culture = hellenic_thracian
-			culture = macedonian
-			culture = epirotan
-			culture = dodecanesian
-			culture = mikrasiatic #Despite being on Anatolia this one goes with Aegean
-			culture = hellas_culture
+				culture = hellenic_thracian
+				culture = macedonian
+				culture = epirotan
+				culture = dodecanesian
+				culture = mikrasiatic #Despite being on Anatolia this one goes with Aegean
+				culture = hellas_culture
 			}
 		}
 		change_culture = greek
@@ -718,18 +718,304 @@ merge_aegean = {
 	every_country = {
 		limit = {
 			OR = {
-			consort_culture = hellenic_thracian
-			consort_culture = macedonian
-			consort_culture = epirotan
-			consort_culture = dodecanesian
-			consort_culture = mikrasiatic
-			consort_culture = hellas_culture
+				consort_culture = hellenic_thracian
+				consort_culture = macedonian
+				consort_culture = epirotan
+				consort_culture = dodecanesian
+				consort_culture = mikrasiatic
+				consort_culture = hellas_culture
 			}
 		}
 		set_consort_culture = greek
 	}
 }
-	
+
+merge_italo_dalmatian = {
+ every_province = {
+	limit = {
+		OR = {
+				culture = tuscan
+				culture = neapolitan
+				culture = sicilian
+				culture = umbrian
+				culture = venetian
+				culture = istriot_culture
+				#Dalmatian ignored as is a settler in Illyria
+			}
+		}
+		change_culture = standard_italian_italo_dalmate
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = tuscan
+				primary_culture = neapolitan
+				primary_culture = sicilian
+				primary_culture = umbrian
+				primary_culture = venetian
+				primary_culture = istriot_culture
+				#Dalmatian ignored as is a settler in Illyria
+			}
+		}
+		change_primary_culture = standard_italian_italo_dalmate
+	}
+	every_country = {
+		limit = {
+			OR = {
+				accepted_culture = tuscan
+				accepted_culture = neapolitan
+				accepted_culture = sicilian
+				accepted_culture = umbrian
+				accepted_culture = venetian
+				accepted_culture = istriot_culture
+				#Dalmatian ignored as is a settler in Illyria
+			}
+		}
+		remove_accepted_culture = tuscan
+		remove_accepted_culture = neapolitan
+		remove_accepted_culture = sicilian
+		remove_accepted_culture = umbrian
+		remove_accepted_culture = venetian
+		remove_accepted_culture = istriot_culture
+		add_accepted_culture = standard_italian_italo_dalmate
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = tuscan
+				ruler_culture = neapolitan
+				ruler_culture = sicilian
+				ruler_culture = umbrian
+				ruler_culture = venetian
+				ruler_culture = istriot_culture
+				#Dalmatian ignored as is a settler in Illyria
+			}
+		}
+		set_ruler_culture = standard_italian_italo_dalmate
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = tuscan
+				heir_culture = neapolitan
+				heir_culture = sicilian
+				heir_culture = umbrian
+				heir_culture = venetian
+				heir_culture = istriot_culture
+				#Dalmatian ignored as is a settler in Illyria
+			}
+		}
+		set_heir_culture = standard_italian_italo_dalmate
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = tuscan
+				consort_culture = neapolitan
+				consort_culture = sicilian
+				consort_culture = umbrian
+				consort_culture = venetian
+				consort_culture = istriot_culture
+				#Dalmatian ignored as is a settler in Illyria
+			}
+		}
+		set_consort_culture = standard_italian_italo_dalmate
+	}
+}
+
+merge_gallo_italic = {
+ every_province = {
+	limit = {
+		OR = {
+				culture = lombard
+				culture = piedmontese
+				culture = ligurian
+				culture = romagnan
+			}
+		}
+		change_culture = standard_italian_gallo_italic
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = lombard
+				primary_culture = piedmontese
+				primary_culture = ligurian
+				primary_culture = romagnan
+			}
+		}
+		change_primary_culture = standard_italian_gallo_italic
+	}
+	every_country = {
+		limit = {
+			OR = {
+				accepted_culture = lombard
+				accepted_culture = piedmontese
+				accepted_culture = ligurian
+				accepted_culture = romagnan
+			}
+		}
+		remove_accepted_culture = lombard
+		remove_accepted_culture = piedmontese
+		remove_accepted_culture = ligurian
+		remove_accepted_culture = romagnan
+		add_accepted_culture = standard_italian_gallo_italic
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = lombard
+				ruler_culture = piedmontese
+				ruler_culture = ligurian
+				ruler_culture = romagnan
+			}
+		}
+		set_ruler_culture = standard_italian_gallo_italic
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = lombard
+				heir_culture = piedmontese
+				heir_culture = ligurian
+				heir_culture = romagnan
+			}
+		}
+		set_heir_culture = standard_italian_gallo_italic
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = lombard
+				consort_culture = piedmontese
+				consort_culture = ligurian
+				consort_culture = romagnan
+			}
+		}
+		set_consort_culture = standard_italian_gallo_italic
+	}
+}
+
+merge_rhaetian = {
+ every_province = {
+	limit = {
+		OR = {
+				culture = romanch_culture
+				culture = friulian_culture
+				culture = ladin_culture
+			}
+		}
+		change_culture = standard_italian_rhaetian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = romanch_culture
+				primary_culture = friulian_culture
+				primary_culture = ladin_culture
+			}
+		}
+		change_primary_culture = standard_italian_rhaetian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				accepted_culture = romanch_culture
+				accepted_culture = friulian_culture
+				accepted_culture = ladin_culture
+			}
+		}
+		remove_accepted_culture = romanch_culture
+		remove_accepted_culture = friulian_culture
+		remove_accepted_culture = ladin_culture
+		add_accepted_culture = standard_italian_rhaetian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = romanch_culture
+				ruler_culture = friulian_culture
+				ruler_culture = ladin_culture
+			}
+		}
+		set_ruler_culture = standard_italian_rhaetian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = romanch_culture
+				heir_culture = friulian_culture
+				heir_culture = ladin_culture
+			}
+		}
+		set_heir_culture = standard_italian_rhaetian
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = romanch_culture
+				consort_culture = friulian_culture
+				consort_culture = ladin_culture
+			}
+		}
+		set_consort_culture = standard_italian_rhaetian
+	}
+}
+
+merge_island_romance = {
+ every_province = {
+	limit = {
+		OR = {
+				culture = sardinian
+			}
+		}
+		change_culture = standard_italian_island_romance
+	}
+	every_country = {
+		limit = {
+			OR = {
+				primary_culture = sardinian
+			}
+		}
+		change_primary_culture = standard_italian_island_romance
+	}
+	every_country = {
+		limit = {
+			OR = {
+				accepted_culture = sardinian
+			}
+		}
+		remove_accepted_culture = sardinian
+		add_accepted_culture = standard_italian_island_romance
+	}
+	every_country = {
+		limit = {
+			OR = {
+				ruler_culture = sardinian
+			}
+		}
+		set_ruler_culture = standard_italian_island_romance
+	}
+	every_country = {
+		limit = {
+			OR = {
+				heir_culture = sardinian
+			}
+		}
+		set_heir_culture = standard_italian_island_romance
+	}
+	every_country = {
+		limit = {
+			OR = {
+				consort_culture = romanch_culture
+				consort_culture = friulian_culture
+				consort_culture = ladin_culture
+			}
+		}
+		set_consort_culture = standard_italian_island_romance
+	}
+}
+
 melt_into_modern_english = { #Changes English, Northumbrian, and Scottish to their modern iterations
 	every_country = {
 		limit = { primary_culture = english }
