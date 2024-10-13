@@ -1,9 +1,12 @@
 ﻿
 Version 0.12.0.0
 ADDITIONS
- - (not yet in at the time of writing this log) Added various new colonial languages to German, Dutch, Spanish, Portuguese, Gaelic, Brythonic (and Unified Celtic) and Occitan 
+ - Added various new colonial languages to Spanish, Portuguese and Greek (initially I planned for more but I do want to get this patch out soon, so those will come another time) 
  - Provinces will retain the native language and religion if said native population is under 1000
  - Finally added localisation for the British settlement events courtesy of JP
+ - Italians can now actually get use out of the Promote Italian Literary Language decision, taking it now allows for your form of Italian to spread via assimilation events
+  - Once you've converted most of Italy to your language a new decision is available, this decision will unify all remaining Italian dialects (in your particular group) into a new standard Italian made respectively for each group.
+  - You can then spread this standard form to Greater Italy, which includes lands up to the Rhone, Switzerland and parts of Slovenia
 BUGS
  - Cleared out some more error log things, unfortunately I have no clue what is causing the repeative spam of the primary_culture thing in the log at the moment
  - Fixed missing '= yes' for the Poetvin expansion event
@@ -12,7 +15,8 @@ CHANGES
  - Changed how colonial languages appear, instead of being nearly instantaneous upon the completion of a colony there is instead of time period until a colonial language establishment event. This event will change the primary language of all tags in the group for the colonial language in that languages homelands (visable via decision list). 
   - For example any British tags with a capital on the American eastern seaboard will convert to American
   - After the establishment event happens the colonial language can now begin to spread with a similar set of triggers to how old world settled languages appear, accepted languages will not convert, unless it's the capital or the tag is an AI (so likely all of them because colonial nations). 
-  - You need to one; build religious, trade or tax buildings, two; dev the desired province 10 times, send a colonist to the province to dev boost or use the new Frontier Settlement edict (only availble to colonial nations, or independent former colonial nations, the AI should be quite eager to take it), in order for the events to fire.         
+  - You need to one; build religious, trade or tax buildings, two; dev the desired province 10 times, send a colonist to the province to dev boost or use the new Frontier Settlement edict (only availble to colonial nations, or independent former colonial nations, the AI should be quite eager to take it), in order for the events to fire.   
+  - Colonial French remains unchanged however, as they have a different Creole system  
  - Increased MTTH for generic colonial settlement event from 30 years up to 50 years
   - The generic event will now also convert religion as long as it is outside the religious group of the owner, though converting them manually will result in a quicker language conversion
  - Reduced MTTH for specific colonial languages settlement down from 150 years to 50 years
