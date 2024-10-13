@@ -765,3 +765,4527 @@ province_event = { #Andalucian (Iberian) expansion (Home Region)
 		change_culture = andalucian
 	}
 }
+
+namespace = cultural_influence_iberian_colonial
+
+country_event = { #Establishment of Brasileiro
+	id = cultural_influence_iberian_colonial.1
+	title = luso_brazilian_establishment.title
+	desc = luso_brazilian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_brazilian_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_brazilian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_brazilian_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_brazilian_culture_region = yes }
+				}
+				capital_scope = { change_culture = brazilian }
+				change_primary_culture = brazilian
+			}
+		}
+	}
+	
+	option = {
+		name = luso_brazilian_establishment.a
+		custom_tooltip = luso_brazilian_established_convert_tags
+	}
+}
+
+province_event = { #Brasileiro Colonial settlement event
+	id = cultural_influence_iberian_colonial.2
+	title = luso_brazilian_settlement.title
+	desc = luso_brazilian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_brazilian_culture_region = yes
+		NOT = { culture = brazilian }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_brazilian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = brazilian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_brazilian_culture_region = yes
+					}
+				}
+				change_primary_culture = brazilian 
+			}
+		}
+	}
+
+	option = {
+		name = luso_brazilian_settlement.a
+
+		change_culture = brazilian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = brazilian } } }
+			add_accepted_culture = brazilian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Luso-Centroamericano
+	id = cultural_influence_iberian_colonial.3
+	title = luso_central_american_establishment.title
+	desc = luso_central_american_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_central_american_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_central_american_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_central_american_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_central_american_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_central_american }
+				change_primary_culture = portuguese_central_american
+			}
+		}
+	}
+	
+	option = {
+		name = luso_central_american_establishment.a
+		custom_tooltip = luso_central_american_established_convert_tags
+	}
+}
+
+province_event = { #Luso-Centroamericano Colonial settlement event
+	id = cultural_influence_iberian_colonial.4
+	title = luso_central_american_settlement.title
+	desc = luso_central_american_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_central_american_culture_region = yes
+		NOT = { culture = portuguese_central_american }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_central_american_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_central_american }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_central_american_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_central_american 
+			}
+		}
+	}
+
+	option = {
+		name = luso_central_american_settlement.a
+
+		change_culture = portuguese_central_american
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_central_american } } }
+			add_accepted_culture = portuguese_central_american
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Luso-Mexicano
+	id = cultural_influence_iberian_colonial.5
+	title = luso_mexican_establishment.title
+	desc = luso_mexican_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_mexican_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_mexican_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_mexican_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_mexican_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_mexican }
+				change_primary_culture = portuguese_mexican
+			}
+		}
+	}
+	
+	option = {
+		name = luso_mexican_establishment.a
+		custom_tooltip = luso_mexican_established_convert_tags
+	}
+}
+
+province_event = { #Luso-Mexicano Colonial settlement event
+	id = cultural_influence_iberian_colonial.6
+	title = luso_mexican_settlement.title
+	desc = luso_mexican_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_mexican_culture_region = yes
+		NOT = { culture = portuguese_mexican }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_mexican_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_mexican }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_mexican_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_mexican 
+			}
+		}
+	}
+
+	option = {
+		name = luso_mexican_settlement.a
+
+		change_culture = portuguese_mexican
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_mexican } } }
+			add_accepted_culture = portuguese_mexican
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Platino 
+	id = cultural_influence_iberian_colonial.7
+	title = luso_platinean_establishment.title
+	desc = luso_platinean_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_platinean_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_platinean_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_platinean_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_platinean_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_platinean }
+				change_primary_culture = portuguese_platinean
+			}
+		}
+	}
+	
+	option = {
+		name = luso_platinean_establishment.a
+		custom_tooltip = luso_platinean_established_convert_tags
+	}
+}
+
+province_event = { #Platino Colonial settlement event
+	id = cultural_influence_iberian_colonial.8
+	title = luso_platinean_settlement.title
+	desc = luso_platinean_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_platinean_culture_region = yes
+		NOT = { culture = portuguese_platinean }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_platinean_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_platinean }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_platinean_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_platinean 
+			}
+		}
+	}
+
+	option = {
+		name = luso_platinean_settlement.a
+
+		change_culture = portuguese_platinean
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_platinean } } }
+			add_accepted_culture = portuguese_platinean
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Venezuelano 
+	id = cultural_influence_iberian_colonial.9
+	title = luso_colombian_establishment.title
+	desc = luso_colombian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_colombian_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_colombian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_colombian_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_colombian_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_colombian }
+				change_primary_culture = portuguese_colombian
+			}
+		}
+	}
+	
+	option = {
+		name = luso_colombian_establishment.a
+		custom_tooltip = luso_colombian_established_convert_tags
+	}
+}
+
+province_event = { #Venezuelano Colonial settlement event
+	id = cultural_influence_iberian_colonial.10
+	title = luso_colombian_settlement.title
+	desc = luso_colombian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_colombian_culture_region = yes
+		NOT = { culture = portuguese_colombian }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_colombian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_colombian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_colombian_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_colombian 
+			}
+		}
+	}
+
+	option = {
+		name = luso_colombian_settlement.a
+
+		change_culture = portuguese_colombian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_colombian } } }
+			add_accepted_culture = portuguese_colombian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Peruano 
+	id = cultural_influence_iberian_colonial.11
+	title = luso_andean_establishment.title
+	desc = luso_andean_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_andean_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_andean_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_andean_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_andean_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_andean }
+				change_primary_culture = portuguese_andean
+			}
+		}
+	}
+	
+	option = {
+		name = luso_andean_establishment.a
+		custom_tooltip = luso_andean_established_convert_tags
+	}
+}
+
+province_event = { #Peruano Colonial settlement event
+	id = cultural_influence_iberian_colonial.12
+	title = luso_andean_settlement.title
+	desc = luso_andean_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_andean_culture_region = yes
+		NOT = { culture = portuguese_andean }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_andean_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_andean }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_andean_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_andean 
+			}
+		}
+	}
+
+	option = {
+		name = luso_andean_settlement.a
+
+		change_culture = portuguese_andean
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_andean } } }
+			add_accepted_culture = portuguese_andean
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Caraíba  
+	id = cultural_influence_iberian_colonial.13
+	title = luso_caribbean_establishment.title
+	desc = luso_caribbean_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_caribbean_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_caribbean_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_caribbean_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_caribbean_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_caribbean }
+				change_primary_culture = portuguese_caribbean
+			}
+		}
+	}
+	
+	option = {
+		name = luso_caribbean_establishment.a
+		custom_tooltip = luso_caribbean_established_convert_tags
+	}
+}
+
+province_event = { #Caraíba Colonial settlement event
+	id = cultural_influence_iberian_colonial.14
+	title = luso_caribbean_settlement.title
+	desc = luso_caribbean_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_caribbean_culture_region = yes
+		NOT = { culture = portuguese_caribbean }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_caribbean_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_caribbean }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_caribbean_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_caribbean 
+			}
+		}
+	}
+
+	option = {
+		name = luso_caribbean_settlement.a
+
+		change_culture = portuguese_caribbean
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_caribbean } } }
+			add_accepted_culture = portuguese_caribbean
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Atlântico   
+	id = cultural_influence_iberian_colonial.15
+	title = luso_eastern_american_establishment.title
+	desc = luso_eastern_american_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_eastern_american_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_eastern_american_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_eastern_american_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_eastern_american_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_eastern_american }
+				change_primary_culture = portuguese_eastern_american
+			}
+		}
+	}
+	
+	option = {
+		name = luso_eastern_american_establishment.a
+		custom_tooltip = luso_eastern_american_established_convert_tags
+	}
+}
+
+province_event = { #Atlântico Colonial settlement event
+	id = cultural_influence_iberian_colonial.16
+	title = luso_eastern_american_settlement.title
+	desc = luso_eastern_american_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_eastern_american_culture_region = yes
+		NOT = { culture = portuguese_eastern_american }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_eastern_american_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_eastern_american }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_eastern_american_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_eastern_american 
+			}
+		}
+	}
+
+	option = {
+		name = luso_eastern_american_settlement.a
+
+		change_culture = portuguese_eastern_american
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_eastern_american } } }
+			add_accepted_culture = portuguese_eastern_american
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Louisiana
+	id = cultural_influence_iberian_colonial.17
+	title = luso_lousianan_establishment.title
+	desc = luso_lousianan_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_lousianan_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_lousianan_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_lousianan_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_lousianan_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_lousianan }
+				change_primary_culture = portuguese_lousianan
+			}
+		}
+	}
+	
+	option = {
+		name = luso_lousianan_establishment.a
+		custom_tooltip = luso_lousianan_established_convert_tags
+	}
+}
+
+province_event = { #Louisiana Colonial settlement event
+	id = cultural_influence_iberian_colonial.18
+	title = luso_lousianan_settlement.title
+	desc = luso_lousianan_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_lousianan_culture_region = yes
+		NOT = { culture = portuguese_lousianan }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_lousianan_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_lousianan }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_lousianan_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_lousianan 
+			}
+		}
+	}
+
+	option = {
+		name = luso_lousianan_settlement.a
+
+		change_culture = portuguese_lousianan
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_lousianan } } }
+			add_accepted_culture = portuguese_lousianan
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Californiano
+	id = cultural_influence_iberian_colonial.19
+	title = luso_californian_establishment.title
+	desc = luso_californian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_californian_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_californian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_californian_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_californian_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_californian }
+				change_primary_culture = portuguese_californian
+			}
+		}
+	}
+	
+	option = {
+		name = luso_californian_establishment.a
+		custom_tooltip = luso_californian_established_convert_tags
+	}
+}
+
+province_event = { #Californiano Colonial settlement event
+	id = cultural_influence_iberian_colonial.20
+	title = luso_californian_settlement.title
+	desc = luso_californian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_californian_culture_region = yes
+		NOT = { culture = portuguese_californian }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_californian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_californian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_californian_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_californian 
+			}
+		}
+	}
+
+	option = {
+		name = luso_californian_settlement.a
+
+		change_culture = portuguese_californian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_californian } } }
+			add_accepted_culture = portuguese_californian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Cascadiano
+	id = cultural_influence_iberian_colonial.21
+	title = luso_cascadian_establishment.title
+	desc = luso_cascadian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_cascadian_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_cascadian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_cascadian_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_cascadian_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_cascadian }
+				change_primary_culture = portuguese_cascadian
+			}
+		}
+	}
+	
+	option = {
+		name = luso_cascadian_establishment.a
+		custom_tooltip = luso_cascadian_established_convert_tags
+	}
+}
+
+province_event = { #Cascadiano Colonial settlement event
+	id = cultural_influence_iberian_colonial.22
+	title = luso_cascadian_settlement.title
+	desc = luso_cascadian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_cascadian_culture_region = yes
+		NOT = { culture = portuguese_cascadian }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_cascadian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_cascadian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_cascadian_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_cascadian 
+			}
+		}
+	}
+
+	option = {
+		name = luso_cascadian_settlement.a
+
+		change_culture = portuguese_cascadian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_cascadian } } }
+			add_accepted_culture = portuguese_cascadian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Alasca
+	id = cultural_influence_iberian_colonial.23
+	title = luso_alaskan_establishment.title
+	desc = luso_alaskan_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_alaskan_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_alaskan_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_alaskan_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_alaskan_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_alaskan }
+				change_primary_culture = portuguese_alaskan
+			}
+		}
+	}
+	
+	option = {
+		name = luso_alaskan_establishment.a
+		custom_tooltip = luso_alaskan_established_convert_tags
+	}
+}
+
+province_event = { #Alasca Colonial settlement event
+	id = cultural_influence_iberian_colonial.24
+	title = luso_alaskan_settlement.title
+	desc = luso_alaskan_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_alaskan_culture_region = yes
+		NOT = { culture = portuguese_alaskan }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_alaskan_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_alaskan }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_alaskan_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_alaskan 
+			}
+		}
+	}
+
+	option = {
+		name = luso_alaskan_settlement.a
+
+		change_culture = portuguese_alaskan
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_alaskan } } }
+			add_accepted_culture = portuguese_alaskan
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Canadense
+	id = cultural_influence_iberian_colonial.25
+	title = luso_canadian_establishment.title
+	desc = luso_canadian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_canadian_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_canadian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_canadian_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_canadian_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_canadian }
+				change_primary_culture = portuguese_canadian
+			}
+		}
+	}
+	
+	option = {
+		name = luso_canadian_establishment.a
+		custom_tooltip = luso_canadian_established_convert_tags
+	}
+}
+
+province_event = { #Canadense Colonial settlement event
+	id = cultural_influence_iberian_colonial.26
+	title = luso_canadian_settlement.title
+	desc = luso_canadian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_canadian_culture_region = yes
+		NOT = { culture = portuguese_canadian }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_canadian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_canadian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_canadian_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_canadian 
+			}
+		}
+	}
+
+	option = {
+		name = luso_canadian_settlement.a
+
+		change_culture = portuguese_canadian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_canadian } } }
+			add_accepted_culture = portuguese_canadian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Acadiano
+	id = cultural_influence_iberian_colonial.27
+	title = luso_acadian_establishment.title
+	desc = luso_acadian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_acadian_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_acadian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_acadian_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_acadian_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_acadian }
+				change_primary_culture = portuguese_acadian
+			}
+		}
+	}
+	
+	option = {
+		name = luso_acadian_establishment.a
+		custom_tooltip = luso_acadian_established_convert_tags
+	}
+}
+
+province_event = { #Acadiano Colonial settlement event
+	id = cultural_influence_iberian_colonial.28
+	title = luso_acadian_settlement.title
+	desc = luso_acadian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_acadian_culture_region = yes
+		NOT = { culture = portuguese_acadian }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_acadian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_acadian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_acadian_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_acadian 
+			}
+		}
+	}
+
+	option = {
+		name = luso_acadian_settlement.a
+
+		change_culture = portuguese_acadian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_acadian } } }
+			add_accepted_culture = portuguese_acadian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Islandês
+	id = cultural_influence_iberian_colonial.29
+	title = luso_greenlandic_establishment.title
+	desc = luso_greenlandic_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_greenlandic_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_greenlandic_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_greenlandic_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_greenlandic_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_greenlandic }
+				change_primary_culture = portuguese_greenlandic
+			}
+		}
+	}
+	
+	option = {
+		name = luso_greenlandic_establishment.a
+		custom_tooltip = luso_greenlandic_established_convert_tags
+	}
+}
+
+province_event = { #Islandês Colonial settlement event
+	id = cultural_influence_iberian_colonial.30
+	title = luso_greenlandic_settlement.title
+	desc = luso_greenlandic_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_greenlandic_culture_region = yes
+		NOT = { culture = portuguese_greenlandic }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_greenlandic_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_greenlandic }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_greenlandic_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_greenlandic 
+			}
+		}
+	}
+
+	option = {
+		name = luso_greenlandic_settlement.a
+
+		change_culture = portuguese_greenlandic
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_greenlandic } } }
+			add_accepted_culture = portuguese_greenlandic
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Grande Javanês
+	id = cultural_influence_iberian_colonial.31
+	title = luso_australian_establishment.title
+	desc = luso_australian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_australian_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_australian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_australian_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_australian_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_australian }
+				change_primary_culture = portuguese_australian
+			}
+		}
+	}
+	
+	option = {
+		name = luso_australian_establishment.a
+		custom_tooltip = luso_australian_established_convert_tags
+	}
+}
+
+province_event = { #Grande Javanês Colonial settlement event
+	id = cultural_influence_iberian_colonial.32
+	title = luso_australian_settlement.title
+	desc = luso_australian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_australian_culture_region = yes
+		NOT = { culture = portuguese_australian }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_australian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_australian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_australian_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_australian 
+			}
+		}
+	}
+
+	option = {
+		name = luso_australian_settlement.a
+
+		change_culture = portuguese_australian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_australian } } }
+			add_accepted_culture = portuguese_australian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Flórido
+	id = cultural_influence_iberian_colonial.31
+	title = luso_floridian_establishment.title
+	desc = luso_floridian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_floridian_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_floridian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_floridian_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_floridian_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_floridian }
+				change_primary_culture = portuguese_floridian
+			}
+		}
+	}
+	
+	option = {
+		name = luso_floridian_establishment.a
+		custom_tooltip = luso_floridian_established_convert_tags
+	}
+}
+
+province_event = { #Flórido Colonial settlement event
+	id = cultural_influence_iberian_colonial.32
+	title = luso_floridian_settlement.title
+	desc = luso_floridian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_floridian_culture_region = yes
+		NOT = { culture = portuguese_floridian }
+		is_city = yes
+		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { lusophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_floridian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_floridian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_floridian_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_floridian 
+			}
+		}
+	}
+
+	option = {
+		name = luso_floridian_settlement.a
+
+		change_culture = portuguese_floridian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_floridian } } }
+			add_accepted_culture = portuguese_floridian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Brasileño
+	id = cultural_influence_iberian_colonial.33
+	title = spanish_brazilian_establishment.title
+	desc = spanish_brazilian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_brazilian_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_brazilian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_brazilian_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_brazilian_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_brazilian }
+				change_primary_culture = spanish_brazilian
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_brazilian_establishment.a
+		custom_tooltip = spanish_brazilian_established_convert_tags
+	}
+}
+
+province_event = { #Brasileño Colonial settlement event
+	id = cultural_influence_iberian_colonial.34
+	title = spanish_brazilian_settlement.title
+	desc = spanish_brazilian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_brazilian_culture_region = yes
+		NOT = { culture = spanish_brazilian }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_brazilian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_brazilian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_brazilian_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_brazilian 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_brazilian_settlement.a
+
+		change_culture = spanish_brazilian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_brazilian } } }
+			add_accepted_culture = spanish_brazilian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Centroamericano 
+	id = cultural_influence_iberian_colonial.35
+	title = spanish_central_american_establishment.title
+	desc = spanish_central_american_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_central_american_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_central_american_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_central_american_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_central_american_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_central_american }
+				change_primary_culture = spanish_central_american
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_central_american_establishment.a
+		custom_tooltip = spanish_central_american_established_convert_tags
+	}
+}
+
+province_event = { #Centroamericano Colonial settlement event
+	id = cultural_influence_iberian_colonial.36
+	title = spanish_central_american_settlement.title
+	desc = spanish_central_american_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_central_american_culture_region = yes
+		NOT = { culture = spanish_central_american }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_central_american_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_central_american }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_central_american_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_central_american 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_central_american_settlement.a
+
+		change_culture = spanish_central_american
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_central_american } } }
+			add_accepted_culture = spanish_central_american
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Mexicano
+	id = cultural_influence_iberian_colonial.37
+	title = spanish_mexican_establishment.title
+	desc = spanish_mexican_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_mexican_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_mexican_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_mexican_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_mexican_culture_region = yes }
+				}
+				capital_scope = { change_culture = mexican }
+				change_primary_culture = mexican
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_mexican_establishment.a
+		custom_tooltip = spanish_mexican_established_convert_tags
+	}
+}
+
+province_event = { #Mexicano Colonial settlement event
+	id = cultural_influence_iberian_colonial.38
+	title = spanish_mexican_settlement.title
+	desc = spanish_mexican_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_mexican_culture_region = yes
+		NOT = { culture = mexican }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_mexican_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = mexican }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_mexican_culture_region = yes
+					}
+				}
+				change_primary_culture = mexican 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_mexican_settlement.a
+
+		change_culture = mexican
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = mexican } } }
+			add_accepted_culture = mexican
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Rioplatense 
+	id = cultural_influence_iberian_colonial.39
+	title = spanish_platinean_establishment.title
+	desc = spanish_platinean_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_platinean_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_platinean_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_platinean_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_platinean_culture_region = yes }
+				}
+				capital_scope = { change_culture = platinean }
+				change_primary_culture = platinean
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_platinean_establishment.a
+		custom_tooltip = spanish_platinean_established_convert_tags
+	}
+}
+
+province_event = { #Rioplatense Colonial settlement event
+	id = cultural_influence_iberian_colonial.40
+	title = spanish_platinean_settlement.title
+	desc = spanish_platinean_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_platinean_culture_region = yes
+		NOT = { culture = platinean }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_platinean_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = platinean }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_platinean_culture_region = yes
+					}
+				}
+				change_primary_culture = platinean 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_platinean_settlement.a
+
+		change_culture = platinean
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = platinean } } }
+			add_accepted_culture = platinean
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Colombiano 
+	id = cultural_influence_iberian_colonial.41
+	title = spanish_colombian_establishment.title
+	desc = spanish_colombian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_colombian_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_colombian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_colombian_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_colombian_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_colombian }
+				change_primary_culture = spanish_colombian
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_colombian_establishment.a
+		custom_tooltip = spanish_colombian_established_convert_tags
+	}
+}
+
+province_event = { #Colombiano Colonial settlement event
+	id = cultural_influence_iberian_colonial.42
+	title = spanish_colombian_settlement.title
+	desc = spanish_colombian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_colombian_culture_region = yes
+		NOT = { culture = spanish_colombian }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_colombian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_colombian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_colombian_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_colombian 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_colombian_settlement.a
+
+		change_culture = spanish_colombian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_colombian } } }
+			add_accepted_culture = spanish_colombian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Andino 
+	id = cultural_influence_iberian_colonial.43
+	title = spanish_andean_establishment.title
+	desc = spanish_andean_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_andean_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_andean_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_andean_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_andean_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_andean }
+				change_primary_culture = spanish_andean
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_andean_establishment.a
+		custom_tooltip = spanish_andean_established_convert_tags
+	}
+}
+
+province_event = { #Andino Colonial settlement event
+	id = cultural_influence_iberian_colonial.44
+	title = spanish_andean_settlement.title
+	desc = spanish_andean_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_andean_culture_region = yes
+		NOT = { culture = spanish_andean }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_andean_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_andean }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_andean_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_andean 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_andean_settlement.a
+
+		change_culture = spanish_andean
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_andean } } }
+			add_accepted_culture = spanish_andean
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Caribeño  
+	id = cultural_influence_iberian_colonial.45
+	title = spanish_caribbean_establishment.title
+	desc = spanish_caribbean_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_caribbean_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_caribbean_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_caribbean_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_caribbean_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_caribbean }
+				change_primary_culture = spanish_caribbean
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_caribbean_establishment.a
+		custom_tooltip = spanish_caribbean_established_convert_tags
+	}
+}
+
+province_event = { #Caribeño Colonial settlement event
+	id = cultural_influence_iberian_colonial.46
+	title = spanish_caribbean_settlement.title
+	desc = spanish_caribbean_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_caribbean_culture_region = yes
+		NOT = { culture = spanish_caribbean }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_caribbean_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_caribbean }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_caribbean_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_caribbean 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_caribbean_settlement.a
+
+		change_culture = spanish_caribbean
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_caribbean } } }
+			add_accepted_culture = spanish_caribbean
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Atlántico    
+	id = cultural_influence_iberian_colonial.47
+	title = spanish_eastern_american_establishment.title
+	desc = spanish_eastern_american_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_eastern_american_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_eastern_american_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_eastern_american_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_eastern_american_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_eastern_american }
+				change_primary_culture = spanish_eastern_american
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_eastern_american_establishment.a
+		custom_tooltip = spanish_eastern_american_established_convert_tags
+	}
+}
+
+province_event = { #Atlántico Colonial settlement event
+	id = cultural_influence_iberian_colonial.48
+	title = spanish_eastern_american_settlement.title
+	desc = spanish_eastern_american_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_eastern_american_culture_region = yes
+		NOT = { culture = spanish_eastern_american }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_eastern_american_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_eastern_american }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_eastern_american_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_eastern_american 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_eastern_american_settlement.a
+
+		change_culture = spanish_eastern_american
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_eastern_american } } }
+			add_accepted_culture = spanish_eastern_american
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Luisiano
+	id = cultural_influence_iberian_colonial.49
+	title = spanish_lousianan_establishment.title
+	desc = spanish_lousianan_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_lousianan_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_lousianan_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_lousianan_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_lousianan_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_lousianan }
+				change_primary_culture = spanish_lousianan
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_lousianan_establishment.a
+		custom_tooltip = spanish_lousianan_established_convert_tags
+	}
+}
+
+province_event = { #Luisiano Colonial settlement event
+	id = cultural_influence_iberian_colonial.50
+	title = spanish_lousianan_settlement.title
+	desc = spanish_lousianan_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_lousianan_culture_region = yes
+		NOT = { culture = spanish_lousianan }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_lousianan_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_lousianan }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_lousianan_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_lousianan 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_lousianan_settlement.a
+
+		change_culture = spanish_lousianan
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_lousianan } } }
+			add_accepted_culture = spanish_lousianan
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Californio
+	id = cultural_influence_iberian_colonial.51
+	title = spanish_californian_establishment.title
+	desc = spanish_californian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_californian_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_californian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_californian_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_californian_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_californian }
+				change_primary_culture = spanish_californian
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_californian_establishment.a
+		custom_tooltip = spanish_californian_established_convert_tags
+	}
+}
+
+province_event = { #Californio Colonial settlement event
+	id = cultural_influence_iberian_colonial.52
+	title = spanish_californian_settlement.title
+	desc = spanish_californian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_californian_culture_region = yes
+		NOT = { culture = spanish_californian }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_californian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_californian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_californian_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_californian 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_californian_settlement.a
+
+		change_culture = spanish_californian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_californian } } }
+			add_accepted_culture = spanish_californian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Cascada
+	id = cultural_influence_iberian_colonial.53
+	title = spanish_cascadian_establishment.title
+	desc = spanish_cascadian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_cascadian_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_cascadian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_cascadian_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_cascadian_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_cascadian }
+				change_primary_culture = spanish_cascadian
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_cascadian_establishment.a
+		custom_tooltip = spanish_cascadian_established_convert_tags
+	}
+}
+
+province_event = { #Cascada Colonial settlement event
+	id = cultural_influence_iberian_colonial.54
+	title = spanish_cascadian_settlement.title
+	desc = spanish_cascadian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_cascadian_culture_region = yes
+		NOT = { culture = spanish_cascadian }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_cascadian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_cascadian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_cascadian_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_cascadian 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_cascadian_settlement.a
+
+		change_culture = spanish_cascadian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_cascadian } } }
+			add_accepted_culture = spanish_cascadian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Alasqueño
+	id = cultural_influence_iberian_colonial.55
+	title = spanish_alaskan_establishment.title
+	desc = spanish_alaskan_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_alaskan_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_alaskan_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_alaskan_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_alaskan_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_alaskan }
+				change_primary_culture = spanish_alaskan
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_alaskan_establishment.a
+		custom_tooltip = spanish_alaskan_established_convert_tags
+	}
+}
+
+province_event = { #Alasqueño Colonial settlement event
+	id = cultural_influence_iberian_colonial.56
+	title = spanish_alaskan_settlement.title
+	desc = spanish_alaskan_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_alaskan_culture_region = yes
+		NOT = { culture = spanish_alaskan }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_alaskan_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_alaskan }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_alaskan_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_alaskan 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_alaskan_settlement.a
+
+		change_culture = spanish_alaskan
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_alaskan } } }
+			add_accepted_culture = spanish_alaskan
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Quebequés
+	id = cultural_influence_iberian_colonial.57
+	title = spanish_canadian_establishment.title
+	desc = spanish_canadian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_canadian_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_canadian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_canadian_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_canadian_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_canadian }
+				change_primary_culture = spanish_canadian
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_canadian_establishment.a
+		custom_tooltip = spanish_canadian_established_convert_tags
+	}
+}
+
+province_event = { #Quebequés Colonial settlement event
+	id = cultural_influence_iberian_colonial.58
+	title = spanish_canadian_settlement.title
+	desc = spanish_canadian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_canadian_culture_region = yes
+		NOT = { culture = spanish_canadian }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_canadian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_canadian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_canadian_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_canadian 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_canadian_settlement.a
+
+		change_culture = spanish_canadian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_canadian } } }
+			add_accepted_culture = spanish_canadian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Acadiense
+	id = cultural_influence_iberian_colonial.59
+	title = spanish_acadian_establishment.title
+	desc = spanish_acadian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_acadian_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_acadian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_acadian_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_acadian_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_acadian }
+				change_primary_culture = spanish_acadian
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_acadian_establishment.a
+		custom_tooltip = spanish_acadian_established_convert_tags
+	}
+}
+
+province_event = { #Acadiense Colonial settlement event
+	id = cultural_influence_iberian_colonial.60
+	title = spanish_acadian_settlement.title
+	desc = spanish_acadian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_acadian_culture_region = yes
+		NOT = { culture = spanish_acadian }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_acadian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_acadian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_acadian_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_acadian 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_acadian_settlement.a
+
+		change_culture = spanish_acadian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_acadian } } }
+			add_accepted_culture = spanish_acadian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Groenlandés
+	id = cultural_influence_iberian_colonial.61
+	title = spanish_greenlandic_establishment.title
+	desc = spanish_greenlandic_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_greenlandic_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_greenlandic_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_greenlandic_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_greenlandic_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_greenlandic }
+				change_primary_culture = spanish_greenlandic
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_greenlandic_establishment.a
+		custom_tooltip = spanish_greenlandic_established_convert_tags
+	}
+}
+
+province_event = { #Groenlandés Colonial settlement event
+	id = cultural_influence_iberian_colonial.62
+	title = spanish_greenlandic_settlement.title
+	desc = spanish_greenlandic_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_greenlandic_culture_region = yes
+		NOT = { culture = spanish_greenlandic }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_greenlandic_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_greenlandic }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_greenlandic_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_greenlandic 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_greenlandic_settlement.a
+
+		change_culture = spanish_greenlandic
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_greenlandic } } }
+			add_accepted_culture = spanish_greenlandic
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Australiano
+	id = cultural_influence_iberian_colonial.63
+	title = spanish_australian_establishment.title
+	desc = spanish_australian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_australian_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_australian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_australian_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_australian_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_australian }
+				change_primary_culture = spanish_australian
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_australian_establishment.a
+		custom_tooltip = spanish_australian_established_convert_tags
+	}
+}
+
+province_event = { #Australiano Colonial settlement event
+	id = cultural_influence_iberian_colonial.64
+	title = spanish_australian_settlement.title
+	desc = spanish_australian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_australian_culture_region = yes
+		NOT = { culture = spanish_australian }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_australian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_australian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_australian_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_australian 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_australian_settlement.a
+
+		change_culture = spanish_australian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_australian } } }
+			add_accepted_culture = spanish_australian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Floridano
+	id = cultural_influence_iberian_colonial.65
+	title = spanish_floridian_establishment.title
+	desc = spanish_floridian_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_floridian_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_floridian_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_floridian_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_floridian_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_floridian }
+				change_primary_culture = spanish_floridian
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_floridian_establishment.a
+		custom_tooltip = spanish_floridian_established_convert_tags
+	}
+}
+
+province_event = { #Floridano Colonial settlement event
+	id = cultural_influence_iberian_colonial.66
+	title = spanish_floridian_settlement.title
+	desc = spanish_floridian_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_floridian_culture_region = yes
+		NOT = { culture = spanish_floridian }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_floridian_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_floridian }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_floridian_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_floridian 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_floridian_settlement.a
+
+		change_culture = spanish_floridian
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_floridian } } }
+			add_accepted_culture = spanish_floridian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
