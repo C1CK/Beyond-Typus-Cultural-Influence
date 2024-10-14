@@ -131,15 +131,25 @@ ci_settlement_check = {
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				OWNER = { ai = yes }
-				any_neighbor_province = { culture_group = OWNER }
-				any_friendly_coast_border_province = { culture_group = OWNER }
+				OR = {
+					any_neighbor_province = { culture_group = OWNER }
+					AND = {
+						any_friendly_coast_border_province = { culture_group = OWNER }
+						province_is_on_an_island = yes	#Don't want this jumping down coastlines
+					}
+				}
 			}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			has_colonist = yes #Dharma intent check
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = OWNER }
-				any_friendly_coast_border_province = { culture_group = OWNER }
+				OR = {
+					any_neighbor_province = { culture_group = OWNER }
+					AND = {
+						any_friendly_coast_border_province = { culture_group = OWNER }
+						province_is_on_an_island = yes	#Don't want this jumping down coastlines
+					}
+				}
 			}
 			has_state_edict = edict_settlement
 		}
@@ -158,15 +168,25 @@ ci_colonial_settlement_check = {
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				OWNER = { ai = yes }
-				any_neighbor_province = { culture_group = OWNER }
-				any_friendly_coast_border_province = { culture_group = OWNER }
+				OR = {
+					any_neighbor_province = { culture_group = OWNER }
+					AND = {
+						any_friendly_coast_border_province = { culture_group = OWNER }
+						province_is_on_an_island = yes	#Don't want this jumping down coastlines
+					}
+				}
 			}
-			num_of_times_improved_by_owner = 10 #Non-Dharma intent check
+			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			has_colonist = yes #Dharma intent check
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = OWNER }
-				any_friendly_coast_border_province = { culture_group = OWNER }
+				OR = {
+					any_neighbor_province = { culture_group = OWNER }
+					AND = {
+						any_friendly_coast_border_province = { culture_group = OWNER }
+						province_is_on_an_island = yes	#Don't want this jumping down coastlines
+					}
+				}
 			}
 			has_state_edict = edict_frontier_settlement
 			is_capital = yes
@@ -223,7 +243,10 @@ ci_settlement_check_france = {
 		}
 		OR = {
 			any_neighbor_province = { culture = OWNER }
-			any_friendly_coast_border_province = { culture = OWNER } #This is to fix the channel islands not flipping basically
+			AND = {
+				any_friendly_coast_border_province = { culture = OWNER } #This is to fix the channel islands not flipping basically
+				province_is_on_an_island = yes	#Don't want this jumping down coastlines
+			}
 		}
 		owner = {
 			num_of_owned_provinces_with = {
@@ -272,7 +295,40 @@ ci_assimilation_check = {
 		OR = { #Influence check
 			any_neighbor_province = { culture_group = OWNER }
 			any_friendly_coast_border_province = { culture_group = OWNER }
-			has_building = university
+			OR = {
+				has_building = college
+				has_building = university
+			}	
+			province_trade_power = 15
+			development = 30
+			is_island = yes
+			is_capital = yes
+		}	
+	}
+}
+ci_assimilation_check_italian = {
+	AND = {
+		NOT = { nationalism = 1 }
+		religion = OWNER
+		OR = {
+			development = 10 #To prevent Sahara converting
+			AND = {
+				culture_group = OWNER
+				is_city = yes
+			}
+		}
+		OR = { #Influence check
+			OR = {
+				any_neighbor_province = { culture = OWNER }
+				AND = {
+					any_friendly_coast_border_province = { culture = OWNER }
+					province_is_on_an_island = yes	#Don't want this jumping down coastlines but do want to allow crossing to Corsica, Sardinia & Malta
+				}	
+			}
+			OR = {
+				has_building = college
+				has_building = university
+			}	
 			province_trade_power = 15
 			development = 30
 			is_island = yes
@@ -299,7 +355,10 @@ ci_assimilation_check_arabic = {
 		OR = { #Influence check
 			any_neighbor_province = { culture_group = OWNER }
 			any_friendly_coast_border_province = { culture_group = OWNER }
-			has_building = university
+			OR = {
+				has_building = college
+				has_building = university
+			}	
 			province_trade_power = 15
 			development = 30
 			is_island = yes
