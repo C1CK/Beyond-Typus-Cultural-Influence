@@ -1708,7 +1708,7 @@ country_event = { #Establishment of Atlântico
 	trigger = {
 		any_owned_province = {
 			AND = {
-				ibero_eastern_american_culture_region = yes
+				ibero_eastern_north_america_culture_region = yes
 				lusophone_cultures = yes
 			}	
 		}
@@ -1725,7 +1725,7 @@ country_event = { #Establishment of Atlântico
 			every_country = {
 				limit = {
 					lusophone_cultures_country = yes
-					capital_scope = { ibero_eastern_american_culture_region = yes }
+					capital_scope = { ibero_eastern_north_america_culture_region = yes }
 				}
 				capital_scope = { change_culture = portuguese_eastern_american }
 				change_primary_culture = portuguese_eastern_american
@@ -1747,7 +1747,7 @@ province_event = { #Atlântico Colonial settlement event
 	goto = root
 	
 	trigger = {
-		ibero_eastern_american_culture_region = yes
+		ibero_eastern_north_america_culture_region = yes
 		NOT = { culture = portuguese_eastern_american }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
@@ -1813,7 +1813,7 @@ province_event = { #Atlântico Colonial settlement event
 				limit = {
 					lusophone_cultures_country = yes
 					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
-						ibero_eastern_american_culture_region = yes
+						ibero_eastern_north_america_culture_region = yes
 					}
 				}
 				change_primary_culture = portuguese_eastern_american 
@@ -2897,7 +2897,7 @@ province_event = { #Grande Javanês Colonial settlement event
 }
 
 country_event = { #Establishment of Flórido
-	id = cultural_influence_iberian_colonial.31
+	id = cultural_influence_iberian_colonial.33
 	title = luso_floridian_establishment.title
 	desc = luso_floridian_establishment.desc
 	picture = CULTURE_eventPicture
@@ -2937,7 +2937,7 @@ country_event = { #Establishment of Flórido
 }
 
 province_event = { #Flórido Colonial settlement event
-	id = cultural_influence_iberian_colonial.32
+	id = cultural_influence_iberian_colonial.34
 	title = luso_floridian_settlement.title
 	desc = luso_floridian_settlement.desc
 	picture = CULTURE_eventPicture
@@ -3030,7 +3030,7 @@ province_event = { #Flórido Colonial settlement event
 }
 
 country_event = { #Establishment of Brasileño
-	id = cultural_influence_iberian_colonial.33
+	id = cultural_influence_iberian_colonial.35
 	title = spanish_brazilian_establishment.title
 	desc = spanish_brazilian_establishment.desc
 	picture = CULTURE_eventPicture
@@ -3070,7 +3070,7 @@ country_event = { #Establishment of Brasileño
 }
 
 province_event = { #Brasileño Colonial settlement event
-	id = cultural_influence_iberian_colonial.34
+	id = cultural_influence_iberian_colonial.36
 	title = spanish_brazilian_settlement.title
 	desc = spanish_brazilian_settlement.desc
 	picture = CULTURE_eventPicture
@@ -3163,7 +3163,7 @@ province_event = { #Brasileño Colonial settlement event
 }
 
 country_event = { #Establishment of Centroamericano 
-	id = cultural_influence_iberian_colonial.35
+	id = cultural_influence_iberian_colonial.37
 	title = spanish_central_american_establishment.title
 	desc = spanish_central_american_establishment.desc
 	picture = CULTURE_eventPicture
@@ -3203,7 +3203,7 @@ country_event = { #Establishment of Centroamericano
 }
 
 province_event = { #Centroamericano Colonial settlement event
-	id = cultural_influence_iberian_colonial.36
+	id = cultural_influence_iberian_colonial.38
 	title = spanish_central_american_settlement.title
 	desc = spanish_central_american_settlement.desc
 	picture = CULTURE_eventPicture
@@ -3296,7 +3296,7 @@ province_event = { #Centroamericano Colonial settlement event
 }
 
 country_event = { #Establishment of Mexicano
-	id = cultural_influence_iberian_colonial.37
+	id = cultural_influence_iberian_colonial.39
 	title = spanish_mexican_establishment.title
 	desc = spanish_mexican_establishment.desc
 	picture = CULTURE_eventPicture
@@ -3336,7 +3336,7 @@ country_event = { #Establishment of Mexicano
 }
 
 province_event = { #Mexicano Colonial settlement event
-	id = cultural_influence_iberian_colonial.38
+	id = cultural_influence_iberian_colonial.40
 	title = spanish_mexican_settlement.title
 	desc = spanish_mexican_settlement.desc
 	picture = CULTURE_eventPicture
@@ -3429,7 +3429,7 @@ province_event = { #Mexicano Colonial settlement event
 }
 
 country_event = { #Establishment of Rioplatense 
-	id = cultural_influence_iberian_colonial.39
+	id = cultural_influence_iberian_colonial.41
 	title = spanish_platinean_establishment.title
 	desc = spanish_platinean_establishment.desc
 	picture = CULTURE_eventPicture
@@ -3469,7 +3469,7 @@ country_event = { #Establishment of Rioplatense
 }
 
 province_event = { #Rioplatense Colonial settlement event
-	id = cultural_influence_iberian_colonial.40
+	id = cultural_influence_iberian_colonial.42
 	title = spanish_platinean_settlement.title
 	desc = spanish_platinean_settlement.desc
 	picture = CULTURE_eventPicture
@@ -3562,7 +3562,7 @@ province_event = { #Rioplatense Colonial settlement event
 }
 
 country_event = { #Establishment of Colombiano 
-	id = cultural_influence_iberian_colonial.41
+	id = cultural_influence_iberian_colonial.43
 	title = spanish_colombian_establishment.title
 	desc = spanish_colombian_establishment.desc
 	picture = CULTURE_eventPicture
@@ -3602,7 +3602,7 @@ country_event = { #Establishment of Colombiano
 }
 
 province_event = { #Colombiano Colonial settlement event
-	id = cultural_influence_iberian_colonial.42
+	id = cultural_influence_iberian_colonial.44
 	title = spanish_colombian_settlement.title
 	desc = spanish_colombian_settlement.desc
 	picture = CULTURE_eventPicture
@@ -3695,7 +3695,7 @@ province_event = { #Colombiano Colonial settlement event
 }
 
 country_event = { #Establishment of Andino 
-	id = cultural_influence_iberian_colonial.43
+	id = cultural_influence_iberian_colonial.45
 	title = spanish_andean_establishment.title
 	desc = spanish_andean_establishment.desc
 	picture = CULTURE_eventPicture
@@ -3735,7 +3735,7 @@ country_event = { #Establishment of Andino
 }
 
 province_event = { #Andino Colonial settlement event
-	id = cultural_influence_iberian_colonial.44
+	id = cultural_influence_iberian_colonial.46
 	title = spanish_andean_settlement.title
 	desc = spanish_andean_settlement.desc
 	picture = CULTURE_eventPicture
@@ -3828,7 +3828,7 @@ province_event = { #Andino Colonial settlement event
 }
 
 country_event = { #Establishment of Caribeño  
-	id = cultural_influence_iberian_colonial.45
+	id = cultural_influence_iberian_colonial.47
 	title = spanish_caribbean_establishment.title
 	desc = spanish_caribbean_establishment.desc
 	picture = CULTURE_eventPicture
@@ -3868,7 +3868,7 @@ country_event = { #Establishment of Caribeño
 }
 
 province_event = { #Caribeño Colonial settlement event
-	id = cultural_influence_iberian_colonial.46
+	id = cultural_influence_iberian_colonial.48
 	title = spanish_caribbean_settlement.title
 	desc = spanish_caribbean_settlement.desc
 	picture = CULTURE_eventPicture
@@ -3961,7 +3961,7 @@ province_event = { #Caribeño Colonial settlement event
 }
 
 country_event = { #Establishment of Atlántico    
-	id = cultural_influence_iberian_colonial.47
+	id = cultural_influence_iberian_colonial.49
 	title = spanish_eastern_american_establishment.title
 	desc = spanish_eastern_american_establishment.desc
 	picture = CULTURE_eventPicture
@@ -3969,7 +3969,7 @@ country_event = { #Establishment of Atlántico
 	trigger = {
 		any_owned_province = {
 			AND = {
-				ibero_eastern_american_culture_region = yes
+				ibero_eastern_north_america_culture_region = yes
 				hispanophone_cultures = yes
 			}	
 		}
@@ -3986,7 +3986,7 @@ country_event = { #Establishment of Atlántico
 			every_country = {
 				limit = {
 					hispanophone_cultures_country = yes
-					capital_scope = { ibero_eastern_american_culture_region = yes }
+					capital_scope = { ibero_eastern_north_america_culture_region = yes }
 				}
 				capital_scope = { change_culture = spanish_eastern_american }
 				change_primary_culture = spanish_eastern_american
@@ -4001,14 +4001,14 @@ country_event = { #Establishment of Atlántico
 }
 
 province_event = { #Atlántico Colonial settlement event
-	id = cultural_influence_iberian_colonial.48
+	id = cultural_influence_iberian_colonial.50
 	title = spanish_eastern_american_settlement.title
 	desc = spanish_eastern_american_settlement.desc
 	picture = CULTURE_eventPicture
 	goto = root
 	
 	trigger = {
-		ibero_eastern_american_culture_region = yes
+		ibero_eastern_north_america_culture_region = yes
 		NOT = { culture = spanish_eastern_american }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
@@ -4074,7 +4074,7 @@ province_event = { #Atlántico Colonial settlement event
 				limit = {
 					hispanophone_cultures_country = yes
 					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
-						ibero_eastern_american_culture_region = yes
+						ibero_eastern_north_america_culture_region = yes
 					}
 				}
 				change_primary_culture = spanish_eastern_american 
@@ -4094,7 +4094,7 @@ province_event = { #Atlántico Colonial settlement event
 }
 
 country_event = { #Establishment of Luisiano
-	id = cultural_influence_iberian_colonial.49
+	id = cultural_influence_iberian_colonial.51
 	title = spanish_lousianan_establishment.title
 	desc = spanish_lousianan_establishment.desc
 	picture = CULTURE_eventPicture
@@ -4134,7 +4134,7 @@ country_event = { #Establishment of Luisiano
 }
 
 province_event = { #Luisiano Colonial settlement event
-	id = cultural_influence_iberian_colonial.50
+	id = cultural_influence_iberian_colonial.52
 	title = spanish_lousianan_settlement.title
 	desc = spanish_lousianan_settlement.desc
 	picture = CULTURE_eventPicture
@@ -4227,7 +4227,7 @@ province_event = { #Luisiano Colonial settlement event
 }
 
 country_event = { #Establishment of Californio
-	id = cultural_influence_iberian_colonial.51
+	id = cultural_influence_iberian_colonial.53
 	title = spanish_californian_establishment.title
 	desc = spanish_californian_establishment.desc
 	picture = CULTURE_eventPicture
@@ -4267,7 +4267,7 @@ country_event = { #Establishment of Californio
 }
 
 province_event = { #Californio Colonial settlement event
-	id = cultural_influence_iberian_colonial.52
+	id = cultural_influence_iberian_colonial.54
 	title = spanish_californian_settlement.title
 	desc = spanish_californian_settlement.desc
 	picture = CULTURE_eventPicture
@@ -4360,7 +4360,7 @@ province_event = { #Californio Colonial settlement event
 }
 
 country_event = { #Establishment of Cascada
-	id = cultural_influence_iberian_colonial.53
+	id = cultural_influence_iberian_colonial.55
 	title = spanish_cascadian_establishment.title
 	desc = spanish_cascadian_establishment.desc
 	picture = CULTURE_eventPicture
@@ -4400,7 +4400,7 @@ country_event = { #Establishment of Cascada
 }
 
 province_event = { #Cascada Colonial settlement event
-	id = cultural_influence_iberian_colonial.54
+	id = cultural_influence_iberian_colonial.56
 	title = spanish_cascadian_settlement.title
 	desc = spanish_cascadian_settlement.desc
 	picture = CULTURE_eventPicture
@@ -4493,7 +4493,7 @@ province_event = { #Cascada Colonial settlement event
 }
 
 country_event = { #Establishment of Alasqueño
-	id = cultural_influence_iberian_colonial.55
+	id = cultural_influence_iberian_colonial.57
 	title = spanish_alaskan_establishment.title
 	desc = spanish_alaskan_establishment.desc
 	picture = CULTURE_eventPicture
@@ -4533,7 +4533,7 @@ country_event = { #Establishment of Alasqueño
 }
 
 province_event = { #Alasqueño Colonial settlement event
-	id = cultural_influence_iberian_colonial.56
+	id = cultural_influence_iberian_colonial.58
 	title = spanish_alaskan_settlement.title
 	desc = spanish_alaskan_settlement.desc
 	picture = CULTURE_eventPicture
@@ -4626,7 +4626,7 @@ province_event = { #Alasqueño Colonial settlement event
 }
 
 country_event = { #Establishment of Quebequés
-	id = cultural_influence_iberian_colonial.57
+	id = cultural_influence_iberian_colonial.59
 	title = spanish_canadian_establishment.title
 	desc = spanish_canadian_establishment.desc
 	picture = CULTURE_eventPicture
@@ -4666,7 +4666,7 @@ country_event = { #Establishment of Quebequés
 }
 
 province_event = { #Quebequés Colonial settlement event
-	id = cultural_influence_iberian_colonial.58
+	id = cultural_influence_iberian_colonial.60
 	title = spanish_canadian_settlement.title
 	desc = spanish_canadian_settlement.desc
 	picture = CULTURE_eventPicture
@@ -4759,7 +4759,7 @@ province_event = { #Quebequés Colonial settlement event
 }
 
 country_event = { #Establishment of Acadiense
-	id = cultural_influence_iberian_colonial.59
+	id = cultural_influence_iberian_colonial.61
 	title = spanish_acadian_establishment.title
 	desc = spanish_acadian_establishment.desc
 	picture = CULTURE_eventPicture
@@ -4799,7 +4799,7 @@ country_event = { #Establishment of Acadiense
 }
 
 province_event = { #Acadiense Colonial settlement event
-	id = cultural_influence_iberian_colonial.60
+	id = cultural_influence_iberian_colonial.62
 	title = spanish_acadian_settlement.title
 	desc = spanish_acadian_settlement.desc
 	picture = CULTURE_eventPicture
@@ -4892,7 +4892,7 @@ province_event = { #Acadiense Colonial settlement event
 }
 
 country_event = { #Establishment of Groenlandés
-	id = cultural_influence_iberian_colonial.61
+	id = cultural_influence_iberian_colonial.63
 	title = spanish_greenlandic_establishment.title
 	desc = spanish_greenlandic_establishment.desc
 	picture = CULTURE_eventPicture
@@ -4932,7 +4932,7 @@ country_event = { #Establishment of Groenlandés
 }
 
 province_event = { #Groenlandés Colonial settlement event
-	id = cultural_influence_iberian_colonial.62
+	id = cultural_influence_iberian_colonial.64
 	title = spanish_greenlandic_settlement.title
 	desc = spanish_greenlandic_settlement.desc
 	picture = CULTURE_eventPicture
@@ -5025,7 +5025,7 @@ province_event = { #Groenlandés Colonial settlement event
 }
 
 country_event = { #Establishment of Australiano
-	id = cultural_influence_iberian_colonial.63
+	id = cultural_influence_iberian_colonial.65
 	title = spanish_australian_establishment.title
 	desc = spanish_australian_establishment.desc
 	picture = CULTURE_eventPicture
@@ -5065,7 +5065,7 @@ country_event = { #Establishment of Australiano
 }
 
 province_event = { #Australiano Colonial settlement event
-	id = cultural_influence_iberian_colonial.64
+	id = cultural_influence_iberian_colonial.66
 	title = spanish_australian_settlement.title
 	desc = spanish_australian_settlement.desc
 	picture = CULTURE_eventPicture
@@ -5158,7 +5158,7 @@ province_event = { #Australiano Colonial settlement event
 }
 
 country_event = { #Establishment of Floridano
-	id = cultural_influence_iberian_colonial.65
+	id = cultural_influence_iberian_colonial.67
 	title = spanish_floridian_establishment.title
 	desc = spanish_floridian_establishment.desc
 	picture = CULTURE_eventPicture
@@ -5198,7 +5198,7 @@ country_event = { #Establishment of Floridano
 }
 
 province_event = { #Floridano Colonial settlement event
-	id = cultural_influence_iberian_colonial.66
+	id = cultural_influence_iberian_colonial.68
 	title = spanish_floridian_settlement.title
 	desc = spanish_floridian_settlement.desc
 	picture = CULTURE_eventPicture
@@ -5286,6 +5286,273 @@ province_event = { #Floridano Colonial settlement event
 		if = {
 			limit = { OWNER = { NOT = { accepted_culture = spanish_floridian } } }
 			add_accepted_culture = spanish_floridian
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+country_event = { #Establishment of Sudafricano
+	id = cultural_influence_iberian_colonial.69
+	title = spanish_south_african_establishment.title
+	desc = spanish_south_african_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_south_african_culture_region = yes
+				hispanophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = spanish_south_african_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spanish_south_african_established_flag
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { ibero_south_african_culture_region = yes }
+				}
+				capital_scope = { change_culture = spanish_south_african }
+				change_primary_culture = spanish_south_african
+			}
+		}
+	}
+	
+	option = {
+		name = spanish_south_african_establishment.a
+		custom_tooltip = spanish_south_african_established_convert_tags
+	}
+}
+
+province_event = { #Sudafricano Colonial settlement event
+	id = cultural_influence_iberian_colonial.70
+	title = spanish_south_african_settlement.title
+	desc = spanish_south_african_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_south_african_culture_region = yes
+		NOT = { culture = spanish_south_african }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { hispanophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				hispanophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { hispanophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = spanish_south_african_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = spanish_south_african }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					hispanophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_south_african_culture_region = yes
+					}
+				}
+				change_primary_culture = spanish_south_african 
+			}
+		}
+	}
+
+	option = {
+		name = spanish_south_african_settlement.a
+
+		change_culture = spanish_south_african
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = spanish_south_african } } }
+			add_accepted_culture = spanish_south_african
+		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+
+country_event = { #Establishment of Sul-Africano
+	id = cultural_influence_iberian_colonial.71
+	title = luso_south_african_establishment.title
+	desc = luso_south_african_establishment.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			AND = {
+				ibero_south_african_culture_region = yes
+				lusophone_cultures = yes
+			}	
+		}
+		culture_group = iberian
+		NOT = { has_global_flag = luso_south_african_established_flag }
+	}
+	mean_time_to_happen = {
+		years = 70
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = luso_south_african_established_flag
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { ibero_south_african_culture_region = yes }
+				}
+				capital_scope = { change_culture = portuguese_south_african }
+				change_primary_culture = portuguese_south_african
+			}
+		}
+	}
+	
+	option = {
+		name = luso_south_african_establishment.a
+		custom_tooltip = luso_south_african_established_convert_tags
+	}
+}
+
+province_event = { #Sul-Africano Colonial settlement event
+	id = cultural_influence_iberian_colonial.72
+	title = luso_south_african_settlement.title
+	desc = luso_south_african_settlement.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		ibero_south_african_culture_region = yes
+		NOT = { culture = portuguese_south_african }
+		is_city = yes
+		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
+			OWNER = { lusophone_cultures_country = yes }
+			AND = {
+				OWNER = { culture_group = iberian }
+				OWNER = { hispanophone_cultures_country = no }
+				lusophone_cultures = yes
+			}	
+		}	
+		any_neighbor_province = { lusophone_cultures = yes }		
+		ci_colonial_settlement_check = yes
+		has_global_flag = luso_south_african_established_flag
+	}
+
+	mean_time_to_happen = {
+		years = 50	#50 years for native cultures to get settled
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = {	#About 15 years for colonies to diverge (this is after the initial establishment which results in about 85 years total for the earlier provinces)
+			factor = 0.30
+			iberian_old_worlder = yes
+		}
+		modifier = {
+			factor = 0.15	#About 7.5 years if a separate colonial culture
+			iberian_new_worlder = yes
+		}
+		modifier = {	#Once the first provinces flip neighbours will flip faster
+			factor = 0.5
+			any_neighbor_province = { culture = portuguese_south_african }
+		}
+		modifier = {	#If independence is achieved divergence is quicker
+			factor = 0.4
+			AND = {
+				culture_group = iberian
+				owner = { is_former_colonial_nation = yes }
+			}	
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					lusophone_cultures_country = yes
+					capital_scope = { #This is a fallback trigger in case any new tags spawn after the initial establishment event
+						ibero_south_african_culture_region = yes
+					}
+				}
+				change_primary_culture = portuguese_south_african 
+			}
+		}
+	}
+
+	option = {
+		name = luso_south_african_settlement.a
+
+		change_culture = portuguese_south_african
+		if = {
+			limit = { OWNER = { NOT = { accepted_culture = portuguese_south_african } } }
+			add_accepted_culture = portuguese_south_african
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
 }
