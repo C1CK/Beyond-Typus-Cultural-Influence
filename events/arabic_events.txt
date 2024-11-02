@@ -2111,12 +2111,12 @@ province_event = { #Arabic adoption (Central Hilalian)
 		OR = {
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
-				owner = { accepted_culture = algerian }
+				owner = { accepted_culture = maghrebi_arabic }
 				NOT = { culture_group = OWNER }
 			}
 		}
 		algerian_culture_region = yes			
-		NOT = { culture = algerian }
+		NOT = { culture = maghrebi_arabic }
 		NOT = { culture = maghrebi }
 		ci_assimilation_check_arabic = yes
 		has_global_flag = CI_events_enabled
@@ -2228,7 +2228,7 @@ province_event = { #Arabic adoption (Central Hilalian)
 			limit = {
 				NOT = { has_global_flag = maghrebi_created_flag }
 			}
-			change_culture = algerian
+			change_culture = maghrebi_arabic
 		}
 	}
 }

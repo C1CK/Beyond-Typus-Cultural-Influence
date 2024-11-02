@@ -7,6 +7,7 @@ replace_path="/common/cultures/00_cultures.txt"
 dependencies={
 	"Beyond Typus"
 	"BeyondTypusInternal"
+	"Beyond Typus Internal"
 	"-BT Addon: Byzantine Resurgence"
 	"2656711777"
 	"1088606279"
