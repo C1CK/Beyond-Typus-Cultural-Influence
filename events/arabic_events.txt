@@ -1,6 +1,6 @@
 namespace = cultural_influence_arabic
 #(Something in Arabic!)
-#Hardcoded to only permit Islamic Arabs to do this
+#Hardcoded to only permit Islamic (or certain eligible Pagan Wrath religions) Arabs to do this
 
 country_event = { #Mashriqi creation
 	id = cultural_influence_arabic.1
@@ -2377,12 +2377,12 @@ province_event = { #Arabic adoption (Hassaniya)
 		OR = {
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
-				owner = { accepted_culture = hassaniya }
+				owner = { accepted_culture = saharawi_arabic }
 				NOT = { culture_group = OWNER }
 			}
 		}
 		hassaniya_culture_region = yes		
-		NOT = { culture = hassaniya }
+		NOT = { culture = saharawi_arabic }
 		ci_assimilation_check_arabic = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -2483,7 +2483,7 @@ province_event = { #Arabic adoption (Hassaniya)
 	option = {
 		name = hassaniya_adoption.a
 
-		change_culture = hassaniya
+		change_culture = saharawi_arabic
 	}
 }
 
@@ -2619,12 +2619,12 @@ province_event = { #Arabic adoption (Central Sudanese)
 		OR = {
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
-				owner = { accepted_culture = chadic_arabic }
+				owner = { accepted_culture = baggara_arabic }
 				NOT = { culture_group = OWNER }
 			}
 		}
 		central_sudanese_culture_region = yes		
-		NOT = { culture = chadic_arabic }
+		NOT = { culture = baggara_arabic }
 		ci_assimilation_check_arabic = yes
 		has_global_flag = CI_events_enabled
 	}
@@ -2725,7 +2725,7 @@ province_event = { #Arabic adoption (Central Sudanese)
 	option = {
 		name = central_sudanese_adoption.a
 
-		change_culture = chadic_arabic
+		change_culture = baggara_arabic
 	}
 }
 
@@ -4174,5 +4174,634 @@ province_event = { #Arabic adoption (Tuscan)
 		name = tuwskaniu_adoption.a
 
 		change_culture = tuscan_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Sai'di)
+	id = cultural_influence_arabic.34
+	title = masri_adoption.title
+	desc = masri_adoption.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = saidi_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
+		saidi_arabic_culture_region = yes			
+		NOT = { culture = saidi_arabic }
+		NOT = { culture = mashriqi }
+		ci_assimilation_check_arabic = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = no
+		}
+	}
+
+	option = {
+		name = saidi_arabic_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = saidi_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Wahati)
+	id = cultural_influence_arabic.35
+	title = oasis_arabic_adoption.title
+	desc = oasis_arabic_adoption.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = oasis_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
+		oasis_arabic_culture_region = yes			
+		NOT = { culture = oasis_arabic }
+		NOT = { culture = mashriqi }
+		ci_assimilation_check_arabic = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = no
+		}
+	}
+
+	option = {
+		name = oasis_arabic_adoption.a
+
+		if = {
+			limit = {
+				has_global_flag = mashriqi_created_flag
+			}
+			change_culture = mashriqi
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = mashriqi_created_flag }
+			}
+			change_culture = oasis_arabic
+		}
+	}
+}
+
+province_event = { #Arabic adoption (Alsowmaleea)
+	id = cultural_influence_arabic.36
+	title = somali_arabic_adoption.title
+	desc = somali_arabic_adoption.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = somali_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
+		somali_arabic_culture_region = yes			
+		NOT = { culture = somali_arabic }
+		ci_assimilation_check_arabic = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = no
+		}
+	}
+
+	option = {
+		name = somali_arabic_adoption.a
+
+		change_culture = somali_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Algharbee Sudanee)
+	id = cultural_influence_arabic.36
+	title = west_african_arabic_adoption.title
+	desc = west_african_arabic_adoption.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = west_african_arabic }
+				NOT = { culture_group = OWNER }
+			}
+		}
+		western_sudanese_culture_region = yes			
+		NOT = { culture = west_african_arabic }
+		ci_assimilation_check_arabic = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = no
+		}
+	}
+
+	option = {
+		name = west_african_arabic_adoption.a
+
+		change_culture = west_african_arabic
+	}
+}
+
+province_event = { #Arabic adoption (Khirasanee)
+	id = cultural_influence_arabic.37
+	title = khorasani_arab_adoption.title
+	desc = khorasani_arab_adoption.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		OR = {
+			owner = { culture_group = turko_semitic }
+			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
+				owner = { accepted_culture = khorasani_arab }
+				NOT = { culture_group = OWNER }
+			}
+		}
+		khorasani_arab_culture_region = yes			
+		NOT = { culture = khorasani_arab }
+		ci_assimilation_check_arabic = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = { #Generic Assimilation MTTH
+		years = 25
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		modifier = {
+			factor = 0.5
+			culture_group = turko_semitic #Arabic
+		}
+
+		#Dev. factors
+		modifier = {
+			factor = 1.2
+			NOT = { development = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			development = 30
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 40
+			NOT = { has_building = university }
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+			NOT = { has_building = university }
+		}
+		modifier = { #This is now some 80 years, don't see much reason to increment further
+			factor = 1.4
+			development = 60
+			NOT = { has_building = university }
+		}
+
+		#Religion
+		modifier = {
+			factor = 1.4
+			NOT = { tolerance_to_this = 0 }
+		}
+		modifier = {
+			factor = 1.1
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 1.1
+			religion_group = OWNER
+		}
+
+		#Misc
+		modifier = {
+			factor = 1.2
+			unrest = 1
+		}
+		modifier = {
+			factor = 0.9
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.9
+			has_colonist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_in_capital_area = no
+		}
+	}
+
+	option = {
+		name = khorasani_arab_adoption.a
+
+		change_culture = khorasani_arab
 	}
 }

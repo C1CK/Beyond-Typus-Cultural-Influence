@@ -9,6 +9,8 @@ mashriqi_cultures_country = {
 		primary_culture = bedouin_arabic
 		primary_culture = hejazi_culture
 		primary_culture = al_misr_arabic
+		primary_culture = saidi_arabic
+		primary_culture = oasis_arabic
 	}
 }
 
@@ -23,6 +25,8 @@ mashriqi_cultures_province = {
 		culture = bedouin_arabic
 		culture = hejazi_culture
 		culture = al_misr_arabic
+		culture = saidi_arabic
+		culture = oasis_arabic
 	}
 }
 mashriqi_region = {
@@ -37,6 +41,8 @@ mashriqi_region = {
 		hejazi_culture_region = yes
 		masri_culture_region = yes
 		masri_levantine_confict_region = yes
+		saidi_arabic_culture_region = yes
+		oasis_arabic_culture_region = yes
 	}
 }
 
@@ -97,6 +103,9 @@ arab_cultural_region = {
 		anadul_culture_region = yes
 		tuwskaniu_culture_region = yes
 		faarisia_culture_region = yes
+		saidi_arabic_culture_region = yes
+		oasis_arabic_culture_region = yes
+		somali_arabic_culture_region = yes
 	}
 }
 
@@ -130,9 +139,20 @@ masri_culture_region = { #Maasra
 	}
 }
 
-masri_levantine_confict_region = {
+masri_levantine_confict_region = { #Maasra-Shaameea
 	OR = {
 		province_group = masri_levantine_confict_region_provinces
+	}
+}
+
+saidi_arabic_culture_region = {	#Sa'eeda
+	OR = {
+		province_group = saidi_arabic_culture_region_provinces
+	}
+}
+oasis_arabic_culture_region = {	#Wahatee
+	OR = {
+		province_group = oasis_arabic_culture_region_provinces
 	}
 }
 
@@ -160,9 +180,15 @@ shirvani_arabic_culture_region = { #Sheerfaanee
 	}
 }
 
-yemeni_culture_region = { #(Eemneea) Includes Somalia
+yemeni_culture_region = { #Eemneea
 	OR = {
 		province_group = yemeni_culture_region_provinces
+	}
+}
+
+somali_arabic_culture_region = { #Alsowmaleea
+	OR = {
+		province_group = somali_arabic_culture_region_provinces
 	}
 }
 
@@ -172,7 +198,7 @@ omani_culture_region = { #`Maaneea
 	}
 }
 
-dhofari_culture_region = {
+dhofari_culture_region = {	#Zafaaree
 	OR = {
 		province_group = dhofari_culture_region_provinces
 	}
@@ -190,80 +216,98 @@ hejazi_culture_region = { #Hajaazee
 	}
 }
 
-andalusian_culture_region = {
+andalusian_culture_region = {	#Aandaluseea
 	OR = {
 		province_group = andalusian_culture_region_provinces
 	}
 }
 
-andalusian_sicilian_conflict_region = {
+andalusian_sicilian_conflict_region = {	#Aandaluseea-Siqleea
 	OR = {
 		province_group = andalusian_sicilian_conflict_region_provinces
 	}
 }
 
-sicilian_arabic_culture_region = {
+sicilian_arabic_culture_region = {	#Siqleea
 	OR = {
 		province_group = sicilian_arabic_culture_region_provinces
 	}
 }
 
-septimanian_culture_region = {
+septimanian_culture_region = {	#Sebtimaaneeaa
 	OR = {
 		province_group = septimanian_culture_region_provinces
 	}
 }
 
-hassaniya_culture_region = {
+hassaniya_culture_region = {	#Hasaaneea
 	OR = {
 		province_group = hassaniya_culture_region_provinces
 	}
 }
 
-saharan_arabic_culture_region = {
+saharan_arabic_culture_region = {	#Sahraa'
 	OR = {
 		province_group = saharan_arabic_culture_region_provinces
 	}
 }
 
-central_sudanese_culture_region = {
+western_sudanese_culture_region = {	#Algharbee Sudanee
+	OR = {
+		province_group = western_sudanese_culture_region_provinces
+	}
+}
+
+central_sudanese_culture_region = {	#Wasat Sudaanee
 	OR = {
 		province_group = central_sudanese_culture_region_provinces
 	}
 }
 
-eastern_sudanese_culture_region = {
+eastern_sudanese_culture_region = {	#Sharqeea Sudaanee
 	OR = {
 		province_group = eastern_sudanese_culture_region_provinces
 	}
 }
 
-habashi_culture_region = {
+habashi_culture_region = {	#Habashee 
 	OR = {
 		province_group = habashi_culture_region_provinces
 	}
 }
 
-yunania_culture_region = {
+somali_arabic_culture_region = {	#Alsowmaleea 
+	OR = {
+		province_group = somali_arabic_culture_region_provinces
+	}
+}
+
+yunania_culture_region = {	#Yuneea 
 	OR = {
 		province_group = yunania_culture_region_provinces
 	}
 }
 
-anadul_culture_region = {
+anadul_culture_region = {	#Anadul 
 	OR = {
 		province_group = anadul_culture_region_provinces
 	}
 }
 
-tuwskaniu_culture_region = {
+tuwskaniu_culture_region = {	#Tuwskaneeu 
 	OR = {
 		province_group = tuwskaniu_culture_region_provinces
 	}
 }
 
-faarisia_culture_region = {
+faarisia_culture_region = {	#Faarseea 
 	OR = {
 		province_group = faarisia_culture_region_provinces
+	}
+}
+
+khorasani_arab_culture_region = {	#Khirasanee 
+	OR = {
+		province_group = khorasani_arab_culture_region_provinces
 	}
 }
