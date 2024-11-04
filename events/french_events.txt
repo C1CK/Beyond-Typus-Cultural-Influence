@@ -3950,6 +3950,324 @@ province_event = { #Tunisien settlements and assimilation
 	}
 }
 
+province_event = { #Libyen settlements and assimilation
+	id = cultural_influence_french.62
+	title = libyen_settlements.title
+	desc = libyen_settlements.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = french }
+		libyen_culture_culture_region = yes		
+		NOT = { culture_group = french }
+		ci_settlement_check = yes
+		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
+			#owner = { ai = no }
+		#}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacier
+		}
+		modifier = {
+			factor = 2
+			has_terrain = mountain
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = woods
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			owner = { has_idea_to_settle_faster = yes }
+		}
+		modifier = {
+			factor = 1.4
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 4 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 5 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 6 }
+		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
+	}
+
+	option = {
+		name = libyen_settlements.a
+
+		change_culture = libyen_culture
+	}
+}
+
+province_event = { #Saharien settlements and assimilation
+	id = cultural_influence_french.63
+	title = saharien_culture_settlements.title
+	desc = saharien_culture_settlements.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = french }
+		saharien_culture_culture_region = yes		
+		NOT = { culture_group = french }
+		ci_settlement_check = yes
+		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
+			#owner = { ai = no }
+		#}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacier
+		}
+		modifier = {
+			factor = 2
+			has_terrain = mountain
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = woods
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			owner = { has_idea_to_settle_faster = yes }
+		}
+		modifier = {
+			factor = 1.4
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 4 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 5 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 6 }
+		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
+	}
+
+	option = {
+		name = saharien_culture_settlements.a
+
+		change_culture = saharien_culture
+	}
+}
+
 #####################Crusader Cultures#####################
 
 
@@ -4133,7 +4451,7 @@ province_event = { #Galate Spread
 	}
 }
 
-province_event = { #Nil Francais Spread
+province_event = { #Bas Nilain Spread
 	id = cultural_influence_french.33
 	title = nil_francais_spread.title
 	desc = nil_francais_spread.desc
@@ -4190,6 +4508,66 @@ province_event = { #Nil Francais Spread
 
 	option = {
 		name = nil_francais_spread.b
+	}
+}
+
+province_event = { #Mesopotamien Spread
+	id = cultural_influence_french.61
+	title = mesopotamien_spread.title
+	desc = mesopotamien_spread.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = root
+	
+	trigger = {
+		OWNER = { religion = catholic }
+		OWNER = { culture_group = french }
+		mespotamien_culture_culture_region = yes		
+		ci_french_crusader_settlement_check = yes
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years = 10
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}		
+	}
+
+	option = {
+		name = mesopotamien_spread.a
+
+		add_base_tax = -2
+		add_base_manpower = -2
+		add_base_production = -2
+		change_religion = OWNER
+		change_culture = mespotamien_culture
+		add_province_modifier = {
+			name = french_new_catholic_settlements
+			duration = 9000
+			desc = desc_french_new_catholic_settlements
+		}
+	}
+
+	option = {
+		name = mesopotamien_spread.b
 	}
 }
 
@@ -4902,6 +5280,627 @@ province_event = { #Sud Africain (Colonial Region)
 		ai_chance = {
 			factor = 100
 		}
+	}
+}
+
+province_event = { #Érythréen spread
+	id = cultural_influence_french.63
+	title = erethreen_culture_spread.title
+	desc = erethreen_culture_spread.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
+			owner = { ai = yes }
+		}
+		OR = {
+			development = 30
+			AND = {
+				is_owned_by_trade_company = yes
+				OR = {
+					ai = yes #the AI doesn't understand so will spend all its monarch points developing coal provinces even at the expense of tech
+					development = 20
+				}
+			}
+			any_neighbor_province = { culture_group = french }
+		}
+		NOT = { culture = erethreen_culture }
+		erythreen_culture_culture_region = yes
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years =  30
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
+
+	option = {
+		name = erethreen_culture_spread.a
+
+		change_culture = indochinois
+	}
+}
+
+province_event = { #Haut Nilain spread
+	id = cultural_influence_french.64
+	title = upper_nil_francais_spread.title
+	desc = upper_nil_francais_spread.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
+			owner = { ai = yes }
+		}
+		OR = {
+			development = 30
+			AND = {
+				is_owned_by_trade_company = yes
+				OR = {
+					ai = yes #the AI doesn't understand so will spend all its monarch points developing coal provinces even at the expense of tech
+					development = 20
+				}
+			}
+			any_neighbor_province = { culture_group = french }
+		}
+		NOT = { culture = upper_nil_francais }
+		haut_nilain_culture_culture_region = yes
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years =  30
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
+
+	option = {
+		name = upper_nil_francais_spread.a
+
+		change_culture = upper_nil_francais
+	}
+}
+
+province_event = { #Abyssinien spread
+	id = cultural_influence_french.65
+	title = abyssinien_culture_spread.title
+	desc = abyssinien_culture_spread.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
+			owner = { ai = yes }
+		}
+		OR = {
+			development = 30
+			AND = {
+				is_owned_by_trade_company = yes
+				OR = {
+					ai = yes #the AI doesn't understand so will spend all its monarch points developing coal provinces even at the expense of tech
+					development = 20
+				}
+			}
+			any_neighbor_province = { culture_group = french }
+		}
+		NOT = { culture = abyssinien_culture }
+		abyssinien_culture_culture_region = yes
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years =  30
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
+
+	option = {
+		name = abyssinien_culture_spread.a
+
+		change_culture = abyssinien_culture
+	}
+}
+
+province_event = { #Congolais spread
+	id = cultural_influence_french.66
+	title = congolais_culture_spread.title
+	desc = congolais_culture_spread.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
+			owner = { ai = yes }
+		}
+		OR = {
+			development = 30
+			AND = {
+				is_owned_by_trade_company = yes
+				OR = {
+					ai = yes #the AI doesn't understand so will spend all its monarch points developing coal provinces even at the expense of tech
+					development = 20
+				}
+			}
+			any_neighbor_province = { culture_group = french }
+		}
+		NOT = { culture = congolais_culture }
+		abyssinien_culture_culture_region = yes
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years =  30
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
+
+	option = {
+		name = congolais_culture_spread.a
+
+		change_culture = congolais_culture
+	}
+}
+
+province_event = { #Congolais spread
+	id = cultural_influence_french.67
+	title = malgache_culture_spread.title
+	desc = malgache_culture_spread.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
+			owner = { ai = yes }
+		}
+		OR = {
+			development = 30
+			AND = {
+				is_owned_by_trade_company = yes
+				OR = {
+					ai = yes #the AI doesn't understand so will spend all its monarch points developing coal provinces even at the expense of tech
+					development = 20
+				}
+			}
+			any_neighbor_province = { culture_group = french }
+		}
+		NOT = { culture = malgache_culture }
+		malgache_culture_culture_region = yes
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years =  30
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
+
+	option = {
+		name = malgache_culture_spread.a
+
+		change_culture = malgache_culture
+	}
+}
+
+province_event = { #Mecque spread
+	id = cultural_influence_french.68
+	title = mecque_culture_spread.title
+	desc = mecque_culture_spread.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
+			owner = { ai = yes }
+		}
+		OR = {
+			development = 30
+			AND = {
+				is_owned_by_trade_company = yes
+				OR = {
+					ai = yes #the AI doesn't understand so will spend all its monarch points developing coal provinces even at the expense of tech
+					development = 20
+				}
+			}
+			any_neighbor_province = { culture_group = french }
+		}
+		NOT = { culture = mecque_culture }
+		mecque_culture_culture_region = yes
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years =  30
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
+
+	option = {
+		name = mecque_culture_spread.a
+
+		change_culture = mecque_culture
+	}
+}
+
+province_event = { #Bahreïnien spread
+	id = cultural_influence_french.69
+	title = bahreinien_culture_spread.title
+	desc = bahreinien_culture_spread.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
+			owner = { ai = yes }
+		}
+		OR = {
+			development = 30
+			AND = {
+				is_owned_by_trade_company = yes
+				OR = {
+					ai = yes #the AI doesn't understand so will spend all its monarch points developing coal provinces even at the expense of tech
+					development = 20
+				}
+			}
+			any_neighbor_province = { culture_group = french }
+		}
+		NOT = { culture = bahreinien_culture }
+		bahreinien_culture_culture_region = yes
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years =  30
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
+
+	option = {
+		name = bahreinien_culture_spread.a
+
+		change_culture = bahreinien_culture
+	}
+}
+
+province_event = { #Omanais spread
+	id = cultural_influence_french.70
+	title = omanais_culture_spread.title
+	desc = omanais_culture_spread.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
+			owner = { ai = yes }
+		}
+		OR = {
+			development = 30
+			AND = {
+				is_owned_by_trade_company = yes
+				OR = {
+					ai = yes #the AI doesn't understand so will spend all its monarch points developing coal provinces even at the expense of tech
+					development = 20
+				}
+			}
+			any_neighbor_province = { culture_group = french }
+		}
+		NOT = { culture = omanais_culture }
+		omanais_culture_culture_region = yes
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years =  30
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
+
+	option = {
+		name = omanais_culture_spread.a
+
+		change_culture = omanais_culture
+	}
+}
+
+province_event = { #Yéménite spread
+	id = cultural_influence_french.71
+	title = yemenite_culture_spread.title
+	desc = yemenite_culture_spread.desc
+	picture = CULTURE_eventPicture
+	goto = root
+	
+	trigger = {
+		is_city = yes
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = french }
+			}	
+			owner = { ai = yes }
+		}
+		OR = {
+			development = 30
+			AND = {
+				is_owned_by_trade_company = yes
+				OR = {
+					ai = yes #the AI doesn't understand so will spend all its monarch points developing coal provinces even at the expense of tech
+					development = 20
+				}
+			}
+			any_neighbor_province = { culture_group = french }
+		}
+		NOT = { culture = yemenite_culture }
+		yemenite_culture_culture_region = yes
+		OWNER = { culture_group = french }
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		years =  30
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}	
+		modifier = {
+			factor = 0.33
+			any_neighbor_province = { culture_group = french }
+		}
+	}
+
+	option = {
+		name = yemenite_culture_spread.a
+
+		change_culture = yemenite_culture
 	}
 }
 
@@ -5643,10 +6642,3 @@ country_event = { #Kweyol Kechwa (Choice)
 ######################Metropolitaine######################
 
 #id60 Metropolitaine ############## Possibly for a future update not really relevant for gameplay as it is just a rename event ###############
-
-######################Free Event IDS######################
-#These IDs came from scrapped events so should be used before adding new IDs
-#id34 Free ID
-#id53 Free ID
-#id54 Free ID
-#id55 Free ID
