@@ -478,8 +478,16 @@ province_event = { #Griko settlements and assimilation
 
 	option = {
 		name = greek_reclamation.a	
+		if = {
+			limit = {
+				area = sicily_area
+			}
+			change_culture = siciliote	#Don't really feel like making a new event for this
+		}
+		else = {
+			change_culture = griko	
+		}
 
-		change_culture = griko	
 	}
 }
 

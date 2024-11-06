@@ -9019,327 +9019,327 @@ province_event = { #Roman Bactrian
 	# }
 # }
 
-# province_event = { #Roman East Sahara
-	# id = latinise_spread.57
-	# title = latinise_spread.57.t
-	# desc = latinise_spread.57.d
-	# picture = CULTURE_eventPicture
-	# goto = root
+province_event = { #Roman East Sahara
+	id = latinise_spread.57
+	title = latinise_spread.57.t
+	desc = latinise_spread.57.d
+	picture = CULTURE_eventPicture
+	goto = root
 		
-	# trigger = {
-		# owner = { culture_group = old_latin	}
-		# roman_east_sahara_region = yes
-		# ci_settlement_check = yes
-		# has_global_flag = CI_events_enabled		
-	# }
-	# mean_time_to_happen = {
-		# years = 25
-		# modifier = {
-			# factor = 0.6
-			# any_neighbor_province = {
-				# culture = roman_east_sahara_culture
-			# }
-		# }
-		# #MTTH settings
-		# modifier = {
-			# factor = 0.0
-			# has_global_flag = 00_CI_MTTH_flag
-		# }		
-		# modifier = {
-			# factor = 0.5
-			# has_global_flag = 05_CI_MTTH_flag
-		# }
-		# modifier = {
-			# factor = 1.5
-			# has_global_flag = 15_CI_MTTH_flag
-		# }
-		# modifier = {
-			# factor = 2.0
-			# has_global_flag = 20_CI_MTTH_flag
-		# }
-		# modifier = {
-			# factor = 4.0
-			# has_global_flag = 40_CI_MTTH_flag
-		# }
-		# modifier = { #Non-Dharma
-			# factor = 3
-			# OR = { #ai uses thiS one
-				# NOT = { has_dlc = "Dharma" }
-				# owner = { ai = yes }
-			# }
-		# }		
-		# #Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
-		# #Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
-		# modifier = {
-			# factor = 2.5
-			# has_terrain = glacier
-		# }
-		# modifier = {
-			# factor = 2
-			# has_terrain = mountain
-		# }
-		# modifier = {
-			# factor = 1.5
-			# has_terrain = highlands
-		# }
-		# modifier = {
-			# factor = 1.5
-			# has_terrain = hills
-		# }
-		# modifier = {
-			# factor = 1.2
-			# has_terrain = woods
-		# }
-		# modifier = {
-			# factor = 1.2
-			# has_terrain = drylands
-		# }
-		# modifier = {
-			# factor = 1.4
-			# has_terrain = forest
-		# }
-		# modifier = {
-			# factor = 2
-			# has_terrain = desert
-		# }
-		# modifier = {
-			# factor = 1.8
-			# has_terrain = coastal_desert
-		# }
-		# #Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
-		# modifier = {
-			# has_climate = arid
-			# factor = 2
-		# }
+	trigger = {
+		owner = { culture_group = old_latin	}
+		roman_east_sahara_region = yes
+		ci_settlement_check = yes
+		has_global_flag = CI_events_enabled		
+	}
+	mean_time_to_happen = {
+		years = 25
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = roman_east_sahara_culture
+			}
+		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = { #Non-Dharma
+			factor = 3
+			OR = { #ai uses thiS one
+				NOT = { has_dlc = "Dharma" }
+				owner = { ai = yes }
+			}
+		}		
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacier
+		}
+		modifier = {
+			factor = 2
+			has_terrain = mountain
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = woods
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
 
-		# #Dev button factors
-		# modifier = {
-			# factor = 0.8
-			# num_of_times_improved_by_owner = 5
-		# }
-		# modifier = {
-			# factor = 0.8
-			# num_of_times_improved_by_owner = 10
-		# }
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
 
-		# #Dev Factors, penalties begin at 30 Dev
-		# modifier = {
-			# factor = 1.2
-			# development = 30
-		# }
-		# modifier = {
-			# factor = 1.2
-			# development = 40
-		# }
-		# modifier = {
-			# factor = 1.4
-			# development = 50
-		# }
-		# modifier = {
-			# factor = 1.4
-			# development = 60
-		# }
-		# modifier = {
-			# factor = 1.4
-			# development = 70
-		# }
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
 
-		# #Misc factors
-		# modifier = { #Passive settlement (I.E without a colonist)
-			# factor = 3
-			# has_colonist = no
-		# }
-		# modifier = {
-			# factor = 0.8
-			# owner = { has_idea_to_settle_faster = yes }
-		# }
-		# modifier = {
-			# factor = 1.4
-			# has_owner_religion = no
-		# }
-		# modifier = {
-			# factor = 0.9
-			# owner = { adm = 4 }
-		# }
-		# modifier = {
-			# factor = 0.9
-			# owner = { adm = 5 }
-		# }
-		# modifier = {
-			# factor = 0.9
-			# owner = { adm = 6 }
-		# }
-		# #modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
-		# #	factor = 0.75
-		# #	national_focus = adm
-		# #}
-	# }
-	# option = {
-		# name = latinise_spread.57.a
-		# change_culture = roman_east_sahara_culture
-	# }
-# }
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			owner = { has_idea_to_settle_faster = yes }
+		}
+		modifier = {
+			factor = 1.4
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 4 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 5 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 6 }
+		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
+	}
+	option = {
+		name = latinise_spread.57.a
+		change_culture = roman_east_sahara_culture
+	}
+}
 
-# province_event = { #Roman West Sahara
-	# id = latinise_spread.58
-	# title = latinise_spread.58.t
-	# desc = latinise_spread.58.d
-	# picture = CULTURE_eventPicture
-	# goto = root
+province_event = { #Roman West Sahara
+	id = latinise_spread.58
+	title = latinise_spread.58.t
+	desc = latinise_spread.58.d
+	picture = CULTURE_eventPicture
+	goto = root
 		
-	# trigger = {
-		# owner = { culture_group = old_latin	}
-		# roman_west_sahara_region = yes
-		# ci_settlement_check = yes
-		# has_global_flag = CI_events_enabled		
-	# }
-	# mean_time_to_happen = {
-		# years = 25
-		# modifier = {
-			# factor = 0.6
-			# any_neighbor_province = {
-				# culture = roman_west_sahara_culture
-			# }
-		# }
-		# #MTTH settings
-		# modifier = {
-			# factor = 0.0
-			# has_global_flag = 00_CI_MTTH_flag
-		# }		
-		# modifier = {
-			# factor = 0.5
-			# has_global_flag = 05_CI_MTTH_flag
-		# }
-		# modifier = {
-			# factor = 1.5
-			# has_global_flag = 15_CI_MTTH_flag
-		# }
-		# modifier = {
-			# factor = 2.0
-			# has_global_flag = 20_CI_MTTH_flag
-		# }
-		# modifier = {
-			# factor = 4.0
-			# has_global_flag = 40_CI_MTTH_flag
-		# }
-		# modifier = { #Non-Dharma
-			# factor = 3
-			# OR = { #ai uses thiS one
-				# NOT = { has_dlc = "Dharma" }
-				# owner = { ai = yes }
-			# }
-		# }		
-		# #Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
-		# #Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
-		# modifier = {
-			# factor = 2.5
-			# has_terrain = glacier
-		# }
-		# modifier = {
-			# factor = 2
-			# has_terrain = mountain
-		# }
-		# modifier = {
-			# factor = 1.5
-			# has_terrain = highlands
-		# }
-		# modifier = {
-			# factor = 1.5
-			# has_terrain = hills
-		# }
-		# modifier = {
-			# factor = 1.2
-			# has_terrain = woods
-		# }
-		# modifier = {
-			# factor = 1.2
-			# has_terrain = drylands
-		# }
-		# modifier = {
-			# factor = 1.4
-			# has_terrain = forest
-		# }
-		# modifier = {
-			# factor = 2
-			# has_terrain = desert
-		# }
-		# modifier = {
-			# factor = 1.8
-			# has_terrain = coastal_desert
-		# }
-		# #Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
-		# modifier = {
-			# has_climate = arid
-			# factor = 2
-		# }
+	trigger = {
+		owner = { culture_group = old_latin	}
+		roman_west_sahara_region = yes
+		ci_settlement_check = yes
+		has_global_flag = CI_events_enabled		
+	}
+	mean_time_to_happen = {
+		years = 25
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = roman_west_sahara_culture
+			}
+		}
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}		
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+		modifier = { #Non-Dharma
+			factor = 3
+			OR = { #ai uses thiS one
+				NOT = { has_dlc = "Dharma" }
+				owner = { ai = yes }
+			}
+		}		
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacier
+		}
+		modifier = {
+			factor = 2
+			has_terrain = mountain
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = woods
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
 
-		# #Dev button factors
-		# modifier = {
-			# factor = 0.8
-			# num_of_times_improved_by_owner = 5
-		# }
-		# modifier = {
-			# factor = 0.8
-			# num_of_times_improved_by_owner = 10
-		# }
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
 
-		# #Dev Factors, penalties begin at 30 Dev
-		# modifier = {
-			# factor = 1.2
-			# development = 30
-		# }
-		# modifier = {
-			# factor = 1.2
-			# development = 40
-		# }
-		# modifier = {
-			# factor = 1.4
-			# development = 50
-		# }
-		# modifier = {
-			# factor = 1.4
-			# development = 60
-		# }
-		# modifier = {
-			# factor = 1.4
-			# development = 70
-		# }
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
 
-		# #Misc factors
-		# modifier = { #Passive settlement (I.E without a colonist)
-			# factor = 3
-			# has_colonist = no
-		# }
-		# modifier = {
-			# factor = 0.8
-			# owner = { has_idea_to_settle_faster = yes }
-		# }
-		# modifier = {
-			# factor = 1.4
-			# has_owner_religion = no
-		# }
-		# modifier = {
-			# factor = 0.9
-			# owner = { adm = 4 }
-		# }
-		# modifier = {
-			# factor = 0.9
-			# owner = { adm = 5 }
-		# }
-		# modifier = {
-			# factor = 0.9
-			# owner = { adm = 6 }
-		# }
-		# #modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
-		# #	factor = 0.75
-		# #	national_focus = adm
-		# #}
-	# }
-	# option = {
-		# name = latinise_spread.58.a
-		# change_culture = roman_west_sahara_culture
-	# }
-# }
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			owner = { has_idea_to_settle_faster = yes }
+		}
+		modifier = {
+			factor = 1.4
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 4 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 5 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 6 }
+		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
+	}
+	option = {
+		name = latinise_spread.58.a
+		change_culture = roman_west_sahara_culture
+	}
+}
 
 # province_event = { #Roman West African Coast
 	# id = latinise_spread.59
