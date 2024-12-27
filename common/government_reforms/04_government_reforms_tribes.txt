@@ -935,6 +935,12 @@ somali_clan_reform = {
 		locked_government_type = yes
 	}
 	
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			tribal_federation_mechanic
+		}
+	}
 	
 	ai = {
 		factor = 1
@@ -973,6 +979,39 @@ arabic_tribe_reform = {
 	}
 }
 
+saharan_tribe_reform = {
+	icon = "tribal_council"
+	allow_normal_conversion = no
+	potential = {
+		has_reform = saharan_tribe_reform
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = -10
+	#legacy_equivalent = tribal_confederacy_legacy #(JP) Using another here I think?
+	native_mechanic = yes
+	allow_migration = yes
+	modifiers = {
+		cavalry_cost = -0.10
+		loot_amount = 0.10
+	}
+	
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			tribal_federation_mechanic
+		}
+	}
+	
+	ai = {
+		factor = 1
+	}
+}
+
+
 non_sedentary_clan_settle_down_reform = {
 	icon = "native_settle_down_reform"
 	fixed_rank = 0
@@ -980,6 +1019,7 @@ non_sedentary_clan_settle_down_reform = {
 		OR = {
 			has_reform = somali_clan_reform
 			has_reform = arabic_tribe_reform #TBI
+			has_reform = saharan_tribe_reform
 		}
 	}
 	trigger = {
