@@ -766,6 +766,172 @@ province_event = { #Andalucian (Iberian) expansion (Home Region)
 	}
 }
 
+
+province_event = { #Marroqui (Iberian) expansion
+	id = cultural_influence_iberian.7
+	title = iberian_moroccan_expansion.title
+	desc = iberian_moroccan_expansion.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = root
+	
+	trigger = {
+		owner = { culture_group = iberian }
+		iberian_marroqui_culture_region = yes		
+		NOT = { culture = iberian_marroqui }
+		OR = { #Permit AI to settle accepted cultures since they don't understand
+			AND = {
+				has_owner_accepted_culture = no
+				NOT = { culture_group = iberian }
+			}	
+			owner = { ai = yes }
+		}
+		ci_settlement_check = yes
+		#OR = { #Players can do it before the decision provided they dev it, or send a colonist
+			#owner = { has_country_modifier = xxx } #No decision right now, but leaving here in-case it gets one
+			#owner = { ai = no }
+		#}
+		has_global_flag = CI_events_enabled
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 10
+
+		#MTTH settings
+		modifier = {
+			factor = 0.0
+			has_global_flag = 00_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = 05_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 1.5
+			has_global_flag = 15_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 2.0
+			has_global_flag = 20_CI_MTTH_flag
+		}
+		modifier = {
+			factor = 4.0
+			has_global_flag = 40_CI_MTTH_flag
+		}
+
+		#Terrain factors (These replace pre-0.6.1 low dev penalties, which were simulating the same thing) (This was basically done to better simulate the German settlements in Banat)
+		#Farmlands & Grasslands are ideal and act as the base 1.0 modifier (Marsh is also treated as Grasslands since it is difficult to tell if the Marsh has been drained)
+		modifier = {
+			factor = 2.5
+			has_terrain = glacier
+		}
+		modifier = {
+			factor = 2
+			has_terrain = mountain
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = woods
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = drylands
+		}
+		modifier = {
+			factor = 1.4
+			has_terrain = forest
+		}
+		modifier = {
+			factor = 2
+			has_terrain = desert
+		}
+		modifier = {
+			factor = 1.8
+			has_terrain = coastal_desert
+		}
+		#Climatic factors (Tropical ignored, as it isn't universally difficult to settle, only for the Temperate peoples)
+		modifier = {
+			has_climate = arid
+			factor = 2
+		}
+
+		#Dev button factors
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 5
+		}
+		modifier = {
+			factor = 0.8
+			num_of_times_improved_by_owner = 10
+		}
+
+		#Dev Factors, penalties begin at 30 Dev
+		modifier = {
+			factor = 1.2
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			development = 40
+		}
+		modifier = {
+			factor = 1.4
+			development = 50
+		}
+		modifier = {
+			factor = 1.4
+			development = 60
+		}
+		modifier = {
+			factor = 1.4
+			development = 70
+		}
+
+		#Misc factors
+		modifier = { #Passive settlement (I.E without a colonist)
+			factor = 3
+			has_colonist = no
+		}
+		modifier = {
+			factor = 0.8
+			owner = { has_idea_to_settle_faster = yes }
+		}
+		modifier = {
+			factor = 1.4
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 4 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 5 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { adm = 6 }
+		}
+		#modifier = { #Don't like this, since misc got merged into BT adm focus will be active most of the time now for the advisor cost
+		#	factor = 0.75
+		#	national_focus = adm
+		#}
+	}
+
+	option = {
+		name = iberian_moroccan_expansion.a
+		change_culture = iberian_marroqui
+	}
+}	
+
 namespace = cultural_influence_iberian_colonial
 
 country_event = { #Establishment of Brasileiro
@@ -5554,5 +5720,65 @@ province_event = { #Sul-Africano Colonial settlement event
 			limit = { OWNER = { NOT = { accepted_culture = portuguese_south_african } } }
 			add_accepted_culture = portuguese_south_african
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
+	}
+}
+
+province_event = { #Settlement of the Frontier
+	id = cultural_influence_iberian_colonial.73
+	title = iberian_frontier_settlement.title
+	desc = iberian_frontier_settlement.desc
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		OR = {
+			native_american_trigger = yes #Native cultures
+			is_capital = yes
+		}	
+		owner = { culture_group = iberian }
+		owner = { iberian_old_worlder_country = yes }	#Once the colonial language is established they will use their own events instead, if it's a crown colony then either event can fire, eventually it will flip to the colonial varient
+		ci_colonial_settlement_check = yes
+	}
+
+	mean_time_to_happen = {
+		#Template Settled MTTH
+		years = 50
+
+		modifier = {
+			factor = 0.8
+			owner = { has_idea_to_settle_faster = yes }
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				owner = { is_colonial_nation = yes }
+				owner = { is_former_colonial_nation = yes }
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_neighbor_province = {
+				culture = OWNER
+			}
+		}
+		modifier = {
+			factor = 0.6
+			religion = OWNER
+		}
+		modifier = {
+			factor = 0.6
+			is_capital = yes
+		}
+	}
+
+	option = {
+		name = iberian_frontier_settlement.a
+
+		change_culture = OWNER
+		if = {
+			limit = {
+				NOT = { religion_group = OWNER }
+			}
+			change_religion = OWNER
+		}	
 	}
 }

@@ -78,6 +78,7 @@ native_american_trigger = { #West->East
 has_colonial_languages_trigger = {	#Disables generic colonial settlement event, as they have their own
 	OR = {
 		culture_group = british
+		culture_group = iberian
 		culture_group = french
 		culture_group = french_creole
 		culture_group = byzantine
@@ -215,7 +216,10 @@ ci_settlement_check_cossack = {
 				}
 				OR = { #No reason for random cities to spring up along the river if there is no CoT
 					any_neighbor_province = {
-						culture_group = east_slavic
+						OR = {
+							culture_group = east_slavic
+							culture_group = slavic
+						}	
 						is_city = yes
 					}
 					province_has_center_of_trade_of_level = 1
@@ -228,7 +232,10 @@ ci_settlement_check_cossack = {
 			}
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
-				any_neighbor_province = { culture_group = east_slavic } #This may be a little too OP considering the above points, but this is the more arcadey mode anyway
+				OR = {
+					any_neighbor_province = { culture_group = east_slavic } #This may be a little too OP considering the above points, but this is the more arcadey mode anyway
+					any_neighbor_province = { culture_group = slavic } #This may be a little too OP considering the above points, but this is the more arcadey mode anyway
+				}					
 			}					
 		}
 }
@@ -348,13 +355,13 @@ ci_assimilation_check_arabic = {
 		OR = {
 			development = 10 #To prevent Sahara converting
 			AND = {
-				culture_group = OWNER
+				culture_group = turko_semitic
 				is_city = yes
 			}
 		}
 		OR = { #Influence check
-			any_neighbor_province = { culture_group = OWNER }
-			any_friendly_coast_border_province = { culture_group = OWNER }
+			any_neighbor_province = { culture_group = turko_semitic }
+			any_friendly_coast_border_province = { culture_group = turko_semitic }
 			OR = {
 				has_building = college
 				has_building = university
@@ -371,8 +378,8 @@ ci_assimilation_check_berber = {
 		NOT = { nationalism = 1 }
 		religion_group = OWNER
 		OR = { #Influence check
-			any_neighbor_province = { culture_group = OWNER }
-			any_friendly_coast_border_province = { culture_group = OWNER }
+			any_neighbor_province = { culture_group = berber_group }
+			any_friendly_coast_border_province = { culture_group = berber_group }
 			has_building = university
 			province_trade_power = 15
 			development = 30
