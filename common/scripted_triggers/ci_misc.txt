@@ -124,18 +124,18 @@ ci_settlement_check = {
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 			has_colonist = yes #Allow accepted cultures to convert if active conversion
-			OWNER = { ai = yes }
+			owner = { ai = yes }
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				OWNER = { ai = yes }
+				owner = { ai = yes }
 				OR = {
-					any_neighbor_province = { culture_group = OWNER }
+					any_neighbor_province = { culture_group = owner }
 					AND = {
-						any_friendly_coast_border_province = { culture_group = OWNER }
+						any_friendly_coast_border_province = { culture_group = owner }
 						province_is_on_an_island = yes	#Don't want this jumping down coastlines
 					}
 				}
@@ -145,9 +145,9 @@ ci_settlement_check = {
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
-					any_neighbor_province = { culture_group = OWNER }
+					any_neighbor_province = { culture_group = owner }
 					AND = {
-						any_friendly_coast_border_province = { culture_group = OWNER }
+						any_friendly_coast_border_province = { culture_group = owner }
 						province_is_on_an_island = yes	#Don't want this jumping down coastlines
 					}
 				}
@@ -163,16 +163,16 @@ ci_colonial_settlement_check = {
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			has_owner_accepted_culture = no
 			has_colonist = yes #Allow accepted cultures to convert if active conversion
-			OWNER = { ai = yes }
+			owner = { ai = yes }
 			is_capital = yes
 		}
 		OR = { #Intent check for beings capable of signaling intent (Requiring this allows lower MTTHs and hopefully more directed efforts)
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
-				OWNER = { ai = yes }
+				owner = { ai = yes }
 				OR = {
-					any_neighbor_province = { culture_group = OWNER }
+					any_neighbor_province = { culture_group = owner }
 					AND = {
-						any_friendly_coast_border_province = { culture_group = OWNER }
+						any_friendly_coast_border_province = { culture_group = owner }
 						province_is_on_an_island = yes	#Don't want this jumping down coastlines
 					}
 				}
@@ -182,9 +182,9 @@ ci_colonial_settlement_check = {
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
-					any_neighbor_province = { culture_group = OWNER }
+					any_neighbor_province = { culture_group = owner }
 					AND = {
-						any_friendly_coast_border_province = { culture_group = OWNER }
+						any_friendly_coast_border_province = { culture_group = owner }
 						province_is_on_an_island = yes	#Don't want this jumping down coastlines
 					}
 				}
@@ -249,9 +249,9 @@ ci_settlement_check_france = {
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { culture = OWNER }
+			any_neighbor_province = { culture = owner }
 			AND = {
-				any_friendly_coast_border_province = { culture = OWNER } #This is to fix the channel islands not flipping basically
+				any_friendly_coast_border_province = { culture = owner } #This is to fix the channel islands not flipping basically
 				province_is_on_an_island = yes	#Don't want this jumping down coastlines
 			}
 		}
@@ -269,8 +269,8 @@ ci_settlement_check_france = {
 ci_french_crusader_settlement_check = {
 	AND = {
 		OR = {
-			OWNER = { full_idea_group = religious_ideas }
-			OWNER = { is_papal_controller = yes }
+			owner = { full_idea_group = religious_ideas }
+			owner = { is_papal_controller = yes }
 			current_age = age_of_discovery
 			current_age = age_of_reformation
 			TAG = KOJ
@@ -291,17 +291,17 @@ ci_french_crusader_settlement_check = {
 ci_assimilation_check = {
 	AND = {
 		NOT = { nationalism = 1 }
-		religion_group = OWNER
+		religion_group = owner
 		OR = {
 			development = 10 #To prevent Sahara converting
 			AND = {
-				culture_group = OWNER
+				culture_group = owner
 				is_city = yes
 			}
 		}
 		OR = { #Influence check
-			any_neighbor_province = { culture_group = OWNER }
-			any_friendly_coast_border_province = { culture_group = OWNER }
+			any_neighbor_province = { culture_group = owner }
+			any_friendly_coast_border_province = { culture_group = owner }
 			OR = {
 				has_building = college
 				has_building = university
@@ -316,19 +316,19 @@ ci_assimilation_check = {
 ci_assimilation_check_italian = {
 	AND = {
 		NOT = { nationalism = 1 }
-		religion = OWNER
+		religion = owner
 		OR = {
 			development = 10 #To prevent Sahara converting
 			AND = {
-				culture_group = OWNER
+				culture_group = owner
 				is_city = yes
 			}
 		}
 		OR = { #Influence check
 			OR = {
-				any_neighbor_province = { culture = OWNER }
+				any_neighbor_province = { culture = owner }
 				AND = {
-					any_friendly_coast_border_province = { culture = OWNER }
+					any_friendly_coast_border_province = { culture = owner }
 					province_is_on_an_island = yes	#Don't want this jumping down coastlines but do want to allow crossing to Corsica, Sardinia & Malta
 				}	
 			}
@@ -376,7 +376,7 @@ ci_assimilation_check_arabic = {
 ci_assimilation_check_berber = {
 	AND = {
 		NOT = { nationalism = 1 }
-		religion_group = OWNER
+		religion_group = owner
 		OR = { #Influence check
 			any_neighbor_province = { culture_group = berber_group }
 			any_friendly_coast_border_province = { culture_group = berber_group }
@@ -429,7 +429,7 @@ ci_french_latin_cultures = {
 ci_assimilation_check_french_latin_cultures = {
 	AND = {
 		NOT = { nationalism = 1 }
-		religion_group = OWNER
+		religion_group = owner
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
@@ -439,8 +439,8 @@ ci_assimilation_check_french_latin_cultures = {
 		}
 		printing_press = 100 #Check if province has institution not country
 		OR = { #Influence check
-			any_neighbor_province = { culture = OWNER }
-			any_friendly_coast_border_province = { culture = OWNER }
+			any_neighbor_province = { culture = owner }
+			any_friendly_coast_border_province = { culture = owner }
 			ci_french_latin_cultures = yes
 			has_building = university
 			province_trade_power = 15

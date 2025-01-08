@@ -345,7 +345,7 @@ province_event = { #Leonese expansion (Home Region)
 		#Unique
 		modifier = {
 			factor = 0.8
-			OWNER = { has_idea = lon_patronize_leonese_language }
+			owner = { has_idea = lon_patronize_leonese_language }
 		}
 	}
 
@@ -986,10 +986,10 @@ province_event = { #Brasileiro Colonial settlement event
 		NOT = { culture = brazilian }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -1061,7 +1061,7 @@ province_event = { #Brasileiro Colonial settlement event
 
 		change_culture = brazilian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = brazilian } } }
+			limit = { owner = { NOT = { accepted_culture = brazilian } } }
 			add_accepted_culture = brazilian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -1119,10 +1119,10 @@ province_event = { #Luso-Centroamericano Colonial settlement event
 		NOT = { culture = portuguese_central_american }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -1194,7 +1194,7 @@ province_event = { #Luso-Centroamericano Colonial settlement event
 
 		change_culture = portuguese_central_american
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_central_american } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_central_american } } }
 			add_accepted_culture = portuguese_central_american
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -1252,10 +1252,10 @@ province_event = { #Luso-Mexicano Colonial settlement event
 		NOT = { culture = portuguese_mexican }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -1327,7 +1327,7 @@ province_event = { #Luso-Mexicano Colonial settlement event
 
 		change_culture = portuguese_mexican
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_mexican } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_mexican } } }
 			add_accepted_culture = portuguese_mexican
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -1385,10 +1385,10 @@ province_event = { #Platino Colonial settlement event
 		NOT = { culture = portuguese_platinean }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -1460,7 +1460,7 @@ province_event = { #Platino Colonial settlement event
 
 		change_culture = portuguese_platinean
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_platinean } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_platinean } } }
 			add_accepted_culture = portuguese_platinean
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -1518,10 +1518,10 @@ province_event = { #Venezuelano Colonial settlement event
 		NOT = { culture = portuguese_colombian }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -1593,7 +1593,7 @@ province_event = { #Venezuelano Colonial settlement event
 
 		change_culture = portuguese_colombian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_colombian } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_colombian } } }
 			add_accepted_culture = portuguese_colombian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -1651,10 +1651,10 @@ province_event = { #Peruano Colonial settlement event
 		NOT = { culture = portuguese_andean }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -1726,7 +1726,7 @@ province_event = { #Peruano Colonial settlement event
 
 		change_culture = portuguese_andean
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_andean } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_andean } } }
 			add_accepted_culture = portuguese_andean
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -1784,10 +1784,10 @@ province_event = { #Caraíba Colonial settlement event
 		NOT = { culture = portuguese_caribbean }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -1859,7 +1859,7 @@ province_event = { #Caraíba Colonial settlement event
 
 		change_culture = portuguese_caribbean
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_caribbean } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_caribbean } } }
 			add_accepted_culture = portuguese_caribbean
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -1917,10 +1917,10 @@ province_event = { #Atlântico Colonial settlement event
 		NOT = { culture = portuguese_eastern_american }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -1992,7 +1992,7 @@ province_event = { #Atlântico Colonial settlement event
 
 		change_culture = portuguese_eastern_american
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_eastern_american } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_eastern_american } } }
 			add_accepted_culture = portuguese_eastern_american
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -2050,10 +2050,10 @@ province_event = { #Louisiana Colonial settlement event
 		NOT = { culture = portuguese_lousianan }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -2125,7 +2125,7 @@ province_event = { #Louisiana Colonial settlement event
 
 		change_culture = portuguese_lousianan
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_lousianan } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_lousianan } } }
 			add_accepted_culture = portuguese_lousianan
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -2183,10 +2183,10 @@ province_event = { #Californiano Colonial settlement event
 		NOT = { culture = portuguese_californian }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -2258,7 +2258,7 @@ province_event = { #Californiano Colonial settlement event
 
 		change_culture = portuguese_californian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_californian } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_californian } } }
 			add_accepted_culture = portuguese_californian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -2316,10 +2316,10 @@ province_event = { #Cascadiano Colonial settlement event
 		NOT = { culture = portuguese_cascadian }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -2391,7 +2391,7 @@ province_event = { #Cascadiano Colonial settlement event
 
 		change_culture = portuguese_cascadian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_cascadian } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_cascadian } } }
 			add_accepted_culture = portuguese_cascadian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -2449,10 +2449,10 @@ province_event = { #Alasca Colonial settlement event
 		NOT = { culture = portuguese_alaskan }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -2524,7 +2524,7 @@ province_event = { #Alasca Colonial settlement event
 
 		change_culture = portuguese_alaskan
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_alaskan } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_alaskan } } }
 			add_accepted_culture = portuguese_alaskan
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -2582,10 +2582,10 @@ province_event = { #Canadense Colonial settlement event
 		NOT = { culture = portuguese_canadian }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -2657,7 +2657,7 @@ province_event = { #Canadense Colonial settlement event
 
 		change_culture = portuguese_canadian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_canadian } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_canadian } } }
 			add_accepted_culture = portuguese_canadian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -2715,10 +2715,10 @@ province_event = { #Acadiano Colonial settlement event
 		NOT = { culture = portuguese_acadian }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -2790,7 +2790,7 @@ province_event = { #Acadiano Colonial settlement event
 
 		change_culture = portuguese_acadian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_acadian } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_acadian } } }
 			add_accepted_culture = portuguese_acadian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -2848,10 +2848,10 @@ province_event = { #Islandês Colonial settlement event
 		NOT = { culture = portuguese_greenlandic }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -2923,7 +2923,7 @@ province_event = { #Islandês Colonial settlement event
 
 		change_culture = portuguese_greenlandic
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_greenlandic } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_greenlandic } } }
 			add_accepted_culture = portuguese_greenlandic
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -2981,10 +2981,10 @@ province_event = { #Grande Javanês Colonial settlement event
 		NOT = { culture = portuguese_australian }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -3056,7 +3056,7 @@ province_event = { #Grande Javanês Colonial settlement event
 
 		change_culture = portuguese_australian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_australian } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_australian } } }
 			add_accepted_culture = portuguese_australian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -3114,10 +3114,10 @@ province_event = { #Flórido Colonial settlement event
 		NOT = { culture = portuguese_floridian }
 		is_city = yes
 		OR = {	#If Lusophone, allow converting other non Lusophone Iberian provinces, otherwise only convert Lusophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { lusophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { lusophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -3189,7 +3189,7 @@ province_event = { #Flórido Colonial settlement event
 
 		change_culture = portuguese_floridian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_floridian } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_floridian } } }
 			add_accepted_culture = portuguese_floridian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -3247,10 +3247,10 @@ province_event = { #Brasileño Colonial settlement event
 		NOT = { culture = spanish_brazilian }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -3322,7 +3322,7 @@ province_event = { #Brasileño Colonial settlement event
 
 		change_culture = spanish_brazilian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_brazilian } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_brazilian } } }
 			add_accepted_culture = spanish_brazilian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -3380,10 +3380,10 @@ province_event = { #Centroamericano Colonial settlement event
 		NOT = { culture = spanish_central_american }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -3455,7 +3455,7 @@ province_event = { #Centroamericano Colonial settlement event
 
 		change_culture = spanish_central_american
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_central_american } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_central_american } } }
 			add_accepted_culture = spanish_central_american
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -3513,10 +3513,10 @@ province_event = { #Mexicano Colonial settlement event
 		NOT = { culture = mexican }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -3588,7 +3588,7 @@ province_event = { #Mexicano Colonial settlement event
 
 		change_culture = mexican
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = mexican } } }
+			limit = { owner = { NOT = { accepted_culture = mexican } } }
 			add_accepted_culture = mexican
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -3646,10 +3646,10 @@ province_event = { #Rioplatense Colonial settlement event
 		NOT = { culture = platinean }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -3721,7 +3721,7 @@ province_event = { #Rioplatense Colonial settlement event
 
 		change_culture = platinean
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = platinean } } }
+			limit = { owner = { NOT = { accepted_culture = platinean } } }
 			add_accepted_culture = platinean
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -3779,10 +3779,10 @@ province_event = { #Colombiano Colonial settlement event
 		NOT = { culture = spanish_colombian }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -3854,7 +3854,7 @@ province_event = { #Colombiano Colonial settlement event
 
 		change_culture = spanish_colombian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_colombian } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_colombian } } }
 			add_accepted_culture = spanish_colombian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -3912,10 +3912,10 @@ province_event = { #Andino Colonial settlement event
 		NOT = { culture = spanish_andean }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -3987,7 +3987,7 @@ province_event = { #Andino Colonial settlement event
 
 		change_culture = spanish_andean
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_andean } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_andean } } }
 			add_accepted_culture = spanish_andean
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -4045,10 +4045,10 @@ province_event = { #Caribeño Colonial settlement event
 		NOT = { culture = spanish_caribbean }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -4120,7 +4120,7 @@ province_event = { #Caribeño Colonial settlement event
 
 		change_culture = spanish_caribbean
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_caribbean } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_caribbean } } }
 			add_accepted_culture = spanish_caribbean
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -4178,10 +4178,10 @@ province_event = { #Atlántico Colonial settlement event
 		NOT = { culture = spanish_eastern_american }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -4253,7 +4253,7 @@ province_event = { #Atlántico Colonial settlement event
 
 		change_culture = spanish_eastern_american
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_eastern_american } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_eastern_american } } }
 			add_accepted_culture = spanish_eastern_american
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -4311,10 +4311,10 @@ province_event = { #Luisiano Colonial settlement event
 		NOT = { culture = spanish_lousianan }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -4386,7 +4386,7 @@ province_event = { #Luisiano Colonial settlement event
 
 		change_culture = spanish_lousianan
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_lousianan } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_lousianan } } }
 			add_accepted_culture = spanish_lousianan
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -4444,10 +4444,10 @@ province_event = { #Californio Colonial settlement event
 		NOT = { culture = spanish_californian }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -4519,7 +4519,7 @@ province_event = { #Californio Colonial settlement event
 
 		change_culture = spanish_californian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_californian } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_californian } } }
 			add_accepted_culture = spanish_californian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -4577,10 +4577,10 @@ province_event = { #Cascada Colonial settlement event
 		NOT = { culture = spanish_cascadian }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -4652,7 +4652,7 @@ province_event = { #Cascada Colonial settlement event
 
 		change_culture = spanish_cascadian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_cascadian } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_cascadian } } }
 			add_accepted_culture = spanish_cascadian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -4710,10 +4710,10 @@ province_event = { #Alasqueño Colonial settlement event
 		NOT = { culture = spanish_alaskan }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -4785,7 +4785,7 @@ province_event = { #Alasqueño Colonial settlement event
 
 		change_culture = spanish_alaskan
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_alaskan } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_alaskan } } }
 			add_accepted_culture = spanish_alaskan
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -4843,10 +4843,10 @@ province_event = { #Quebequés Colonial settlement event
 		NOT = { culture = spanish_canadian }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -4918,7 +4918,7 @@ province_event = { #Quebequés Colonial settlement event
 
 		change_culture = spanish_canadian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_canadian } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_canadian } } }
 			add_accepted_culture = spanish_canadian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -4976,10 +4976,10 @@ province_event = { #Acadiense Colonial settlement event
 		NOT = { culture = spanish_acadian }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -5051,7 +5051,7 @@ province_event = { #Acadiense Colonial settlement event
 
 		change_culture = spanish_acadian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_acadian } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_acadian } } }
 			add_accepted_culture = spanish_acadian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -5109,10 +5109,10 @@ province_event = { #Groenlandés Colonial settlement event
 		NOT = { culture = spanish_greenlandic }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -5184,7 +5184,7 @@ province_event = { #Groenlandés Colonial settlement event
 
 		change_culture = spanish_greenlandic
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_greenlandic } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_greenlandic } } }
 			add_accepted_culture = spanish_greenlandic
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -5242,10 +5242,10 @@ province_event = { #Australiano Colonial settlement event
 		NOT = { culture = spanish_australian }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -5317,7 +5317,7 @@ province_event = { #Australiano Colonial settlement event
 
 		change_culture = spanish_australian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_australian } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_australian } } }
 			add_accepted_culture = spanish_australian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -5375,10 +5375,10 @@ province_event = { #Floridano Colonial settlement event
 		NOT = { culture = spanish_floridian }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -5450,7 +5450,7 @@ province_event = { #Floridano Colonial settlement event
 
 		change_culture = spanish_floridian
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_floridian } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_floridian } } }
 			add_accepted_culture = spanish_floridian
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -5508,10 +5508,10 @@ province_event = { #Sudafricano Colonial settlement event
 		NOT = { culture = spanish_south_african }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { hispanophone_cultures_country = yes }
+			owner = { hispanophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				hispanophone_cultures = yes
 			}	
 		}	
@@ -5583,7 +5583,7 @@ province_event = { #Sudafricano Colonial settlement event
 
 		change_culture = spanish_south_african
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = spanish_south_african } } }
+			limit = { owner = { NOT = { accepted_culture = spanish_south_african } } }
 			add_accepted_culture = spanish_south_african
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -5642,10 +5642,10 @@ province_event = { #Sul-Africano Colonial settlement event
 		NOT = { culture = portuguese_south_african }
 		is_city = yes
 		OR = {	#If Hispanophone, allow converting other non Hispanophone Iberian provinces, otherwise only convert Hispanophone provinces
-			OWNER = { lusophone_cultures_country = yes }
+			owner = { lusophone_cultures_country = yes }
 			AND = {
-				OWNER = { culture_group = iberian }
-				OWNER = { hispanophone_cultures_country = no }
+				owner = { culture_group = iberian }
+				owner = { hispanophone_cultures_country = no }
 				lusophone_cultures = yes
 			}	
 		}	
@@ -5717,7 +5717,7 @@ province_event = { #Sul-Africano Colonial settlement event
 
 		change_culture = portuguese_south_african
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = portuguese_south_african } } }
+			limit = { owner = { NOT = { accepted_culture = portuguese_south_african } } }
 			add_accepted_culture = portuguese_south_african
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -5757,12 +5757,12 @@ province_event = { #Settlement of the Frontier
 		modifier = {
 			factor = 0.6
 			any_neighbor_province = {
-				culture = OWNER
+				culture = owner
 			}
 		}
 		modifier = {
 			factor = 0.6
-			religion = OWNER
+			religion = owner
 		}
 		modifier = {
 			factor = 0.6
@@ -5773,12 +5773,12 @@ province_event = { #Settlement of the Frontier
 	option = {
 		name = iberian_frontier_settlement.a
 
-		change_culture = OWNER
+		change_culture = owner
 		if = {
 			limit = {
-				NOT = { religion_group = OWNER }
+				NOT = { religion_group = owner }
 			}
-			change_religion = OWNER
+			change_religion = owner
 		}	
 	}
 }

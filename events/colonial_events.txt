@@ -14,11 +14,11 @@ province_event = { #Established colonial centre (Converts a heavily developed pr
 		#Altogether these investments cost 1600 ducats, and you are limited to one per company
 		has_trade_company_investment_in_area = { #Has the required investments
 			investment = district
-			investor = OWNER
+			investor = owner
 		}
 		has_trade_company_investment_in_area = { #Has the required investments (Only one top-tier investment allowed per trade node as of 1.30, But I'm still going to require this, as this is a-historically overrepresenting the colonialists already, and since I've loosened it to one per superregion I like this being an investment that has a high opportunity cost)
 			investment = townships
-			investor = OWNER
+			investor = owner
 		}
 		has_building = university #Serves as a tech gate here (1622)
 		province_has_center_of_trade_of_level = 2
@@ -30,7 +30,7 @@ province_event = { #Established colonial centre (Converts a heavily developed pr
 				superregion = europe_superregion #Western Europe
 			}
 			NOT = {
-				OWNER = {
+				owner = {
 					any_owned_province = {
 						has_province_modifier = colonial_capital_province_modifier
 						superregion = europe_superregion #Western Europe
@@ -43,7 +43,7 @@ province_event = { #Established colonial centre (Converts a heavily developed pr
 				superregion = eastern_europe_superregion
 			}
 			NOT = {
-				OWNER = {
+				owner = {
 					any_owned_province = {
 						has_province_modifier = colonial_capital_province_modifier
 						superregion = eastern_europe_superregion
@@ -56,7 +56,7 @@ province_event = { #Established colonial centre (Converts a heavily developed pr
 				superregion = africa_superregion
 			}
 			NOT = {
-				OWNER = {
+				owner = {
 					any_owned_province = {
 						has_province_modifier = colonial_capital_province_modifier
 						superregion = africa_superregion
@@ -69,7 +69,7 @@ province_event = { #Established colonial centre (Converts a heavily developed pr
 				superregion = near_east_superregion
 			}
 			NOT = {
-				OWNER = {
+				owner = {
 					any_owned_province = {
 						has_province_modifier = colonial_capital_province_modifier
 						superregion = near_east_superregion
@@ -82,7 +82,7 @@ province_event = { #Established colonial centre (Converts a heavily developed pr
 				superregion = persia_superregion
 			}
 			NOT = {
-				OWNER = {
+				owner = {
 					any_owned_province = {
 						has_province_modifier = colonial_capital_province_modifier
 						superregion = persia_superregion
@@ -95,7 +95,7 @@ province_event = { #Established colonial centre (Converts a heavily developed pr
 				superregion = tartary_superregion
 			}
 			NOT = {
-				OWNER = {
+				owner = {
 					any_owned_province = {
 						has_province_modifier = colonial_capital_province_modifier
 						superregion = tartary_superregion
@@ -108,7 +108,7 @@ province_event = { #Established colonial centre (Converts a heavily developed pr
 				superregion = india_superregion
 			}
 			NOT = {
-				OWNER = {
+				owner = {
 					any_owned_province = {
 						has_province_modifier = colonial_capital_province_modifier
 						superregion = india_superregion
@@ -121,7 +121,7 @@ province_event = { #Established colonial centre (Converts a heavily developed pr
 				superregion = china_superregion
 			}
 			NOT = {
-				OWNER = {
+				owner = {
 					any_owned_province = {
 						has_province_modifier = colonial_capital_province_modifier
 						superregion = china_superregion
@@ -134,7 +134,7 @@ province_event = { #Established colonial centre (Converts a heavily developed pr
 				superregion = far_east_superregion
 			}
 			NOT = {
-				OWNER = {
+				owner = {
 					any_owned_province = {
 						has_province_modifier = colonial_capital_province_modifier
 						superregion = far_east_superregion
@@ -147,7 +147,7 @@ province_event = { #Established colonial centre (Converts a heavily developed pr
 				superregion = east_indies_superregion
 			}
 			NOT = {
-				OWNER = {
+				owner = {
 					any_owned_province = {
 						has_province_modifier = colonial_capital_province_modifier
 						superregion = east_indies_superregion
@@ -160,7 +160,7 @@ province_event = { #Established colonial centre (Converts a heavily developed pr
 				superregion = oceania_superregion
 			}
 			NOT = {
-				OWNER = {
+				owner = {
 					any_owned_province = {
 						has_province_modifier = colonial_capital_province_modifier
 						superregion = oceania_superregion
@@ -179,8 +179,8 @@ province_event = { #Established colonial centre (Converts a heavily developed pr
 
 		add_adm_power = -300
 		add_dip_power = -200
-		change_culture = OWNER
-		change_religion = OWNER
+		change_culture = owner
+		change_religion = owner
 
 		add_base_production = 4
 		add_province_modifier = {
@@ -222,7 +222,7 @@ province_event = { #Basic Colonial Settlement Event
 		OR = {
 			AND = {
 				has_owner_religion = yes #Allows Reformed Natives
-				OWNER = { has_institution = feudalism }
+				owner = { has_institution = feudalism }
 			}
 			NOT = { religion_group = pagan } #Will cause issues for Colonialist Pagans, but any European Neo-Pagans would likely not want to convert them anyways
 		}
@@ -247,24 +247,24 @@ province_event = { #Basic Colonial Settlement Event
 		modifier = {
 			factor = 0.6
 			any_neighbor_province = {
-				culture = OWNER
+				culture = owner
 			}
 		}
 		modifier = {
 			factor = 0.6
-			religion = OWNER
+			religion = owner
 		}
 	}
 
 	option = {
 		name = colonial_settlement.a
 
-		change_culture = OWNER
+		change_culture = owner
 		if = {
 			limit = {
-				NOT = { religion_group = OWNER }
+				NOT = { religion_group = owner }
 			}
-			change_religion = OWNER
+			change_religion = owner
 		}	
 	}
 }
@@ -280,7 +280,7 @@ province_event = { #Generic Merchant Republic Colonies
 			owner = { has_government_attribute = is_merchant_republic }
 			owner = { has_estate_privilege = estate_burghers_colony_rights }
 		}
-		NOT = { culture = OWNER }
+		NOT = { culture = owner }
 		NOT = { has_province_modifier = foreign_merchant_colony_modifier }
 		OR = { #Real checks here
 			province_has_center_of_trade_of_level = 1
@@ -461,15 +461,15 @@ province_event = { #Generic Merchant Republic Colonies
 			add_center_of_trade_level = 1
 		}
 
-		OWNER = { add_treasury = -200 } #Flat 200 per province
+		owner = { add_treasury = -200 } #Flat 200 per province
 
 		add_permanent_province_modifier = {
 			name = foreign_merchant_colony_modifier
 			duration = -1
 		}
 
-		change_culture = OWNER
-		change_religion = OWNER
+		change_culture = owner
+		change_religion = owner
 	}
 
 	option = { #Cease
@@ -486,11 +486,11 @@ province_event = { #Changing settlements in Settler-Colonies (Converts culture t
 	trigger = {
 		is_in_settler_colonial_region = yes
 		native_american_trigger = no
-		NOT = { culture_group = OWNER }
+		NOT = { culture_group = owner }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}	
 			owner = { ai = yes }
 		}
@@ -498,7 +498,7 @@ province_event = { #Changing settlements in Settler-Colonies (Converts culture t
 			#Don't want this to spread all the time for AI
 			#AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 			#	owner = { ai = yes }
-			#	any_neighbor_province = { culture_group = OWNER }
+			#	any_neighbor_province = { culture_group = owner }
 			#}
 			num_of_times_improved_by_owner = 5 #Non-Dharma intent check
 			AND = { #Alternate check to maybe work-around the colonizer devving not counting issue
@@ -649,8 +649,8 @@ province_event = { #Changing settlements in Settler-Colonies (Converts culture t
 	option = {
 		name = new_settlers_in_colonies.a
 
-		change_culture = OWNER
-		change_religion = OWNER
+		change_culture = owner
+		change_religion = owner
 	}
 }
 
@@ -662,7 +662,7 @@ province_event = { #Status of foreign traders
 
 	trigger = {
 		has_province_modifier = foreign_merchant_colony_modifier
-		NOT = { culture_group = OWNER }
+		NOT = { culture_group = owner }
 	}
 
 	option = {
@@ -694,7 +694,7 @@ province_event = { #Generic Colonies in the Steppe (Less restrictive, to allow s
 
 	trigger = {
 		has_province_modifier = nomadic_province
-		OWNER = { is_nomad = no }
+		owner = { is_nomad = no }
 		has_port = yes #Coastal, if you border by land then you can probably convert via other means
 		province_has_center_of_trade_of_level = 1 #Only CoTs for now
 		OR = { #Has trade building (AI won't have issues with this, they build plenty of buildings)
@@ -702,9 +702,9 @@ province_event = { #Generic Colonies in the Steppe (Less restrictive, to allow s
 			has_building = trade_depot
 			has_building = stock_exchange
 		}
-		NOT = { OWNER = { has_country_modifier = east_slavic_settlements } } #Cannot be allowed to do cossackization
-		NOT = { OWNER = { has_country_modifier = cossackization } }
-		NOT = { OWNER = { has_country_modifier = cossackization_west_slavs } }
+		NOT = { owner = { has_country_modifier = east_slavic_settlements } } #Cannot be allowed to do cossackization
+		NOT = { owner = { has_country_modifier = cossackization } }
+		NOT = { owner = { has_country_modifier = cossackization_west_slavs } }
 	}
 
 	mean_time_to_happen = {
@@ -716,8 +716,8 @@ province_event = { #Generic Colonies in the Steppe (Less restrictive, to allow s
 
 		add_base_tax = 2
 		add_base_production = 2
-		change_culture = OWNER
-		change_religion = OWNER
+		change_culture = owner
+		change_religion = owner
 	}
 
 	option = { #No...

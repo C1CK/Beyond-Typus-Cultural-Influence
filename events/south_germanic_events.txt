@@ -219,7 +219,7 @@ province_event = { #Austrian Integration
 		has_global_flag = hochdeutsch_created_flag
 		culture = austrian
 		NOT = { owner = { primary_culture = austrian } }
-		OWNER = { #Is German
+		owner = { #Is German
 			OR = {
 				primary_culture = hochdeutsch
 				accepted_culture = hochdeutsch
@@ -282,7 +282,7 @@ province_event = { #Swiss Integration
 		has_global_flag = hochdeutsch_created_flag
 		culture = swiss
 		NOT = { owner = { primary_culture = swiss } }
-		OWNER = { #Is German
+		owner = { #Is German
 			OR = {
 				primary_culture = hochdeutsch
 				accepted_culture = hochdeutsch
@@ -509,7 +509,7 @@ province_event = { #Dutch Low Saxon Integration
 		has_global_flag = plattduutsch_created_flag
 		culture = dutch_low_saxon
 		NOT = { owner = { primary_culture = dutch_low_saxon } }
-		OWNER = { #Is German
+		owner = { #Is German
 			OR = {
 				primary_culture = plattduutsch
 				accepted_culture = plattduutsch
@@ -572,7 +572,7 @@ province_event = { #Low Franconian Integration (Not Dutch!)
 		has_global_flag = plattduutsch_created_flag
 		culture = dutch #Actually Low-Franconian
 		NOT = { owner = { primary_culture = dutch } } #Actually Low-Franconian
-		OWNER = { #Is German
+		owner = { #Is German
 			OR = {
 				primary_culture = plattduutsch
 				accepted_culture = plattduutsch
@@ -760,7 +760,7 @@ province_event = { #Dutch Low Saxon Spread
 		has_global_flag = dutch_created_flag
 		culture = hannoverian
 		#culture = plattduutsch #Identity too strong to subsume
-		OWNER = { primary_culture = dutch_modern }
+		owner = { primary_culture = dutch_modern }
 		OR = { #Lack of Plattdüütsch influence or significant transit
 			development = 20 
 			province_trade_power = 10
@@ -972,20 +972,20 @@ province_event = { #Dutch settlements and assimilation (Works for Low Franconian
 
 		if = {
 			limit = {
-				OWNER = { primary_culture = dutch_modern }
+				owner = { primary_culture = dutch_modern }
 			}
 			change_culture = dutch_modern
 		}
 		if = {
 			limit = {
-				NOT = { OWNER = { primary_culture = dutch_modern } }
+				NOT = { owner = { primary_culture = dutch_modern } }
 				NOT = { has_global_flag = plattduutsch_low_franconian_flag }
 			}
 			change_culture = dutch #Actually Low-Franconian
 		}
 		if = {
 			limit = {
-				NOT = { OWNER = { primary_culture = dutch_modern } }
+				NOT = { owner = { primary_culture = dutch_modern } }
 				has_global_flag = plattduutsch_low_franconian_flag
 			}
 			change_culture = plattduutsch

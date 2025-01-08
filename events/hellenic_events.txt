@@ -903,7 +903,7 @@ province_event = { #Armenian Assimilation
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -9787,7 +9787,7 @@ province_event = { #Turkish assimilation
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -10539,7 +10539,7 @@ country_event = { #Aegean split
 				}
 			}
 			151 = { #Constantinople is under foreign control (Principally checking for Ottomans, but anyone counts)
-				OWNER = {
+				owner = {
 					NOT = { culture_group = byzantine }
 				}
 			}
@@ -11532,7 +11532,7 @@ province_event = { #Dodecanesian settlements and assimilation
 	trigger = {
 		owner = { culture_group = byzantine }
 		dodecanesian_culture_region = yes
-		NOT = { culture_group = OWNER }
+		NOT = { culture_group = owner }
 		NOT = { culture = hellas_culture }
 		has_global_flag = aegean_split
 		ci_settlement_check = yes
@@ -11858,7 +11858,7 @@ province_event = { #Hellas Culture settlements and assimilation
 	trigger = {
 		owner = { culture_group = byzantine }
 		hellas_culture_region = yes
-		NOT = { culture_group = OWNER }
+		NOT = { culture_group = owner }
 		NOT = { culture = hellas_culture }
 		has_global_flag = aegean_split
 		ci_settlement_check = yes
@@ -12024,7 +12024,7 @@ province_event = { #Expansion of Hellas Culture under foreign rule, comes to rep
 		agaio_culture_region = yes
 		NOT = { culture = hellas_culture }
 		OR = {
-			NOT = { culture_group = OWNER } #Don't want this spreading to Turkish provinces as the Ottomans for example, Phanariot Greeks event in the Turkish file already does that anyway to a minor extent (which can be ignored anyway)
+			NOT = { culture_group = owner } #Don't want this spreading to Turkish provinces as the Ottomans for example, Phanariot Greeks event in the Turkish file already does that anyway to a minor extent (which can be ignored anyway)
 			culture_group = byzantine #Permit any Greeks to merge, incase AI accepts other greek splinter cultures
 			AND = {
 				has_owner_accepted_culture = no #Or accepted Bulgarians
@@ -12075,7 +12075,7 @@ province_event = { #Expansion of Hellas Culture under foreign rule, comes to rep
 		}
 		modifier = {
 			factor = 0.5
-			OWNER = { has_country_modifier = greco_armenian_theory_modifier }
+			owner = { has_country_modifier = greco_armenian_theory_modifier }
 		}
 
 		#Dev. factors
@@ -12115,7 +12115,7 @@ province_event = { #Expansion of Hellas Culture under foreign rule, comes to rep
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -12410,7 +12410,7 @@ province_event = { #Georgian Assimilation
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -12459,7 +12459,7 @@ province_event = { #Boreaka Colonial Settlement event
 		voreaka_culture_region = yes
 		NOT = { culture = voreaka }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_voreaka_established_flag
@@ -12528,7 +12528,7 @@ province_event = { #Boreaka Colonial Settlement event
 
 		change_culture = voreaka
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = voreaka } } }
+			limit = { owner = { NOT = { accepted_culture = voreaka } } }
 			add_accepted_culture = voreaka
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -12545,7 +12545,7 @@ province_event = { #Anatolaktika Colonial Settlement event
 		antolaktika_culture_region = yes
 		NOT = { culture = antolaktika }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_antolaktika_established_flag
@@ -12614,7 +12614,7 @@ province_event = { #Anatolaktika Colonial Settlement event
 
 		change_culture = antolaktika
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = antolaktika } } }
+			limit = { owner = { NOT = { accepted_culture = antolaktika } } }
 			add_accepted_culture = antolaktika
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -12640,7 +12640,7 @@ province_event = { #Potomika Colonial settlement event
 		potomika_culture_region = yes
 		NOT = { culture = potomika }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_antolaktika_established_flag
@@ -12709,7 +12709,7 @@ province_event = { #Potomika Colonial settlement event
 
 		change_culture = potomika
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = potomika } } }
+			limit = { owner = { NOT = { accepted_culture = potomika } } }
 			add_accepted_culture = potomika
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -12726,7 +12726,7 @@ province_event = { #Dytiaktika Colonial event
 		dytiaktika_culture_region = yes
 		NOT = { culture = dytiaktika }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_dytiaktika_established_flag
@@ -12795,7 +12795,7 @@ province_event = { #Dytiaktika Colonial event
 
 		change_culture = dytiaktika
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = dytiaktika } } }
+			limit = { owner = { NOT = { accepted_culture = dytiaktika } } }
 			add_accepted_culture = dytiaktika
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -12812,7 +12812,7 @@ province_event = { #Kentrika Colonial settlement event
 		kentrika_culture_region = yes
 		NOT = { culture = kentrika }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_kentrika_established_flag
@@ -12881,7 +12881,7 @@ province_event = { #Kentrika Colonial settlement event
 
 		change_culture = kentrika
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = kentrika } } }
+			limit = { owner = { NOT = { accepted_culture = kentrika } } }
 			add_accepted_culture = kentrika
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -12898,7 +12898,7 @@ province_event = { #Dyitinisika Colonial settlement event
 		dyitinisika_culture_region = yes
 		NOT = { culture = dyitinisika }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_dyitinisika_established_flag
@@ -12967,7 +12967,7 @@ province_event = { #Dyitinisika Colonial settlement event
 
 		change_culture = dyitinisika
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = dyitinisika } } }
+			limit = { owner = { NOT = { accepted_culture = dyitinisika } } }
 			add_accepted_culture = dyitinisika
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -12984,7 +12984,7 @@ province_event = { #Kolomvika Colonial settlement event
 		kolomvika_culture_region = yes
 		NOT = { culture = kolomvika }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_kolomvika_established_flag
@@ -13053,7 +13053,7 @@ province_event = { #Kolomvika Colonial settlement event
 
 		change_culture = kolomvika
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = kolomvika } } }
+			limit = { owner = { NOT = { accepted_culture = kolomvika } } }
 			add_accepted_culture = kolomvika
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -13070,7 +13070,7 @@ province_event = { #Amazones Colonial settlement event
 		amazones_culture_region = yes
 		NOT = { culture = amazones }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_amazones_established_flag
@@ -13139,7 +13139,7 @@ province_event = { #Amazones Colonial settlement event
 
 		change_culture = amazones
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = amazones } } }
+			limit = { owner = { NOT = { accepted_culture = amazones } } }
 			add_accepted_culture = amazones
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -13156,7 +13156,7 @@ province_event = { #Dytivounika Colonial settlement event
 		dytivounika_culture_region = yes
 		NOT = { culture = dytivounika }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_dytivounika_established_flag
@@ -13225,7 +13225,7 @@ province_event = { #Dytivounika Colonial settlement event
 
 		change_culture = dytivounika
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = dytivounika } } }
+			limit = { owner = { NOT = { accepted_culture = dytivounika } } }
 			add_accepted_culture = dytivounika
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -13242,7 +13242,7 @@ province_event = { #Notia Aethiopas Colonial settlement event
 		notia_aethiopas_culture_region = yes
 		NOT = { culture = notia_aethiopas }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_notia_aethiopas_established_flag
@@ -13311,7 +13311,7 @@ province_event = { #Notia Aethiopas Colonial settlement event
 
 		change_culture = notia_aethiopas
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = notia_aethiopas } } }
+			limit = { owner = { NOT = { accepted_culture = notia_aethiopas } } }
 			add_accepted_culture = notia_aethiopas
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -13327,7 +13327,7 @@ province_event = { #Notiaka Colonial settlement event
 		notiaka_culture_region = yes
 		NOT = { culture = notiaka }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_notiaka_established_flag
@@ -13396,7 +13396,7 @@ province_event = { #Notiaka Colonial settlement event
 
 		change_culture = notiaka
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = notiaka } } }
+			limit = { owner = { NOT = { accepted_culture = notiaka } } }
 			add_accepted_culture = notiaka
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -13413,7 +13413,7 @@ province_event = { #Polinesika Colonial settlement event
 		polinesika_culture_region = yes
 		NOT = { culture = polinesika }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_polinesika_established_flag
@@ -13482,7 +13482,7 @@ province_event = { #Polinesika Colonial settlement event
 
 		change_culture = polinesika
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = polinesika } } }
+			limit = { owner = { NOT = { accepted_culture = polinesika } } }
 			add_accepted_culture = polinesika
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -14002,12 +14002,12 @@ province_event = { #Settlement of the Frontier
 		modifier = {
 			factor = 0.6
 			any_neighbor_province = {
-				culture = OWNER
+				culture = owner
 			}
 		}
 		modifier = {
 			factor = 0.6
-			religion = OWNER
+			religion = owner
 		}
 		modifier = {
 			factor = 0.6
@@ -14018,12 +14018,12 @@ province_event = { #Settlement of the Frontier
 	option = {
 		name = greek_colony.a
 
-		change_culture = OWNER
+		change_culture = owner
 		if = {
 			limit = {
-				NOT = { religion_group = OWNER }
+				NOT = { religion_group = owner }
 			}
-			change_religion = OWNER
+			change_religion = owner
 		}	
 	}
 }
@@ -14239,7 +14239,7 @@ province_event = { #Arktikós Colonial settlement event
 		greco_arctic_culture_region = yes
 		NOT = { culture = greco_arctic_culture }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_arctic_established_flag
@@ -14308,7 +14308,7 @@ province_event = { #Arktikós Colonial settlement event
 
 		change_culture = greco_arctic_culture
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = greco_arctic_culture } } }
+			limit = { owner = { NOT = { accepted_culture = greco_arctic_culture } } }
 			add_accepted_culture = greco_arctic_culture
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -14325,7 +14325,7 @@ province_event = { #Alaskanós Colonial settlement event
 		greco_alaskan_culture_region = yes
 		NOT = { culture = greco_alaskan_culture }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_alaskan_established_flag
@@ -14394,7 +14394,7 @@ province_event = { #Alaskanós Colonial settlement event
 
 		change_culture = greco_alaskan_culture
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = greco_alaskan_culture } } }
+			limit = { owner = { NOT = { accepted_culture = greco_alaskan_culture } } }
 			add_accepted_culture = greco_alaskan_culture
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -14411,7 +14411,7 @@ province_event = { #Limmnika Colonial settlement event
 		limnika_culture_region = yes
 		NOT = { culture = limmnika }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_limmnika_established_flag
@@ -14480,7 +14480,7 @@ province_event = { #Limmnika Colonial settlement event
 
 		change_culture = limmnika
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = limmnika } } }
+			limit = { owner = { NOT = { accepted_culture = limmnika } } }
 			add_accepted_culture = limmnika
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -14497,7 +14497,7 @@ province_event = { #Argentinós Colonial settlement event
 		greco_argentine_culture_region = yes
 		NOT = { culture = greco_argentine_culture }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_argentine_established_flag
@@ -14566,7 +14566,7 @@ province_event = { #Argentinós Colonial settlement event
 
 		change_culture = greco_argentine_culture
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = greco_argentine_culture } } }
+			limit = { owner = { NOT = { accepted_culture = greco_argentine_culture } } }
 			add_accepted_culture = greco_argentine_culture
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}
@@ -14583,7 +14583,7 @@ province_event = { #Brazilianós Colonial settlement event
 		greco_brazilian_culture_region = yes
 		NOT = { culture = greco_brazilian_culture }
 		is_city = yes
-		OWNER = { culture_group = byzantine }
+		owner = { culture_group = byzantine }
 		any_neighbor_province = { culture_group = byzantine }		
 		ci_colonial_settlement_check = yes
 		has_global_flag = greco_argentine_established_flag
@@ -14652,7 +14652,7 @@ province_event = { #Brazilianós Colonial settlement event
 
 		change_culture = greco_brazilian_culture
 		if = {
-			limit = { OWNER = { NOT = { accepted_culture = greco_brazilian_culture } } }
+			limit = { owner = { NOT = { accepted_culture = greco_brazilian_culture } } }
 			add_accepted_culture = greco_brazilian_culture
 		}			#Adding culture as an accepted culture to prevent AI flipping, and to not penalise player in a no-choice culture event		
 	}

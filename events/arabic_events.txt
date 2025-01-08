@@ -285,7 +285,7 @@ province_event = { #Arabic adoption (Masri)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = al_misr_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		masri_culture_region = yes			
@@ -362,7 +362,7 @@ province_event = { #Arabic adoption (Masri)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -419,13 +419,13 @@ province_event = { #Arabic adoption (Sinai) (Masri)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = al_misr_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		NOT = { culture = al_misr_arabic }
 		NOT = { culture = mashriqi }
 		ci_assimilation_check_arabic = yes
-		OWNER = { capital_scope = { continent = africa } }
+		owner = { capital_scope = { continent = africa } }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -496,7 +496,7 @@ province_event = { #Arabic adoption (Sinai) (Masri)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -552,7 +552,7 @@ province_event = { #Arabic adoption (Levantine)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = al_suryah_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		levantine_culture_region = yes			
@@ -629,7 +629,7 @@ province_event = { #Arabic adoption (Levantine)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -686,13 +686,13 @@ province_event = { #Arabic adoption (Sinai) (Levantine)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = al_suryah_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		NOT = { culture = al_suryah_arabic }
 		NOT = { culture = mashriqi }
 		ci_assimilation_check_arabic = yes
-		NOT = { OWNER = { capital_scope = { continent = africa } } }
+		NOT = { owner = { capital_scope = { continent = africa } } }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -763,7 +763,7 @@ province_event = { #Arabic adoption (Sinai) (Levantine)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -819,7 +819,7 @@ province_event = { #Arabic adoption (Mesopotamian)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = al_iraqiya_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		mesopotamian_culture_region = yes			
@@ -896,7 +896,7 @@ province_event = { #Arabic adoption (Mesopotamian)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -952,7 +952,7 @@ province_event = { #Arabic adoption (Najdi)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = bedouin_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		najdi_culture_region = yes			
@@ -1029,7 +1029,7 @@ province_event = { #Arabic adoption (Najdi)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -1085,7 +1085,7 @@ province_event = { #Arabic adoption (Gulf)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = gulf_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		gulf_culture_region = yes			
@@ -1162,7 +1162,7 @@ province_event = { #Arabic adoption (Gulf)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -1218,7 +1218,7 @@ province_event = { #Arabic adoption (Omani)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = omani_culture }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		omani_culture_region = yes			
@@ -1295,7 +1295,7 @@ province_event = { #Arabic adoption (Omani)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -1351,7 +1351,7 @@ province_event = { #Arabic adoption (Dhofari)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = dhofari_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		dhofari_culture_region = yes			
@@ -1428,7 +1428,7 @@ province_event = { #Arabic adoption (Dhofari)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -1484,7 +1484,7 @@ province_event = { #Arabic adoption (Yemeni)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = yemeni_culture }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		yemeni_culture_region = yes			
@@ -1561,7 +1561,7 @@ province_event = { #Arabic adoption (Yemeni)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -1617,7 +1617,7 @@ province_event = { #Arabic adoption (Hejazi)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = hejazi_culture }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		hejazi_culture_region = yes			
@@ -1694,7 +1694,7 @@ province_event = { #Arabic adoption (Hejazi)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -1750,7 +1750,7 @@ province_event = { #Arabic adoption (Eastern Sudanese)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = sudanese_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		eastern_sudanese_culture_region = yes		
@@ -1826,7 +1826,7 @@ province_event = { #Arabic adoption (Eastern Sudanese)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -1871,7 +1871,7 @@ province_event = { #Arabic adoption (Sulaym)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = libyan_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		libyan_culture_region = yes			
@@ -1948,7 +1948,7 @@ province_event = { #Arabic adoption (Sulaym)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -2004,7 +2004,7 @@ province_event = { #Arabic adoption (Eastern Hilalian)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = tunisian }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		tunisian_culture_region = yes		
@@ -2112,7 +2112,7 @@ province_event = { #Arabic adoption (Central Hilalian)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = maghrebi_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		algerian_culture_region = yes			
@@ -2189,7 +2189,7 @@ province_event = { #Arabic adoption (Central Hilalian)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -2245,7 +2245,7 @@ province_event = { #Arabic adoption (Maqil)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = moroccan }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		moroccan_culture_region = yes			
@@ -2322,7 +2322,7 @@ province_event = { #Arabic adoption (Maqil)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -2378,7 +2378,7 @@ province_event = { #Arabic adoption (Hassaniya)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = saharawi_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		hassaniya_culture_region = yes		
@@ -2454,7 +2454,7 @@ province_event = { #Arabic adoption (Hassaniya)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -2499,7 +2499,7 @@ province_event = { #Arabic adoption (Saharan)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = saharan_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		saharan_arabic_culture_region = yes		
@@ -2575,7 +2575,7 @@ province_event = { #Arabic adoption (Saharan)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -2620,7 +2620,7 @@ province_event = { #Arabic adoption (Central Sudanese)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = baggara_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		central_sudanese_culture_region = yes		
@@ -2696,7 +2696,7 @@ province_event = { #Arabic adoption (Central Sudanese)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -2741,7 +2741,7 @@ province_event = { #Arabic adoption (Andalusian)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = andalusi_culture }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		andalusian_culture_region = yes		
@@ -2817,7 +2817,7 @@ province_event = { #Arabic adoption (Andalusian)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -2933,7 +2933,7 @@ province_event = { #Mozarabic
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -2978,12 +2978,12 @@ province_event = { #Arabic adoption (Sardinia) (Andalusian)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = andalusi_culture }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		ci_assimilation_check_arabic = yes
 		andalusian_sicilian_conflict_region = yes
-		OWNER = { primary_culture = andalusi_culture }
+		owner = { primary_culture = andalusi_culture }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -3054,7 +3054,7 @@ province_event = { #Arabic adoption (Sardinia) (Andalusian)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -3099,7 +3099,7 @@ province_event = { #Arabic adoption (Sicilian)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = siculo_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		sicilian_arabic_culture_region = yes
@@ -3175,7 +3175,7 @@ province_event = { #Arabic adoption (Sicilian)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -3220,13 +3220,13 @@ province_event = { #Arabic adoption (Sardinia) (Sicilian)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = siculo_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		NOT = { culture = siculo_arabic }
 		ci_assimilation_check_arabic = yes
 		andalusian_sicilian_conflict_region = yes
-		OWNER = { NOT = { primary_culture = andalusi_culture } }
+		owner = { NOT = { primary_culture = andalusi_culture } }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -3297,7 +3297,7 @@ province_event = { #Arabic adoption (Sardinia) (Sicilian)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -3342,7 +3342,7 @@ province_event = { #Arabic adoption (Septimanian)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = septimanian_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		septimanian_culture_region = yes		
@@ -3418,7 +3418,7 @@ province_event = { #Arabic adoption (Septimanian)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -3463,7 +3463,7 @@ province_event = { #Arabic adoption (Shirvani)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = shirvani_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		shirvani_arabic_culture_region = yes		
@@ -3539,7 +3539,7 @@ province_event = { #Arabic adoption (Shirvani)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -3584,7 +3584,7 @@ province_event = { #Arabic adoption (Greek)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = greek_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		yunania_culture_region = yes		
@@ -3660,7 +3660,7 @@ province_event = { #Arabic adoption (Greek)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -3705,7 +3705,7 @@ province_event = { #Arabic adoption (Ethiopian)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = ethiopian_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		habashi_culture_region = yes		
@@ -3781,7 +3781,7 @@ province_event = { #Arabic adoption (Ethiopian)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -3826,7 +3826,7 @@ province_event = { #Arabic adoption (Anatolian)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = turkish_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		anadul_culture_region = yes		
@@ -3902,7 +3902,7 @@ province_event = { #Arabic adoption (Anatolian)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -3947,7 +3947,7 @@ province_event = { #Arabic adoption (Faarseea)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = persian_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		faarisia_culture_region = yes		
@@ -4023,7 +4023,7 @@ province_event = { #Arabic adoption (Faarseea)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -4068,7 +4068,7 @@ province_event = { #Arabic adoption (Tuscan)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = tuscan_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		tuwskaniu_culture_region = yes		
@@ -4144,7 +4144,7 @@ province_event = { #Arabic adoption (Tuscan)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -4189,7 +4189,7 @@ province_event = { #Arabic adoption (Sai'di)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = saidi_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		saidi_arabic_culture_region = yes			
@@ -4266,7 +4266,7 @@ province_event = { #Arabic adoption (Sai'di)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -4322,7 +4322,7 @@ province_event = { #Arabic adoption (Wahati)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = oasis_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		oasis_arabic_culture_region = yes			
@@ -4399,7 +4399,7 @@ province_event = { #Arabic adoption (Wahati)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -4455,7 +4455,7 @@ province_event = { #Arabic adoption (Alsowmaleea)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = somali_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		somali_arabic_culture_region = yes			
@@ -4531,7 +4531,7 @@ province_event = { #Arabic adoption (Alsowmaleea)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -4576,7 +4576,7 @@ province_event = { #Arabic adoption (Algharbee Sudanee)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = west_african_arabic }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		western_sudanese_culture_region = yes			
@@ -4652,7 +4652,7 @@ province_event = { #Arabic adoption (Algharbee Sudanee)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc
@@ -4697,7 +4697,7 @@ province_event = { #Arabic adoption (Khirasanee)
 			owner = { culture_group = turko_semitic }
 			AND = { #If you accept the Arabic Dialect and it isn't in your group, you can Arabicize the province
 				owner = { accepted_culture = khorasani_arab }
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}
 		}
 		khorasani_arab_culture_region = yes			
@@ -4773,7 +4773,7 @@ province_event = { #Arabic adoption (Khirasanee)
 		}
 		modifier = {
 			factor = 1.1
-			religion_group = OWNER
+			religion_group = owner
 		}
 
 		#Misc

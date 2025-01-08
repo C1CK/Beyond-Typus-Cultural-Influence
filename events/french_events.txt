@@ -11,7 +11,7 @@ province_event = { #French expansion (Home Region)
 		owner = { culture_group = french }
 		french_homeland = yes
 		OR = {
-			NOT = { culture = OWNER }
+			NOT = { culture = owner }
 			if = {
 				limit = {
 					owner = { 
@@ -127,7 +127,7 @@ province_event = { #Poetevin expansion (Home Region)
 	goto = root
 	
 	trigger = {
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		poetvin_culture_region = yes
 		NOT = { culture = poitevin_culture }
 		ci_settlement_check_france = yes
@@ -4282,8 +4282,8 @@ province_event = { #Romain Spread
 	goto = root
 	
 	trigger = {
-		OWNER = { culture_group = french }
-		OWNER = { religion = catholic }
+		owner = { culture_group = french }
+		owner = { religion = catholic }
 		romain_culture_region = yes		
 		ci_french_crusader_settlement_check = yes
 		has_global_flag = CI_events_enabled
@@ -4320,7 +4320,7 @@ province_event = { #Romain Spread
 		add_base_tax = -2
 		add_base_manpower = -2
 		add_base_production = -2
-		change_religion = OWNER
+		change_religion = owner
 		change_culture = romain
 		add_province_modifier = {
 			name = french_new_catholic_settlements
@@ -4342,8 +4342,8 @@ province_event = { #Outre Mer Spread
 	goto = root
 	
 	trigger = {
-		OWNER = { religion = catholic }
-		OWNER = { culture_group = french }
+		owner = { religion = catholic }
+		owner = { culture_group = french }
 		outre_mer_culture_region = yes		
 		ci_french_crusader_settlement_check = yes
 		has_global_flag = CI_events_enabled
@@ -4380,7 +4380,7 @@ province_event = { #Outre Mer Spread
 		add_base_tax = -2
 		add_base_manpower = -2
 		add_base_production = -2
-		change_religion = OWNER
+		change_religion = owner
 		change_culture = outre_mer
 		add_province_modifier = {
 			name = french_new_catholic_settlements
@@ -4402,8 +4402,8 @@ province_event = { #Galate Spread
 	goto = root
 	
 	trigger = {
-		OWNER = { religion = catholic }
-		OWNER = { culture_group = french }
+		owner = { religion = catholic }
+		owner = { culture_group = french }
 		galate_culture_region = yes		
 		ci_french_crusader_settlement_check = yes
 		has_global_flag = CI_events_enabled
@@ -4440,7 +4440,7 @@ province_event = { #Galate Spread
 		add_base_tax = -2
 		add_base_manpower = -2
 		add_base_production = -2
-		change_religion = OWNER
+		change_religion = owner
 		change_culture = galate
 		add_province_modifier = {
 			name = french_new_catholic_settlements
@@ -4462,8 +4462,8 @@ province_event = { #Bas Nilain Spread
 	goto = root
 	
 	trigger = {
-		OWNER = { religion = catholic }
-		OWNER = { culture_group = french }
+		owner = { religion = catholic }
+		owner = { culture_group = french }
 		nil_francais_culture_region = yes		
 		ci_french_crusader_settlement_check = yes
 		has_global_flag = CI_events_enabled
@@ -4500,7 +4500,7 @@ province_event = { #Bas Nilain Spread
 		add_base_tax = -2
 		add_base_manpower = -2
 		add_base_production = -2
-		change_religion = OWNER
+		change_religion = owner
 		change_culture = nil_francais
 		add_province_modifier = {
 			name = french_new_catholic_settlements
@@ -4522,8 +4522,8 @@ province_event = { #Mesopotamien Spread
 	goto = root
 	
 	trigger = {
-		OWNER = { religion = catholic }
-		OWNER = { culture_group = french }
+		owner = { religion = catholic }
+		owner = { culture_group = french }
 		mespotamien_culture_culture_region = yes		
 		ci_french_crusader_settlement_check = yes
 		has_global_flag = CI_events_enabled
@@ -4560,7 +4560,7 @@ province_event = { #Mesopotamien Spread
 		add_base_tax = -2
 		add_base_manpower = -2
 		add_base_production = -2
-		change_religion = OWNER
+		change_religion = owner
 		change_culture = mespotamien_culture
 		add_province_modifier = {
 			name = french_new_catholic_settlements
@@ -4595,7 +4595,7 @@ province_event = { #Quebecois spread
 		}
 		quebecois_culture_region = yes
 		NOT = { culture = quebecois }
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -4658,7 +4658,7 @@ province_event = { #Californienne spread
 		}
 		californienne_culture_region = yes
 		NOT = { culture = californienne }
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -4715,7 +4715,7 @@ province_event = { #Indian Ocean Islands primary spread
 	trigger = {
 		is_city = yes
 		development = 20
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		OR = { #Permit AI to settle accepted cultures since they don't understand
 			AND = {
 				has_owner_accepted_culture = no
@@ -4763,7 +4763,7 @@ province_event = { #Indian Ocean Islands primary spread
 
 	option = {
 		name = french_indian_islands_spread.a
-		change_culture = OWNER
+		change_culture = owner
 	}
 }
 
@@ -4793,7 +4793,7 @@ province_event = { #Karipounais spread
 				development = 20
 			}
 		}
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		culture = kweyol_kawipouna
 		has_global_flag = CI_events_enabled
 	}
@@ -4855,7 +4855,7 @@ province_event = { #Quechois spread
 				development = 20
 			}
 		}
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		culture = kweyol_kechwa
 		has_global_flag = CI_events_enabled
 	}
@@ -4917,7 +4917,7 @@ province_event = { #Circumcaraïbes spread
 				development = 20
 			}
 		}
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		culture = kreyol_ayisyen
 		has_global_flag = CI_events_enabled
 	}
@@ -4979,7 +4979,7 @@ province_event = { #Louisianais spread
 				development = 20
 			}
 		}
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		culture = kreyol_la_lwizyan
 		has_global_flag = CI_events_enabled
 	}
@@ -5046,7 +5046,7 @@ province_event = { #Mozambicaine spread
 		}
 		NOT = { culture = mozambicaine }
 		mozambicaine_culture_region = yes
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -5115,7 +5115,7 @@ province_event = { #Subsaharienne spread
 		}
 		NOT = { culture = subsaharienne }
 		subsaharienne_culture_region = yes
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -5184,7 +5184,7 @@ province_event = { #Sud Africain spread
 		}
 		NOT = { culture = sud_africain }
 		sud_africain_culture_region = yes
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -5243,7 +5243,7 @@ province_event = { #Sud Africain (Colonial Region)
 		sud_africain_culture_region = yes
 		colonial_region = colonial_cape
 		NOT = { culture = sud_africain }
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 	mean_time_to_happen = {
@@ -5315,7 +5315,7 @@ province_event = { #Érythréen spread
 		}
 		NOT = { culture = erethreen_culture }
 		erythreen_culture_culture_region = yes
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -5384,7 +5384,7 @@ province_event = { #Haut Nilain spread
 		}
 		NOT = { culture = upper_nil_francais }
 		haut_nilain_culture_culture_region = yes
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -5453,7 +5453,7 @@ province_event = { #Abyssinien spread
 		}
 		NOT = { culture = abyssinien_culture }
 		abyssinien_culture_culture_region = yes
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -5522,7 +5522,7 @@ province_event = { #Congolais spread
 		}
 		NOT = { culture = congolais_culture }
 		abyssinien_culture_culture_region = yes
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -5591,7 +5591,7 @@ province_event = { #Congolais spread
 		}
 		NOT = { culture = malgache_culture }
 		malgache_culture_culture_region = yes
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -5660,7 +5660,7 @@ province_event = { #Mecque spread
 		}
 		NOT = { culture = mecque_culture }
 		mecque_culture_culture_region = yes
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -5729,7 +5729,7 @@ province_event = { #Bahreïnien spread
 		}
 		NOT = { culture = bahreinien_culture }
 		bahreinien_culture_culture_region = yes
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -5798,7 +5798,7 @@ province_event = { #Omanais spread
 		}
 		NOT = { culture = omanais_culture }
 		omanais_culture_culture_region = yes
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -5867,7 +5867,7 @@ province_event = { #Yéménite spread
 		}
 		NOT = { culture = yemenite_culture }
 		yemenite_culture_culture_region = yes
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -5936,7 +5936,7 @@ province_event = { #Indochinois spread
 		}
 		NOT = { culture = indochinois }
 		indochinois_culture_region = yes
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -5993,7 +5993,7 @@ province_event = { #Old World primary spread
 			owner = { ai = yes }
 		}
 		development = 10
-		OWNER = { culture_group = french }
+		owner = { culture_group = french }
 		metropolitaine_colonial_culture_region = yes
 		NOT = { culture_group = french }
 		has_global_flag = CI_events_enabled
@@ -6026,7 +6026,7 @@ province_event = { #Old World primary spread
 
 	option = {
 		name = french_old_world_spread.a
-		change_culture = OWNER
+		change_culture = owner
 	}	
 }
 
@@ -6045,8 +6045,8 @@ province_event = { #Kreyol La Lwizyan spread
 		NOT = { culture = kreyol_la_lwizyan }
 		NOT = { culture = louisianans }
 		OR = {
-			OWNER = { culture_group = french }
-			OWNER = { culture_group = french_creole }
+			owner = { culture_group = french }
+			owner = { culture_group = french_creole }
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -6152,8 +6152,8 @@ province_event = { #Kreyol Ayisyen spread
 		NOT = { culture = kreyol_ayisyen }
 		NOT = { culture = circumcaraibes }
 		OR = {
-			OWNER = { culture_group = french }
-			OWNER = { culture_group = french_creole }
+			owner = { culture_group = french }
+			owner = { culture_group = french_creole }
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -6259,8 +6259,8 @@ province_event = { #Kreol Morisien spread
 		NOT = { culture = kreol_morisien }
 		NOT = { culture = metropolitaine }
 		OR = {
-			OWNER = { culture_group = french }
-			OWNER = { culture_group = french_creole }
+			owner = { culture_group = french }
+			owner = { culture_group = french_creole }
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -6320,8 +6320,8 @@ province_event = { #Kreol Renieone spread
 		NOT = { culture = kreol_renieone }
 		NOT = { culture = metropolitaine }
 		OR = {
-			OWNER = { culture_group = french }
-			OWNER = { culture_group = french_creole }
+			owner = { culture_group = french }
+			owner = { culture_group = french_creole }
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -6381,8 +6381,8 @@ province_event = { #Kreol Seselwa spread
 		NOT = { culture = kreol_seselwa }
 		NOT = { culture = metropolitaine }
 		OR = {
-			OWNER = { culture_group = french }
-			OWNER = { culture_group = french_creole }
+			owner = { culture_group = french }
+			owner = { culture_group = french_creole }
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -6442,8 +6442,8 @@ province_event = { #Kweyol Kawipouna spread
 		NOT = { culture = kweyol_kawipouna }
 		NOT = { culture = karipounais }
 		OR = {
-			OWNER = { culture_group = french }
-			OWNER = { culture_group = french_creole }
+			owner = { culture_group = french }
+			owner = { culture_group = french_creole }
 		}
 		has_global_flag = CI_events_enabled
 	}
@@ -6549,8 +6549,8 @@ province_event = { #Kweyol Kechwa spread
 		NOT = { culture = kweyol_kechwa }
 		NOT = { culture = quechois }
 		OR = {
-			OWNER = { culture_group = french }
-			OWNER = { culture_group = french_creole }
+			owner = { culture_group = french }
+			owner = { culture_group = french_creole }
 		}
 		has_global_flag = CI_events_enabled
 	}

@@ -16,10 +16,10 @@ province_event = { #Italian expansion (Home Region) #For now this is for Retorom
 			owner = { culture_group = island_romance }
 		}	
 		italian_homeland = yes
-		NOT = { culture = OWNER }
+		NOT = { culture = owner }
 		ci_assimilation_check_italian = yes
-		OWNER = { has_country_modifier = italian_literary_language_modifier }
-		NOT = { OWNER = { has_country_modifier = italian_standardised_language_modifier } }
+		owner = { has_country_modifier = italian_literary_language_modifier }
+		NOT = { owner = { has_country_modifier = italian_standardised_language_modifier } }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -53,19 +53,19 @@ province_event = { #Italian expansion (Home Region) #For now this is for Retorom
 			OR = {
 				AND = {
 					culture_group = latin
-					OWNER = { culture_group = latin }
+					owner = { culture_group = latin }
 				}	
 				AND = {
 					culture_group = gallo_italic
-					OWNER = { culture_group = gallo_italic }
+					owner = { culture_group = gallo_italic }
 				}	
 				AND = {
 					culture_group = rhaetian
-					OWNER = { culture_group = rhaetian }
+					owner = { culture_group = rhaetian }
 				}	
 				AND = {
 					culture_group = island_romance
-					OWNER = { culture_group = island_romance }
+					owner = { culture_group = island_romance }
 				}	
 			}
 		}
@@ -108,8 +108,8 @@ province_event = { #Italian expansion (Home Region) #For now this is for Retorom
 		modifier = {
 			factor = 1.1
 			AND = {
-				religion_group = OWNER
-				NOT = { religion = OWNER }
+				religion_group = owner
+				NOT = { religion = owner }
 			}	
 		}
 
@@ -140,12 +140,12 @@ province_event = { #Italian expansion (Home Region) #For now this is for Retorom
 		name = italian_expansion.a
 		if = {
 			limit = {
-				OWNER = { primary_culture = dalmatian }	#These guys are outside of Italy proper & do not merge into Standard Italian, so going with Venetian for them instead
+				owner = { primary_culture = dalmatian }	#These guys are outside of Italy proper & do not merge into Standard Italian, so going with Venetian for them instead
 			}
 			change_culture = venetian
 		}
 		else = {
-			change_culture = OWNER
+			change_culture = owner
 		}
 	}
 }
@@ -165,9 +165,9 @@ province_event = { #Italian expansion (Home Region) #For now this is for Retorom
 			owner = { primary_culture = standard_italian_island_romance }
 		}	
 		greater_italian_homeland = yes #Allows for expansion up to the Rhone, Switzerland and into parts of Illyria
-		NOT = { culture = OWNER }
+		NOT = { culture = owner }
 		ci_assimilation_check_italian = yes
-		OWNER = { has_country_modifier = italian_literary_language_modifier }
+		owner = { has_country_modifier = italian_literary_language_modifier }
 		has_global_flag = CI_events_enabled
 	}
 
@@ -201,19 +201,19 @@ province_event = { #Italian expansion (Home Region) #For now this is for Retorom
 			OR = {
 				AND = {
 					culture_group = latin
-					OWNER = { culture_group = latin }
+					owner = { culture_group = latin }
 				}	
 				AND = {
 					culture_group = gallo_italic
-					OWNER = { culture_group = gallo_italic }
+					owner = { culture_group = gallo_italic }
 				}	
 				AND = {
 					culture_group = rhaetian
-					OWNER = { culture_group = rhaetian }
+					owner = { culture_group = rhaetian }
 				}	
 				AND = {
 					culture_group = island_romance
-					OWNER = { culture_group = island_romance }
+					owner = { culture_group = island_romance }
 				}	
 			}
 		}
@@ -256,8 +256,8 @@ province_event = { #Italian expansion (Home Region) #For now this is for Retorom
 		modifier = {
 			factor = 1.1
 			AND = {
-				religion_group = OWNER
-				NOT = { religion = OWNER }
+				religion_group = owner
+				NOT = { religion = owner }
 			}	
 		}
 
@@ -286,6 +286,6 @@ province_event = { #Italian expansion (Home Region) #For now this is for Retorom
 
 	option = {
 		name = greater_italian_expansion.a
-		change_culture = OWNER
+		change_culture = owner
 	}
 }

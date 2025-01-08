@@ -44,7 +44,7 @@ country_event = { #Add Steppe modifiers
 		every_province = {
 			limit = {
 				steppe_culture_region = no
-				OWNER = { is_nomad = yes }
+				owner = { is_nomad = yes }
 			}
 			add_province_modifier = {
 				name = non_nomadic_province
@@ -88,12 +88,12 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 	picture = COSSACK_ESTATE_RAIDERS_eventPicture
 
 	trigger = {
-		NOT = { culture = OWNER }
+		NOT = { culture = owner }
 		owner = { is_nomad = yes }
 		OR = {
 			AND = {
 				has_owner_accepted_culture = no
-				NOT = { culture_group = OWNER }
+				NOT = { culture_group = owner }
 			}	
 			owner = { ai = yes }
 		}
@@ -182,8 +182,8 @@ province_event = { #Rape and Pillage of XXX (Convert Culture & Religion)
 			name = nomadic_province
 			duration = -1
 		}
-		change_culture = OWNER
-		change_religion = OWNER
+		change_culture = owner
+		change_religion = owner
 
 		ai_chance = {
 			factor = 25
@@ -367,7 +367,7 @@ province_event = { #Plow advances into the steppe, must have converted province 
 			has_province_modifier = steppe_city
 		}
 		#NOT = { culture = cossack } #By definition Nomadic? (Not sure why I said this, Cossacks aren't Nomadic)
-		culture_group = OWNER #Convert first, represents settlements
+		culture_group = owner #Convert first, represents settlements
 		owner = { is_nomad = no }
 		has_global_flag = CI_events_enabled
 	}
@@ -492,7 +492,7 @@ province_event = { #Nomadic gain
 
 	trigger = {
 		steppe_culture_region = yes
-		culture = OWNER
+		culture = owner
 		owner = { is_nomad = yes }
 		NOT = { has_province_modifier = steppe_city }
 		NOT = { has_province_modifier = nomadic_province }
@@ -524,7 +524,7 @@ province_event = { #Nomadic loss
 
 	trigger = {
 		steppe_culture_region = yes
-		culture = OWNER
+		culture = owner
 		owner = { is_nomad = yes }
 		has_province_modifier = steppe_city
 		has_province_modifier = nomadic_province
@@ -578,19 +578,19 @@ province_event = { #Nomadic Growth -Hidden event, province level
 
 		modifier = { #Happy Nomads
 			factor = 1.2
-			OWNER = { NOT = { horde_unity = 50 } }
+			owner = { NOT = { horde_unity = 50 } }
 		}
 		modifier = {
 			factor = 0.9
-			OWNER = { horde_unity = 75 }
+			owner = { horde_unity = 75 }
 		}
 		modifier = {
 			factor = 0.9
-			OWNER = { horde_unity = 90 }
+			owner = { horde_unity = 90 }
 		}
 		modifier = {
 			factor = 0.8
-			OWNER = { horde_unity = 99 }
+			owner = { horde_unity = 99 }
 		}
 
 		modifier = { #Local Stability
@@ -600,15 +600,15 @@ province_event = { #Nomadic Growth -Hidden event, province level
 
 		modifier = { #Pax Mongolica (National stability)
 			factor = 0.9
-			OWNER = { stability = 1 }
+			owner = { stability = 1 }
 		}
 		modifier = {
 			factor = 0.9
-			OWNER = { stability = 2 }
+			owner = { stability = 2 }
 		}
 		modifier = {
 			factor = 0.8
-			OWNER = { stability = 3 }
+			owner = { stability = 3 }
 		}
 
 		modifier = { #Dev checks
@@ -622,23 +622,23 @@ province_event = { #Nomadic Growth -Hidden event, province level
 
 		modifier = { #Free men to grant land
 			factor = 0.9
-			OWNER = { manpower = 25 } #25,000
+			owner = { manpower = 25 } #25,000
 		}
 		modifier = {
 			factor = 0.9
-			OWNER = { manpower = 50 } #50,000
+			owner = { manpower = 50 } #50,000
 		}
 		modifier = {
 			factor = 0.9
-			OWNER = { manpower = 75 } #50,000
+			owner = { manpower = 75 } #50,000
 		}
 		modifier = {
 			factor = 0.9
-			OWNER = { manpower = 100 } #100,000
+			owner = { manpower = 100 } #100,000
 		}
 		modifier = {
 			factor = 0.8
-			OWNER = { manpower_percentage = 0.90 } #90%
+			owner = { manpower_percentage = 0.90 } #90%
 		}
 	}
 
@@ -774,8 +774,8 @@ province_event = { #Nomadic City sacked by settled (Can't have shit in Qazan)
 		add_base_manpower = -4
 
 		owner = { add_dip_power = -200 }
-		change_culture = OWNER
-		change_religion = OWNER
+		change_culture = owner
+		change_religion = owner
 		if = {
 			limit = {
 				has_terrain = steppe

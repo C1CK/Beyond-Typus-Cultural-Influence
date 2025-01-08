@@ -466,7 +466,7 @@ country_event = { #Russki Splinter
 				}
 			}
 			295 = { #Moscow is under foreign domination (Principally checking for tributary of some nomad)
-				OWNER = {
+				owner = {
 					OR = {
 						culture_group = east_slavic
 						culture_group = slavic
@@ -2061,10 +2061,10 @@ province_event = { #Northern Russian influences (Custom Assimilated)
 	
 	trigger = {
 		OR = {
-			OWNER = { primary_culture = novgorodian }
-			OWNER = { primary_culture = russian }
-			OWNER = { primary_culture = novgorodian_new }
-			OWNER = { primary_culture = russian_new }
+			owner = { primary_culture = novgorodian }
+			owner = { primary_culture = russian }
+			owner = { primary_culture = novgorodian_new }
+			owner = { primary_culture = russian_new }
 		}
 		NOT = { culture = novgorodian }
 		NOT = { culture = novgorodian_new }
@@ -2228,10 +2228,10 @@ province_event = { #Middle Russian influences (Custom Assimilated)
 	
 	trigger = {
 		OR = {
-			OWNER = { primary_culture = muscovite }
-			OWNER = { primary_culture = russian }
-			OWNER = { primary_culture = muscovite_new }
-			OWNER = { primary_culture = russian_new }
+			owner = { primary_culture = muscovite }
+			owner = { primary_culture = russian }
+			owner = { primary_culture = muscovite_new }
+			owner = { primary_culture = russian_new }
 		}
 		NOT = { culture = muscovite }
 		NOT = { culture = russian }
@@ -2395,10 +2395,10 @@ province_event = { #Southern Russian influences (Custom Assimilated)
 	
 	trigger = {
 		OR = {
-			OWNER = { primary_culture = ryazanian }
-			OWNER = { primary_culture = russian }
-			OWNER = { primary_culture = ryazanian_new }
-			OWNER = { primary_culture = russian_new }
+			owner = { primary_culture = ryazanian }
+			owner = { primary_culture = russian }
+			owner = { primary_culture = ryazanian_new }
+			owner = { primary_culture = russian_new }
 		}
 		NOT = { culture = ryazanian }
 		NOT = { culture = russian }
@@ -2562,16 +2562,16 @@ province_event = { #Ukrainian influences (Custom Assimilated)
 	
 	trigger = {
 		OR = {
-			OWNER = { primary_culture = ukrainian }
-			OWNER = { primary_culture = ruthenian }
-			OWNER = { primary_culture = ukrainian_new }
-			OWNER = { primary_culture = ruthenian_new }
+			owner = { primary_culture = ukrainian }
+			owner = { primary_culture = ruthenian }
+			owner = { primary_culture = ukrainian_new }
+			owner = { primary_culture = ruthenian_new }
 			AND = {
-				OWNER = { west_slavic_cultures_country = yes }	#I feel this makes for more reasonable borders for these guys
+				owner = { west_slavic_cultures_country = yes }	#I feel this makes for more reasonable borders for these guys
 				NOT = { culture = byelorussian_new }	#Don't want any infighting between Belarusian and Ukrainian for the other Slav subgroups
 			}	
 			AND = {
-				OWNER = { south_slavic_cultures_country = yes }
+				owner = { south_slavic_cultures_country = yes }
 				NOT = { culture = byelorussian_new }
 			}	
 		}
@@ -2739,16 +2739,16 @@ province_event = { #Belarussian influences (Custom Assimilated)
 	
 	trigger = {
 		OR = {
-			OWNER = { primary_culture = byelorussian }
-			OWNER = { primary_culture = ruthenian }
-			OWNER = { primary_culture = byelorussian_new }
-			OWNER = { primary_culture = ruthenian_new }
+			owner = { primary_culture = byelorussian }
+			owner = { primary_culture = ruthenian }
+			owner = { primary_culture = byelorussian_new }
+			owner = { primary_culture = ruthenian_new }
 			AND = {
-				OWNER = { west_slavic_cultures_country = yes }	#I feel this makes for more reasonable borders for these guys
+				owner = { west_slavic_cultures_country = yes }	#I feel this makes for more reasonable borders for these guys
 				NOT = { culture = ukrainian_new }	#Don't want any infighting between Belarusian and Ukrainian for the other Slav subgroups
 			}	
 			AND = {
-				OWNER = { south_slavic_cultures_country = yes }
+				owner = { south_slavic_cultures_country = yes }
 				NOT = { culture = ukrainian_new }
 			}	
 		}
@@ -3090,7 +3090,7 @@ province_event = { #Cossack expansion (Custom Settled) (Only the cossacks outsid
 			limit = {
 				owner = { NOT = { religion_group = christian } }
 			}
-			change_religion = OWNER
+			change_religion = owner
 		}
 		add_province_modifier = {
 			name = cossack_stanitsa_modifier
@@ -3125,8 +3125,8 @@ province_event = { #Kazan -> Urals portion
 	
 	trigger = {
 		OR = { #Asians don't need this, as they would enter Siberia from the south, and not travel East-West
-			OWNER = { technology_group = western }
-			OWNER = { technology_group = eastern }
+			owner = { technology_group = western }
+			owner = { technology_group = eastern }
 		}
 		path_to_the_urals = yes
 		OR = { #Must start in Qazan and then spread East
@@ -3245,8 +3245,8 @@ province_event = { #Exploration of the Siberian River Routes
 	
 	trigger = {
 		OR = { #Asians don't need this, as they would enter Siberia from the south, and not travel East-West
-			OWNER = { technology_group = western }
-			OWNER = { technology_group = eastern }
+			owner = { technology_group = western }
+			owner = { technology_group = eastern }
 		}
 		NOT = { has_province_modifier = siberian_river_route_modifier }
 		siberian_river_route = yes
@@ -3388,7 +3388,7 @@ province_event = { #Cossack expansion (Custom Settled) (Siberian Cossacks)
 		name = cossack_expansion_siberia.a
 
 		change_culture = cossack
-		change_religion = OWNER
+		change_religion = owner
 		add_permanent_province_modifier = {
 			name = siberian_ostrog_modifier
 			duration = -1
