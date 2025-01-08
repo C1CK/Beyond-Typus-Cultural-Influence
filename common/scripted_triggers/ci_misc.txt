@@ -170,7 +170,10 @@ ci_colonial_settlement_check = {
 			AND = { #AIs are dumb (With a lot of work it would be possible to use a system of decisions and flags to signal intent here)
 				owner = { ai = yes }
 				OR = {
-					any_neighbor_province = { culture_group = owner }
+					AND = {
+						any_neighbor_province = { culture_group = owner }
+						province_is_on_an_island = no
+					}
 					AND = {
 						any_friendly_coast_border_province = { culture_group = owner }
 						province_is_on_an_island = yes	#Don't want this jumping down coastlines
@@ -182,7 +185,10 @@ ci_colonial_settlement_check = {
 			AND = { #Passive Settlement Setting
 				has_global_flag = ci_passive_settlement_enabled
 				OR = {
-					any_neighbor_province = { culture_group = owner }
+					AND = {
+						any_neighbor_province = { culture_group = owner }
+						province_is_on_an_island = no
+					}
 					AND = {
 						any_friendly_coast_border_province = { culture_group = owner }
 						province_is_on_an_island = yes	#Don't want this jumping down coastlines
@@ -249,7 +255,10 @@ ci_settlement_check_france = {
 			owner = { ai = yes }
 		}
 		OR = {
-			any_neighbor_province = { culture = owner }
+			AND = {
+				any_neighbor_province = { culture = owner }
+				province_is_on_an_island = no
+			}	
 			AND = {
 				any_friendly_coast_border_province = { culture = owner } #This is to fix the channel islands not flipping basically
 				province_is_on_an_island = yes	#Don't want this jumping down coastlines
