@@ -98,19 +98,22 @@ province_event = { #French expansion (Home Region)
 			}
 			change_culture  = normand
 		}
-		else_if = {
+		if = {
 			limit = {
 				owner = { primary_culture = burgundian }
 			}
 			change_culture  = burgundian
 		}
-		else_if = {
+		if = {
 			limit = {
 				owner = { primary_culture = angevin_culture }
 			}
 			change_culture  = angevin_culture
 		}
-		else = {
+		if = {
+			limit = {
+				owner = { primary_culture = cosmopolitan_french }
+			}
 			change_culture  = cosmopolitan_french
 		}
 	}
@@ -604,7 +607,7 @@ province_event = { #Standardisation of Langues d'Oïl
 
 	option = {
 		name = oil_expansion.a
-		change_culture  = OWNER
+		change_culture  = owner
 	}
 }
 

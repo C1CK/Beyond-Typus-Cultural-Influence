@@ -27,14 +27,16 @@ steppe_horde = { #System emblematic of the Mongols and Turks
 	start_territory_to_estates = 0.5
 
 	modifiers = {
-		global_manpower_modifier = 0.2
-		land_forcelimit_modifier = 0.2
 		loot_amount = 0.50
 		global_institution_spread = -0.15
-		reinforce_cost_modifier = -0.5
-		cav_to_inf_ratio = 0.25
+		cav_to_inf_ratio = 0.40
 		movement_speed = 0.2
+		global_manpower_modifier = 0.2
+		land_forcelimit_modifier = 0.2
 		years_of_nationalism = -5
+		reinforce_cost_modifier = -0.5
+		country_dev_points_modifier = -0.5 #BT Added
+		governing_capacity_modifier = -0.5 # Harb's Autonomy Overhaul
 	}
 	custom_attributes = {
 		enables_horde_idea_group = yes
@@ -66,9 +68,12 @@ great_mongol_state_reform = {
 		land_forcelimit_modifier = 0.2
 		loot_amount = 0.50
 		reinforce_cost_modifier = -0.5
-		cav_to_inf_ratio = 0.25
+		cav_to_inf_ratio = 0.5
 		movement_speed = 0.2
 		years_of_nationalism = -5
+		may_establish_frontier = yes #BT Dev note: Was added in 1.37. May be replaced with custom Siberian Frontier mechanics? Hmm.
+		country_dev_points_modifier = -0.5 #BT Added
+		governing_capacity_modifier = -0.25 # Harb's Autonomy Overhaul
 	}
 	conditional = {
 		allow = { has_dlc = "Mandate of Heaven" }
@@ -78,7 +83,42 @@ great_mongol_state_reform = {
 		enables_horde_idea_group = yes
 		enables_aristocratic_idea_group = no
 	}
+	effect = {
+		hidden_effect = {
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" }
+				capital_scope = {
+					add_province_modifier = {
+						name = allow_banners_capital_modifier
+						duration = -1
+						hidden = yes
+					}
+				}
+				every_owned_province = {
+					limit = { culture = root }
+					add_province_modifier = {
+						name = mongol_banners_location
+						duration = -1
+						hidden = yes
+					}
+				}
+			}
+		}
+	}
+	removed_effect = {
+		hidden_effect = {
+			capital_scope = { remove_province_modifier = allow_banners_capital_modifier }
+			every_owned_province = {
+				limit = { has_province_modifier = mongol_banners_location }
+				remove_province_modifier = mongol_banners_location
+			}
+		}
+	}
+	ai = {
+		factor = 1000
+	}
 }
+
 
 ###Tribal structure
 
@@ -175,7 +215,9 @@ tribal_bureaucrats_reform = {
 	allow_normal_conversion = yes
 	icon = "tribal_centralize_power"
 	modifiers = {
-		governing_capacity = 800 #From 8 states, Might be too high for the steppe, but for now I'll just use the standard conversion
+		#governing_capacity = 800 #From 8 states, Might be too high for the steppe, but for now I'll just use the standard conversion
+		#Absolutely broken with autonomy overhaul, needs new modifier
+		governing_capacity_modifier = 0.15 # Offsets base -0.50 for hordes and -0.25 for great Mongol State to -0.35 and -0.10
 	}
 }
 

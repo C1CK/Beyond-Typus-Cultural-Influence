@@ -3,7 +3,8 @@ steppe_city = { #Locks the culture and prevents conversion
 	province_trade_power_value = 5.0
 	trade_goods_size = 0.5
 	local_tax_modifier = 0.25 #Taxes on Merchants
-	local_development_cost = -0.15 #Dev here!
+	local_development_cost = -0.10 #Dev here!
+	local_dev_points_modifier = 0.10
 }
 
 nomadic_province = { #Used as both a flag and modifier
@@ -11,7 +12,7 @@ nomadic_province = { #Used as both a flag and modifier
 	trade_goods_size_modifier = 0.30 #Trade of local produce
 	local_tax_modifier = -0.4 #Few things worth taxing
 	local_manpower_modifier = 0.25
-	local_defensiveness = -0.6 #Nomadic? literally no defences
+	local_defensiveness = -0.3 #Nomadic? literally no defences #Having effect due to autonomy overhaul decreasing average defensiveness
 }
 
 non_nomadic_province = { #Debuff for nomads owning land that isn't suitable for horseys
@@ -25,13 +26,14 @@ nomadic_growth_cooldown = { #Cooldown for when land grants refused
 }
 
 nomadic_land_owned_by_non_nomad = { #Effectively not owned, since no power can be projected here
-	min_local_autonomy = 100 #100%
+	min_local_autonomy = 50 #50% #Trying to balance this with BT17's autonomy overhaul, 100% is too punishing
 	local_missionary_strength = -1 #-100%
 	#local_unrest = 10 #I think this is too punishing, since the province will already be wrong religion wrong culture anyways
+	allowed_num_of_buildings = -2
 }
 
 settled_steppe = {
-	local_development_cost = -0.35 #Matches Farmland
+	local_development_cost = -0.15 #Matches Grassland
 	supply_limit = 1 #Puts this at 5, between Farmland and Grassland (Same as steppe for nomads)
 	local_manpower_modifier = 0.10 #Frontiersman traditions
 }
