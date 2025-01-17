@@ -20,9 +20,8 @@
  BRM_ideas_start:0 "Burmese Traditions"
  CALL_FAVORS_COST_2:0 "This will cost you §Y20§! favors."
  CANT_PRESS_SAILORS_TOO_FEW:0 "You can't press sailors from a subject nation, if they have less than $NEED|Y$ of their sailors. They currently have $CURR|Y$."
- CENTRALIZE_STATE_DESC:6 "§YCentralize State§!\nSpend $POWER_COST|Y$£adm£ to centralize the $STATE|Y$ Area in the most developed province, giving the following bonuses to the state:\nLocal Build Cost: §G-10.0%§!\nLocal Build Time: §G-10.0%§!\nRegiment Recruitment Speed: §G-10.0%§!\nLocal Shipbuilding Speed: §G-10.0%§!\nLocal Culture Conversion Time: §G-10.0%§!\nLocal Missionary Strength: §G-1.0%§!\nLocal Autonomy Change: §G-0.025§!\nState Maintenance: §G-20.0%§!\nLocal Development Efficiency: §G-2.5%§!\nLocal Prosperity Growth: §G+0.25§!\nCost to Centralize State: §R+20.0%§!\n\nIt will take $YEARS|0Y$ years."
- CONFIRM_CENTRALIZE_STATE_TEXT:5 "Are you sure you want to spend $POWER_COST|Y$£adm£ to centralize the $STATE|Y$ in the province of $PROVINCE|Y$?\nThe $STATE|Y$ will gain the following bonuses:\nLocal Build Cost: §G-10.0%§!\nLocal Build Time: §G-10.0%§!\nRegiment Recruitment Speed: §G-10.0%§!\nLocal Shipbuilding Speed: §G-10.0%§!\nLocal Culture Conversion Time: §G-10.0%§!\nLocal Missionary Strength: §G-1.0%§!\nLocal Autonomy Change: §G-0.025§!\nState Maintenance: §G-20.0%§!\nLocal Development Efficiency: §G-2.5%§!\nLocal Prosperity Growth: §G+0.25§!\nCost to Centralize State: §R+20.0%§!\n\nIt will take $YEARS|0Y$ years."
- CHAKKAPHAT:0 "Chakkaphat"
+ CENTRALIZE_STATE_DESC:6 "§YCentralize State§!\nSpend $POWER_COST|Y$£adm£ to centralize the $STATE|Y$ Area, giving the following bonuses to all provinces in the state:\nLocal Autonomy Change: §G-0.01§!\nCost to Centralize State: §G-10.0%§!\n\nIt will take $YEARS|0Y$ years." # Harb's Autonomy Overhaul
+ CONFIRM_CENTRALIZE_STATE_TEXT:5 "Are you sure you want to spend $POWER_COST|Y$£adm£ to centralize the $STATE|Y$ Area, giving the following bonuses to all provinces in the state:\nLocal Autonomy Change: §G-0.01§!\nCost to Centralize State: §G-10.0%§!\n\nIt will take $YEARS|0Y$ years." # Harb's Autonomy Overhaul
  CHAKKAPHATNI:0 "Chakkaphatni"
  CHAKKRAPHAT:0 "Chakkraphat"
  CHAKKRAPHATNI:0 "Chakkraphatni"
@@ -630,7 +629,7 @@
  #gaelic:0 "Gaelic"
  huron:0 "Wendat"
  ilocano:0 "Ilocano"
- kabylian:0 "Kabylian"
+ kabylian:0 "Kabyle"
  khoisan:0 "Khoikhoi"
  khun:0 "Lue"
  kongo_group:0 "Central Bantoid"
@@ -644,10 +643,12 @@
  navajo:0 "Apache"
  north_sulawesi:0 "Sulawesian"
  northern_thai:0 "Lanna"
+ nubian:0 "Dotawan"
  orang_asli:0 "Asli"
  pueblo:0 "Tanoan"
  #russian:0 "Russian"
  safi:0 "Safi"
+ #sahelian:0 "Saharan"
  salish:0 "Lushootseed"
  #saxon:2 "High Saxon"
  #schlesian:2 "High Silesian"
@@ -725,6 +726,8 @@
  spa_any_ally_tt:0 "Have an §Yally§! with:\n - Their capital in the §YFrench§! region\n - They are a §YGreat Power§! or have at least §Y1000§! total development\n - They have at least §Y180§! opinion of us"
  tur_refill_the_ortas_tt:0 "§Y[Root.GetName]§! gains a permanent claim on every province in §YAnatolia§! owned by a country with §YTurkish§! as their primary culture."
  has_shipyard_building_trigger_tt:0 "Has a §YNaval Arsenal§! or a §YNaval Base§! building."
+ #Changed to be more dynamic, allowing its usage in Anconan missions
+ emp_gen_trade_league_tooltip:1 " countries are members of the same Trade League as §Y[Root.GetName]§!."
  
  #EMP France fixes
  fra_auld_alliance_tt:0 "Any country in the §YBritain§! or §YIreland§! regions regions other than §YEngland§!, §YGreat Britain§!, or §YUnited Kingdom§! with at least §Y140§! total development has at least §Y100§! opinion of §Y[Root.GetName]§!"
@@ -785,11 +788,66 @@
  E16_ADJ:0 "Eyalet-i Fas"
  E17_ADJ:0 "Eyalet-i Yemen"
  
- mam_export_grain_dialog: "Would you like to receive grain exports from the Mamluks?\n\nAccepting will grant our nation the following effects until the death of §Y[Root.Monarch.GetName] [Root.Monarch.GetDynasty]§!, or until diplomatic ties are cut:\nNational Unrest: §G-1.00§\nDevelopment Cost: §G-5.0%§!\n!Supply Limit Modifier: §G+10.0%§!"
+ mam_export_grain_dialog: "Would you like to receive grain exports from the Mamluks?\n\nAccepting will grant our nation the following effects until the death of §Y[Root.Monarch.GetName] [Root.Monarch.GetDynasty]§!, or until diplomatic ties are cut:\nNational Unrest: §G-1.00§!\nDevelopment Cost: §G-5.0%§!\nSupply Limit Modifier: §G+10.0%§!"
  mam_sponsor_hajj_dialog: "Would you like to perform a Grand Hajj sponsored by the Mamluks?"
+ #Vanilla bugfix adding spacing to effect
+ EFFECT_REMOVE_TRIGGERED_MODIFIER:1 "$PROV$ loses the conditional modifier '§Y$MODIFIER$§!'.\n"
 
  INCOMEGOLD: "Precious Metals"
  goldDESC:0 "Gold is one of the two precious metals that formed the basis of all formal currencies in Europe and was used widely outside of it for trade. The discovery of gold in the New World and trade with Africans would end the Great Bullion Famine that had gripped Europe in previous centuries. However, unwise usage of gold's great wealth could lead to inflation and ruin, especially if paired with other precious metals (like silver)."
+ 
+ 
+ NEEDS_TO_HAVE_SEIZED_LAND:0 "You need to have more Crownland than the [From.GetNobilityName] Estate to start annexing this §YAppanage§!."
+ 
+ NO_GOLD_PRODUCING_PROVINCES:0 "We have no provinces that are producing precious metals."
+ GOLD_PRODUCING_PROVINCES:0 "The following provinces are producing precious metals: $LIST$"
+ INFLATION_DESC:0 "Inflation may come from having too much precious metals (gold and silver) income in comparison to other income or from taking loans." 
+
+ ACCEPTED_CULTURES_COUNT:0 "Promoted Cultures: $CURR$"
+ ACCEPTED_CULTURE_SLOTS_DESC:0 "To promote a culture, click the §Y"Promote Culture"§! button on a Non-Accepted Culture.\nThe below is bugged and cannot be removed without custom GUI, so ignore:\n"
+
+ #BT16/17 Glass/Chinaware loc adjustment for better representation
+ chinaware:0 "Chinaware"
+ chinawareDESC:0 "Chinaware' represents various exotic goods such as chinaware and carpets. Generally from the Orient, these high value luxuries command a high price on the market."
+ glass:0 "Ceramics"
+ glassDESC:1 "Ceramics and pottery have been used in human history for more than 26 thousand years - coming to bigger prominence with discoveries of glazing techniques, which involved coating pottery with materials that could melt and reform into a glassy surface, making them less pervious to water. The biggest non-porcelain pottery technique in medieval times was 'fritware' - called that way due to the use of frit (the ground glass) to make the pottery stronger, allowing glazing techniques to approximate the result of chinese porcelain - 'chinaware'.\n\nWhile most do not consider glass as a ceramic in an of itself, many places that have been manufacturing glass have also manufactured fritware - including famous Murano glassmakers. Eventually, as glass-making techniques improved, glass would also become crucial to the scientific field of optics, with glass lenses being used in the fabrication of spectacles, telescopes, and a plethora of other devices with wide-ranging applications from maritime navigation to the natural sciences."
+ 
+
+ #99_Lubeck loc adjustements
+ #hsa_diplomatic_upkeep_boost_tt:0 "§MWe will gain a boost to our Diplomatic Relations (for 30 years) to cover part of the cost of maintaining our new vassals (up to 6 of).§!"
+ hsa_reward_scales_with_number_of_members_tt:0 "This reward scales accordingly with the size of our §YTrade League§! (up to 6 members)."
+ hsa_hamburg_dev_per_member:0 "If we complete the mission while @HAM §YHamburg§! has at least §Y160§! opinion of us, the entire Trade League will receive a §GDevelopment Cost Reduction§! bonus scaling according to the number of the League's members (up to 6)."
+ hsa_vassalize_lib_desire_trade_league_tt:0 "Every member of our §YTrade League§! will become our §YHanseatic League Member§! - a special vassal that does not cost diplomatic relationship slot and become our §YHistorical Friend§!, losing §G-50%§! Liberty Desire permanently.\n"
+ hsa_based_on_the_development_of_our_capital_tt:0 "Gain following monarch power based on the development of our capital:"
+ hsa_imperial_favor_tt:0 "If the §YHoly Roman Emperor§! has at least §Y100§! opinion of us, we will sway them and earn a core on Danish holdings in §Y[1775.GetAreaName]§! area ([1775.GetName], [7778.GetName], [7775.GetName] and [7776.GetName])."
+ hsa_trigger_2_tt:1 "One of the following must be true: \n - The owner of [4742.GetName] has at least §Y150§! opinion of us while they are §Yallied§! or in our §YTrade League§! \n - Have an ally who has at least §Y150§! opinion with a province that produces §YGold§! or §YSilver§! \n - Have a province with §YGold§! or §YSilver§! and §Y10§! Base Production"
+ 
+ #Livonian mission tree fixes
+ liv_find_strong_allies_tt:0 "Has at least §Y250§! own and non-tributary development and §Y150§! opinion of [Root.GetName]."
+ liv_fortify_land_tt:0 "A random fort in the areas §YCuronia§!, §YSemigallia§!, §YLatgallia§!, §YSouth Livonia§!, §YNorth Livonia§!, and §YEstonia§! gets '§YFortified Border§!' until the end of the game, giving the following effects:\nLocal Defensiveness: §G+50.0%§!\nLocal Garrison Size: §G+25.0%§!\nLocal Fort Maintenance: §G-90.0%§!\n\nOnly §Y4§! provinces will get this modifier."
+ 
+ 
+ MODIFIER_MIN_AUTONOMY_IN_TERRITORIES:0 "Minimum Autonomy in Trade Companies" # Harb's Autonomy Overhaul
+ 
+ #The intent for the below string is to add development icons to it, but I cannot for the life of me find the right icon. //Dub
+ #CONCENTRATE_DEVELOPMENT_DISTRIBUTION:0 "At the capital, after wastage, this will buy extra development of $ADM$, $DIP$, $MIL$."
+ CONFIRM_CONSOLIDATE_DEVELOPMENT_TEXT:2 "Channel development from $NAME$ for our own needs. This state will lose $DEVELOPMENT|Y$ development. Much of the development lost will end up in our capital, some will be lost. In total, we will gain $DEVGAINED|Y$ development.\n\n§RThis will apply an increasingly severe development cost malus in the capital for 5 years, making further concentrations of development less beneficial!§!"
+ 
+ CROWN_LAND_LEVEL_DESC:3 "Crown Land is a measure of how much land is directly in control by the state. Having higher than §Y50%§! land will see us large benefits to our rule. Holding less than §Y30%§! Land will have adverse penalties to our Authority.\n\nCrown Land can be gained by:\n  §YSeizing Land§! from Estates.\n  §YDeveloping§! provinces.\n  §YConquer Land§! when having Estates with low influence.\n  §YConquer Land§! when having high absolutism."
+ 
+ 
+ NAT_FOCUS_DESC:0 "Your National Focus is currently set to §Y$POWER$§!, adding §G+$VAL$§! to that power each month and giving you the modifier '§Y$POWER$ Focus§!'"
+ NAT_FOCUS_NOT_SET_DESC:0 "You currently do not have a National Focus set, giving you the modifier '§YNo National Focus§!'"
+ NAT_FOCUS_NOT_DESC:0 "Your National Focus is currently set to another power, reducing your §Y$POWER$§! by §R$VAL$§! each month."
+ NAT_FOCUS_CHANGE_DESC:1 "Click to change your National Focus to §Y$POWER$§!, adding §G+$VAL$§! to that power each month and giving you the modifier '§Y$POWER$ Focus§!', but reducing the other two by §R$OTHERVAL$§! each month."
+ NAT_FOCUS_UNSET_DESC:0 "Click to remove your National Focus from §Y$POWER$§!, giving you the modifier '§YNo National Focus§!'"
+ 
+ gbr_end_the_french_conflict_at:0 "Does not own or any subject own any province other than §Y[3110.GetName]§! and §Y[87.GetName]§! in the region §YFrance§!"
+
+ 
+ 
+ 
+ 
  
  
 
