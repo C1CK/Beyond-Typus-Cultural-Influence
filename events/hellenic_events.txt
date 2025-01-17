@@ -13977,7 +13977,13 @@ province_event = { #Settlement of the Frontier
 	trigger = {
 		OR = {
 			native_american_trigger = yes #Native cultures
-			is_capital = yes
+			AND = {
+				is_capital = yes
+				OR = {
+					is_colonial_nation = yes
+					is_former_colonial_nation = yes
+				}	
+			}	
 		}	
 		owner = { culture_group = byzantine }
 		owner = { hellenic_old_worlder_country = yes }	#Once the colonial language is established they will use their own events instead, if it's a crown colony then either event can fire, eventually it will flip to the colonial varient
