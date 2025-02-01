@@ -52,7 +52,7 @@ country_decisions = {
 				primary_culture = saxon
 				primary_culture = silesian_german
 				primary_culture = sudeten
-				primary_culture = hochdeutsch
+				#primary_culture = hochdeutsch #Don't think this makes sense, as they didn't standardise Plattduustch historically
 			}
 			total_development = 500 #Smaller tags shouldn't see this yet
 		}
@@ -805,7 +805,7 @@ country_decisions = {
 		}
 	}
 
-	standardise_sudeten_plattduutsch = {
+	standardise_sudeten_hochdeutsch = {
 		major = no
 		potential = {
 			NOT = { has_global_flag = plattduutsch_sudeten_flag }
@@ -835,7 +835,7 @@ country_decisions = {
 				set_global_flag = hochdeutsch_sudeten_flag
 				merge_culture_into = {
 					old_culture = sudeten
-					new_culture = plattduutsch
+					new_culture = hochdeutsch
 				}
 			}
 		}
