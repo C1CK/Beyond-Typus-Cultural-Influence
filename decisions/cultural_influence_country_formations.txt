@@ -743,8 +743,13 @@ country_decisions = {
 			is_nomad = no
 			italy_region = {
 				type = all
-				owned_by = ROOT
-				is_core = ROOT
+				OR = {
+					AND = {	
+						owned_by = ROOT
+						is_core = ROOT
+					}
+					is_wasteland = yes
+				}
 			}
 			owns = 151 #Constantinople
 			custom_trigger_tooltip = {
@@ -798,10 +803,11 @@ country_decisions = {
 						is_core = ROOT
 						OR = {
 							region = maghreb_region
+							region = east_maghreb_region
 							region = egypt_region
 						}
 					}
-					amount = 20
+					amount = 35
 				}
 			}
 		}
@@ -835,6 +841,50 @@ country_decisions = {
 			}
 			set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
 			country_event = { id = ideagroups.1 } #Swap Ideas
+			if = {
+				limit = {
+					has_dlc = "Domination"
+				}
+				if = {
+					limit = {
+						government = monarchy
+						is_revolutionary = no
+						NOT = { has_reform = celestial_empire }
+					}
+					hidden_effect = {
+						unlock_government_reform = {
+							government_reform = roman_empire_reform
+						}
+						unlock_government_reform = {
+							government_reform = roman_republic_government
+						}
+					}
+					add_government_reform = roman_empire_reform
+				}
+				else_if = {
+					limit = {
+						government = republic
+						is_revolutionary = no
+					}
+					hidden_effect = {
+						unlock_government_reform = {
+							government_reform = roman_empire_reform
+						}
+						unlock_government_reform = {
+							government_reform = roman_republic_government
+						}
+					}
+					add_government_reform = roman_republic_government
+				}
+				else = {
+					unlock_government_reform = {
+						government_reform = roman_empire_reform
+					}
+					unlock_government_reform = {
+						government_reform = roman_republic_government
+					}
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 1
