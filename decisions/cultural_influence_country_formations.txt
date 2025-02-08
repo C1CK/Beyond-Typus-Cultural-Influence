@@ -734,6 +734,7 @@ country_decisions = {
 				region = mashriq_region
 				region = egypt_region
 				region = maghreb_region
+				region = east_maghreb_region
 				region = british_isles_region
 			}
 		}
@@ -759,7 +760,7 @@ country_decisions = {
 						is_core = ROOT
 						region = france_region
 					}
-					amount = 40
+					amount = 60 #~1/3 of provinces
 				}
 			}
 			custom_trigger_tooltip = {
@@ -769,7 +770,7 @@ country_decisions = {
 						is_core = ROOT
 						region = iberia_region
 					}
-					amount = 25
+					amount = 55 #~1/3 of provinces
 				}
 			}
 			custom_trigger_tooltip = {
@@ -779,7 +780,7 @@ country_decisions = {
 						is_core = ROOT
 						region = balkan_region
 					}
-					amount = 35
+					amount = 85 #~1/2 of provinces
 				}
 			}
 			custom_trigger_tooltip = {
@@ -793,7 +794,7 @@ country_decisions = {
 							region = mashriq_region
 						}
 					}
-					amount = 15
+					amount = 65 #~1/3 of provinces
 				}
 			}
 			custom_trigger_tooltip = {
@@ -807,17 +808,16 @@ country_decisions = {
 							region = egypt_region
 						}
 					}
-					amount = 35
+					amount = 60 #~1/3 of provinces in these regions
 				}
 			}
 		}
 		effect = {
 			118 = {
 				move_capital_effect = yes
-				change_culture = roman
 			}
 			change_tag = ROM
-			change_primary_culture = roman
+			country_event = { id = latinise_spread.88 } #Choose to adopt Old Latin or not
 			hidden_effect = {
 				every_owned_province = {
 					limit = {

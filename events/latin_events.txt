@@ -14047,6 +14047,36 @@ province_event = { #Roman Crimea
 	}
 }
 
+country_event = { #Adopt Old Latin?
+	id = latinise_spread.88
+	title = latinise_spread.88.t
+	desc = latinise_spread.88.d
+	picture = CULTURE_eventPicture
+		
+	trigger = {
+		is_triggered_only = yes
+	}
+
+	option = {
+		name = latinise_spread.88.a
+		
+		set_ruler_culture = roman
+		set_heir_culture = roman
+		if = {
+			limit = {
+				consort_culture = root
+			}
+			set_consort_culture = roman
+		}
+		change_primary_culture = roman
+		118 = { change_culture = roman }
+	}	
+	
+	option = {
+		name = latinise_spread.88.b
+	}
+}
+
 ####################################################################################################################
 namespace = latinise_genocide
 
