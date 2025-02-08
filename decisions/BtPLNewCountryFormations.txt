@@ -208,6 +208,7 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			region = france_region
+			is_wasteland = no
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { is_core = ROOT }
@@ -266,6 +267,7 @@ country_decisions = {
 					NOT = { is_core = ROOT }
 					NOT = { area = brittany_area }
 					NOT = { area = lower_brittany_area }
+					is_wasteland = no
 				}
 				add_permanent_claim = FRA
 			}
@@ -306,11 +308,15 @@ country_decisions = {
 			NOT = { tag = ADU }
 			OR = {
 				primary_culture = portugese
-				primary_culture = galicien #CI, I feel like the Galicians would think like the Portuguese here and go with this
+				primary_culture = galician
+			}
+			capital_scope = {
+				region = iberia_region
 			}
 		}
 		provinces_to_highlight = {
 			region = iberia_region
+			is_wasteland = no
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { is_core = ROOT }
@@ -343,7 +349,7 @@ country_decisions = {
 		effect = {
 			change_tag = IBE
 			#No Iberian missions yet.
-			#swap_non_generic_missions = yes
+			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = { NOT = { government_rank = 3 } }
@@ -358,6 +364,7 @@ country_decisions = {
 				limit = {
 					NOT = { owned_by = ROOT }
 					NOT = { is_core = ROOT }
+					is_wasteland = no
 				}
 				add_permanent_claim = IBE
 			}
@@ -370,6 +377,126 @@ country_decisions = {
 			factor = 1
 		}
 		ai_importance = 400 #
+	}
+	
+	iberian_nation_diplomatically = {
+		major = yes
+		potential = {
+			bt_generic_can_form_potential_check = yes
+			NOT = { has_country_flag = formed_iberia_flag_btp }
+			NOT = { tag = IBE }
+			NOT = { tag = SPA }
+			NOT = { tag = ADU }
+			OR = {
+				primary_culture = portugese
+				primary_culture = galician
+			}
+			capital_scope = {
+				region = iberia_region
+			}
+		}
+		provinces_to_highlight = {
+			region = iberia_region
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+			is_wasteland = no
+		}
+		allow = {
+			adm_tech = 10			#Diplo tech requirement
+			NOT = { exists = SPA }
+			NOT = { exists = IBE }			#Special, no doubling up on Iberia superpowers
+			NOT = { exists = ADU }			#Special, no doubling up on Iberia superpowers
+			is_nomad = no
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			OR = {
+				legitimacy = 100
+				devotion = 100 
+				republican_tradition = 90 
+			}
+			owns_or_vassal_of = 206 
+			owns_or_vassal_of = 208
+			owns_or_vassal_of = 215
+			owns_or_vassal_of = 219
+			owns_or_vassal_of = 224
+			owns_or_vassal_of = 227
+			owns_or_vassal_of = 1745
+			owns_or_vassal_of = 8090
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = iberia_region
+				is_core = owner
+				value = 31			#At least 75 percent of Iberia's 153 provinces (Note Portugal has 31, so Castile or Aragon needs everything but Portugal and 7 others). This is also 95 percent of non Portuguese Iberia.
+			}
+			total_development = 250			#Normal requirement for rank 2 is 500 dev, so this is 50 percent discounted
+			prestige = 25			#Normal requirement for rank 2 is 50 prestige, so this is 50 percent discounted
+			
+		}
+		effect = {
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			every_subject_country = {
+				limit = {
+					ai = yes
+					capital_scope = { region = iberia_region }
+					OR = {
+						ROOT = { ai = yes } #AI is not intelligent enough to feed subject PUs. They should not be considered for these limits.
+						NOT = { num_of_cities = 12 }
+						AND = {
+							tag = CAS
+							NOT = { num_of_cities = 105 }			#Castile is 93 with Granada, or 95 with all Canaries. Navarra adds another 5 (Out of which 4 are in Iberia).
+						}
+					}
+				}
+				ROOT = { inherit = PREV }
+			}
+			change_tag = IBE
+			on_change_tag_effect = yes
+			restore_country_name = yes
+			swap_ideas = yes
+			
+
+			add_country_modifier = {
+				name = centralization_modifier
+				duration = 7300
+			}
+			add_prestige = 25
+			custom_tooltip = spanish_unification_effect.tooltip
+			hidden_effect = {
+				iberia_region = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT }
+						NOT = { area = macaronesia_area }
+						NOT = { area = valencia_area }
+						NOT = { area = baleares_area }
+						NOT = { area = basque_country }
+						NOT = { area = catalonia_area }
+						NOT = { area = aragon_area }
+						is_wasteland = no
+					}
+					add_permanent_claim = IBE
+				}
+			}
+			set_country_flag = formed_iberia_flag_btp
+			set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+		do_not_integrate = CAS
+		do_not_integrate = LON
+		do_not_integrate = GAL
+		do_not_integrate = CAT
+		do_not_integrate = NAV
+		do_not_integrate = MJO
+		do_not_integrate = VAL
+		do_not_integrate = GRA			#If force converted
 	}
 	
 ###################################################################################################
@@ -695,159 +822,147 @@ country_decisions = {
 #######################################			Moravia			 ############################################			#Note needs work
 ###################################################################################################
 	#More or less HR's work with only a few adjustments from Draiocht
-	#CI adjusts this quite heavily, as I majorly dislike the requirements on this one
-	moravian_nation = {
-		major = yes
-		potential = {
-			bt_generic_can_form_potential_check = yes
-			NOT = { has_country_flag = formed_moravia_flag_btp }
-			NOT = { tag = GMV }
-			NOT = { tag = PLC }
-			OR = {
-				primary_culture = czech
-				primary_culture = schlesian
-				primary_culture = slovak
-				primary_culture = ceskoslovensky
-				primary_culture = bohemian #Don't exist, but will in earlier start dates
-				primary_culture = moravian #Don't exist, but will in earlier start dates
-			}
-			if = {		#BT added - special limitations for the ai so they don't try to do this even if they meet the requirements
-				limit = {
-					ai = yes
-				}
-				is_emperor = no 	#BT added so ai emperor cannot try to forfil the requirements by killing the hre
-				num_of_cities = 50	#BT added they need to be quite large to think about becoming domineering
-				owns = 262	#BT added they need to own 3 of the major cities to think about it
-				owns = 266
-				owns = 154
-			}	
-		}
-		provinces_to_highlight = {
-			OR = {
-				province_id = 60 #Budyszin
-				province_id = 154 #Nitra
-				#province_id = 257 #Warsaw #CI, why this far?
-				province_id = 262 #Krakow
-				province_id = 263 #Ratibor
-				province_id = 264 #Breslau
-				province_id = 265 #Brno
-				province_id = 266 #Prague
-				province_id = 1763 #Chotebuz
-				province_id = 1772 #Bratislava
-				#CI
-				province_id = 134 #Wien
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
-		allow = {
-			NOT = { exists = GMV }
-			is_at_war = no
-			is_emperor = no
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
-			owns_core_province = 60 #Budyszin
-			owns_core_province = 1763 #Chotebuz
-			owns_core_province = 263 #Ratibor
-			owns_core_province = 264 #Breslau
-			owns_core_province = 265 #Brno
-			owns_core_province = 266 #Prague
-			owns_core_province = 154 #Nitra
-			owns_core_province = 1772 #Bratislava
-			owns_core_province = 262 #Krakow
-			#owns_core_province = 257 #Warsaw #CI, why this far?
-			#CI
-			owns_core_province = 134 #Wien
-			total_development = 500			#Special discount. Normal requirement for rank 3 is 2000 dev, so this is 75 percent discounted.
-			prestige = 40			#Normal requirement for rank 3 is 75 prestige.
-		}
-		effect = {
-			change_tag = GMV
-			#remove_non_electors_emperors_from_empire_effect = yes
-			if = {
-				limit = {
-					is_part_of_hre = yes
-				}
-				emperor = {
-					add_opinion = {
-						who = root
-						modifier = opinion_left_empire
-					}
-				}
-				set_in_empire = no
-				emperor = {
-					country_event = { id = hre_event.5 }
-				}
-			}
-			set_government_rank = 3
-			# if = {
-				# limit = { NOT = { government_rank = 3 } }
-				# set_government_rank = 3
+	# moravian_nation = { #BT Deprecated due to vanilla adding the same thaaaang.
+		# major = yes
+		# potential = {
+			# bt_generic_can_form_potential_check = yes
+			# NOT = { has_country_flag = formed_moravia_flag_btp }
+			# NOT = { tag = GMV }
+			# NOT = { tag = PLC }
+			# culture_group = west_slavic
+			# if = {		#BT added - special limitations for the ai so they don't try to do this even if they meet the requirements
+				# limit = {
+					# ai = yes
+				# }
+				# is_emperor = no 	#BT added so ai emperor cannot try to forfil the requirements by killing the hre
+				# num_of_cities = 50	#BT added they need to be quite large to think about becoming domineering
+				# owns = 262	#BT added they need to own 3 of the major cities to think about it
+				# owns = 266
+				# owns = 154
 			# }
-			bohemia_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = GMV
-			}
-			erzgebirge_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = GMV
-			}
-			erzgebirge_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = GMV
-			}
-			bohemian_forest_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = GMV
-			}
-			slovakia_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = GMV
-			}
-			upper_hungary_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = GMV
-			}
-			austria_proper_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = GMV
-			}
-			poland_region = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = GMV
-			}
-			add_country_modifier = {
-				name = "centralization_modifier"
-				duration = 7300
-			}
-			add_prestige = 50
-			#No Moravian ideas yet
-			# swap_ideas = yes
-			set_country_flag = formed_moravia_flag_btp
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		ai_importance = 0
-	}
+		# }
+		# provinces_to_highlight = {
+			# OR = {
+				# province_id = 60			# Lusatia
+				# province_id = 154		# Nitra
+				# province_id = 257		# Warsaw
+				# province_id = 262		# Krakow
+				# province_id = 263		# Ratibor
+				# province_id = 264		# Breslau
+				# province_id = 265		# Brno
+				# province_id = 266		# Prague
+				# province_id = 1763		# Lusatia
+				# province_id = 1772		# Bratislava
+			# }
+			# OR = {
+				# NOT = { owned_by = ROOT }
+				# NOT = { is_core = ROOT }
+			# }
+		# }
+		# allow = {
+			# NOT = { exists = GMV }
+			# is_at_war = no
+			# is_emperor = no
+			# is_free_or_tributary_trigger = yes
+			# is_nomad = no
+			# owns_core_province = 60			# Lusatia
+			# owns_core_province = 1763		# Lusatia
+			# owns_core_province = 263		# Ratibor
+			# owns_core_province = 264		# Breslau
+			# owns_core_province = 265		# Brno
+			# owns_core_province = 266		# Prague
+			# owns_core_province = 154		# Nitra
+			# owns_core_province = 1772		# Bratislava
+			# owns_core_province = 262		# Krakow
+			# owns_core_province = 257		# Warsaw
+			# total_development = 500			#Special discount. Normal requirement for rank 3 is 2000 dev, so this is 75 percent discounted.
+			# prestige = 40			#Normal requirement for rank 3 is 75 prestige.
+		# }
+		# effect = {
+			# change_tag = GMV
+			# #remove_non_electors_emperors_from_empire_effect = yes
+			# if = {
+				# limit = {
+					# is_part_of_hre = yes
+				# }
+				# emperor = {
+					# add_opinion = {
+						# who = root
+						# modifier = opinion_left_empire
+					# }
+				# }
+				# set_in_empire = no
+				# emperor = {
+					# country_event = { id = hre_event.5 }
+				# }
+			# }
+				# set_government_rank = 3
+			# # if = {
+				# # limit = { NOT = { government_rank = 3 } }
+				# # set_government_rank = 3
+			# # }
+			# bohemia_area = {
+				# limit = {
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = GMV
+			# }
+			# erzgebirge_area = {
+				# limit = {
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = GMV
+			# }
+			# erzgebirge_area = {
+				# limit = {
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = GMV
+			# }
+			# bohemian_forest_area = {
+				# limit = {
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = GMV
+			# }
+			# slovakia_area = {
+				# limit = {
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = GMV
+			# }
+			# upper_hungary_area = {
+				# limit = {
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = GMV
+			# }
+			# austria_proper_area = {
+				# limit = {
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = GMV
+			# }
+			# poland_region = {
+				# limit = {
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = GMV
+			# }
+			# add_country_modifier = {
+				# name = "centralization_modifier"
+				# duration = 7300
+			# }
+			# add_prestige = 50
+			# #No Moravian ideas yet
+			# # swap_ideas = yes
+			# set_country_flag = formed_moravia_flag_btp
+		# }
+		# ai_will_do = {
+			# factor = 1
+		# }
+		# ai_importance = 0
+			# }
 	
 ###################################################################################################
 ################################			Najd			 ##############################################

@@ -18,6 +18,7 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			region = arabia_region
+			is_wasteland = no
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { is_core = ROOT }
@@ -59,6 +60,7 @@ country_decisions = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
+					is_wasteland = no
 				}
 				add_permanent_claim = ARB
 			}

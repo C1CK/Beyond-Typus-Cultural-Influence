@@ -28,6 +28,7 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			region = italy_region
+			is_wasteland = no
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { is_core = ROOT }
@@ -77,6 +78,7 @@ country_decisions = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = PAP }
+					is_wasteland = no
 				}
 				add_permanent_claim = ITA
 			}
@@ -93,6 +95,7 @@ country_decisions = {
 						NOT = { is_claim = ROOT }
 						NOT = { is_core = ROOT }
 						NOT = { owned_by = PAP }
+						is_wasteland = no
 					}
 					add_claim = ITA
 				}
@@ -194,6 +197,7 @@ country_decisions = {
             italy_region = { # BT adjusted
                 limit = {
                     NOT = { is_permanent_claim = ROOT } # BT; replaced owned_by
+					is_wasteland = no
                 }
                 add_permanent_claim = ROOT
             }

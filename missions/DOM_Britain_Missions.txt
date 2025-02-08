@@ -1066,6 +1066,7 @@ ave_row_slot_2 = {
 		provinces_to_highlight = {
 			region = iberia_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			is_wasteland = no
 		}		
 		trigger = { 
 			not_in_mission_preview_mode = { key = GBR }
@@ -1079,6 +1080,7 @@ ave_row_slot_2 = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
+					is_wasteland = no
 				}
 				add_permanent_claim = ROOT
 			}
@@ -1101,6 +1103,7 @@ ave_row_slot_2 = {
 		provinces_to_highlight = {
 			region = iberia_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			is_wasteland = no
 		}		
 		trigger = {
 			not_in_mission_preview_mode = { key = GBR }
@@ -1479,26 +1482,31 @@ gbr_row_3 = {
 				custom_trigger_tooltip = {
 					tooltip = gbr_end_the_french_conflict_at
 					NOT = {
-						any_owned_province = {
-							NOT = { province_id = 3110 }
-							NOT = { province_id = 87 }
-							region = france_region
+						france_region = {
+							OR = {
+								owned_by = ROOT
+								owned_by_subject_of = ROOT
+				}
+							NOT = {
+								province_id = 87
+								province_id = 3110
+						}
 						}
 					}
 				}
-				custom_trigger_tooltip = {
-					tooltip = gbr_end_the_french_conflict_bt
-					AND = {
-						4385 = {
-							country_or_non_sovereign_subject_holds = ROOT
-							has_trade_building_trigger = yes
-						}
-						167 = {
-							country_or_non_sovereign_subject_holds = ROOT
-							has_trade_building_trigger = yes
-						}
-					}
-				}
+				# custom_trigger_tooltip = {
+					# tooltip = gbr_end_the_french_conflict_bt
+					# AND = {
+						# 4385 = {
+							# country_or_non_sovereign_subject_holds = ROOT
+							# has_trade_building_trigger = yes
+						# }
+						# 167 = {
+							# country_or_non_sovereign_subject_holds = ROOT
+							# has_trade_building_trigger = yes
+						# }
+					# }
+				# }
 			}
 		}	
 		effect = {
@@ -1528,6 +1536,13 @@ gbr_row_3 = {
 					name = gbr_recovering_prestige
 					duration = 7300
 				}
+				if = {
+					limit = {
+						NOT = {
+							has_country_flag = recived_bt_english_loyalist_immigrants
+						}
+					}
+					set_country_flag = recived_bt_english_loyalist_immigrants
 				british_isles_region = {
 					limit = {
 						owned_by = ROOT
@@ -1539,6 +1554,7 @@ gbr_row_3 = {
 					}
 				}
 			}
+		}
 		}
 		ai_weight = {
 			factor = 250
@@ -1832,6 +1848,7 @@ gbr_row_3 = {
 					limit = {
 						NOT = { is_core = EIC }
 						NOT = { is_permanent_claim = EIC }
+						is_wasteland = no
 					}
 					add_permanent_claim = EIC
 				}
@@ -1839,6 +1856,7 @@ gbr_row_3 = {
 					limit = {
 						NOT = { is_core = EIC }
 						NOT = { is_permanent_claim = EIC }
+						is_wasteland = no
 					}
 					add_permanent_claim = EIC
 				}
@@ -1848,6 +1866,7 @@ gbr_row_3 = {
 					limit = {
 						NOT = { is_core = ROOT }
 						NOT = { is_permanent_claim = ROOT }
+						is_wasteland = no
 					}
 					add_permanent_claim = ROOT
 				}
@@ -1855,6 +1874,7 @@ gbr_row_3 = {
 					limit = {
 						NOT = { is_core = ROOT }
 						NOT = { is_permanent_claim = ROOT }
+						is_wasteland = no
 					}
 					add_permanent_claim = ROOT
 				}
@@ -2351,6 +2371,7 @@ ave_row_3 = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
+					is_wasteland = no
 				}
 				add_permanent_claim = ROOT
 			}
@@ -2367,6 +2388,7 @@ ave_row_3 = {
 		provinces_to_highlight = {
 			region = italy_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			is_wasteland = no
 		}		
 		trigger = { 
 			not_in_mission_preview_mode = { key = GBR }
@@ -2474,6 +2496,7 @@ ave_row_3 = {
 				region = france_region
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			is_wasteland = no
 		}		
 		trigger = { 
 			not_in_mission_preview_mode = { key = GBR }
@@ -2482,7 +2505,10 @@ ave_row_3 = {
 				type = all
 			}
 			france_region = {
+				OR = {
 				country_or_non_sovereign_subject_holds = ROOT
+					is_wasteland = yes
+				}	
 				type = all
 			}
 			government_rank = 3
@@ -2899,6 +2925,7 @@ gbr_row_4 = {
 			has_discovered = ROOT
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_port = no
+			is_wasteland = no
 		}		
 		trigger = { 
 			not_in_mission_preview_mode = { key = GBR }
@@ -2943,6 +2970,7 @@ gbr_row_4 = {
 					limit = {
 						NOT = { is_core = EIC }
 						NOT = { is_permanent_claim = EIC }
+						is_wasteland = no
 					}
 					add_permanent_claim = EIC
 				}
@@ -2973,6 +3001,7 @@ gbr_row_4 = {
 					limit = {
 						NOT = { is_core = ROOT }
 						NOT = { is_permanent_claim = ROOT }
+						is_wasteland = no
 					}
 					add_permanent_claim = ROOT
 				}
@@ -2994,6 +3023,7 @@ gbr_row_4 = {
 		provinces_to_highlight = {
 			superregion = india_superregion
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			is_wasteland = no
 		}		
 		trigger = { 
 			not_in_mission_preview_mode = { key = GBR }
@@ -3903,6 +3933,7 @@ gbr_row_5 = {
 			region = bengal_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
+			is_wasteland = no
 		}
 		trigger = {
 			not_in_mission_preview_mode = { key = GBR }
@@ -3923,6 +3954,7 @@ gbr_row_5 = {
 					limit = {
 						NOT = { is_core = EIC }
 						NOT = { is_permanent_claim = EIC }
+						is_wasteland = no
 					}
 					add_permanent_claim = EIC
 				}
@@ -3932,6 +3964,7 @@ gbr_row_5 = {
 					limit = {
 						NOT = { is_core = ROOT }
 						NOT = { is_permanent_claim = ROOT }
+						is_wasteland = no
 					}
 					add_permanent_claim = ROOT
 				}

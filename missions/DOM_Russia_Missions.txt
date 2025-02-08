@@ -365,6 +365,32 @@ mos_rus_eastern_europe = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
+			if = {
+				limit = {
+					AI = yes
+				}
+				controls = 310
+				OR = {
+					is_in_war = { attacker_leader = NOV }
+					is_in_war = { defender_leader = NOV }
+				}
+				if = {
+					limit = {
+						NOV = { AI = yes }
+					}
+					war_score_against = {
+						who = NOV
+						value = 50
+					}
+				}
+				else = {
+					war_score_against = {
+						who = NOV
+						value = 80
+					}
+				}
+			}
+			else = {
 			owns = 310
 			has_fulfiled_num_of_province_requirement_for_mission_trigger = {
 				tooltip=country_holds_or_non_sovereign_subject_holds_highlighted_num
@@ -373,7 +399,22 @@ mos_rus_eastern_europe = {
 				value=36 #out of 53. Entails all of Novgorod proper, excludes Karelian lands and Velikiye Luki
 			}
 		}
+		}
 		effect = {
+			if = {
+				limit = {
+					AI = yes
+				}
+				white_peace = NOV
+				vassalize = NOV
+				if = {
+					limit = {
+						NOV = { ai = yes }
+					}
+					NOV = { add_liberty_desire = -150 }
+				}
+			}
+			else = {
 			country_event_with_insight = {
 				id = flavor_rus.101
 				insight_tooltip = INSIGHT_JUST_TOOLTIP
@@ -387,6 +428,7 @@ mos_rus_eastern_europe = {
 						duration = -1
 					}
 				}"
+			}
 			}
 			give_permaclaims_for_mission = { mission=mos_rus_conquer_ruthenia }
 			give_permaclaims_for_mission = { mission=mos_rus_window_on_the_west }
@@ -533,6 +575,7 @@ mos_rus_eastern_europe = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
+					is_wasteland = no
 				}
 				add_permanent_claim = ROOT
 			}
@@ -621,6 +664,7 @@ nov_rus_conquer_west = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
+					is_wasteland = no
 				}
 				add_russian_claim = yes
 			}
@@ -695,6 +739,7 @@ nov_rus_conquer_west = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
+					is_wasteland = no
 				}
 				add_russian_claim = yes
 			}
@@ -712,6 +757,7 @@ nov_rus_conquer_west = {
 		provinces_to_highlight = {
 			region = scandinavia_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			is_wasteland = no
 		}
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
@@ -950,6 +996,7 @@ nov_rus_eastern_europe = {
 		provinces_to_highlight = {
 			region = ruthenia_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			is_wasteland = no
 		}
 		trigger = {
 			owns_or_non_sovereign_subject_of = 280
@@ -974,6 +1021,7 @@ nov_rus_eastern_europe = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
+					is_wasteland = no
 				}
 				add_russian_claim = yes
 			}
@@ -991,6 +1039,7 @@ nov_rus_eastern_europe = {
 		provinces_to_highlight = {
 			region = poland_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			is_wasteland = no
 		}
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
@@ -1158,6 +1207,7 @@ nov_rus_eastern_europe = {
 					limit = {
 						NOT = { is_core = ROOT }
 						NOT = { is_permanent_claim = ROOT }
+						is_wasteland = no
 					}
 					add_russian_claim = yes
 				}"
@@ -1175,6 +1225,7 @@ nov_rus_eastern_europe = {
 					limit = {
 						NOT = { is_permanent_claim = ROOT }
 						NOT = { is_core = ROOT }
+						is_wasteland = no
 					}
 					add_russian_claim = yes
 				}"
@@ -1429,75 +1480,122 @@ mos_rus_russian_consolidation = {
 				# insight_tooltip = mos_rus_build_up_army_at
 			# }
 			give_permaclaims_for_mission = { mission=mos_rus_conquer_novgorod }
+			add_casus_belli = {
+				target = NOV
+				type = cb_vassalize_mission
+				months = 300
+			}
 			galich_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 				}
-				add_claim = ROOT
+				add_permanent_claim = ROOT
 			}
 			ryazan_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 				}
-				add_claim = ROOT
+				add_permanent_claim = ROOT
 			}
 			kama_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 				}
-				add_claim = ROOT
+				add_permanent_claim = ROOT
 			}
 			bashkiria_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 				}
-				add_claim = ROOT
+				add_permanent_claim = ROOT
 			}
 			volga_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 				}
-				add_claim = ROOT
+				add_permanent_claim = ROOT
 			}
 			kazan_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 				}
-				add_claim = ROOT
+				add_permanent_claim = ROOT
 			}
 			samara_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 				}
-				add_claim = ROOT
+				add_permanent_claim = ROOT
 			}
 			saratov_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 				}
-				add_claim = ROOT
+				add_permanent_claim = ROOT
 			}
 			lower_don_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 				}
-				add_claim = ROOT
+				add_permanent_claim = ROOT
 			}
 			astrakhan_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 				}
-				add_claim = ROOT
+				add_permanent_claim = ROOT
+			}
+			tambov_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			middle_don_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT }
+				    NOT = { is_core = ROOT }
+			    }
+			    add_permanent_claim = ROOT
+		    }
+			tver_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			yaroslavl_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			vyatka_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			vologda_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
 			}
 		}
 
@@ -1616,6 +1714,7 @@ mos_rus_russian_consolidation = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
+					is_wasteland = no
 				}
 				add_russian_claim = yes
 			}
@@ -1635,6 +1734,7 @@ mos_rus_russian_consolidation = {
 		provinces_to_highlight = {
 			region = caucasia_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			is_wasteland = no
 		}
 		trigger = {
 			OR = {
@@ -2402,6 +2502,7 @@ mos_rus_russian_steppes = {
 			}
 			province_has_center_of_trade_of_level = 1
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			is_wasteland = no
 		}
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
@@ -2873,6 +2974,7 @@ mos_rus_siberian_conquest = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
+					is_wasteland = no
 				}
 				add_russian_claim = yes
 			}
@@ -3046,6 +3148,7 @@ mos_rus_siberian_conquest = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
+					is_wasteland = no
 				}
 				add_russian_claim = yes
 			}
@@ -3063,6 +3166,7 @@ mos_rus_siberian_conquest = {
 		provinces_to_highlight = {
 			region = east_siberia_region
 			NOT = { owned_by = ROOT }
+			is_wasteland = no
 		}
 		trigger = {
 			num_of_owned_provinces_with = {

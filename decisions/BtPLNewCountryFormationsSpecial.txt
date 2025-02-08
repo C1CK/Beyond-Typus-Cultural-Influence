@@ -350,11 +350,13 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 50
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+			swap_ideas = yes
+			set_country_flag = formed_tir_na_gceilteach_btp
+			set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
 			set_country_flag = formed_CEL_btp
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 
@@ -668,7 +670,7 @@ country_decisions = {
 	tir_na_ngael_nation = { #Nation for all of the Gaels (TNA) (Ireland + Scotland)
 		major = yes
 		potential = {
-			was_never_end_game_tag_trigger = yes
+			bt_generic_can_form_potential_check = yes
 			NOT = { has_country_flag = formed_tir_na_ngael_flag_bt }
 			NOT = { tag = YYK }
 			NOT = { tag = TNA }
@@ -796,19 +798,19 @@ country_decisions = {
 			}
 			add_prestige = 25
 			swap_ideas = yes
+			swap_non_generic_missions = yes
 			set_country_flag = formed_tir_na_ngael_flag_bt
 		}
-
 		ai_will_do = {
 			factor = 1
 		}
-		ai_importance = 400
+		ai_importance = 400 #
 	}
 	
 	albion_nation = { #Nation for all of the Britons (YYK) (Great Britain)
 		major = yes
 		potential = {
-			was_never_end_game_tag_trigger = yes
+			bt_generic_can_form_potential_check = yes
 			NOT = { has_country_flag = formed_ynys_y_cedyrn_flag_bt }
 			NOT = { tag = YYK }
 			NOT = { tag = TNA }
@@ -828,7 +830,6 @@ country_decisions = {
 			}
 			capital_scope = { region = british_isles_region }
 		}
-
 		provinces_to_highlight = {
 			region = british_isles_region
 			OR = {
@@ -836,7 +837,6 @@ country_decisions = {
 				NOT = { is_core = ROOT }
 			}
 		}
-
 		allow = {
 			NOT = { exists = YYK }
 			is_at_war = no
@@ -878,7 +878,6 @@ country_decisions = {
 			total_development = 400
 			prestige = 25			#Special discount. Normal requirement for rank 2 is 75 prestige, so this is 2/3rds discounted
 		}
-
 		effect = {
 			change_tag = YYK
 			remove_non_electors_emperors_from_empire_effect = yes
@@ -900,12 +899,12 @@ country_decisions = {
 			}
 			add_prestige = 35		#Extra prestige for Albion. Long live King Arthur!
 			set_country_flag = formed_ynys_y_cedyrn_flag_bt
+			#set_country_flag = was_end_game_tag #BT Added: Forming an end-game tag.
 		}
-
 		ai_will_do = {
 			factor = 1
 		}
-		ai_importance = 400
+		ai_importance = 400 #
 	}
 
 ############################################################################################
